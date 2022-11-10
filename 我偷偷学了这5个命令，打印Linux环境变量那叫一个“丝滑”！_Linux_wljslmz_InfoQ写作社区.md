@@ -1,0 +1,144 @@
+# 我偷偷学了这5个命令，打印Linux环境变量那叫一个“丝滑”！_Linux_wljslmz_InfoQ写作社区
+一、概述
+----
+
+在基于 Linux 和 Unix 的系统中，环境变量是一组动态命名值，存储在系统中，供在 shell 或子 shell 中启动的应用程序使用。简单来说，环境变量是具有名称和关联值的变量。
+
+```
+KEY=value
+KEY="NewVALUE"
+KEY=valueA:valueB
+```
+
+在 Linux 中有多种方法可以列出或显示环境变量，我们可以使用 env、printenv、declare 或 set 命令列出系统中的所有变量。
+
+在本教程中，我们将给大家分享如何在 Linux 中列出环境变量。
+
+二、环境变量必知的规则
+-----------
+
+*   环境变量遵循`<NAME>=<VALUE>`格式。
+    
+*   等号=两边没有空格
+    
+*   可以通过使用冒号分隔单个变量来指定多个值：\`\`<NAME>=<VALUE1>:<VALUE2>:<VALUE3>\`
+    
+*   环境变量区分大小写。
+    
+*   习惯上，环境变量名称设置为大写。
+    
+*   Shell 变量与环境变量不同。Shell 变量仅适用于当前 shell，不适用于任何子进程。
+    
+
+三、列出环境变量
+--------
+
+### 3.1 printenv
+
+printenv 是最常用的显示环境变量的命令，如果变量的名称作为参数提供给命令，则仅显示变量的值，printenv 如果没有给出参数，则打印所有环境变量的列表，每行一个变量。
+
+我们执行命令看下效果。
+
+执行结果：
+
+![](https://static001.geekbang.org/infoq/8f/8f22269aeae81ff05512e8a2e178993a.png)
+
+查看 HOME 环境变量的值：
+
+执行结果：
+
+![](https://static001.geekbang.org/infoq/b5/b5de70e3311281e8b862fdd2b70085d9.png)
+
+我们注意到`HOME`是执行`printenv`命令后的变量：
+
+![](https://static001.geekbang.org/infoq/e8/e85a292d2f3b82e2dce92662eb5eda57.png)
+
+所以我们想要查看什么参数的时候，直接`printenv`后加上其变量即可。
+
+比如：
+
+执行结果：
+
+![](https://static001.geekbang.org/infoq/a2/a23ffbe8a8d5bd64af51479887fc69e4.png)
+
+那么这些参数到底是什么意思呢？我们选择几个常用的解释一下。
+
+*   **USER**：当前登录的用户。
+    
+*   **HOME**：当前用户的主目录。
+    
+*   **EDITOR**：用作默认文件编辑器。
+    
+*   **SHELL**：当前用户的 shell 路径，例如 bash 或 zsh。
+    
+*   **LOGNAME**：此处显示当前用户的名称。
+    
+*   **PATH**：运行命令时，这是要搜索的目录列表。
+    
+*   **LANG**：区域设置的当前设置。
+    
+*   **TERM**：当前终端仿真。
+    
+*   **MAIL**：当前用户的邮件保存在此位置。
+    
+
+### 3.2 env
+
+env 命令效果和`printenv`是一样的，显示的内容也是完全一样的：
+
+执行结果：
+
+![](https://static001.geekbang.org/infoq/d9/d9661c2391a4262aece0c4e50d907a3a.png)
+
+唯一区别的是过滤的参数不一样，printenv 是后面直接加变量名进行过滤，但是 env 命令需要结合 grep 进行过滤，举个例子：
+
+执行结果：
+
+![](https://static001.geekbang.org/infoq/34/34dd669724a8dc0d86b3e20cb730b743.png)
+
+### 3.3 declare
+
+declare 命令显示的是已经声明的环境变量：
+
+执行结果：
+
+![](https://static001.geekbang.org/infoq/d5/d5c09371434af83994a98fd50ca3b751.png)
+
+这个时候我们怎么去过滤呢？
+
+执行以下命令即可：
+
+执行结果：
+
+![](https://static001.geekbang.org/infoq/2f/2ffa59fcf4f82d9e38271b3b402fbc34.png)
+
+### 3.4 set
+
+set 命令看字面像是设置变量的，不过它确实可以显示出系统的环境变量，注意 set 显示当前 shell 中所有 shell 变量的名称和值：
+
+执行结果：
+
+![](https://static001.geekbang.org/infoq/8f/8fa14ab0d1656826ee4e78c28150bec2.png)
+
+这里不止那么多，文章篇幅的原因，不全部截图出来。
+
+我们也可以结合`grep`命令进行过滤：
+
+执行结果：
+
+![](https://static001.geekbang.org/infoq/6e/6e23532e6665b0eb49da4afccc960fc8.png)
+
+### 3.5 echo
+
+echo 命令后加 $符号再加上变量也可以直接打印出环境变量：
+
+执行结果：
+
+![](https://static001.geekbang.org/infoq/f2/f2b316822d63e63f42fdce654f5d7f1f.png)
+
+这个就比较简单了，不过前提是你得知道有哪些变量。
+
+总结
+--
+
+打印环境变量这个操作在运维过程中经常用到，本文列举了 5 个常用的打印环境变量的命令，它们分别是`printenv`、`env`、`declare`、`set`、`echo`，希望本文对您有所帮助，有任何问题，欢迎在下方评论区与我讨论。
