@@ -1,0 +1,34 @@
+# What is the Cloud Native Maturity Model (and why do I care)? | Cloud Native Computing Foundation
+By Robert Glenn January 20, 2023
+
+_Community post by Robert Glenn, CNCF Cartografos Working Group Founding Member at Accenture_
+
+_The maturity model is an emerging concept and requires some explanation to ensure clarity of our usage in the Cloud Native Maturity Model (CNMM). To learn more visit the newly launched webpage,_ [_maturitymodel.cncf.io_](https://maturitymodel.cncf.io/)_, and the_ [_Cartografos Working Group GitHub repo_](https://github.com/cncf/cartografos/blob/main/reference/prologue.md)_. At the end of this post, you will also learn about how to contribute to the CNMM._
+
+_The CNMM is a companion for organizations that are starting, or are in the middle of, or have been just considering a Cloud Native transformation. Its contents are organized leveraging 5 main topics: Business Outcomes, People, Policy, Processes and Technology outline a five-level journey to excellence._
+
+The Cloud Native Maturity Model (CNMM) is a framework that attempts both to assess the maturity of an organization’s cloud practice/footprint, and to provide a path for improvement and advancement. The goal is to provide everyone from an engineering practitioner to a C-suite executive the understanding of where they are and how to get to where they want to be. It attempts to be objective, informative, and honest.
+
+One thing to point out: it is not a score. A maturity level of 5 is unnecessary for the success of many organizations. Some will find a level of 3 to be sufficient and may be most appropriate for their needs. It’s not an assessment of _organizational_ maturity, simply one of an organization’s exposure, experience, and expectations around cloud computing.
+
+We also try to avoid being overly prescriptive. There are many paths to success and some certainly deviate from the perspective provided by the CNMM. We expect to evolve the framework over time with the help of thought-leaders across the industry, and over time, certain components may become more prescriptive, as we solidify the framework’s approach, dimensions, and scope.
+
+Moreover, we avoid king-making. We refrain from referencing projects by name, except to provide as an example, in which case we prefer to highlight CNCF graduated and incubating projects. The landscape is so vast and varied it can be overwhelming and it would be unfair to single out individual projects. Also, tying our analysis to a specific project runs the risk of overfitting and quickly becoming outdated.
+
+Thus, “your mileage may vary”: you may find your organization’s trajectory does not coincide with the CNMM. This is not the only path; however, we believe adherence to the model is a valid, sensible, finite path to success.
+
+So why should you care? If we look at Cloud Native adoption – one could say that we crashed into the cloud with no real roadmap.  Out of this concept/idea the  CNMM concept was born. We’re experiencing a sea change in the industry. We can no longer sit by and watch the rising tide of cloud native: we must begin to swim, or we risk drowning. One can stay afloat with the same legs that have served you so well so far on land, but you won’t be able to get anywhere by stubbornly using only these tools. Over-extended metaphor aside, approaching the cloud simply from the perspective of “someone else’s server farm” will not achieve significant return on many of the improvements to the technical, financial, and liability postures offered by the cloud.
+
+One important thing to understand while incorporating the CNMM into one’s assessment: each maturity level in the model is a floor, not a ceiling. In other words, only after achieving all the provisions across each dimension of a particular level can one confidently claim their organization is at that level. There is no “90% Level 4”: that is a Level 3, at most. There are surely even positions in which one can achieve e.g. “90%” of Level 4’s provisions, but lacks key aspects of even a Level 3 organization, thus placing one at Level 2. By providing the CNMM to the public we encourage every organization to make a broad-stroked self-assessment to expose any glaring gaps. We also mean for it to be a frame of reference in more subjective assessments, especially where deviation is deemed appropriate or even necessary for achieving business needs/goals.
+
+To “level up”, an organization will need to address all aspects of the next maturity level across all dimensions. This on its own is a significant (in some cases, multi-year) undertaking. Moreover, the effort to move from level 2 to level 3 may be drastically different than the effort to move from level 3 to level 4, etc.; similarly, these efforts may differ significantly from organization to organization.
+
+The CNMM is not a roadmap, per se, but it is intended to be more of a survival guide: it won’t tell you where the continents are, but it will tell you how to navigate against the stars. Developing the specific scope and approach for each organization will take significant effort and vigilance. Consider this model for your own journey even if you don’t ultimately adhere to it.
+
+Before wrapping up, we are proud to announce our newly launched website, [maturitymodel.cncf.io](https://maturitymodel.cncf.io/). Here you can find the latest guidance, and the content is sourced from our GitHub repository, allowing us to evolve the project in an open source, community-driven way. We encourage you to check out (and bookmark!) the site, and to share it with your teams and stakeholders.
+
+Finally, we ask that you provide feedback in any way you feel appropriate (email, comments, GitHub issues/PRs). While we stand by our perspective, having successfully shepherded organizations along this path, we are a collection of humans, and we have biases and blind spots. We are eager to improve both our perspective and messaging, and we welcome any help you can provide (please join us on our community calls!).
+
+See you in the cloud!
+
+_The CNMM is an ongoing effort carried on by the Cartografos WG \[#cartografos-wg\]. We meet every other week, and we very much welcome contributions coming from any positions in the Model’s spectrum, non-technical included. We’re looking forward to hearing what you think about this article (here you can find a further_ [_post on the technology section_](https://www.cncf.io/blog/2022/11/09/technology-in-the-cloud-native-maturity-model/) _and here a post on the people section), the CNMM, and your personal and organizational journey to Cloud Native adoption._
