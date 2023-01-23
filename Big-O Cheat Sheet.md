@@ -36,27 +36,3 @@ Different data structures have different time complexities for the same operatio
 
 Similar to data structures, different array sorting algorithms have different time complexities. Below you can find the best, average and worst time complexities for the most common array sorting algorithms.
 
-### Written by Angelos Chalaris
-
-I'm Angelos Chalaris, a JavaScript software engineer, based in Athens, Greece. The best snippets from my coding adventures are published here to help others learn to code.
-
-If you want to keep in touch, follow me on [GitHub](https://github.com/Chalarangelo) or [Twitter](https://twitter.com/chalarangelo).
-
-More like this
---------------
-
-*   ![](https://www.30secondsofcode.org/assets/icons/blog.svg)
-    
-    A collection of cheatsheets to bookmark and come back to whenever you need to look up anything.
-    
-*   ![](https://www.30secondsofcode.org/assets/icons/js.svg)
-    
-    Learn everything you need to know about promises and asynchronous JavaScript with this handy cheatsheet.
-    
-*   ![](https://www.30secondsofcode.org/assets/icons/js.svg)
-    
-    Learn everything you need to know about JavaScript modules with this handy cheatsheet.
-    
-*   ![](https://www.30secondsofcode.org/assets/icons/js.svg)
-    
-    Groups the given data into `k` clusters, using the [k-means clustering](https://en.wikipedia.org/wiki/K-means_clustering) algorithm.
