@@ -1,4 +1,4 @@
-# Using Telegram App Guide
+# how to use OICD login_hint
 The `login_hint` parameter is used in OpenID Connect (OIDC) to provide a user identifier to the authorization server to pre-populate the user's email or username in the login form.
 
 Here's how you can use `login_hint` in your OIDC authentication flow:
