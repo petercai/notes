@@ -14,8 +14,4 @@ Over time, different API architectural styles are released. Each of them has its
 
 You can check out the use cases of each style in the diagram.
 
-Source: [https://lnkd.in/gFgi33RY](https://lnkd.in/gFgi33RY) I combined a few diagrams together. The credit all goes to AltexSoft.
 
-### Subscribe to **ByteByteGo Newsletter**
-
-Explain complex systems with simple terms, from the authors of the best-selling system design book series. Join 200,000+ subscribers.

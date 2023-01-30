@@ -7,7 +7,6 @@ Here's how you can use and verify a nonce in your OIDC authentication flow:
 
 Example URL with `nonce` parameter:
 
-perlCopy code
 
 `https://YOUR_AUTH0_DOMAIN/authorize?
     response_type=code
