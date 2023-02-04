@@ -1,8 +1,5 @@
 # Super High-performance NoSQL and MQ
-This week’s system design refresher:
 
-*   ByteByteGo talent collective
-    
 *   Data Platform
     
 *   What is an API gateway
@@ -12,26 +9,13 @@ This week’s system design refresher:
 *   How to scale from 0 to millions of users - spooky edition
     
 
-This week has been rough. Lots of layoffs and hiring freezes everywhere. My heart goes out to everyone who is going through this right now.
 
-We are working on compiling a list of interview resources and will share out soon.
-
-We also have ByteByteGo's talent collective here (dozens of companies are hiring) and hope this can be helpful.
-
-[
-
-![](https://substackcdn.com/image/fetch/w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F9a0ba3e8-dd6e-41fa-9888-01225877996e_1466x1212.png)
-
-
-](https://bytebytego.pallet.com/talent/welcome?application=true&pallet=&step=welcome)
-
-[Apply Now](https://bytebytego.pallet.com/talent/welcome?referral=true)
 
 Very nice illustration of the Data Pipeline by Semantix. It may provide some insights into understanding data pipelines.
 
 [
 
-![](https://substackcdn.com/image/fetch/w_1456,c_limit,f_auto,q_auto:good,fl_lossy/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F4e88c7bd-5ccb-48d9-8b53-b4f91e2676d3_749x472.gif)
+![](assets/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F4e.gif)
 
 
 ](https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F4e88c7bd-5ccb-48d9-8b53-b4f91e2676d3_749x472.gif)
@@ -44,7 +28,7 @@ Is it possible to achieve at least a 10x performance boost compared to the origi
 
 [
 
-![](https://substackcdn.com/image/fetch/w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F0fb57384-84e9-41f7-8bac-94617f330c5b_1920x1080.jpeg)
+![](assets/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F0f.jpg)
 
 
 ](https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F0fb57384-84e9-41f7-8bac-94617f330c5b_1920x1080.jpeg)
@@ -53,7 +37,7 @@ There is an exciting class of storage software like 𝐑𝐞𝐝𝐩𝐚𝐧𝐝
 
 [
 
-![](https://substackcdn.com/image/fetch/w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F1d54cdaf-ebc2-46bd-ae2d-162fd96a9e8f_1782x1000.png)
+![](assets/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F1d.jpg)
 
 
 ](https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F1d54cdaf-ebc2-46bd-ae2d-162fd96a9e8f_1782x1000.png)
@@ -85,7 +69,7 @@ Designing a system that supports millions of users is challenging, and it is a j
 
 [
 
-![](https://substackcdn.com/image/fetch/w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F10cbd1b7-ba69-4cb1-b91d-96c03ab8318b_2116x2997.png)
+![](assets/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F10.jpg)
 
 
 ](https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F10cbd1b7-ba69-4cb1-b91d-96c03ab8318b_2116x2997.png)
