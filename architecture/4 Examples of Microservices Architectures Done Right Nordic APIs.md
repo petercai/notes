@@ -46,14 +46,14 @@ Uber would not be able to exist if not for microservices. Although very brief, t
 
 Before the transition, passengers would have to connect to Uber’s monolithic system through a [REST API](https://nordicapis.com/what-is-the-difference-between-apis-and-microservices/). This system contained three adapters for simple functions: billing, payment, and text messaging. There was also a MySQL database contained in the monolith.
 
-[![](https://nordicapis.com/wp-content/uploads/designmicroservicesuber.png)
+[![](assets/designmicroservicesuber.png)
 ](https://nordicapis.com/4-examples-of-microservices-architectures-done-right/designmicroservicesuber/)
 
 Here’s an illustration of Uber’s original monolithic architecture from DZone. [Image source](https://dzone.com/articles/microservice-architecture-learn-build-and-deploy-a).
 
 To remedy this situation, Uber developers broke individual functions down into microservices like passenger management or trip management. They then connected with the microservices via an API gateway.
 
-[![](https://nordicapis.com/wp-content/uploads/designmicroservicesubermicroservices.png)
+[![](assets/designmicroservicesubermicroservices.png)
 ](https://nordicapis.com/4-examples-of-microservices-architectures-done-right/designmicroservicesubermicroservices/)
 
 Here’s a diagram of Uber’s revised microservices-based system. [Image source](https://dzone.com/articles/microservice-architecture-learn-build-and-deploy-a).
@@ -70,7 +70,7 @@ The implementation of global standards allowed their microservices to become mor
 
 To create global standards, Uber developers started by creating metrics for microservices availability. These include fault tolerance, documentation, performance, reliability, stability, and scalability. They then devised ways to measure these factors, allowing them to assess what was working and what wasn’t. It gave developers an actionable blueprint to follow and made the process far less abstract and more complete. All in all, Uber’s transition services as a valuable advocacy for microservices’ viability.
 
-[![](https://nordicapis.com/wp-content/uploads/designmicroservicesuber3.png)
+[![](assets/designmicroservicesuber3.png)
 ](https://nordicapis.com/4-examples-of-microservices-architectures-done-right/designmicroservicesuber3/)
 
 Here’s a representation of Uber’s microservices network as of 2019. [Image source](https://twitter.com/msuriar/status/1110244877424578560).
@@ -92,7 +92,7 @@ Finally, Etsy developers adopted [cURL](https://nordicapis.com/understanding-the
 
 Ever since implementing this microservice architecture in 2016, Etsy’s developers have been able to continually update their products, make use of concurrent processing, and more easily scale their products.
 
-[![](https://nordicapis.com/wp-content/uploads/designmicroservicesetsy.png)
+[![](assets/designmicroservicesetsy.png)
 ](https://nordicapis.com/4-examples-of-microservices-architectures-done-right/designmicroservicesetsy/)
 
 A slide illustrating Etsy’s two-tier microservice system. [Image source](https://www.infoq.com/presentations/etsy-api/).

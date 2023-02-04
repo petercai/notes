@@ -3,7 +3,7 @@
 > 
 > 🔥本文已收录于 JAVA 基础系列专栏： [Java基础教程](https://xie.infoq.cn/link?target=https%3A%2F%2Fblog.csdn.net%2Fm0_52316372%2Fcategory_12008132.html) 免费订阅，持续更新。
 
-![](https://static001.geekbang.org/infoq/68/68038a53f4ffa584b73ac290fb1fe150.jpeg?x-oss-process=image%2Fresize%2Cp_80%2Fauto-orient%2C1)
+![](assets/68038a53f4ffa584b73ac290fb1fe150.jpeg.jpg)
 
 0.IDEA 开发工具
 -----------
@@ -127,7 +127,7 @@ public class ArrayDemo {
 
 ### 1.8 多个数组指向相同内存图
 
-![](https://static001.geekbang.org/infoq/53/53f6382d8b350f84f29a182ad48d40d5.png)
+![](assets/53f6382d8b350f84f29a182ad48d40d5.png)
 
 ### 1.9 数组静态初始化
 

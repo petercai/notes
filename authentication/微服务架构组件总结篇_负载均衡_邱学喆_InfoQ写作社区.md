@@ -1,7 +1,7 @@
 # 微服务架构组件总结篇_负载均衡_邱学喆_InfoQ写作社区
 在早期介绍了有关 spring cloud 中的[注册中心](https://xie.infoq.cn/article/7271dcdd5c4651e3406373fde)，[配置中心](https://xie.infoq.cn/article/d96f6e5f0ebf993a374ba6020)，[负载均衡](https://xie.infoq.cn/article/2f71dcf2e202bf324f19ee195)，[熔断器](https://xie.infoq.cn/article/45b2c194f2286dc302b9c3383)等有关内容。借此机会，尝试从设计者的角度来总结这四个组件。
 
-![](https://static001.geekbang.org/infoq/d4/d44b931c778359310c38eb43c75ab9f1.png)
+![](assets/d44b931c778359310c38eb43c75ab9f1.png)
 
 2.1 功能
 ------
@@ -17,11 +17,11 @@
 
 在业务系统中的常规配置分类如下；
 
-![](https://static001.geekbang.org/infoq/62/62c55b63b4fbda169fb920f5e00ef428.png)
+![](assets/62c55b63b4fbda169fb920f5e00ef428.png)
 
 在配置中心模型如下：
 
-![](https://static001.geekbang.org/infoq/35/35fc711233a2875df980694045a3c306.png)
+![](assets/35fc711233a2875df980694045a3c306.png)
 
 *   作用域——在分类管理下，出现重复的 Key-Value 场景时，就需要确定其优先级——>全局，局部。
     
@@ -32,7 +32,7 @@
 
 由于不同的环境有不同的配置，那么在数据模型中支持多环境处理。如下图：
 
-![](https://static001.geekbang.org/infoq/6d/6dc219d096183ed942c540dd56f3d7ea.png)
+![](assets/6dc219d096183ed942c540dd56f3d7ea.png)
 
 #### 2.1.1.2 版本管理 &权限管理
 
@@ -81,11 +81,11 @@
 *   动态仓库——通过占位符的形式替换目标仓库
     
 
-![](https://static001.geekbang.org/infoq/d2/d2f4560790a826a0140af515139a8c0f.png)
+![](assets/d2f4560790a826a0140af515139a8c0f.png)
 
 举个例子来说一下：
 
-![](https://static001.geekbang.org/infoq/4a/4acb81d21f8a615bfe3cffcb564b5658.png)
+![](assets/4acb81d21f8a615bfe3cffcb564b5658.png)
 
 当客户端系统的名称是 payment-_reconciliation，向服务端请求对应的配置时。服务端匹配到_第二个动态仓库，接着对 url 进行替换后，就可以得到 git 真实仓库地址：https://\*\*payment/\*\*/payment-reconciliation/{profiles}/{label}.git。至于其中 profiles 以及 label 也是同样得操作替换。如果没有这些占位符，则不用替换。
 
@@ -105,7 +105,7 @@
 
 经过上面的介绍，由此可以得知，config-server 对配置结构的管理，可谓是非常灵活。下面提供一下常规的结构，如下图：
 
-![](https://static001.geekbang.org/infoq/97/979f67b291b92af9936e3b6541cbad2f.png)
+![](assets/979f67b291b92af9936e3b6541cbad2f.png)
 
 对应的配置，如下：
 
@@ -162,7 +162,7 @@ spring:
 
 思考问题：当数据模型如下图时，config-server 该如何配置，客户端才能红色圈出来的配置文件呢？
 
-![](https://static001.geekbang.org/infoq/c7/c780496aae8a80e96a0fbf8681da7108.png)
+![](assets/c780496aae8a80e96a0fbf8681da7108.png)
 
 ### 2.1.2 动态更新
 
@@ -181,13 +181,13 @@ spring:
 
 方案三：通过 MQ 来监听。如下图。
 
-![](https://static001.geekbang.org/infoq/47/472a1ebf6821ee1c00637726238eca45.png)
+![](assets/472a1ebf6821ee1c00637726238eca45.png)
 
 个人比较倾向方案一。
 
 基于方案一，梳理的交互如下：
 
-![](https://static001.geekbang.org/infoq/22/225ddc3e838bf434ea0234e9b3a200f0.png)
+![](assets/225ddc3e838bf434ea0234e9b3a200f0.png)
 
 *   刷新配置——借助于 @RefreshScope 注解来实现，其实现原理是基于 spring-context 中的 scope 特性来实现。
     
@@ -201,7 +201,7 @@ spring:
 
 客户端的相对于较为简单；具体交互图如下：
 
-![](https://static001.geekbang.org/infoq/c4/c4fcd64e678c2f1a140f884eb2709a31.png)
+![](assets/c4fcd64e678c2f1a140f884eb2709a31.png)
 
 具体的配置如下：具体可以查看 ConfigClientProperties 类
 
@@ -222,14 +222,14 @@ spring:
 
 在功能小节说，对服务端介绍了差不多，这里只罗列时序图即可。如下；
 
-![](https://static001.geekbang.org/infoq/fd/fd6cbfb57acd082aa46732c8d83f8217.png)
+![](assets/fd6cbfb57acd082aa46732c8d83f8217.png)
 
 2.4 部署架构
 --------
 
 在早期文章也介绍了，个人倾向直接的单机部署，适当的定制开发，增加缓存机制。再加上系统运行监控即可。
 
-![](https://static001.geekbang.org/infoq/64/64d0cdae13b037be1329d7b0d99bf2f3.png)
+![](assets/64d0cdae13b037be1329d7b0d99bf2f3.png)
 
 3.1 集成方式
 --------
@@ -262,7 +262,7 @@ spring:
 
 有关很多的细节，在早期的文章已经有所介绍，这里只罗列关键的接口之间的交互，如图所示：
 
-![](https://static001.geekbang.org/infoq/fc/fc0150958d1e7141dc9a607b424dd0ea.png)
+![](assets/fc0150958d1e7141dc9a607b424dd0ea.png)
 
 4.1 基础功能
 --------
@@ -290,7 +290,7 @@ spring:
 
 由于网络的不稳定，大量的业务系统发送心跳的请求会出现短暂的超时，从而导致服务端认为其已经宕机，会将其踢下线。因此服务端为了这种情况，做了自我保护。逻辑如下：
 
-![](https://static001.geekbang.org/infoq/10/103ffce9d1c013e020ef190794bff466.png)
+![](assets/103ffce9d1c013e020ef190794bff466.png)
 
 具体有关的阈值计算逻辑如下：
 
@@ -335,11 +335,11 @@ eureka:
 
 启动后，依赖的服务实例状态有可能会变更或者被踢下线，那么就需要后台任务来定期拉取。如果每次拉取全量的列表，无疑会导致网络拥堵，因此提供出增量拉取。
 
-![](https://static001.geekbang.org/infoq/67/67f984cdb0a66d56b95da5ec67cc3481.png)
+![](assets/67f984cdb0a66d56b95da5ec67cc3481.png)
 
 有关拉取远程服务的逻辑，大体如下：
 
-![](https://static001.geekbang.org/infoq/1a/1ab2c9d4ec36f582d85777bc11bffb4e.png)
+![](assets/1ab2c9d4ec36f582d85777bc11bffb4e.png)
 
 所涉及的配置信息如下：
 
@@ -359,7 +359,7 @@ eureka:
 
 当运行时，需要不停向注册中心，当前服务实例还存活者，可以被调用。具体的流程图：
 
-![](https://static001.geekbang.org/infoq/99/996983649a2fe84947225b5d795ea873.png)
+![](assets/996983649a2fe84947225b5d795ea873.png)
 
 所涉及的配置信息如下：
 
@@ -437,7 +437,7 @@ eureka:
 *   全量——拉取的逻辑如下图：
     
 
-![](https://static001.geekbang.org/infoq/4a/4a2631d600fd74db1da592bb9f098406.png)
+![](assets/4a2631d600fd74db1da592bb9f098406.png)
 
 *   增量——大体逻辑跟全量所列的逻辑图差不多。稍微特殊，其数据来源是来自 recentlyChangedQueue。
     
@@ -486,7 +486,7 @@ eureka:
 *   批处理器——每个目标节点默认有 1 个 Acceptor 线程+20 个 Process 线程。具体的逻辑如下：
     
 
-![](https://static001.geekbang.org/infoq/29/2930a1c5d8ae8daa413fb5866a6c2b9d.png)
+![](assets/2930a1c5d8ae8daa413fb5866a6c2b9d.png)
 
 *   单处理器——每个目标节点默认有 1 个 Acceptor 线程+1 个 Process 线程。逻辑与批处理有所类似。
     
@@ -561,4 +561,4 @@ resilience4j:
 
 通过再次的总结输出，也纠正了早期的对其的认知，对其四大组件的认知也更加深入。上面介绍的主要是关键特性，并没有对其额外的特性进行介绍，例如注册中心的 aws，DNS 等的使用。随着对代码的深入了解，发现其很多写法不是那么好友，不像 spring framework 那么纯粹，但其思想是具有参考价值的，可以通过对其了解，重复造更加轻量，更加灵活的轮子。一般来讲，中小型企业，直接使用就好，毕竟没有那么多的人力去重复造轮子，而针对大型企业来说，建议是基于 spring framework 框架，参考 spring boot, spring cloud 的思想，创建自己公司层面的技术框架。
 
-![](https://static001.geekbang.org/infoq/bf/bfd95f7148d54c25bc0173e57b4e0efc.png)
+![](assets/bfd95f7148d54c25bc0173e57b4e0efc.png)

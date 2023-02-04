@@ -1,5 +1,5 @@
 # 百度工程师教你玩转设计模式（适配器模式）_Java_百度Geek说_InfoQ写作社区
-![](https://static001.geekbang.org/infoq/13/139497c2e4fb5a697e250a4b8cab711f.png)
+![](assets/139497c2e4fb5a697e250a4b8cab711f.png)
 
 作者 | 北极星小组
 
@@ -9,7 +9,7 @@
 
 适配器模式(Adapter Pattern)：是指将某个类的接口转化成客户端期望的另一个接口，主要目的是兼容性，让原本因接口不匹配不能工作的两个类可以协同工作。
 
-![](https://static001.geekbang.org/infoq/a0/a0aef6d734e63eb19cfe5ad394ac0052.png)
+![](assets/a0aef6d734e63eb19cfe5ad394ac0052.png)
 
 ****△适配器示意图****
 
@@ -24,11 +24,11 @@
 *   Client：客户类，通过适配器接口 Target 去使用 Adaptee 的功能
     
 
-![](https://static001.geekbang.org/infoq/47/47332696804bafcb6124223b86ed4c19.png)
+![](assets/47332696804bafcb6124223b86ed4c19.png)
 
 **△对象适配器**
 
-![](https://static001.geekbang.org/infoq/c5/c5fd2e0d8d0019e16f3316698aaf7aff.png)
+![](assets/c5fd2e0d8d0019e16f3316698aaf7aff.png)
 
 **△类适配器**
 
@@ -219,5 +219,3 @@ public class Client {
 [揭秘百度智能测试在测试分析领域实践](https://xie.infoq.cn/link?target=http%3A%2F%2Fmp.weixin.qq.com%2Fs%3F__biz%3DMzg5MjU0NTI5OQ%3D%3D%26mid%3D2247527603%26idx%3D1%26sn%3D63ab93ac854dea7ee8661e475528183f%26chksm%3Dc03e5ccff749d5d9097869215413ead68c802f262bcd59ec9ee2ae9bef7f94a38dc8f444305c%26scene%3D21%23wechat_redirect)  
 
 [百度用户产品流批一体的实时数仓实践](https://xie.infoq.cn/link?target=http%3A%2F%2Fmp.weixin.qq.com%2Fs%3F__biz%3DMzg5MjU0NTI5OQ%3D%3D%26mid%3D2247526320%26idx%3D1%26sn%3D661ba569e8fb39aeead346e7ab5f8ae8%26chksm%3Dc03e57ccf749dedae885a7204f3b686f8dd3c0ac0e79793e2996ab89766697a14b08e2c032d3%26scene%3D21%23wechat_redirect)  
-
-![](https://static001.geekbang.org/infoq/e2/e27b3ab6f2bea7ffd9af3312410321b7.png)

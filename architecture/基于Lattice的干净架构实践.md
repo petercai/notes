@@ -15,7 +15,7 @@
 
 在构建一个复杂的业务系统中，我们需要考虑对实体访问的 API、SPI 设计，也要考虑在场景中去沉淀可复用的业务资产。可复用的业务资产要能做到跨项目、跨客户复用，就必然需要预留可扩展点 SPI。关于场景级开放，可参考 [面向场景级的业务资产沉淀和开放](https://xie.infoq.cn/article/02eb9bd35e90ca35c26055559)。 在经过笔者电信领域、电商领域、智慧城市领域多个大型项目的实践，同时参考了干净架构的一些建议，我总结了一套分层合理、非常适用于团队协作的逻辑工程划分方法。大体的工程结构和逻辑模块划分如下：
 
-![](https://static001.geekbang.org/infoq/03/03180c57555b1ea6832d0e47be2a3253.png)
+![](assets/03180c57555b1ea6832d0e47be2a3253.png)
 
 *   **业务实体层：** 通过 domain-sdk 对外暴露实体服务的接口定义，以及在对实体处理过程中，会有一些特殊的定制要求，也以 SPI 方式暴露出去。SPI 的表现形式，就是以扩展点的方式暴露出去，在运行期通过动态加载，获取具体的实现，从而实现对业务实体处理逻辑的扩展。
     
@@ -31,7 +31,7 @@
 
 > 工程样例可以通过访问 [https://github.com/hiforce/lattice-clean-arch-practice-sample](https://xie.infoq.cn/link?target=https%3A%2F%2Fgithub.com%2Fhiforce%2Flattice-clean-arch-practice-sample) 获取
 
-![](https://static001.geekbang.org/infoq/73/73e1e0b43435bd2d8239731d2bc58182.png)
+![](assets/73e1e0b43435bd2d8239731d2bc58182.png)
 
 在这个工程中，我们运行 org.hiforce.sample.buynow.web.starter.BuyNowWebStarter，然后打开浏览器输入 http://localhost:8080/buy/1 ，可以看到下面输出：
 
@@ -197,4 +197,4 @@ Lattice 是一个强大的、轻量级的，面向业务定制高可扩展的业
 
 * * *
 
-![](https://static001.geekbang.org/infoq/67/678f99ef3aa4707dede7a671a2b73586.jpeg?x-oss-process=image%2Fresize%2Cp_80%2Fauto-orient%2C1)
+![](assets/678f99ef3aa4707dede7a671a2b73586.jpeg.jpg)
