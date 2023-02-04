@@ -81,4 +81,3 @@ FROM @t
 
 今天的不开心就到此为止吧, 明天依旧光芒万丈~ 这里是百里,如果我帮到您,谢谢点个赞~.
 
-![](https://static001.geekbang.org/infoq/6b/6be3e1ae047ab956c6e45105dfb17a30.jpeg?x-oss-process=image%2Fresize%2Cp_80%2Fauto-orient%2C1)
