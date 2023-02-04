@@ -18,7 +18,7 @@ The Black Friday sale is now up! Use code **BF2022** at checkout for 30% off my 
 
 [
 
-![](https://substackcdn.com/image/fetch/w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fd15b794c-4e19-4eeb-9463-cc8ef0e72e60_2048x1149.jpeg)
+![](assets/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fd1.jpg)
 
 
 ](https://bytebytego.com/)
@@ -33,7 +33,7 @@ Session, cookie, JWT, token, SSO, and OAuth 2.0 - what are they?
 
 [
 
-![](https://substackcdn.com/image/fetch/w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Ff455a257-db74-4120-a736-b62d3c374422_1318x1536.jpeg)
+![](assets/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Ff4.jpg)
 
 
 ](https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Ff455a257-db74-4120-a736-b62d3c374422_1318x1536.jpeg)
@@ -57,7 +57,7 @@ From simple to complex, here is my understanding of user identity management:
 
 [
 
-![](https://substackcdn.com/image/fetch/w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F1f8f2f27-1cac-4e19-a190-cec41a7e9d71_1351x1536.jpeg)
+![](assets/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F1f.jpg)
 
 
 ](https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F1f8f2f27-1cac-4e19-a190-cec41a7e9d71_1351x1536.jpeg)
@@ -68,7 +68,7 @@ It’s an interesting problem, so we did some research on this topic. The diagra
 
 [
 
-![](https://substackcdn.com/image/fetch/w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F8456d0b2-5db7-4bb4-99b3-a7474a6d945f_1280x1616.jpeg)
+![](assets/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F84.jpg)
 
 
 ](https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F8456d0b2-5db7-4bb4-99b3-a7474a6d945f_1280x1616.jpeg)
@@ -108,7 +108,7 @@ The diagram below shows a comparison between Twitter and Mastodon.
 
 [
 
-![](https://substackcdn.com/image/fetch/w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fa4a87ec5-ed9d-4132-a0e0-29c91e272e50_1280x2145.jpeg)
+![](assets/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fa4.jpg)
 
 
 ](https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fa4a87ec5-ed9d-4132-a0e0-29c91e272e50_1280x2145.jpeg)
