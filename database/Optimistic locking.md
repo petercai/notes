@@ -4,7 +4,7 @@ Optimistic locking, also referred to as optimistic concurrency control, allows m
 There are two common ways to implement optimistic locking: version number and timestamp. Version number is generally considered to be a better option because the server clock can be inaccurate over time. We explain how optimistic locking works with version number.
 
 The diagram below shows a successful case and a failure case.
-![](2.png)
+![](assets/2.png)
 
 
 1\. A new column called “version” is added to the database table.
