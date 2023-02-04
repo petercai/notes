@@ -20,7 +20,7 @@ The diagram below illustrates the overall data flow for **gRPC.**
 
 [
 
-![](https://substackcdn.com/image/fetch/w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fb98afdcd-b567-4c90-9f47-5358df0adda6_1280x1619.jpeg)
+![](assets/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fb9.jpg)
 
 
 ](https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fb98afdcd-b567-4c90-9f47-5358df0adda6_1280x1619.jpeg)
@@ -66,7 +66,7 @@ Congratulations on getting this far. Now you know the basics of DDD. If you want
 
 [
 
-![](https://substackcdn.com/image/fetch/w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F4138b20e-ac72-40a7-a753-cfb1916be3c0_1336x1012.jpeg)
+![](assets/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F41.jpg)
 
 
 ](https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F4138b20e-ac72-40a7-a753-cfb1916be3c0_1336x1012.jpeg)
@@ -76,7 +76,7 @@ Avro was started in 2009, initially as a subproject of Apache Hadoop to address 
 
 [
 
-![](https://substackcdn.com/image/fetch/w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fd68f925a-092d-4299-ad52-39ee80764c0d_2062x2208.png)
+![](assets/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fd6.jpg)
 
 
 ](https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fd68f925a-092d-4299-ad52-39ee80764c0d_2062x2208.png)
@@ -95,7 +95,7 @@ If you’re hiring, [join ByteByteGo Collective](https://bytebytego.pallet.com/
 
 [
 
-![](https://substackcdn.com/image/fetch/w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F04ab7e44-9b78-4993-abec-5de61cc66598_1466x1220.png)
+![](assets/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F04.jpg)
 
 
 ](https://bytebytego.pallet.com/talent/welcome)
