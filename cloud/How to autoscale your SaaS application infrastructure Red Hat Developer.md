@@ -31,7 +31,7 @@ The [Cluster API project](https://cluster-api.sigs.k8s.io/) is a popular example
 
 The Machine and MachineSet APIs let you resize a cluster just by changing an integer field to the number of nodes you desire. Figure 1 shows the API's basic behavior.
 
-[![](https://developers.redhat.com/sites/default/files/styles/article_floated/public/Openshift%20cluster%20image.png?itok=iqBIj8Bd)
+[![](assets/Openshift%20cluster%20image.png)
 ](https://developers.redhat.com/sites/default/files/Openshift%20cluster%20image.png)
 
 At a very high level, cluster scaling using the cluster API project works like this:

@@ -16,7 +16,7 @@ Our new book, Machine Learning System Design Interview, will be available on Ama
 
 [
 
-![](https://substackcdn.com/image/fetch/w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F9f6284f0-0f75-4023-b69f-884017a1fb06_800x1182.jpeg)
+![](assets/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F9f6284f0-0f75-4023-b69f-88401.jpg)
 
 
 ](https://lnkd.in/eA_3FvUR)
@@ -44,7 +44,7 @@ The diagram below shows why **real-time gaming** and **low-latency trading** app
 
 [
 
-![](https://substackcdn.com/image/fetch/w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F1f419a90-a2b8-4eb0-ba54-0ca94b514501_800x806.jpeg)
+![](assets/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F1f419a90-a2b8-4eb0-ba54-0ca94.jpg)
 
 
 ](https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F1f419a90-a2b8-4eb0-ba54-0ca94b514501_800x806.jpeg)
@@ -68,7 +68,7 @@ Google Authenticator is a software-based authenticator that implements a two-ste
 
 [
 
-![](https://substackcdn.com/image/fetch/w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fb885be28-b049-48fc-ad76-7416314dd4c3_3096x3603.jpeg)
+![](assets/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fb885be28-b049-48fc-ad76-74163.jpg)
 
 
 ](https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fb885be28-b049-48fc-ad76-7416314dd4c3_3096x3603.jpeg)
@@ -113,7 +113,7 @@ The diagram shows how we can run native C/C++/Rust code inside a web browser wit
 
 [
 
-![](https://substackcdn.com/image/fetch/w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F77ce9cc2-6397-464f-9257-075609b2ca07_2706x2532.jpeg)
+![](assets/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F77ce9cc2-6397-464f-9257-07560.jpg)
 
 
 ](https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F77ce9cc2-6397-464f-9257-075609b2ca07_2706x2532.jpeg)
