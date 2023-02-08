@@ -2,9 +2,6 @@
 And how to enhance your code quality using it
 ---------------------------------------------
 
-![](https://miro.medium.com/max/1400/1*XiVzB765eBip73jVQiAxkA.png)
-
-Self-made image.
 
 **ChatGPT has completely changed the way to develop code.** However, most software developers and data professionals still do not use ChatGPT to improve — and ease — their work.
 
