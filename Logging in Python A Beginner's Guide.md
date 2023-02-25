@@ -369,10 +369,3 @@ In this article, we learned the importance of logging in python, the components 
 
 * * *
 
-If you found this article useful or learned something new, consider dropping a heart up and following me to keep up-to-date with any recent postings!
-
-You can also find me on Twitter at [**akinsola232**](https://mobile.twitter.com/akinsola232) and on LinkedIn at [**Ademola**](https://www.linkedin.com/in/ademola-akinsola-3191571a2/?originalSubdomain=ng).
-
-Till next time, happy coding!
-
-_Signed.... Humanity's Strongest Soldier_, Levi🧑‍💻👋.

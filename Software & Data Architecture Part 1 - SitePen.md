@@ -35,7 +35,7 @@ Treating data modeling as a best-effort activity alongside regular iteration act
 
 Modeling can be kept lightweight at the start of a project during high flux and formalized later when there is less change but where the impact of change is more significant – for example when more dependents are relying on the system or pieces of it.
 
-![](https://media.sitepen.com/blog-images/2023/01/diagram-1%402x-1024x933.png)
+![](assets/diagram-1%402x-1024x933.png)
 
 _A sample data model highlighting high-level entities and their relationships within a product,  grouped into one of four major domains. Lower-level diagrams containing more detail for specific areas can be derived from/linked to the root architecture diagram._
 
@@ -47,7 +47,7 @@ User interaction in data flows is typically framed as abstract personas that can
 
 The complete set of data flows should highlight how every user persona interacts with every high-level data concept within every system component. The absence of such an interaction should mean that the system does not support that functionality.
 
-![](https://media.sitepen.com/blog-images/2023/01/diagram-2%402x-1024x721.png)
+![](assets/diagram-2%402x-1024x721.png)
 
 _A sample high-level data flow diagram highlighting two workflows, the personas who perform them, and the data involved at each stage. Additional lower-level diagrams could detail the system components involved within processes P1, P2, P3._
 
