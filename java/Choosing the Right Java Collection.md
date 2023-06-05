@@ -1,4 +1,4 @@
-# Choosing the Right Java Collection | Baeldung
+# Choosing the Right Java Collection 
   
 
 We’re finally running a Black Friday launch. All Courses are **30% off** until **the end of this week:**

@@ -12,7 +12,7 @@ Helm 和 chart 的主要作用是：
 
 下面是 Helm 的架构图。
 
-[![](https://jimmysong.io/kubernetes-handbook/images/helm-chart.png)
+[![](assets/helm-chart.png)
 ](https://jimmysong.io/kubernetes-handbook/images/helm-chart.png)
 
 图 6.9.1.1：Helm 架构图（来自 IBM Developer Blog）

@@ -1,4 +1,4 @@
-# Java 反射 (二) Class类_InfoQ写作社区
+# Java 反射 (二) Class类
 二.Class 类
 ---------
 
