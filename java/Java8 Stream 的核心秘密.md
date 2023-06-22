@@ -1,7 +1,7 @@
 # Java8 Stream 的核心秘密
 小伙伴们好呀，我是 4ye，今天来分享下 **Java8 Stream 的源码**
 
-![](https://static001.geekbang.org/infoq/47/4768bf7d847ea53177707fa2167aa3c0.png)
+![](assets/4768bf7d847ea53177707fa2167aa3c0.png)
 
 ### 核心回顾
 
@@ -18,7 +18,7 @@
 
 这里列出一些重要的类，是看源码过程中必须了解的。
 
-![](https://static001.geekbang.org/infoq/69/69033f50d0d01535eb3756684b992174.png)
+![](assets/69033f50d0d01535eb3756684b992174.png)
 
 比如 ：
 
@@ -53,7 +53,7 @@ Student aStud = new Student(1, "a");
 
 都在这里了 👇
 
-![](https://static001.geekbang.org/infoq/0b/0bb27f5f4fde04a72c04bb1637ce169a.png)
+![](assets/0bb27f5f4fde04a72c04bb1637ce169a.png)
 
 这里步骤太多了，就不一一放出来了 ，列下核心
 
@@ -66,19 +66,19 @@ Student aStud = new Student(1, "a");
 
 开始套娃，从 ReducingSink 往前套
 
-![](https://static001.geekbang.org/infoq/a8/a8fd68bfc5cf046d3a169a2d4290df36.png)
+![](assets/a8fd68bfc5cf046d3a169a2d4290df36.png)
 
 opWarpSink 方法调用的是每一步 **中间操作** 中的方法
 
-![](https://static001.geekbang.org/infoq/2a/2a320ec39d25447d43365bdf36e0f84b.png)
+![](assets/2a320ec39d25447d43365bdf36e0f84b.png)
 
 通过 **单链表** 的形式将他们联系在一起
 
-![](https://static001.geekbang.org/infoq/78/78fb29af024eeae788a96df4ffeab515.png)
+![](assets/78fb29af024eeae788a96df4ffeab515.png)
 
 Sink 链创建结果
 
-![](https://static001.geekbang.org/infoq/ca/cae90ee18b6b334226f89ce61d7cbb77.png)
+![](assets/cae90ee18b6b334226f89ce61d7cbb77.png)
 
 ### copyInto()
 
@@ -86,15 +86,15 @@ Sink 链创建结果
 
 通过 **forEachRemaining** 进行内部迭代，这个是 **Spliterator** 的方法。
 
-![](https://static001.geekbang.org/infoq/d9/d988be5447c107ed83cfc26537486356.png)
+![](assets/d988be5447c107ed83cfc26537486356.png)
 
 map 链节点，直接调用传进来的方法，
 
-![](https://static001.geekbang.org/infoq/d6/d6fbf04011dc4222e9a44f9fea5553f1.png)
+![](assets/d6fbf04011dc4222e9a44f9fea5553f1.png)
 
 filter 链节点，多一步判断
 
-![](https://static001.geekbang.org/infoq/71/7160082a2d3bcefcb6295784e1935cd1.png)
+![](assets/7160082a2d3bcefcb6295784e1935cd1.png)
 
 sorted 节点，添加到 list 中。
 
@@ -102,23 +102,23 @@ sorted 节点，添加到 list 中。
 > 
 > 意味着，我们代码中的 5 个中间步骤只执行了前 3 个。
 
-![](https://static001.geekbang.org/infoq/2e/2ea663434c9a51ce9ec6bee04e75f68a.png)
+![](assets/2ea663434c9a51ce9ec6bee04e75f68a.png)
 
 不过别担心， sorted 链节点中它重写了这个 end，并开启对新数据的**新一轮遍历**！
 
 > 这就是我们提到的，**有状态中间操作多一次迭代的原因**
 
-![](https://static001.geekbang.org/infoq/1b/1bc839a88e40aa7d13b877739f74efdd.png)
+![](assets/1bc839a88e40aa7d13b877739f74efdd.png)
 
 最后呢，是来到终止操作 **TerminalOp** 中的 accept，这里执行的是 list 的 add 方法（我们调用 **Collectors.toList()** 中构建的），至此，数据添加到 state 中
 
-![](https://static001.geekbang.org/infoq/24/24e0625eec2a020e0ae1c8ae6eea3ea6.png)
+![](assets/24e0625eec2a020e0ae1c8ae6eea3ea6.png)
 
-![](https://static001.geekbang.org/infoq/b1/b1207a06c6ad9bfe1b2bb7003f657e33.png)
+![](assets/b1207a06c6ad9bfe1b2bb7003f657e33.png)
 
 获取数据，ReducingSink 继承了 Box 这个抽象类，最后 get 方法得到结果。
 
-![](https://static001.geekbang.org/infoq/17/17da16098d953d96e8c786527e4eedcb.png)
+![](assets/17da16098d953d96e8c786527e4eedcb.png)
 
 ### 总结
 
@@ -133,7 +133,7 @@ sorted 节点，添加到 list 中。
 4.  （一）将中间管道的 Sink 操作连接在一起 （**wrapSink**）（二）处理数据 （**copyInto**），主要调用 Sink 中的 begin，**accept**（核心），end 操作（三）返回结果，ReducingSink 中的 **get** 方法
     
 
-![](https://static001.geekbang.org/infoq/77/778abe7161ded6ba585e90d303349213.png)
+![](assets/778abe7161ded6ba585e90d303349213.png)
 
 > 主要记住这个 **wrapSink** 方法 和 **copyInto** 方法。
 > 
@@ -147,7 +147,7 @@ sorted 节点，添加到 list 中。
 
 比如 这个 Consumer+Function 接口的组合，配合泛型上下限的使用
 
-![](https://static001.geekbang.org/infoq/d6/d6fbf04011dc4222e9a44f9fea5553f1.png)
+![](assets/d6fbf04011dc4222e9a44f9fea5553f1.png)
 
 源码中 **访问者模式**，**工厂模式** 等设计模式的影子
 
@@ -155,7 +155,7 @@ sorted 节点，添加到 list 中。
 > 
 > 对应源码：数据结构是 Pipeline ，操作是 Sink
 
-![](https://static001.geekbang.org/infoq/a5/a57baab22bc1c60fb90d9c9c523475f5.png)
+![](assets/a57baab22bc1c60fb90d9c9c523475f5.png)
 
 对 stream 的特点更加熟悉
 
