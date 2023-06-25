@@ -1,0 +1,69 @@
+# 《Java 面试突击核心讲》知识点笔记整理
+不知道大家在面试中有没有这种感觉：面试官通常会在短短两小时内对面试者的知识结构进行全面了解，面试者在回答问题时如果拖泥带水且不能直击问题的本质，则很难充分表现自己，最终影响面试结果。
+
+所以针对这种情况，这份在GitHub上转载超过59.8K架构师纯手打的 Java 核心知识点笔记应运而生！这份笔记在讲解知识点时不拖泥带水，力求精简，详细介绍了 Java 程序员面试时常被问及的核心知识点。
+
+
+这份笔记总共九大部分，涵盖了 Java 开发1年多 Java 架构师层面的面试知识点总结，因为这份笔记的知识点太多，小编没办法为大家全部完整的展示出来。需要完整版的朋友可以前往文末自取！
+
+本篇主要讲述了 JVM 原理，涉及 JVM 运行机制、JVM 内存模型、常用垃圾回收算法和 JVM 类加载机制等内容。
+
+![](https://img-blog.csdnimg.cn/img_convert/6b8b7dbc949d42306cef03ed64e0e0d4.png)
+
+![](https://img-blog.csdnimg.cn/img_convert/3c75c9e8939e5a570e0b78fd49122f6b.png)
+
+本篇讲解 Java 基础知识，涉及集合、异常分类及处理、反射、注解、内部类、泛型和序列化等内容。
+
+![](https://img-blog.csdnimg.cn/img_convert/9399f36c5d1efefb3ca711c2324e5602.png)
+
+![](https://img-blog.csdnimg.cn/img_convert/d2106bc5ca9bbad1da66e01e0d260140.png)
+
+本篇讲述讲解 Java 并发编程知识，涉及 Java 多线程的工作原理及应用、Java 线程池的工作原理及应用，以及锁、进程调度算法等内容。
+
+![](https://img-blog.csdnimg.cn/img_convert/c72486e472fbe5d451466882de87f91c.png)
+
+![](https://img-blog.csdnimg.cn/img_convert/18ed5ae6789e9561c03d8268b0d7c536.png)
+
+![](https://img-blog.csdnimg.cn/img_convert/a5ad157cf5fbd9ada53e087bbe54407b.png)
+
+本篇讲解数据结构知识，涉及栈、队列、链表、散列表、二叉树、红黑树、图和位图等内容。
+
+![](https://img-blog.csdnimg.cn/img_convert/f50d09f0750a1b8ae6a0196e92725e85.png)
+
+![](https://img-blog.csdnimg.cn/img_convert/c8cd30be57871a3ff20692c7ee345d77.png)
+
+本篇讲解 Java 中的常用算法，涉及二分查找、冒泡排序、插入排序、快速排序、希尔排序、归并排序、桶排序、基数排序等算法。
+
+![](https://img-blog.csdnimg.cn/img_convert/7e448f30fac2a97a8874da977eb00169.png)
+
+![](https://img-blog.csdnimg.cn/img_convert/0cb7ff198c3700d57eb635379c9b6f6f.png)
+
+本篇讲解网络与负载均衡原理，涉及 TCP/IP、 HTTP、常用负载均衡算法和 LVS 原理等内容。
+
+![](https://img-blog.csdnimg.cn/img_convert/12ed7f875e7ecefe22396504f1d1acf4.jpeg)
+
+![](https://img-blog.csdnimg.cn/img_convert/c9cf26e27c36a494d55e6ff4483f6e95.png)
+
+本篇讲解数据库及分布式事务原理，涉及数据库存储引擎、数据库并发操作和锁、数据库分布式事务等内容。
+
+![](https://img-blog.csdnimg.cn/img_convert/0dc36f3d401a0dced80700aebc571ee6.jpeg)
+
+![](https://img-blog.csdnimg.cn/img_convert/c7a8a4d863fe69ce4ed4e5a897cb68be.png)
+
+本篇讲解分布式缓存的原理及应用，涉及分布式缓存介绍、Ehcache 原理及应用、Redis 原理及应用、分布式缓存设计的核心问题等内容。
+
+![](https://img-blog.csdnimg.cn/img_convert/fd51bf4c04a7c79e63e5a1565fbb7af0.jpeg)
+
+![](https://img-blog.csdnimg.cn/img_convert/66678eeaaef7b01c9cb801df2edff0d0.png)
+
+本篇讲解设计模式，涉及常见的 23 种经典设计模式。
+
+![](https://img-blog.csdnimg.cn/img_convert/b27d04577faf4049f611357caae17371.png)
+
+![](https://img-blog.csdnimg.cn/img_convert/40fb13772984107a7384d2157e0015c5.png)
+
+这份笔记是对 Java 程序员面试必备知识点的总结，非常详细讲解了 JVM 原理、多线程、数据结构和算法、分布式缓存、设计模式等面试必备知识点，在讲解时不拖泥带水，力求精简。
+
+这份笔记可以作为大家面试突击的一份宝典，肯定会有奇效！
+
+​文中资料已整理打包存放网盘，有需要的朋友可以点击下方的名片自取！
