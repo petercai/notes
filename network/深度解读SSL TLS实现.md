@@ -37,7 +37,7 @@ SSL/TLS协议能够提供的安全目标主要包括如下几个：
 
 SSL/TLS协议有一个高度模块化的架构，分为很多子协议，如下图所示：
 
-[![](https://introspelliam.github.io/images/2018-03-20/wKiom1VSr0jhhvpTAABYsKaYnzU344.jpg)
+[![](_assets/wKiom1VSr0jhhvpTAABYsKaYnzU344.jpg)
 ](https://introspelliam.github.io/images/2018-03-20/wKiom1VSr0jhhvpTAABYsKaYnzU344.jpg)
 
 Handshake协议：包括协商安全参数和密码套件、服务器身份认证(客户端身份认证可选)、密钥交换;
@@ -52,7 +52,7 @@ Record 协议：包括对消息的分段、压缩、消息认证和完整性保�
 
 本节对SSL/TLS协议的流程进行详细介绍。一个典型的TLS 1.0协议交互流程如下图所示：
 
-[![](https://introspelliam.github.io/images/2018-03-20/wKiom1VSr0jQHxwLAACUNCBE000413.jpg)
+[![](_assets/wKiom1VSr0jQHxwLAACUNCBE000413.jpg)
 ](https://introspelliam.github.io/images/2018-03-20/wKiom1VSr0jQHxwLAACUNCBE000413.jpg)
 
 每一个SSL/TLS链接都是从握手开始的，握手过程包含一个消息序列，用以协商安全参数、密码套件，进行身份认证以及密钥交换。握手过程中的消息必须严格按照预先定义的顺序发生，否则就会带来潜在的安全威胁。今年顶级安全会议CCS 有文章提出了建立综合状态机来检查SSL链接中消息序列……
@@ -65,31 +65,31 @@ ClientHello中还包含一个随机数，这个随机数由4个字节的当前GM
 
 另外，ClientHello中还可能包含客户端支持的TLS扩展。(TLS扩展可以被用来丰富TLS协议的功能或者增强协议的安全性)
 
-[![](https://introspelliam.github.io/images/2018-03-20/wKioL1VSsMLSO9wFAAAcPnOfb8U691.jpg)
+[![](_assets/wKioL1VSsMLSO9wFAAAcPnOfb8U691.jpg)
 ](https://introspelliam.github.io/images/2018-03-20/wKioL1VSsMLSO9wFAAAcPnOfb8U691.jpg)
 
 ServerHello：服务器接受到ClientHello后，会返回ServerHello。服务器从客户端在ClientHello中提供的密码套件、SSL/TLS版本、压缩算法列表里选择它所支持的项，并把它的选择包含在ServerHello中告知客户端。接下来SSL协议的建立就基于服务器选择的密码套件类型、SSL/TLS协议版本以及压缩算法。
 
 ServerHello中同样会包含一个随机数，同样4+28 字节类型，由服务器生成。
 
-[![](https://introspelliam.github.io/images/2018-03-20/wKioL1VSsMKSspYqAAAZUQ7F42w765.jpg)
+[![](_assets/wKioL1VSsMKSspYqAAAZUQ7F42w765.jpg)
 ](https://introspelliam.github.io/images/2018-03-20/wKioL1VSsMKSspYqAAAZUQ7F42w765.jpg)
 
 Certificate：客户端和服务器都可以发送证书消息来证明自己的身份，但是通常客户端证书不被使用。 服务器一般在ServerHello后会接一条Certificate消息，Certificate消息中会包含一条证书链，从服务器证书开始，到Certificate authority(CA)或者最新的自签名证书结束。下图形象地描述了证书链：
 
-[![](https://introspelliam.github.io/images/2018-03-20/wKiom1VSr0izoCpBAABVvBbdOIE370.jpg)
+[![](_assets/wKiom1VSr0izoCpBAABVvBbdOIE370.jpg)
 ](https://introspelliam.github.io/images/2018-03-20/wKiom1VSr0izoCpBAABVvBbdOIE370.jpg)
 
 SSL中使用的证书通常是X.509类型证书，X.509证书的内容如下表所示：
 
-[![](https://introspelliam.github.io/images/2018-03-20/wKiom1VSr0jjInKFAABxEC_m-lI181.jpg)
+[![](_assets/wKiom1VSr0jjInKFAABxEC_m-lI181.jpg)
 ](https://introspelliam.github.io/images/2018-03-20/wKiom1VSr0jjInKFAABxEC_m-lI181.jpg)
 
 在用的X.509证书包含Version 1和Version 3两种版本，其中v1版本的证书存在安全隐患，同时不支持TLS扩展，被逐渐弃用。现在大多数在用的SSL证书都是V3版本。
 
 同时证书会附带与协商好的密钥交换算法对应的密钥。密钥交换算法以及它们所要求的密钥类型如下表所示。
 
-[![](https://introspelliam.github.io/images/2018-03-20/wKioL1VSsMKgTEBbAACbL3WUxBo700.jpg)
+[![](_assets/wKioL1VSsMKgTEBbAACbL3WUxBo700.jpg)
 ](https://introspelliam.github.io/images/2018-03-20/wKioL1VSsMKgTEBbAACbL3WUxBo700.jpg)
 
 ServerKeyExchange：该消息仅当以下密钥交换算法被使用时由服务器发出：
@@ -98,7 +98,7 @@ RSA\_EXPORT(仅当服务器的公钥大于512bit时)、DHE\_DSS、DHE\_DSS\_EXPO
 
 ServerkeyExchange消息会携带这些密钥交换算法所需要的额外参数，以在后续步骤中协商PreMasterSecret。这些参数需要被签过名。
 
-[![](https://introspelliam.github.io/images/2018-03-20/wKioL1VSsMPRSovPAAAU9RkXbck920.jpg)
+[![](_assets/wKioL1VSsMPRSovPAAAU9RkXbck920.jpg)
 ](https://introspelliam.github.io/images/2018-03-20/wKioL1VSsMPRSovPAAAU9RkXbck920.jpg)
 
 CertificateRequest：这个消息通常在要求认证客户端身份时才会有。消息中包含了证书类型以及可接受的CA列表。
@@ -131,26 +131,26 @@ Verify\_data域是一个PRF函数的输出(pseudo-random function)。这个伪�
 
 TLS-RSA：在这个场景下，PreMasterSecret是由客户端指定的，并用RSA公钥加密发送给服务器。服务器不影响PReMasterSecret的生成。
 
-[![](https://introspelliam.github.io/images/2018-03-20/wKiom1VSr0jwrDFUAACg_BdyVr8383.jpg)
+[![](_assets/wKiom1VSr0jwrDFUAACg_BdyVr8383.jpg)
 ](https://introspelliam.github.io/images/2018-03-20/wKiom1VSr0jwrDFUAACg_BdyVr8383.jpg)
 
 TLS-DH：基于DH的密钥交换也被称为静态Diffie-Hellman。在这种场景下，可能是双方各自提交一个证书包含DH公开值，或者服务器端提交证书包含DH公开值，客户端在每次会话中选择一个值。协商好的DH值被用作PreMasterSecret。显然证书中的参数是固定的，那么每次链接的PreMasterSecret也是相同的。
 
 TLS-DH不能提供前向安全性。
 
-[![](https://introspelliam.github.io/images/2018-03-20/wKiom1VSr0jBzNudAACY8GWuQpE314.jpg)
+[![](_assets/wKiom1VSr0jBzNudAACY8GWuQpE314.jpg)
 ](https://introspelliam.github.io/images/2018-03-20/wKiom1VSr0jBzNudAACY8GWuQpE314.jpg)
 
 TLS-DHE：基于DHE的TLS握手中会有ServerKeyExchange消息。握手过程中交换参数的认证通过数字签名来实现，支持的签名算法包括RSA和DSS。DH参数会有它的数字签名一起被包含在ServerKeyExchange中被发送出去。客户端在ClientKeyExchange中返回它的公开DH参数，但没有签名保护。同样协商出来的DH密钥被用作PreMasterSecret。
 
-[![](https://introspelliam.github.io/images/2018-03-20/wKioL1VSsMOiw4cbAACo6Xepd10940.jpg)
+[![](_assets/wKioL1VSsMOiw4cbAACo6Xepd10940.jpg)
 ](https://introspelliam.github.io/images/2018-03-20/wKioL1VSsMOiw4cbAACo6Xepd10940.jpg)
 
 #### [](#3-3-密钥生成 "3.3 密钥生成")**3.3 密钥生成**
 
 Pseudo-random Function(PRF)：伪随机函数是SSL协议中的一个重要组成部分，它被用来秘密扩展以及生成密钥。在3.1节讲解Finished消息时已经简单提及PRF，在这里我们详细讨论PRF的工作原理。SSL/TLS协议中的PRF如下图所示：
 
-[![](https://introspelliam.github.io/images/2018-03-20/wKioL1VSsMOC93_VAABj0w3MQLc312.jpg)
+[![](_assets/wKioL1VSsMOC93_VAABj0w3MQLc312.jpg)
 ](https://introspelliam.github.io/images/2018-03-20/wKioL1VSsMOC93_VAABj0w3MQLc312.jpg)
 
 这个PRF基于两个hash函数：MD5和SHA-1，它有3个输入，一个Secret(比如PreMasterSecret)，一个标志符(比如”client finished”, “server finished”)，还有一个种子值(比如客户端随机数+服务器端随机数)。
@@ -171,7 +171,7 @@ P\_MD5和P\_SHA-1都是扩展函数，用来扩展秘密值以用于密钥生成
 
 其中A(0) = seed, A(i) = HMAC_hash( secret, A( i −1) )
 
-[![](https://introspelliam.github.io/images/2018-03-20/wKiom1VSr0mSF2yoAAA_IOcXyB4627.jpg)
+[![](_assets/wKiom1VSr0mSF2yoAAA_IOcXyB4627.jpg)
 ](https://introspelliam.github.io/images/2018-03-20/wKiom1VSr0mSF2yoAAA_IOcXyB4627.jpg)
 
 这个秘密扩展会一直进行直到得到足够多的扩展数据。 Key Derivation：主密钥(MasterSecret)是利用上述PRF从预备主密钥(PreMasterSecret)生成的。每个MasterSecret为48字节，生成方式如下：
@@ -194,7 +194,7 @@ P\_MD5和P\_SHA-1都是扩展函数，用来扩展秘密值以用于密钥生成
 
 下图完整阐述了SSL/TLS协议中的密钥生成过程。
 
-[![](https://introspelliam.github.io/images/2018-03-20/wKiom1VSr0mi8fJKAADXBCsKs5U659.jpg)
+[![](_assets/wKiom1VSr0mi8fJKAADXBCsKs5U659.jpg)
 ](https://introspelliam.github.io/images/2018-03-20/wKiom1VSr0mi8fJKAADXBCsKs5U659.jpg)
 
 ### [](#四-从SSL到TLS "四 从SSL到TLS")**四 从SSL到TLS**
@@ -237,7 +237,7 @@ TLS 1.1：这个版本相比之前改动也很小。最重要的改动是预防�
 
 TLS 1.2：这是最新的版本，部署的还比较少。这个版本禁用了PRF中的MD5和SHA-1，而用一个可配置的hash函数取代了它们，这样的修改简化了计算过程。修改后的PRF风格如下：
 
-[![](https://introspelliam.github.io/images/2018-03-20/wKioL1VSsMOAbmeUAAA4m4cRNC8287.jpg)
+[![](_assets/wKioL1VSsMOAbmeUAAA4m4cRNC8287.jpg)
 ](https://introspelliam.github.io/images/2018-03-20/wKioL1VSsMOAbmeUAAA4m4cRNC8287.jpg)
 
 此外，TLS 1.2的一个重要变化是支持认证加密模式(支持GCM等)。但是由于一些AEAD(Authenticated Encryption with Associated Data)密码算法要求IV为隐式的，所以IV又恢复到由MasterSecret生成，即TLS 1.0以前的风格。
@@ -272,7 +272,7 @@ NSS：这是最初由网景公司(Netscape)开发的库，支持SSL 2.0/3.0，TL
 
 下表是一些常见软件以及它们所使用的SSL/TLS实现库的情况：
 
-[![](https://introspelliam.github.io/images/2018-03-20/wKioL1VSsMOyVFihAACtevi7ULc810.jpg)
+[![](_assets/wKioL1VSsMOyVFihAACtevi7ULc810.jpg)
 ](https://introspelliam.github.io/images/2018-03-20/wKioL1VSsMOyVFihAACtevi7ULc810.jpg)
 
 其它还有一些常用的SSL实现库，如cryptlib、CyaSSL、MatrixSSL、PolarSSL等，由于市场占有率不高，我们这里就不多做介绍了。

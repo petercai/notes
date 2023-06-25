@@ -1,5 +1,5 @@
 # The Apache Kafka Handbook – How to Get Started Using Kafka
- ![](https://www.freecodecamp.org/news/content/images/size/w2000/2023/02/apache-kafka-handbook.png) 
+ ![](_assets/apache-kafka-handbook.png) 
 
 Apache Kafka is an open-source event streaming platform that can transport huge volumes of data at very low latency.
 
@@ -18,7 +18,7 @@ Kafka lets you:
 
 The main thing Kafka does is help you efficiently connect diverse data sources with the many different systems that might need to use that data.
 
-![](https://www.freecodecamp.org/news/content/images/2023/01/before-and-after-kafka-1.PNG)
+![](_assets/before-and-after-kafka-1.PNG.png)
 
 Kafka helps you connect data sources to the systems using that data
 
@@ -136,7 +136,7 @@ A message consists of:
 *   headers for metadata (optional)
 *   partition and offset id (once the message is written to a topic)
 
-![](https://www.freecodecamp.org/news/content/images/2023/01/kafka-message-anatomy.PNG)
+![](_assets/kafka-message-anatomy.PNG.png)
 
 A Kafka message consisting of key, value, timestamp, compression type, and headers
 
@@ -158,7 +158,7 @@ Once a message is sent into a Kafka topic, it also receives a partition number a
 
 Kafka stores messages in a **topic**, an ordered sequence of events, also called an event log.
 
-![](https://www.freecodecamp.org/news/content/images/2023/01/topic.PNG)
+![](_assets/topic.PNG.png)
 
 A Kafka topic containing messages, each with a unique offset
 
@@ -168,7 +168,7 @@ Multiple applications can write to and read from the same topic. An application 
 
 One important feature of topics is that they are append-only. When you write a message to a topic, it's added to the end of the log. Events in a topic are immutable. Once they're written to a topic, you can't change them.
 
-![](https://www.freecodecamp.org/news/content/images/2023/01/producer-to-topics-consumer-from-topics.PNG)
+![](_assets/producer-to-topics-consumer-from-topics.PNG.png)
 
 A Producer writing events to topics and a Consumer reading events from topics
 
@@ -184,7 +184,7 @@ In order to help Kafka to scale, topics can be divided into **partitions**. This
 
 When you create a topic, you specify the amount of partitions it has. The partitions are themselves numbered, starting at 0. When a new event is written to a topic, it's appended to one of the topic's partitions.
 
-![](https://www.freecodecamp.org/news/content/images/2023/01/partitioned-topic.PNG)
+![](_assets/partitioned-topic.PNG.png)
 
 A topic divided into three partitions
 
@@ -192,7 +192,7 @@ If messages have no key, they will be evenly distributed among partitions in a r
 
 Messages that have the same key will always be sent to the same partition, and in the same order. The key is run through a hashing function which turns it into an integer. This output is then used to select a partition.
 
-![](https://www.freecodecamp.org/news/content/images/2023/01/messages-with-without-keys.PNG)
+![](_assets/messages-with-without-keys.PNG.png)
 
 Messages without keys are sent across partitions, while messages with the same keys are sent to the same partition
 
@@ -202,7 +202,7 @@ Messages within each partition are guaranteed to be ordered. For example, all me
 
 Each message in a partition gets an id that is an incrementing integer, called an **offset**. Offsets start at 0 and are incremented every time Kafka writes a message to a partition. This means that each message in a given partition has a unique offset.
 
-![](https://www.freecodecamp.org/news/content/images/2023/01/offsets.PNG)
+![](_assets/offsets.PNG.png)
 
 Offsets are unique within a partition but not between partitions
 
@@ -214,7 +214,7 @@ When data is read from a partition, it is read in order from the lowest existing
 
 A single "server" running Kafka is called a **broker**. In reality, this might be a Docker container running in a virtual machine. But it can be a helpful mental image to think of brokers as individual servers.
 
-![](https://www.freecodecamp.org/news/content/images/2023/01/cluster-with-three-brokers.PNG)
+![](_assets/cluster-with-three-brokers.PNG.png)
 
 A Kafka cluster made up of three brokers
 
@@ -224,7 +224,7 @@ By running as a cluster, Kafka becomes more scalable and fault-tolerant. If one 
 
 Each broker manages a set of partitions and handles requests to write data to or read data from these partitions. Partitions for a given topic will be spread evenly across the brokers in a cluster to help with load balancing. Brokers also manage replicating partitions to keep their data backed up.
 
-![](https://www.freecodecamp.org/news/content/images/2023/01/brokers-with-partitions.PNG)
+![](_assets/brokers-with-partitions.PNG.png)
 
 Partitions spread across brokers
 
@@ -234,7 +234,7 @@ To protect against data loss if a broker fails, Kafka writes the same data to co
 
 The main copy of a partition is called the leader, while the replicas are called followers.
 
-![](https://www.freecodecamp.org/news/content/images/2023/01/brokers-replication.PNG)
+![](_assets/brokers-replication.PNG.png)
 
 The data from the leader partition is copied to follower partitions on different brokers
 
@@ -250,7 +250,7 @@ Producers are client applications that write events to Kafka topics. These apps 
 
 Usually you will use a library to help manage writing events to Kafka. There is an official client library for Java as well as dozens of community-supported libraries for languages such as Scala, JavaScript, Go, Rust, Python, C#, and C++.
 
-![](https://www.freecodecamp.org/news/content/images/2023/01/producer-writing-to-topics.PNG)
+![](_assets/producer-writing-to-topics.PNG.png)
 
 A Producer application writing to multiple topics
 
@@ -266,7 +266,7 @@ It's the producer that decides which partition of a topic to send each message t
 
 Consumers are client applications that read messages from topics in a Kafka cluster. Like with producers, you write these applications yourself and can make use of client libraries to support the programming language your application is built with.
 
-![](https://www.freecodecamp.org/news/content/images/2023/01/consumer-reading-from-topics.PNG)
+![](_assets/consumer-reading-from-topics.PNG.png)
 
 A Consumer reading messages from multiple topics
 
@@ -290,7 +290,7 @@ When you create a consumer, you can assign it a group id. All consumers in a gro
 
 You can create consumer instances in a group up to the number of partitions in a topic. So if you have a topic with 5 partitions, you can create up to 5 instances of the same consumer in a consumer group. If you ever have more consumers in a group than partitions, the extra consumer will remain idle.
 
-![](https://www.freecodecamp.org/news/content/images/2023/01/consumer-group.PNG)
+![](_assets/consumer-group.PNG.png)
 
 Consumers in a consumer group reading messages from a topic's partitions
 
@@ -302,7 +302,7 @@ Kafka brokers use an internal topic called `__consumer_offsets` to keep track of
 
 As a consumer reads from a partition, it regularly saves the offset it has read up to and sends this data to the broker it is reading from. This is called the **consumer offset** and is handled automatically by most client libraries.
 
-![](https://www.freecodecamp.org/news/content/images/2023/01/consumer-committing-offsets.PNG)
+![](_assets/consumer-committing-offsets.PNG.png)
 
 A Consumer committing the offsets it has read up to
 
@@ -326,7 +326,7 @@ Zookeeper keeps track of things like:
 *   Consumer groups and their members
 *   Access Control Lists – who is allowed to write to and read from each topic
 
-![](https://www.freecodecamp.org/news/content/images/2023/01/zookeeper-ensemble-1.PNG)
+![](_assets/zookeeper-ensemble-1.PNG.png)
 
 A Zookeeper ensemble managing the brokers in a Kafka cluster
 
@@ -465,7 +465,7 @@ First, make sure Zookeeper and Kafka are running in two terminal windows.
 
 In a third terminal window, run `kafka-topics.sh` (on WSL2 or Linux) or `kafka-topics` (on macOS) to make sure the CLI is working. You'll see a list of all the options you can pass to the CLI.
 
-![](https://www.freecodecamp.org/news/content/images/2023/01/kafka-topics-sh.PNG)
+![](_assets/kafka-topics-sh.PNG.png)
 
 kafka-topics options
 
@@ -554,7 +554,7 @@ You can produce messages to a topic from the command line using `kafka-console-p
 
 Run `kafka-console-producer.sh` to see the options you can pass to it.
 
-![](https://www.freecodecamp.org/news/content/images/2023/01/kafka-console-producer.PNG)
+![](_assets/kafka-console-producer.PNG.png)
 
 kafka-console-producer options
 
@@ -572,7 +572,7 @@ kafka-console-producer.sh --bootstrap-server localhost:9092 --topic my_first_top
 
 Your prompt will change and you will be able to type text. Press `enter` to send that message. You can keep sending messages until you press `ctrl` \+ `c`.
 
-![](https://www.freecodecamp.org/news/content/images/2023/01/kafka-console-producer-sample-messages.PNG)
+![](_assets/kafka-console-producer-sample-messages.PNG.png)
 
 Sending messages using kafka-console-producer
 
@@ -598,7 +598,7 @@ fantasy:Uprooted
 horror:Mexican Gothic
 ```
 
-![](https://www.freecodecamp.org/news/content/images/2023/01/producing-messages-with-keys.PNG)
+![](_assets/producing-messages-with-keys.PNG.png)
 
 Producing messages with keys and values
 
@@ -610,7 +610,7 @@ You can consumer messages from a topic from the command line using `kafka-consol
 
 Run `kafka-console-consumer.sh` to see the options you can pass to it.
 
-![](https://www.freecodecamp.org/news/content/images/2023/01/kafka-console-consumer.PNG)
+![](_assets/kafka-console-consumer.PNG.png)
 
 kafka-console-consumer options
 
@@ -638,7 +638,7 @@ Use the `--formatter` option to set the message formatter and the `--property` o
 kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic my_first_topic --from-beginning --formatter kafka.tools.DefaultMessageFormatter --property print.timestamp=true --property print.key=true --property print.value=true 
 ```
 
-![](https://www.freecodecamp.org/news/content/images/2023/01/consuming-messages-from-a-topic-1.PNG)
+![](_assets/consuming-messages-from-a-topic-1.PNG.png)
 
 Consuming messages from a topic
 
@@ -652,7 +652,7 @@ You can run consumers in a consumer group using the Kafka CLI. To view the docum
 kafka-consumer-groups.sh 
 ```
 
-![](https://www.freecodecamp.org/news/content/images/2023/01/kafka-consumer-groups.PNG)
+![](_assets/kafka-consumer-groups.PNG.png)
 
 kafka-consumer-groups options
 
@@ -672,7 +672,7 @@ kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic fantasy_nove
 
 Next, open two new terminal windows and run the same command again to add a second and third consumer to the consumer group.
 
-![](https://www.freecodecamp.org/news/content/images/2023/01/three-consumers-in-group.PNG)
+![](_assets/three-consumers-in-group.PNG.png)
 
 Three consumers running in a consumer group
 
@@ -691,7 +691,7 @@ okorafor:Who Fears Death
 liu:The Grace of Kings
 ```
 
-![](https://www.freecodecamp.org/news/content/images/2023/01/messages-spread-across-consumer-group.PNG)
+![](_assets/messages-spread-across-consumer-group.PNG.png)
 
 Messages spread between consumers in a consumer group
 
@@ -726,7 +726,7 @@ In Intellij, select `File`, `New`, and `Project`.
 
 Give your project a name and select a location for it on your computer. Make sure you have selected Java as the language, Maven as the build system, and that the JDK is at least Java 11. Then click `Create`.
 
-![](https://www.freecodecamp.org/news/content/images/2023/01/new-maven-project.PNG)
+![](_assets/new-maven-project.PNG.png)
 
 Setting up a Maven project in IntelliJ
 
@@ -769,7 +769,7 @@ We're going to use the Java Kafka client for interacting with Kafka and SLF4J fo
 
 The package names and version numbers might be red, meaning you haven't downloaded them yet. If this happens, click on `View`, `Tool Windows`, and `Maven` to open the Maven menu. Click on the `Reload All Maven Projects` icon and Maven will install these dependencies.
 
-![](https://www.freecodecamp.org/news/content/images/2023/01/reload-maven.png)
+![](_assets/reload-maven.png)
 
 Reloading Maven dependencies in IntelliJ
 
@@ -859,7 +859,7 @@ producer.close();
 
 Now it's time to run our producer. **Make sure you have Zookeeper and Kafka running.** Then run the `main()` method of the `Producer` class.
 
-![](https://www.freecodecamp.org/news/content/images/2023/01/java-producer-single-message.PNG)
+![](_assets/java-producer-single-message.PNG.png)
 
 Sending a message from a producer in a Java Kafka client app
 
@@ -881,7 +881,7 @@ We can now check that `Producer` worked by using `kafka-console-consumer` in ano
 kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic lotr_characters --from-beginning 
 ```
 
-![](https://www.freecodecamp.org/news/content/images/2023/01/consumer-reading-single-message.PNG)
+![](_assets/consumer-reading-single-message.PNG.png)
 
 kafka-console-consumer reading the message sent by the producer in our Java app
 
@@ -935,7 +935,7 @@ If we get back an exception, we could handle it by retrying to send the message,
 
 Run the `main()` method of the `Producer` class and you should see the message metadata get logged.
 
-![](https://www.freecodecamp.org/news/content/images/2023/01/java-producer.PNG)
+![](_assets/java-producer.PNG.png)
 
 The full code for the `Producer` class should now be:
 
@@ -1075,7 +1075,7 @@ while(true){
 
 Now it's time to run our consumer. **Make sure you have Zookeeper and Kafka running.** Run the `Consumer` class and you'll see the messages that `Producer` previously sent to the `lotr_characters` topic in Kafka.
 
-![](https://www.freecodecamp.org/news/content/images/2023/01/java-consumer-reading-from-topic.PNG)
+![](_assets/java-consumer-reading-from-topic.PNG.png)
 
 The Kafka client app consuming messages that were previously produced to Kafka
 

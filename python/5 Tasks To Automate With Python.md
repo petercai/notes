@@ -1,6 +1,6 @@
 # 5 Tasks To Automate With Python
   
-![](https://www.kdnuggets.com/wp-content/uploads/5_things_automate_python_01.jpg)
+![](_assets/5_things_automate_python_01.jpg)
   
 Photo by Author  
 
@@ -45,7 +45,7 @@ python weather.py "Your City"
 ```
 
   
-![](https://www.kdnuggets.com/wp-content/uploads/5_things_automate_python_02.jpg)
+![](_assets/5_things_automate_python_02.jpg)
   
 
    

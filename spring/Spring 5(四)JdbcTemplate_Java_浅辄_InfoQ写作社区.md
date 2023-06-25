@@ -1,5 +1,5 @@
 # Spring 5(四)JdbcTemplate_Java_浅辄_InfoQ写作社区
-![](https://static001.geekbang.org/infoq/48/48d929be07260b9ceaa71e26cc6064af.jpeg)
+![](_assets/48d929be07260b9ceaa71e26cc6064af.jpeg.jpg)
 
 四.JdbcTemplate
 --------------
@@ -152,7 +152,7 @@ public class User {
       }
 ```
 
-![](https://static001.geekbang.org/infoq/f6/f67995e648afca1b17ed1648dabb7d0d.png)
+![](_assets/f67995e648afca1b17ed1648dabb7d0d.png)
 
 ##### 2.2 修改和删除
 

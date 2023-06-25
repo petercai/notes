@@ -1,5 +1,5 @@
 # eBPF 介绍 
-![](https://coolshell.cn/wp-content/uploads/2022/12/eBPF.jpeg)
+![](_assets/eBPF.jpeg.jpg)
 很早前就想写一篇关于eBPF的文章，但是迟迟没有动手，这两天有点时间，所以就来写一篇，这文章主要还是简单的介绍eBPF 是用来干什么的，并通过几个示例来介绍是怎么玩的，这个技术非常非常之强，Linux 操作系统的观测性实在是太强大了，并在 BCC 加持下变得一览无余。这个技术不是一般的运维人员或是系统管理员可以驾驭的，这个还是要有底层系统知识并有一定开发能力的技术人员才能驾驭的了的。**我在这篇文章的最后给了个彩蛋。** 
 
 #### 介绍
@@ -267,7 +267,7 @@ BCC（[BPF Compiler Collection](https://github.com/iovisor/bcc)）是一套开�
 
 下面这张图你可能见过多次了，你可以看看他可以干多少事，内核里发生什么事一览无余。
 
-![](https://github.com/iovisor/bcc/raw/master/images/bcc_tracing_tools_2019.png)
+![](_assets/bcc_tracing_tools_2019.png)
 
 #### 延伸阅读
 
@@ -292,12 +292,12 @@ BCC（[BPF Compiler Collection](https://github.com/iovisor/bcc)）是一套开�
 
 **附件一：ChatGPT的造假载图和样本**
 
-| [![](https://coolshell.cn/wp-content/uploads/2022/12/eBPF.ref_.1-195x300.png)
+| [![](_assets/eBPF.ref_.1-195x300.png)
 ](https://coolshell.cn/wp-content/uploads/2022/12/eBPF.ref_.1.png)
 
 点击看大图
 
- | [![](https://coolshell.cn/wp-content/uploads/2022/12/eBPF.ref_.2-286x300.png)
+ | [![](_assets/eBPF.ref_.2-286x300.png)
 ](https://coolshell.cn/wp-content/uploads/2022/12/eBPF.ref_.2.png)
 
 点击看大图
@@ -331,12 +331,12 @@ BCC（[BPF Compiler Collection](https://github.com/iovisor/bcc)）是一套开�
 
 **附件二：发明的术语：无损编译器**
 
-| [![](https://coolshell.cn/wp-content/uploads/2022/12/fake-180x300.png)
+| [![](_assets/fake-180x300.png)
 ](https://coolshell.cn/wp-content/uploads/2022/12/fake.png)
 
 点击看大图
 
- | [![](https://coolshell.cn/wp-content/uploads/2022/12/fake.term_-223x300.png)
+ | [![](_assets/fake.term_-223x300.png)
 ](https://coolshell.cn/wp-content/uploads/2022/12/fake.term_.png)
 
 点击看大图
@@ -345,5 +345,5 @@ BCC（[BPF Compiler Collection](https://github.com/iovisor/bcc)）是一套开�
 
 （全文完）
 
-![](https://coolshell.cn/wp-content/plugins/wp-postratings/images/loading.gif)
+![](_assets/loading.gif)
 Loading...

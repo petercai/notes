@@ -1,5 +1,5 @@
 # 【高并发】ScheduledThreadPoolExecutor与Timer的区别和简单示例_并发编程_冰河_InfoQ写作社区
-![](https://static001.geekbang.org/infoq/5e/5ecc61077dc258be0dd42a9944e52491.png)
+![](_assets/5ecc61077dc258be0dd42a9944e52491.png)
 
 JDK 1.5 开始提供 ScheduledThreadPoolExecutor 类，ScheduledThreadPoolExecutor 类继承 ThreadPoolExecutor 类重用线程池实现了任务的周期性调度功能。在 JDK 1.5 之前，实现任务的周期性调度主要使用的是 Timer 类和 TimerTask 类。本文，就简单介绍下 ScheduledThreadPoolExecutor 类与 Timer 类的区别，ScheduledThreadPoolExecutor 类相比于 Timer 类来说，究竟有哪些优势，以及二者分别实现任务调度的简单示例。
 

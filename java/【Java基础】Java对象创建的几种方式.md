@@ -53,7 +53,7 @@ Object student5 = ois.readObject();
 
 六、创建对象的 5 种方式调用构造器总结
 
-![](https://static001.geekbang.org/infoq/3a/3a469e52c20f50fdf330aad96e00d84a.png)
+![](_assets/3a469e52c20f50fdf330aad96e00d84a.png)
 
 Java 创建实例对象是不是必须要通过构造函数？这其实是衍生出来的一个面试题。上面问题的答案很明显了：Java 创建实例对象，并不一定必须要调用构造器的。
 

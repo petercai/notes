@@ -22,7 +22,7 @@ For instance, imagine I want to use some external API. I can ask ChatGPT to draf
 
 And ChatGPT answers right away:
 
-![](https://miro.medium.com/max/1400/1*mGtTfRt6XoDhz_T3MsNw6Q.png)
+![](_assets/1!mGtTfRt6XoDhz_T3MsNw6Q.png)
 
 Screenshot ChatGPT chat. ChatGPT gives me a code skeleton.
 
@@ -80,13 +80,13 @@ I can now directly ask it for its expert opinion on which option or library is b
 
 Let’s imagine I want to work with geospatial data but I am not sure whether I should use `Geopandas`or a `Plotly`. I can ask ChatGPT to compare for me — with a type included ;) — and it answers right away the main differences between both libraries.
 
-![](https://miro.medium.com/max/1400/1*qdcREof93P3b9G8vgnswIA.png)
+![](_assets/1!qdcREof93P3b9G8vgnswIA.png)
 
 Screenshot ChatGPT chat. ChatGPT explains to me the differences between geopandas and plotly.
 
 If now I want to scrape a website, I can ask what’s the best library to do so. ChatGPT answers with the most popular web-scraping libraries in Python.
 
-![](https://miro.medium.com/max/1400/1*95uwY7ylrJATCxlgaaPU-A.png)
+![](_assets/1!95uwY7ylrJATCxlgaaPU-A.png)
 
 Screenshot ChatGPT chat. ChatGPT explains the most popular scraping website
 
@@ -94,7 +94,7 @@ You can even ask what’s the best option for the website you want to scrape —
 
 > What’s the best option to scrape a social network?
 
-![](https://miro.medium.com/max/1400/1*eNnETarbhl7ZvhqLFXdbWw.png)
+![](_assets/1!eNnETarbhl7ZvhqLFXdbWw.png)
 
 Screenshot ChatGPT chat. ChatGPT explains the best option to scrape a social network.
 
@@ -144,7 +144,7 @@ while i <= int(jobs_num/2)+1:
 
 And ChatGPT answers right away with a really detailed explanation of the code above. You can even ask for some more details in a given part of the code — _just play a bit with ChatGPT and you’ll discover all the wonders it can make._
 
-![](https://miro.medium.com/max/1400/1*t9PnsLqrjhqh997nFJaUvQ.png)
+![](_assets/1!t9PnsLqrjhqh997nFJaUvQ.png)
 
 Screenshot ChatGPT chat. ChatGPT explains the code I didn’t understand.
 
@@ -213,7 +213,7 @@ Is we ask ChatGPT to write the previous code using Pep-8 standard, it will direc
 
 _Can you rewrite the following code using Pep8 standard \[Insert code here\]_
 
-![](https://miro.medium.com/max/1400/1*gOo04BGCwspR_VaMht11LA.png)
+![](_assets/1!gOo04BGCwspR_VaMht11LA.png)
 
 Screenshot ChatGPT chat. ChatGPT giving our code following Pep8 standard.
 

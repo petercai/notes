@@ -3,7 +3,7 @@
 > 
 > 🔥本文已收录于JAVA基础系列专栏： [Java基础教程](https://blog.csdn.net/m0_52316372/category_12008132.html) 免费订阅，持续更新。
 
-![](https://img-blog.csdnimg.cn/img_convert/65b5ee36b0f611646354ff15c4826a82.jpeg#pic_center)
+![](_assets/65b5ee36b0f611646354ff15c4826a82.jpeg.jpg)
   
 
 1.API
@@ -24,31 +24,31 @@
 
 *   打开帮助文档
 
-![](https://img-blog.csdnimg.cn/img_convert/28744f870236c12c97a94aff4f7413d4.png)
+![](_assets/28744f870236c12c97a94aff4f7413d4.png)
 
 *   找到索引选项卡中的输入框
 
-![](https://img-blog.csdnimg.cn/img_convert/b94b3df34cebca36074620411d2b11d4.png)
+![](_assets/b94b3df34cebca36074620411d2b11d4.png)
 
 *   在输入框中输入Random
 
-![](https://img-blog.csdnimg.cn/img_convert/cbf4618f69f26d1d671f6507033e2281.png)
+![](_assets/cbf4618f69f26d1d671f6507033e2281.png)
 
 *   看类在哪个包下
 
-![](https://img-blog.csdnimg.cn/img_convert/449640ea1d469193c3402397f2c1f8ed.png)
+![](_assets/449640ea1d469193c3402397f2c1f8ed.png)
 
 *   看类的描述
 
-![](https://img-blog.csdnimg.cn/img_convert/80d5f314246339d28f6d2882b7711edf.png)
+![](_assets/80d5f314246339d28f6d2882b7711edf.png)
 
 *   看构造方法
 
-![](https://img-blog.csdnimg.cn/img_convert/64d7db32916f88768bdbf9a4faf69904.png)
+![](_assets/64d7db32916f88768bdbf9a4faf69904.png)
 
 *   看成员方法
 
-![](https://img-blog.csdnimg.cn/img_convert/5ba475c31f7e7e9f2d622d3c21cc10de.png)
+![](_assets/5ba475c31f7e7e9f2d622d3c21cc10de.png)
 
 2.String类
 ---------
@@ -100,7 +100,7 @@ String 类代表字符串，Java 程序中的所有字符串文字（例如“ab
         }
     }` 
     
-    ![](https://csdnimg.cn/release/blogv2/dist/pc/img/newCodeMoreWhite.png)
+    ![](_assets/newCodeMoreWhite.png)
     
     *   1
     *   2
@@ -204,7 +204,7 @@ String 类代表字符串，Java 程序中的所有字符串文字（例如“ab
         }
     }` 
     
-    ![](https://csdnimg.cn/release/blogv2/dist/pc/img/newCodeMoreWhite.png)
+    ![](_assets/newCodeMoreWhite.png)
     
     *   1
     *   2
@@ -278,7 +278,7 @@ String 类代表字符串，Java 程序中的所有字符串文字（例如“ab
     }
 }` 
 
-![](https://csdnimg.cn/release/blogv2/dist/pc/img/newCodeMoreWhite.png)
+![](_assets/newCodeMoreWhite.png)
 
 *   1
 *   2
@@ -356,7 +356,7 @@ String 类代表字符串，Java 程序中的所有字符串文字（例如“ab
     }
 }` 
 
-![](https://csdnimg.cn/release/blogv2/dist/pc/img/newCodeMoreWhite.png)
+![](_assets/newCodeMoreWhite.png)
 
 *   1
 *   2
@@ -429,7 +429,7 @@ String 类代表字符串，Java 程序中的所有字符串文字（例如“ab
     }
 }` 
 
-![](https://csdnimg.cn/release/blogv2/dist/pc/img/newCodeMoreWhite.png)
+![](_assets/newCodeMoreWhite.png)
 
 *   1
 *   2
@@ -526,7 +526,7 @@ String 类代表字符串，Java 程序中的所有字符串文字（例如“ab
     }
 }` 
 
-![](https://csdnimg.cn/release/blogv2/dist/pc/img/newCodeMoreWhite.png)
+![](_assets/newCodeMoreWhite.png)
 
 *   1
 *   2
@@ -619,7 +619,7 @@ String 类代表字符串，Java 程序中的所有字符串文字（例如“ab
     }
 }` 
 
-![](https://csdnimg.cn/release/blogv2/dist/pc/img/newCodeMoreWhite.png)
+![](_assets/newCodeMoreWhite.png)
 
 *   1
 *   2
@@ -755,7 +755,7 @@ public class StringBuilderDemo01 {
     }
 }` 
 
-![](https://csdnimg.cn/release/blogv2/dist/pc/img/newCodeMoreWhite.png)
+![](_assets/newCodeMoreWhite.png)
 
 *   1
 *   2
@@ -818,7 +818,7 @@ public class StringBuilderDemo01 {
     }
 }` 
 
-![](https://csdnimg.cn/release/blogv2/dist/pc/img/newCodeMoreWhite.png)
+![](_assets/newCodeMoreWhite.png)
 
 *   1
 *   2
@@ -897,7 +897,7 @@ public class StringBuilderDemo01 {
     }
 }` 
 
-![](https://csdnimg.cn/release/blogv2/dist/pc/img/newCodeMoreWhite.png)
+![](_assets/newCodeMoreWhite.png)
 
 *   1
 *   2
@@ -992,7 +992,7 @@ public class StringBuilderDemo01 {
     }
 }` 
 
-![](https://csdnimg.cn/release/blogv2/dist/pc/img/newCodeMoreWhite.png)
+![](_assets/newCodeMoreWhite.png)
 
 *   1
 *   2

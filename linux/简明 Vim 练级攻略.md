@@ -139,7 +139,7 @@ vim的学习曲线相当的大（参看[各种文本编辑器的学习曲线](ht
     > 
     > \> 如果你认为单词是由blank字符分隔符，那么你需要使用大写的E和W。（陈皓注：程序语句）
     > 
-    > ![](http://yannesposito.com/Scratch/img/blog/Learn-Vim-Progressively/word_moves.jpg)
+    > ![](_assets/word_moves.jpg)
     
 
 下面，让我来说说最强的光标移动：
@@ -189,7 +189,7 @@ vim的学习曲线相当的大（参看[各种文本编辑器的学习曲线](ht
 > *   `t,` → 到逗号前的第一个字符。逗号可以变成其它字符。
 > *   `3fa` → 在当前行查找第三个出现的a。
 > *   `F` 和 `T` → 和 `f` 和 `t` 一样，只不过是相反方向。  
->     ![](http://yannesposito.com/Scratch/img/blog/Learn-Vim-Progressively/line_moves.jpg)
+>     ![](_assets/line_moves.jpg)
 >     
 
 还有一个很有用的命令是 `dt"` → 删除所有的内容，直到遇到双引号—— `"。`
@@ -212,7 +212,7 @@ vim的学习曲线相当的大（参看[各种文本编辑器的学习曲线](ht
 > *   `v2i)` → 会选择 `map (+) ("foo")`
 > *   `v2a)` → 会选择 `(map (+) ("foo"))`
 
-![](http://yannesposito.com/Scratch/img/blog/Learn-Vim-Progressively/textobjects.png)
+![](_assets/textobjects.png)
 
 ##### 块操作: `<C-v>`
 
@@ -223,7 +223,7 @@ vim的学习曲线相当的大（参看[各种文本编辑器的学习曲线](ht
 *   `<C-d>` → 向下移动 (你也可以使用hjkl来移动光标，或是使用%，或是别的)
 *   `I-- [ESC]` → I是插入，插入“`--`”，按ESC键来为每一行生效。
 
-![](http://yannesposito.com/Scratch/img/blog/Learn-Vim-Progressively/rectangular-blocks.gif)
+![](_assets/rectangular-blocks.gif)
 
 在Windows下的vim，你需要使用 `<C-q>` 而不是 `<C-v>` ，`<C-v>` 是拷贝剪贴板。
 
@@ -231,7 +231,7 @@ vim的学习曲线相当的大（参看[各种文本编辑器的学习曲线](ht
 
 在 Insert 模式下，你可以输入一个词的开头，然后按 `<C-p>或是<C-n>，自动补齐功能就出现了……`
 
-![](http://yannesposito.com/Scratch/img/blog/Learn-Vim-Progressively/completion.gif)
+![](_assets/completion.gif)
 
 ##### 宏录制： `qa` 操作序列 `q`, `@a`, `@@`
 
@@ -252,7 +252,7 @@ vim的学习曲线相当的大（参看[各种文本编辑器的学习曲线](ht
 > *   `@@` → 在2 正面写下3
 > *   现在做 `100@@` 会创建新的100行，并把数据增加到 103.
 
-![](http://yannesposito.com/Scratch/img/blog/Learn-Vim-Progressively/macros.gif)
+![](_assets/macros.gif)
 
 ##### 可视化选择： `v`,`V`,`<C-v>`
 
@@ -262,7 +262,7 @@ vim的学习曲线相当的大（参看[各种文本编辑器的学习曲线](ht
 *   `<` 或 `>` → 左右缩进
 *   `=` → 自动给缩进 （陈皓注：这个功能相当强大，我太喜欢了）
 
-![](http://yannesposito.com/Scratch/img/blog/Learn-Vim-Progressively/autoindent.gif)
+![](_assets/autoindent.gif)
 
 在所有被选择的行后加上点东西：
 
@@ -271,7 +271,7 @@ vim的学习曲线相当的大（参看[各种文本编辑器的学习曲线](ht
 *   `$` 到行最后
 *   `A`, 输入字符串，按 `ESC。`
 
-![](http://yannesposito.com/Scratch/img/blog/Learn-Vim-Progressively/append-to-many-lines.gif)
+![](_assets/append-to-many-lines.gif)
 
 ##### 分屏: `:split` 和 `vsplit`.
 
@@ -282,7 +282,7 @@ vim的学习曲线相当的大（参看[各种文本编辑器的学习曲线](ht
 > *   `<C-w>_` (或 `<C-w>|`) : 最大化尺寸 (<C-w>| 垂直分屏)
 > *   `<C-w>+` (或 `<C-w>-`) : 增加尺寸
 
-![](http://yannesposito.com/Scratch/img/blog/Learn-Vim-Progressively/split.gif)
+![](_assets/split.gif)
 
 #### 结束语
 

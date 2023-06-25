@@ -43,7 +43,7 @@
 
 为了使用 Cloud Code 继续处理我们的应用，首先确保你已经使用 Cloud Code 插件进行了登录，这可以通过点击 IntelliJ 窗口右上角的图标来实现：
 
-![](https://static001.infoq.cn/resource/image/7b/d0/7bba6e442bc7884c4ec320c6364660d0.jpg)
+![](_assets/7bba6e442bc7884c4ec320c6364660d0.jpg)
 
 除此之外，我们还会运行一些命令确保应用可以在你的机器上运行并且能够与 Google Cloud 上项目所需的服务进行通信。我们要确保指向了正确的项目并进行认证：
 
@@ -74,11 +74,11 @@ gcloud auth application-default login
 
 要事优先！我们需要从一个可以本地运行的简单应用开始。我们将会创建一个 Dog 微服务。因为我使用的是 IntelliJ Ultimate，所以可以依次访问“File -> New -> Project…”并选择“Spring Initializr”。在这里，我会选择 Maven、Jar 和 Java 11，并且会将其命名为`dog`，如下所示：
 
-![](https://static001.infoq.cn/resource/image/3f/c9/3ff0eb2edf522a618d5e079fab9726c9.jpg)
+![](_assets/3ff0eb2edf522a618d5e079fab9726c9.jpg)
 
 点击 next 并添加：Lombok、Spring Web 和 GCP Support，如下所示：
 
-![](https://static001.infoq.cn/resource/image/25/b5/25df32ed43c71f6a98348428fa0cb4b5.jpg)
+![](_assets/25df32ed43c71f6a98348428fa0cb4b5.jpg)
 
 如果一切正常的话，我们应该会得到一个可以运行的应用。如果你不想使用 IntelliJ 来完成该步骤的话，那么可以使用你的 IDE 的对等功能或者直接使用[Spring的Initilizr](https://start.spring.io/)。
 
@@ -242,11 +242,11 @@ $ ./mvnw install jib:build
 
 关于如何创建 GKE 集群，可以参考[这些指南](https://cloud.google.com/kubernetes-engine/docs/quickstart)。基本上来讲，你需要访问 GKE 页面，等待 API 启用，然后点击按钮来创建集群。你可以使用默认的配置，但是要确保点击“More options”按钮，并启用对 Cloud API 的完全访问：
 
-![](https://static001.infoq.cn/resource/image/7f/a2/7f32f731701768c86eda5640f2f387a2.jpg)
+![](_assets/7f32f731701768c86eda5640f2f387a2.jpg)
 
 这将允许你的 GKE 节点具有访问所有其他 Google Cloud 服务的权限。稍等片刻之后，集群就能创建出来了：
 
-![](https://static001.infoq.cn/resource/image/cf/ea/cf01800ce50db9e94aa228ae76495eea.jpg)
+![](_assets/cf01800ce50db9e94aa228ae76495eea.jpg)
 
 ### 在 Kubernetes 中，探测应用的存活状态
 
@@ -333,15 +333,15 @@ deployment 包含了几个针对就绪状态和存活状态探针的修改。Kub
 
 完成之后，我们现在就可以使用在本文开始时安装的 Cloud Code 插件进行启动了。通过 Tools 菜单，选择 Cloud Code -> Kubernetes -> Add Kubernetes Support。这将会自动向你的应用中添加 Skaffold YAML 并且会搭建一些内容，这样的话，我们只需点击一个按钮就可以将其部署到集群中了。要确认所有的这些都能正常运行，我们可以通过 IntelliJ 的 Run/Debug Configurations 探查配置。如果点击 Develop on Kubernetes 话，它会自动获取你的 GKE 和 Kubernetes 配置文件，如下所示：
 
-![](https://static001.infoq.cn/resource/image/50/a7/50bf84ed7f5d79d8238ee398fded1fa7.jpg)
+![](_assets/50bf84ed7f5d79d8238ee398fded1fa7.jpg)
 
 点击 Ok 按钮，然后点击右上角的绿色"Play"按钮：
 
-![](https://static001.infoq.cn/resource/image/ad/96/add3f3bb3961ebd6eb6868fc116ccb96.jpg)
+![](_assets/add3f3bb3961ebd6eb6868fc116ccb96.jpg)
 
 随后，Cloud Code 会自动构建应用、创建镜像、部署应用到 GKE 集群并将 Stackdriver 的日志转发到本地机器上。它还会打开一个通道，这样的话，我们就可以通过 **localhost:8080** 来消费该服务。你还可以在 Google Cloud Console 的工作负载页面查看：
 
-![](https://static001.infoq.cn/resource/image/04/5d/04af2966775367d580c01a34d954685d.jpg)
+![](_assets/04af2966775367d580c01a34d954685d.jpg)
 
 结论
 --

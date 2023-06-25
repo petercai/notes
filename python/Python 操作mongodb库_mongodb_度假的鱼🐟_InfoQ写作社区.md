@@ -8,11 +8,11 @@ MongoDB 是一个介于关系数据库和非关系数据库之间的产品，是
 
 在 mongodb 中是通过数据库、集合、文档的方式来管理数据,下边是 mongodb 与关系数据库的一些概念对比:
 
-![](https://static001.geekbang.org/infoq/d6/d682392cf78873bf1d30cc07538b9851.png)
+![](_assets/d682392cf78873bf1d30cc07538b9851.png)
 
 1、一个 mongodb 实例可以创建多个数据库 2、一个数据库可以创建多个集合 3、一个集合可以包括多个文档。
 
-![](https://static001.geekbang.org/infoq/c1/c17cc63834964729e8253d92d71ba80c.png)
+![](_assets/c17cc63834964729e8253d92d71ba80c.png)
 
 1.2 mongodb 优缺点
 ---------------
@@ -56,11 +56,11 @@ pip install -r  C:\Users\Administrator\Desktop\install.txt
 
 **普通安装** :
 
-![](https://static001.geekbang.org/infoq/c0/c026cc167a0dbceeb280e3d6b56d2d31.png)
+![](_assets/c026cc167a0dbceeb280e3d6b56d2d31.png)
 
 **卸载已安装的库**:
 
-![](https://static001.geekbang.org/infoq/72/72c9b58979bd69ecf2266a4afc7df3fc.png)
+![](_assets/72c9b58979bd69ecf2266a4afc7df3fc.png)
 
 3.2 Python 对 mongodb 增删改查
 -------------------------

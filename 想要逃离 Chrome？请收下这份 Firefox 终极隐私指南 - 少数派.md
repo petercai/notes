@@ -35,7 +35,7 @@
 
 这么多的版本，到底应该选哪个呢？我个人的建议是：如果你是个隐私狂人，想要最高等级的隐私保护，推荐直接用 Tor Browser 和 Librewolf，并且下面的配置部分也可以跳过，因为这两个浏览器已经提供了最佳保护设置；如果你是自由软件运动和 Richard Stallman 的坚定支持者，那么这里推荐 IceCat。不过这两种人一般都不需要我这种教程了吧。
 
-![](https://cdn.sspai.com/2022/11/07/article/e346a1c0d1aa5ea6555e5e36966947cf?imageView2/2/w/1120/q/90/interlace/1/ignore-error/1)
+![](_assets/e346a1c0d1aa5ea6555e5e36966947cf.jpg)
 
 **对于普通人，想要保证正常的网页浏览体验，我还是比较推荐用官方版本的 Firefox。** 
 
@@ -50,7 +50,7 @@
 
 首先，数据安全最重要，在 Firefox 地址栏中输入 `about:profiles` 再回车，就可以看到下图的界面，正常情况下这里只有一个配置文件，如果没有重命名过的话，配置文件名字是 default，同时会有两个文件夹，一般是一串乱码加配置文件名。第一个文件夹存储着浏览器的各种数据，比较重要，第二个文件夹存储的是缓存文件，可以不用关心。点击旁边的 「打开目录」 就可以在文件管理器用打开文件夹。我们要做的是将第一个文件夹复制到别处，如果不小心把浏览器折腾坏了，不知道如何恢复的话，只需删除配置文件夹，并将之前备份的配置文件夹复制回去，就可以恢复到之前的状态了。
 
-![](https://cdn.sspai.com/2022/11/07/article/d0d12567ecbf218893e77263fad419d9?imageView2/2/w/1120/q/90/interlace/1/ignore-error/1)
+![](_assets/d0d12567ecbf218893e77263fad419d9.png)
 
 另外你也可以点击上方的 「创建新配置文件」 再创建一个新的配置文件夹并设置为默认配置文件。这样下次打开 Firefox 就会默认读取新配置文件，不会影响到旧的配置文件。
 
@@ -60,16 +60,16 @@
 
 首先是主题配色，在最新的 Firefox 106 版本中，新添加了 Colorways 主题配色，在第一次启动浏览器时弹出的向导界面中就会推荐。
 
-![](https://cdn.sspai.com/2022/11/07/article/94b88c412d10aa4a83003c012a06e62e?imageView2/2/w/1120/q/90/interlace/1/ignore-error/1)
+![](_assets/94b88c412d10aa4a83003c012a06e62e.png)
 
 后续也可以点击浏览器左上角的 logo 进入 Firefox view 界面或地址栏输入 `about:addons`进入扩展管理页面修改 Colorways 配色，此外 Firefox 也内置了好几个主题配色，想要更多主题配色可以通过 Firefox 的 [扩展商店](https://addons.mozilla.org/zh-CN/firefox/themes/) 下载。我个人使用的是 [Dracula Dark Theme](https://addons.mozilla.org/zh-CN/firefox/addon/dracula-dark-colorscheme/)。
 
-![](https://cdn.sspai.com/2022/11/07/article/20a06eb3742d5eea6a12cd4dc7358c56?imageView2/2/w/1120/q/90/interlace/1/ignore-error/1)
-![](https://cdn.sspai.com/2022/11/07/article/919491331d6c9da7f5177e42b0d6c451?imageView2/2/w/1120/q/90/interlace/1/ignore-error/1)
+![](_assets/20a06eb3742d5eea6a12cd4dc7358c56.png)
+![](_assets/919491331d6c9da7f5177e42b0d6c451.png)
 
 然后是浏览器的页面布局，鼠标在浏览器标签栏空白处右键，在右键菜单中点击 「定制工具栏」，便可进入定制 Firefox 界面，工具栏上不想要的元素，只需用鼠标将其拖动放到中间区域，相对的，想要添加的元素也只需鼠标拖动到想要的位置，修改完点击右下角的完成即可。我个人习惯去掉地址栏两边的空白，在左上角添加一个主页按钮，将不常用的扩展放入折叠菜单，还有前文提到的的 Firefox view，这个功能是在 106 版本新加的，方便多设备同步，但是默认在左上角感觉很不协调，我就给挪到右上角了。
 
-![](https://cdn.sspai.com/2022/11/07/article/84b08f758e75b84f1ce0f2572f14e522?imageView2/2/w/1120/q/90/interlace/1/ignore-error/1)
+![](_assets/84b08f758e75b84f1ce0f2572f14e522.png)
 
 最后是主页内容，在地址栏输入  `about:preferences` 回车可以进入设置页面，左侧点击主页，在 Firefox 主页内容部分取消勾选除了网络搜索的所有部分，这样打开浏览器就是一个清爽的主页了。
 
@@ -81,7 +81,7 @@
 *   「启用基于 HTTPS 的 DNS」：启用后所有的 DNS 查询都将会由 DNS-over-HTTPS 提供商处理，而不会把查询结果泄漏给本地运营商。Firefox 默认内置了 Cloudflare 和 NextDNS 两个提供商，你也可以自行添加其他的服务商。需要注意的是，DNS-over-HTTPS 的速度要明显慢于普通 DNS，开启后可能会拖慢网页加载速度。
 *   「设置」>「搜索」，选择你常用的的搜索引擎，Firefox 默认内置了 google、百度、维基百科、Bing 和 DuckDuckGo 几个搜索引擎，想要添加其他的搜索引擎，可以从官方扩展商店以 [扩展](https://addons.mozilla.org/zh-CN/firefox/extensions/category/search-tools/) 的形式安装，或者在搜索引擎网址主页右键地址栏添加。
 
-![](https://cdn.sspai.com/2022/11/07/article/8ed8515cdeb5895b3540f47d5cbafe6c?imageView2/2/w/1120/q/90/interlace/1/ignore-error/1)
+![](_assets/8ed8515cdeb5895b3540f47d5cbafe6c.png)
 
 *   「搜索建议」：建议关闭，因为搜索建议是由搜索引擎提供的，有可能被用来收集隐私信息。
 *   「设置」>「隐私与安全」，找到增强性隐私保护，默认的标准模式不会拦截正常窗口的跟踪性内容，这里推荐选择为严格，虽然 Firefox 会提示你 「可能导致某些网站异常」，但我基本还没遇到过，如果真的遇见了网站异常，也可以添加例外。
@@ -102,7 +102,7 @@
 
 比如说要是我想禁用 `about:config` 的警示页面，可以在搜索框中输入 `browser.aboutConfig.showWarning`，只有一个结果，点击右边的箭头，true 变为 false。再重新打开 `about:config`，你就会发现，警示页面没有了。
 
-![](https://cdn.sspai.com/2022/11/07/article/733cdd2e741c7eedb9b3273c34ab57de?imageView2/2/w/1120/q/90/interlace/1/ignore-error/1)
+![](_assets/733cdd2e741c7eedb9b3273c34ab57de.png)
 
 让我们暂时先把 `browser.aboutConfig.showWarning` 调回 `true`，也就是不禁用警示页面。还记得 [前文](#%E5%A4%87%E4%BB%BD%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6)提到的配置文件目录吗，地址栏输入 `about:profiles`，找到当前的配置文件目录，打开目录，在里面新建一个文本文档，内容如下：
 
@@ -277,7 +277,7 @@ uBlock Origin 已经内置了很多去广告规则，可以根据个人需求自
 
 **网页翻译：** 从 Chrome 切换到 Firefox 后最大的痛点，就是没有内置翻译功能，虽然 Firefox 有自家的 [翻译工具](https://addons.mozilla.org/en-US/firefox/addon/firefox-translations/)，但是还在测试阶段，且支持的语言很少，我也试过很多翻译扩展，感觉都不太好用，目前在用的是 [TWP](https://addons.mozilla.org/en-US/firefox/addon/traduzir-paginas-web/)，感觉相对来说比较好用，它在地址栏右上角添加了一个类似 Chrome 的翻译按钮，支持整页翻译，不过我很少用，我最常用的还是它的划词翻译功能，网页选取需要翻译的内容，就会弹出一个按钮，翻译选中的内容。
 
-![](https://cdn.sspai.com/2022/11/07/article/da560b4514d3c1c578c0ed4bb82da23b?imageView2/2/w/1120/q/40/interlace/1/ignore-error/1)
+![](_assets/da560b4514d3c1c578c0ed4bb82da23b.png)
 
 还有一些我自用的扩展，可以根据自己需要安装，大部分大家都比较熟悉，就不一一介绍了。
 
@@ -310,7 +310,7 @@ Android 版本的 Firefox 被很多人诟病，也确实存在很多问题，比
 
 填好后，保存重启应用，点开附加组件页面，等它刷新就能发现，想要安装的扩展就已经在列表里面了。不过扩展安装后可能不会正常工作，请自行测试。
 
-![](https://cdn.sspai.com/2022/11/07/b036e6cc6924ddc383ee5de2fcbe3cf9.jpg?imageView2/2/w/1120/q/40/interlace/1/ignore-error/1)
+![](_assets/b036e6cc6924ddc383ee5de2fcbe3cf9.jpg)
 
 但是就算是 Nightly 版本的 Firefox，也没办法进入 `about:config` 页面。这就要提到第三方的 Fork 版本了。
 

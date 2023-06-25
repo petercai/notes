@@ -12,7 +12,7 @@ New Windows 11 keyboard shortcuts are updated in the below list. The Windows 11 
 
 You can use CTRL + Tab and Shift + CTRL + Tab to navigate through your tabs if you are a fan of **[Windows 11 File explorer](https://www.anoopcnair.com/windows-11-new-file-explorer-experience-feature/)** keyboard shortcuts. More details -> [Windows 11 File Explorer Tabs Experience Is Enabled](https://www.anoopcnair.com/windows-11-file-explorer-tabs-experience-enable/).
 
-![](https://www.anoopcnair.com/wp-content/uploads/2022/04/New-Windows-11-Keyboard-Shortcuts-Updated-List-2-1024x257.jpg)
+![](_assets/New-Windows-11-Keyboard-Shortcuts-Updated-List-2-1024x257.jpg)
 
 New Windows 11 Keyboard Shortcuts Updated List
 
@@ -21,7 +21,7 @@ New Windows 11 Keyboard Shortcuts Updated List
 
 **WIN+C** is the new update of windows 11 to open **chat from Microsoft Teams**. windows 11 updated new keyboard shortcuts for quick, faster, and efficient work. keyboard shortcuts in Windows 11 help to save time and increase productivity
 
-![](https://www.anoopcnair.com/wp-content/uploads/2022/04/MicrosoftTeams-image-3.png)
+![](_assets/MicrosoftTeams-image-3.png)
 
 open chat from Microsoft teams
 
@@ -35,7 +35,7 @@ open chat from Microsoft teams
 
 **WIN+K** is the new keyboard shortcut to open cast from quick settings. Quick settings in windows 11 help for quick actions like changing volume brightness, changing in wifi networks, turning on light mode and airplane mode, etc.
 
-![](https://www.anoopcnair.com/wp-content/uploads/2022/04/New-Windows-11-Keyboard-Shortcuts-Updated-List-1.jpg)
+![](_assets/New-Windows-11-Keyboard-Shortcuts-Updated-List-1.jpg)
 
 **Snap window in focus to the top half of the screen**
 ------------------------------------------------------
@@ -68,7 +68,7 @@ Quick Settings is the place for you to manage common PC settings quickly and eas
 
 It also helps IT pros make easy changes via quick settings that save time, rather than navigating through the system settings.
 
-![](https://www.anoopcnair.com/wp-content/uploads/2022/04/image-13-1-1.png)
+![](_assets/image-13-1-1.png)
 
 New Windows 11 Keyboard Shortcuts
 
@@ -77,7 +77,7 @@ New Windows 11 Keyboard Shortcuts
 
 Notification Center is the home for all your notifications in the OS and a full-month calendar view. It is also part of the new Action Center experience, available in the lower right corner of the Taskbar.
 
-![](https://www.anoopcnair.com/wp-content/uploads/2022/04/image-104-1.png)
+![](_assets/image-104-1.png)
 
 New Windows 11 Keyboard Shortcuts Updated List 1
 
@@ -90,7 +90,7 @@ Windows 11 brings you closer to the news and information you care about faster w
 
 Now, you can open a similarly curated view directly from your desktop. When you open your personalized feed, it slides across your screen like a sheet of glass, so it doesn’t disrupt what you’re doing.
 
-![](https://www.anoopcnair.com/wp-content/uploads/2022/04/image-102-1.png)
+![](_assets/image-102-1.png)
 
 Windows key + W keyboard shortcut – Open the Widgets interface
 
@@ -102,7 +102,7 @@ Windows key + W keyboard shortcut – Open the Widgets interface
 
 Snap layouts are a new feature part of **Windows 11,** introduced to help end-users provide a better multitasking experience. You can use the snap layout feature available for all the apps in Windows 11. This offers six layouts to arrange applications on the desktop depending on the display size.
 
-![](https://www.anoopcnair.com/wp-content/uploads/2022/04/image-260-1024x784-1.png)
+![](_assets/image-260-1024x784-1.png)
 
 New Windows 11 Keyboard Shortcuts
 
@@ -129,7 +129,7 @@ The following shortcuts are useful when using **AVD** or **Windows 365** Cloud P
 *   **CTRL+ALT+MINUS SIGN (-)** – Places a snapshot of the active window, within the client, on the clipboard.
 *   **CTRL+ALT+PLUS SIGN (+)** – Places a snapshot of the entire client windows area on the clipboard.
 
-![](https://www.anoopcnair.com/wp-content/uploads/2022/04/New-Windows-11-Keyboard-Shortcuts-Updated-List-4.jpg)
+![](_assets/New-Windows-11-Keyboard-Shortcuts-Updated-List-4.jpg)
 
 Virtual Desktop Keyboard Shortcuts with Windows 11
 
@@ -171,7 +171,7 @@ The Generic Windows 11 Keyboard shortcuts are given below.
 *   Alt + Page Down – Move down one screen.
 *   Ctrl + F4 – Close the active document (in full-screen apps and let you have multiple documents open simultaneously).
 
-![](https://www.anoopcnair.com/wp-content/uploads/2022/04/New-Windows-11-Keyboard-Shortcuts-Updated-List-5-1024x348.jpg)
+![](_assets/New-Windows-11-Keyboard-Shortcuts-Updated-List-5-1024x348.jpg)
 
 Windows 11 General Keyboard Shortcuts
 
@@ -223,7 +223,7 @@ Let’s look at Windows 11 Keyboard Shortcuts with Windows Key combinations. Thi
 
 **NOTE**: Applies to the Xbox Game Bar app version 5.721.7292.0 or newer. To update your Xbox Game Bar, go to the Microsoft Store app and check for updates.
 
-![](https://www.anoopcnair.com/wp-content/uploads/2022/04/New-Windows-11-Keyboard-Shortcuts-Updated-List-2-1024x257.jpg)
+![](_assets/New-Windows-11-Keyboard-Shortcuts-Updated-List-2-1024x257.jpg)
 
 Windows 11 Keyboard Shortcuts with Windows Key
 
@@ -294,7 +294,7 @@ Windows 11 Keyboard Shortcuts with Windows Key
 
 Let’s explore Windows 11 **[file explorer](https://www.anoopcnair.com/windows-11-new-file-explorer-experience-feature/)** shortcuts. This helps end-users to save a lot of time.
 
-![](https://www.anoopcnair.com/wp-content/uploads/2022/04/image-107.png)
+![](_assets/image-107.png)
 
 Windows 11 File Explorer Keyboard Shortcuts
 

@@ -37,7 +37,7 @@ redefine class（hotswap）, retransform class 这里看到 JVMTI 设计强大�
 
 使用 JNI 方式调用 JVMTI 接口访问目标虚拟机的大体流程图如下：
 
-![](https://static001.geekbang.org/infoq/35/35961ac0e257ecd62409a5390b01639d.png)
+![](_assets/35961ac0e257ecd62409a5390b01639d.png)
 
 其中，jvmti.h 头文件中定义了 JVMTI 接口提供的方法，我们简单看看 JDK 7 里面源代码一些重要方法：
 
@@ -114,7 +114,7 @@ Agent 启动拦截提供以下两种方式。
 
 启动时需要在目标程序的启动参数中添加 `-javaagent`参数，Java Agent 内部通过注册 ClassFileTransformer ，这个转化器在 Java 程序 `Main`方法前加了一层拦截器。在类加载之前，完成对字节码修改。
 
-![](https://static001.geekbang.org/infoq/6c/6cc4e0b481ec7a2c0527111f6526a778.png)
+![](_assets/6cc4e0b481ec7a2c0527111f6526a778.png)
 
 Premain 完整工作流程图
 
@@ -148,7 +148,7 @@ Java Agent 有着成熟的技术架构和对字节码通用的重写能力。它
 
 我们大致了解下 Java Agent 底层源代码实现过程：
 
-![](https://static001.geekbang.org/infoq/31/3165f240fe60107db60db50b7ae4d2a6.png)
+![](_assets/3165f240fe60107db60db50b7ae4d2a6.png)
 
 首先弄清几个概念。
 
@@ -187,7 +187,7 @@ Agent_OnUnload(JavaVM *vm);
 
 Instrument 实现了`Agent_OnLoad`和`Agent_OnAttach` 两方法，所以 Java Agent 既可以在 JVM 启动时，也就是加载 Java 字节码之前启动，也可以在 JVM 运行时启动，这很有价值。
 
-![](https://static001.geekbang.org/infoq/c4/c4d707f9c2da6a4bd7bb7e786f902edc.png)
+![](_assets/c4d707f9c2da6a4bd7bb7e786f902edc.png)
 
 大致画了一下 Java Agent 和 JVMTI 的关系
 
@@ -209,7 +209,7 @@ SUN 工具包(sun.instrument.InstrumentationImpl)编写了一些 Native 方法�
 
 Instrumentation 接口有一个最重要方法 `addTransformer`，它用于添加多个`ClassFileTransformer`。类似下面 Java Agent 实现的例子：
 
-![](https://static001.geekbang.org/infoq/25/25a7b706bc822f82c8bcf1b25e6e6924.png)
+![](_assets/25a7b706bc822f82c8bcf1b25e6e6924.png)
 
 `ClassFileTransformer` 中文类转换器，`ClassFileTransformer`提供了`tranform()`方法，用于对加载的类进行增强重定义，返回新的类字节码流。
 
@@ -282,7 +282,7 @@ public static void premain(String agentArgs);
 
 下面是我们实现`premain` 方法的一个测试类：
 
-![](https://static001.geekbang.org/infoq/72/72894bb92001a165bacd66ca72c5df21.png)
+![](_assets/72894bb92001a165bacd66ca72c5df21.png)
 
 ### Premain 方法工作原理
 
@@ -297,7 +297,7 @@ public static void premain(String agentArgs);
 *   `premain`方法里面，我们可以调用 Java Instrumentation API 完成字节码增强功能。
     
 
-![](https://static001.geekbang.org/infoq/07/072ee6032330d6cf9bb2086dbda6b37b.png)
+![](_assets/072ee6032330d6cf9bb2086dbda6b37b.png)
 
 ### 复习 Java Byte-code 字节码概念
 
@@ -307,7 +307,7 @@ public static void premain(String agentArgs);
 > 
 > 字节码主要为了实现特定软件运行和软件环境、与硬件环境无关。字节码的实现方式是通过编译器和虚拟机。编译器将源码编译成字节码，特定平台上的虚拟机将字节码转译为可以直接执行的指令。字节码的典型应用为[Java bytecode](https://zh.wikipedia.org/zh-cn/Java_bytecode)。
 
-![](https://static001.geekbang.org/infoq/ba/bad56c59c8bd3d856b4bc9b40a3d6140.png)
+![](_assets/bad56c59c8bd3d856b4bc9b40a3d6140.png)
 
 Java 程序运行原理
 
@@ -344,7 +344,7 @@ Agent 本质是通过操作字节码，动态修改运行时 Java 对象。
 
 字节码增强技术的实现有很多方式，简单整理下目前比较成熟的一些操作字节码的框架。
 
-![](https://static001.geekbang.org/infoq/79/792d4f67257afe73ebc78044e9cd2213.png)
+![](_assets/792d4f67257afe73ebc78044e9cd2213.png)
 
 *   `JDK动态代理`运行期动态的创建代理类，只支持接口；
     
@@ -410,7 +410,7 @@ public interface Hello {
 
 写一个测试程序，通过 ASM 代理模式，增强字节码后调用方法的效果：
 
-![](https://static001.geekbang.org/infoq/64/64e251f0c7193e21d6ccbf621391a9ec.png)
+![](_assets/64e251f0c7193e21d6ccbf621391a9ec.png)
 
 当然，基于 ASM 开发门槛比较高一些，你必须了解一定汇编原理和指令。
 
@@ -470,7 +470,7 @@ Demo 来源 bytebuddy.net
 
 1\. 构建 Maven 项目工程，添加 MANIFEST.MF , 目录大致如下。
 
-![](https://static001.geekbang.org/infoq/00/001e6aef7748821312744723afa07800.png)
+![](_assets/001e6aef7748821312744723afa07800.png)
 
 在 MANIFEST.MF 文件中定义 Premain-Class 属性，指定一个实现类。类中实现了 Premain 方法，这就是 Java Agent 在类加载启动入口。
 
@@ -571,13 +571,13 @@ public class PreMainTransformerDemo implements ClassFileTransformer{
 
 这段程序等价于：把指定 Java 类下所有方法进行了如下转换，重新生成字节码加载执行。
 
-![](https://static001.geekbang.org/infoq/8a/8a90dbd42ece50a407fc530f3608c78a.png)
+![](_assets/8a90dbd42ece50a407fc530f3608c78a.png)
 
 4\. 打包生成 Java Agent 的 Jar 包。
 
 在`pom.xml`配置好`maven assembly`，进行编译打包。
 
-![](https://static001.geekbang.org/infoq/05/05932c9f193e1b18849e69ebd45c09d3.png)
+![](_assets/05932c9f193e1b18849e69ebd45c09d3.png)
 
 5\. 写一个 Java 测试程序，验证探针是否生效。
 
@@ -619,7 +619,7 @@ public class ClassC {
 
 我们给测试程序打成可执行的 Jar 包，Jar 指定默认运行的类是 `AgentTest` 。
 
-![](https://static001.geekbang.org/infoq/b6/b6e9c79d96981a8ba03cd2da415218a1.png)
+![](_assets/b6e9c79d96981a8ba03cd2da415218a1.png)
 
 运行测试程序，通过`-javaagent`启动我们写的 Java Agent 探针。
 
@@ -630,7 +630,7 @@ java -javaagent:/path/agentdemo/target/javaagent-demo-0.0.1-SNAPSHOT-jar-with-de
 
 #### 运行效果
 
-![](https://static001.geekbang.org/infoq/21/21f0e57daf9b6ae6a58ede6bf04f8f5c.png)
+![](_assets/21f0e57daf9b6ae6a58ede6bf04f8f5c.png)
 
 程序运行时加载
 -------
@@ -645,7 +645,7 @@ JVM Attach：简单来说就是 JVM 提供一种 JVM 进程间通信的机制。
 
 存在一个 Attach Listener 线程，监听其他 JVM 的[Attach](https://mp.weixin.qq.com/s?__biz=MzIzNjI1ODc2OA==&mid=2650886799&idx=1&sn=108c5fdfcd2695594d4f80ff02fc9a70&scene=27#wechat_redirect "xxx") 请求，其通信方式基于 socket，JVM Attach 机制底层从 Kernel 到 Application 层完整流程图。
 
-![](https://static001.geekbang.org/infoq/44/442a193579a7cf08d2d011dcbb003d2d.png)
+![](_assets/442a193579a7cf08d2d011dcbb003d2d.png)
 
 具体 C 语言源代码实现，可以参考李嘉鹏这篇深入分享：
 
@@ -655,7 +655,7 @@ JVM Attach：简单来说就是 JVM 提供一种 JVM 进程间通信的机制。
 
 Java Agent 在运行时和启动时加载机制其实很像，主要区别在 Agent 进行字节码增强前，对于拦截入口不同而已。一个叫`Premain`，一个叫`Agentmain` 。 这一点很好理解：启动时，Agent 直接通过启动参数`-javaagent`吸附于当前 JVM 进程。运行时加载，其实当前 JVM 进程已经启动了。这时借助另一个 JVM 进程通信，调用 Attach API 再把 Agent 启动起来。后面的字节码修改和重加载的过程那就是一样的。
 
-![](https://static001.geekbang.org/infoq/dd/dd3f9c8351c1dfc6e3fa3a86dd8928f0.png)
+![](_assets/dd3f9c8351c1dfc6e3fa3a86dd8928f0.png)
 
 #### 运行时 Java Agent 配置
 
@@ -824,7 +824,7 @@ public class AttachJVM {
 
 1. 运行测试的 Java 程序，为了方便，也可以不用打成 Jar 运行。
 
-![](https://static001.geekbang.org/infoq/34/34ee2f4a11939dea653bfbe05e2f9cfa.png)
+![](_assets/34ee2f4a11939dea653bfbe05e2f9cfa.png)
 
 2. 我们启动 Attach 的 JVM 程序。它主要动作：
 
@@ -833,11 +833,11 @@ public class AttachJVM {
 *   VirtualMachine 借助 Attach API 的`LoadAgent`方法将 Agent 加载进来。
     
 
-![](https://static001.geekbang.org/infoq/61/6198a1fcd1e09b01b51889c98047e8e6.png)
+![](_assets/6198a1fcd1e09b01b51889c98047e8e6.png)
 
 3. Agent 开始工作！我们回过头来看看探针在测试程序的运行效果。
 
-![](https://static001.geekbang.org/infoq/2e/2ec027879f7f708a522095b28e3cb053.png)
+![](_assets/2ec027879f7f708a522095b28e3cb053.png)
 
 我们手写 Java 探针在 JVM 运行时也能动态改变字节码。
 

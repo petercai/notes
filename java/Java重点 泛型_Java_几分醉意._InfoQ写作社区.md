@@ -1,7 +1,7 @@
 # Java重点 | 泛型_Java_几分醉意._InfoQ写作社区
 > **泛型是一种<font color="red">未知的数据类型</font>，当我们不知道使用什么数据类型的时候，可以使用泛型，泛型也可以看做是一个变量，用来接收数据类型。E e：Element 元素 T t：Type 类型**
 
-![](https://static001.geekbang.org/infoq/72/7238353a98ad85ec222e841ece34b4a4.png)
+![](_assets/7238353a98ad85ec222e841ece34b4a4.png)
 
 ✨使用泛型的好处与弊端
 -----------
@@ -235,9 +235,9 @@ public class 主方法 {
 ✨泛型的通配符
 -------
 
-![](https://static001.geekbang.org/infoq/c8/c801692ae4fd1d8d001ae237607dbd11.png)
+![](_assets/c801692ae4fd1d8d001ae237607dbd11.png)
 
-![](https://static001.geekbang.org/infoq/88/8833288a1b50302a4a3c1200f103d4a8.png)
+![](_assets/8833288a1b50302a4a3c1200f103d4a8.png)
 
 <font color="red">举例说明</font>
 
@@ -278,7 +278,7 @@ public class 泛型的通配符 {
 ✨通配符的高级使用--受限泛型
 ---------------
 
-![](https://static001.geekbang.org/infoq/cd/cd2033a628b3ab335a34c9914fc0e10e.png)
+![](_assets/cd2033a628b3ab335a34c9914fc0e10e.png)
 
 <font color="red">泛型的上限限定：？ extends E 代表使用的泛型只能是 E 类型的子类/本身
 
@@ -355,4 +355,4 @@ public class 斗地主案例 {
 
 <font color="red">输出结果</font>
 
-![](https://static001.geekbang.org/infoq/3a/3a438fce92a276e74716b82f7f8e314d.png)
+![](_assets/3a438fce92a276e74716b82f7f8e314d.png)

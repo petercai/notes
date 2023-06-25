@@ -91,7 +91,7 @@ public class ListDemo {
 
 > LinkedList 是一个双向链表，那么双向链表是什么样子的呢，我们用个图了解下
 
-![](https://static001.geekbang.org/infoq/9d/9d738bc52c658f4ae9d757f06c330b59.png)
+![](_assets/9d738bc52c658f4ae9d757f06c330b59.png)
 
 实际开发中对一个集合元素的添加与删除经常涉及到首尾操作，而 LinkedList 提供了大量首尾操作的方法。这些方法我们作为了解即可：
 

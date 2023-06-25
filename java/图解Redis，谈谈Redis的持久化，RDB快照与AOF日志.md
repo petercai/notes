@@ -3,7 +3,7 @@
 
 **Redis 是一个键值对数据库**，服务器中通常包含着任意个非空数据库，而每个非空数据库中又可以包含任意个键值对，我们将是服务器中的非空数据库以及它们的键值对统称为数据库状态。
 
-![](https://static001.geekbang.org/infoq/eb/eba3efbdc8cbf3899cfcd89c1c3c0d32.png)
+![](_assets/eba3efbdc8cbf3899cfcd89c1c3c0d32.png)
 
 **Redis 是内存数据库**，它将数据存储在内存中，如果不能将内存中的数据持久化到磁盘中，Redis 突然宕机，会导致数据丢失。
 
@@ -37,7 +37,7 @@ redis.conf 配置文件中，`save <seconds> <changes>`，比如 save 60 20，�
 
 属性是一个数组，数组中的每个元素都是一个 saveparam 结构，每个 saveparam 结构都保存了一个 save 选项设置的保存条件。
 
-![](https://static001.geekbang.org/infoq/43/43c167b1616b956d39a3ed5673a4b518.png)
+![](_assets/43c167b1616b956d39a3ed5673a4b518.png)
 
 以上就是 Redis 服务器根据 save 选项所设置的保存条件，自动执行 bgsave 命令，进行间隔性数据保存的实现原理。
 
@@ -128,7 +128,7 @@ RDB 持久化功能所生成的 RDB 文件是一个经过压缩的二进制文�
 
 当同时开启 AOF 和 RDB 的时候，会优先加载 AOF 文件来恢复数据，因为通常情况下 AOF 文件比 RDB 文件备份的数据要完整。
 
-![](https://static001.geekbang.org/infoq/18/18b1185771a219cb0a106962b346fc0a.png)
+![](_assets/18b1185771a219cb0a106962b346fc0a.png)
 
 ### 三、Redis 事务
 
@@ -150,7 +150,7 @@ RDB 持久化功能所生成的 RDB 文件是一个经过压缩的二进制文�
 
 #### 3、事务命令执行顺序
 
-![](https://static001.geekbang.org/infoq/99/999aa7dd40c291176a2c990e131b3c2f.png)
+![](_assets/999aa7dd40c291176a2c990e131b3c2f.png)
 
 #### 4、事务的 ACID 特性
 

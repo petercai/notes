@@ -6,7 +6,7 @@
 
 在任何时刻只能向栈中插入一个对象，但只能取得或者删除只能在栈顶进行。比如由书构成的栈，唯一露出封面的书就是顶部的那本，为了拿到其他的书，只能移除压在上面的书，如图：
 
-![](https://static001.geekbang.org/infoq/81/81ec141a26831104e85eb0b3abb90a81.png)
+![](_assets/81ec141a26831104e85eb0b3abb90a81.png)
 
 ### 栈的实际应用
 
@@ -52,7 +52,7 @@
 *   `size()`：返回栈中元素的数据。它不需要参数，且会返回一个整数。在 Python 中，可以用 `__len__` 这个特殊方法实现。
     
 
-![](https://static001.geekbang.org/infoq/f8/f82fbe46089a410f99dba6b5c5889c84.jpeg?x-oss-process=image%2Fresize%2Cp_80%2Fauto-orient%2C1)
+![](_assets/f82fbe46089a410f99dba6b5c5889c84.jpeg.jpg)
 
 Python 栈的大小可能是固定的，也可能有一个动态的实现，即允许大小变化。在大小固定栈的情况下，试图向已经满的栈添加一个元素会导致栈溢出异常。同样，试图从一个已经是空的栈中移除一个元素，进行 `pop()` 操作这种情况被称为下溢。
 
@@ -72,7 +72,7 @@ Python 栈的大小可能是固定的，也可能有一个动态的实现，即�
 *   通过 `len()` 函数实现 `size()` 函数
     
 
-![](https://static001.geekbang.org/infoq/e7/e7e80e3680c3e58cc0333f8f1348a98a.png)
+![](_assets/e7e80e3680c3e58cc0333f8f1348a98a.png)
 
 代码如下：
 
@@ -223,13 +223,13 @@ IndexError: pop from an empty deque
 
 那是因为，Python 中的列表建立在连续的内存块中，意味着列表的元素是紧挨着存储的。
 
-![](https://files.realpython.com/media/stack_list_memory_usage.bf57ab8fa608.png)
+![](_assets/stack_list_memory_usage.bf57ab8fa608.png)
 
 这对一些操作来说非常有效，比如对列表进行索引。获取 `myList[3]` 的速度很快，因为 Python 确切地知道在内存中寻找它的位置。这种内存布局也允许切片在列表上很好地工作。
 
 毗连的内存布局是 list 可能需要花费更多时间来 `.append()` 一些对象。如果连续的内存块已经满了，那么它将需要获得另一个内存块，先将整体 copy 过去，这个动作可能比一般的 `.append()` 操作花费更多的时间。
 
-![](https://files.realpython.com/media/stack_list_memory_push.8ad17a48f40a.png)
+![](_assets/stack_list_memory_push.8ad17a48f40a.png)
 
 而双端队列 `deque` 是建立在一个双链表的基础上。在一个链接列表结构中，每个条目都存储在它自己的内存块中，并有一个对列表中下一个条目的引用。
 
@@ -237,7 +237,7 @@ IndexError: pop from an empty deque
 
 在一个链接列表结构中添加一个新的条目，只需要设置新条目的引用指向当前堆栈的顶部，然后将堆栈的顶部指向新条目。
 
-![](https://static001.geekbang.org/infoq/70/70540efbaabb328eaa3cd8d975cebd92.png)
+![](_assets/70540efbaabb328eaa3cd8d975cebd92.png)
 
 然而，这种在栈上不断增加和删除条目的时间是有代价的。获取 `myDeque[3]` 的速度要比列表慢，因为 Python 需要走过列表的每个节点来获取第三个元素。
 

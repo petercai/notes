@@ -33,7 +33,7 @@ Visitor（访问者模式）属于行为型模式。
 **结构图**
 -------
 
-![](https://pic3.zhimg.com/v2-53208bdb8eb7268666856affb4054892_b.jpg)
+![](_assets/v2-53208bdb8eb7268666856affb4054892_b.jpg)
 
 *   Visitor：访问者接口。
 *   ConcreteVisitor：具体的访问者。
@@ -163,6 +163,6 @@ public visit(concreteElementA: ConcreteElementA) {
 
 > 关注 **前端精读微信公众号**  
 
-![](https://pic3.zhimg.com/v2-d46b608443dd2afa3dea21b96236fa06_b.jpg)
+![](_assets/v2-d46b608443dd2afa3dea21b96236fa06_b.jpg)
 
 > 版权声明：自由转载-非商用-非衍生-保持署名（**[创意共享 3.0 许可证](https://link.zhihu.com/?target=https%3A//creativecommons.org/licenses/by-nc-nd/3.0/deed.zh)**）··

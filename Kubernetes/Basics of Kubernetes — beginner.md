@@ -5,11 +5,11 @@ He found tools that automate the process of developing and managing multi-contai
 
 **Kubernetes** is an example of an orchestration tool. This article explains the basic components of Kubernetes.
 
-![](https://miro.medium.com/max/1200/1*UgVtOlgQEE1XEnY-7lLdTA.png)
+![](_assets/1!UgVtOlgQEE1XEnY-7lLdTA.png)
 
 **Kubernetes** is an orchestration tool that helps to manage and scale multi-container applications. Kubernetes groups your containers into pods and then deploys the pods to different servers.
 
-![](https://miro.medium.com/max/512/1*2Q4FsymDIDtWS_aqiDbwSA.png)
+![](_assets/1!2Q4FsymDIDtWS_aqiDbwSA.png)
 
 **A pod** is a collection of one or more containers. Most times, a pod contains only one container. A pod usually contains more than one container when the containers are tightly coupled ( _are dependent on each other_ ).
 
@@ -23,7 +23,7 @@ So if a pod dies or is overloaded, Kubernetes replicates it and redeploy the rep
 
 Pods run on a server or a virtual machine. In a Kubernetes architecture, these servers or virtual machines are called **nodes**.
 
-![](https://miro.medium.com/max/218/1*ER-4hz_zJr232_EhvIAciA.png)
+![](_assets/1!ER-4hz_zJr232_EhvIAciA.png.jpg)
 
 image from [sysspace](https://www.sysspace.net/post/kubernetes-diving-in)
 

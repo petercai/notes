@@ -36,7 +36,7 @@ JC-1.快速上手 SpringBoot
 
 **步骤①**：创建新模块，选择 Spring Initializr，并配置模块相关基础信息
 
-![](https://static001.geekbang.org/infoq/32/32485b5a94f1bd490dffc5d476c06131.png)
+![](_assets/32485b5a94f1bd490dffc5d476c06131.png)
 
 ```
 <font color="#ff0000"><b>特别关注</b></font>：第3步点击Next时，Idea需要联网状态才可以进入到后面那一页，如果不能正常联网，就无法正确到达右面那个设置页了，会一直<font color="#ff0000"><b>联网</b></font>转转转
@@ -46,7 +46,7 @@ JC-1.快速上手 SpringBoot
 
 **步骤②**：选择当前模块需要使用的技术集
 
-![](https://static001.geekbang.org/infoq/c3/c3229756985bdbc8c38be840d893f3a7.png)
+![](_assets/c3229756985bdbc8c38be840d893f3a7.png)
 
 ```
 按照要求，左侧选择web，然后在中间选择Spring Web即可，选完右侧就出现了新的内容项，这就表示勾选成功了
@@ -80,7 +80,7 @@ public class BookController {
 使用带main方法的java程序的运行形式来运行程序，运行完毕后，控制台输出上述信息。
 ```
 
-![](https://static001.geekbang.org/infoq/53/537c2580de3b06e58403bf70028e25d7.png)
+![](_assets/537c2580de3b06e58403bf70028e25d7.png)
 
 测试功能是否工作正常.
 
@@ -118,25 +118,25 @@ IDEA 不能联网创建 SpringBoot 程序。
 SpringBoot官网和Spring的官网是在一起的，都是  spring.io  。你可以通过项目一级一级的找到SpringBoot技术的介绍页，然后在页面中间部位找到如下内容
 ```
 
-![](https://static001.geekbang.org/infoq/67/674e9061487a23ac02f9eff4cabbed16.png)
+![](_assets/674e9061487a23ac02f9eff4cabbed16.png)
 
-![](https://static001.geekbang.org/infoq/d1/d1bcce1cb03929666b626f4671e1d2a4.png)
+![](_assets/d1bcce1cb03929666b626f4671e1d2a4.png)
 
 **步骤①**：点击 Spring Initializr 后进入到创建 SpringBoot 程序的界面上，下面是输入信息的过程，和前面的一样，只是界面变了而已，根据自己的要求，在左侧选择对应信息和输入对应的信息即可
 
-![](https://static001.geekbang.org/infoq/7f/7fd5763db1f324e235fccaf2ba08151a.png)
+![](_assets/7fd5763db1f324e235fccaf2ba08151a.png)
 
 **步骤②**：右侧的 ADD DEPENDENCIES 用于选择使用何种技术，和之前勾选的 Spring WEB 是在做同一件事，仅仅是界面不同而已，点击后打开网页版的技术选择界面
 
-![](https://static001.geekbang.org/infoq/dd/ddd2cf47414042142aadcd9c6be939ca.png)
+![](_assets/ddd2cf47414042142aadcd9c6be939ca.png)
 
 **步骤③**：所有信息设置完毕后，点击下面左侧按钮，生成一个文件包
 
-![](https://static001.geekbang.org/infoq/b4/b45beb1c86f723ff80367d9b372bddbe.png)
+![](_assets/b45beb1c86f723ff80367d9b372bddbe.png)
 
 **步骤④**：保存后得到一个压缩文件，这个文件打开后就是创建的 SpringBoot 工程文件夹了
 
-![](https://static001.geekbang.org/infoq/42/42dcf2e9283a2c1cdd0950349dc0dc44.png)
+![](_assets/42dcf2e9283a2c1cdd0950349dc0dc44.png)
 
 **步骤⑤**：解压缩此文件后，得到工程目录，在 Idea 中导入即可使用，和之前创建的东西完全一样。下面就可以自己创建一个 Controller 测试一下是否能用了。
 
@@ -155,7 +155,7 @@ Idea工具中创建SpringBoot工程其实连接的就是SpringBoot的官网，�
 地址：http://start.aliyun.com或https://start.aliyun.com
 ```
 
-![](https://static001.geekbang.org/infoq/56/56275821bd347dd4d964436d887be207.png)
+![](_assets/56275821bd347dd4d964436d887be207.png)
 
 ```
 阿里为了便于自己开发使用，因此在依赖坐标中添加了一些阿里相关的技术，也是为了推广自己的技术吧，所以在依赖选择列表中，你有了更多的选择。
@@ -163,7 +163,7 @@ Idea工具中创建SpringBoot工程其实连接的就是SpringBoot的官网，�
 
 不过有一点需要说清楚，阿里云地址默认创建的 SpringBoot 工程版本是 **2.4.1**，所以如果你想更换其他的版本，创建项目后手工修改即可，别忘了刷新一下，加载新版本信息。
 
-![](https://static001.geekbang.org/infoq/4e/4e6ed965b9fc18a520003dd4d284db67.png)
+![](_assets/4e6ed965b9fc18a520003dd4d284db67.png)
 
 ```
 <font color="#ff0000"><b>注意</b></font>：阿里云提供的工程创建地址初始化完毕后和实用SpringBoot官网创建出来的工程略有区别。主要是在配置文件的形式上有区别。这个信息在后面讲解Boot程序的执行流程时给大家揭晓
@@ -190,7 +190,7 @@ Idea工具中创建SpringBoot工程其实连接的就是SpringBoot的官网，�
 
 **步骤①**：创建工程时，选择手工创建 Maven 工程
 
-![](https://static001.geekbang.org/infoq/c2/c247dfa166456dbed2a6a3a119dd131c.png)
+![](_assets/c247dfa166456dbed2a6a3a119dd131c.png)
 
 **步骤②**：参照标准 SpringBoot 工程的 pom 文件，书写自己的 pom 文件即可
 
@@ -865,7 +865,7 @@ JC-2.SpringBoot 基础配置
 SpringBoot通过配置文件application.properties就可以修改默认的配置，那咱们就先找个简单的配置下手，当前访问tomcat的默认端口是8080，好熟悉的味道，但是不便于书写，我们先改成80，通过这个操作来熟悉一下SpringBoot的配置格式是什么样的
 ```
 
-![](https://static001.geekbang.org/infoq/8b/8bda005f55a80778545c76b94496d3d2.png)
+![](_assets/8bda005f55a80778545c76b94496d3d2.png)
 
 ```
 那该如何写呢？properties格式的文件书写规范是key=value
@@ -875,7 +875,7 @@ SpringBoot通过配置文件application.properties就可以修改默认的配置
 这个格式肯定是不能颠覆的，那就尝试性的写就行了，改端口，写port。当你输入port后，神奇的事情就发生了，这玩意儿带提示，太好了
 ```
 
-![](https://static001.geekbang.org/infoq/19/19cad217ca2820cb3aa6828143d5145a.png)
+![](_assets/19cad217ca2820cb3aa6828143d5145a.png)
 
 ```
 下面就可以直接运行程序，测试效果了。
@@ -1137,7 +1137,7 @@ users2: [ { name:Tom , age:4 } , { name:Jerry , age:5 } ]
 yaml中保存的单个数据，可以使用Spring中的注解直接读取，使用@Value可以读取单个数据，属性名引用方式：<font color="#ff0000"><b>${一级属性名.二级属性名……}</b></font>
 ```
 
-![](https://static001.geekbang.org/infoq/98/989f94114e64381edb6ec59ab53f5338.png)
+![](_assets/989f94114e64381edb6ec59ab53f5338.png)
 
 ```
 记得使用@Value注解时，要将该注入写在某一个指定的Spring管控的bean的属性名上方。现在就可以读取到对应的单一数据行了
@@ -1156,7 +1156,7 @@ yaml中保存的单个数据，可以使用Spring中的注解直接读取，使�
 读取单一数据可以解决读取数据的问题，但是如果定义的数据量过大，这么一个一个书写肯定会累死人的，SpringBoot提供了一个对象，能够把所有的数据都封装到这一个对象中，这个对象叫做Environment，使用自动装配注解可以将所有的yaml数据封装到这个对象中
 ```
 
-![](https://static001.geekbang.org/infoq/aa/aaa363ec9f4381a472b6e0419cbba173.png)
+![](_assets/aaa363ec9f4381a472b6e0419cbba173.png)
 
 ```
 数据封装到了Environment对象中，获取属性时，通过Environment的接口操作进行，具体方法时getProperties（String），参数填写属性名即可
@@ -1177,13 +1177,13 @@ yaml中保存的单个数据，可以使用Spring中的注解直接读取，使�
 首先定义一个对象，并将该对象纳入Spring管控的范围，也就是定义成一个bean，然后使用注解@ConfigurationProperties指定该对象加载哪一组yaml中配置的信息。
 ```
 
-![](https://static001.geekbang.org/infoq/03/0316bfd35f5650259844561e9450cd52.png)
+![](_assets/0316bfd35f5650259844561e9450cd52.png)
 
 ```
 这个@ConfigurationProperties必须告诉他加载的数据前缀是什么，这样当前前缀下的所有属性就封装到这个对象中。记得数据属性名要与对象的变量名一一对应啊，不然没法封装。其实以后如果你要定义一数据自己使用，就可以先写一个对象，然后定义好属性，下面到配置中根据这个格式书写即可。
 ```
 
-![](https://static001.geekbang.org/infoq/48/48ce4453e4aec2f2261f824ee83ff07d.png)
+![](_assets/48ce4453e4aec2f2261f824ee83ff07d.png)
 
 **总结**
 
@@ -1392,9 +1392,9 @@ class Springboot04JunitApplicationTests {
 
 **步骤①**：创建模块时勾选要使用的技术，MyBatis，由于要操作数据库，还要勾选对应数据库
 
-![](https://static001.geekbang.org/infoq/be/be8c3ac470969db02378e07643dbf522.png)
+![](_assets/be8c3ac470969db02378e07643dbf522.png)
 
-![](https://static001.geekbang.org/infoq/dc/dc6cdd59c5f631e6c5e986067ff36a5a.png)
+![](_assets/dc6cdd59c5f631e6c5e986067ff36a5a.png)
 
 ```
 或者手工导入对应技术的starter，和对应数据库的坐标
@@ -1592,7 +1592,7 @@ public interface BookDao extends BaseMapper<Book> {
 核心在于Dao接口继承了一个BaseMapper的接口，这个接口中帮助开发者预定了若干个常用的API接口，简化了通用API接口的开发工作。
 ```
 
-![](https://static001.geekbang.org/infoq/ea/ead70224bf26cc2491397c08004e026f.png)
+![](_assets/ead70224bf26cc2491397c08004e026f.png)
 
 **温馨提示**
 
@@ -1713,7 +1713,7 @@ spring:
 注意观察，配置项中，在datasource下面并不是直接配置url这些属性的，而是先配置了一个druid节点，然后再配置的url这些东西。言外之意，url这个属性时druid下面的属性，那你能想到吗？除了这4个常规配置外，还有druid专用的其他配置。通过提示功能可以打开druid相关的配置查阅
 ```
 
-![](https://static001.geekbang.org/infoq/b8/b85d78b56d5f90a1d83d942a920afbad.png)
+![](_assets/b85d78b56d5f90a1d83d942a920afbad.png)
 
 ```
 与druid相关的配置超过200条以上，这就告诉你，如果想做druid相关的配置，使用这种格式就可以了，这里就不展开描述了，太多了。

@@ -1,5 +1,5 @@
 # Cookie与缓存的指导性规则
-![](https://static001.geekbang.org/infoq/1b/1b54e6803fd0af8ca377bed71e210250.png)
+![](_assets/1b54e6803fd0af8ca377bed71e210250.png)
 
 缓存那些与 cookie 事务有关的文档时要特别小心。你不会希望给用户分配一个过去某些用户用过的 cookie，或者更糟糕的是，向一个用户展示其他人私有文档的内容。
 

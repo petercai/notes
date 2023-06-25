@@ -27,13 +27,13 @@ Furthermore, in Saga, a compensating transaction should be retriable and idempot
 
 1.  Choreography - Each microservice produces and listens. Check out its example pattern below.
 
-![](https://blog.openreplay.com/images/7-microservice-design-patterns-to-use/images/image01.png)
+![](_assets/image01.png)
 
 A diagram of how a Choreography pattern works. Image source - Microsoft.com
 
 2.  Orchestration - An Orchestrator is responsible for decision-making. Check out its example pattern below.
 
-![](https://blog.openreplay.com/images/7-microservice-design-patterns-to-use/images/image02.png)
+![](_assets/image02.png)
 
 A diagram of how an Orchestration pattern works. Image source - Microsoft.com
 
@@ -58,7 +58,7 @@ More on database per microservice
 *   Individual data stores are easier to scale
 *   [Polyglot persistence](https://docs.rackspace.com/blog/what-is-polyglot-persistence/) that enables the use of various database technologies for different microservices
 
-![](https://blog.openreplay.com/images/7-microservice-design-patterns-to-use/images/image03.png)
+![](_assets/image03.png)
  A diagram of how a database per microservice pattern works. Image Source - Mehmet Ozkaya
 
 Aggregator pattern
@@ -76,7 +76,7 @@ More on Aggregator pattern
 *   X-axis and Z-axis scalability
 *   Provides microservices with a single access point
 
-![](https://blog.openreplay.com/images/7-microservice-design-patterns-to-use/images/image04.jpg)
+![](_assets/image04.jpg)
 
 A diagram of how an Aggregator pattern works. Image Source - tutorialspoint.com
 
@@ -101,7 +101,7 @@ More on Event Sourcing
 *   The pattern helps prevent concurrent updates from making conflicts
 *   Immutable events could be stored with an append-only operation
 
-![](https://blog.openreplay.com/images/7-microservice-design-patterns-to-use/images/image05.png)
+![](_assets/image05.png)
 
 A diagram of how an Event Sourcing pattern works. Image Source - Javarevisited
 
@@ -118,7 +118,7 @@ More on Command Query Responsibility Segregation
 *   Faster data reading in [event-driven microservices](https://www.developer.com/design/event-driven-microservices/)
 *   Read and write systems that independently scale
 
-![](https://blog.openreplay.com/images/7-microservice-design-patterns-to-use/images/image06.png)
+![](_assets/image06.png)
 
 A diagram of how a CQRS pattern works. Image Source - TechTarget
 
@@ -137,7 +137,7 @@ More on API Gateway:
 *   Offers loose coupling between frontend and backend microservices
 *   Provides High security via authentication, SSL termination, and authorization
 
-![](https://blog.openreplay.com/images/7-microservice-design-patterns-to-use/images/image07.png)
+![](_assets/image07.png)
 
 A diagram of how an API Gateway pattern works. Image Source - Javarevisited
 
@@ -156,7 +156,7 @@ More on Circuit Breaker:
 *   Boosts the architecture’s fault tolerance and resilience
 *   Helps prevent catastrophic cascading failure across various systems
 
-![](https://blog.openreplay.com/images/7-microservice-design-patterns-to-use/images/image08.png)
+![](_assets/image08.png)
 
 This example uses the [AWS Step Functions](https://aws.amazon.com/step-functions/), [AWS Lambda](https://aws.amazon.com/lambda/), and [Amazon DynamoDB](https://aws.amazon.com/dynamodb/) to implement the circuit breaker pattern. Image Source - Amazon.
 

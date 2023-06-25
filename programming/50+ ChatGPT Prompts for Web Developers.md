@@ -5,7 +5,7 @@ In this blog post, we'll provide you with over 50 prompts and strategies that wi
 
 But first, it's important to understand ChatGPT's limitations. Although it's a powerful tool, ChatGPT can't substitute your own knowledge and skills. You should also fact-check any research it does for you, as ChatGPT can't verify facts. Furthermore, its training data is only up to 2021, so it may not be aware of current trends or events. With those caveats in mind, let's dive into the exciting world of AI-powered web development!
 
-![](https://cdn.builder.io/api/v1/image/assets%2FYJIGb4i01jvw0SRdL5Bt%2F86cb85533e5d469e8ffeed519e2a794a?width=45)
+![](_assets/assets%2FYJIGb4i01jvw0SRdL5Bt%2F86cb85533e5d469e8ffeed519e2a794a.png)
 
 Code generation
 ---------------
@@ -51,7 +51,7 @@ switch (animal) {
 
 ```
 
-![](https://cdn.builder.io/api/v1/image/assets%2FYJIGb4i01jvw0SRdL5Bt%2F86cb85533e5d469e8ffeed519e2a794a?width=45)
+![](_assets/assets%2FYJIGb4i01jvw0SRdL5Bt%2F86cb85533e5d469e8ffeed519e2a794a.png)
 
 It is generally a good idea to end your prompt with a colon and paste your code block into a new line. Delimiting code blocks with triple backticks ```\[code\]``` or tripe quotes """\[code\]""" is also a good option.
 
@@ -295,7 +295,7 @@ Conclusion
 
 If you're a web developer, using ChatGPT can help optimize your workflow and increase efficiency by providing prompts and strategies to streamline coding tasks. While ChatGPT is a powerful tool, it's important to keep in mind its limitations and use it as a supplement to your knowledge and skills. By fact-checking research and staying up-to-date on current trends, you can fully leverage the benefits of AI in web development. With ChatGPT as a valuable resource, you can confidently navigate the world of web development and enhance your skills.
 
-![](https://cdn.builder.io/api/v1/image/assets%2FYJIGb4i01jvw0SRdL5Bt%2F83677fb912dd4a539a3f3bb5c0c82de1?width=405)
+![](_assets/assets%2FYJIGb4i01jvw0SRdL5Bt%2F83677fb912dd4a539a3f3bb5c0c82de1.jpg)
 
 Visually build with your components
 

@@ -66,7 +66,7 @@ public class ReflectionQuestion {
 
 ### 2.反射原理图
 
-![](https://static001.geekbang.org/infoq/83/83fa7181988009da00d48f44ee01fc01.png)
+![](_assets/83fa7181988009da00d48f44ee01fc01.png)
 
 ### 3.反射相关类
 
@@ -181,7 +181,7 @@ public class Reflection02 {
 }
 ```
 
-![](https://static001.geekbang.org/infoq/e2/e2778f94946a549fa9ba905d53afceda.png)
+![](_assets/e2778f94946a549fa9ba905d53afceda.png)
 
 *   反射调用优化-关闭访问检查
     
@@ -211,4 +211,4 @@ public static void m3() throws ClassNotFoundException, InstantiationException, I
     }
 ```
 
-![](https://static001.geekbang.org/infoq/4e/4e6c266ec9617cd3e20e3ff06fcf1a98.png)
+![](_assets/4e6c266ec9617cd3e20e3ff06fcf1a98.png)

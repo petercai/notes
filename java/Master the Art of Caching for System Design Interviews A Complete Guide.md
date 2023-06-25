@@ -1,7 +1,7 @@
 # Master the Art of Caching for System Design Interviews: A Complete Guide
 A Comprehensive Caching Guide for Acing System Design Interviews.
 
-![](https://miro.medium.com/v2/resize:fit:700/1*L1vYFjIX9iITdxIxzW4Ndg.png)
+![](_assets/1!L1vYFjIX9iITdxIxzW4Ndg.png)
 
 [What are Where to Cache?](https://www.designgurus.io/course-play/grokking-the-system-design-interview/doc/638c0b7aac93e7ae59a1b0bd)
 
@@ -43,7 +43,7 @@ Caching can be implemented in various ways, depending on the specific use case a
 4.  **CDN caching**: CDN caching stores data on a distributed network of servers, reducing the latency of accessing data from remote locations. This type of caching is useful for data that is accessed from multiple locations around the world, such as images, videos, and other static assets. CDN caching is commonly used for content delivery networks and large-scale web applications.
 5.  **DNS caching**: DNS cache is a type of cache used in the Domain Name System (DNS) to store the results of DNS queries for a period of time. When a user requests to access a website, their computer sends a DNS query to a DNS server to resolve the website’s domain name to an IP address. The DNS server responds with the IP address, and the user’s computer can then access the website using the IP address. DNS caching improves the performance of the DNS system by reducing the number of requests made to DNS servers. When a DNS server receives a request for a domain name, it checks its local cache to see if it has the IP address for that domain name. If the IP address is in the cache, the DNS server can immediately respond with the IP address without having to query other servers. This can significantly reduce the response time for DNS queries and improve the overall performance of the system.
 
-![](https://miro.medium.com/v2/resize:fit:700/1*p6GqdGqoBZym4sPx0fyx_A.png)
+![](_assets/1!p6GqdGqoBZym4sPx0fyx_A.png)
 
 When implementing caching, it’s important to have a cache replacement policy to determine which items in the cache should be removed when the cache becomes full. Here are some of the most common cache replacement policies:
 
@@ -74,7 +74,7 @@ Here are the famous cache invalidation methods:
 *   **Time-to-live (TTL) expiration**: This method involves setting a time-to-live value for cached content, after which the content is considered stale and must be refreshed. When a request is received for the content, the cache checks the time-to-live value and serves the cached content only if the value hasn’t expired. If the value has expired, the cache fetches the latest version of the content from the origin server and caches it.
 *   **Stale-while-revalidate**: This method is used in web browsers and CDNs to serve stale content from the cache while the content is being updated in the background. When a request is received for a piece of content, the cached version is immediately served to the user, and an asynchronous request is made to the origin server to fetch the latest version of the content. Once the latest version is available, the cached version is updated. This method ensures that the user is always served content quickly, even if the cached version is slightly outdated.
 
-![](https://miro.medium.com/v2/resize:fit:700/1*PPpBLlbtU0gpbImve1N-xA.png)
+![](_assets/1!PPpBLlbtU0gpbImve1N-xA.png)
 
 When implementing caching, it’s important to measure the performance of the cache to ensure that it is effective in reducing latency and improving system performance. Here are some of the most common cache performance metrics:
 

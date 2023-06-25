@@ -4,7 +4,7 @@
 
 最近，JDK 19发布了，推出了几个新的特性，其中有一个比较值得关注的那就是新增了虚拟线程。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/6fuT3emWI5L5AbuXRJU7j3x6UsvYLbLQO78ibX70rjUqW49hnRb28ZcSy0ghagAic6TtCy61rBibxBGf3NKkEr9GQ/640?wx_fmt=png)
+![](_assets/640-2.png)
 
 很多人可能比较疑惑，到底什么是虚拟线程，和我们现在使用的平台线程有啥区别呢？
 
@@ -50,7 +50,7 @@
 
 **JDK 19引入的虚拟线程，是JDK 实现的轻量级线程，他可以避免上下文切换带来的的额外耗费。** 他的实现原理其实是JDK不再是每一个线程都一对一的对应一个操作系统的线程了，而是会将多个虚拟线程映射到少量操作系统线程中，通过有效的调度来避免那些上下文切换。
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/6fuT3emWI5L5AbuXRJU7j3x6UsvYLbLQn9y3BqkoRz38gDH73AiaB1dYZKTwdowUBe2aBic8JX4h8LtQucViaO30Q/640?wx_fmt=jpeg)
+![](_assets/640.jpg)
 
 而且，我们可以在应用程序中创建非常多的虚拟线程，而不依赖于平台线程的数量。这些虚拟线程是由JVM管理的，因此它们不会增加额外的上下文切换开销，因为它们作为普通Java对象存储在RAM中。
 

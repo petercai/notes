@@ -85,7 +85,7 @@ logger.info("mednameisNULL:" + (medname == null));
 
       当自己在前台什么都不输入的时候，输出结果如下:
 
-![](https://static001.geekbang.org/infoq/de/de84014051c616606e01d9c0669624ba.jpeg?x-oss-process=image%2Fresize%2Cp_80%2Fauto-orient%2C1)
+![](_assets/de84014051c616606e01d9c0669624ba.jpeg.jpg)
 
       这样自己就感到费解了,命名自己什么都没有输入啊,并且经过`trim()`【trim():去掉字符串首尾的空格。】方法的操作，按理说应该为空才对。
 
@@ -97,7 +97,7 @@ logger.info("mednam:" + (medname == ""));
 
       测试结果如下:
 
-![](https://static001.geekbang.org/infoq/28/28d97d91e859a690f433c8391c5a1fc3.jpeg?x-oss-process=image%2Fresize%2Cp_80%2Fauto-orient%2C1)
+![](_assets/28d97d91e859a690f433c8391c5a1fc3.jpeg.jpg)
 
       果然印证了自己的想法。其果然是一个空字符串!
 

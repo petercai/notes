@@ -3,13 +3,13 @@ SSH config file for remote connection and public<>private key pair management
 -----------------------------------------------------------------------------
 
 
-![](https://miro.medium.com/v2/resize:fit:875/1*yzOH_TMLZA_zugcKVVYwhQ.png)
+![](_assets/1!yzOH_TMLZA_zugcKVVYwhQ.png)
 
 Photo by the author
 
 This post dives into two common scenarios faced by developers when using SSH and how to configure the SSH client config file (`.ssh/config`) to overcome the roadblocks.
 
-![](https://miro.medium.com/v2/resize:fit:671/1*iX4ftFhli2hvDeQ3C_to6Q.png)
+![](_assets/1!iX4ftFhli2hvDeQ3C_to6Q.png)
 
 Photo by the author
 
@@ -17,7 +17,7 @@ In the workspace, a developer might have more than one pair of public & private 
 
 The native path of `.ssh/id_rsa` and `.ssh/id_rsa.pub`  only saves a pair of keys. The creation of a `.ssh/config`  file allows the user to systematically configure the paths of multiple key pairs where the right one will be identified when running the command.
 
-![](https://miro.medium.com/v2/resize:fit:669/1*SNLMavgnZ2md2joI0sgIWA.png)
+![](_assets/1!SNLMavgnZ2md2joI0sgIWA.png)
 
 Photo by the author
 
@@ -107,14 +107,14 @@ Indentation after `<host_identifier>`, as well as a blank line to separate each 
 **Scenario 1: Multiple public & private key pairs**
 ---------------------------------------------------
 
-![](https://miro.medium.com/v2/resize:fit:875/1*qYGwUQglhMKrzUJxwGoTSg.png)
+![](_assets/1!qYGwUQglhMKrzUJxwGoTSg.png)
 
 Photo by the author
 
 **Scenario 2: One or more connections to the remote system**
 ------------------------------------------------------------
 
-![](https://miro.medium.com/v2/resize:fit:846/1*LydgU2-Hbl2OTLFpE9Hcjg.png)
+![](_assets/1!LydgU2-Hbl2OTLFpE9Hcjg.png)
 
 Photo by the author
 
@@ -137,7 +137,7 @@ ssh-keygen -t rsa -b 4096 -C <email>
 
 Explicitly save the key pair to a sub-path in the .ssh folder.
 
-![](https://miro.medium.com/v2/resize:fit:875/1*xax-N8fiPsAYpjApU7qPYQ.png)
+![](_assets/1!xax-N8fiPsAYpjApU7qPYQ.png)
 
 Photo by the author
 
@@ -187,7 +187,7 @@ With configuration done right, connect to the remote system can now be done with
 ssh <host_identifier>
 ```
 
-![](https://miro.medium.com/v2/resize:fit:875/1*TGDaoo108FZS-6bDrDO3aQ.png)
+![](_assets/1!TGDaoo108FZS-6bDrDO3aQ.png)
 
 Photo by the author
 

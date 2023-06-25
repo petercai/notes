@@ -6,7 +6,7 @@ In this guide, we have jotted down a few Windows 11 tips and tricks to help you 
 1\. Change the Taskbar and Start Menu Alignment
 -----------------------------------------------
 
- ![](https://static1.makeuseofimages.com/wordpress/wp-content/uploads/2021/12/change-taskbar-alighnment.png) 
+ ![](_assets/change-taskbar-alighnment.png) 
 
 Among the first change you will notice in Windows 11 is the Taskbar and Start menu location. Microsoft has decided to move it to the center for usability and aesthetic reasons.
 
@@ -22,7 +22,7 @@ To change the Taskbar alignment:
 2\. Customize the Recommended Section
 -------------------------------------
 
- ![](https://static1.makeuseofimages.com/wordpress/wp-content/uploads/2021/12/Remove-recently-used-files-recommended-Windows-11.png) 
+ ![](_assets/Remove-recently-used-files-recommended-Windows-11.png) 
 
 The Recommended section in the new Start screen is powered by Microsoft 365. It shows your most recently installed apps, opened files, and other recommendations. If you don’t want everyone to know about your recent activities, you can turn it off in the settings.
 
@@ -33,7 +33,7 @@ The Recommended section in the new Start screen is powered by Microsoft 365. It 
 5.  Now, if you click **Start**, you will find a vacant space under **Recommended**. To fill the void, you can show recently installed apps.
 6.  Go to **Personalization > Start** and toggle the switch for **Show recently added apps** to **On.**
 
- ![](https://static1.makeuseofimages.com/wordpress/wp-content/uploads/2021/12/classic-right-click-menu-windows-11.png) 
+ ![](_assets/classic-right-click-menu-windows-11.png) 
 
 Windows 11 comes with a new simplified right-click menu. It is less cluttered and shows only the most frequently used options.
 
@@ -42,7 +42,7 @@ However, the classic context menu is still part of Windows 11. To access it, rig
 4\. Customize Snap Windows
 --------------------------
 
- ![](https://static1.makeuseofimages.com/wordpress/wp-content/uploads/2021/12/snap-windows-11.png) 
+ ![](_assets/snap-windows-11.png) 
 
 With the new Snap windows feature, you can automatically resize and arrange windows on your screen. If you are used to the **Win + Arrow** shortcut in Windows 10, the new iteration takes it a step further. Though, the shortcuts are still effective.
 
@@ -51,13 +51,13 @@ To snap windows in Windows 11, hover your mouse over the **Maximize/Resize** but
 5\. Where’s the Task Manager?
 -----------------------------
 
- ![](https://static1.makeuseofimages.com/wordpress/wp-content/uploads/2021/12/Windows-11-taskbar-taskmanager-start-menu.png) 
+ ![](_assets/Windows-11-taskbar-taskmanager-start-menu.png) 
 
 In Windows 10, you can access the Task Manager directly from the Taskbar. However, that has changed in Windows 11. While there are [various ways to access the Task Manager in Windows 11](https://www.makeuseof.com/how-to-access-task-manager-on-windows-11/), an easy way to do it is from the Start menu.
 
 To open the Task Manager, right-click on **Start** or press **Win + X** and select it from the **WinX** menu that appears.
 
- ![](https://static1.makeuseofimages.com/wordpress/wp-content/uploads/2021/12/add-folders-to-start-menu-windows-11.png) 
+ ![](_assets/add-folders-to-start-menu-windows-11.png) 
 
 Windows 11 no longer allows you to pin folders to the Start Menu. Instead, you can add system folders including File Explorer, Settings, Documents, Downloads, Music, Pictures, Videos, and the Personal folder to Start.
 
@@ -68,7 +68,7 @@ To pin folders to your Start menu:
 3.  Next, click on **Start** and then on **Folders**.
 4.  Here, you can choose which folders appear on **Start** next to the **Power** button. To add, toggle the switch for each folder and set it to **On.**
 
- ![](https://static1.makeuseofimages.com/wordpress/wp-content/uploads/2021/12/turn-on-off-chat-widgets-windows-11.png) 
+ ![](_assets/turn-on-off-chat-widgets-windows-11.png) 
 
 By default, the new Taskbar features the Widget and Chat (Microsoft Team) app. The widget app allows you to check information related to weather, sports, nearby traffic, Windows apps tips, calendars, and more at a glance. However, if you would rather have more taskbar space, you can turn it off in the settings.
 
@@ -81,7 +81,7 @@ To Hide Widget and Microsoft Team app:
 8\. Customize the Quick Settings Panel
 --------------------------------------
 
- ![](https://static1.makeuseofimages.com/wordpress/wp-content/uploads/2021/12/edit-quick-settings-panel-Windows-11.png) 
+ ![](_assets/edit-quick-settings-panel-Windows-11.png) 
 
 Microsoft has broken down the classic Action Center into two separate pop-ups in Windows 11. Click on the **Time and Date** area to bring up the Notification panel and the Calendar.
 
@@ -92,7 +92,7 @@ Click the **Pencil (Edit quick setting)** icon to add more features. Next, click
 9\. Manage Open Apps From the Desktop
 -------------------------------------
 
- ![](https://static1.makeuseofimages.com/wordpress/wp-content/uploads/2021/12/manage-desktop-apps-windows-11.png) 
+ ![](_assets/manage-desktop-apps-windows-11.png) 
 
 If you work with multiple apps simultaneously, switching between the apps can be cumbersome. You can use the **Ctrl + Tab** shortcut to switch between apps easily.
 
@@ -101,7 +101,7 @@ To manage apps, press and hold the **Ctrl + Tab** key to view all the open apps.
 10\. Title Bar Windows Shake
 ----------------------------
 
- ![](https://static1.makeuseofimages.com/wordpress/wp-content/uploads/2021/12/title-bar-windows-shake-windos-11.png) 
+ ![](_assets/title-bar-windows-shake-windos-11.png) 
 
 Windows 11 has another cool trick up its sleeves called "title bar window shake." When enabled, it allows you to minimize all the open windows except for your active window with a shake.
 
@@ -114,7 +114,7 @@ To enable Title bar windows shake:
 11\. Use Focus Assist to Minimize Distractions
 ----------------------------------------------
 
- ![](https://static1.makeuseofimages.com/wordpress/wp-content/uploads/2021/12/focus-assist-enable-windows-11.png) 
+ ![](_assets/focus-assist-enable-windows-11.png) 
 
 Windows 11 has borrowed a few useful features from its predecessor and has made it easier to use. Focus Assist, introduced in Windows 10, helps you minimize distraction and increase productivity by muting less important notifications during work hours.
 
@@ -125,7 +125,7 @@ You can also set automatic rules to start Focus Assist during set hours and whil
 12\. Use Focus Session to Increase Productivity
 -----------------------------------------------
 
- ![](https://static1.makeuseofimages.com/wordpress/wp-content/uploads/2021/12/enable-docus-session-Windows-11.png) 
+ ![](_assets/enable-docus-session-Windows-11.png) 
 
 Windows 11’s new clock app features a Focus Sessions tab. This tool is a handy productivity-focused feature that can help you build healthy digital habits, set daily goals, and challenge yourself. When you open the Focus Session tab, you will see a focus timer, your daily progress report, and the options to sync your Spotify playlist and Microsoft To-Do account.
 
@@ -140,7 +140,7 @@ To start your Focus session:
 13\. Enable Dark Mode and Night Light
 -------------------------------------
 
- ![](https://static1.makeuseofimages.com/wordpress/wp-content/uploads/2021/12/enable-dark-mode-windwos-11.png) 
+ ![](_assets/enable-dark-mode-windwos-11.png) 
 
 Another handy feature coming over from Windows 10 is the ability to choose different display modes for the user interface. You can select from Dark, Light, and Custom color mode to change the colors that appear in Windows and your apps.
 

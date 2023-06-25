@@ -1,7 +1,7 @@
 # 9 Fantastic websites every developer must know 
-![](https://res.cloudinary.com/practicaldev/image/fetch/s--yK3zeOaf--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/vs6cf9ti13n4ncv702d0.jpg)
+![](_assets/vs6cf9ti13n4ncv702d0.jpg)
 
-[![](https://res.cloudinary.com/practicaldev/image/fetch/s--6jx2Q0Lf--/c_fill,f_auto,fl_progressive,h_50,q_auto,w_50/https://dev-to-uploads.s3.amazonaws.com/uploads/user/profile_image/980079/83b5f400-8a9b-4676-a8a1-06c94265f7d4.jpg)
+[![](_assets/83b5f400-8a9b-4676-a8a1-06c94265f7d4.jpg)
 ](https://dev.to/hy_piyush)
 
 I’ve been such a fan of websites that helps to reduce our work so much easier. Even for developers, websites can be life savers. They can make developers more productive and organized so that their life can be so easy.

@@ -63,7 +63,7 @@ NAME
 SYNOPSIS
        openssl ca [-days arg] [-key arg] [-cert file] [-in file] [-out file]`` 
 
-![](https://csdnimg.cn/release/blogv2/dist/pc/img/newCodeMoreWhite.png)
+![](_assets/newCodeMoreWhite.png)
 
 *   1
 *   2
@@ -147,7 +147,7 @@ a b c 123 xxyz
 [root@c7 ssl]
 a b c 123 xxyz` 
 
-![](https://csdnimg.cn/release/blogv2/dist/pc/img/newCodeMoreWhite.png)
+![](_assets/newCodeMoreWhite.png)
 
 *   1
 *   2
@@ -216,7 +216,7 @@ a.txt: OK
 a.txt: FAILED
 sha512sum: WARNING: 1 computed checksum did NOT match` 
 
-![](https://csdnimg.cn/release/blogv2/dist/pc/img/newCodeMoreWhite.png)
+![](_assets/newCodeMoreWhite.png)
 
 *   1
 *   2
@@ -276,7 +276,7 @@ wang@wang-pc:~$ echo "123456" >a.txt
 wang@wang-pc:~$ openssl passwd -1 -salt haohao -in a.txt 
 $1$haohao$5REY/e6ZWowqez3MncIkV1` 
 
-![](https://csdnimg.cn/release/blogv2/dist/pc/img/newCodeMoreWhite.png)
+![](_assets/newCodeMoreWhite.png)
 
 *   1
 *   2
@@ -319,7 +319,7 @@ openssl rand [-out file] [-base64] [-hex] num
 [root@c7 ssl2]
 WwTKHmmxAwAIq/5hjGnye2ag24Q=` 
 
-![](https://csdnimg.cn/release/blogv2/dist/pc/img/newCodeMoreWhite.png)
+![](_assets/newCodeMoreWhite.png)
 
 *   1
 *   2
@@ -343,7 +343,7 @@ WwTKHmmxAwAIq/5hjGnye2ag24Q=`
 
 ```
 
-![](https://img-blog.csdnimg.cn/2021022414284993.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2V5ZW9mZWFnbGU=,size_16,color_FFFFFF,t_70)
+![](_assets/2021022414284993.png)
 
 | 角色 | ip | 操作 | 持有的证书信息 |
 | --- | --- | --- | --- |
@@ -384,7 +384,7 @@ openssl req -new -key httpd.key -out httpd.csr -days 36500 \
 
 openssl ca -in httpd.csr -out httpd.crt -days 36500   -cert ../cacert.pem   -keyfile ../cakey.pem` 
 
-![](https://csdnimg.cn/release/blogv2/dist/pc/img/newCodeMoreWhite.png)
+![](_assets/newCodeMoreWhite.png)
 
 *   1
 *   2
@@ -484,7 +484,7 @@ serial=DEC3D30B63F260F0
 [root@c6 ssl]
 [root@c6 ssl]` 
 
-![](https://csdnimg.cn/release/blogv2/dist/pc/img/newCodeMoreWhite.png)
+![](_assets/newCodeMoreWhite.png)
 
 *   1
 *   2
@@ -614,7 +614,7 @@ Warning: Permanently added '192.168.56.109' (RSA) to the list of known hosts.
 root@192.168.56.109's password: 
 httpd.csr                                     100% 1066   551.3KB/s   00:00` 
 
-![](https://csdnimg.cn/release/blogv2/dist/pc/img/newCodeMoreWhite.png)
+![](_assets/newCodeMoreWhite.png)
 
 *   1
 *   2
@@ -711,7 +711,7 @@ V	210106075320Z		01	unknown	/C=CN/ST=beijing/O=my.com/OU=devops/CN=www.my.com
 root@192.168.56.106's password: 
 httpd.crt                                     100% 5706     5.6KB/s   00:00` 
 
-![](https://csdnimg.cn/release/blogv2/dist/pc/img/newCodeMoreWhite.png)
+![](_assets/newCodeMoreWhite.png)
 
 *   1
 *   2
@@ -813,7 +813,7 @@ SSLCryptoDevice builtin
 	          "%t %h %{SSL_PROTOCOL}x %{SSL_CIPHER}x \"%r\" %b"                  
 </VirtualHost>` 
 
-![](https://csdnimg.cn/release/blogv2/dist/pc/img/newCodeMoreWhite.png)
+![](_assets/newCodeMoreWhite.png)
 
 *   1
 *   2
@@ -850,9 +850,9 @@ SSLCryptoDevice builtin
 
 ```
 
-![](https://img-blog.csdnimg.cn/2020080416241236.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2V5ZW9mZWFnbGU=,size_16,color_FFFFFF,t_70)
+![](_assets/2020080416241236.png)
   
-![](https://img-blog.csdnimg.cn/20200804162513163.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2V5ZW9mZWFnbGU=,size_16,color_FFFFFF,t_70)
+![](_assets/20200804162513163.png)
 
 b，把http访问转发到https
 -----------------
@@ -872,4 +872,4 @@ RewriteRule ^(.*)?$ https://%{SERVER_NAME}%{REQUEST_URI} [L,R]
 
 ```
 
-![](https://img-blog.csdnimg.cn/2020080416403775.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2V5ZW9mZWFnbGU=,size_16,color_FFFFFF,t_70)
+![](_assets/2020080416403775.png)

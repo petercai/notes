@@ -7,7 +7,7 @@
 kafka 部署架构
 ----------
 
-![](https://static001.geekbang.org/infoq/87/870e1606bd4bf3dc9e2b2d4568bd28f3.png)
+![](_assets/870e1606bd4bf3dc9e2b2d4568bd28f3.png)
 
 一个 kafka 集群由多个`kafka broker`组成，每个`broker`将自己的元数据信息注册到`zookeeper`中，通过`zookeeper`关联形成一个集群。
 
@@ -21,12 +21,12 @@ prettyZoo 客户端
 *   连接
     
 
-![](https://static001.geekbang.org/infoq/ff/ffa758ee1f81296920cf1e277cfc716d.png)
+![](_assets/ffa758ee1f81296920cf1e277cfc716d.png)
 
 *   界面化操作`zookeeper`  
     
 
-![](https://static001.geekbang.org/infoq/6f/6f5028b7a084e49952c5de43c1c9be48.png)
+![](_assets/6f5028b7a084e49952c5de43c1c9be48.png)
 
 **小 tips:** `kafka`部署时配置文件中配置`zookeeper`地址的时候，可以采用如下的方式，带上目录，比如`xxxx:2181/kafka`或者`xxxx:2181/kafka1`,可以避免冲突。
 
@@ -43,7 +43,7 @@ kafka Tool 客户端
 
 **下载地址：**  `https://www.kafkatool.com/index.html`  
 
-![](https://static001.geekbang.org/infoq/1e/1e76fdcfdf99415ed9f0c8fcdf0fc1ff.png)
+![](_assets/1e76fdcfdf99415ed9f0c8fcdf0fc1ff.png)
 
 kafka 监控工具
 ----------
@@ -54,11 +54,11 @@ kafka 监控工具
 
 注意，kafka 需要开启 JMX 端口，即修改`kafka`的启动命令文件`kafka-server-start.sh`，如下图：
 
-![](https://static001.geekbang.org/infoq/9e/9ecf20224ec44b1c78fecd24f7c79c41.png)
+![](_assets/9ecf20224ec44b1c78fecd24f7c79c41.png)
 
-![](https://static001.geekbang.org/infoq/e8/e80c18f66cd8999631467e113514212c.png)
+![](_assets/e80c18f66cd8999631467e113514212c.png)
 
-![](https://static001.geekbang.org/infoq/14/14d5d312832fb4b4ba45d71c9d8910a2.png)
+![](_assets/14d5d312832fb4b4ba45d71c9d8910a2.png)
 
 kafka 集群部署
 ----------
@@ -268,7 +268,7 @@ kafka 命令行工具
 *   查看操作主题命令参数`kafka-topics.sh`  
     
 
-![](https://static001.geekbang.org/infoq/ab/abfb015da24af172b301aca5949452cc.png)
+![](_assets/abfb015da24af172b301aca5949452cc.png)
 
 *   查看当前服务器中的所有 `topic`  
     
@@ -318,7 +318,7 @@ bin/kafka-topics.sh --bootstrap-server hadoop102:9092 --delete --topic first
 *   查看操作生产者命令参数`kafka-console-producer.sh`  
     
 
-![](https://static001.geekbang.org/infoq/e7/e7ed394fb28c7559805952f4f4826d46.png)
+![](_assets/e7ed394fb28c7559805952f4f4826d46.png)
 
 *   发送消息
     
@@ -334,9 +334,9 @@ bin/kafka-console-producer.sh --bootstrap-server hadoop102:9092 --topic first
 *   查看操作消费者命令参数`kafka-console-consumer.sh`  
     
 
-![](https://static001.geekbang.org/infoq/6d/6dc4d91a61502e2c336e778253d75898.png)
+![](_assets/6dc4d91a61502e2c336e778253d75898.png)
 
-![](https://static001.geekbang.org/infoq/55/550a264dfcb6c9a18214cca80bc7e673.png)
+![](_assets/550a264dfcb6c9a18214cca80bc7e673.png)
 
 *   消费消息
     

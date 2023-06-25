@@ -40,7 +40,7 @@
 
 ******去官网地址，windows 版安装包下载地址：******[******https://www.mongodb.com/try/download******](https://xie.infoq.cn/link?target=https%3A%2F%2Fwww.mongodb.com%2Ftry%2Fdownload) ******在下面可以选择安装包。下载的安装包也有两种形式，一种是一键安装的 msi 文件，还有一种是解压缩就能使用的 zip 文件，我们采用解压缩 zip 文件进行安装。******
 
-![](https://img-blog.csdnimg.cn/a7ed178bfcb945f4b4a3c068d0d0cb0d.png)
+![](_assets/a7ed178bfcb945f4b4a3c068d0d0cb0d.png)
 
   
 
@@ -52,7 +52,7 @@
 ******（3）启动 MongoDB******
 -------------------------
 
-![](https://img-blog.csdnimg.cn/d07c3ec41af14de39f28bf8d95cf908b.png)
+![](_assets/d07c3ec41af14de39f28bf8d95cf908b.png)
 
   
 
@@ -67,9 +67,9 @@
 
 ********注：启动服务器时需要指定数据存储位置，通过参数--dbpath 进行设置，可以根据需要自行设置数据存储路径。默认服务端口 27017。********
 
-![](https://img-blog.csdnimg.cn/6e57acf9e59a4e3e9ecead8100de5574.png)
+![](_assets/6e57acf9e59a4e3e9ecead8100de5574.png)
 
-![](https://img-blog.csdnimg.cn/228a8a3f1a26423482135675c2770870.png)
+![](_assets/228a8a3f1a26423482135675c2770870.png)
 
   
 
@@ -84,7 +84,7 @@
 
 ******可以使用数据库客户端，这里使用的是 Navicat，左下角测试，连接成功。******
 
-![](https://img-blog.csdnimg.cn/06f220ffea444207a1d983a4126eaf08.png)
+![](_assets/06f220ffea444207a1d983a4126eaf08.png)
 
   
 
@@ -145,13 +145,13 @@
 ******（1）创建项目******
 -------------------
 
-![](https://img-blog.csdnimg.cn/60ce94ff4a3947a38db9d23d4f4e3627.png)
+![](_assets/60ce94ff4a3947a38db9d23d4f4e3627.png)
 
 ******这里用的阿里创建的项目******
 
-![](https://img-blog.csdnimg.cn/bde54f58bb1d488cbc47c2de73934145.png)
+![](_assets/bde54f58bb1d488cbc47c2de73934145.png)
 
-![](https://img-blog.csdnimg.cn/8de21778e499407ab75823fbc010c1e2.png)
+![](_assets/8de21778e499407ab75823fbc010c1e2.png)
 
   
 

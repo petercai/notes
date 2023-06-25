@@ -1,8 +1,8 @@
 # Java Logging APIs Tutorial - Mkyong.com
-[![](https://a.pub.network/core/imgs/fslogo-green.svg)
+[![](_assets/fslogo-green.svg)
 ](https://freestar.com/?utm_campaign=branding&utm_medium=banner&utm_source=mkyong.com&utm_content=mkyong_top_leaderboard)
 
-![](https://secure.gravatar.com/avatar/622c70d2908e68ecc070ca6754245bb2?s=60&d=mm&r=g)
+![](_assets/622c70d2908e68ecc070ca6754245bb2.jpg)
 
 This tutorial shows logging using the Java built-in logging APIs in the `java.util.logging` package.
 
@@ -191,7 +191,7 @@ com.mkyong.level = SEVERE
 
 3.2 We can put the `logging.properties` in the `resources` folder (Maven standard directory), and use the system property `java.util.logging.config.file` to define the location of `logging.properties`.
 
-![](https://mkyong.com/wp-content/uploads/2021/06/jul-logging-properties.png)
+![](_assets/jul-logging-properties.png)
 
 LoadLogPropertiesFile.java
 
@@ -308,6 +308,6 @@ For more advanced logging features like log file rotation, sending email for err
 *   [How to load logging.properties for java.util.logging](https://mkyong.com/logging/how-to-load-logging-properties-for-java-util-logging/)
 *   [tinylog Tutorial](https://mkyong.com/logging/tinylog-tutorial/)
 
-![](https://secure.gravatar.com/avatar/622c70d2908e68ecc070ca6754245bb2?s=96&d=mm&r=g)
+![](_assets/622c70d2908e68ecc070ca6754245bb2.jpg)
 
 #### Comments

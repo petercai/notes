@@ -14,7 +14,7 @@ Before we dive into git internals, a couple of notes on git.
 
 When you clone a git repository, it creates a .git folder at the root of the repository. This is where git stores all the data. This is a snapshot of the folder — 
 
-![](https://media.licdn.com/dms/image/C4E12AQHOe2skMSII1g/article-inline_image-shrink_1000_1488/0/1520215883499?e=1691625600&v=beta&t=biCMAeaAqNFoGqA7_fwkVw9-DHdjJkvenc5kOB6Zcj8)
+![](_assets/1520215883499.jpg)
 
 1.  The **branches** directory isn’t used by newer Git versions.
 2.  The **description** file is used to provide a name to the repository with the description and is only used by the Web UI.
@@ -35,13 +35,13 @@ At the core, git is nothing but a **key-value data store**. Git uses [SHA-1](htt
 
 Consider a simple repository with just 1 commit with the contents of a file called first.txt — “This is the first line.”
 
-![](https://media.licdn.com/dms/image/C4E12AQEjMQccKQv0SQ/article-inline_image-shrink_1000_1488/0/1520175074860?e=1691625600&v=beta&t=g8jqUF1gu8v4ZJkjnVcRMD3onyCscGQgFUEf6VCrfz0)
+![](_assets/1520175074860.jpg)
 
 Git repository with 1 commit
 
 Let us take a look at the objects directory in .git folder -
 
-![](https://media.licdn.com/dms/image/C4E12AQG3zFzq691ghw/article-inline_image-shrink_1000_1488/0/1520214741924?e=1691625600&v=beta&t=323QLjxdKdDRzm95MKGILTshAvJKm7Wvb2MM-Yv_4vI)
+![](_assets/1520214741924.jpg)
 
 Git Objects
 
@@ -49,25 +49,25 @@ As you can see, it has created 3 directories (**59**, **c5** and **dd**) besides
 
 **Content Objects** — The first folder is the content of the file itself. You can view the contents of by running the _git cat-file_ command.
 
-![](https://media.licdn.com/dms/image/C4E12AQGRpptJr4g0Sw/article-inline_image-shrink_1000_1488/0/1520214254087?e=1691625600&v=beta&t=rvNtq4knMvmyP-w_6T4hg7qYjja8gB4pzS6T9AlZV9g)
+![](_assets/1520214254087.jpg)
 
 Content Object
 
 **Tree Objects —**The second folder is a tree object. Git stores the file system structure in these tree objects. The first column shows the unix permissions, the second column is either blob or tree depending on whether it is a pointer to a file or another directory, the third is the hash of the object pointed to, and the fourth is the filename. In this case there is only one file tracked by git, first.txt, and you can see that this tree node reflects that by listing one file, and pointing to the blob holding its contents.
 
-![](https://media.licdn.com/dms/image/C4E12AQHMgVHjoFZMTw/article-inline_image-shrink_1000_1488/0/1520233414243?e=1691625600&v=beta&t=zd0FVCzJo8WeT809TD647epdnxOjJ6QLlvvhQ97PQFM)
+![](_assets/1520233414243.jpg)
 
 Tree Object
 
 **Commit Objects**  — The third folder is the commit, with a header containing author, committer details and time-stamp, followed by the commit message itself. If you type git log you will recognize that the commit number is just the hash of this commit object.
 
-![](https://media.licdn.com/dms/image/C4E12AQFcxNnGvA5SIA/article-inline_image-shrink_1000_1488/0/1520212263339?e=1691625600&v=beta&t=DCQ0KMLqzMocIpvpdzHL_mvfpcE_4DZsgVWoLVlt_Y0)
+![](_assets/1520212263339.jpg)
 
 Commit Object
 
 When you make a change to first.txt and commit it, this will create 3 more folders — the first one will be a **snapshot** of the latest file, the second one will be for the folder structure pointing to the latest commit and the third one is for the commit. Here’s the screenshot showing the latest snapshot — 
 
-![](https://media.licdn.com/dms/image/C4E12AQEBmFHuS4Qkuw/article-inline_image-shrink_1000_1488/0/1520174963167?e=1691625600&v=beta&t=bg8imOOIGGSmCOpGfysS1DECq3Me-ekPbkqYiMiRmmk)
+![](_assets/1520174963167.jpg)
 
 Seeing the number of loose files in objects directory grow.
 
@@ -79,13 +79,13 @@ As the repository grows bigger, it becomes inefficient for Git to store snapshot
 
 1\. I add a huge file (~20 MB) to git and commit it. This is what the git objects directory looks like — 
 
-![](https://media.licdn.com/dms/image/C4E12AQECjmGCfugUhQ/article-inline_image-shrink_1000_1488/0/1520215677452?e=1691625600&v=beta&t=ECc41XUDtPN3W_0taAWTJlvKnDIvayv5A3A4kmED1-U)
+![](_assets/1520215677452.jpg)
 
 Screenshot of the objects directory (760 KB) after committing a large file to git.
 
 2\. I make a small change to the file and then commit it again. This is what the git objects directory looks like —
 
-![](https://media.licdn.com/dms/image/C4E12AQGRuF6oiTd8jA/article-inline_image-shrink_1000_1488/0/1520041546135?e=1691625600&v=beta&t=JqUWsxe2VwRCuZCf4tOUCueth45hYnuK-Ffe0O9ajNY)
+![](_assets/1520041546135.jpg)
 
 Screenshots of the objects directory (1.5MB) after a small change to the large file.
 
@@ -94,13 +94,13 @@ What has happened is, git has duplicated the copy of the file and the .git direc
 1.  Manually by running the ‘git gc’ command.
 2.  Automatically by pushing to the git server.
 
-![](https://media.licdn.com/dms/image/C4E12AQF55XrLNhgDeQ/article-inline_image-shrink_1000_1488/0/1520211444814?e=1691625600&v=beta&t=203Tlxl56wnx4bgHfPzOUmp2NtJVwZN3gnj3j_2dASM)
+![](_assets/1520211444814.jpg)
 
 Screenshot of the git gc command and compressed git objects size to 456K.
 
 You can view the contents of the pack by running the git verify-pack command.
 
-![](https://media.licdn.com/dms/image/C4E12AQGNigzhTtDR-g/article-inline_image-shrink_1500_2232/0/1520214591982?e=1691625600&v=beta&t=GAjwdyRj5NGPr7Qab7QPiiGjem9KLV8RQ2t6CiCCtek)
+![](_assets/1520214591982.jpg)
 
 Viewing the contents of a packfile in git.
 

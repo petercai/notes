@@ -2,7 +2,7 @@
 Exploring the Powerful Features and Advantages of FastAPI Framework for Building Python-Based Web Applications
 --------------------------------------------------------------------------------------------------------------
 
-![](https://miro.medium.com/v2/resize:fit:700/1*du7p50wS_fIsaC_lR18qsg.png)
+![](_assets/1!du7p50wS_fIsaC_lR18qsg.png)
 
 **Introduction**
 
@@ -109,7 +109,7 @@ Serialization is even simpler, we can just return an instance of Pydantic’s mo
 
 FastAPI will generate OpenAPI schema based on your type hints, Pydantic models, _and path operation function’_s parameters and it will be shown in the interactive API docs.
 
-![](https://miro.medium.com/v2/resize:fit:700/1*4aVgUyw3J7tREZhAArXRLw.png)
+![](_assets/1!4aVgUyw3J7tREZhAArXRLw.png)
 
 FastAPI gives massive opportunities to modify and configure documentation based on your needs. You can add descriptions, comments, titles, examples, and everything you can think of with clean syntax.
 
@@ -117,7 +117,7 @@ FastAPI gives massive opportunities to modify and configure documentation based 
 
 This feature is a repercussion of the points listed above.
 
-![](https://miro.medium.com/v2/resize:fit:700/1*KYTSq-y4eHMxCYotu-01eg.png)
+![](_assets/1!KYTSq-y4eHMxCYotu-01eg.png)
 
 Editor support may sound pretty useless at first glance, but believe me — that’s a live saver for big projects. When your project is growing, you should keep your data models apart from business logic, as well as endpoints (I hope you do), so it’s pretty cool that editor already knows what properties your model has of what types, so you will avoid a lot of stupid mistakes while coding. People tend to underestimate this point, but it can become a real thing when you push a small bug into production which could be avoided using editor highlighting.
 

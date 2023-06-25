@@ -1,5 +1,5 @@
 # Git Cheatsheet
-[![](https://res.cloudinary.com/practicaldev/image/fetch/s--I6Jae3vG--/c_fill,f_auto,fl_progressive,h_50,q_auto,w_50/https://dev-to-uploads.s3.amazonaws.com/uploads/user/profile_image/869850/2f2d04ee-4ebc-4138-b00c-51ef8695ec8a.jpg)
+[![](_assets/2f2d04ee-4ebc-4138-b00c-51ef8695ec8a.jpg.png)
 ](https://dev.to/sarath_pm)
 
 [Sarath P M](https://dev.to/sarath_pm)
@@ -92,7 +92,7 @@ Hello everyone, here is a quick reference guide of the git commands:
 
 #### [](#git-rebase)git rebase
 
-> [![](https://res.cloudinary.com/practicaldev/image/fetch/s--U4yP3K9J--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://i.stack.imgur.com/5yRg3.png)
+> [![](_assets/5yRg3.png)
 > ](https://res.cloudinary.com/practicaldev/image/fetch/s--U4yP3K9J--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://i.stack.imgur.com/5yRg3.png)  
 > Rebasing is a bit more advanced, but incredibly useful when you need it. When you perform a rebase, you are changing the base of your branch. In essence, a rebase will look at each commit on your branch and update the code to make it seem like you've been working off the new base all along. Sometimes, a rebase will barf if it encounters a situation in which it tries to update a piece of code that you have already modified. In this case, it doesn't know which version of the code to use, so it leaves it to you to resolve them manually.  
 > Although they have similar uses, a rebase differs from a merge in that a rebase updates your branch by tweaking each commit, and merge will update your branch by creating a new commit at the tip of your branch. Usually, there are standards and practices employed in a project or team around which method is preferred. Have a discussion with your team about which workflow they prefer.

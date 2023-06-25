@@ -42,9 +42,9 @@ today("周四")
 
 **像这种,就不会继续执行**`**return**`**后的代码了,程序直接跳出;函数文档说明内容,解释了函数的作用**
 
-![](https://static001.geekbang.org/infoq/f2/f2bfa3495fa0108294602f0a022212f1.png)
+![](_assets/f2bfa3495fa0108294602f0a022212f1.png)
 
-![](https://static001.geekbang.org/infoq/fd/fd351f63bd5fa85f45f107e7e07a811f.png)
+![](_assets/fd351f63bd5fa85f45f107e7e07a811f.png)
 
 * * *
 
@@ -112,13 +112,13 @@ my_list.sort(key=lambda a:a[1])
 print(my_list)
 ```
 
-![](https://static001.geekbang.org/infoq/06/06f3a2da9a799d299a04c955b623e850.png)
+![](_assets/06f3a2da9a799d299a04c955b623e850.png)
 
 * * *
 
 **map() 会根据提供的函数对指定序列做映射**
 
-![](https://static001.geekbang.org/infoq/eb/eb0bd7cddfbf3eccadc093cfb65cc994.png)
+![](_assets/eb0bd7cddfbf3eccadc093cfb65cc994.png)
 
 1.map 语法:
 ---------
@@ -134,11 +134,11 @@ my_list=["smith","tom"]
 print(list(map(lambda x:x.capitalize(),my_list )))
 ```
 
-![](https://static001.geekbang.org/infoq/b7/b765a93754c15c61636c33f071a72419.png)
+![](_assets/b765a93754c15c61636c33f071a72419.png)
 
 **reduce:对参数序列元素进行累计**
 
-![](https://static001.geekbang.org/infoq/72/72e76a773fa4bf01cc6407ed00e0815e.png)
+![](_assets/72e76a773fa4bf01cc6407ed00e0815e.png)
 
 1.reduce 语法:
 ------------
@@ -156,7 +156,7 @@ def add(x, y) :
 print(reduce(add,[1,2,3,4,5]))
 ```
 
-![](https://static001.geekbang.org/infoq/15/15220f4cfbb6cf4da977f3e6b69093bf.png)
+![](_assets/15220f4cfbb6cf4da977f3e6b69093bf.png)
 
 3.注意:
 -----
@@ -168,7 +168,7 @@ print(reduce(add,[1,2,3,4,5]))
 
 `**filter()**`**也接收一个函数和一个序列。和**`**map()**`**不同的是，**`**filter()**`**把传入的函数依次作用于每个元素，然后根据返回值是 True 还是 False 决定保留还是丢弃该元素。对于序列中的元素进行筛选，最终获取符合条件的序列,然后进行输出或者进行操作**
 
-![](https://static001.geekbang.org/infoq/99/9969c0586a1da481c880fb16537ee3c3.png)
+![](_assets/9969c0586a1da481c880fb16537ee3c3.png)
 
 1.filter 语法:
 ------------
@@ -185,7 +185,7 @@ my_list2=[i for i in range(20)]
 print(list(filter(lambda x:x%3==0,my_list2)))
 ```
 
-![](https://static001.geekbang.org/infoq/d4/d4a04ba11f308178aeba00e695bbac3c.png)
+![](_assets/d4a04ba11f308178aeba00e695bbac3c.png)
 
 **sort 函数适用于排序,详情请戳**[**列表之sort**](https://xie.infoq.cn/link?target=https%3A%2F%2Feditor.csdn.net%2Fmd%2F%3FarticleId%3D107356498)  
 
@@ -219,4 +219,4 @@ my_list2=[i for i in range(20)]
 print(list(filter(lambda x:x%3==0,my_list2)))
 ```
 
-![](https://static001.geekbang.org/infoq/96/962413ceec7a5a7a60b3a3427f24ea95.png)
+![](_assets/962413ceec7a5a7a60b3a3427f24ea95.png)

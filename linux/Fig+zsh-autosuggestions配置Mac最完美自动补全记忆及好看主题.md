@@ -36,7 +36,7 @@ brew install --cask iterm2
 2、`solarized`->`iterm2-colors-solarized`->`Solarized Dark.itermcolors`文件  
 导入成功，最后选择 Solarized Dark 主题，就可以了。  
 
-![](https://upload-images.jianshu.io/upload_images/1605558-1280811c421c495c.png)
+![](_assets/1605558-1280811c421c495c.png.webp)
 
 image.png
 
@@ -45,7 +45,7 @@ image.png
 然后`Profiles` -\> `Text`-\> `Font` -\> `Chanage Font`  
 选择 Meslo LG M Regular for Powerline 字体。  
 
-![](https://upload-images.jianshu.io/upload_images/1605558-4d343bf48d0f0e5b.png)
+![](_assets/1605558-4d343bf48d0f0e5b.png.webp)
 
 image.png
 
@@ -63,7 +63,7 @@ sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/i
 
 然后，我们编辑vim ~/.zshrc文件，将主题配置修改为ZSH_THEME="agnoster"。  
 
-![](https://upload-images.jianshu.io/upload_images/1605558-a4b0f7709f8abc75.png)
+![](_assets/1605558-a4b0f7709f8abc75.png.webp)
 
 image.png
 
@@ -89,7 +89,7 @@ source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 
 ```
 
-![](https://upload-images.jianshu.io/upload_images/1605558-cb875a9e50a7ce59.png)
+![](_assets/1605558-cb875a9e50a7ce59.png.webp)
 
 image.png
 
@@ -97,7 +97,7 @@ image.png
 
   
 
-![](https://upload-images.jianshu.io/upload_images/1605558-e871a20b6f6db81a.png)
+![](_assets/1605558-e871a20b6f6db81a.png.webp)
 
 image.png
 
@@ -113,7 +113,7 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/p
 
 然后编辑`vim ~/.zshrc`文件，找到plugins配置，增加`zsh-autosuggestions`插件。  
 
-![](https://upload-images.jianshu.io/upload_images/1605558-9b9eda9ed3a22b4b.png)
+![](_assets/1605558-9b9eda9ed3a22b4b.png.webp)
 
 image.png
 
@@ -123,7 +123,7 @@ image.png
 
   
 
-![](https://upload-images.jianshu.io/upload_images/1605558-14749644a6546407.png)
+![](_assets/1605558-14749644a6546407.png.webp)
 
 image.png
 
@@ -131,7 +131,7 @@ image.png
 
   
 
-![](https://upload-images.jianshu.io/upload_images/1605558-c604721dcd8c5959.png)
+![](_assets/1605558-c604721dcd8c5959.png.webp)
 
 image.png
 
@@ -151,7 +151,7 @@ iTerm2 隐藏用户名和主机名
 选择  
 `solarized`->`osx-terminal.app-colors-solarized`->`Solarized Dark ansi.terminal`文件  
 
-![](https://upload-images.jianshu.io/upload_images/1605558-058c84ffe04f752f.png)
+![](_assets/1605558-058c84ffe04f752f.png.webp)
 
 导入主题\[图片上传中...(截屏2022-02-11 下午4.58.29.png-8919ba-1644570516138-0)\]
 
@@ -161,7 +161,7 @@ iTerm2 隐藏用户名和主机名
 3、设置字体  
 选中 solarized Dark，然后点击右侧的字体->选中之前安装好的的`Meslo LG M Regular for Powerline`字体  
 
-![](https://upload-images.jianshu.io/upload_images/1605558-f16348f886c65162.png)
+![](_assets/1605558-f16348f886c65162.png.webp)
 
 修改字体设置
 
@@ -169,26 +169,26 @@ iTerm2 隐藏用户名和主机名
 
   
 
-![](https://upload-images.jianshu.io/upload_images/1605558-9a6c1f8187fa15a7.png)
+![](_assets/1605558-9a6c1f8187fa15a7.png.webp)
 
 半透明背景设置
 
 5、设置terminal在打开新的tab和window时也是设置的这个默认漂亮主题  
 `terminal`->`shell`->`新建窗口`->`Solarized Dark ansi`  
 
-![](https://upload-images.jianshu.io/upload_images/1605558-950741dd3ac10474.png)
+![](_assets/1605558-950741dd3ac10474.png.webp)
 
 新窗口设置
 
 `terminal`->`shell`->`新建标签页`->`Solarized Dark ansi`  
 
-![](https://upload-images.jianshu.io/upload_images/1605558-b54362d053075197.png)
+![](_assets/1605558-b54362d053075197.png.webp)
 
 设置新标签页设置
 
 `terminal`->`shell`->`将设置用作默认设置`  
 
-![](https://upload-images.jianshu.io/upload_images/1605558-7da898e12a71d810.png)
+![](_assets/1605558-7da898e12a71d810.png.webp)
 
 设置默认
 
@@ -205,9 +205,9 @@ iTerm2 隐藏用户名和主机名
 安装完成后，进入vscode里的终端，还是会乱码，需要在设置下字体  
 `⌘,`->`font`->`Font Family` 添加字体：`Meslo LG M for Powerline`
 
-![](https://upload-images.jianshu.io/upload_images/1605558-338eb8daf56e3a7b.png)
+![](_assets/1605558-338eb8daf56e3a7b.png.webp)
 
 中文示意图
 
-![](https://upload-images.jianshu.io/upload_images/1605558-de4eacdc1031cbcf.png)
+![](_assets/1605558-de4eacdc1031cbcf.png.webp)
 

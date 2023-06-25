@@ -16,7 +16,7 @@ Helm是k8s的包管理工具，类似Linux系统常用的 apt、yum等包管理�
 3.架构
 ----
 
-![](https://img2018.cnblogs.com/i-beta/1356274/202001/1356274-20200104133425850-1349135834.png)
+![](_assets/1356274-20200104133425850-1349135834.png)
 
 **Chart Install 过程：** 
 
@@ -77,7 +77,7 @@ helm主要包括helm客户端和Tiller服务端两部分，Tiller部署在k8s集
 
 创建完成后，得到的目录结构如下:
 
-![](https://common.cnblogs.com/images/copycode.gif)
+![](_assets/copycode.gif)
 
 myapp                                   - chart 包目录名
 ├── charts - 依赖的子包目录，里面可以包含多个依赖的chart包
@@ -90,7 +90,7 @@ myapp                                   - chart 包目录名
 │   └── service.yaml
 └── values.yaml \- chart包的参数配置文件，模版可以引用这里参数。
 
-![](https://common.cnblogs.com/images/copycode.gif)
+![](_assets/copycode.gif)
 
 我们要在k8s中部署一个网站应用，需要编写**deployment、service、ingress**三个配置文件，刚才通过helm create命令已经创建好了。
 
@@ -100,7 +100,7 @@ myapp                                   - chart 包目录名
 
 **deployment.yaml 配置文件定义如下：** 
 
-![](https://common.cnblogs.com/images/copycode.gif)
+![](_assets/copycode.gif)
 
 apiVersion: apps/v1beta2
 kind: Deployment
@@ -123,11 +123,11 @@ spec:
           ports: - name: http
               containerPort: 80 protocol: TCP
 
-![](https://common.cnblogs.com/images/copycode.gif)
+![](_assets/copycode.gif)
 
 **service.yaml定义如下：** 
 
-![](https://common.cnblogs.com/images/copycode.gif)
+![](_assets/copycode.gif)
 
 apiVersion: v1
 kind: Service
@@ -139,11 +139,11 @@ spec:
   ports: - protocol: TCP 
     port: 80 targetPort: 80
 
-![](https://common.cnblogs.com/images/copycode.gif)
+![](_assets/copycode.gif)
 
 **ingress.yaml定义如下：** 
 
-![](https://common.cnblogs.com/images/copycode.gif)
+![](_assets/copycode.gif)
 
 apiVersion: extensions/v1beta1
 kind: Ingress
@@ -156,7 +156,7 @@ spec:
               serviceName: myapp-svc #服务名
               servicePort: 80
 
-![](https://common.cnblogs.com/images/copycode.gif)
+![](_assets/copycode.gif)
 
 ### 5.3.提取k8s应用部署配置文件中的参数，作为chart包参数。
 
@@ -178,7 +178,7 @@ spec:
 
 **deployment.yaml 配置模版如下：** 
 
-![](https://common.cnblogs.com/images/copycode.gif)
+![](_assets/copycode.gif)
 
 apiVersion: apps/v1beta2
 kind: Deployment
@@ -201,11 +201,11 @@ spec:
           ports: - name: http
               containerPort: 80 protocol: TCP
 
-![](https://common.cnblogs.com/images/copycode.gif)
+![](_assets/copycode.gif)
 
 **service.yaml定义如下：** 
 
-![](https://common.cnblogs.com/images/copycode.gif)
+![](_assets/copycode.gif)
 
 apiVersion: v1
 kind: Service
@@ -217,11 +217,11 @@ spec:
   ports: - protocol: TCP 
     port: 80 targetPort: 80
 
-![](https://common.cnblogs.com/images/copycode.gif)
+![](_assets/copycode.gif)
 
 **ingress.yaml定义如下：** 
 
-![](https://common.cnblogs.com/images/copycode.gif)
+![](_assets/copycode.gif)
 
 apiVersion: extensions/v1beta1
 kind: Ingress
@@ -234,11 +234,11 @@ spec:
               serviceName: {{ .Release.Name }}-svc #服务名
               servicePort: 80
 
-![](https://common.cnblogs.com/images/copycode.gif)
+![](_assets/copycode.gif)
 
 ### values.yaml chart包参数定义：
 
-![](https://common.cnblogs.com/images/copycode.gif)
+![](_assets/copycode.gif)
 
 #域名
 host: www.XXX.com
@@ -248,7 +248,7 @@ image: XXXXXXXXXXXXXXXXXX
 imageTag: 1.7.9 #pod 副本数
 replicas:1
 
-![](https://common.cnblogs.com/images/copycode.gif)
+![](_assets/copycode.gif)
 
 ### 5.4.通过helm命令安装/更新应用
 
@@ -258,7 +258,7 @@ replicas:1
 
 **通过命令注入参数**
 
-![](https://common.cnblogs.com/images/copycode.gif)
+![](_assets/copycode.gif)
 
 #命令格式: helm install  --set key=value   chart包目录
 
@@ -266,7 +266,7 @@ replicas:1
 
  ./myapp
 
-![](https://common.cnblogs.com/images/copycode.gif)
+![](_assets/copycode.gif)
 
 **更新应用：** 
 
@@ -276,23 +276,23 @@ $ helm upgrade myapp ./myapp
 
 #也可以指定–set参数
 
-![](https://common.cnblogs.com/images/copycode.gif)
+![](_assets/copycode.gif)
 
 $ helm upgrade      \ --set replicas=2 \ --set host=www.xxxx.com \
 
  myapp ./myapp
 
-![](https://common.cnblogs.com/images/copycode.gif)
+![](_assets/copycode.gif)
 
 #默认情况下，如果release名字不存在，upgrade会失败，可以加上-i 参数当release不存在的时候则安装，存在则更新，将install和uprade命令合并。
 
-![](https://common.cnblogs.com/images/copycode.gif)
+![](_assets/copycode.gif)
 
 $ helm upgrade  -i    \ --set replicas=2 \ --set host=www.xxxx.com \
 
  myapp ./myapp
 
-![](https://common.cnblogs.com/images/copycode.gif)
+![](_assets/copycode.gif)
 
 6.模版语法
 ------
@@ -428,7 +428,7 @@ Release代表一次应用发布，下面是Release对象包含的属性字段：
 
 例子:
 
-![](https://common.cnblogs.com/images/copycode.gif)
+![](_assets/copycode.gif)
 
 apiVersion: v1
 kind: ConfigMap
@@ -440,7 +440,7 @@ data:
   {{if eq .Values.favorite.drink "coffee"}}
     mug: true {{end}}
 
-![](https://common.cnblogs.com/images/copycode.gif)
+![](_assets/copycode.gif)
 
 #### 6.4.2. `with`
 
@@ -498,7 +498,7 @@ range主要用于循环遍历数组类型。
 
 `例子:`
 
-![](https://common.cnblogs.com/images/copycode.gif)
+![](_assets/copycode.gif)
 
 #values.yaml定义
  
@@ -520,7 +520,7 @@ map类型遍历例子:
 {{ . | quote }}
 {{\- end}}
 
-![](https://common.cnblogs.com/images/copycode.gif)
+![](_assets/copycode.gif)
 
 ### 6.5.子模版定义
 
@@ -538,7 +538,7 @@ helm create默认为我们创建了_helpers.tpl 公共库定义文件，可以�
 
 `例子:`
 
-![](https://common.cnblogs.com/images/copycode.gif)
+![](_assets/copycode.gif)
 
 #模版定义
 {{\- define "mychart.app" -}}
@@ -554,7 +554,7 @@ metadata:
 data:
   myvalue: "Hello World"
 
-![](https://common.cnblogs.com/images/copycode.gif)
+![](_assets/copycode.gif)
 
 ### 6.6.调试
 

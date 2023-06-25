@@ -40,7 +40,7 @@ Class cls2 = Class.forName("com.gbx.Cat");
           System.out.println(cls3.hashCode()==cls2.hashCode());
 ```
 
-![](https://static001.geekbang.org/infoq/10/104f16cc56c9caf9028a78eeb9a2ebe7.png)
+![](_assets/104f16cc56c9caf9028a78eeb9a2ebe7.png)
 
 *   每个类的实例都会记得自己是由哪个 Class 实例所生成
     
@@ -156,7 +156,7 @@ public class GetClass_ {
 }
 ```
 
-![](https://static001.geekbang.org/infoq/c2/c20de0b593ff190653e48fdbd60288cc.png)
+![](_assets/c20de0b593ff190653e48fdbd60288cc.png)
 
 ### 4.哪些类型有 Class 对象
 

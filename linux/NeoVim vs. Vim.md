@@ -1,7 +1,7 @@
 # NeoVim vs. Vim
 在 Linux 系统中，编辑器是开发和系统管理的必备工具。而在众多编辑器中，Vim 作为一款经典的文本编辑器，一直备受欢迎。然而，随着时间的推移，NeoVim 的出现逐渐成为了 Linux 运维人员的首选。那么，为什么 Linux 运维更喜欢 NeoVim 而不是 Vim 呢？本文将探讨这个问题。
 
-![](https://static001.geekbang.org/infoq/01/016f599a3f03b54173da185210710d66.png)
+![](_assets/016f599a3f03b54173da185210710d66.png)
 
 1\. 改进了 Vim 的一些设计缺陷
 -------------------

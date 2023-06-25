@@ -1,5 +1,5 @@
 # Optimizing Python Code Performance: A Deep Dive into Python Profilers 
-![](https://www.kdnuggets.com/wp-content/uploads/mehreen_optimizing_python_code_performance_deep_dive_python_profilers_1.png)
+![](_assets/mehreen_optimizing_python_code_performance_deep_dive_python_profilers_1.png)
   
 Image by Author
 

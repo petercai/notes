@@ -1,7 +1,7 @@
 # 《程序员数学：素数》—— 你真的了解 RSA 加密算法吗？
 ### 持续坚持原创输出，点击蓝字关注我吧
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/zTfAIs5rNXjDibap05EH39YLlcicWAAZuiaM7FPkjzfrgia0mqqDAI744KyiagBThOwLFbVjdTPMNSHMH070LtYJUEA/640?wx_fmt=png)
+![](_assets/640-1.png)
 
 作者：小傅哥  
 博客：https://bugstack.cn  
@@ -63,7 +63,7 @@
 
 记得那是我毕业🎓后的第一个秋天，申请了域名，搭建了论坛。可惜好景不长，没多久进入论坛后就出现各种乱七八糟的广告，而这些广告压根都不是我加的。
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/zTfAIs5rNXiaG8icOYvw60oGtDk20C2Jicl0m2BFc9ic7fyWtZ2DPXhHMMUvdgoqz3jS6aQ1UDpNjF4SGs86JVDFAA/640?wx_fmt=png)
+![](_assets/640.png)
 
 这是怎么回事？后来我才知道，原来我的论坛没有加 HTTPS 也就是没有 SSL 证书。那这和数学中的素数有啥关系呢？这是因为每一个 SSL 的生成都用到了 RSA 非对称加密，而 RSA 的加解密就是使用了两个互为质数的大素数生成公钥和私钥的。
 

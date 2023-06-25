@@ -3,7 +3,7 @@
 > 
 > 🔥本文已收录于JAVA基础系列专栏： [Java基础教程](https://blog.csdn.net/m0_52316372/category_12008132.html) 免费订阅，持续更新。
 
-![](https://img-blog.csdnimg.cn/img_convert/3a67e04162245b8eb64845919fae9852.jpeg#pic_center)
+![](_assets/3a67e04162245b8eb64845919fae9852.jpeg.jpg)
   
 
 1\. 运算符
@@ -280,7 +280,7 @@ System.out.println("--------");
 System.out.println((i > j)); //false
 System.out.println(!(i > j)); //!false，,输出true` 
 
-![](https://csdnimg.cn/release/blogv2/dist/pc/img/newCodeMoreWhite.png)
+![](_assets/newCodeMoreWhite.png)
 
 *   1
 *   2
@@ -472,7 +472,7 @@ public class ScannerTest {
 	}
 }` 
 
-![](https://csdnimg.cn/release/blogv2/dist/pc/img/newCodeMoreWhite.png)
+![](_assets/newCodeMoreWhite.png)
 
 *   1
 *   2
@@ -541,7 +541,7 @@ if (关系表达式) {
 
 ④继续执行后面的语句内容
 
-![](https://img-blog.csdnimg.cn/img_convert/8c15852b9909c97b9c0bf302934b4d90.png)
+![](_assets/8c15852b9909c97b9c0bf302934b4d90.png)
 
 示例：
 
@@ -565,7 +565,7 @@ if (关系表达式) {
 	}
 }` 
 
-![](https://csdnimg.cn/release/blogv2/dist/pc/img/newCodeMoreWhite.png)
+![](_assets/newCodeMoreWhite.png)
 
 *   1
 *   2
@@ -611,7 +611,7 @@ if (关系表达式) {
 
 ④继续执行后面的语句内容
 
-![](https://img-blog.csdnimg.cn/img_convert/3d867a87d5dceef4b762f13e88878be5.png)
+![](_assets/3d867a87d5dceef4b762f13e88878be5.png)
 
 示例：
 
@@ -633,7 +633,7 @@ if (关系表达式) {
 	}
 }` 
 
-![](https://csdnimg.cn/release/blogv2/dist/pc/img/newCodeMoreWhite.png)
+![](_assets/newCodeMoreWhite.png)
 
 *   1
 *   2
@@ -688,7 +688,7 @@ public class IfTest01 {
 	}
 }` 
 
-![](https://csdnimg.cn/release/blogv2/dist/pc/img/newCodeMoreWhite.png)
+![](_assets/newCodeMoreWhite.png)
 
 *   1
 *   2
@@ -739,7 +739,7 @@ else {
 
 ⑤如果没有任何关系表达式为true，就执行语句体n+1。
 
-![](https://img-blog.csdnimg.cn/img_convert/42c03d14f24350d157f7c40f97b91a3a.png)
+![](_assets/42c03d14f24350d157f7c40f97b91a3a.png)
 
 示例：键盘录入一个星期数(1,2,…7)，输出对应的星期一，星期二，…星期日
 
@@ -771,7 +771,7 @@ public class IfDemo03 {
 	}
 }` 
 
-![](https://csdnimg.cn/release/blogv2/dist/pc/img/newCodeMoreWhite.png)
+![](_assets/newCodeMoreWhite.png)
 
 *   1
 *   2
@@ -843,7 +843,7 @@ public class IfTest02 {
 	}
 }` 
 
-![](https://csdnimg.cn/release/blogv2/dist/pc/img/newCodeMoreWhite.png)
+![](_assets/newCodeMoreWhite.png)
 
 *   1
 *   2

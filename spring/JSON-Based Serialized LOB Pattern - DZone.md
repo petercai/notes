@@ -12,15 +12,15 @@ Before diving into implementation details, let’s review the objectives of the 
 Query Simplification
 --------------------
 
-Imagine a site that shows basic information about products. At the minimum, `products` the table would have the structure:![](https://dz2cdn1.dzone.com/storage/temp/16604551-serialized-lob-implementation-productsdrawio.png)
+Imagine a site that shows basic information about products. At the minimum, `products` the table would have the structure:![](_assets/16604551-serialized-lob-implementation-productsdrawio.png)
 
 If the site supports multiple languages, a localization might end up with something like this nightmare:
 
-![](https://dz2cdn1.dzone.com/storage/temp/16604594-serialized-lob-implementation-products-localizatio.png)
+![](_assets/16604594-serialized-lob-implementation-products-localizatio.png)
 
 Or with the better solution that uses a separate localization table:
 
-![](https://dz2cdn1.dzone.com/storage/temp/16604554-serialized-lob-implementation-multiple-languagesdr.png)
+![](_assets/16604554-serialized-lob-implementation-multiple-languagesdr.png)
 
 The first variant is difficult to extend, and retrieving data by a locale would be awkward enough to avoid this option. [SQL](https://dzone.com/articles/understanding-sql-dialects) request for the second variant may be like this:
 
@@ -37,11 +37,11 @@ Object-Oriented Strategy
 
 _Serialized LOB_ pattern may also be helpful when your entity classes have attributes of object types. For instance, if you need to add size columns into `products` table, this can be done like this:
 
-![](https://dz2cdn1.dzone.com/storage/temp/16604556-serialized-lob-implementation-products-sizedrawio.png)
+![](_assets/16604556-serialized-lob-implementation-products-sizedrawio.png)
 
 But logically, these four new attributes present dimensions of the product. So, with the [OO](https://dzone.com/articles/object-oriented-programming-concepts-with-a-system) (object-oriented) approach, the following looks less verbose:
 
-![](https://dz2cdn1.dzone.com/storage/temp/16604557-serialized-lob-implementation-products-dimensiondr.png)
+![](_assets/16604557-serialized-lob-implementation-products-dimensiondr.png)
 
 Where the column dimensions store the JSON presentation of `Dimensions` object:` {"unit":{"en":"meter","fr":"mètre","it":"metro"},"length":"1","width":"2","height":"3"}`.
 
@@ -56,7 +56,7 @@ This approach is similar to the previous one – the packing attributes of an en
 
 For instance, you have `Store` a class with dozens of attributes. Some of them are necessary for identifying, searching, or displaying, like `code`, `name`, `description`. Others might be used only in rare specific cases, for example, `defaultStorage`, `isEligibleForHomeDelivery`, `timeZone`, etc. As a result, the `stores` the table might have so many columns that make it inconvenient to operate with. Instead of working with multiple queries, it is suggested to split attributes into groups. Key attributes are mapped onto dedicated columns, whereas other attributes, which are not used often, will be packed into a helper class as shown below:
 
-![](https://dz2cdn1.dzone.com/storage/temp/16604558-serialized-lob-implementation-storesdrawio.png)
+![](_assets/16604558-serialized-lob-implementation-storesdrawio.png)
 
 Where the column `store_details` contains the JSON presentation of an object of `StoreDetails` class:
 

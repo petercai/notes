@@ -10,7 +10,7 @@
 
 文件在程序中是以流的形式来操作的。
 
-![](https://static001.geekbang.org/infoq/81/811dbd6e32311fe8e1a5a0ac3a20a9c7.png)
+![](_assets/811dbd6e32311fe8e1a5a0ac3a20a9c7.png)
 
 输入流：数据从文件到程序（内存）的路径。（在程序中读取文件数据）
 
@@ -224,14 +224,14 @@ public class Directory_ {
 
 按流的角色的不同分为：节点流，处理流／包装流
 
-![](https://static001.geekbang.org/infoq/50/502bca37d563b3f02e9283c60b1fa9be.png)
+![](_assets/502bca37d563b3f02e9283c60b1fa9be.png)
 
 1） Java 的 IO 流共涉及 40 多个类，实际上非常规则，都是从如上 4 个抽象基类派生的。2）由这四个类派生出来的子类名称都是以其父类名作为子类名后缀。
 
 四、IO 流程图
 --------
 
-![](https://static001.geekbang.org/infoq/cc/ccc75a80470bc705eda9586b97c46589.png)
+![](_assets/ccc75a80470bc705eda9586b97c46589.png)
 
 五、FileInputStream 字节输入流
 -----------------------

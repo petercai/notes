@@ -23,7 +23,7 @@ String s3 = "Harry Potter";
 
 如果 s2 的字符串内容“`The Lord of the Rings`”不存在于池中，则在字符串池中生成一个新的字符串对象。
 
-![](https://static001.geekbang.org/infoq/37/37ed94ae35da41e5f499ec3865dddf12.png)
+![](_assets/37ed94ae35da41e5f499ec3865dddf12.png)
 
 两种创建字符串方式
 ---------
@@ -57,7 +57,7 @@ s2==s5 //假
 
 使用 == 运算符比较两个对象时，它会比较内存中的地址。
 
-![](https://static001.geekbang.org/infoq/5f/5f3458a0ec263a8412810bd52eba9ec3.png)
+![](_assets/5f3458a0ec263a8412810bd52eba9ec3.png)
 
 正如您在上面的图片和示例中看到的，每当我们使用`new`运算符创建字符串时，它都会在 Java 堆中创建一个新的字符串对象，并且不会检查该对象是否在字符串常量池中。
 
@@ -144,7 +144,7 @@ public void test6(){
 String s6 = new String("The Lord of the Rings").intern();
 ```
 
-![](https://static001.geekbang.org/infoq/8f/8fc1160e996007817e30499ec1c135e4.png)
+![](_assets/8fc1160e996007817e30499ec1c135e4.png)
 
 字符串常量池有多大？
 ----------

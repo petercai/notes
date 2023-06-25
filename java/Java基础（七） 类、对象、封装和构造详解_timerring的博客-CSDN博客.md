@@ -3,7 +3,7 @@
 > 
 > 🔥本文已收录于JAVA基础系列专栏： [Java基础教程](https://blog.csdn.net/m0_52316372/category_12008132.html) 免费订阅，持续更新。
 
-![](https://img-blog.csdnimg.cn/img_convert/91f4075604fbc919dff8b8b3eb53b842.jpeg#pic_center)
+![](_assets/91f4075604fbc919dff8b8b3eb53b842.jpeg.jpg)
 
 1\. 类和对象
 --------
@@ -71,7 +71,7 @@ public class 类名 {
     }
 }` 
 
-![](https://csdnimg.cn/release/blogv2/dist/pc/img/newCodeMoreWhite.png)
+![](_assets/newCodeMoreWhite.png)
 
 *   1
 *   2
@@ -136,7 +136,7 @@ public class 类名 {
     }
 }` 
 
-![](https://csdnimg.cn/release/blogv2/dist/pc/img/newCodeMoreWhite.png)
+![](_assets/newCodeMoreWhite.png)
 
 *   1
 *   2
@@ -217,7 +217,7 @@ public class StudentDemo {
     }
 }` 
 
-![](https://csdnimg.cn/release/blogv2/dist/pc/img/newCodeMoreWhite.png)
+![](_assets/newCodeMoreWhite.png)
 
 *   1
 *   2
@@ -264,21 +264,21 @@ public class StudentDemo {
 
 *   成员变量使用过程
 
-![](https://img-blog.csdnimg.cn/1f39de61f759498e95f26431228c549b.png)
+![](_assets/1f39de61f759498e95f26431228c549b.png)
 
 *   成员方法调用过程
 
-![](https://img-blog.csdnimg.cn/img_convert/f6bdde680c35dcd5c3d9a6ac198aadb5.png)
+![](_assets/f6bdde680c35dcd5c3d9a6ac198aadb5.png)
 
 ### 2.2 多个对象内存图
 
 *   **成员变量使用过程**
 
-![](https://img-blog.csdnimg.cn/img_convert/f12ca24073390b204b8d4502e0a72baa.png)
+![](_assets/f12ca24073390b204b8d4502e0a72baa.png)
 
 *   成员方法调用过程
 
-![](https://img-blog.csdnimg.cn/24497d190cfb45cdbf9ff2bfa37fa021.png)
+![](_assets/24497d190cfb45cdbf9ff2bfa37fa021.png)
 
 *   总结：
     
@@ -287,7 +287,7 @@ public class StudentDemo {
 
 ### 2.3 多个对象指向相同内存图
 
-![](https://img-blog.csdnimg.cn/cd6459071d4c4af58b9582c0bb6b4914.png)
+![](_assets/cd6459071d4c4af58b9582c0bb6b4914.png)
 
 *   总结
     
@@ -356,7 +356,7 @@ private是一个修饰符，可以用来修饰成员（成员变量，成员方�
         }
     }` 
     
-    ![](https://csdnimg.cn/release/blogv2/dist/pc/img/newCodeMoreWhite.png)
+    ![](_assets/newCodeMoreWhite.png)
     
     *   1
     *   2
@@ -455,7 +455,7 @@ private是一个修饰符，可以用来修饰成员（成员变量，成员方�
         }
     }` 
     
-    ![](https://csdnimg.cn/release/blogv2/dist/pc/img/newCodeMoreWhite.png)
+    ![](_assets/newCodeMoreWhite.png)
     
     *   1
     *   2
@@ -543,7 +543,7 @@ private是一个修饰符，可以用来修饰成员（成员变量，成员方�
     }
 }` 
 
-![](https://csdnimg.cn/release/blogv2/dist/pc/img/newCodeMoreWhite.png)
+![](_assets/newCodeMoreWhite.png)
 
 *   1
 *   2
@@ -593,10 +593,10 @@ private是一个修饰符，可以用来修饰成员（成员变量，成员方�
     
 *   图解：
     
-    ![](https://img-blog.csdnimg.cn/img_convert/551faa3dbee1baf75441b6851eda99d7.png)
+    ![](_assets/551faa3dbee1baf75441b6851eda99d7.png)
     
 
-![](https://img-blog.csdnimg.cn/5d799b73ae004b1294e6dcc6635eeaaa.png)
+![](_assets/5d799b73ae004b1294e6dcc6635eeaaa.png)
 
 ### 4.5 封装思想
 
@@ -657,7 +657,7 @@ public class StudentDemo {
     }
 }` 
 
-![](https://csdnimg.cn/release/blogv2/dist/pc/img/newCodeMoreWhite.png)
+![](_assets/newCodeMoreWhite.png)
 
 *   1
 *   2
@@ -752,7 +752,7 @@ public class StudentDemo {
     }
 }` 
 
-![](https://csdnimg.cn/release/blogv2/dist/pc/img/newCodeMoreWhite.png)
+![](_assets/newCodeMoreWhite.png)
 
 *   1
 *   2
@@ -864,7 +864,7 @@ public class StudentDemo {
     }
 }` 
 
-![](https://csdnimg.cn/release/blogv2/dist/pc/img/newCodeMoreWhite.png)
+![](_assets/newCodeMoreWhite.png)
 
 *   1
 *   2

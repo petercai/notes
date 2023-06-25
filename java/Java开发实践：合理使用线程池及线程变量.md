@@ -118,12 +118,12 @@ ThreadPoolExecutor 线程池有如下几种状态：
 *   TERMINATED：表示线程池已停止运作，所有工作线程已被销毁，所有任务已被清空或执行完毕，terminated()方法执行完成。
     
 
-![](https://static001.geekbang.org/infoq/c7/c7555cd2ee3842964a0e894ea88c326f.png)
+![](_assets/c7555cd2ee3842964a0e894ea88c326f.png)
 
 3.3 线程池任务调度机制
 -------------
 
-![](https://static001.geekbang.org/infoq/54/547ee1a1f4eca5d1df052e19a32d490e.png)
+![](_assets/547ee1a1f4eca5d1df052e19a32d490e.png)
 
 线程池提交一个任务时任务调度的主要步骤如下：
 
@@ -184,7 +184,7 @@ public void execute(Runnable command) {
 
 ### Tomcat 请求处理过程
 
-![](https://static001.geekbang.org/infoq/a9/a9abf7b780c82a903a3c00495d519a9e.png)
+![](_assets/a9abf7b780c82a903a3c00495d519a9e.png)
 
 Tomcat 的整体架构包含连接器和容器两大部分，其中连接器负责与外部通信，容器负责内部逻辑处理。在连接器中：
 
@@ -192,13 +192,13 @@ Tomcat 的整体架构包含连接器和容器两大部分，其中连接器负�
 
 2）通过适配器 Adapter 将 Tomcat Request 对象转换为标准的 ServletRequest 对象。
 
-![](https://static001.geekbang.org/infoq/3c/3c91c3a6f100eda349dadac98f4172e2.png)
+![](_assets/3c91c3a6f100eda349dadac98f4172e2.png)
 
 Tomcat 为了实现请求的快速响应，使用线程池来提高请求的处理能力。下面我们以 HTTP 非阻塞 I/O 为例对 Tomcat 线程池进行简要的分析。
 
 ### Tomcat 线程池创建
 
-![](https://static001.geekbang.org/infoq/49/4982cbc66b4f3580a75710c4e1603dbf.png)
+![](_assets/4982cbc66b4f3580a75710c4e1603dbf.png)
 
 在 Tomcat 中，通过 AbstractEndpoint 类提供底层的网络 I/O 的处理，若用户没有配置自定义公共线程池，则 AbstractEndpoint 通过 createExecutor 方法来创建 Tomcat 默认线程池。
 
@@ -392,7 +392,7 @@ private int maxConnections = 10000;
 
 ### 避免用 Executors 的创建线程池
 
-![](https://static001.geekbang.org/infoq/79/79af84f1b4c905d5ec046e0c07778c5b.png)
+![](_assets/79af84f1b4c905d5ec046e0c07778c5b.png)
 
 Executors 常用方法有以下几个：
 
@@ -699,13 +699,13 @@ try {
 
 在 EagleEyeFilter 中，通过 EagleEyeRequestTracer.startTrace 方法进行初始化，在前置入参转换后，通过 startTrace 重载方法将鹰眼上下文参数存入 ThreadLocal 中，相关代码如下：
 
-![](https://static001.geekbang.org/infoq/56/5609c20e12081b0d526376cc734f3805.png)
+![](_assets/5609c20e12081b0d526376cc734f3805.png)
 
-![](https://static001.geekbang.org/infoq/ee/ee91282cd4fe330204339938c8f284bd.png)
+![](_assets/ee91282cd4fe330204339938c8f284bd.png)
 
 EagleEyeFilter 在 finally 代码块中，通过 EagleEyeRequestTracer.endTrace 方法结束调用链，通过 clear 方法将 ThreadLocal 中的数据进行清理，相关代码实现如下：
 
-![](https://static001.geekbang.org/infoq/84/84290c781d229af4c31694f1387716ed.png)
+![](_assets/84290c781d229af4c31694f1387716ed.png)
 
 ### Bad case：XX 项目权益领取失败问题
 
@@ -724,7 +724,7 @@ EagleEyeFilter 在 finally 代码块中，通过 EagleEyeRequestTracer.endTrace 
 
 在应用中，权益领取接口的主入口为 CommonXXApplyModule 类，CommonXXApplyModule 依赖 XXSessionModule。当请求来临时，会按依赖关系依次调用 init 方法，因此 XXSessionModule 的 init 方法会优先执行；而开发同学在 CommonXXApplyModule 类中的 init 方法中通过调用 recoverMtopContext()方法来期望恢复 mtop 上下文，因 recoverMtopContext()方法的调用时机过晚，从而导致 XXSessionModule 模块获取不到正确的会话 id 等信息而导致权益领取失败。
 
-![](https://static001.geekbang.org/infoq/d3/d39ba42545577a0bc84b8d1cc874a759.png)
+![](_assets/d39ba42545577a0bc84b8d1cc874a759.png)
 
 **问题 2：脏数据分析**
 
@@ -774,7 +774,7 @@ public class ThreadLocalTest {
 
 在上述 main 方法第 22 行 debug，可见线程的 threadLocals 变量中有 3 个 threadlocal 实例。在工程实践中，使用 threadlocal 时通常期望一个线程只有一个 threadlocal 实例，因此，若不使用 static 修饰，期望的语义发生了变化，同时易引起内存泄漏。
 
-![](https://static001.geekbang.org/infoq/63/63c569c02cda052b0f3b5f0d64ae0bc9.png)
+![](_assets/63c569c02cda052b0f3b5f0d64ae0bc9.png)
 
 5.4 最佳实践
 --------

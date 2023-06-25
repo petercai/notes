@@ -1,7 +1,7 @@
 #  Windows command line findstr command
 Updated: 12/30/2021 by
 
-![](https://www.computerhope.com/cdn/dos/findstr-command.gif)
+![](_assets/findstr-command.gif)
 
 The **findstr** (short for find string) command is used in MS-DOS to locate files containing a specific [string](https://www.computerhope.com/jargon/s/string.htm) of [plain text](https://www.computerhope.com/jargon/p/plaintex.htm).
 

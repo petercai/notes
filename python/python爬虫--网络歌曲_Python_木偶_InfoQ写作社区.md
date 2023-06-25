@@ -1,7 +1,7 @@
 # python爬虫--网络歌曲_Python_木偶_InfoQ写作社区
 **前言:想听音乐又不想去搜索歌曲,面对那么多音乐却不知道听哪个,今天本博主教你用 python 爬虫,轻松爬取热歌榜,一起来深究深究:**
 
-![](https://static001.geekbang.org/infoq/47/477b5c4d5cdf358cda4bf0116389dc3c.png)
+![](_assets/477b5c4d5cdf358cda4bf0116389dc3c.png)
 
 **在进行数据爬取时,我们需要对网页进行分析,对网页内容需要进行解析,这时候我们需要几个必备的包:**
 
@@ -14,7 +14,7 @@
 
 **如果包没有下载,可以使用如下命令分别去下载这两个库(可以在**`**DOS**`**命令窗口输入以下命令来下载):**
 
-![](https://static001.geekbang.org/infoq/b8/b8bdf5ad0ab2872ae16b2638e712dfec.png)
+![](_assets/b8bdf5ad0ab2872ae16b2638e712dfec.png)
 
 1.网络状态码:
 --------
@@ -60,7 +60,7 @@ print(respone)
 
 **下图所示结果就是访问正常了,下面我们来解析网页...**
 
-![](https://static001.geekbang.org/infoq/11/115ec3cbfe0d14310181fb6cfc64c13e.png)
+![](_assets/115ec3cbfe0d14310181fb6cfc64c13e.png)
 
 **解析网页一般用到的是:**
 
@@ -68,7 +68,7 @@ print(respone)
 html=etree.HTML(respone.text)
 ```
 
-![](https://static001.geekbang.org/infoq/ce/ce6f525b83aa81eac89f7e56372fc56d.png)
+![](_assets/ce6f525b83aa81eac89f7e56372fc56d.png)
 
 **在我们进行检查时,发现歌曲的主要信息在这里,那么格式我们可以这样写:**
 
@@ -78,7 +78,7 @@ id_list=html.xpath('//a[contains(@href,"song?")]')
 
 `a标签中包含href中song?及以后的数据`**获取到的信息如下:**
 
-![](https://static001.geekbang.org/infoq/9e/9e7f5691c99f89bef634544757a7860d.png)
+![](_assets/9e7f5691c99f89bef634544757a7860d.png)
 
 **是不是感觉很奇怪和想象的不太一样,那是我们获取到的地址,那么接下来我们进行进一步的提取:**
 
@@ -90,7 +90,7 @@ for id in id_list:
 
 **对获取到的地址进行遍历,取到其 href 中的值:**
 
-![](https://static001.geekbang.org/infoq/53/53194f40ae78533ede346f717dc4d56e.png)
+![](_assets/53194f40ae78533ede346f717dc4d56e.png)
 
 **我们主要的是 id 后面的那串数字,那么这时候我们对其进行分割,取到我们想要的数据:**
 
@@ -99,7 +99,7 @@ music_id=href.split('=')[1]
 print(music_id)
 ```
 
-![](https://static001.geekbang.org/infoq/dd/ddfb0098e909fe1701855640f45e9aad.png)
+![](_assets/ddfb0098e909fe1701855640f45e9aad.png)
 
 ```
 if "$" not in music_id:
@@ -109,11 +109,11 @@ if "$" not in music_id:
 
 **也许会有小伙伴比较疑问为什么要用**`**if**`**这个判断条件,原因如下:**
 
-![](https://static001.geekbang.org/infoq/f7/f758f0c3d30cf4f8883a69184aa18935.png)
+![](_assets/f758f0c3d30cf4f8883a69184aa18935.png)
 
 **这是因为在进行**`**id**`**获取时,有的**`**id**`**是没有的,字符串里**`**包含$**`**,如果我们不进行处理,那么就会如下错误:**
 
-![](https://static001.geekbang.org/infoq/b9/b9051b90cf3bc174c9727854d3c429d3.png)
+![](_assets/b9051b90cf3bc174c9727854d3c429d3.png)
 
 `索引错误`,**因为里面**`**没有这些包含$的id**`**,所以就会报错,名字获取到了那么我们来对歌曲进行下载并存储.**
 
@@ -137,9 +137,9 @@ print(music_url)
 
 **这样获取到的就是我们可以下载的链接了,运行结果:**
 
-![](https://static001.geekbang.org/infoq/f1/f11386db991d534b584c206d9ae4945b.png)
+![](_assets/f11386db991d534b584c206d9ae4945b.png)
 
-![](https://static001.geekbang.org/infoq/51/51f0a9f17aa8b8664dacb68199abc3e2.png)
+![](_assets/51f0a9f17aa8b8664dacb68199abc3e2.png)
 
 3.进行存储:
 -------
@@ -210,7 +210,7 @@ r'C:\Users\jcgg-99977\Desktop\music/%s.mp3'
 
 运行结果应该是这样的:
 
-![](https://static001.geekbang.org/infoq/07/07b71d20b949159bc3f1cf01556a4330.png)
+![](_assets/07b71d20b949159bc3f1cf01556a4330.png)
 
 * * *
 

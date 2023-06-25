@@ -202,7 +202,7 @@ $ find .git/objects -type f
 
 Enter fullscreen mode Exit fullscreen mode
 
-[![](https://res.cloudinary.com/practicaldev/image/fetch/s--ywn--PTz--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/9m8l1485y5a0d8cwog1o.png)
+[![](_assets/9m8l1485y5a0d8cwog1o.png)
 ](https://res.cloudinary.com/practicaldev/image/fetch/s--ywn--PTz--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/9m8l1485y5a0d8cwog1o.png)
 
 ### [](#reading-the-raw-content-of-a-blob)🔵 Reading the raw content of a blob
@@ -226,7 +226,7 @@ Enter fullscreen mode Exit fullscreen mode
 
 In case you are guessing, that's right, **Git is a key-value database**!
 
-[![](https://res.cloudinary.com/practicaldev/image/fetch/s--RFwCeLdE--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/jhjl5r81esbokdfo6gqs.png)
+[![](_assets/jhjl5r81esbokdfo6gqs.png)
 ](https://res.cloudinary.com/practicaldev/image/fetch/s--RFwCeLdE--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/jhjl5r81esbokdfo6gqs.png)
 
 ### [](#promoting-blobs)🔵 Promoting blobs
@@ -269,7 +269,7 @@ Enter fullscreen mode Exit fullscreen mode
 *   `index.txt`: a name for the blob in the index
     
 
-[![](https://res.cloudinary.com/practicaldev/image/fetch/s--1X5S86kt--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/dhcrrhbui33ao66muizk.png)
+[![](_assets/dhcrrhbui33ao66muizk.png)
 ](https://res.cloudinary.com/practicaldev/image/fetch/s--1X5S86kt--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/dhcrrhbui33ao66muizk.png)
 
 Where does Git _store the index_?  
@@ -355,7 +355,7 @@ Enter fullscreen mode Exit fullscreen mode
 *   the blob name
     
 
-[![](https://res.cloudinary.com/practicaldev/image/fetch/s--AcDvEW36--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/sf62qc9mlvcgde8hzyb2.png)
+[![](_assets/sf62qc9mlvcgde8hzyb2.png)
 ](https://res.cloudinary.com/practicaldev/image/fetch/s--AcDvEW36--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/sf62qc9mlvcgde8hzyb2.png)
 
 Once the promotion is done, **time to add some metadata to the tree**, so we can declare the author's name, date and so on.
@@ -407,7 +407,7 @@ Enter fullscreen mode Exit fullscreen mode
 *   the commit message **my precious commit**
     
 
-[![](https://res.cloudinary.com/practicaldev/image/fetch/s--dCQIKcq3--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/rx73s2uu3uyi8367a47y.png)
+[![](_assets/rx73s2uu3uyi8367a47y.png)
 ](https://res.cloudinary.com/practicaldev/image/fetch/s--dCQIKcq3--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/rx73s2uu3uyi8367a47y.png)
 
 > 🤯 OMG! Am I seeing a pattern here?
@@ -482,7 +482,7 @@ Enter fullscreen mode Exit fullscreen mode
 
 Within Git, we can _manipulate objects like pointers in graphs_.
 
-[![](https://res.cloudinary.com/practicaldev/image/fetch/s--Mz9rlw1t--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/xwj38c1zvimxfxpfzcq1.png)
+[![](_assets/xwj38c1zvimxfxpfzcq1.png)
 ](https://res.cloudinary.com/practicaldev/image/fetch/s--Mz9rlw1t--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/xwj38c1zvimxfxpfzcq1.png)
 
 *   **Blobs** are data/files snapshots
@@ -557,7 +557,7 @@ Branches are references that point to a specific commit.
 
 As branches represent the `update-ref` command, the _commit hash can change_ at any time, that is, **a branch reference is mutable**.
 
-[![](https://res.cloudinary.com/practicaldev/image/fetch/s--8MZwFZXi--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/a00yup5tew9hrmnr96xg.png)
+[![](_assets/a00yup5tew9hrmnr96xg.png.jpg)
 ](https://res.cloudinary.com/practicaldev/image/fetch/s--8MZwFZXi--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/a00yup5tew9hrmnr96xg.png)
 
 For a moment, let's think about how a `git log` without arguments work:  
@@ -609,12 +609,12 @@ Enter fullscreen mode Exit fullscreen mode
 
 Like `update-ref` on branches, we can update the HEAD using `symbolic-ref` at any time.
 
-[![](https://res.cloudinary.com/practicaldev/image/fetch/s--QKHTuL_J--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/toezd1b9r5zlrezmwb27.png)
+[![](_assets/toezd1b9r5zlrezmwb27.png.jpg)
 ](https://res.cloudinary.com/practicaldev/image/fetch/s--QKHTuL_J--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/toezd1b9r5zlrezmwb27.png)
 
 In the picture below, we'll change our HEAD from the **main** branch to the **fix** branch:
 
-[![](https://res.cloudinary.com/practicaldev/image/fetch/s--DMIHMPgi--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/01nz6085jlze4nqlza9d.png)
+[![](_assets/01nz6085jlze4nqlza9d.png)
 ](https://res.cloudinary.com/practicaldev/image/fetch/s--DMIHMPgi--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/01nz6085jlze4nqlza9d.png)
 
 Without arguments, the `git log` command traverses the root commit that is referenced by the current branch (HEAD):  
@@ -654,7 +654,7 @@ Those commands are called **porcelain commands**.
 
 The `git add` command takes files in the **working directory** as arguments, _saves them as blobs_ into the database and adds _them to the index_.
 
-[![](https://res.cloudinary.com/practicaldev/image/fetch/s--P4i-RMw1--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/tmfcfn23v1yvesjk9mzz.png)
+[![](_assets/tmfcfn23v1yvesjk9mzz.png.jpg)
 ](https://res.cloudinary.com/practicaldev/image/fetch/s--P4i-RMw1--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/tmfcfn23v1yvesjk9mzz.png)
 
 In short, `git add`:
@@ -670,12 +670,12 @@ In short, `git add`:
 
 First, it runs `write-tree`:
 
-[![](https://res.cloudinary.com/practicaldev/image/fetch/s--Qnbri7wE--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/imc0yzk6cn98hd3d09gf.png)
+[![](_assets/imc0yzk6cn98hd3d09gf.png.jpg)
 ](https://res.cloudinary.com/practicaldev/image/fetch/s--Qnbri7wE--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/imc0yzk6cn98hd3d09gf.png)
 
 Then, it runs `commit-tree`:
 
-[![](https://res.cloudinary.com/practicaldev/image/fetch/s--pc32baZe--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/tix2m469gnkqp2hes7k0.png)
+[![](_assets/tix2m469gnkqp2hes7k0.png)
 ](https://res.cloudinary.com/practicaldev/image/fetch/s--pc32baZe--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/tix2m469gnkqp2hes7k0.png)  
 
 ```
@@ -697,7 +697,7 @@ The following **porcelain** commands are widely used, which manipulate the **Git
 
 Assuming we just cloned a project where the **HEAD** is pointing to the **main branch**, which points to the commit **C1**:
 
-[![](https://res.cloudinary.com/practicaldev/image/fetch/s--37cQd96L--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/v78l7749er21w7qzbjll.png)
+[![](_assets/v78l7749er21w7qzbjll.png)
 ](https://res.cloudinary.com/practicaldev/image/fetch/s--37cQd96L--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/v78l7749er21w7qzbjll.png)
 
 How can we **create another new branch** from the current HEAD and _move the HEAD to this new branch_?
@@ -726,17 +726,17 @@ Enter fullscreen mode Exit fullscreen mode
 
 Which **plumbing** command is responsible for moving the HEAD? Exactly, _symbolic-ref_.
 
-[![](https://res.cloudinary.com/practicaldev/image/fetch/s--__odEO8O--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/3yhvz46cb9mdj720wxlu.png)
+[![](_assets/3yhvz46cb9mdj720wxlu.png.jpg)
 ](https://res.cloudinary.com/practicaldev/image/fetch/s--__odEO8O--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/3yhvz46cb9mdj720wxlu.png)
 
 Afterwards, we do some new work on the **fix branch** and then perform a `git commit`, which will add a new commit called **C3**:
 
-[![](https://res.cloudinary.com/practicaldev/image/fetch/s--CnRSPeqo--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/6qmbh90fxn2o63wr7gpt.png)
+[![](_assets/6qmbh90fxn2o63wr7gpt.png)
 ](https://res.cloudinary.com/practicaldev/image/fetch/s--CnRSPeqo--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/6qmbh90fxn2o63wr7gpt.png)
 
 By running `git checkout`, we can keep switching the HEAD across different branches:
 
-[![](https://res.cloudinary.com/practicaldev/image/fetch/s--YJRBDhOK--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/b5i2b8mnp7zkrs9uguha.png)
+[![](_assets/b5i2b8mnp7zkrs9uguha.png)
 ](https://res.cloudinary.com/practicaldev/image/fetch/s--YJRBDhOK--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/b5i2b8mnp7zkrs9uguha.png)
 
 Sometimes, we may want to **move the commit that a branch points to**.
@@ -763,7 +763,7 @@ Enter fullscreen mode Exit fullscreen mode
 
 But how does Git know the branch to move? Well, _git reset_ **moves the branch that HEAD is pointing to**.
 
-[![](https://res.cloudinary.com/practicaldev/image/fetch/s--JwrBx8a2--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/ki3dzr73q7xb7kpz7704.png)
+[![](_assets/ki3dzr73q7xb7kpz7704.png)
 ](https://res.cloudinary.com/practicaldev/image/fetch/s--JwrBx8a2--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/ki3dzr73q7xb7kpz7704.png)
 
 What about when there are _differences_ between revisions? By using `reset`, Git moves the pointer but **leaves all the differences in the stage area** (index).  
@@ -795,7 +795,7 @@ _The revision commit was changed in the_ **_fix branch_** _and all the differenc
 
 Still, what should we do in case we want to **reset AND discard** all the differences? Just passing on the option `--hard`:
 
-[![](https://res.cloudinary.com/practicaldev/image/fetch/s--WuasFyS3--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/zhlcot7lpmuo57jmo5a1.png)
+[![](_assets/zhlcot7lpmuo57jmo5a1.png)
 ](https://res.cloudinary.com/practicaldev/image/fetch/s--WuasFyS3--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/zhlcot7lpmuo57jmo5a1.png)
 
 By using `git reset --hard`, any difference between revisions **will be discarded** and they _won't appear in the index_.
@@ -832,7 +832,7 @@ Enter fullscreen mode Exit fullscreen mode
 
 We did a "git reset" _without moving the HEAD_!
 
-[![](https://res.cloudinary.com/practicaldev/image/fetch/s--70WY3M-1--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/7v7faopa858go3zkrygq.png)
+[![](_assets/7v7faopa858go3zkrygq.png)
 ](https://res.cloudinary.com/practicaldev/image/fetch/s--70WY3M-1--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/7v7faopa858go3zkrygq.png)
 
 Not rare, _instead of moving a branch pointer_, we want to **apply a specific commit to the current branch**.
@@ -845,7 +845,7 @@ With the **porcelain** `git cherry-pick`, we can apply an arbitrary commit to th
 
 Take the following scenario:
 
-[![](https://res.cloudinary.com/practicaldev/image/fetch/s--AkwMg0Yo--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/i0n7mldmwq8p3be6bzlf.png)
+[![](_assets/i0n7mldmwq8p3be6bzlf.png)
 ](https://res.cloudinary.com/practicaldev/image/fetch/s--AkwMg0Yo--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/i0n7mldmwq8p3be6bzlf.png)
 
 *   **main** points to C3 - C2 - C1
@@ -859,7 +859,7 @@ In the _fix branch_, we are **missing the C3 commit**, which is being referenced
 
 We can apply it by running `git cherry-pick C3`:
 
-[![](https://res.cloudinary.com/practicaldev/image/fetch/s--7gaRMQMk--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/uvw4m2fom52ggxvn0o13.png)
+[![](_assets/uvw4m2fom52ggxvn0o13.png)
 ](https://res.cloudinary.com/practicaldev/image/fetch/s--7gaRMQMk--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/uvw4m2fom52ggxvn0o13.png)
 
 Note that:
@@ -875,7 +875,7 @@ Note that:
 
 After applying changes, the graph will be represented as follows:
 
-[![](https://res.cloudinary.com/practicaldev/image/fetch/s--pRZHxUdG--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/2gqsdauqv0alwrb4w4ol.png)
+[![](_assets/2gqsdauqv0alwrb4w4ol.png)
 ](https://res.cloudinary.com/practicaldev/image/fetch/s--pRZHxUdG--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/2gqsdauqv0alwrb4w4ol.png)
 
 There's another way to move the pointer of a branch though. It consists of _applying an arbitrary commit of another branch_ but **merging the differences** if needed.
@@ -886,7 +886,7 @@ You're not wrong, we're talking about **git merge** here.
 
 Let's describe the following scenario:
 
-[![](https://res.cloudinary.com/practicaldev/image/fetch/s---Fl18baJ--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/61lv3lp1bsi3o7ingaxq.png)
+[![](_assets/61lv3lp1bsi3o7ingaxq.png)
 ](https://res.cloudinary.com/practicaldev/image/fetch/s---Fl18baJ--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/61lv3lp1bsi3o7ingaxq.png)
 
 *   main points to C3 - C2 - C1
@@ -904,14 +904,14 @@ In this case, the main branch will be "forwarded", pointing to the same commit a
 
 This kind of merge is called **fast-forward**, as described in the image below:
 
-[![](https://res.cloudinary.com/practicaldev/image/fetch/s--UIjnM-MC--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/m6zh34jsvg46wly76qcq.png)
+[![](_assets/m6zh34jsvg46wly76qcq.png)
 ](https://res.cloudinary.com/practicaldev/image/fetch/s--UIjnM-MC--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/m6zh34jsvg46wly76qcq.png)
 
 ### [](#when-fastforward-is-not-possible)When fast-forward is not possible
 
 Sometimes, our tree structure current's state does not allow fast-forward. Take the scenario below:
 
-[![](https://res.cloudinary.com/practicaldev/image/fetch/s--vMSkxLdM--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/a4tsezqc59orz8a2o2nb.png)
+[![](_assets/a4tsezqc59orz8a2o2nb.png)
 ](https://res.cloudinary.com/practicaldev/image/fetch/s--vMSkxLdM--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/a4tsezqc59orz8a2o2nb.png)
 
 That's when the merge branch - **fix branch** in the above example -, is _missing one or more commits_ from the current branch (main): **the C3 commit**.
@@ -922,29 +922,29 @@ However, for the merge to succeed, Git performs a technique called **Snapshottin
 
 First, Git looks to the next **common parent** of the two branches, in this example, the **C2** commit.
 
-[![](https://res.cloudinary.com/practicaldev/image/fetch/s--f3P_JmNK--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/1s3sfasy9216hhq8lzo5.png)
+[![](_assets/1s3sfasy9216hhq8lzo5.png)
 ](https://res.cloudinary.com/practicaldev/image/fetch/s--f3P_JmNK--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/1s3sfasy9216hhq8lzo5.png)
 
 Secondly, Git takes a **snapshot of the target** C3 commit branch:
 
-[![](https://res.cloudinary.com/practicaldev/image/fetch/s--nazvycHV--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/r5b784w4wejqx7xawynu.png)
+[![](_assets/r5b784w4wejqx7xawynu.png)
 ](https://res.cloudinary.com/practicaldev/image/fetch/s--nazvycHV--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/r5b784w4wejqx7xawynu.png)
 
 Third, Git takes a **snapshot of the source** C5 commit branch:
 
-[![](https://res.cloudinary.com/practicaldev/image/fetch/s--ZS-W9_nG--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/ouc15w3h73xwub9vuorn.png)
+[![](_assets/ouc15w3h73xwub9vuorn.png)
 ](https://res.cloudinary.com/practicaldev/image/fetch/s--ZS-W9_nG--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/ouc15w3h73xwub9vuorn.png)
 
 Lastly, Git automatically creates a commit merge (C6) and points it to two parents respectively: C3 (target) and C5 (source):
 
-[![](https://res.cloudinary.com/practicaldev/image/fetch/s--QE8XsYIN--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/q030zd9jjl0nb17i871j.png)
+[![](_assets/q030zd9jjl0nb17i871j.png)
 ](https://res.cloudinary.com/practicaldev/image/fetch/s--QE8XsYIN--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/q030zd9jjl0nb17i871j.png)
 
 Have you ever wondered why your Git tree displays some commits that were created **automatically**?
 
 _Make no mistake_, this merge process is called the **three-way merge**!
 
-[![](https://res.cloudinary.com/practicaldev/image/fetch/s--AeZ6ACw3--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/05j8ntrxzax8ruydehl1.png)
+[![](_assets/05j8ntrxzax8ruydehl1.png)
 ](https://res.cloudinary.com/practicaldev/image/fetch/s--AeZ6ACw3--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/05j8ntrxzax8ruydehl1.png)
 
 Next, let's explore _another merge technique_ where fast-**forward is not possible**, but instead of snapshotting and automatic commit merge, Git applies the differences **on top of the source branch**.
@@ -955,7 +955,7 @@ Yes, that's the **git rebase**.
 
 Consider the following image:
 
-[![](https://res.cloudinary.com/practicaldev/image/fetch/s--0KyMPq_l--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/n6u9hkcopd56anjjt6s7.png)
+[![](_assets/n6u9hkcopd56anjjt6s7.png)
 ](https://res.cloudinary.com/practicaldev/image/fetch/s--0KyMPq_l--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/n6u9hkcopd56anjjt6s7.png)
 
 *   main points to C3 - C2 - C1
@@ -971,7 +971,7 @@ We want to **rebase** the main branch into the fix branch, by issuing `git rebas
 
 First, Git performs a **git reset main**, where the fix branch will point to the same main branch pointer: _C3 - C2 - C1_.
 
-[![](https://res.cloudinary.com/practicaldev/image/fetch/s--NBOuFkUM--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/qq56zo5l7v6urjib67n0.png)
+[![](_assets/qq56zo5l7v6urjib67n0.png)
 ](https://res.cloudinary.com/practicaldev/image/fetch/s--NBOuFkUM--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/qq56zo5l7v6urjib67n0.png)
 
 At this moment, the C5 - C4 commits _have no references_.
@@ -980,14 +980,14 @@ At this moment, the C5 - C4 commits _have no references_.
 
 Second, Git performs a **git cherry-pick C5** into the current branch:
 
-[![](https://res.cloudinary.com/practicaldev/image/fetch/s--WpXiilh---/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/ucbxeoflzk8izrb2w621.png)
+[![](_assets/ucbxeoflzk8izrb2w621.png)
 ](https://res.cloudinary.com/practicaldev/image/fetch/s--WpXiilh---/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/ucbxeoflzk8izrb2w621.png)
 
 Note that, during a _cherry-pick process_, the cherry-picked commits are cloned, thus the final hash will change: **C5 - C4 becomes C5' - C4'**.
 
 After cherry-pick, we may have the following scenario:
 
-[![](https://res.cloudinary.com/practicaldev/image/fetch/s--fJ5ptBZO--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/q65tu7b5h3zj1ma2b0gj.png)
+[![](_assets/q65tu7b5h3zj1ma2b0gj.png)
 ](https://res.cloudinary.com/practicaldev/image/fetch/s--fJ5ptBZO--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/q65tu7b5h3zj1ma2b0gj.png)
 
 👉 **git reset again**
@@ -996,7 +996,7 @@ Lastly, Git will perform a **git reset C5'**, so the fix branch pointer will mov
 
 The rebase process is finished.
 
-[![](https://res.cloudinary.com/practicaldev/image/fetch/s--1JKATFwo--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/jjs73j725nbmjiau9nwc.png)
+[![](_assets/jjs73j725nbmjiau9nwc.png)
 ](https://res.cloudinary.com/practicaldev/image/fetch/s--1JKATFwo--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/jjs73j725nbmjiau9nwc.png)
 
 So far, we've been working with _local branches_, i.e on our machine. Time to learn how to work with **remote branches**, which are synced with _remote repositories on the internet_.
@@ -1035,14 +1035,14 @@ Git provides **two steps**:
 
 By using the **porcelain** `git fetch origin main`, Git will download the remote branch and synchronize it with a new local branch called **origin/main**, also known as the **upstream branch**.
 
-[![](https://res.cloudinary.com/practicaldev/image/fetch/s--ih7ruYBJ--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/9hii3cz4cjttk4pqnwzx.png)
+[![](_assets/9hii3cz4cjttk4pqnwzx.png)
 ](https://res.cloudinary.com/practicaldev/image/fetch/s--ih7ruYBJ--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/9hii3cz4cjttk4pqnwzx.png)
 
 👉 **git merge**
 
 After fetching and syncing the upstream branch, we can perform a `git merge origin/main` and because the upstream is ahead of our local branch, Git will safely apply a **fast-forward merge**.
 
-[![](https://res.cloudinary.com/practicaldev/image/fetch/s--TN2Nqva4--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/86x06eev8316smdlz8i2.png)
+[![](_assets/86x06eev8316smdlz8i2.png)
 ](https://res.cloudinary.com/practicaldev/image/fetch/s--TN2Nqva4--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/86x06eev8316smdlz8i2.png)
 
 However, **_fetch + merge_** _could be repetitive_, as we would synchronize local/remote branches multiple times a day.
@@ -1053,7 +1053,7 @@ But today is _our lucky day_, and Git provides the **git pull** porcelain comman
 
 With `git pull`, Git will perform fetch (synchronize remote with the upstream branch), and then merge the upstream branch into the local branch.
 
-[![](https://res.cloudinary.com/practicaldev/image/fetch/s--pQnPMLg1--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/ce7lb2f2bxpeoigfqbyr.png)
+[![](_assets/ce7lb2f2bxpeoigfqbyr.png)
 ](https://res.cloudinary.com/practicaldev/image/fetch/s--pQnPMLg1--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/ce7lb2f2bxpeoigfqbyr.png)
 
 Okay, we've seen how to pull/download changes from the remote. On the other hand, how about sending local changes to remote?
@@ -1066,17 +1066,17 @@ Git provides a **porcelain** command called `git push`:
 
 Performing `git push origin main` will first upload the changes to remote:
 
-[![](https://res.cloudinary.com/practicaldev/image/fetch/s--Q9BnAiNK--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/t6peyj4lcpdisu5310qx.png)
+[![](_assets/t6peyj4lcpdisu5310qx.png)
 ](https://res.cloudinary.com/practicaldev/image/fetch/s--Q9BnAiNK--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/t6peyj4lcpdisu5310qx.png)
 
 Then, Git will merge the upstream `origin/main` with the local `main` branch:
 
-[![](https://res.cloudinary.com/practicaldev/image/fetch/s--3UgB2wiI--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/nafbkbjsqioiljaeaqkw.png)
+[![](_assets/nafbkbjsqioiljaeaqkw.png)
 ](https://res.cloudinary.com/practicaldev/image/fetch/s--3UgB2wiI--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/nafbkbjsqioiljaeaqkw.png)
 
 At the end of the **push process**, we have the following image:
 
-[![](https://res.cloudinary.com/practicaldev/image/fetch/s--B-X8dK-F--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/jcq5u4t60i15qm8127jd.png)
+[![](_assets/jcq5u4t60i15qm8127jd.png)
 ](https://res.cloudinary.com/practicaldev/image/fetch/s--B-X8dK-F--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/jcq5u4t60i15qm8127jd.png)
 
 Where:
@@ -1104,7 +1104,7 @@ Yes, we are talking about **tags**.
 
 Using the porcelain `git tag` command, we can give names to commits but we cannot perform reset or any other command which would change the pointer.
 
-[![](https://res.cloudinary.com/practicaldev/image/fetch/s--Ic_PNbdY--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/pm62925zwulfu2vijjie.png)
+[![](_assets/pm62925zwulfu2vijjie.png)
 ](https://res.cloudinary.com/practicaldev/image/fetch/s--Ic_PNbdY--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/pm62925zwulfu2vijjie.png)
 
 It's quite useful for release versioning. Tags are located in the `.git/refs/tags` folder:  

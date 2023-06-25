@@ -12,7 +12,7 @@
 
 注意，是大写。于是，你会看到下面这样的界面：
 
-![](https://coolshell.cn/wp-content/uploads/2014/03/Explorer.png)
+![](_assets/Explorer.png)
 
 这个界面中，**你可以用 j, k 键上下移动，然后回车，进入一个目录，或是找开一个文件**。你可以看到上面有一堆命令：
 
@@ -38,7 +38,7 @@
 
 于是，在你的Vim下，你会看到如下界面：
 
-![](https://coolshell.cn/wp-content/uploads/2014/03/buffer_ls.png)
+![](_assets/buffer_ls.png)
 
 你可以看到Vim打开了四个文件，编号是4，5，6，7，如果你要切换打开的文件，这个时候，你不要按回车（按了也没事，只不过按了就看不到:ls输出的buffer列表了），你可以使用下面的命令切换文件（buffer后面的4表示切到4号文件也就是src/http/ngx_http.c）：
 
@@ -88,7 +88,7 @@ h （隐藏的缓冲区）
 
 下图是分别用:He 和 :Ve搞出来的同时看三个文件：
 
-![](https://coolshell.cn/wp-content/uploads/2014/03/WindowsExplorer.png)
+![](_assets/WindowsExplorer.png)
 
 在分屏间的跳转和切换在《[Vim的窗口分屏](https://coolshell.cn/articles/1679.html "Vim的分屏功能")》一文中提过了：**先按Ctrl + W，然后按方向键：h j k l**
 
@@ -112,7 +112,7 @@ h （隐藏的缓冲区）
 
 下图中，你可以看到我用Te命令打开了三页，就在顶端我们可以可以看到有三页，其中第一页Tab上的数字3表示那一页有3个文件。
 
-![](https://coolshell.cn/wp-content/uploads/2014/03/TabExplorer.png)
+![](_assets/TabExplorer.png)
 
 我们要在多个Tabe页中切换，在normal模式下，你可以使用下面三个按键（注意没有冒号）：
 
@@ -132,7 +132,7 @@ gvim应该是：Ctrl+PgDn 和 Ctrl+PgUp 来在各个页中切换。
 
 于是你可以看到：
 
-![](https://coolshell.cn/wp-content/uploads/2014/03/Tab01.png)
+![](_assets/Tab01.png)
 
 使用如下命令可以关闭tab：（当然，我更喜欢使用传统的:q, :wq来关闭）
 
@@ -175,7 +175,7 @@ gvim应该是：Ctrl+PgDn 和 Ctrl+PgUp 来在各个页中切换。
 
 于是，就会出现下面右边的那个样子：（是不是看上去和我一样很帅？）
 
-![](https://coolshell.cn/wp-content/uploads/2014/03/quickfix.png)
+![](_assets/quickfix.png)
 
 上图中左边是我的makefile，右边是我的错误百出的源代码，右边下面是quickfix窗屏。你可以看到quickfix窗屏指向的第一个错误已经定位到我们相就错误的文件行上了。
 
@@ -203,7 +203,7 @@ gvim应该是：Ctrl+PgDn 和 Ctrl+PgUp 来在各个页中切换。
 
 上面这个命令意思是递归查询src目录下所有的.c和.h文件，其中包括NGX\_HTTP\_VAR_INDEXED宏。然后，你就会看到vim到shell里去执行并找到了相关的文件，按回车返回vim后，别忘了用 【:cw 】把grep的输出取回来，于是我们就有下面的样子：
 
-![](https://coolshell.cn/wp-content/uploads/2014/03/quickfix_grep.png)
+![](_assets/quickfix_grep.png)
 
 然后同上面一样，你可以用 j，k 键移动quickfix里的光标到相应的行，然后按回车定位文件，或是使用【:cn】或【:cp】来移动到定位。（这样，你会把多个文件打开到缓冲区，别忘了【:ls】来查看缓冲区）
 
@@ -219,13 +219,13 @@ gvim应该是：Ctrl+PgDn 和 Ctrl+PgUp 来在各个页中切换。
 
 下图是我输入了ngx\_http\_然后按ctrl+n出现的样子，它已经帮我补全了一个，但是我不想要这个。然后，在Vim的下方我们可以看到状态变成了“关键字补全”，然后后面有^N^P的提示，意思就是告诉你还有一个Ctrl+P.
 
-![](https://coolshell.cn/wp-content/uploads/2014/03/auto_complete_ctrl_n.png)
+![](_assets/auto_complete_ctrl_n.png)
 
 > 【**Ctrl + P**】 – 接下来你可以按这个键，于是回到原点，然后你可以按上下光标键来选择相应的Word。
 
 对于上面那个例子，我们按下了Ctrl+P后出现下面的这个样子。我们可以看到，光标回到了一开始我输入的位置，然后你可以干两件事，一个是继续输入（这可以帮助过滤关键词），另一个是用“光标键”上移或下移来选择下拉列表中的关键字，选好后回车，就补全了。
 
-![](https://coolshell.cn/wp-content/uploads/2014/03/auto_complete_ctrl_p.png)
+![](_assets/auto_complete_ctrl_p.png)
 
 与此类似的，还有更多的补齐，都在Ctrl +X下面：
 
@@ -296,5 +296,5 @@ Ubuntu下：apt-get remove emacs
 
 （:wq）
 
-![](https://coolshell.cn/wp-content/plugins/wp-postratings/images/loading.gif)
+![](_assets/loading.gif)
 Loading...

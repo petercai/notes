@@ -3,7 +3,7 @@
 > 
 > 🔥本文已收录于JAVA基础系列专栏： [Java基础教程](https://blog.csdn.net/m0_52316372/category_12008132.html) 免费订阅，持续更新。
 
-![](https://img-blog.csdnimg.cn/img_convert/0a5ba5501ba97fffe1d24728db1870b3.jpeg#pic_center)
+![](_assets/0a5ba5501ba97fffe1d24728db1870b3.jpeg.jpg)
   
 
 1.[ArrayList](https://so.csdn.net/so/search?q=ArrayList&spm=1001.2101.3001.7020)
@@ -90,7 +90,7 @@ E表示返回的类型是集合中元素的类型。
     }
 }` 
 
-![](https://csdnimg.cn/release/blogv2/dist/pc/img/newCodeMoreWhite.png)
+![](_assets/newCodeMoreWhite.png)
 
 *   1
 *   2
@@ -166,7 +166,7 @@ E表示返回的类型是集合中元素的类型。
     }
 }` 
 
-![](https://csdnimg.cn/release/blogv2/dist/pc/img/newCodeMoreWhite.png)
+![](_assets/newCodeMoreWhite.png)
 
 *   1
 *   2
@@ -232,7 +232,7 @@ E表示返回的类型是集合中元素的类型。
     }
 }` 
 
-![](https://csdnimg.cn/release/blogv2/dist/pc/img/newCodeMoreWhite.png)
+![](_assets/newCodeMoreWhite.png)
 
 *   1
 *   2
@@ -320,7 +320,7 @@ E表示返回的类型是集合中元素的类型。
     }
 }` 
 
-![](https://csdnimg.cn/release/blogv2/dist/pc/img/newCodeMoreWhite.png)
+![](_assets/newCodeMoreWhite.png)
 
 *   1
 *   2
@@ -510,7 +510,7 @@ E表示返回的类型是集合中元素的类型。
     }
 }` 
 
-![](https://csdnimg.cn/release/blogv2/dist/pc/img/newCodeMoreWhite.png)
+![](_assets/newCodeMoreWhite.png)
 
 *   1
 *   2
@@ -758,7 +758,7 @@ E表示返回的类型是集合中元素的类型。
     }
 }` 
 
-![](https://csdnimg.cn/release/blogv2/dist/pc/img/newCodeMoreWhite.png)
+![](_assets/newCodeMoreWhite.png)
 
 *   1
 *   2

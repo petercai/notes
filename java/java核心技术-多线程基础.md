@@ -140,7 +140,7 @@ public class TestThread3 {
 }
 ```
 
-![](https://static001.geekbang.org/infoq/02/0205b2fd5ddcae5b8041b649c8dd92c2.png)
+![](_assets/0205b2fd5ddcae5b8041b649c8dd92c2.png)
 
 **1.3 线程的同步**
 

@@ -4,8 +4,8 @@ Today we will look into Logger in Java. Java Logger provides logging in java pro
 Logger in Java
 --------------
 
-[![](https://journaldev.nyc3.digitaloceanspaces.com/2012/12/logger-in-java-logging-example.jpg)
-](https://journaldev.nyc3.digitaloceanspaces.com/2012/12/logger-in-java-logging-example.jpg) **Java Logging** API was introduced in 1.4 and you can use java logging API to log application messages. In this java logging tutorial, we will learn basic features of Java Logger. We will also look into Java Logger example of different logging levels, Logging Handlers, Formatters, Filters, Log Manager and logging configurations. [![](https://journaldev.nyc3.digitaloceanspaces.com/2012/12/Java-logging-api.png)
+[![](_assets/logger-in-java-logging-example.jpg)
+](https://journaldev.nyc3.digitaloceanspaces.com/2012/12/logger-in-java-logging-example.jpg) **Java Logging** API was introduced in 1.4 and you can use java logging API to log application messages. In this java logging tutorial, we will learn basic features of Java Logger. We will also look into Java Logger example of different logging levels, Logging Handlers, Formatters, Filters, Log Manager and logging configurations. [![](_assets/Java-logging-api.png)
 ](https://journaldev.nyc3.digitaloceanspaces.com/2012/12/Java-logging-api.png)
 
 ### Java Logger
@@ -248,7 +248,7 @@ INFO: Msg998
 
 ```
 
-Below image shows the final Java Logger example project. ![](https://journaldev.nyc3.digitaloceanspaces.com/2012/12/java-logging-logger-example.png)
+Below image shows the final Java Logger example project. ![](_assets/java-logging-logger-example.png)
  That’s all for Logger in Java and Java Logger Example. You can download the project from below link.
 
 [Download Java Logger Example Project](https://journaldev.nyc3.digitaloceanspaces.com/projects/JavaLogging.zip)

@@ -3,7 +3,7 @@
 > 
 > 🔥本文已收录于JAVA基础系列专栏： [Java基础教程](https://blog.csdn.net/m0_52316372/category_12008132.html) 免费订阅，持续更新。
 
-![](https://img-blog.csdnimg.cn/img_convert/7769935db3799a5c272ce0bbcf3d1a44.jpeg#pic_center)
+![](_assets/7769935db3799a5c272ce0bbcf3d1a44.jpeg.jpg)
   
 
 ### 文章目录
@@ -109,7 +109,7 @@
     }
 }` 
 
-![](https://csdnimg.cn/release/blogv2/dist/pc/img/newCodeMoreWhite.png)
+![](_assets/newCodeMoreWhite.png)
 
 *   1
 *   2
@@ -243,7 +243,7 @@ public class ForTest01 {
     }
 }` 
 
-![](https://csdnimg.cn/release/blogv2/dist/pc/img/newCodeMoreWhite.png)
+![](_assets/newCodeMoreWhite.png)
 
 *   1
 *   2
@@ -329,7 +329,7 @@ public class ForTest03 {
     }
 }` 
 
-![](https://csdnimg.cn/release/blogv2/dist/pc/img/newCodeMoreWhite.png)
+![](_assets/newCodeMoreWhite.png)
 
 *   1
 *   2
@@ -378,7 +378,7 @@ public class ForTest03 {
     }
 }` 
 
-![](https://csdnimg.cn/release/blogv2/dist/pc/img/newCodeMoreWhite.png)
+![](_assets/newCodeMoreWhite.png)
 
 *   1
 *   2
@@ -460,7 +460,7 @@ public class ForTest03 {
     }
 }` 
 
-![](https://csdnimg.cn/release/blogv2/dist/pc/img/newCodeMoreWhite.png)
+![](_assets/newCodeMoreWhite.png)
 
 *   1
 *   2
@@ -509,7 +509,7 @@ public class ForTest03 {
     }
 }` 
 
-![](https://csdnimg.cn/release/blogv2/dist/pc/img/newCodeMoreWhite.png)
+![](_assets/newCodeMoreWhite.png)
 
 *   1
 *   2
@@ -588,7 +588,7 @@ public class ForTest03 {
     }
 }` 
 
-![](https://csdnimg.cn/release/blogv2/dist/pc/img/newCodeMoreWhite.png)
+![](_assets/newCodeMoreWhite.png)
 
 *   1
 *   2
@@ -703,7 +703,7 @@ public class RandomDemo {
 	}
 }` 
 
-![](https://csdnimg.cn/release/blogv2/dist/pc/img/newCodeMoreWhite.png)
+![](_assets/newCodeMoreWhite.png)
 
 *   1
 *   2
@@ -774,7 +774,7 @@ public class RandomTest {
 	}
 }` 
 
-![](https://csdnimg.cn/release/blogv2/dist/pc/img/newCodeMoreWhite.png)
+![](_assets/newCodeMoreWhite.png)
 
 *   1
 *   2

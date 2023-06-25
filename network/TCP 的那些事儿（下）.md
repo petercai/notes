@@ -1,5 +1,5 @@
 # TCP 的那些事儿（下）
-![](https://coolshell.cn/wp-content/uploads/2014/05/xin_2001040422167711230318.jpg)
+![](_assets/xin_2001040422167711230318.jpg)
 这篇文章是下篇，所以如果你对TCP不熟悉的话，还请你先看看上篇《[TCP的那些事儿（上）](https://coolshell.cn/articles/11564.html)》 上篇中，我们介绍了TCP的协议头、状态机、数据重传中的东西。但是TCP要解决一个很大的事，那就是要在一个网络根据不同的情况来动态调整自己的发包的速度，小则让自己的连接更稳定，大则让整个网络更稳定。在你阅读下篇之前，你需要做好准备，本篇文章有好些算法和策略，可能会引发你的各种思考，让你的大脑分配很多内存和计算资源，所以，不适合在厕所中阅读。
 
 #### TCP的RTT算法
@@ -40,7 +40,7 @@
 *   情况（a）是ack没回来，所以重传。如果你计算第一次发送和ACK的时间，那么，明显算大了。
 *   情况（b）是ack回来慢了，但是导致了重传，但刚重传不一会儿，之前ACK就回来了。如果你是算重传的时间和ACK回来的时间的差，就会算短了。
 
-![](https://coolshell.cn/wp-content/uploads/2014/05/Karn-Partridge-Algorithm.jpg)
+![](_assets/Karn-Partridge-Algorithm.jpg)
 
 所以1987年的时候，搞了一个叫[Karn / Partridge Algorithm](https://en.wikipedia.org/wiki/Karn's_Algorithm)，这个算法的最大特点是——**忽略重传，不把重传的RTT做采样**（你看，你不需要去解决不存在的问题）。
 
@@ -64,7 +64,7 @@
 
 所以，TCP引入了一些技术和设计来做网络流控，Sliding Window是其中一个技术。 前面我们说过，**TCP头里有一个字段叫Window，又叫Advertised-Window，这个字段是接收端告诉发送端自己还有多少缓冲区可以接收数据**。**于是发送端就可以根据这个接收端的处理能力来发送数据，而不会导致接收端处理不过来**。 为了说明滑动窗口，我们需要先看一下TCP缓冲区的一些数据结构：
 
-![](https://coolshell.cn/wp-content/uploads/2014/05/sliding_window.jpg)
+![](_assets/sliding_window.jpg)
 
 上图中，我们可以看到：
 
@@ -80,7 +80,7 @@
 
 下面我们来看一下发送方的滑动窗口示意图：
 
-![](https://coolshell.cn/wp-content/uploads/2014/05/tcpswwindows.png)
+![](_assets/tcpswwindows.png)
 
 （[图片来源](http://www.tcpipguide.com/free/t_TCPSlidingWindowAcknowledgmentSystemForDataTranspo-6.htm)）
 
@@ -93,11 +93,11 @@
 
 下面是个滑动后的示意图（收到36的ack，并发出了46-51的字节）：
 
-![](https://coolshell.cn/wp-content/uploads/2014/05/tcpswslide.png)
+![](_assets/tcpswslide.png)
 
 下面我们来看一个接受端控制发送端的图示：
 
-![](https://coolshell.cn/wp-content/uploads/2014/05/tcpswflow.png)
+![](_assets/tcpswflow.png)
 
 （[图片来源](http://www.tcpipguide.com/free/t_TCPWindowSizeAdjustmentandFlowControl-2.htm)）
 
@@ -166,7 +166,7 @@ setsockopt(sock\_fd, IPPROTO\_TCP, TCP_NODELAY, (char *)&value,sizeof(int));
 
 所以，我们可以看到，如果网速很快的话，ACK也会返回得快，RTT也会短，那么，这个慢启动就一点也不慢。下图说明了这个过程。
 
-![](https://coolshell.cn/wp-content/uploads/2014/05/tcp.slow_.start_.jpg)
+![](_assets/tcp.slow_.start_.jpg)
 
 这里，我需要提一下的是一篇Google的论文《[An Argument for Increasing TCP’s Initial Congestion Window](https://static.googleusercontent.com/media/research.google.com/zh-CN//pubs/archive/36640.pdf)》Linux 3.0后采用了这篇论文的建议——把cwnd 初始化成了 10个MSS。 而Linux 3.0以前，比如2.6，Linux采用了[RFC3390](http://www.rfc-editor.org/rfc/rfc3390.txt)，cwnd是跟MSS的值来变的，如果MSS< 1095，则cwnd = 4；如果MSS>2190，则cwnd=2；其它情况下，则是3。
 
@@ -235,7 +235,7 @@ setsockopt(sock\_fd, IPPROTO\_TCP, TCP_NODELAY, (char *)&value,sizeof(int));
 
 下面我们来看一个简单的图示以同时看一下上面的各种算法的样子：
 
-![](https://coolshell.cn/wp-content/uploads/2014/05/tcp.fr_-1024x359.jpg)
+![](_assets/tcp.fr_-1024x359.jpg)
 
 ##### FACK算法
 
@@ -257,7 +257,7 @@ FACK全称Forward Acknowledgment 算法，论文地址在这里（PDF）[Forward
 
 这个算法1994年被提出，它主要对TCP Reno 做了些修改。这个算法通过对RTT的非常重的监控来计算一个基准RTT。然后通过这个基准RTT来估计当前的网络实际带宽，如果实际带宽比我们的期望的带宽要小或是要多的活，那么就开始线性地减少或增加cwnd的大小。如果这个计算出来的RTT大于了Timeout后，那么，不等ack超时就直接重传。（Vegas 的核心思想是用RTT的值来影响拥塞窗口，而不是通过丢包） 这个算法的论文是《[TCP Vegas: End to End Congestion Avoidance on a Global Internet](http://www.cs.cmu.edu/~srini/15-744/F02/readings/BP95.pdf)》这篇论文给了Vegas和 New Reno的对比：
 
-![](https://coolshell.cn/wp-content/uploads/2014/05/tcp_vegas_newreno-1024x555.jpg)
+![](_assets/tcp_vegas_newreno-1024x555.jpg)
 
 关于这个算法实现，你可以参看Linux源码：[/net/ipv4/tcp_vegas.h](http://lxr.free-electrons.com/source/net/ipv4/tcp_vegas.h)， [/net/ipv4/tcp_vegas.c](http://lxr.free-electrons.com/source/net/ipv4/tcp_vegas.c)
 
@@ -290,5 +290,5 @@ westwood采用和Reno相同的慢启动算法、拥塞避免算法。westwood的
 
 （全文完）
 
-![](https://coolshell.cn/wp-content/plugins/wp-postratings/images/loading.gif)
+![](_assets/loading.gif)
 Loading...

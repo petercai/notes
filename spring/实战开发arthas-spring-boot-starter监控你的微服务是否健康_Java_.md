@@ -30,7 +30,7 @@ Arthas 对于 SpringBoot2 的支持和监控体系
 
 [下载地址Arthas tunnel server](https://xie.infoq.cn/link?target=https%3A%2F%2Fgithub.com%2Falibaba%2Farthas%2Freleases)，目前最新版本为 arthas-all-3.6.7 版本，如下图所示。
 
-![](https://static001.geekbang.org/infoq/60/60d029e7e1b0e69eda2db0012fd32b3f.png)
+![](_assets/60d029e7e1b0e69eda2db0012fd32b3f.png)
 
 针对于 Arthas 的安装包进行下载资料进行介绍：
 
@@ -61,7 +61,7 @@ java -jar  arthas-tunnel-server.jar
 
 默认情况下，arthas tunnel server 的 web 端口是 8080，Arthas agent 连接的端口是 7777
 
-![](https://static001.geekbang.org/infoq/34/34b4fd9a1444a345c3d9c1e6f4b77bd8.png)
+![](_assets/34b4fd9a1444a345c3d9c1e6f4b77bd8.png)
 
 打开 WebConsole，分别输入 Arthas agent 的 ip(127.0.0.1)和 port(7777)，和 SpringBoot 应用里配置的 agent-id(URJZ5L48RPBR2ALI5K4V)，点 Connect 即可。
 
@@ -71,15 +71,15 @@ java -jar  arthas-tunnel-server.jar
 
 出了 CLI 模式之外，Arthas 目前支持 Web Console，用户在 attach 成功之后，可以直接访问：[http://127.0.0.1:8563/](https://xie.infoq.cn/link?target=http%3A%2F%2F127.0.0.1%3A8563%2F)。可以填入 IP，远程连接其它机器上的 arthas。启动之后，可以访问 [http://127.0.0.1:8080/](https://xie.infoq.cn/link?target=http%3A%2F%2F127.0.0.1%3A8080%2F) ，再通过 agentId 连接到已注册的 arthas agent 上，如下图所示。
 
-![](https://static001.geekbang.org/infoq/f0/f0cfbeab6eedfe0996c38bc0a8c1e300.png)
+![](_assets/f0cfbeab6eedfe0996c38bc0a8c1e300.png)
 
 通过 Spring Boot 的 Endpoint，可以查看到具体的连接信息： [http://127.0.0.1:8080/actuator/arthas](https://xie.infoq.cn/link?target=http%3A%2F%2F127.0.0.1%3A8080%2Factuator%2Farthas) ，
 
-![](https://static001.geekbang.org/infoq/42/42d45a04622c83255e1f675996d8f753.png)
+![](_assets/42d45a04622c83255e1f675996d8f753.png)
 
 登陆用户名是 arthas，密码在 arthas tunnel server 的日志里可以找到，比如：
 
-![](https://static001.geekbang.org/infoq/ae/ae7663c430e76c3ac14c319570501dc0.png)
+![](_assets/ae7663c430e76c3ac14c319570501dc0.png)
 
 > **注意：默认情况下，arthas 只 listen 127.0.0.1，所以如果想从远程连接，则可以使用 --target-ip 参数指定 listen 的 IP，更多参考-h 的帮助说明。 注意会有安全风险，考虑下面的 tunnel server 的方案。** 
 
@@ -92,7 +92,7 @@ java -jar  arthas-tunnel-server.jar
 2.  远程运行的 Arthas Spring Boot Starter 的 agent 探针服务连接 Arthas tunnel server
     
 
-![](https://static001.geekbang.org/infoq/46/46be2bd96dffb255d3a2dbb49479fa36.png)
+![](_assets/46be2bd96dffb255d3a2dbb49479fa36.png)
 
 #### 启动 arthas 时连接到 tunnel server
 
@@ -161,7 +161,7 @@ as.sh --tunnel-server 'ws://127.0.0.1:7777/ws' --app-name demoapp ，则生成�
 *   maven 的仓库地址：https://search.maven.org/search?q=a:arthas-spring-boot-starter
     
 
-![](https://static001.geekbang.org/infoq/4d/4d80950fbb3415a64055d74f5edef4eb.png)
+![](_assets/4d80950fbb3415a64055d74f5edef4eb.png)
 
 *   配置 maven 依赖：
     
@@ -178,11 +178,11 @@ arthas.version:3.6.7
 
 应用启动后，spring 会启动 arthas，并且 attach 自身进程。如果你不知道如何创建或者引入哪些依赖，可以采用一键创建包含 Arthas Spring Boot Starter 的工程：[点击跳转到云原生脚手架](https://xie.infoq.cn/link?target=https%3A%2F%2Fstart.aliyun.com%2Fbootstrap.html%2F%23!dependencies%3Darthas)  
 
-![](https://static001.geekbang.org/infoq/4c/4cfa81c5f79e40204f15fe21e1087d4a.png)
+![](_assets/4cfa81c5f79e40204f15fe21e1087d4a.png)
 
 可以看到最下面已经自动勾选了 arthas 的监控机制体系。
 
-![](https://static001.geekbang.org/infoq/97/97bce0bc9256e25cd6ee37dcbe4a0525.png)
+![](_assets/97bce0bc9256e25cd6ee37dcbe4a0525.png)
 
 ##### application.yml 配置
 
@@ -282,7 +282,7 @@ id         test_PE3LZO9NA9ENJYTPGL9L
 http://localhost:8080/apps.html
 ```
 
-![](https://static001.geekbang.org/infoq/17/17ae0a9fbb7260497fac9acb64f61d1c.png)
+![](_assets/17ae0a9fbb7260497fac9acb64f61d1c.png)
 
 再打开详情，则可以看到连接的所有 agent 列表：
 
@@ -290,4 +290,4 @@ http://localhost:8080/apps.html
 http://localhost:8080/agents.html?app=test
 ```
 
-![](https://static001.geekbang.org/infoq/bf/bf79910867a12d7bebf6c07e4162b990.png)
+![](_assets/bf79910867a12d7bebf6c07e4162b990.png)

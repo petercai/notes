@@ -21,7 +21,7 @@ The _Optional_ class provides useful methods to help us work with that API. The 
 
 We'll see these methods in action to build both the code that returns the _Optional_ and the code that uses it.
 
-[![](https://a.pub.network/core/imgs/fslogo-green.svg)
+[![](_assets/fslogo-green.svg)
 ](https://freestar.com/?utm_campaign=branding&utm_medium=banner&utm_source=baeldung.com&utm_content=baeldung_leaderboard_mid_1)
 
 AD
@@ -63,7 +63,7 @@ public class User {
 
 Let's also define the repository class that returns a _User_ if found. Otherwise, it returns _null_:
 
-[![](https://a.pub.network/core/imgs/fslogo-green.svg)
+[![](_assets/fslogo-green.svg)
 ](https://freestar.com/?utm_campaign=branding&utm_medium=banner&utm_source=baeldung.com&utm_content=baeldung_leaderboard_mid_2)
 
 ```null
@@ -141,7 +141,7 @@ public void givenNonExistentUserId_whenSearchForUser_thenOptionalShouldBeTreated
 
 In the case above, we didn't find any _User_, so we can return a default user using the _orElse()_ method. To get its value, it is mandatory to treat the _Optional_ properly at compile time. With that, we can mitigate unexpected errors at runtime.
 
-[![](https://a.pub.network/core/imgs/fslogo-green.svg)
+[![](_assets/fslogo-green.svg)
 ](https://freestar.com/?utm_campaign=branding&utm_medium=banner&utm_source=baeldung.com&utm_content=baeldung_leaderboard_mid_3)
 
 Two other options we can use instead of providing a default with the _orElse()_ method are to [throw an exception using _orElseThrow()_](https://www.baeldung.com/java-optional-throw-exception) or [use _orElseGet()_ to call a _Supplier_ function](https://www.baeldung.com/java-optional-or-else-vs-or-else-get).
@@ -164,7 +164,7 @@ Another good reason to use the _Optional_ class is the ability to use a chain of
 
 Let's say the requirement is to change the case of _User_‘s _name_ to uppercase if the name starts with the letter ‘M'.
 
-[![](https://a.pub.network/core/imgs/fslogo-green.svg)
+[![](_assets/fslogo-green.svg)
 ](https://freestar.com/?utm_campaign=branding&utm_medium=banner&utm_source=baeldung.com&utm_content=baeldung_incontent_1)
 
 First, let's look at the imperative way, using the repository that doesn't return an _Optional_:

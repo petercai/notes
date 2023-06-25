@@ -3,7 +3,7 @@
 
 **示例 1:**
 
-![](https://static001.geekbang.org/infoq/f3/f321e1a00594b0b380bcbe91affbd9b0.png)
+![](_assets/f321e1a00594b0b380bcbe91affbd9b0.png)
 
 > **输入:** head = \[1,1,2\]
 > 
@@ -11,7 +11,7 @@
 
 **示例 2:**
 
-![](https://static001.geekbang.org/infoq/a2/a2d426d9de8b12f12b7d25e9b75f194c.png)
+![](_assets/a2d426d9de8b12f12b7d25e9b75f194c.png)
 
 > **输入:** head = \[1,1,2,3,3\]
 > 
@@ -136,7 +136,7 @@ if __name__ == '__main__':
 
 代码运行结果为：
 
-![](https://static001.geekbang.org/infoq/92/92bc688c89fb4652329f6ca0469faa19.png)
+![](_assets/92bc688c89fb4652329f6ca0469faa19.png)
 
 这里用到了基础结构：链表，简单讲解下这个链表：
 

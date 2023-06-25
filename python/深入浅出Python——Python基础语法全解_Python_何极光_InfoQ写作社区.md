@@ -17,7 +17,7 @@
 
 Python 是一种解释型（这意味着开发过程中没有了编译这个环节）、面向对象（支持面向对象的风格或代码封装在对象的编程技术）、动态数据类型的交互式（可在命令行中通过 Python 提示符及直接代码执行程序）高级程序设计语言。
 
-![](https://static001.geekbang.org/infoq/b1/b18e25c785124bb7af9b134107e92e67.png)
+![](_assets/b18e25c785124bb7af9b134107e92e67.png)
 
 ### 2\. Python 介绍
 
@@ -25,13 +25,13 @@ Python 是时下最流行、最火爆的编程语言，具体原因：
 
 *   简单、易学，适应人群广泛
     
-*   ![](https://img-blog.csdnimg.cn/20200630160133585.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ0MDM0Mzg0,size_16,color_FFFFFF,t_70)
+*   ![](_assets/20200630160133585.png)
     
 *   免费、开源
     
 *   应用领域广泛
     
-*   ![](https://img-blog.csdnimg.cn/20200630160612457.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ0MDM0Mzg0,size_16,color_FFFFFF,t_70)
+*   ![](_assets/20200630160612457.png)
     
 
 > 备注：以下知名框架均是 Python 语言开发。
@@ -177,7 +177,7 @@ PyCharm 的安装：[https://blog.csdn.net/weixin\_43495473/article/details/1035
 
 变量，简单来说，其实就是计算机内存中的一块储存空间，用来存储 CPU 需要使用的数据。 而这个储存空间需要一个名字，这个名字的统称就叫变量。
 
-![](https://static001.geekbang.org/infoq/cc/ccaf76eff41705a7332bb80ef9d30e3d.png)
+![](_assets/ccaf76eff41705a7332bb80ef9d30e3d.png)
 
 作用：
 
@@ -205,7 +205,7 @@ PyCharm 的安装：[https://blog.csdn.net/weixin\_43495473/article/details/1035
 *   严格区分大小写
     
 
-![](https://static001.geekbang.org/infoq/ec/ecdf7bad60f930ae37da008652456da8.png)
+![](_assets/ecdf7bad60f930ae37da008652456da8.png)
 
 #### 2.2 命名习惯
 
@@ -248,7 +248,7 @@ Debug 工具使用步骤：
 
 **在 Python 里为了应对不同的业务需求，也把数据分为不同的类型。** 
 
-![](https://static001.geekbang.org/infoq/0e/0e319e7a70d8b6bb02938c7017142501.png)
+![](_assets/0e319e7a70d8b6bb02938c7017142501.png)
 
 > 检测数据类型的方法：`type(变量名或者数值)`  
 
@@ -352,7 +352,7 @@ print('我的名字是{0}, 今年{1}岁了'.format("李思", 18))
 print(f'我的名字是{name}, 明年{age + 1}岁了')
 ```
 
-![](https://static001.geekbang.org/infoq/e7/e737fd364706416beeedc7256025ec18.png)
+![](_assets/e737fd364706416beeedc7256025ec18.png)
 
 ### 5\. 补充知识
 
@@ -362,7 +362,7 @@ print(f'我的名字是{name}, 明年{age + 1}岁了')
 print('我的名字是%s，今年%s岁了，我的体重是%s公斤' % (name, age ,weight))
 ```
 
-![](https://static001.geekbang.org/infoq/d5/d5db840bbb72ee4fe861c05e0c9b0491.png)
+![](_assets/d5db840bbb72ee4fe861c05e0c9b0491.png)
 
 ### 6\. 转义字符
 
@@ -385,7 +385,7 @@ print('内容', end="···")
 
 **在 Python 中，程序接收用户输入的数据的功能即是输入。** 
 
-![](https://static001.geekbang.org/infoq/59/593347c0f6d9474189447d021175d4e1.png)
+![](_assets/593347c0f6d9474189447d021175d4e1.png)
 
 ### 1\. 输入的语法
 
@@ -406,7 +406,7 @@ print(f'您输入的密码是{password}')
 print(type(password))
 ```
 
-![](https://static001.geekbang.org/infoq/13/131bc1a72da4834950b6c7be6a9e0dc0.png)
+![](_assets/131bc1a72da4834950b6c7be6a9e0dc0.png)
 
 九、转换数据类型
 --------
@@ -606,7 +606,7 @@ if True:
 print('我是无论条件是否成立都要执行的代码')
 ```
 
-![](https://img-blog.csdnimg.cn/20200630183252892.png)
+![](_assets/20200630183252892.png)
 
 #### 2.2 简单版：网吧上网
 
@@ -761,7 +761,7 @@ else:
 
 #### 5.2 if 嵌套执行流程
 
-![](https://img-blog.csdnimg.cn/20200701094142253.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ0MDM0Mzg0,size_16,color_FFFFFF,t_70)
+![](_assets/20200701094142253.png)
 
 ### 6\. 应用：猜拳游戏
 
@@ -1015,7 +1015,7 @@ while i <= 5:
     i += 1
 ```
 
-![](https://img-blog.csdnimg.cn/2020071818190989.png)
+![](_assets/2020071818190989.png)
 
 #### 6.3 continue 实例
 
@@ -1031,7 +1031,7 @@ while i <= 5:
     i += 1
 ```
 
-![](https://img-blog.csdnimg.cn/20200718184445477.png)
+![](_assets/20200718184445477.png)
 
 ### 7\. while 循环嵌套
 
@@ -1052,7 +1052,7 @@ while 条件1:
 
 当内部循环执行完成之后，再执行下一次外部循环的条件判断。
 
-![](https://img-blog.csdnimg.cn/20200718185621834.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ0MDM0Mzg0,size_16,color_FFFFFF,t_70)
+![](_assets/20200718185621834.png)
 
 #### 7.3 while 循环嵌套应用
 
@@ -1072,7 +1072,7 @@ while j <= 4:
     j += 1
 ```
 
-![](https://img-blog.csdnimg.cn/20200718185904513.png)
+![](_assets/20200718185904513.png)
 
 **应用二：打印星号（三角形）**
 
@@ -1089,7 +1089,7 @@ while j <= 4:
     j += 1
 ```
 
-![](https://img-blog.csdnimg.cn/20200718192702134.png)
+![](_assets/20200718192702134.png)
 
 **应用二：九九乘法表**
 
@@ -1105,7 +1105,7 @@ while j <= 9:
     j += 1
 ```
 
-![](https://img-blog.csdnimg.cn/20200718192817742.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ0MDM0Mzg0,size_16,color_FFFFFF,t_70)
+![](_assets/20200718192817742.png)
 
 ### 8\. for 循环
 
@@ -1126,7 +1126,7 @@ for i in str1:
     print(i)
 ```
 
-![](https://img-blog.csdnimg.cn/20200718193008674.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ0MDM0Mzg0,size_16,color_FFFFFF,t_70)
+![](_assets/20200718193008674.png)
 
 #### 8.3 break
 
@@ -1139,7 +1139,7 @@ for i in str1:
     print(i)
 ```
 
-![](https://img-blog.csdnimg.cn/20200718193130752.png)
+![](_assets/20200718193130752.png)
 
 #### 8.4 continue
 
@@ -1152,7 +1152,7 @@ for i in str1:
     print(i)
 ```
 
-![](https://img-blog.csdnimg.cn/20200718193216851.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ0MDM0Mzg0,size_16,color_FFFFFF,t_70)
+![](_assets/20200718193216851.png)
 
 十三、else
 -------
@@ -1181,7 +1181,7 @@ else:
     print('执行完毕')
 ```
 
-![](https://img-blog.csdnimg.cn/20200718193648276.png)
+![](_assets/20200718193648276.png)
 
 #### 1.3 退出循环的方式
 
@@ -1200,7 +1200,7 @@ else:
     print('执行完毕')
 ```
 
-![](https://img-blog.csdnimg.cn/20200718193909137.png)
+![](_assets/20200718193909137.png)
 
 > 所谓 else 指的是循环正常结束之后要执行的代码，即如果是 break 终止循环的情况，else 下方缩进的代码将不执行。
 
@@ -1220,7 +1220,7 @@ else:
     print('执行完毕')
 ```
 
-![](https://img-blog.csdnimg.cn/20200718194053236.png)
+![](_assets/20200718194053236.png)
 
 > 因为 continue 是退出当前一次循环，继续下一次循环，所以该循环在 continue 控制下是可以正常结束的，当循环结束后，则执行了 else 缩进的代码。
 
@@ -1248,7 +1248,7 @@ else:
     print('循环正常结束之后执行的代码')
 ```
 
-![](https://img-blog.csdnimg.cn/20200718194325854.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ0MDM0Mzg0,size_16,color_FFFFFF,t_70)
+![](_assets/20200718194325854.png)
 
 #### 2.3 退出循环的方式
 
@@ -1266,7 +1266,7 @@ else:
     print('循环正常结束之后执行的代码')
 ```
 
-![](https://img-blog.csdnimg.cn/20200718194512861.png)
+![](_assets/20200718194512861.png)
 
 > 没有执行 else 缩进的代码。
 
@@ -1284,7 +1284,7 @@ else:
     print('循环正常结束之后执行的代码')
 ```
 
-![](https://img-blog.csdnimg.cn/20200718194628478.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ0MDM0Mzg0,size_16,color_FFFFFF,t_70)
+![](_assets/20200718194628478.png)
 
 > 因为 continue 是退出当前一次循环，继续下一次循环，所以该循环在 continue 控制下是可以正常结束的，当循环结束后，则执行了 else 缩进的代码。
 
@@ -1360,7 +1360,7 @@ print(f'您输入的密码是{password}')
 print(type(password))
 ```
 
-![](https://img-blog.csdnimg.cn/20200718195918184.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ0MDM0Mzg0,size_16,color_FFFFFF,t_70)
+![](_assets/20200718195918184.png)
 
 ### 5\. 下标
 
@@ -1385,12 +1385,12 @@ print(name[2])
 
 *   输出结果
     
-*   ![](https://img-blog.csdnimg.cn/2020071820255627.png)
+*   ![](_assets/2020071820255627.png)
     
 
 > 注意：下标从==0==开始。
 > 
-> ![](https://img-blog.csdnimg.cn/20200718202624144.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ0MDM0Mzg0,size_16,color_FFFFFF,t_70)
+> ![](_assets/20200718202624144.png)
 
 ### 6\. 切片
 
@@ -2554,7 +2554,7 @@ for index, char in enumerate(list1, start=1):
     print(f'下标是{index}, 对应的字符是{char}')
 ```
 
-![](https://img-blog.csdnimg.cn/20200724200540723.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ0MDM0Mzg0,size_16,color_FFFFFF,t_70)
+![](_assets/20200724200540723.png)
 
 ### 3\. 容器类型转换
 
@@ -2736,4 +2736,4 @@ print(set1)
 
 _**补充：接下来的 Python 高级语法：函数、文件操作、面向对象、模块、包、异常等知识，我将陆续更新在自己的博客之中。如果本博文的知识能帮助到您的 Python 学习，本博主实属荣幸。更多后续知识，请关注博主，方便您第一时间查看，谢谢！**_
 
-![](https://static001.geekbang.org/infoq/f3/f38a2fb7c53af8734007d274f8da08e5.jpeg?x-oss-process=image%2Fresize%2Cp_80%2Fauto-orient%2C1)
+![](_assets/f38a2fb7c53af8734007d274f8da08e5.jpeg.jpg)

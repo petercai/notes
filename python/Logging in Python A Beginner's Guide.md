@@ -48,11 +48,11 @@ But wait🤨, we only see three of the five logs we wrote, what's happening? Wel
 
 A logger named `foo.bar.baz` would be a child of a logger created at `foo.bar` and `foo`, and hence, will send logs upwards to them.
 
-![](https://cdn.hashnode.com/res/hashnode/image/upload/v1675104348411/e90eccea-ce1b-461b-ae37-4cec71d8e8e8.png?auto=compress,format&format=webp)
+![](_assets/e90eccea-ce1b-461b-ae37-4cec71d8e8e8.png.jpg)
 
 Now, the root logger has what we call an effective level of "_warning"_. An effective level is what a logger uses to decide if it will consider processing a log message. If a logger has an effective level of "_warning_", it will only consider processing logs of priority "warning" and above, a log message of priority "debug" or "info" will be ignored. This is exactly why we only saw three of our five logs being printed above.
 
-![](https://cdn.hashnode.com/res/hashnode/image/upload/v1675131347525/810809c9-60b9-4fd4-9dae-49d9a3691064.png?auto=compress,format&format=webp)
+![](_assets/810809c9-60b9-4fd4-9dae-49d9a3691064.png.jpg)
 
 By default, we have the following priority levels provided.
 
@@ -225,7 +225,7 @@ We imported the `RotatingFileHandler` class and then instantiated it with the fi
 
 Execute the _[app.py](http://app.py/)_ script, you should see about two new log files in your working directory.
 
-![](https://cdn.hashnode.com/res/hashnode/image/upload/v1675114598988/3c956f54-6e4e-4b97-ac9b-a28e97082408.png?auto=compress,format&format=webp)
+![](_assets/3c956f54-6e4e-4b97-ac9b-a28e97082408.png.jpg)
 
 When app.log got filled, it was renamed as app.log.1, then a new app.log was made, when that _new_ app.log got filled, it became app.log.1 and the previous app.log.1 became app.log.2.
 

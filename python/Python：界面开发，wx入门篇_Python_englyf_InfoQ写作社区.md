@@ -27,19 +27,19 @@ wxPython 是 Python 的第三方库，代码实现基于 C++ 的 wxWidgets 库�
 
 可以看看在 linux 系统下基于 wxPython 的界面程序是什么样子
 
-![](https://static001.geekbang.org/infoq/30/30db53e725eb5f688ca121f36f4f6ef4.png)
+![](_assets/30db53e725eb5f688ca121f36f4f6ef4.png)
 
 PyQt 是 Qt 平台的 Python 版本，自绘的界面风格，许可协议对商业应用不太友好。虽然和原生风格已经很接近了，但还是有人能挑出刺来。
 
 可以看看在 linux 系统下基于 PyQt 的界面程序是什么样子
 
-![](https://static001.geekbang.org/infoq/14/149e53f3128b776db0b86d8f75c23b1f.png)
+![](_assets/149e53f3128b776db0b86d8f75c23b1f.png)
 
 Tkinter 是 Python 自带的 GUI 开发框架，但也是自绘的界面风格。
 
 可以看看在 linux 系统下基于 Tkinter 的界面程序是什么样子
 
-![](https://static001.geekbang.org/infoq/80/80b710ab10c2ae0ca1895bd050a1baa0.png)
+![](_assets/80b710ab10c2ae0ca1895bd050a1baa0.png)
 
 值得一提的是，wxPython 也是 Python 作者主推的 GUI 开发框架。
 
@@ -151,7 +151,7 @@ wxPython 提供了非常丰富的窗口部件(widget)和辅助控件来简化复
 
 输入指令以执行程序
 
-![](https://static001.geekbang.org/infoq/f3/f328462e405973fd4751daebf562632e.jpeg?x-oss-process=image%2Fresize%2Cp_80%2Fauto-orient%2C1)
+![](_assets/f328462e405973fd4751daebf562632e.jpeg.jpg)
 
 通过显示的程序窗口，可看到整个程序只做了很基本的 UI 窗口显示，但是代码结构也相对简单。如果需要实现更复杂的窗口界面呢？往下看。
 
@@ -161,7 +161,7 @@ wxPython 提供了非常丰富的窗口部件(widget)和辅助控件来简化复
 
 那么怎么办？很巧，wxWidgets 框架提供了一个 GUI 构建器 wxFormBuilder。
 
-![](https://static001.geekbang.org/infoq/76/767e717d5f1efb3c7cda78c8efb31149.jpeg?x-oss-process=image%2Fresize%2Cp_80%2Fauto-orient%2C1)
+![](_assets/767e717d5f1efb3c7cda78c8efb31149.jpeg.jpg)
 
 打开 wxFormBuilder，可以看到提供了非常多的工具，而且自动创建一个空白工程。为了设计需要的界面，开发者可以通过手动点击组件面板(Component Palette)中不同种类的各种控件来布局界面，同时在编辑器(Editor)中生成设计图和各种开发语言的代码，支持 C++, Python, XRC, Lua 和 PHP 等。设计完成后，开发者只需要把对应页面的目标语言代码拷贝到自己的工程源文件中即可直接使用。
 
@@ -175,15 +175,15 @@ https://github.com/wxFormBuilder/wxFormBuilder/releases
 
 一般界面都以 Frame 为底，所以在空白工程基础上添加一个 Frame 窗口。点击工作空间顶部的组件面板(Component Palette) -> Forms 类型 -> Frame 控件，如图
 
-![](https://static001.geekbang.org/infoq/6c/6cf15cad627f0d21e852f87446d9b896.jpeg?x-oss-process=image%2Fresize%2Cp_80%2Fauto-orient%2C1)
+![](_assets/6cf15cad627f0d21e852f87446d9b896.jpeg.jpg)
 
 先在左边的控件树(Object Tree)面板里点击刚添加的 Frame 控件，然后在右边的对象属性(Object Properties)面板中就可以修改这个控件的属性了。这里修改控件的属性 name 为 `w_frame_xrc`，title 为 `hello Python GUI APP!`。最终输出代码会以一个窗口类的形式输出，而最底层窗口的 name 属性会决定这个窗口类的类名。
 
-![](https://static001.geekbang.org/infoq/6c/6c75b8c3563e78f9ecb04ed22ed89bd4.jpeg?x-oss-process=image%2Fresize%2Cp_80%2Fauto-orient%2C1)
+![](_assets/6c75b8c3563e78f9ecb04ed22ed89bd4.jpeg.jpg)
 
 打算设计一个简单的名单录，为演示简单起见，只添加人员名称，而不编辑或者删除。按照元素控件的层次逐个添加，设计图最终效果图如下
 
-![](https://static001.geekbang.org/infoq/49/498ff8d6c0ed98c186a7fdc4a941ccf4.jpeg?x-oss-process=image%2Fresize%2Cp_80%2Fauto-orient%2C1)
+![](_assets/498ff8d6c0ed98c186a7fdc4a941ccf4.jpeg.jpg)
 
 如需要获取本工程所有源文件，包括设计文件等，可查看文末的链接。
 
@@ -293,7 +293,7 @@ app.MainLoop()
 
 执行程序
 
-![](https://static001.geekbang.org/infoq/49/498e9ec963948b76d46a4a7eb99bdef7.jpeg?x-oss-process=image%2Fresize%2Cp_80%2Fauto-orient%2C1)
+![](_assets/498e9ec963948b76d46a4a7eb99bdef7.jpeg.jpg)
 
 现在界面看起来有点内容了！
 
@@ -345,7 +345,7 @@ app.MainLoop()
 
 好了，现在再来测试一下刚添加的逻辑，程序启动后往里添加几个名单看看吧。
 
-![](https://static001.geekbang.org/infoq/2a/2a5530671b5364ed6bf010caa8c2c92d.jpeg?x-oss-process=image%2Fresize%2Cp_80%2Fauto-orient%2C1)
+![](_assets/2a5530671b5364ed6bf010caa8c2c92d.jpeg.jpg)
 
 目前来看，工程里都是一些以源码文件形式存在的脚本，但是在最终用户使用时，都是习惯于直接双击一个 exe 文件来启动软件进程。
 

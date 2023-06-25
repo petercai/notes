@@ -15,7 +15,7 @@ Typically, when we pass an enum as a request parameter**, it uses [_StringToEnum
 
 By design, this converter calls _Enum.valueOf(Class, String)_ **which means that the given string must match exactly one of the declared enum constants**.
 
-[![](https://a.pub.network/core/imgs/fslogo-green.svg)
+[![](_assets/fslogo-green.svg)
 ](https://freestar.com/?utm_campaign=branding&utm_medium=banner&utm_source=baeldung.com&utm_content=baeldung_leaderboard_mid_1)
 
 For instance, let's consider the _Level_ enum:
@@ -51,7 +51,7 @@ The handler method sends back _MEDIUM_, the name of the enum constant _MEDIUM_.
 
 Now, let's pass _medium_ instead of _MEDIUM_ and see what happens:
 
-[![](https://a.pub.network/core/imgs/fslogo-green.svg)
+[![](_assets/fslogo-green.svg)
 ](https://freestar.com/?utm_campaign=branding&utm_medium=banner&utm_source=baeldung.com&utm_content=baeldung_leaderboard_mid_2)
 
 AD
@@ -82,7 +82,7 @@ Let's take a close look at each approach.
 
 The [_ApplicationConversionService_](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/convert/ApplicationConversionService.html) class comes with a set of configured converters and formatters.
 
-[![](https://a.pub.network/core/imgs/fslogo-green.svg)
+[![](_assets/fslogo-green.svg)
 ](https://freestar.com/?utm_campaign=branding&utm_medium=banner&utm_source=baeldung.com&utm_content=baeldung_leaderboard_mid_3)
 
 AD
@@ -141,7 +141,7 @@ First, we need to add its [dependency](https://search.maven.org/classic/#search
 
 **The basic idea here is to create a converter that converts a stringrepresentation of a _Level_ constant to a real _Level_ constant:**
 
-[![](https://a.pub.network/core/imgs/fslogo-green.svg)
+[![](_assets/fslogo-green.svg)
 ](https://freestar.com/?utm_campaign=branding&utm_medium=banner&utm_source=baeldung.com&utm_content=baeldung_incontent_1)
 
 AD
@@ -201,7 +201,7 @@ Spring uses multiple built-in [property editors](https://www.baeldung.com/spring
 
 Similarly, we can create a custom property editor to map _String_ objects into _Level_ constants.
 
-[![](https://a.pub.network/core/imgs/fslogo-green.svg)
+[![](_assets/fslogo-green.svg)
 ](https://freestar.com/?utm_campaign=branding&utm_medium=banner&utm_source=baeldung.com&utm_content=baeldung_incontent_2)
 
 AD
@@ -256,7 +256,7 @@ Another important thing to mention here is that _EnumUtils.getEnum()_ returns th
 
 So, to avoid _NullPointerException_, we need to change our handler method a little bit:
 
-[![](https://a.pub.network/core/imgs/fslogo-green.svg)
+[![](_assets/fslogo-green.svg)
 ](https://freestar.com/?utm_campaign=branding&utm_medium=banner&utm_source=baeldung.com&utm_content=baeldung_incontent_3)
 
 AD

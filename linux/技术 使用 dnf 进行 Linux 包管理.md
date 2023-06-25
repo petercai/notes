@@ -13,7 +13,7 @@
 
 如果你在使用 Linux 桌面时，偶尔想要安装一个应用程序，那么你可能正在寻找 [GNOME “软件”](https://wiki.gnome.org/Apps/Software)，它是一个桌面应用程序浏览器。
 
-![](https://img.linux.net.cn/data/attachment/album/202205/04/101540ua7z7xaipq5pq17z.png)
+![](_assets/101540ua7z7xaipq5pq17z.png)
 
 _GNOME “软件” 程序_
 
@@ -170,4 +170,4 @@ _GNOME “软件” 程序_
 
 * * *
 
-![](https://img.linux.net.cn/static/image/common/linisi.svg)
+![](_assets/linisi.svg)

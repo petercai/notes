@@ -31,7 +31,7 @@ dir [options] [Directory] [Files]
 
 默认行为是按字母顺序对输出进行排序。
 
-![](https://static001.geekbang.org/infoq/e2/e2fba82584095428d9835aff7b974e94.png)
+![](_assets/e2fba82584095428d9835aff7b974e94.png)
 
 ### 显示颜色输出
 
@@ -39,7 +39,7 @@ dir [options] [Directory] [Files]
 
 当您想根据颜色快速识别某些文件或文件夹时，此选项很有用。
 
-![](https://static001.geekbang.org/infoq/97/978c3b3284c3c5bd26f914c57a7117e5.png)
+![](_assets/978c3b3284c3c5bd26f914c57a7117e5.png)
 
 有更多颜色可用于区分不同的文件类型。
 
@@ -60,7 +60,7 @@ dir [options] [Directory] [Files]
 
 这会显示权限、所有权、时间戳等信息。
 
-![](https://static001.geekbang.org/infoq/55/55d0b0b024220391fa4a1522da6b5fea.png)
+![](_assets/55d0b0b024220391fa4a1522da6b5fea.png)
 
 dir 命令还支持其他列表格式选项：
 
@@ -71,7 +71,7 @@ dir 命令还支持其他列表格式选项：
 *   \-m：以逗号分隔的格式列出条目
     
 
-![](https://static001.geekbang.org/infoq/95/958803beaf9c0a60e1182cde9172501f.png)
+![](_assets/958803beaf9c0a60e1182cde9172501f.png)
 
 `-m`当您想要快速生成其他程序或脚本可以使用的文件列表时，该选项特别有用。机器学习就是一个可能有用的例子。
 
@@ -81,19 +81,19 @@ dir 命令还支持其他列表格式选项：
 
 与 ls 类似，您使用选项`-a`（all 的缩写）
 
-![](https://static001.geekbang.org/infoq/be/beaeb27e7e448a0fc50758a62787541c.png)
+![](_assets/beaeb27e7e448a0fc50758a62787541c.png)
 
 在上面的输出中，您可能会注意到有两个特殊条目—— `.`（当前目录）和`..`（父目录）。这些被称为伪文件。
 
 如果您不想在输出中看到这些特殊条目，可以使用该`-A`选项（几乎所有的缩写）。
 
-![](https://static001.geekbang.org/infoq/1f/1ff20ede50cfb6bc46b0927ceea5cb38.png)
+![](_assets/1ff20ede50cfb6bc46b0927ceea5cb38.png)
 
 ### 显示文件类型指示符
 
 该`-F`选项是“分类”的缩写，在每个条目后附加一个字符以指示文件类型。此信息非常有用，尤其是当您想快速识别某些类型的文件时。
 
-![](https://static001.geekbang.org/infoq/ec/ece8fb851af36b6c139247d622634141.png)
+![](_assets/ece8fb851af36b6c139247d622634141.png)
 
 正如您在上面的屏幕截图中看到的，该`-F`选项在每个目录之后附加一个 ' `/`' 字符。其他指标是
 
@@ -108,13 +108,13 @@ dir 命令还支持其他列表格式选项：
 
 有一个类似的选项`--file-type`，除了为可执行文件显示 \* 外，它的作用相同。
 
-![](https://static001.geekbang.org/infoq/bd/bd98c36f23dd83e20eded3d4a36690fe.png)
+![](_assets/bd98c36f23dd83e20eded3d4a36690fe.png)
 
 我喜欢用它来忽略显示中某些类型的文件。
 
 如您所见，所有以“temp”开头的文件和所有以“.txt”结尾的文件都被忽略。
 
-![](https://static001.geekbang.org/infoq/a8/a818fa26df3577edb7c37261dfd59da0.png)
+![](_assets/a818fa26df3577edb7c37261dfd59da0.png)
 
 ### 以人类可读的格式显示输出
 
@@ -126,7 +126,7 @@ dir 命令还支持其他列表格式选项：
 
 您应该将该`-l`选项与`-h`.
 
-![](https://static001.geekbang.org/infoq/0a/0aabfa896d7d54d83e6facd3bfd866e3.png)
+![](_assets/0aabfa896d7d54d83e6facd3bfd866e3.png)
 
 ### 按大小显示文件
 
@@ -134,7 +134,7 @@ dir 命令还支持其他列表格式选项：
 
 正如您在下面的屏幕截图中所见，最占用空间的文件显示在顶部。
 
-![](https://static001.geekbang.org/infoq/b4/b44b9d49e140a2445a064d477ea2b35d.png)
+![](_assets/b44b9d49e140a2445a064d477ea2b35d.png)
 
 结论
 --

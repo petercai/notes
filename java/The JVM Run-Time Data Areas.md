@@ -29,7 +29,7 @@ Additionally, let's point out that the Method Area is a logical concept. As a re
 
 Once more, the JVM specifications don't define the size of the Method Area, nor does it define the way the JVM handles memory blocks.
 
-[![](https://a.pub.network/core/imgs/fslogo-green.svg)
+[![](_assets/fslogo-green.svg)
 ](https://freestar.com/?utm_campaign=branding&utm_medium=banner&utm_source=baeldung.com&utm_content=baeldung_leaderboard_mid_2)
 
 AD
@@ -49,7 +49,7 @@ When creating a Runtime Constant Pool, if the JVM needs more memory than is avai
 
 In addition to the shared runtime data areas, the JVM also uses per-thread data areas to store specific data for each thread. **The JVM indeed supports many threads executions at the same time.**
 
-[![](https://a.pub.network/core/imgs/fslogo-green.svg)
+[![](_assets/fslogo-green.svg)
 ](https://freestar.com/?utm_campaign=branding&utm_medium=banner&utm_source=baeldung.com&utm_content=baeldung_leaderboard_mid_3)
 
 AD

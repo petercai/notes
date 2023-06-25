@@ -17,7 +17,7 @@
 
 在今天，数据库已经是各系统中不可或缺的基础设施。在日常中，我们常说的数据库具有更宽泛的含义，其通常是指数据库管理系统（DBMS, database management system），如 MySQL、PostgreSQL 等。
 
-![](https://static001.geekbang.org/infoq/26/26dc8630eb51ba5ac84b33245fda6b5a.png)
+![](_assets/26dc8630eb51ba5ac84b33245fda6b5a.png)
 
 > [MySQL :: MySQL 8.0 Reference Manual :: 1.2.1 What is MySQL?](https://xie.infoq.cn/link?target=https%3A%2F%2Fdev.mysql.com%2Fdoc%2Frefman%2F8.0%2Fen%2Fwhat-is-mysql.html)  
 
@@ -52,15 +52,15 @@
 
 我们最为常见的 MySQL 它就是 DBMS，其中包含了“数据库”。这里画了两张图，希望能帮助大家更好的理解前面的几个概念。
 
-![](https://static001.geekbang.org/infoq/c3/c383599b7a36b2cd8ee5bb4348198d13.png)
+![](_assets/c383599b7a36b2cd8ee5bb4348198d13.png)
 
 图 1：可以看到 DBMS 为于用户和数据库之间，为用户和程序提供访问与管理数据的途径。
 
-![](https://static001.geekbang.org/infoq/f2/f2587d272425e5bd0e508c0befbf0029.png)
+![](_assets/f2587d272425e5bd0e508c0befbf0029.png)
 
 图 2：数据库与数据之间的联系。
 
-![](https://static001.geekbang.org/infoq/e4/e4fdb9f54cbae5beb162382fc116b4db.png)
+![](_assets/e4fdb9f54cbae5beb162382fc116b4db.png)
 
 图 3：各术语之间的层次图。
 
@@ -81,7 +81,7 @@ ROLLBACK 语句则正好相反，表示事务未成功执行，并应该回退�
 
 事务是数据库系统（DBS）运行的最小逻辑工作单元。前面已提到事务的四大特性，这四大特性其实是由 DBMS 的四大子系统统来分别保证的，它们是：事务管理子系统、完整性子系统、并发控制子系统、恢复管理子系统。
 
-![](https://static001.geekbang.org/infoq/0f/0fa17d1efb609d597c7569a21cd87946.png)
+![](_assets/0fa17d1efb609d597c7569a21cd87946.png)
 
 原子性
 ---
@@ -140,7 +140,7 @@ DBMS 的“完整性子系统” 执行测试任务以保证数据库中数据�
 
 先看一个并发事务模拟：
 
-![](https://static001.geekbang.org/infoq/4a/4ac1dcbbb7f811b1dbb938a444f6d364.png)
+![](_assets/4ac1dcbbb7f811b1dbb938a444f6d364.png)
 
 在上面的事务中，如果按次序执行，最后 A 的值是 200。这肯定不是正确的， T1 对 A 的更新操作丢失了。
 
@@ -148,7 +148,7 @@ DBMS 的“完整性子系统” 执行测试任务以保证数据库中数据�
 
 什么样的数据是脏数据呢？指的是事务中未提交的随后被撤销的数据。我们再看一个并发事务模拟：
 
-![](https://static001.geekbang.org/infoq/0a/0af8b87cb70962ff64500c403ca9da9c.png)
+![](_assets/0af8b87cb70962ff64500c403ca9da9c.png)
 
 在上面的事务中，在 t4 时该，T1 事务把 A 的值修改为了 70，但尚未提交（COMMIT），此时并行的 T2 事务读取到了 A 的值（70），但 T1 事务随后执行了 ROLLBACK 操作，而 T2 事务还在使用 70 这个值。这也显然是不正确的（脏数据）。
 
@@ -156,7 +156,7 @@ DBMS 的“完整性子系统” 执行测试任务以保证数据库中数据�
 
 不可重复读指的是，在一个事务中，对同一个数据项的 2 次（或多次）读操作，读取到的值不一致的现象。还是先看一个并发事务模拟：
 
-![](https://static001.geekbang.org/infoq/77/772abbf384663efd98beb7f3a4b49bbe.png)
+![](_assets/772abbf384663efd98beb7f3a4b49bbe.png)
 
 在上面的表中，T1 事务中两次读 A 数据，读到的值却是不一样的，这也显然是不正确的。
 
@@ -189,7 +189,7 @@ X 锁的操作有两个：
 
 两种锁的兼容性：
 
-![](https://static001.geekbang.org/infoq/80/80e13709e53dbafec8f31fb285b15bff.png)
+![](_assets/80e13709e53dbafec8f31fb285b15bff.png)
 
 如果并行事务向同一数据项申请了不相容的锁，那么后提出的事务必须在队列中等待。
 
@@ -221,17 +221,17 @@ X 锁的操作有两个：
 
 于是，在 MySQL 的 InnoDB 引擎中锁的兼容矩阵变成了下面这样：
 
-![](https://static001.geekbang.org/infoq/c0/c032f067a695cd1d173a8300c974da45.png)
+![](_assets/c032f067a695cd1d173a8300c974da45.png)
 
 通过各种锁，是否能够顺利的解决前面提到的三个问题呢？再来看一个并行的事务模拟：
 
-![](https://static001.geekbang.org/infoq/93/9305cd0df83a91f70c6fad784a3b4ae9.png)
+![](_assets/9305cd0df83a91f70c6fad784a3b4ae9.png)
 
 在 t1 时该，事务 T1 成功的对数据 A 加上了 X 锁，所以在 t2 时该，各务 T2 对 A 加上 X 锁时就会失败。在事务 T1 执行操作的过程中，事务 T2 将一直处理等待状态，直接事务 T1 COMMIT 并释放 X 锁才会继续执行，因此，通过锁技术，可以把多个并行的操作改为串行方式执行，能够有效的避免读到脏数据、更新丢失以及不可能重复读的问题。但锁的引入也还了新的问题，那便是**死锁**。
 
 再再再来看一个模拟：
 
-![](https://static001.geekbang.org/infoq/47/4713da890dc35bd9e19c182cfa3e97be.png)
+![](_assets/4713da890dc35bd9e19c182cfa3e97be.png)
 
 在这个模拟中，t1、t2 时该，事务 T1 和事务 T2 都成功的对数据 A 加上了 S 锁，但是事务执行的过程中，他们都需要将 S 锁升级为 X 锁以便更新数据。但根据 X、S 锁的兼容性，在有 S 锁时是无法加上 X 锁的，因此这两个事务都会无限的等待下去，这便是死锁。
 

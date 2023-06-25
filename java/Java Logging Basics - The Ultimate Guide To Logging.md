@@ -31,7 +31,7 @@ The [Java logging](https://www.loggly.com/solution/java-logging/) API consists o
 
 When your application makes a logging call, the Logger records the event in a LogRecord and forwards it to the appropriate Appender. The Appender then formats the record using a Layout before sending it to a destination such as the console, a file, or another application. Additionally, you can use one or more `Filters` to specify which Appenders should be used for which events. `Filters` aren't required, but they give you greater control over the flow of your log messages.
 
-![](https://www.loggly.com/wp-content/uploads/2015/09/Picture1.gif)
+![](_assets/Picture1.gif)
 
 _Source: https://docs.oracle.com/javase/7/docs/technotes/guides/logging/logging2.gif_
 

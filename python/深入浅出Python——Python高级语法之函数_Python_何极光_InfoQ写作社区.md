@@ -139,7 +139,7 @@ def sum_num(a, b):
 help(sum_num)
 ```
 
-![](https://static001.geekbang.org/infoq/2d/2d50279af7ea79c34ca880be1aaa0d8b.png)
+![](_assets/2d50279af7ea79c34ca880be1aaa0d8b.png)
 
 **函数的说明文档**
 
@@ -178,11 +178,11 @@ testA()
 *   效果
     
 
-![](https://static001.geekbang.org/infoq/fc/fca0adbc5a658de9d0af17023bb96a7e.png)
+![](_assets/fca0adbc5a658de9d0af17023bb96a7e.png)
 
 *   执行流程
     
-*   ![](https://img-blog.csdnimg.cn/20200727075957983.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ0MDM0Mzg0,size_16,color_FFFFFF,t_70)
+*   ![](_assets/20200727075957983.png)
     
 
 > 如果函数 A 中，调用了另外一个函数 B，那么先把函数 B 中的任务都执行完毕之后才会回到上次 函数 A 执行的位置。
@@ -203,7 +203,7 @@ def print_line():
 print_line()
 ```
 
-![](https://static001.geekbang.org/infoq/ac/ac49995f5e410ff4776c0a5f556b00ee.png)
+![](_assets/ac49995f5e410ff4776c0a5f556b00ee.png)
 
 2.  打印多条横线
     
@@ -223,7 +223,7 @@ def print_lines(num):
 print_lines(5)
 ```
 
-![](https://img-blog.csdnimg.cn/20200727080308284.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ0MDM0Mzg0,size_16,color_FFFFFF,t_70)
+![](_assets/20200727080308284.png)
 
 ### 2\. 函数计算
 
@@ -643,7 +643,7 @@ c = [11, 22]
 test1(c)
 ```
 
-![](https://img-blog.csdnimg.cn/20200727170928179.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ0MDM0Mzg0,size_16,color_FFFFFF,t_70)
+![](_assets/20200727170928179.png)
 
 十四. 可变和不可变类型
 ------------

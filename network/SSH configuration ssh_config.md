@@ -207,9 +207,9 @@ Every other week we'll send a newsletter with the latest cybersecurity news and 
 
 Let’s simulate a more complicated scenario. We are attempting to access a critical resource deep in our corporate network from home. We must first pass through an external bastion host with a dynamic IP, an internal jump host, and finally to the resource. Each server must authenticate against a unique local key on our machine.
 
-![](https://goteleport.com/blog/_next/image/?url=%2Fblog%2F_next%2Fstatic%2Fmedia%2Fssh-config-1.d4ceb4bd.png&w=3840&q=75)
+![](_assets/image.png)
 
-![](https://goteleport.com/blog/_next/image/?url=%2Fblog%2F_next%2Fstatic%2Fmedia%2Fssh-config-1.d4ceb4bd.png&w=3840&q=75)
+![](_assets/image.png)
 
 Figure 1 - ssh with multiple jumps
 

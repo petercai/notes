@@ -1,7 +1,7 @@
 # 如何在 Java 8 中使用 Streams？
 Java 8 Streams 是一个非常强大的功能，它提供了一种简洁、优雅的方式来处理数据集合。通过使用 Streams，我们可以轻松地过滤、映射、排序、聚合等操作数据。本教程将介绍 Streams 的基本概念，以及如何在 Java 8 中使用 Streams。本教程还包括许多代码示例，以帮助您更好地理解 Streams 的工作方式。
 
-![](https://static001.geekbang.org/infoq/db/db3132684c462e0d547d461885ce4200.png)
+![](_assets/db3132684c462e0d547d461885ce4200.png)
 
 什么是 Streams？
 ------------

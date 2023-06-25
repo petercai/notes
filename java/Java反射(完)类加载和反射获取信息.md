@@ -15,9 +15,9 @@
 
 ### 2.类加载流程图
 
-![](https://static001.geekbang.org/infoq/06/06f8e4579003b020818eb95d7a4ff0b1.png)
+![](_assets/06f8e4579003b020818eb95d7a4ff0b1.png)
 
-![](https://static001.geekbang.org/infoq/b5/b5255c35ce723543dd72570e12a77cd3.png)
+![](_assets/b5255c35ce723543dd72570e12a77cd3.png)
 
 *   类加载各阶段完成任务
     

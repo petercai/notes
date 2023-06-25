@@ -1,5 +1,5 @@
 # 集合工具类Collections指南，以及Comparable和Comparator排序详解_Java_共饮一杯无_InfoQ写作社区
-![](https://static001.geekbang.org/infoq/c8/c8e160eb1076b5c897ad117919b49697.jpeg)
+![](_assets/c8e160eb1076b5c897ad117919b49697.jpeg.jpg)
 
 🍟常用功能
 ------

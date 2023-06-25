@@ -63,7 +63,7 @@ Keep-Alive: timeout=5
 
 Now if we look at our client app, we’ll see something a bit unusual about the front-end implementation. Since our aim is to abide by RESTful constraints, we are required to use the links provided by our hypermedia resource in order to do anything with the API. It’s important to note that there is no URL construction happening in our client. We are simply using whatever we’re given from the API.
 
-![](https://miro.medium.com/v2/resize:fit:700/0*IBjbDFdSap65_xmF.png)
+![](_assets/0!IBjbDFdSap65_xmF.png)
 
 ```
 
@@ -210,7 +210,7 @@ server.bindAsync(
 
 If we now run our client and inspect requests to the API using a packet sniffer such as Wireshark, you’ll see that the response for the same contact retrieval method we implemented in REST is substantially smaller in size at 132 bytes compared to 349 bytes of JSON that was delivered previously.
 
-![](https://miro.medium.com/v2/resize:fit:700/0*IMi_AEHyWIHNr1BD.png)
+![](_assets/0!IMi_AEHyWIHNr1BD.png)
 
 There is one more significant change to note. What might not be obvious is that the gRPC client code is required to run server-side (note that the load function for the main page is named `+page.server.ts` to denote a server-side rendered page). That’s because the base gRPC client library for JavaScript ([grpc/grpc-node](https://github.com/grpc/grpc-node)) used by `protobuf-ts` needs to run on NodeJS.
 

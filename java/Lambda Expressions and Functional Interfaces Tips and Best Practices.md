@@ -28,7 +28,7 @@ public String add(String string, Foo foo) {
 
 To execute it, we would write:
 
-[![](https://a.pub.network/core/imgs/fslogo-green.svg)
+[![](_assets/fslogo-green.svg)
 ](https://freestar.com/?utm_campaign=branding&utm_medium=banner&utm_source=baeldung.com&utm_content=baeldung_leaderboard_mid_1)
 
 AD
@@ -63,7 +63,7 @@ Now let's annotate our functional interfaces with _[@FunctionalInterface](https:
 
 However, let's imagine a big project with several interfaces; it's hard to control everything manually. An interface, which was designed to be functional, could accidentally be changed by adding another abstract method/methods, rendering it unusable as a functional interface.
 
-[![](https://a.pub.network/core/imgs/fslogo-green.svg)
+[![](_assets/fslogo-green.svg)
 ](https://freestar.com/?utm_campaign=branding&utm_medium=banner&utm_source=baeldung.com&utm_content=baeldung_leaderboard_mid_2)
 
 AD
@@ -182,7 +182,7 @@ Foo fooByIC = new Foo() {
 
 **The lambda expression approach can be used for any suitable interface from old libraries.** It is usable for interfaces like _Runnable_, _Comparator_, and so on; **h****owever, this** **doesn't mean that we should review our whole older code base and change everything.**
 
-[![](https://a.pub.network/core/imgs/fslogo-green.svg)
+[![](_assets/fslogo-green.svg)
 ](https://freestar.com/?utm_campaign=branding&utm_medium=banner&utm_source=baeldung.com&utm_content=baeldung_incontent_1)
 
 AD
@@ -250,7 +250,7 @@ When we use an inner class, it creates a new scope. We can hide local variables 
 
 Lambda expressions, however, work with enclosing scope. We can’t hide variables from the enclosing scope inside the lambda’s body. In this case, the keyword _**this**_ is a reference to an enclosing instance.
 
-[![](https://a.pub.network/core/imgs/fslogo-green.svg)
+[![](_assets/fslogo-green.svg)
 ](https://freestar.com/?utm_campaign=branding&utm_medium=banner&utm_source=baeldung.com&utm_content=baeldung_incontent_2)
 
 AD
@@ -303,7 +303,7 @@ This can be achieved in many ways; let's have a closer look.
 
 In an ideal situation, lambdas should be written in one line of code. With this approach, the lambda is a self-explanatory construction, which declares what action should be executed with what data (in the case of lambdas with parameters).
 
-[![](https://a.pub.network/core/imgs/fslogo-green.svg)
+[![](_assets/fslogo-green.svg)
 ](https://freestar.com/?utm_campaign=branding&utm_medium=banner&utm_source=baeldung.com&utm_content=baeldung_incontent_3)
 
 If we have a large block of code, the lambda's functionality is not immediately clear.
@@ -353,7 +353,7 @@ Instead of this:
 
 Lambda syntax only requires parentheses around more than one parameter, or when there is no parameter at all. That's why it's safe to make our code a little bit shorter, and to exclude parentheses when there is only one parameter.
 
-[![](https://a.pub.network/core/imgs/fslogo-green.svg)
+[![](_assets/fslogo-green.svg)
 ](https://freestar.com/?utm_campaign=branding&utm_medium=banner&utm_source=baeldung.com&utm_content=baeldung_incontent_4)
 
 AD
@@ -398,7 +398,7 @@ a -> a.toLowerCase();
 
 We could substitute it with:
 
-[![](https://a.pub.network/core/imgs/fslogo-green.svg)
+[![](_assets/fslogo-green.svg)
 ](https://freestar.com/?utm_campaign=branding&utm_medium=banner&utm_source=baeldung.com&utm_content=baeldung_incontent_5)
 
 AD
@@ -443,7 +443,7 @@ This approach should simplify the process of making lambda execution thread-safe
 
 One of the main purposes of lambdas is use in parallel computing, which means that they're really helpful when it comes to thread-safety.
 
-[![](https://a.pub.network/core/imgs/fslogo-green.svg)
+[![](_assets/fslogo-green.svg)
 ](https://freestar.com/?utm_campaign=branding&utm_medium=banner&utm_source=baeldung.com&utm_content=baeldung_incontent_6)
 
 AD

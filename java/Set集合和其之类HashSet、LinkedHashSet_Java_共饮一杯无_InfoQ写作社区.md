@@ -44,13 +44,13 @@ public class HashSetDemo {
 
 简单的来说，哈希表是由数组+链表+红黑树（JDK1.8 增加了红黑树部分）实现的，如下图所示。
 
-![](https://static001.geekbang.org/infoq/e9/e9ebae560ca0725166f59ede7c2545ba.png)
+![](_assets/e9ebae560ca0725166f59ede7c2545ba.png)
 
 看到这张图就有人要问了，这个是怎么存储的呢？
 
 为了方便大家的理解我们结合一个存储流程图来说明一下：
 
-![](https://static001.geekbang.org/infoq/39/392bb0c9e681748cf5be1807ab01ce06.png)
+![](_assets/392bb0c9e681748cf5be1807ab01ce06.png)
 
 总而言之，**JDK1.8** 引入红黑树大程度优化了 HashMap 的性能，那么对于我们来讲保证 HashSet 集合元素的唯一，其实就是根据对象的 hashCode 和 equals 方法来决定的。如果我们往集合中存放自定义的对象，那么保证其唯一，就必须复写 hashCode 和 equals 方法建立属于当前对象的比较方式。
 

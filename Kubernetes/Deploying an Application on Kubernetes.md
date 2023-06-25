@@ -1,5 +1,5 @@
 # Deploying an Application on Kubernetes
-![](https://res.cloudinary.com/practicaldev/image/fetch/s--5h5pwmRP--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/v2upkhfbc15mudpxw487.png)
+![](_assets/v2upkhfbc15mudpxw487.png.jpg)
 
 
 
@@ -56,7 +56,7 @@ Today, we will see how to automate simple application deployment on Kubernetes u
 [](#tutorial)Tutorial
 ---------------------
 
-[![](https://res.cloudinary.com/practicaldev/image/fetch/s--nFt2w89M--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/qm7dy8qnl1kyg3q10v0b.png)
+[![](_assets/qm7dy8qnl1kyg3q10v0b.png)
 ](https://res.cloudinary.com/practicaldev/image/fetch/s--nFt2w89M--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/qm7dy8qnl1kyg3q10v0b.png)
 
 We will use our sample application that is already in the GitHub repository. We will use a Kubernetes cluster to deploy our application. Next, we will use a CI/CD platform, Harness, in this tutorial to show how we can automate the software delivery process easily.
@@ -209,7 +209,7 @@ kubectl get pods
 Enter fullscreen mode Exit fullscreen mode
 
 You should see the pods and their status.  
-[![](https://res.cloudinary.com/practicaldev/image/fetch/s--vSnfgrVK--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/tofw9z6mevb2ezk0twmt.png)
+[![](_assets/tofw9z6mevb2ezk0twmt.png.jpg)
 ](https://res.cloudinary.com/practicaldev/image/fetch/s--vSnfgrVK--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/tofw9z6mevb2ezk0twmt.png)
 
 ### [](#step-5-lets-automate-the-deployment-using-harness)Step 5: Let’s automate the deployment using Harness
@@ -217,29 +217,29 @@ You should see the pods and their status.
 You need a CI/CD tool to automate your continuous integration and deployment process. Harness is known for its innovation and simplicity in the CI/CD space. Hence, we will use this platform to set up automated continuous deployment of our application.
 
 Once you sign up and verify your account, you will be presented with a welcome message and project creation set up. Proceed to create a project.  
-[![](https://res.cloudinary.com/practicaldev/image/fetch/s--LARRq28O--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/xypyf0exsggs3da8zds1.png)
+[![](_assets/xypyf0exsggs3da8zds1.png.jpg)
 ](https://res.cloudinary.com/practicaldev/image/fetch/s--LARRq28O--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/xypyf0exsggs3da8zds1.png)
 
 Add the name to the project, save and continue.  
-[![](https://res.cloudinary.com/practicaldev/image/fetch/s--kJOOgI45--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/4jtng0giw7zpibwc5b7u.png)
+[![](_assets/4jtng0giw7zpibwc5b7u.png)
 ](https://res.cloudinary.com/practicaldev/image/fetch/s--kJOOgI45--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/4jtng0giw7zpibwc5b7u.png)
 
 Select the ‘Continuous Delivery’ module and start your free plan.  
-[![](https://res.cloudinary.com/practicaldev/image/fetch/s--xVFJZSkv--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/6fqqm7vsa3b0vkonlh7c.png)
+[![](_assets/6fqqm7vsa3b0vkonlh7c.png.jpg)
 ](https://res.cloudinary.com/practicaldev/image/fetch/s--xVFJZSkv--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/6fqqm7vsa3b0vkonlh7c.png)
 
 Go to the module and start your deployment journey.  
-[![](https://res.cloudinary.com/practicaldev/image/fetch/s--DNbYLyrI--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/0gmka7gitb0lj80jeuw7.png)
+[![](_assets/0gmka7gitb0lj80jeuw7.png)
 ](https://res.cloudinary.com/practicaldev/image/fetch/s--DNbYLyrI--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/0gmka7gitb0lj80jeuw7.png)
 
 The set up is very straightforward, as shown in the above image; you can deploy your application in just four simple steps.
 
 Select your deployment type i, e Kubernetes and click ‘Connect to Environment’.  
-[![](https://res.cloudinary.com/practicaldev/image/fetch/s--B_DBR0yr--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/runmg0ljv7ubca7nl89i.png)
+[![](_assets/runmg0ljv7ubca7nl89i.png)
 ](https://res.cloudinary.com/practicaldev/image/fetch/s--B_DBR0yr--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/runmg0ljv7ubca7nl89i.png)
 
 Connect to your Kubernetes environment with Delegate. A Delegate is a service that runs on your infrastructure to execute tasks on behalf of the Harness platform.  
-[![](https://res.cloudinary.com/practicaldev/image/fetch/s--3Wb9bJx4--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/os8hwkybtiao3praib7h.png)
+[![](_assets/os8hwkybtiao3praib7h.png)
 ](https://res.cloudinary.com/practicaldev/image/fetch/s--3Wb9bJx4--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/os8hwkybtiao3praib7h.png)
 
 Download the Delegate YAML file and install it on your Kubernetes cluster by applying the kubectl apply command as stated in the above step.
@@ -249,19 +249,19 @@ Make sure to execute the command `kubectl apply -f harness-delegate.yaml` in the
 Ensure your Delegate installation is successful.
 
 Next, configure the service and add the manifest details.  
-[![](https://res.cloudinary.com/practicaldev/image/fetch/s--E5hoY3tV--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/d9apbdvfhuocjy755qru.png)
+[![](_assets/d9apbdvfhuocjy755qru.png)
 ](https://res.cloudinary.com/practicaldev/image/fetch/s--E5hoY3tV--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/d9apbdvfhuocjy755qru.png)
 
 After adding all the details, click ‘Create a Pipeline’.  
-[![](https://res.cloudinary.com/practicaldev/image/fetch/s--XGbMbeW8--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/eleem6jyt22bsixn4yum.png)
+[![](_assets/eleem6jyt22bsixn4yum.png.jpg)
 ](https://res.cloudinary.com/practicaldev/image/fetch/s--XGbMbeW8--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/eleem6jyt22bsixn4yum.png)
 
 Check if all the connections are successful. Once everything looks fine, click on ‘Run Pipeline’.  
-[![](https://res.cloudinary.com/practicaldev/image/fetch/s--mp3q_vx5--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/xk3ayy2hnfgtpjdz888w.png)
+[![](_assets/xk3ayy2hnfgtpjdz888w.png)
 ](https://res.cloudinary.com/practicaldev/image/fetch/s--mp3q_vx5--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/xk3ayy2hnfgtpjdz888w.png)
 
 Click on ‘Run Pipeline’ to see the successful deployment.  
-[![](https://res.cloudinary.com/practicaldev/image/fetch/s--nrTYxoTY--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/tib4lngwirps3tjmt4fg.png)
+[![](_assets/tib4lngwirps3tjmt4fg.png.jpg)
 ](https://res.cloudinary.com/practicaldev/image/fetch/s--nrTYxoTY--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/tib4lngwirps3tjmt4fg.png)
 
 **Congratulations!** We successfully deployed our application successfully on Kubernetes using Harness. Now, we can easily automate the deployment using the Harness CD module.
@@ -269,25 +269,25 @@ Click on ‘Run Pipeline’ to see the successful deployment.
 You can automate your CD process by adding Triggers. When any authorised person pushes any new code to your repository, your pipeline should get triggered and do CD. Let’s see how to do that.
 
 In the pipeline studio, you can click the ‘Triggers’ tab and add your desired trigger.  
-[![](https://res.cloudinary.com/practicaldev/image/fetch/s--xnrxP9Vd--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/cwgpeo03kb0mkw76oipi.png)
+[![](_assets/cwgpeo03kb0mkw76oipi.png.jpg)
 ](https://res.cloudinary.com/practicaldev/image/fetch/s--xnrxP9Vd--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/cwgpeo03kb0mkw76oipi.png)
 
-[![](https://res.cloudinary.com/practicaldev/image/fetch/s--dvIryFoJ--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/rachguxj97dskwirzihp.png)
+[![](_assets/rachguxj97dskwirzihp.png.jpg)
 ](https://res.cloudinary.com/practicaldev/image/fetch/s--dvIryFoJ--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/rachguxj97dskwirzihp.png)
 
 Click on ‘Add New Trigger’ and select ‘GitHub’.  
-[![](https://res.cloudinary.com/practicaldev/image/fetch/s--BXJJq1Og--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/pk3sdw5o9fdxoo16f7jh.png)
+[![](_assets/pk3sdw5o9fdxoo16f7jh.png)
 ](https://res.cloudinary.com/practicaldev/image/fetch/s--BXJJq1Og--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/pk3sdw5o9fdxoo16f7jh.png)
 
 Add the required details and continue. As you can see, we are selecting ‘Push’ as our event. So whenever any authorised push happens to our repository, the pipeline should trigger and run.  
-[![](https://res.cloudinary.com/practicaldev/image/fetch/s--_U_B03t9--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/bgw1f8eb9aow4hrbi828.png)
+[![](_assets/bgw1f8eb9aow4hrbi828.png.jpg)
 ](https://res.cloudinary.com/practicaldev/image/fetch/s--_U_B03t9--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/bgw1f8eb9aow4hrbi828.png)
 
-[![](https://res.cloudinary.com/practicaldev/image/fetch/s--U7oKyXBI--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/7ijtfeggddhpc6g3zt57.png)
+[![](_assets/7ijtfeggddhpc6g3zt57.png.jpg)
 ](https://res.cloudinary.com/practicaldev/image/fetch/s--U7oKyXBI--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/7ijtfeggddhpc6g3zt57.png)
 
 You can see your newly created trigger in the ‘Triggers’ tab.  
-[![](https://res.cloudinary.com/practicaldev/image/fetch/s--0z-p7ko---/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/oinnpcc3qou6k5qsr6qt.png)
+[![](_assets/oinnpcc3qou6k5qsr6qt.png)
 ](https://res.cloudinary.com/practicaldev/image/fetch/s--0z-p7ko---/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/oinnpcc3qou6k5qsr6qt.png)
 
 Now, whenever any authorised person pushes any code changes to your main/master repository, the pipeline automatically gets triggered.

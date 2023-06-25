@@ -40,7 +40,7 @@ public void streamToMap1() {
 ```
 
 *   输出结果  
-    ![](https://img-blog.csdnimg.cn/20191112175259287.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3ppamlrYW53YQ==,size_16,color_FFFFFF,t_70)
+    ![](_assets/20191112175259287.png)
     
 
 ### 3\. 大坑解决
@@ -90,7 +90,7 @@ public void streamToMap2() {
 ```
 
 *   输出结果  
-    ![](https://img-blog.csdnimg.cn/20191112175133516.png)
+    ![](_assets/20191112175133516.png)
     
 
 ### 3\. 大坑解决

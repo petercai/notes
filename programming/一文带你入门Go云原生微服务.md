@@ -135,7 +135,7 @@ go-miro 的设计哲学是：通过提供组件工具，明确微服务开发的
 
 我们看下面的架构图：
 
-![](https://static001.geekbang.org/infoq/0f/0fbceb7337690b303a353b80e85c3625.png)
+![](_assets/0fbceb7337690b303a353b80e85c3625.png)
 
 *   最顶层是 service，代表一个微服务
     
@@ -287,7 +287,7 @@ protoc --proto_path=. --micro_out=. --go_out=. greeter.proto
 
 但是有报错，不用担心，接着往下看：
 
-![](https://static001.geekbang.org/infoq/12/1224be5e022aaa7624dfebb42a6a8fa4.png)
+![](_assets/1224be5e022aaa7624dfebb42a6a8fa4.png)
 
 ### 2.1 解决报错
 
@@ -295,7 +295,7 @@ protoc --proto_path=. --micro_out=. --go_out=. greeter.proto
 
 同步依赖后，发现报错消失了：
 
-![](https://static001.geekbang.org/infoq/ba/ba4dea734b5e4b5166936acc7aa8623d.png)
+![](_assets/ba4dea734b5e4b5166936acc7aa8623d.png)
 
 3\. 编写业务逻辑代码提供服务
 ----------------
@@ -307,7 +307,7 @@ protoc --proto_path=. --micro_out=. --go_out=. greeter.proto
 2.  import 中的 proto 对应的目录改成自己的。你自己的 module 名称可以在 go.mod 中查看：
     
 
-![](https://static001.geekbang.org/infoq/01/019fb21c3c7d9cc217bba9ac7541a94c.png)
+![](_assets/019fb21c3c7d9cc217bba9ac7541a94c.png)
 
 3.  关键代码已加注释，逻辑和[\# 开发gRPC总共分三步](https://xie.infoq.cn/link?target=https%3A%2F%2Fmp.weixin.qq.com%2Fs%3F__biz%3DMzIyNjM0MzQyNg%3D%3D%26mid%3D2247484496%26idx%3D1%26sn%3D85fb5996f3f4fc8b5dda5f1c7ddd9bb9%26chksm%3De870ab3ddf07222b12b4b7e1b043c5ae852a1412adaa1ed5ac111524eb2067fdbaf13b5af3b8%26token%3D2066671154%26lang%3Dzh_CN%23rd) 的入门实践部分非常像。
     
@@ -406,7 +406,7 @@ func main() {
 
 我们来看一下 .pb.micro.go 文件的源码，重点看一下 Hello 方法：
 
-![](https://static001.geekbang.org/infoq/a9/a9aa38bb5dd5a4c15c71193b365d1ffc.png)
+![](_assets/a9aa38bb5dd5a4c15c71193b365d1ffc.png)
 
 到这里我们就编码完毕，看下执行效果：
 
@@ -418,7 +418,7 @@ func main() {
 
 执行效果如下，服务端已经启动：
 
-![](https://static001.geekbang.org/infoq/63/63f1def188d3a60fe4082a9829b164ea.png)
+![](_assets/63f1def188d3a60fe4082a9829b164ea.png)
 
 #### 2.再启动客户端
 
@@ -432,7 +432,7 @@ go run client.go
 
 执行效果如下，和我们预期的效果一样，成功的打印出了 Hello World：
 
-![](https://static001.geekbang.org/infoq/d2/d2c8245a8e2255cd5a41dc0f8025dbf5.png)
+![](_assets/d2c8245a8e2255cd5a41dc0f8025dbf5.png)
 
 分布式微服务架构已成趋势，越来越多的公司在从单体应用或集中式应用向分布式应用转型。开篇类比了主流 Go 微服务框架的特点，Go 的微服务生态可以说是百家争鸣。
 
@@ -440,5 +440,5 @@ go run client.go
 
 近期会更新一系列 Go 实战进阶的文章，欢迎大家关注我的：[\# Go语言进阶实战专栏](https://xie.infoq.cn/link?target=https%3A%2F%2Fmp.weixin.qq.com%2Fmp%2Fappmsgalbum%3F__biz%3DMzIyNjM0MzQyNg%3D%3D%26action%3Dgetalbum%26album_id%3D2560252212141162497%26scene%3D173%26from_msgid%3D2247484678%26from_itemidx%3D1%26count%3D3%26nolastread%3D1%23wechat_redirect)。
 
-![](https://static001.geekbang.org/infoq/cf/cfb1b99578b0bfcdb129154bd4d04dcc.png)
+![](_assets/cfb1b99578b0bfcdb129154bd4d04dcc.png)
 

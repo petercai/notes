@@ -60,7 +60,7 @@
 3.  ******读写大文件耗费内存较大，容易 OOM******
     
 
-![](https://img-blog.csdnimg.cn/b973356473c445e7a74da0baa5fb6a40.png)
+![](_assets/b973356473c445e7a74da0baa5fb6a40.png)
 
   
 

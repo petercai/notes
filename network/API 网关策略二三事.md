@@ -28,7 +28,7 @@ API 网关一般位于所有的上游服务之前，当用户向服务发送请�
 
 认证可以确认 API 调用者的身份，授权主要限制调用者仅能访问权限内的资源。
 
-![](https://static001.geekbang.org/infoq/f6/f687febd913f0efb46d5602e2035ba9c.png)
+![](_assets/f687febd913f0efb46d5602e2035ba9c.png)
 
 比如说一位乘客前往车站出行，进入车站之前会使用身份证进行“认证”确认身份，在进入车站后出示车票，经工作人员确认后被“授权”进入某班列车。
 
@@ -87,7 +87,7 @@ JSON Web Token (JWT) 是一个开放的[标准](https://xie.infoq.cn/link?target
 
 [OpenID Connect](https://xie.infoq.cn/link?target=https%3A%2F%2Fopenid.net%2Fconnect%2F) 是建立在 OAuth2.0 协议之上的身份认证方法，为应用的授权提供了比较完整的方案，API 网关中的 OpenID Connect 策略将允许上游服务从身份提供者（IdP）中获取请求中的用户信息，从而保护 API 安全。常见的身份提供者有 Keycloak、Ory Hydra、Okta、Auth0 等等。以 Apache APISIX 为例网关中的 [OpenID Connect](https://xie.infoq.cn/link?target=https%3A%2F%2Fapisix.apache.org%2Fdocs%2Fapisix%2Fplugins%2Fopenid-connect%2F) 策略工作流程如下：
 
-![](https://static001.geekbang.org/infoq/78/78ba34e04d20942979298ab2dcf7baa9.png)
+![](_assets/78ba34e04d20942979298ab2dcf7baa9.png)
 
 1.  客户端向网关发出请求
     
@@ -109,7 +109,7 @@ JSON Web Token (JWT) 是一个开放的[标准](https://xie.infoq.cn/link?target
 
 API 网关安全策略像门卫一样保证 API 安全访问，允许正常请求被网关转发并在网关上拦截非法请求。根据 [OWASP API Security Project](https://xie.infoq.cn/link?target=https%3A%2F%2Fowasp.org%2Fwww-project-api-security%2F)，在 API 的调用者中存在着大量可能的威胁和攻击。使用 API 网关安全策略可以对所有的 API 请求进行安全验证，在 API 免于遭受这些安全威胁上起到了重要作用。
 
-![](https://static001.geekbang.org/infoq/e9/e9f1ecb56806d7b65a5614e5e98cd5d5.png)
+![](_assets/e9f1ecb56806d7b65a5614e5e98cd5d5.png)
 
 以下是几种比较重要的 API 网关安全策略。
 
@@ -189,7 +189,7 @@ APISIX 提供了 [response-rewrite](https://xie.infoq.cn/link?target=https%3A%2F
 
 可观测性指在一个系统中通过系统的输出数据来衡量这个系统运行状态的能力。在一些简单的系统中，因为系统组件数量相对较少，出现问题时可以通过分析各个组件状态得到答案。但是在大型分布式系统中，各种微服务组件数量非常大，对组件一一进行排查显然是不现实的，这个时候就需要系统具备可观测性。可观测性提供了对分布式系统的“可见性”，当系统出现问题时它可以提供工程师所需的控制能力，准确定位问题。
 
-![](https://static001.geekbang.org/infoq/ab/abf6f99cb4232e435cfe7f95de591267.png)
+![](_assets/abf6f99cb4232e435cfe7f95de591267.png)
 
 可观测性的数据收集可以在应用程序组件内实现，也可以在其他位置实现。API 网关作为所有流量的入口，在 API 网关中实现系统的可观测性，可以清晰反映出系统 API 的使用情况。API 网关的可观测性策略可以帮助到公司的每个团队：
 

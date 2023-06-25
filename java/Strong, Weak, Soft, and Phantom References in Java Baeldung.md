@@ -29,7 +29,7 @@ list = null;
 
 Now and only now, the _ArrayList_ object can be collected because nothing holds a reference to it.
 
-[![](https://a.pub.network/core/imgs/fslogo-green.svg)
+[![](_assets/fslogo-green.svg)
 ](https://freestar.com/?utm_campaign=branding&utm_medium=banner&utm_source=baeldung.com&utm_content=baeldung_leaderboard_mid_1)
 
 AD
@@ -63,7 +63,7 @@ if (list == null) {
 
 Soft references can be used **to make our code more resilient to errors connected to insufficient memory**. For example, we could create a memory-sensitive cache that automatically evicts objects when memory is scarce. We wouldn't need to manage the memory manually, as the garbage collector would do it for us.
 
-[![](https://a.pub.network/core/imgs/fslogo-green.svg)
+[![](_assets/fslogo-green.svg)
 ](https://freestar.com/?utm_campaign=branding&utm_medium=banner&utm_source=baeldung.com&utm_content=baeldung_leaderboard_mid_2)
 
 5\. Weak References[](#weak)
@@ -86,7 +86,7 @@ Similarly to weak references, [phantom references](https://www.baeldung.com/java
 
 Phantom references are great **if we need to implement some finalization logic**, and they're considerably more reliable and flexible than the [_finalize_](https://www.baeldung.com/java-finalize) method. Let's write a simple method that will go through the reference queue and perform cleanup for all references:
 
-[![](https://a.pub.network/core/imgs/fslogo-green.svg)
+[![](_assets/fslogo-green.svg)
 ](https://freestar.com/?utm_campaign=branding&utm_medium=banner&utm_source=baeldung.com&utm_content=baeldung_leaderboard_mid_3)
 
 ```null

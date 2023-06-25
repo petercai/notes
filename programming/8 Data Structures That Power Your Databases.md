@@ -14,7 +14,7 @@ This week’s system design refresher:
 
 [
 
-![](https://substackcdn.com/image/fetch/w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fd7df9dfc-9938-4110-9ef3-c7615602f05f_1600x840.png)
+![](_assets/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fd7df9dfc-9938-4110-9ef3-c7615.jpg)
 
 
 ](http://bit.ly/3wCvSR4)
@@ -42,7 +42,7 @@ The answer will vary depending on your use case. Data can be indexed in memory o
 
 [
 
-![](https://substackcdn.com/image/fetch/w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F38f892f0-81f6-41b9-9227-4d6bfa66f9eb_1474x1536.jpeg)
+![](_assets/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F38f892f0-81f6-41b9-9227-4d6bf.jpg)
 
 
 ](https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F38f892f0-81f6-41b9-9227-4d6bfa66f9eb_1474x1536.jpeg)
@@ -77,7 +77,7 @@ When we **merge changes** from one Git branch to another, we can use ‘git merg
 
 [
 
-![](https://substackcdn.com/image/fetch/w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F149b8083-361b-4784-9c41-73d8e73820f8_2421x3003.jpeg)
+![](_assets/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F149b8083-361b-4784-9c41-73d8e.jpg)
 
 
 ](https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F149b8083-361b-4784-9c41-73d8e73820f8_2421x3003.jpeg)
@@ -104,7 +104,7 @@ The diagram below shows how the process works:
 
 [
 
-![](https://substackcdn.com/image/fetch/w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Ff4050bfd-acd4-4c8c-80f0-67af15125f56_901x984.jpeg)
+![](_assets/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Ff4050bfd-acd4-4c8c-80f0-67af1.jpg)
 
 
 ](https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Ff4050bfd-acd4-4c8c-80f0-67af15125f56_901x984.jpeg)
@@ -129,7 +129,7 @@ By [flaviocopes](https://twitter.com/flaviocopes) on Twitter
 
 [
 
-![](https://substackcdn.com/image/fetch/w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F330a7f50-7697-45e3-bdc0-dc1aba78e969_1375x1072.jpeg)
+![](_assets/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F330a7f50-7697-45e3-bdc0-dc1ab.jpg)
 
 
 ](https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F330a7f50-7697-45e3-bdc0-dc1aba78e969_1375x1072.jpeg)

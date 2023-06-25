@@ -112,7 +112,7 @@ App Engine 调度器可决定如何处理每个新请求。调度器可使用现
 
 下图说明了代管式实例组提供的关键功能。
 
-![](https://cloud.google.com/static/architecture/images/twelve-factor-apps-mig-overview.svg?hl=zh-cn)
+![](_assets/twelve-factor-apps-mig-overview.svg)
 
 使用[代管式实例组](https://cloud.google.com/compute/docs/instance-groups?hl=zh-cn#managed_instance_groups)，您的应用可以根据传入的需求进行扩缩，实现高可用性。此概念本质上适用于无状态应用（例如 Web 前端）和基于批处理的高性能工作负载。
 

@@ -1,5 +1,5 @@
 # 10 大 Helm 教程，助您开启 Kubernetes 之旅 
-![](https://www.jfrogchina.com/wp-content/uploads/2020/08/HelmChartChampions-03.png)
+![](_assets/HelmChartChampions-03.png)
 
 Kubernetes 发展惊人，K8s 应用程序的重要性日益增加，其复杂性更高。 如今，即使配置单个应用程序，也可能需要创建较多相互依赖的 K8s 源，每个源都依托于编写详细的 YAML 清单文件。 考虑到这一点，可主要发挥 Helm 作为 Kubernetes 的包管理器的作用，用户可对其 K8s 配置进行重用。
 

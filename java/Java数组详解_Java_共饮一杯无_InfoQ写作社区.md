@@ -100,7 +100,7 @@ public static void main(String[] args) {
 
 以上方法执行，输出的结果是\[I@5f461635，这个是什么呢？是数组在内存中的地址。new 出来的内容，都是在堆内存中存储的，而方法中的变量 arr 保存的是数组的地址。输出 arr\[0\]，就会输出 arr 保存的内存地址中数组中 0 索引上的元素
 
-![](https://static001.geekbang.org/infoq/af/afd77c929efe3d059abdb6a6ce5d9bde.png)
+![](_assets/afd77c929efe3d059abdb6a6ce5d9bde.png)
 
 #### 两个数组内存图
 
@@ -113,7 +113,7 @@ public static void main(String[] args) {
 }
 ```
 
-![](https://static001.geekbang.org/infoq/1a/1a8ba45ca7dfdba35205f31e2058e946.png)
+![](_assets/1a8ba45ca7dfdba35205f31e2058e946.png)
 
 数组的常见操作
 -------

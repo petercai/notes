@@ -1,7 +1,7 @@
 # Introduction to Kafka
 Imagine you built an e-commerce application using a microservice design pattern. The Communication between the different services of your application might look like this.
 
-![](https://miro.medium.com/v2/resize:fit:700/1*BqbaTHfPELtUbDw8uDFmVA.png)
+![](_assets/1!BqbaTHfPELtUbDw8uDFmVA.png)
 
 There will be lots of connections between the services. Some services will send and receive different data formats. Managing this type of communication can be very hard. This can lead to errors and loss of data.
 
@@ -9,11 +9,11 @@ To solve this problem, your application services can communicate with each other
 
 **Kafka** is a publisher-subscriber messaging system. It enables the exchange of data between different services, servers, and applications. This article explains the basic components of Kafka.
 
-![](https://miro.medium.com/v2/resize:fit:700/1*QEN2aNpv3-P8ez-7Nled8A.png)
+![](_assets/1!QEN2aNpv3-P8ez-7Nled8A.png)
 
 In a publisher-subscriber messaging system like Kafka, services would focus on either sending (publishing) or receiving (consuming) messages. This would make it easier to manage the connection.
 
-![](https://miro.medium.com/v2/resize:fit:700/1*LR-O9aqtHYQuS1Tqno-aHA.png)
+![](_assets/1!LR-O9aqtHYQuS1Tqno-aHA.png)
 
 Instead of your services communicating directly with each other, services will communicate via a message broker. The producers send messages to the Broker. While the consumers pull messages from the **Brokers**.
 
@@ -26,7 +26,7 @@ Having many brokers in your system, increase the fault tolerance and scalability
 
 Messages sent to a broker by producers are stored in a **Kafka topic.**
 
-![](https://miro.medium.com/v2/resize:fit:654/1*bb45Cx3RD36XN-LxOhn0VQ.png)
+![](_assets/1!bb45Cx3RD36XN-LxOhn0VQ.png)
 
 **Kafka Topic**
 ---------------
@@ -43,7 +43,7 @@ A topic is also divided into different parts. The different parts hold different
 
 These different parts of a topic are called **Kafka** **partitions**.
 
-![](https://miro.medium.com/v2/resize:fit:519/1*KA84Vn8VdWIILHXU0hU3ag.png)
+![](_assets/1!KA84Vn8VdWIILHXU0hU3ag.png)
 
 Kafka Partition
 ---------------

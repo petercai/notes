@@ -182,7 +182,7 @@ Of course, your application can use the basic logging API provided out of the bo
 
 [SLF4J](http://www.slf4j.org/) – The Simple Logging Facade for Java is one such abstraction layer. It provides bindings for common logging frameworks such as [Log4j](https://logging.apache.org/log4j/2.x/), [Logback](http://logback.qos.ch/), and the out-of-the-box [java.util.logging](https://docs.oracle.com/en/java/javase/14/docs/api/java.logging/java/util/logging/package-summary.html) package. You can imagine the process of writing the log message in the following, simplified way:
 
-![](https://sematext.com/wp-content/uploads/2021/03/java-logging-2.png.webp)
+![](_assets/java-logging-2.png.webp)
 
 But how would that look from the code perspective? Well, that’s a very good question. Let’s start by looking at the out-of-the-box [java.util.logging](https://docs.oracle.com/en/java/javase/14/docs/api/java.logging/java/util/logging/package-summary.html) code. For example, if we would like to just start our application and print something to the log it would look as follows:
 
@@ -348,7 +348,7 @@ Efficient Java Logging with Log Management Solutions
 
 Now you know the basics about how to turn on [logging](https://sematext.com/guides/log-management/) in our Java application but with the complexity of the applications, the volume of the logs grows. You may get away with logging to a file and only using them when troubleshooting is needed, but working with huge amounts of data quickly becomes unmanageable and you should end up using a [log management solution](https://sematext.com/blog/best-log-management-tools/) for [log monitoring](https://sematext.com/log-monitoring/) and centralization. You can either go for an in-house solution based on the open-source software or use one of the products available on the market like [Sematext Logs](https://sematext.com/logsene/).
 
-![](https://sematext.com/wp-content/uploads/2021/03/java-logging-3.png.webp)
+![](_assets/java-logging-3.png.webp)
 
 A fully managed log centralization solution such as [Sematext Logs](https://sematext.com/logsene/) will give you the freedom of not needing to manage yet another, usually quite complex, part of your infrastructure. It will allow you to manage a plethora of sources for your logs. You can learn more about Sematext and how it stacks up against similar solutions from our reviews of the best [log management software](https://sematext.com/blog/best-log-management-tools/), [log analysis tools](https://sematext.com/blog/log-analysis-tools/), and [cloud logging services](https://sematext.com/blog/cloud-logging-services/) available out there.
 

@@ -1,5 +1,5 @@
 # SpringBoot整合Quartz_定时任务_陈老老老板_InfoQ写作社区
-![](https://static001.geekbang.org/infoq/a3/a3f0d7b148bcd51f919156fcf339e28c.gif)
+![](_assets/a3f0d7b148bcd51f919156fcf339e28c.gif)
 
 > 陈老老老板
 > 
@@ -37,7 +37,7 @@
 ******1、创建项目******
 ------------------
 
-![](https://img-blog.csdnimg.cn/e2b34af38e364e6f9ed9f81f68f97384.png)
+![](_assets/e2b34af38e364e6f9ed9f81f68f97384.png)
 
   
 
@@ -191,9 +191,9 @@ public class QuartzConfig {
 
 ******点击启动类，启动项目，就会发现每两秒执行一次。******
 
-![](https://img-blog.csdnimg.cn/32d062eb43dc49f591ad6cba010e79dc.png)
+![](_assets/32d062eb43dc49f591ad6cba010e79dc.png)
 
-![](https://img-blog.csdnimg.cn/39b057c56b7b47a0947ec65cec2e769e.png)
+![](_assets/39b057c56b7b47a0947ec65cec2e769e.png)
 
   
 
