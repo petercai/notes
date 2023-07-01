@@ -5,7 +5,7 @@ _本文最初发布于_[Medium](https://medium.com/better-programming/2-years-of
 
 [GraphQL](https://graphql.org/)已得到广泛认可并日益流行。我们在使用中遇到了一些非常有挑战性的问题，值得撰文分享。本文将使用一个示例配置来阐释问题，并给出相应的解决方法。
 
-![](https://static001.infoq.cn/resource/image/57/65/579da5c1ec3c8dca78faa361d1714d65.png)
+![](_assets/579da5c1ec3c8dca78faa361d1714d65.png)
 
 本文作者使用 GraphQL Voyager 生成的关系概览图
 
@@ -23,7 +23,7 @@ _本文最初发布于_[Medium](https://medium.com/better-programming/2-years-of
 
 拼接（Stitching）让我们可以从同一端点获取所有数据。这听上去不错，但它也会导致一些非常棘手的问题。举例说明：
 
-![](https://static001.infoq.cn/resource/image/66/1b/661ceb0389f98accafe94e7715f3a21b.png)
+![](_assets/661ceb0389f98accafe94e7715f3a21b.png)
 
 如上图所示，一个前端与 Public API 通信。Public API 拼接了 Order API，后者又拼接了 Product API。前端唯一能访问的是 Public API。看上去这种链式拼接方式并没有太大的问题，但是在面对数十层级的 API 拼接时，应用发布将成为一场灾难。
 
@@ -55,7 +55,7 @@ products {
 
 为解决这个问题，我们需要重新拼接 API。我们可以让 Public 负责加载所有的 Schema。这样只需重启该 API，即可加载所有 Schema。
 
-![](https://static001.infoq.cn/resource/image/0d/9e/0d1fa894eyyd66019a40f1f6b7a1e39e.png)
+![](_assets/0d1fa894eyyd66019a40f1f6b7a1e39e.png)
 
 鉴于现在 Public API 获取所有的 Schema，我们可以添加处理 order 属性的代码，扩展 Product 的 Schema。这样，我们就可以通过查询 Product 获取 Order 信息。扩展 Schema 的详细做法，参见[Apollo文档](https://www.apollographql.com/docs/apollo-server/federation/entities/#extending)。
 
@@ -63,7 +63,7 @@ products {
 
 实践中，我们组合使用了上面两种方法。但现在我们面对一个新的问题。当前并非所有的变更都可通过 Public API 访问，因此在更新支付的状态时需要直接调用 Payment API。这对于变更不存在问题，但并不适用于所有的查询，因为父对象和子对象只是在 Public API 做拼接。为解决这个问题，我们需要再次重新编排配置，如下图所示：
 
-![](https://static001.infoq.cn/resource/image/65/8d/6531cce20d44fc15b4da8a6628fe1e8d.png)
+![](_assets/6531cce20d44fc15b4da8a6628fe1e8d.png)
 
 这里，我们新建了一个 Gateway API，负责拼接所有 Schema。而 Public API 只拼接 Gateway API，并移除所有前端无需访问的查询和变更。这样，Gateway 可与后端服务部署在同一网络，后端在进行查询和变更时可直接使用 Gateway API。
 
