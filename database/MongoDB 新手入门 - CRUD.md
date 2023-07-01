@@ -348,11 +348,11 @@ db.orders.count( { ord_dt: { $gt: new Date('01/01/2012') } } )
 db.collection.distinct(field, query, options)
 ```
 
-![](https://static001.geekbang.org/infoq/71/71235594fed4d6283cea1606b5d39d4d.png)
+![](_assets/71235594fed4d6283cea1606b5d39d4d.png)
 
 ### 附录：支持的查询操作符
 
-![](https://static001.geekbang.org/infoq/36/36bd003ff5831560abe7cdd9ad40c1cf.png)
+![](_assets/36bd003ff5831560abe7cdd9ad40c1cf.png)
 
 更新文档
 ----
@@ -413,7 +413,7 @@ db.restaurant.updateOne(
 
 更多字段操作符如下
 
-![](https://static001.geekbang.org/infoq/91/91c6bea867475b14f19b6231cf5a1d80.png)
+![](_assets/91c6bea867475b14f19b6231cf5a1d80.png)
 
 除了常用的三个方法，还有以下方法也可以用于更新文档
 

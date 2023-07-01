@@ -1,5 +1,5 @@
 # Apache Kafka Architecture - Delivery Guarantees
-![](https://supergloo.com/wp-content/uploads/2018/11/hardertheycome_4350.jpg?ezimgfmt=rs%3Adevice%2Frscb1-1)
+![](_assets/hardertheycome_4350.jpg.webp)
 
 Apache Kafka offers message delivery guarantees between producers and consumers.  _For more background or information Kafka mechanics such as producers and consumers on this, please see [Kafka Tutorial](https://supergloo.com/kafka-tutorials/) page. _
 

@@ -2,7 +2,7 @@
 SAGA is an essential Micro service Pattern which solves the problem of maintaining data consistency in distributed system
 -------------------------------------------------------------------------------------------------------------------------
 
-![](https://miro.medium.com/v2/resize:fit:700/0*Z0HAW1vkF5x-V5Zt.png)
+![](_assets/0!Z0HAW1vkF5x-V5Zt.png)
 
 image_source — Medium
 
@@ -30,7 +30,7 @@ If any of these steps fail, the previous steps are rolled back to ensure consist
 
 Here is another Microservice architecture diagram to demonstrate how SAGA Pattern works:
 
-![](https://miro.medium.com/v2/resize:fit:700/0*JXm6bdoeZoSe2n3R)
+![](_assets/0!JXm6bdoeZoSe2n3R.jpg)
 
 Whenever we learn a pattern, we should learn its pros and cons as it help you to understand pattern better and also help you to decide when to use them in your application:
 
@@ -68,7 +68,7 @@ If you are wondering whether any Java Microservice framework which can provide s
 
 Though, you can implement SAGA Pattern using libraries and frameworks such as Apache Camel or spring integration along with technologies like Apache Kafka, event sourcing, and message-driven architecture.
 
-![](https://miro.medium.com/v2/resize:fit:700/0*c1DNbbIAFNHYH1mi.png)
+![](_assets/0!c1DNbbIAFNHYH1mi.png)
 
 Thank you for reading my article. That’s all abou**t SAGA design Pattern in Microservice Architecture**. It’s one of the complex but important pattern to learn and really important from interview point of view.
 

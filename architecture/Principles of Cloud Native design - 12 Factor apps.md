@@ -38,7 +38,7 @@ The 12 factors are
 
 > “_A twelve-factor app is always tracked in a version control system… A codebase is any single repo (in a centralized revision control system like Subversion), or any set of repos who share a root commit (in a decentralized revision control system like Git)._”
 
-![](https://pradeepl.com/blog/12-factor-cloud-native-apps/images/Codebase.png)
+![](_assets/Codebase.png)
 
 This principle advocates a single codebase tracked in revision control with many deployments across multiple environments. There can only be one codebase per microservice. The codebase must be managed by a version control system. Various deploys are generated from this codebase, each one for a different environment development, staging, production and maybe others. This looks too simplistic and nonsensical but if you think about it in the world of SOA and microservices we have to think through our [version control strategies](https://pradeepl.com/blog/git-branching-strategies/ "version control strategies") . Each service should be maintained as its own codebase and should be version controlled independently.
 
@@ -48,7 +48,7 @@ Every developer clones their copy of the codebase to make changes or run locally
 
 > _“A twelve-factor app never relies on implicit existence of system-wide packages.”_
 
-![](https://pradeepl.com/blog/12-factor-cloud-native-apps/images/Dependencies.png)
+![](_assets/Dependencies.png)
  Dependencies used by a project and their versions must be explicitly declared and isolated from code. Explicitly stating versions results in lower compatibility issues across environments. This also results in better reproducibility of issues occurring in specific version combinations. Dependencies not only include packages but also platforms, SDK’s etc. Package dependencies can be managed using package management tools like Nuget, NPM etc. Container technology simplifies this further by explicitly specifying all installation steps. It also specifies versions of base images, so that image builds are idempotent. .Net core provides the project file as a container to declare all dependencies. It uses nuget as the package manager to download the necessary packages. An example of a dotnet project file declaring all the necessary dependencies is below
 
 ```null
@@ -103,7 +103,7 @@ In the Java world Maven uses the pom.xml file to specify the library , framework
 
 > _“Apps sometimes store config as constants in the code. This is a violation of twelve-factor, which requires strict separation of config from code. Config varies substantially across deploys, code does not.”_
 
-![](https://pradeepl.com/blog/12-factor-cloud-native-apps/images/Config.png)
+![](_assets/Config.png)
 
 Application configurations, that differ across environments such as external dependencies, databases, credentials, ports etc are only manifested at runtime. This configuration should not be hard coded in the source code but should be externalized and dynamically modifiable from outside the application. There should be no hard-coded credentials and no configuration in the code. This ensures that the application is not modified to update configuration to deploy it across environments and is completely agnostic of the environment. This also ensures that sensitive information is not mixed in with code. The use of environment variables that can be injected when deploying an application in a specific environment is highly recommended. This ensures that the developer can focus on code with the assurance that the necessary configuration and credentials are available consistently across all environments. In addition to environment variables tools such as consul and vault enable configuration to be stored in a secure way across environments. An example of externalizing configuration is [here](https://pradeepl.com/blog/dotnet/configuration-in-a-net-core-console-application/ "Configuration in a dotnet core console application") .
 
@@ -115,7 +115,7 @@ Databases, API’s and other external systems that are accessed from the applica
 
 ### Build, Release, Run
 
-![](https://pradeepl.com/blog/12-factor-cloud-native-apps/images/Build-Release-Run.png)
+![](_assets/Build-Release-Run.png)
 
 > _“The twelve-factor app uses strict separation between the build, release, and run stages.”_
 
@@ -131,7 +131,7 @@ All processes and components of the application must be stateless and share-noth
 
 > _“The twelve-factor app is completely self-contained and does not rely on runtime injection of a webserver into the execution environment to create a web-facing service.”_
 
-![](https://pradeepl.com/blog/12-factor-cloud-native-apps/images/Port%20Binding.png)
+![](_assets/Port%20Binding.png)
 
 A twelve-factor app is fully self-contained and does not depend on any runtime such as application servers, web servers etc to be available as a service. It is self-contained and exposes its functionality via a protocol that best fits it such as HTTP, MQTT, AMQP etc. A twelve-factor app must export the service by port-binding, meaning that the application also interfaces with the world via an endpoint.The port binding can be exported and configurable using the configuration principle above. An application using HTTP as the protocol might run as http://localhost:5001 on a developer’s workstation, and in QA it might run as http://164.132.1.10:5000, and in production as [http://service.company.com](http://service.company.com/ "http://service.company.com") . An application developed with exported port binding in mind supports this environment-specific port binding without having to change any code.
 
@@ -139,14 +139,14 @@ A twelve-factor app is fully self-contained and does not depend on any runtime s
 
 > _“In the twelve-factor app, processes are a first class citizen…The process model truly shines when it comes time to scale out.”_
 
-![](https://pradeepl.com/blog/12-factor-cloud-native-apps/images/Concurrency.png)
+![](_assets/Concurrency.png)
  Applications should scale out using the process model. Elastic scalability can be achieved by scaling out horizontally. Rules can be setup to dynamically scale the number of instances of the application/service based on load or other runtime telemetry. Stateless, share-nothing processes are well positioned to take full advantage of horizontal scaling and running multiple, concurrent instances.
 
 ### Disposability
 
 > _“The twelve-factor app’s processes are disposable, meaning they can be started or stopped at a moment’s notice.”_
 
-![](https://pradeepl.com/blog/12-factor-cloud-native-apps/images/Disposability.png)
+![](_assets/Disposability.png)
  Processes are constantly created and killed on demand. An application’s processes should be disposable, and allow it to be started or stopped rapidly. An application cannot scale, deploy, release, or recover rapidly if it cannot start rapidly and shut down gracefully. Shutting down gracefully implies saving the state if necessary, and releasing the allocated computing resources. This is a key requirement due to the ephemeral nature of cloud native applications.
 
 ### Dev/Prod Parity
@@ -159,7 +159,7 @@ All environments should be maintained to be as similar as possible. This ensures
 
 > " _A twelve-factor app never concerns itself with routing or storage of its output stream.”_
 
-![](https://pradeepl.com/blog/12-factor-cloud-native-apps/images/Logs-as-streams.png)
+![](_assets/Logs-as-streams.png)
 
 Logs should be treated as event streams. Logs are a sequence of events emitted from an application in time-ordered sequence. A cloud-native application writes all of its log entries to stdout and stderr.You can use tools like the ELK stack (ElasticSearch, Logstash, and Kibana), Splunk etc to capture and analyze your log emissions. Applications should be decoupled from the knowledge of log storage, processing, and analysis. Logs can be directed anywhere. For example, they could be directed to a database in NoSQL, to another service, to a file in a repository, to a log-indexing-and-analysis system, or to a data-warehousing system.
 

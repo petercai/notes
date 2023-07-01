@@ -1,5 +1,5 @@
 # XStream介绍 - 简书
-[![](https://upload.jianshu.io/users/upload_avatars/1287379/7bb6532d8f48.jpeg?imageMogr2/auto-orient/strip|imageView2/1/w/96/h/96/format/webp)
+[![](_assets/7bb6532d8f48.jpeg.webp)
 ](https://www.jianshu.com/u/c349fdb89f87)
 
 0.1782020.07.04 05:58:12字数 800阅读 2,893
@@ -40,7 +40,7 @@ XStream是一个实现javaBean与XML互相转换的工具，极大地简化了�
 
 UML类图如下：
 
-![](https://upload-images.jianshu.io/upload_images/1287379-ad2a0dfda31c4fed.png)
+![](_assets/1287379-ad2a0dfda31c4fed.png.webp)
 
 类的关系.png
 
@@ -246,7 +246,7 @@ public void testReturnResult2(){
 
 还没有人赞赏，支持一下
 
-[![](https://upload.jianshu.io/users/upload_avatars/1287379/7bb6532d8f48.jpeg?imageMogr2/auto-orient/strip|imageView2/1/w/100/h/100/format/webp)
+[![](_assets/7bb6532d8f48.jpeg.webp)
 ](https://www.jianshu.com/u/c349fdb89f87)
 
 总资产5共写了17.3W字获得90个赞共47个粉丝
@@ -255,31 +255,31 @@ public void testReturnResult2(){
 
 *   最近项目有一个跟三方交互的接口，三方用的xml数据，简单记录下玩xml的历程。 首先，对于正常的xml解析，推荐J...
     
-    [![](https://upload-images.jianshu.io/upload_images/4992676-d18326b0fb51b7b5.png?imageMogr2/auto-orient/strip|imageView2/1/w/300/h/240/format/webp)
+    [![](_assets/4992676-d18326b0fb51b7b5.png.webp)
     ](https://www.jianshu.com/p/634bf6b5de12)
 *   1\. Java基础部分 基础部分的顺序：基本语法，类相关的语法，内部类的语法，继承相关的语法，异常的语法，线程的语...
     
-    [![](https://upload.jianshu.io/users/upload_avatars/1876023/c8f05531-a36a-4357-9b04-4091e73ebf19.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/48/h/48/format/webp)
+    [![](_assets/c8f05531-a36a-4357-9b04-4091e73ebf19.jpg.webp)
     子非鱼\_t\_](https://www.jianshu.com/u/0ac615e458d5)阅读 30,489评论 18赞 399
     
 *   XStream的介绍 使用问题及解决方法 XStream的基本使用 pom依赖 Xstream序列化XML 程序运...
     
 *   在现今的项目开发中，虽然数据的传输大部分都是用json格式来进行传输，但是xml毕竟也会有一些老的项目在进行使用，...
     
-    [![](https://upload.jianshu.io/users/upload_avatars/4630295/2582c104-c45e-4b14-8791-27f69f278a01.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/48/h/48/format/webp)
+    [![](_assets/2582c104-c45e-4b14-8791-27f69f278a01.jpg.webp)
     意识流丶](https://www.jianshu.com/u/f192766abeab)阅读 39,982评论 3赞 25
     
 *   5月以来，哪怕对市场风向再不敏感的人，也感觉到阵阵凉意。二级市场连续下挫，一级市场融资环境恶化，不论企业融资数量还...
     
-    [![](https://upload-images.jianshu.io/upload_images/12667735-98f5a5fbd6f10663?imageMogr2/auto-orient/strip|imageView2/1/w/300/h/240/format/webp)
+    [![](_assets/12667735-98f5a5fbd6f10663.webp)
     ](https://www.jianshu.com/p/7021ed6a64e4)
 *   推荐指数： 6.0 书籍主旨关键词：特权、焦点、注意力、语言联想、情景联想 观点： 1.统计学现在叫数据分析，社会...
     
 *   昨天，在回家的路上，坐在车里悠哉悠哉地看着三毛的《撒哈拉沙漠的故事》，我被里面的内容深深吸引住了，尽管上学时...
     
-    [![](https://upload.jianshu.io/users/upload_avatars/12940471/e6d62766-fb51-42d3-9cc7-c7e370d2b89b.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/48/h/48/format/webp)
+    [![](_assets/e6d62766-fb51-42d3-9cc7-c7e370d2b89b.jpg.webp)
     夜阑晓语](https://www.jianshu.com/u/80cbc3a42257)阅读 3,344评论 2赞 8
     
-*   [![](https://upload-images.jianshu.io/upload_images/12994822-34dc7ca7bbbb7c10.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/300/h/240/format/webp)
+*   [![](_assets/12994822-34dc7ca7bbbb7c10.jpg.webp)
     ](https://www.jianshu.com/p/70d19adb54c2)
 *   一月四号的大沙有个想法。从昨晚到现在就一直围绕在脑子里。或许深受那些小说的影响，或许真的就是我自己脑子或者精神么有...

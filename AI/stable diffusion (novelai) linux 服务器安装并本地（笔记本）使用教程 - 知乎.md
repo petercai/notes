@@ -89,7 +89,7 @@ magnet:?xt=urn:btih:5bde442da86265b670a3e5ea3163afad2c6f8ecc
 python launch.py --listen --port 8080
 ```
 
-![](https://pic3.zhimg.com/v2-1c31e9e04228baa7016b0583f22b862e_b.jpg)
+![](_assets/v2-1c31e9e04228baa7016b0583f22b862e_b.jpg)
 
 生成的图像
 
@@ -99,4 +99,4 @@ python launch.py --listen --port 8080
 
 之后还可能报错：
 
-![](https://pic4.zhimg.com/v2-247f6ad49d39496fbad2a16b7faaeb2b_b.jpg)
+![](_assets/v2-247f6ad49d39496fbad2a16b7faaeb2b_b.jpg.png)

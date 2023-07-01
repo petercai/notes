@@ -1,7 +1,7 @@
 # Java 19中新推出的虚拟线程到底是怎么回事儿？
 最近，JDK 19 发布了，推出了几个新的特性，其中有一个比较值得关注的那就是新增了虚拟线程。
 
-![](https://static001.geekbang.org/infoq/5f/5fe4f68f343d63429c763953f78ce001.png)
+![](_assets/5fe4f68f343d63429c763953f78ce001.png)
 
 很多人可能比较疑惑，到底什么是虚拟线程，和我们现在使用的平台线程有啥区别呢？
 
@@ -50,7 +50,7 @@ Java 的线程实现
 
 **JDK 19 引入的虚拟线程，是 JDK 实现的轻量级线程，他可以避免上下文切换带来的的额外耗费。** 他的实现原理其实是 JDK 不再是每一个线程都一对一的对应一个操作系统的线程了，而是会将多个虚拟线程映射到少量操作系统线程中，通过有效的调度来避免那些上下文切换。
 
-![](http://www.hollischuang.com/wp-content/uploads/2022/10/Java-Virtual-Threads-768x326-1.jpg?x-oss-process=image%2Fresize%2Cp_80%2Fauto-orient%2C1)
+![](_assets/Java-Virtual-Threads-768x326-1.jpg)
 
 而且，我们可以在应用程序中创建非常多的虚拟线程，而不依赖于平台线程的数量。这些虚拟线程是由 JVM 管理的，因此它们不会增加额外的上下文切换开销，因为它们作为普通 Java 对象存储在 RAM 中。
 

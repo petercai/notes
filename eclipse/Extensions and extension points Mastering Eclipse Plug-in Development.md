@@ -67,11 +67,11 @@ The extension point for the feed will be called `feedParser`, and it will use th
 
 To create an extension point, open up the plug-in's manifest by double-clicking on the `plugin.xml` or `MANIFEST.MF` files, or by navigating to **Plug-in tools** | **Open Manifest** from the project. Switch to the **Extension Points** tab, click on **Add**, and enter `feedParser` for both the ID and the name in the dialog that shows up. This is shown in the following screenshot:
 
-![](https://static.packt-cdn.com/products/9781783287796/graphics/7796OS_02_01.jpg)
+![](_assets/7796OS_02_01.jpg)
 
 After clicking on **Finish**, the schema editor will be shown:
 
-![](https://static.packt-cdn.com/products/9781783287796/graphics/7796OS_02_02.jpg)
+![](_assets/7796OS_02_02.jpg)
 
 The **Description**, **Since**, **Examples**, **API Information**, **Supplied Implementation**, and **Copyright** are all text-based fields that are used to generate the documentation and can be left blank. However, this documentation will be shown to users in the future and is used to generate the information as seen in the Eclipse help center and at [http://help.eclipse.org](http://help.eclipse.org/).
 
@@ -79,7 +79,7 @@ Switching to the **Definition** tab allows the contents of the extension point t
 
 The resulting schema definition will now look something like what is shown in the following screenshot:
 
-![](https://static.packt-cdn.com/products/9781783287796/graphics/7796OS_02_03.jpg)
+![](_assets/7796OS_02_03.jpg)
 
 Under the covers, the extension is represented in two different files. The first is the `plugin.xml` file, which includes the following:
 
@@ -129,11 +129,11 @@ Typically, an extension point will permit more than one element to be added. To 
 
 In the PDE schema editor, click on the **extension** element and choose **New Sequence**. The minimum value should be `1` and the sequence should be **unbounded**; these are the typical defaults, as shown in the following screenshot:
 
-![](https://static.packt-cdn.com/products/9781783287796/graphics/7796OS_02_04.jpg)
+![](_assets/7796OS_02_04.jpg)
 
 To add the `feedParser` point to the extension, drag-and-drop the **feedParser** element underneath the **Sequence** element, as shown in the following screenshot:
 
-![](https://static.packt-cdn.com/products/9781783287796/graphics/7796OS_02_05.jpg)
+![](_assets/7796OS_02_05.jpg)
 
 The `feedParser.esxd` schema should be similar to the following:
 
@@ -204,7 +204,7 @@ This pattern allows the `FeedParserFactory` class to return items in the order o
 
 Run the Eclipse application, create a feed (the URL and title won't matter at this point), and then drill down into the feeds and then into a single feed. The test data that was used in the `MockFeedParser` class should be shown in the list, as shown in the following screenshot:
 
-![](https://static.packt-cdn.com/products/9781783287796/graphics/7796OS_02_10.jpg)
+![](_assets/7796OS_02_10.jpg)
 
 #### Showing a feed in the browser
 
@@ -220,7 +220,7 @@ If the application is run, then a `MalformedURLException` will be generated, sin
 
 Now running the application will show the URLs when selected, as shown in the following screenshot:
 
-![](https://static.packt-cdn.com/products/9781783287796/graphics/7796OS_02_09.jpg)
+![](_assets/7796OS_02_09.jpg)
 
 #### Implementing a real feed parser
 
@@ -287,7 +287,7 @@ Although any ordering can be used (for example, `high`/`medium`/`low`, or `top`/
 
 Modify the extension point schema `feedParser.esxd` and add a new attribute under the **feedParser** element called `priority`. Since the XML schema for extension points does not permit numeric values, use **string** as the type and the value can be parsed afterwards. This is shown in the following screenshot:
 
-![](https://static.packt-cdn.com/products/9781783287796/graphics/7796OS_02_06.jpg)
+![](_assets/7796OS_02_06.jpg)
 
 Now, in the `plugin.xml` file where the feeds are defined, add a priority of `-1` to `MockFeedParser` and a priority of `1` to `RSSFeedParser`:
 
@@ -440,8 +440,8 @@ Fortunately, there is a way of fixing this: adding the `plugin.xml` and `META-IN
 
 Right-click on the project and go to the **Java Build Path**. In the **Source** tab, add a folder by clicking on **Add Folder** and selecting the root of the project. Click on **Edit** and then add `plugin.xml` and `META-INF/**` as entries to be included. This is shown in the following screenshots:
 
-![](https://static.packt-cdn.com/products/9781783287796/graphics/7796OS_02_07.jpg)
+![](_assets/7796OS_02_07.jpg)
 
-![](https://static.packt-cdn.com/products/9781783287796/graphics/7796OS_02_08.jpg)
+![](_assets/7796OS_02_08.jpg)
 
 Now when the application is run, `plugin.xml` from the `org.eclipse.equinox.registry` JAR and `plugin.xml` from the `com.packtpub.e4.advanced.feeds` JAR will both be registered and the default feed parsers will be able to return all of the values.

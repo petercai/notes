@@ -8,7 +8,7 @@ What’s SSO and Why Do We Need It?
 
 We are all familiar with the following screen and screens alike:
 
-![](https://dz2cdn1.dzone.com/storage/temp/16674243-1675097665740.png)
+![](_assets/16674243-1675097665740.png)
 
 The technology behind them is called [SSO](https://dzone.com/articles/sso-login-key-benefits-and-implementation) (Single Sign On). As the name suggests, SSO is an authentication method that allows the user to sign in once (i.e., by entering their password) and connect to multiple applications.
 
@@ -51,11 +51,11 @@ Having reviewed the fundamental requirements from an SSO system, we can now talk
 6.  Access granted (or denied). At this point, the SP might use the information they got from the IDP (the claims) for additional purposes. For example, authorization (use the claims to decide on roles and permissions).
     
 
-![](https://dz2cdn1.dzone.com/storage/temp/16674244-1675097750488.png)
+![](_assets/16674244-1675097750488.png)
 
 The protocol above describes an authentication process that is initiated by the SP (SP initiated). It is also possible to have a variation of this process, where the authentication is initiated by the IDP (IDP initiated). IDP initiated means that after the user logs in once, they will gain access to a portal, where they will have a menu of applications to log in to. By selecting an application, the user will be in step 4 of the above protocol — they will be redirected to the SP along with the authentication response. Then, all that remains is steps 5 and 6. The SP will need to validate the authentication results, and the user can be granted access.
 
-![](https://dz2cdn1.dzone.com/storage/temp/16674245-1675097778777.png)
+![](_assets/16674245-1675097778777.png)
 
 Approaches to Authorization With SSO Login
 ------------------------------------------

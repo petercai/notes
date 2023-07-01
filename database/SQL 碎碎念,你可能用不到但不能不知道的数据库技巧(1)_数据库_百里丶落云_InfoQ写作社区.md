@@ -56,7 +56,7 @@ select a.姓名 , b.地址,b.电话 from  表A a inner join  表b on a.工号 = 
 
 工作中肯定会遇到各种奇葩数据,然后又需要你整理成领导想要的数据,其中最常规也是最头疼的就是,行列转换了.比如这种
 
-![](https://static001.geekbang.org/infoq/89/89157f3ed64c166f66bd54ee5429687e.png)
+![](_assets/89157f3ed64c166f66bd54ee5429687e.png)
 
 让你统计出 user ,no, type 对应的数量, 这时就很麻烦.
 
@@ -77,7 +77,7 @@ FROM @t
   ) AS UPV
 ```
 
-![](https://static001.geekbang.org/infoq/53/53e9a7f6219f96a55d021e3c7fe9fb4e.png)
+![](_assets/53e9a7f6219f96a55d021e3c7fe9fb4e.png)
 
 今天的不开心就到此为止吧, 明天依旧光芒万丈~ 这里是百里,如果我帮到您,谢谢点个赞~.
 

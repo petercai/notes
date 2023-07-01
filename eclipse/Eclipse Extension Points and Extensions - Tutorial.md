@@ -5,27 +5,27 @@ In this exercise you create two new plug-ins. The first one contains an _extensi
 
 Open the _MANIFEST.MF_ file or the _plugin.xml_ file and select the _Extension Points_ tab.
 
-![](https://www.vogella.com/tutorials/EclipseExtensionPoint/img/extensionpoint10.png)
+![](_assets/extensionpoint10.png)
 
 Press the **Add…​** button.
 
 Enter "com.vogella.extensionpoint.definition.greeter" as _Extension Point ID_ and "Greeter" as _Extension Point Name_ in the dialog. The _Extension Point Schema_ field is automatically populated based on your input.
 
-![](https://www.vogella.com/tutorials/EclipseExtensionPoint/img/extensionpoint20.png)
+![](_assets/extensionpoint20.png)
 
 Press the **Finish** button. The definition of the extension is generated and the schema editor opens. Switch to the _Definition_ tab.
 
-![](https://www.vogella.com/tutorials/EclipseExtensionPoint/img/extensionpoint30.png)
+![](_assets/extensionpoint30.png)
 
 ### [](#add-attributes-to-the-extension-point)[7.3. Add attributes to the extension point.](#add-attributes-to-the-extension-point)
 
 For that click on the **New Element** button. Give the new element the name "client".
 
-![](https://www.vogella.com/tutorials/EclipseExtensionPoint/img/extensionpoint40.png)
+![](_assets/extensionpoint40.png)
 
 Select the "client" element and press _New Attribute_. Give the new element the name "class" and the type "java". Enter `com.vogella.extensionpoint.definition.IGreeter` as interface name
 
-![](https://www.vogella.com/tutorials/EclipseExtensionPoint/img/extensionpoint50.png)
+![](_assets/extensionpoint50.png)
 
 This interface doesn’t exit yet. Press on the hyperlink called _Implements_ to create it based on the following code.
 
@@ -39,19 +39,19 @@ public interface IGreeter {
 
 Go back to your extension point definition and add a choice to the extension point. For this select the _extension_ entry, right-click on it and select . This defines how often the extension "client" can be provided by contributing plug-ins. We will set no restrictions (unbound).
 
-![](https://www.vogella.com/tutorials/EclipseExtensionPoint/img/extensionpoint70.png)
+![](_assets/extensionpoint70.png)
 
-![](https://www.vogella.com/tutorials/EclipseExtensionPoint/img/extensionpoint80.png)
+![](_assets/extensionpoint80.png)
 
-![](https://www.vogella.com/tutorials/EclipseExtensionPoint/img/extensionpoint90.png)
+![](_assets/extensionpoint90.png)
 
-![](https://www.vogella.com/tutorials/EclipseExtensionPoint/img/extensionpoint92.png)
+![](_assets/extensionpoint92.png)
 
 ### [](#export-the-package)[7.4. Export the package](#export-the-package)
 
 Select the _MANIFEST.MF_ file switch to the _Runtime_ tab and export the package which contains the `IGreeter` interface.
 
-![](https://www.vogella.com/tutorials/EclipseExtensionPoint/img/extensionpoint100.png)
+![](_assets/extensionpoint100.png)
 
 ### [](#add-dependencies)[7.5. Add dependencies](#add-dependencies)
 
@@ -136,17 +136,17 @@ Open the _MANIFEST.MF_ editor of this new plug-in and select the _Dependencies_ 
 
 Add the `com.vogella.extensionpoint.definition` and `org.eclipse.core.runtime` plug-ins as dependencies. Make sure your plug-in has the _This plug-in is a singleton_ flag set on the _Overview_ tab for your _MANIFEST.MF_ file.
 
-![](https://www.vogella.com/tutorials/EclipseExtensionPoint/img/extensionpoint110.png)
+![](_assets/extensionpoint110.png)
 
 Switch to the _Extensions_ tab and select **Add…​**. Select your custom extension point and press the **Finish** button.
 
-![](https://www.vogella.com/tutorials/EclipseExtensionPoint/img/extensionpoint120.png)
+![](_assets/extensionpoint120.png)
 
 Add a client to your extension point via right-click.
 
-![](https://www.vogella.com/tutorials/EclipseExtensionPoint/img/extensionpoint130.png)
+![](_assets/extensionpoint130.png)
 
-![](https://www.vogella.com/tutorials/EclipseExtensionPoint/img/extensionpoint140.png)
+![](_assets/extensionpoint140.png)
 
 Create the `GreeterGerman` class with the following code.
 

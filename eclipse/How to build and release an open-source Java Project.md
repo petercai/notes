@@ -148,7 +148,7 @@ TravisCI assumes your project uses Maven and will automatically execute the righ
 
 ### TravisCI Build
 
-![](https://octoperf.com/img/blog/how-to-build-and-release-open-source-java/travisci-build.png)
+![](_assets/travisci-build.png)
 
 _TravisCI example build_
 
@@ -197,7 +197,7 @@ $ rultor encrypt -p name/project settings.xml
 
 Replace **name/project** with your Github username and Github git repository name. In my case, it was **jloisel/elastic-crud**. Then, put the encrypted files at the root of your source repository.
 
-![](https://octoperf.com/img/blog/how-to-build-and-release-open-source-java/github-files.png)
+![](_assets/github-files.png)
 
 _How your repository root should look like_
 
@@ -207,7 +207,7 @@ These files allow rultor to sign your artifacts using your GPG key and publish t
 
 To allow Rultor to tag the source code with the released version, you will need to add Rultor as a Collaborator of your project.
 
-![](https://octoperf.com/img/blog/how-to-build-and-release-open-source-java/rultor-collaborator.png)
+![](_assets/rultor-collaborator.png)
 
 _Rultor access to your project_
 
@@ -331,7 +331,7 @@ I encountered an issue with Coveralls (could not parse Build timestamp) which wa
 
 Code coverage should now be published on Coveralls each time TravisCI builds your project!
 
-![](https://octoperf.com/img/blog/how-to-build-and-release-open-source-java/coveralls.png)
+![](_assets/coveralls.png)
 
 _Coveralls reporting on Elastic-crud project_
 

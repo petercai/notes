@@ -1,5 +1,5 @@
 # How to Create an Array in Java
- ![](https://www.freecodecamp.org/news/content/images/size/w2000/2023/03/array-declaration.png) 
+ ![](_assets/array-declaration.png) 
 
 Creating and manipulating arrays is an essential skill for any Java programmer. Arrays provide a way to store and organize multiple values of the same type, making it easier to work with large sets of data.
 

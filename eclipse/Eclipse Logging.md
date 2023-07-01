@@ -48,11 +48,11 @@ Many Java developers are more familiar with the [SLF4J logging facade](http://ww
 
 The [Eclipse Orbit Project](http://www.eclipse.org/orbit/) provides many different open source libraries, which can be obtained as OSGi bundles from Obrit’s p2 update sites. This makes it easy to use third party open source libraries for target definitions and a Maven Tycho build.
 
-![](https://www.vogella.com/tutorials/EclipseLogging/img/slf4j-orbit-updatesite.png)
+![](_assets/slf4j-orbit-updatesite.png)
 
 One of the most popular slf4j implementations is the [Logback logger](http://logback.qos.ch/), which is also available on Orbit’s p2 update site.
 
-![](https://www.vogella.com/tutorials/EclipseLogging/img/logback-orbit-updatesite.png)
+![](_assets/logback-orbit-updatesite.png)
 
 |  | 
 
@@ -64,7 +64,7 @@ The Orbit p2 update sites URLs change quite regularly. Therefore it is recommend
 
 The SLF4J dependencies just have to be added to the desired bundle.
 
-![](https://www.vogella.com/tutorials/EclipseLogging/img/slf4j-package-import.png)
+![](_assets/slf4j-package-import.png)
 
 After doing this the SLF4J logger API can be used in the classes of the bundle.
 
@@ -190,7 +190,7 @@ Create a _com.vogella.logging.rcp_ plug-in project, which uses the E4 Applicatio
 
 Add the SLF4J dependencies:
 
-![](https://www.vogella.com/tutorials/EclipseLogging/img/slf4j-package-import.png)
+![](_assets/slf4j-package-import.png)
 
 Use a `Logger` in the generated `AboutHandler` class and log some debug messages or throw some `Exceptions`, which are logged.
 
@@ -249,7 +249,7 @@ The root folder of this plug-in should contain the following _logback.xml_ file:
 
 The following dependencies are required to configure Logback.
 
-![](https://www.vogella.com/tutorials/EclipseLogging/img/logback-dependencies.png)
+![](_assets/logback-dependencies.png)
 
 |  | 
 
@@ -309,7 +309,7 @@ The configuration of the SLF4J implementation (Logback) should be separated from
 
 Due to that the _com.vogella.logging.config_ bundle will not be started automatically. Therefore it must be added to the _Start Levels_ in the product configuration.
 
-![](https://www.vogella.com/tutorials/EclipseLogging/img/logging-start-levels-config.png)
+![](_assets/logging-start-levels-config.png)
 
 ### [](#validate)[3.6. Validate](#validate)
 

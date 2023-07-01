@@ -4,7 +4,7 @@ My favorite Java interview questions from Lambda expression and Stream API for e
 
 [
 
-![](https://miro.medium.com/v2/resize:fit:700/0*z3JiNMjkpR8eUUJu.png)
+![](_assets/0!z3JiNMjkpR8eUUJu.png)
 
 
 ](https://medium.com/@somasharma_81597/membership)

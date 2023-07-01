@@ -25,7 +25,7 @@ We can attach the Formatter to a Handler. There should be only one Formatter for
 
 We use Formatter to arrange the Logging output in such a way so that it is easily readable. Java supports two kinds of Formatter. One is _**"SimpleFormatter"**_ and other one _**"XMLFormatter"**_. SimpleFormatter is useful for representing the output in an Ascii Standard Text Files whereas the XMLFormatter arranges the log output in the XML File. In this example, we will look at the SimpleFormatter and how it formats the output in the Text File.
 
-![](https://images.saymedia-content.com/.image/c_limit%2Ccs_srgb%2Cq_auto:eco%2Cw_700/MTc0NDcyNzk4MDcxMTcwNDA4/java-examples-logging-with-filehandler-and-simpleformatter.png)
+![](_assets/java-examples-logging-with-filehandler-and-simpleformatter-2.png)
 
 Default Logging of Java
 
@@ -38,7 +38,7 @@ Look at the above illustration. Here, we do not have any explicit Formatter and 
 
 Now we know the Components involved in Logging. Let us put this together and we will explore further. Have a look at the below illustration:
 
-![](https://images.saymedia-content.com/.image/c_limit%2Ccs_srgb%2Cq_auto:eco%2Cw_700/MTc0NjQ3MDYzOTUzNDgzNTM1/java-examples-logging-with-filehandler-and-simpleformatter.png)
+![](_assets/java-examples-logging-with-filehandler-and-simpleformatter.png)
 
 Logging Component Together - A Design Model
 
@@ -96,7 +96,7 @@ The FileName is appended with %g and it specifies that the FileHanlder should cr
 
 Now when the file size crosses the 100 bytes, the FileHandler will create one more file by increasing the number in the place holder of %g. The last parameter specifies that maximum limit for the Rotating Set of Files which is 10 in our case. It means maximum 10 files will be used for Logging. In our case, when the 10th log is full with 100 bytes, the FileHandler will overwrite the very first log file (Old content). Because of this behavior, we call the log files are Rotating Set of Files. Look at the Depiction below:
 
-![](https://images.saymedia-content.com/.image/c_limit%2Ccs_srgb%2Cq_auto:eco%2Cw_700/MTc0NjQ3MDYzOTUzMzUyNDYz/java-examples-logging-with-filehandler-and-simpleformatter.png)
+![](_assets/java-examples-logging-with-filehandler-and-simpleformatter-3.png)
 
 FileHandler with Rotating Set of Files
 
@@ -220,7 +220,7 @@ Exception Stack Trace Information
 
 Now Look at the output and also note how we specify the SimpleFormatter.Format as part of -D java option:
 
-![](https://images.saymedia-content.com/.image/c_limit%2Ccs_srgb%2Cq_auto:eco%2Cw_700/MTc0NjQ3MDYzOTUzMjg2OTI3/java-examples-logging-with-filehandler-and-simpleformatter.png)
+![](_assets/java-examples-logging-with-filehandler-and-simpleformatter-4.png)
 
 Specifying the Format for SimpleFormatter and Formatted output in Console Window
 
@@ -228,7 +228,7 @@ Authtor
 
 Even though we don’t create any handler window for our logger it still picks-up the formatting. The reason is that every java application has default ConsoleHandler if it not created explicitly. Moreover, the default Formatter for the default ConsoleHandler is SimpleFormatter. To know more about these defaults look at the logging.properties in the JRE location (..\\JRE\\Lib). Now look at the output generated in the Rotating Set of Log Files:
 
-![](https://images.saymedia-content.com/.image/c_limit%2Ccs_srgb%2Cq_auto:eco%2Cw_700/MTc0NjQ3MDYzOTUzNDE3OTk5/java-examples-logging-with-filehandler-and-simpleformatter.png)
+![](_assets/java-examples-logging-with-filehandler-and-simpleformatter-1.png)
 
 Rotating Set of Log Files
 

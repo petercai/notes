@@ -8,7 +8,7 @@ I. 基准代码
 
 在类似 SVN 这样的集中式版本控制系统中，_基准代码_ 就是指控制系统中的这一份代码库；而在 Git 那样的分布式版本控制系统中，_基准代码_ 则是指最上游的那份代码库。
 
-![](https://12factor.net/images/codebase-deploys.png)
+![](_assets/codebase-deploys.png)
 
 基准代码和应用之间总是保持一一对应的关系：
 

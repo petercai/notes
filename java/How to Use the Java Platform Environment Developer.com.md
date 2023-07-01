@@ -1,5 +1,5 @@
 # How to Use the Java Platform Environment | Developer.com
-![](https://www.developer.com/wp-content/uploads/2022/12/java-programming-tutorials-tips-300x200.png)
+![](_assets/java-programming-tutorials-tips-300x200.png)
 
 When programmers create a Java program, it runs in an environment that includes your operating system, the Java Virtual Machine (JVM), and Java class libraries. Developers can configure different aspects of their program’s development environment from the command line.
 

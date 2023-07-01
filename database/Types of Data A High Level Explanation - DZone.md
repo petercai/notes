@@ -4,7 +4,7 @@ In this article, I will talk about the different types of data. So, as some of y
 So What Is the Difference Between These Types of Data?
 ------------------------------------------------------
 
-### ![](https://dz2cdn1.dzone.com/storage/temp/16585173-1671194251060.png)
+### ![](_assets/16585173-1671194251060.png)
 
 ### Structured Data
 
@@ -12,12 +12,12 @@ This term refers to data that is organized in a tabular format or in something l
 
 If you look deep down into how machine learning pipelines are created, you always need structured data. So even if you have data that is in the same structured or structured format, what algorithms do internally is they steal, they digest this data, and then they transform it into a structured format.
 
-![](https://dz2cdn1.dzone.com/storage/temp/16585174-unstructured-semi-structured-and-structured-data.png)
+![](_assets/16585174-unstructured-semi-structured-and-structured-data.png)
  
 
 ### Semi-Structured Data
 
-![](https://dz2cdn1.dzone.com/storage/temp/16585175-json.png)
+![](_assets/16585175-json.png)
 This term refers to data that is not completely organized but not disorganized either. Good example of this is HTML, JSON, and XML. For those who are familiar with HTML or JSON, if you're not, it's very easy to Google JSON and see an example of what a JSON file looks like. You'll very quickly see that JSON seems to follow some kind of structure, and it's the same for HTML. You see something which looks like code, but then again, the JSON or HTML are not fully structured, so they're not organized in the table.
 
 An HTML file or Adjacent file can look very different from some other HTML or JSON file. This means that there are certain freedoms that the developers of those files take, and this can make it somewhat challenging to work with them.
@@ -38,7 +38,7 @@ In most cases, unstructured data in the real world is usually you're going to en
 
 It's either some sort of open data set or a machine learning competition where someone curates an unstructured data set. You must use this data and try to predict whether a photo contains humans or animals as best as you can. Or the other case where you might encounter structured data is when a data strategy was not designed. Somehow, a company ended up having structured data instead of semi-structured data. Because really, in most scenarios, we expect to see this data alongside some meta information, like when this video showed up, who posted this if we're talking about social media.
 
-![](https://dz2cdn1.dzone.com/storage/temp/16585176-image5.png)
+![](_assets/16585176-image5.png)
 
 How Does a Data Scientist Digest this Type of Data?
 ---------------------------------------------------

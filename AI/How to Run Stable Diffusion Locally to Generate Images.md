@@ -1,7 +1,7 @@
 # How to Run Stable Diffusion Locally to Generate Images
 Following in the footsteps of [DALL-E 2](https://www.assemblyai.com/blog/how-dall-e-2-actually-works/) and [Imagen](https://www.assemblyai.com/blog/how-imagen-actually-works/), the new Deep Learning model **[Stable Diffusion](https://github.com/CompVis/stable-diffusion?ref=assemblyai.com)** signifies a quantum leap forward in the text-to-image domain. Released earlier this month, Stable Diffusion promises to democratize text-conditional image generation by being efficient enough to run on consumer-grade GPUs. Just this Monday, Stable Diffusion checkpoints were released for the first time, meaning that, _right now_, you can generate images like the ones below with just a few words and a few minutes time.
 
-![](https://www.assemblyai.com/blog/content/images/2022/08/grid-1.png)
+![](_assets/grid-1.png)
 
 **This article will show you how to install and run Stable Diffusion**, both on [GPU](#how-to-install-stable-diffusion-gpu) and [CPU](#how-to-install-stable-diffusion-cpu), so you can get started generating your own images. Let's dive in!
 
@@ -95,7 +95,7 @@ Troubleshooting
 
 Where you replace `YOUR-PROMPT-HERE` with the caption for which to generate an image (leaving the quotation marks). Running this command with the prompt _**"a photorealistic vaporwave image of a lizard riding a snowboard through space"**_ outputs the following image:
 
-![](https://www.assemblyai.com/blog/content/images/2022/08/lizard.png)
+![](_assets/lizard.png)
 
 The above image was generated in about a minute using an Ubuntu 18.04 VM in GCP with a NVIDIA Tesla K80.
 
@@ -120,7 +120,7 @@ You can see a full list of possible arguments with default values in the `[txt2i
 
 In the `stable-diffusion` directory, create a file called `prompts.txt`. Create several prompts, one on each line of the file. For example:
 
-![](https://www.assemblyai.com/blog/content/images/2022/08/image-5.png)
+![](_assets/image-5.png)
 
 Now, in `stable-diffusion` directory in the terminal, run
 
@@ -141,7 +141,7 @@ python scripts/txt2img.py \
 
 Two resulting images for each caption can be seen below. The above command is intended to serve as an example of using more command-line arguments, and not as an example of optimal arguments. In general, larger images are empirically found to be both higher quality and have greater image/caption similarity, and a lower guidance scale would likely yield better results. Continue on to the [next section](#tips-and-tricks) for more information about improving Stable Diffusion results.
 
-![](https://www.assemblyai.com/blog/content/images/2022/08/grid.png)
+![](_assets/grid.png)
 
 [#](#how-to-install-stable-diffusion-cpu)How to Install Stable Diffusion (CPU)
 ------------------------------------------------------------------------------
@@ -198,7 +198,7 @@ python demo.py --prompt "bright beautiful solarpunk landscape, photorealism"
 
 The inference time will be high at around **8-12 minutes**, so feel free to grab a cup of coffee while Stable Diffusion runs. Below we can see the output from running the above command:
 
-![](https://www.assemblyai.com/blog/content/images/2022/09/image-24.png)
+![](_assets/image-24.png)
 
 [#](#tips-and-tricks)Tips and Tricks
 ------------------------------------
@@ -281,7 +281,7 @@ When tuning sampling parameters, you can utilize the below empirical observation
 
 In general, it appears empirically that larger images are much better in both image quality and caption alignment than smaller images. See the below examples for the prompt _"Guy Fieri giving a tour of a haunted house"_ for both 256x256 and 512x512 sized images:
 
-![](https://www.assemblyai.com/blog/content/images/2022/08/fieri.png)
+![](_assets/fieri.png)
 
 256x256 vs. 512x512 sample comparison for the prompt "Guy Fieri giving a tour of a haunted house"
 
@@ -289,7 +289,7 @@ In general, it appears empirically that larger images are much better in both im
 
 It appears that the number of steps in the diffusion process does not affect results much _beyond_ a certain threshold of about 50 timesteps. The below images were generated using the same random seed and prompt _**"A red sports car"**_. It can be seen that a greater number of timesteps consistently improves the quality of the generated images, but past 50 timesteps improvements are only manifested in a slight change to the incidental environment of the object of interest. The details of the car are in fact almost fully consistent from 25 timesteps onward, and it is the environment that is improving to become more appropriate for the car in greater timesteps.
 
-![](https://www.assemblyai.com/blog/content/images/2022/08/comparison.png)
+![](_assets/comparison.png)
 
 [full resolution version](https://raw.githubusercontent.com/AssemblyAI-Examples/stable-diffusion-tutorial/main/comparison.png?ref=assemblyai.com)
 
@@ -297,7 +297,7 @@ It appears that the number of steps in the diffusion process does not affect res
 
 It appears that image quality and caption similarity as a function of aspect ratio depend on the input caption. The below images have the same area but different aspect ratios, all generated using the caption _**"A steel and glass modern building"**_. The results are relatively uniform, although the vertical image appears to be the best, followed by square and then horizontal. This should be unsurprising given that modern buildings of this type are tall and skinny. Performance as a function of aspect ratio therefore seems to be subject-dependent.
 
-![](https://www.assemblyai.com/blog/content/images/2022/08/aspect.png)
+![](_assets/aspect.png)
 
 Unfortunately, Stable Diffusion is limited to factorizable aspect ratios, making more finely grained experiments impossible, but square images should suffice for most purposes anyway.
 
@@ -320,7 +320,7 @@ mv sd-v1-4.ckpt models/ldm/stable-diffusion-v1/model.ckpt
 
 Yes. If Stable Diffusion detects that a generated image may violate its [safety filter](https://stability.ai/blog/stable-diffusion-public-release?ref=assemblyai.com), the generated image will be replaced with a still of Rick Astley.
 
-![](https://www.assemblyai.com/blog/content/images/2022/08/00002-1.png)
+![](_assets/00002-1.png)
 
 [#](#final-words)Final Words
 ----------------------------
@@ -329,50 +329,50 @@ That's all it takes to generate images using the new Stable Diffusion model - do
 
 Some images we generated using Stable Diffusion:
 
-![](https://www.assemblyai.com/blog/content/images/2022/08/00000-1.png)
+![](_assets/00000-1.png)
 
-![](https://www.assemblyai.com/blog/content/images/2022/08/00008.png)
+![](_assets/00008.png)
 
-![](https://www.assemblyai.com/blog/content/images/2022/08/00042.png)
+![](_assets/00042.png)
 
-![](https://www.assemblyai.com/blog/content/images/2022/08/00065.png)
+![](_assets/00065.png)
 
-![](https://www.assemblyai.com/blog/content/images/2022/08/00064.png)
+![](_assets/00064.png)
 
-![](https://www.assemblyai.com/blog/content/images/2022/08/00063.png)
+![](_assets/00063.png)
 
-![](https://www.assemblyai.com/blog/content/images/2022/08/00046-1.png)
+![](_assets/00046-1.png)
 
-![](https://www.assemblyai.com/blog/content/images/2022/08/00071.png)
+![](_assets/00071.png)
 
-![](https://www.assemblyai.com/blog/content/images/2022/08/00072.png)
+![](_assets/00072.png)
 
-![](https://www.assemblyai.com/blog/content/images/2022/08/00003-1.png)
+![](_assets/00003-1.png)
 
-![](https://www.assemblyai.com/blog/content/images/2022/08/00008-1.png)
+![](_assets/00008-1.png)
 
-![](https://www.assemblyai.com/blog/content/images/2022/08/00010.png)
+![](_assets/00010.png)
 
-![](https://www.assemblyai.com/blog/content/images/2022/08/00015.png)
+![](_assets/00015.png)
 
-![](https://www.assemblyai.com/blog/content/images/2022/08/00024.png)
+![](_assets/00024.png)
 
-![](https://www.assemblyai.com/blog/content/images/2022/08/00031-1.png)
+![](_assets/00031-1.png)
 
-![](https://www.assemblyai.com/blog/content/images/2022/08/00032.png)
+![](_assets/00032.png)
 
-![](https://www.assemblyai.com/blog/content/images/2022/08/00034-1.png)
+![](_assets/00034-1.png)
 
-![](https://www.assemblyai.com/blog/content/images/2022/08/00040.png)
+![](_assets/00040.png)
 
-![](https://www.assemblyai.com/blog/content/images/2022/08/00044.png)
+![](_assets/00044.png)
 
-![](https://www.assemblyai.com/blog/content/images/2022/08/00047.png)
+![](_assets/00047.png)
 
-![](https://www.assemblyai.com/blog/content/images/2022/08/00052-1.png)
+![](_assets/00052-1.png)
 
-![](https://www.assemblyai.com/blog/content/images/2022/08/00053.png)
+![](_assets/00053.png)
 
-![](https://www.assemblyai.com/blog/content/images/2022/08/00058.png)
+![](_assets/00058.png)
 
-![](https://www.assemblyai.com/blog/content/images/2022/08/00059.png)
+![](_assets/00059.png)

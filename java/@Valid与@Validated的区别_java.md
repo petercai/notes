@@ -108,9 +108,9 @@ public class UserController {
 
 经过测试填写错误数据，会在控制台输出报错信息。
 
-![](https://static001.geekbang.org/infoq/74/74d472e7097f7a4d481c2240c3b80893.png)
+![](_assets/74d472e7097f7a4d481c2240c3b80893.png)
 
-![](https://static001.geekbang.org/infoq/de/de5942fc149733688749977d40883824.png)
+![](_assets/de5942fc149733688749977d40883824.png)
 
 （2）@Validated 用法
 ----------------

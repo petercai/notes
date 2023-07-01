@@ -10,7 +10,7 @@ V. 构建，发布，运行
 *   _发布阶段_ 会将构建的结果和当前部署所需 [配置](https://12factor.net/zh_cn/config) 相结合，并能够立刻在运行环境中投入使用。
 *   _运行阶段_ （或者说“运行时”）是指针对选定的发布版本，在执行环境中启动一系列应用程序 [进程](https://12factor.net/zh_cn/processes)。
 
-![](https://12factor.net/images/release.png)
+![](_assets/release.png)
 
 **12-factor 应用严格区分构建，发布，运行这三个步骤。**  举例来说，直接修改处于运行状态的代码是非常不可取的做法，因为这些修改很难再同步回构建步骤。
 

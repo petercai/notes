@@ -3,11 +3,11 @@ Eclipse Equinox is an implementation of the OSGi core specification that allows 
 
 Simply put, an extension point defines a contract between a plugin and other plugins that wish to extend its functionality. This will usually include a set of parameters that must be configured and/or the qualified name of a class (or classes) that implements a specific interface (or interfaces — class extension is also supported). Extending plugins must provide all this information. At runtime, the Equinox api can be used to find which plugins are extending a specific extension point, retrieve the parameter values and instantiate the appropriate classes.
 
-![](https://miro.medium.com/max/1400/1*g3D_fKOQukGxrtyyzTLhew.png)
+![](_assets/1!g3D_fKOQukGxrtyyzTLhew.png)
 
 The figure above presents how a simple extension point might be defined. This extension points allows plugins to contribute their own implementations of the API defined in the the class org.eclipse.epsilon.IModuleTraceRepository. As the description indicates, this class allows other plugins to contribute implementations of the API that provide access to repositories in different persistence technologies. Imagine we would like to provide an implementation that can work with text files and another that can work with a database. In order to access each of them, a different set of information is needed; e.g. for the file a path/location is enough, for the database we might need url, login credentials, and target database. Hence, each implementation requires a separate configuration dialog to provide the necessary information. We can solve this by adding another attribute to our extension point through which the specific configuration dialog to use is provided too, as presented in the next figure.
 
-![](https://miro.medium.com/max/1400/1*otZGJ5B0wH2tg64yVN9S6w.png)
+![](_assets/1!otZGJ5B0wH2tg64yVN9S6w.png)
 
 Extension point information is stored in an extension point schema (xml files with _.exsd_ extension) that are referenced from the plugin’s _plugin.xml_ metadata file. This means that although when creating the extension points content assist or class selection facilities help us pick existing classes, _extends/implements_ information is stored as plain text. The biggest consequence of this is that the information in the extension point schemes is disconnected form the java code. As a result, refactoring such as changing a class name or package will break the extension point. However, this errors wont manifest until the extending plugin is loaded into the Eclipse application.
 
@@ -27,7 +27,7 @@ If we delegate all dependency resolution to Guice, it means that we can simplify
 
 I will assume that we modified our base code so that now the IModuleTraceRepository and friends are provided by injection. Then, we change the extension point to accept an AbstractModule instead:
 
-![](https://miro.medium.com/max/1400/1*GOQoM_10M8jGnkYZWxKnIQ.png)
+![](_assets/1!GOQoM_10M8jGnkYZWxKnIQ.png)
 
 The TraceRepository implementation is replaced by a Guice module that can provide all bindings.
 
@@ -78,6 +78,6 @@ Guice injection can simplify your extension point management. Give it a try and 
 
 [
 
-![](https://miro.medium.com/max/868/1*SGCT6C60o4t58wRqeU2viQ.png)
+![](_assets/1!SGCT6C60o4t58wRqeU2viQ.png)
 
 ](https://www.buymeacoffee.com/KinoriTech)

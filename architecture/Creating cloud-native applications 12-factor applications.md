@@ -39,7 +39,7 @@ If you want to see this application being created, check out the live demo Emily
 Factor 1 – Codebase
 -------------------
 
-![](https://developer.ibm.com/developer/default/articles/creating-a-12-factor-application-with-open-liberty/images/image01.png)
+![](_assets/image01-1.png)
 
 Cloud-native applications must always consist of a single codebase that is tracked in a version-control system. A _codebase_ is a source-code repository or a set of repositories that share a common root and is used to produce any number of immutable releases. There should be a 1:1 relationship between an application and a codebase, but a one-to-many relationship between the codebase and deployments of an application. This single codebase helps to support collaboration between development teams and helps to enable proper versioning of applications.
 
@@ -48,7 +48,7 @@ This codebase could be a Git repository (including GitHub, GitHub Enterprise, Gi
 Factor 2 – Dependencies
 -----------------------
 
-![](https://developer.ibm.com/developer/default/articles/creating-a-12-factor-application-with-open-liberty/images/images02.png)
+![](_assets/images02.png)
 
 Most applications require the use of external _dependencies_ \-\- for example, in our sample application, we have dependencies on certain Liberty features, more specifically servlet-3.1, jsonp-1.0, and jaxrs-2.0. These dependencies must be pulled down during the build process, as it cannot be guaranteed that the specific dependencies your application relies on already exist in the system/runtime. A cloud-native application can never rely on the implicit existence of system-wide packages. This is what this factor focuses on – encouraging the explicit declaration and isolation of application dependencies. This helps to provide consistency between development and production environments, simplifies the setup for developers new to the application, and supports portability between cloud platforms.
 
@@ -68,7 +68,7 @@ In our demo application, we utilize Maven, but you can use either Maven or Gradl
 Factor 3 – Configuration
 ------------------------
 
-![](https://developer.ibm.com/developer/default/articles/creating-a-12-factor-application-with-open-liberty/images/image03.png)
+![](_assets/image03-1.png)
 
 _Configuration_ refers to any value that can vary across deployments (e.g., developer workstation, QA, and production). This could include:
 
@@ -93,7 +93,7 @@ Utilizing tools like MicroProfile Config can help you to externalize your conf
 Factor 4 – Backing services
 ---------------------------
 
-![](https://developer.ibm.com/developer/default/articles/creating-a-12-factor-application-with-open-liberty/images/image04.png)
+![](_assets/image04.png)
 
 A backing service is any service on which your application relies for its functionality. Some of the most common types of backing services include data stores, messaging systems, caching systems, and any number of other types of service, including services that perform line-of-business functionality or security.
 
@@ -113,7 +113,7 @@ Embracing backing services as bound resources enables cloud-native applications 
 Factor 5 – Build, release, and run
 ----------------------------------
 
-![](https://developer.ibm.com/developer/default/articles/creating-a-12-factor-application-with-open-liberty/images/image5.png)
+![](_assets/image5.png)
 
 This factor focuses on getting a clearly defined process with no cycles and calls for strict separation of each of these deployment stages. Essentially, a single codebase is taken through the build process to produce a compiled artifact, which is then merged with configuration information that is external to the application to produce an immutable release, which is then delivered to a cloud environment (development, QA, production, etc) and run. The key takeaway is that each of the deployment stages is isolated and occurs separately.
 
@@ -126,7 +126,7 @@ The _run_ stage, which occurs on the cloud provider, usually uses tooling like c
 Factor 6 – Processes
 --------------------
 
-![](https://developer.ibm.com/developer/default/articles/creating-a-12-factor-application-with-open-liberty/images/image06.png)
+![](_assets/image06-1.png)
 
 The _processes_ factor enforces the notion that applications should execute as a single, stateless process. In other words, all long-lasting states should be external to the application, provided by backing services. State should not be maintained within your application. This is a useful factor as it means that if one instance of your application goes down, you don’t lose the current state. It also simplifies workload balancing as your application doesn’t have an affinity to any particular instance of a service.
 
@@ -142,7 +142,7 @@ REST is a widely adopted transport protocol, and JAX-RS can be used to achieve a
 Factor 7 – Port binding
 -----------------------
 
-![](https://developer.ibm.com/developer/default/articles/creating-a-12-factor-application-with-open-liberty/images/image07.png)
+![](_assets/image07-1.png)
 
 The _port-binding_ factor states that cloud-native applications should export services using port binding. In other words, the host and port used to access the service should be provided by the environment, not baked into the application, so that you aren’t relying on pre-existing or separately configured services for that endpoint. Your cloud provider should be managing the port assignment for you because it is likely also managing routing, scaling, high availability, and fault tolerance, all of which require the cloud provider to manage certain aspects of the network, including routing host names to ports and mapping. Web applications, especially those already running within an enterprise, are often executed within some kind of server container -- Open Liberty, Liberty, WebSphere, etc. In a non-cloud environment, web applications are deployed to these containers, and the container is then responsible for assigning ports for applications when they start up.
 
@@ -157,7 +157,7 @@ The Open Liberty Operator can also be another useful tool for facilitating the b
 Factor 8 – Concurrency
 ----------------------
 
-![](https://developer.ibm.com/developer/default/articles/creating-a-12-factor-application-with-open-liberty/images/image08.png)
+![](_assets/image08-1.png)
 
 The _concurrency_ factor stresses that microservices should be able to be scaled up or down, elastically, depending on their workload. Previously, when many applications were designed as monoliths and were run locally, this scaling was achieved through vertical scaling (i.e., adding CPUs, RAM, and other resources, virtual or physical). However, now that our applications are more fine-grained and running in the cloud, a more modern approach, one ideal for the kind of elastic scalability that the cloud supports, is to scale out, or horizontally. Rather than making a single big process even larger, you create multiple processes, and distribute the load of your application among those processes.
 
@@ -175,7 +175,7 @@ Another useful tool, especially when deploying to OpenShift is the Open Liberty 
 Factor 9 – Disposability
 ------------------------
 
-![](https://developer.ibm.com/developer/default/articles/creating-a-12-factor-application-with-open-liberty/images/image09.png)
+![](_assets/image09.png)
 
 On a cloud instance, an application’s life is as transient as the infrastructure that supports it. A cloud-native application’s processes must be _disposable_, which means they can be started or stopped rapidly. An application cannot scale, deploy, release, or recover rapidly if it cannot start rapidly and shut down gracefully. This is especially important in cloud-native applications because, if you are bringing up an application, and it takes minutes to get into a steady state, in today’s world of high traffic, that could mean hundreds or thousands of requests get denied while the application is starting. Additionally, depending on the platform on which your application is deployed, such a slow start-up time might trigger alerts or warnings as the application fails its health check. Extremely slow start-up times can even prevent your app from starting at all in the cloud. If your application is under increasing load, and you need to rapidly bring up more instances to handle that load, any delay during start-up can hinder its ability to handle that load. If the app does not shut down quickly and gracefully, that can also impede the ability to bring it back up again after failure. The inability to shut down quickly enough can also run the risk of failing to dispose of resources, which could corrupt data.
 
@@ -201,7 +201,7 @@ Additionally, implementing fault-tolerant behaviors can enable this disposable b
 Factor 10 – Dev/Prod parity
 ---------------------------
 
-![](https://developer.ibm.com/developer/default/articles/creating-a-12-factor-application-with-open-liberty/images/image10.png)
+![](_assets/image10.png)
 
 Th _dev/prod parity_ factor focuses on the importance of keeping development, staging, and production environments as similar as possible. This is important so that you can ensure that all potential bugs/failures can be identified in development and testing instead of when the application is put into production. This helps to eliminate the stereotypical development statement, “It runs on my laptop." With many applications now running in the cloud, interacting with many other services in a large ecosystem of services, it is important that we replicate this environment when developing and testing our applications.
 
@@ -221,7 +221,7 @@ In our demo application, we are making use of container technologies like Docker
 Factor 11 – Logs
 ----------------
 
-![](https://developer.ibm.com/developer/default/articles/creating-a-12-factor-application-with-open-liberty/images/image11.png)
+![](_assets/image11.png)
 
 The _logs_ factor highlights the importance of ensuring that your application doesn’t concern itself with routing, storage, or analysis of its output stream (i.e., logs). In cloud-native applications, the aggregation, processing, and storage of these logs is the responsibility of the cloud provider or other tool suites (e.g., ELK stack, Splunk, Sumologic, etc.) running alongside the cloud platform being used. This is especially important in cloud-native applications due to the elastic scaling capabilities they have -- for example, when your application dynamically changes from 1 to over 100 instances, it can be hard to know where those instances are running and keep track of and organize all of the logs. By simplifying your application’s part in this log aggregation and analysis, an application’s codebase can be simplified and focus more on business logic. This factor helps to improve flexibility for introspecting behavior over time and enables real-time metrics to be collected and analyzed effectively over time.
 

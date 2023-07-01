@@ -74,7 +74,7 @@ xstream.alias("student", Student.class);
 
 ```
 
-![](https://img-blog.csdnimg.cn/2020071013465872.png)
+![](_assets/2020071013465872.png)
   
 **字段混叠**  
 字段混叠用于创建以XML字段的别名。
@@ -91,7 +91,7 @@ xstream.aliasField("name", Student.class, "studentName");
 
 ```
 
-![](https://img-blog.csdnimg.cn/20200710134716391.png)
+![](_assets/20200710134716391.png)
   
 **隐式集合混叠**  
 使用的集合是表示在XML无需显示根。例如，在我们的例子中，我们需要一个接一个，但不是在根节点来显示每一个节点。让我们再次修改例子，下面的代码添加到它。
@@ -108,7 +108,7 @@ xstream.addImplicitCollection(Student.class, "notes");
 
 ```
 
-![](https://img-blog.csdnimg.cn/20200710134848944.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTAzNDkyNzI=,size_16,color_FFFFFF,t_70)
+![](_assets/20200710134848944.png)
   
 **属性混叠**  
 属性混叠用于创建一个成员变量作为XML属性序列化。
@@ -119,7 +119,7 @@ xstream.aliasField("name", Student.class, "studentName");
 
 ```
 
-![](https://img-blog.csdnimg.cn/20200710134933474.png)
+![](_assets/20200710134933474.png)
   
 **包混叠**  
 包装混叠用于创建一个类XML的完全限定名称的别名到一个新的限定名称。  
@@ -130,7 +130,7 @@ xstream.aliasPackage("my.company.xstream", "com.yiibai.xstream");
 
 ```
 
-![](https://img-blog.csdnimg.cn/20200710135055646.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTAzNDkyNzI=,size_16,color_FFFFFF,t_70)
+![](_assets/20200710135055646.png)
   
 **XStream注解**  
 XStream支持注释做同样的任务。在前面的章节中，我们已经看到了下面的代码配置。
@@ -155,7 +155,7 @@ class Student {
     private List<Note> notes = new ArrayList<Note>();
 }` 
 
-![](https://csdnimg.cn/release/blogv2/dist/pc/img/newCodeMoreWhite.png)
+![](_assets/newCodeMoreWhite.png)
 
 *   1
 *   2
@@ -312,7 +312,7 @@ class StudentConverter implements Converter {
     }
 }` 
 
-![](https://csdnimg.cn/release/blogv2/dist/pc/img/newCodeMoreWhite.png)
+![](_assets/newCodeMoreWhite.png)
 
 *   1
 *   2
@@ -451,7 +451,7 @@ class Student {
     }
 }` 
 
-![](https://csdnimg.cn/release/blogv2/dist/pc/img/newCodeMoreWhite.png)
+![](_assets/newCodeMoreWhite.png)
 
 *   1
 *   2

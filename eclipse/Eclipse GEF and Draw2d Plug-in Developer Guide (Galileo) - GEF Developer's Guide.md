@@ -35,7 +35,7 @@ Draw2d focuses on efficient painting and layout of figures. The GEF plug-in adds
 
 The diagram below shows a high-level view of GEF.  GEF can be loosely defined as the region in the middle. The framework provides the link between an application's model and view. It also provides input handlers, such as tools and actions, that turn events into requests. Requests and Commands are used to encapsulate interactions and their effects on the model.
 
-![](https://www.linuxtopia.org/online_books/eclipse_documentation/eclipse_gef_draw2d_plug-in/topic/org.eclipse.gef.doc.isv/guide/images/gefmvc.gif)
+![](_assets/gefmvc.gif)
 
 In MVC (model-view-controller) design, the controller is often the only connection between the view and the model. The controller is responsible for maintaining the view, and for interpreting UI events and turning them into operations on the model. These roles as they apply to GEF are described below:
 
@@ -69,7 +69,7 @@ Editparts associate their view and model, but they also form their own structure
 
 The parent-child relationship of editparts carries over into their figures. The parent's figure will contain the children's figures. Or, in some cases the parent part's view is a compound view composed of several figures, one of which is designated as the _content pane_. The figure of each child is added to the content pane. The end result is that you have three separate hierarchical data structures which are approximately parallel to each other.
 
-![](https://www.linuxtopia.org/online_books/eclipse_documentation/eclipse_gef_draw2d_plug-in/topic/org.eclipse.gef.doc.isv/guide/images/mvctree.gif)
+![](_assets/mvctree.gif)
 
 Connections are the exception to this simple tree structure. Connections represent a link or association between two objects. A Draw2d connection figure is used as the view. Connections may be stored in any way in the model, but the editparts are managed by the source and target editpart at each end. A connection editpart's figure containment is also handled specially. The connection figure is added to a special layer in the diagram so that it paints above the primary layer containing non-connection parts.
 
@@ -100,7 +100,7 @@ GEF includes the class `ScrollingGraphicalViewer`. This is a viewer implementati
 
 Now we have a viewer and its root editpart, so next we'll actually set some contents into the viewer. _Contents_ refers to the base model object that seeds the viewer with the graphical diagram being displayed. The viewer's `EditPartFactory` is then responsible for taking the contents and constructing the appropriate editpart, which is then set on the root editpart. Its figure gets added to the root's. At that point the contents editpart will construct its children editparts, reusing the viewer's factory, which in turn then create their children and/or connections, etc., until all of the editparts and their views have been created.
 
-![](https://www.linuxtopia.org/online_books/eclipse_documentation/eclipse_gef_draw2d_plug-in/topic/org.eclipse.gef.doc.isv/guide/images/factory.gif)
+![](_assets/factory.gif)
 
 ### Implementing the Contents EditPart
 
@@ -140,7 +140,7 @@ Editing and EditPolicies
 
 Once you have some editparts displayed it's time to start editing. Editing is usually the most complex task an editpart performs. Editing includes not only making changes to the model, but also showing graphical feedback during interactions with the view. To abstract away the source of interaction, GEF uses a request. Tools or other UI interpreters will create requests and then call the various API on EditPart based on the interaction. A subset of the EditPart API is shown below.
 
-| ![](https://www.linuxtopia.org/online_books/eclipse_documentation/eclipse_gef_draw2d_plug-in/topic/org.eclipse.gef.doc.isv/guide/images/editing1.gif)
+| ![](_assets/editing1.gif)
  | Methods on `EditPart` which take a **Request**:
 
 1.  `EditPart getTargetEditPart(Request)  
@@ -180,7 +180,7 @@ Finally, there is a generic API telling an editpart to just "do something". This
 
 ### EditPolicies
 
-![](https://www.linuxtopia.org/online_books/eclipse_documentation/eclipse_gef_draw2d_plug-in/topic/org.eclipse.gef.doc.isv/guide/images/editing2.gif)
+![](_assets/editing2.gif)
 Editparts don't handle editing directly. Instead, they use EditPolicies. Each editpolicy is then able to focus on a single editing task or group of related tasks. This also allows editing behavior to be selectively reused across different editpart implementations. Also, behavior can change dynamically, such as when the layouts or routing methods change.
 
 When any of the above editing methods are called (except `performRequest()`), the editpart delegates to its policies to satisfy the request. Depending on the method, the editpart may stop at the first policy that handles a request, or it may allow each policy a chance to contribute. Refer to each method's javadoc for more details.
@@ -230,7 +230,7 @@ At this point the editpart is in its normal editing state. It gets selected, sho
 
 `deactivate()` \- The opposite of activate. Once again, subclasses should **extend** this method to remove the listeners added during activation.
 
-![](https://www.linuxtopia.org/online_books/eclipse_documentation/eclipse_gef_draw2d_plug-in/topic/org.eclipse.gef.doc.isv/guide/images/important.gif)
+![](_assets/important.gif)
 The remaining steps **only** occur when the editpart gets removed, meaning its model was removed from the diagram. If the viewer is being disposed, then deactivation is the only thing that is guaranteed to occur. For this reason, activate and deactivate are the commonly extended methods while the remaining methods can usually be ignored.
 
 `removeNotify()` \- Signals that the editpart is about to incur removal. The following must happen while the editpart still has access to its surroundings:
@@ -242,7 +242,7 @@ The remaining steps **only** occur when the editpart gets removed, meaning its m
 
 `setParent(null)` \- The last step of removal. The parent and viewer are no longer reachable at this point.
 
-![](https://www.linuxtopia.org/online_books/eclipse_documentation/eclipse_gef_draw2d_plug-in/topic/org.eclipse.gef.doc.isv/guide/images/important.gif)
+![](_assets/important.gif)
 Editparts do not come back from the grave. When a change in the model is undone, a **new** editpart is created. For this reason, commands should not reference editparts, and editparts should not contain any important state that must be restored on undo.
 
 Tools and the Palette
@@ -265,7 +265,7 @@ A tool is activated by setting it on the EditDomain. There is only one active to
 
 The Selection Tool is the primary tool used in GEF and is often the default for an application. The selection tool is unique in its ability to delegate. It obtains a helper called a `DragTracker` from an editpart or handle below the mouse when a drag occurs. A drag is defined as a mouse button being pressed, its being released, and any events that occur in between. Events are forwarded to the delegate so that the drag can be handled differently based on where and how the drag originated. For example, clicking on a handle may result in resizing a shape, or moving the end of a connection. Clicking on an editpart typically drags that part to a new location or parent.
 
-![](https://www.linuxtopia.org/online_books/eclipse_documentation/eclipse_gef_draw2d_plug-in/topic/org.eclipse.gef.doc.isv/guide/images/selectsequence.gif)
+![](_assets/selectsequence.gif)
 
 Ironically, the Selection Tool doesn't select editparts. All mouse clicks are handled as drags. When the Selection Tool receives a mouse down event over a selectable editpart, it asks for a drag tracker. The editpart returns a tracker derived from SelectEditPartTracker. The tracker also receives the mouse down event, as well as any other events, until the mouse button is released. When the tracker interprets a selection gesture, it modifies the viewer's selection. Trackers even handle events like double-click.
 
@@ -277,7 +277,7 @@ GEF's `PaletteViewer` provides an SWT Control allowing the user to select which 
 
 The palette can be placed anywhere, including inside the editor. GEF provides a Workbench View for hosting the Palette. Also, a custom Composite, the `FlyoutPaletteComposite`, will manage the placement of the PaletteViewer beside a primary Control. This composite is used as the editor's primary control in the Logic Example, shown below:
 
-![](https://www.linuxtopia.org/online_books/eclipse_documentation/eclipse_gef_draw2d_plug-in/topic/org.eclipse.gef.doc.isv/guide/images/logiceditor.gif)
+![](_assets/logiceditor.gif)
 
 The PaletteViewer displays a Palette model, which starts with the `PaletteRoot`. The root organizes the contents using either drawers, which open and close, or groups, which do not. Each grouping element then contains Palette Entries. An Entry defines either a tool or template for the User. Templates are described below in [Creation](#Interactions/Creation).
 
@@ -327,7 +327,7 @@ Let's first define selection. Selection is a List of EditParts maintained by an 
 
 Closely related to selection is _focus_. Focus is a single editpart maintained by the EditPartViewer. Focus is used when manipulating selection via keyboard. By moving focus, the user can navigate from one editpart to another without changing the current selection. The user can add/remove the focused editpart from the selection. If focus is not explicitly set, it is the same as the primary selected part.
 
-| ![](https://www.linuxtopia.org/online_books/eclipse_documentation/eclipse_gef_draw2d_plug-in/topic/org.eclipse.gef.doc.isv/guide/images/selectionhandles.gif)
+| ![](_assets/selectionhandles.gif)
   
 _Selection Handles_ | The editpart is responsible for showing its selected and focused state to the user. The viewer tells editparts when they are selected, focused, or have primary selection. Typically, selection is shown by one or more EditPolicies adding selection handles. The handles shown here on the LED and circuit parts were added by `ResizableEditPolicy`. The black handles indicate primary selection.
 
@@ -361,7 +361,7 @@ GEF provides a `SelectAllAction`. Given a viewer, this action selects all of the
 
 Keyboard selection is supported in graphical viewers by installing a `GraphicalViewerKeyHandler`. The key handler only receives key events sent to it by the current tool. The Selection Tool forwards key forwards the events necessary for selection.
 
-![](https://www.linuxtopia.org/online_books/eclipse_documentation/eclipse_gef_draw2d_plug-in/topic/org.eclipse.gef.doc.isv/guide/images/important.gif)
+![](_assets/important.gif)
 Drag trackers are not needed inside GEF's TreeViewer. The native tree handles selection already, and dragging of treeitems is processed internally using native DND.
 
 ### Basic Model Operations (Delete)
@@ -372,7 +372,7 @@ Drag trackers are not needed inside GEF's TreeViewer. The native tree handles se
 CONNECTION_ROLE  
 RootComponentEditPolicy | DeleteAction |
 
-![](https://www.linuxtopia.org/online_books/eclipse_documentation/eclipse_gef_draw2d_plug-in/topic/org.eclipse.gef.doc.isv/guide/images/interactdelete.gif)
+![](_assets/interactdelete.gif)
 
 The only universal interaction that all GEF applications should support is delete. The workbench places a global delete action on the edit menu. All applications should register a handler such as the included DeleteAction.
 
@@ -386,7 +386,7 @@ The CONNECTION_ROLE key is used when installing a policy on a connection editpar
 
 These editpolicies should handle the tasks most closely associated with the model. In the logic example, this role is responsible for the LED's increment and decrement behavior, which adds or subtracts one from the LED's value.
 
-![](https://www.linuxtopia.org/online_books/eclipse_documentation/eclipse_gef_draw2d_plug-in/topic/org.eclipse.gef.doc.isv/guide/images/important.gif)
+![](_assets/important.gif)
 Implementing the command that performs delete can be difficult, especially when connections are involved. The command must consider whether the object being deleted has connections, or if children of the object being deleted have connections, and delete the connections as well. But, you don't want to delete the same connection twice in cases where both source and target nodes are being deleted as part of multiple selection. The logic example's delete command addresses all of these concerns.
 
 ### Creation
@@ -404,7 +404,7 @@ PasteTemplateAction |
 | TemplateTransferDropTargetListener  
 TemplateTransferDragSourceListener |
 
-![](https://www.linuxtopia.org/online_books/eclipse_documentation/eclipse_gef_draw2d_plug-in/topic/org.eclipse.gef.doc.isv/guide/images/interactcreate.gif)
+![](_assets/interactcreate.gif)
 
 A `CreateRequest` is used to ask an editpart to create a new child. The request is identified by the ID REQ_CREATE. Creation can occur through three different methods: clicking, dragging, or pasting. The request provides the location, object, and object type being created. The object and its type are provided by a `CreationFactory`. The request hides the factory and provides access to the created object directly, caching it in case multiple editpolicies all need access to the created object. In some cases, the request will contain a size attribute.
 
@@ -428,7 +428,7 @@ The `TreeContainerEditPolicy` is used for supporting creation in a tree-based vi
 
 The `PasteTemplateAction` can be used to create objects without the mouse. This is important for accessibility. The `CopyTemplateAction` is added to the Palette. When the user invokes this action, an internal mechanism copies the transfer so that it can be pasted in a viewer. When paste occurs, the PasteTemplateAction retrieves the template object, constructs a CreateRequest, and sends it to the selected editpart. Mouse location is not available in this interaction. Paste is only enabled when the selection is exactly one editpart.
 
-![](https://www.linuxtopia.org/online_books/eclipse_documentation/eclipse_gef_draw2d_plug-in/topic/org.eclipse.gef.doc.isv/guide/images/important.gif)
+![](_assets/important.gif)
 When a creation command is redone, it must restore the original child that was created the first time it was executed. If it creates a new object, then subsequent commands will fail on redo when they try to modify the originally created child.
 
 ### Moving and Resizing
@@ -477,7 +477,7 @@ REQ\_CONNECTION\_START
 REQ\_CONNECTION\_END | GraphicalNodeEditPolicy  
 NODE_ROLE |   |
 
-![](https://www.linuxtopia.org/online_books/eclipse_documentation/eclipse_gef_draw2d_plug-in/topic/org.eclipse.gef.doc.isv/guide/images/interactconnect.gif)
+![](_assets/interactconnect.gif)
 
 The `ConnectionCreationTool` is used to create a new connection between nodes. This interaction requires the user to activate the tool (typically using the palette), and then click on two editparts supporting connections. The creation can be aborted by pressing the ESC key. The `ConnectionDragCreationTool` is similar, but the interaction is a single mouse drag. This tool can be returned as the drag tracker from a handle or even an editpart in some cases.
 
@@ -502,7 +502,7 @@ ENDPOINT_ROLE
 GraphicalNodeEditPolicy  
 NODE_ROLE |   |
 
-![](https://www.linuxtopia.org/online_books/eclipse_documentation/eclipse_gef_draw2d_plug-in/topic/org.eclipse.gef.doc.isv/guide/images/interactreconnect.gif)
+![](_assets/interactreconnect.gif)
 
 By dragging the endpoints of an existing connection, its source or target can be changed. This includes changing "ports" on the same node editpart. This interaction is called reconnecting.
 
@@ -521,14 +521,14 @@ REQ\_MOVE\_BENDPOINT
 REQ\_CREATE\_BENDPOINT | BendpointEditPolicy  
 CONNECTION\_BENDPOINTS\_ROLE |   |
 
-![](https://www.linuxtopia.org/online_books/eclipse_documentation/eclipse_gef_draw2d_plug-in/topic/org.eclipse.gef.doc.isv/guide/images/interactbend.gif)
+![](_assets/interactbend.gif)
 Certain connection routers accept routing constraints (typically a list of `BendPoint`s). Install a `BendpointEditPolicy` using the `CONNECTION_BENDPOINTS_ROLE` for editing the connections routing constraints. This editpolicy requires a router that takes a List of BendPoints. During selection, the policy will add normal handles to existing bendpoints on the connection. It adds smaller handles where the user can create new bendpoints.
 
 Each handle provides a `ConnectionBendpointTracker`. This tool sends a `BendpointRequest` back to the connection editpart for showing feedback and obtaining the command to perform the bend. For existing bendpoints, the request is typed as `REQ_MOVE_BENDPOINT`, otherwise it is `REQ_CREATE_BENDPOINT`. It is up to the editpolicy to determine when moving a bendpoint back to its natural placement should result in its removal.
 
-![](https://www.linuxtopia.org/online_books/eclipse_documentation/eclipse_gef_draw2d_plug-in/topic/org.eclipse.gef.doc.isv/guide/images/interactbendindex.gif)
+![](_assets/interactbendindex.gif)
 This picture shows a selected connection in the Logic Example with a single Bendpoint. The `ShortestPathConnectionRouter` has inserted additional bends in the connection to avoid figures. The handles for creating and moving bendpoints are labeled with the index that the BendpointRequest will contain. The index is the same as the current (or eventual) index of the bendpoint in the routing constraint's List.
 
   
-[![](https://go.ezoic.net/utilcave_com/img/ezoic.png)
+[![](_assets/ezoic.png)
 ](https://www.ezoic.com/what-is-ezoic/)

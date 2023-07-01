@@ -27,7 +27,7 @@ static <K, V> Map<K, V> of() {
 
 Let's see the usage:
 
-[![](https://a.pub.network/core/imgs/fslogo-green.svg)
+[![](_assets/fslogo-green.svg)
 ](https://freestar.com/?utm_campaign=branding&utm_medium=banner&utm_source=baeldung.com&utm_content=baeldung_leaderboard_mid_1)
 
 ```null

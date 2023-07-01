@@ -1,5 +1,5 @@
 # SOLID Design Principles in Software Development
- ![](https://www.freecodecamp.org/news/content/images/size/w2000/2023/02/start-graph--1-.png) 
+ ![](_assets/start-graph--1-.png) 
 
 **SOLID** is a set of five design principles. These principles help software developers design robust, testable, extensible, and maintainable object-oriented software systems.
 

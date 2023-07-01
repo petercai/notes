@@ -17,7 +17,7 @@ It's very useful to know the organization of the collection interfaces and class
 
 Maps in the Java library are not treated as regular collections, so the [_Map_](https://docs.oracle.com/javase/8/docs/api/java/util/Map.html) interface doesn't extend _Collection._ Here's the diagram for interface relationships in the Java library:
 
-[![](https://www.baeldung.com/wp-content/uploads/2022/11/1-1.png)
+[![](_assets/1-1.png)
 ](https://www.baeldung.com/wp-content/uploads/2022/11/1-1.png)
 
 Any concrete collection implementation (collection class) is derived from one of the collection interfaces. The semantics of collection classes are defined by their interfaces, as concrete collections provide specific implementations for operations that their parent interfaces define. Consequently, we need to choose the proper collection interface before selecting the suitable collection class.
@@ -27,10 +27,10 @@ Any concrete collection implementation (collection class) is derived from one of
 
 Choosing the right collection interface is somewhat straightforward. Indeed, the diagram below shows a logical interface selection flow:
 
-[![](https://a.pub.network/core/imgs/fslogo-green.svg)
+[![](_assets/fslogo-green.svg)
 ](https://freestar.com/?utm_campaign=branding&utm_medium=banner&utm_source=baeldung.com&utm_content=baeldung_leaderboard_mid_1)
 
-[![](https://www.baeldung.com/wp-content/uploads/2022/11/Interface-Selection-Diagram-1.png)
+[![](_assets/Interface-Selection-Diagram-1.png)
 ](https://www.baeldung.com/wp-content/uploads/2022/11/Interface-Selection-Diagram-1.png)
 
 To summarize, we use lists when the insertion order of elements matters and there are duplicate elements. Sets are used when elements are treated as a set of objects, there are no duplicates, and the insertion order doesn't matter.
@@ -52,7 +52,7 @@ Let's start with a list comparison table. Common operations for lists are adding
 
 As we can see, _ArrayList_ is good at adding and removing elements in the end, as well as having random access to elements. Conversely, it's bad at adding and removing elements at arbitrary positions. Meanwhile, _LinkedList_ is good at adding and removing elements at any position. However, it doesn't support true _O(1)_ random access. So, regarding lists, the default choice is _ArrayList_ until we need fast element addition and removal at any position.
 
-[![](https://a.pub.network/core/imgs/fslogo-green.svg)
+[![](_assets/fslogo-green.svg)
 ](https://freestar.com/?utm_campaign=branding&utm_medium=banner&utm_source=baeldung.com&utm_content=baeldung_leaderboard_mid_2)
 
 AD
@@ -77,7 +77,7 @@ If the elements of the set are just enumeration values of a single enum type, th
 
 Queues can be divided into two groups:
 
-[![](https://a.pub.network/core/imgs/fslogo-green.svg)
+[![](_assets/fslogo-green.svg)
 ](https://freestar.com/?utm_campaign=branding&utm_medium=banner&utm_source=baeldung.com&utm_content=baeldung_leaderboard_mid_3)
 
 AD
@@ -104,7 +104,7 @@ Lastly, there are two implementations of the _Map_ interface, which have very sp
 
 We can extend the diagram for choosing the proper collection interface for selecting concrete collection implementations:
 
-[![](https://www.baeldung.com/wp-content/uploads/2022/11/Concrete-Collection-Selection-Diagram.png)
+[![](_assets/Concrete-Collection-Selection-Diagram.png)
 ](https://www.baeldung.com/wp-content/uploads/2022/11/Concrete-Collection-Selection-Diagram.png)
 
 6\. Conclusion[](#conclusion)
