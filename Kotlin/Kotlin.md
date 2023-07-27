@@ -273,6 +273,18 @@ A lambda—or lambda expression—is a block of code that you can pass around ju
 		![[Kotlin-2023726-1 2.png]]
 	 - one parameter with return
 		 ![[Kotlin-2023726-1 3.png]]
+	 - You can replace a single parameter with ***it***
+		```
+		val addFive: (Int) -> Int = { x: Int -> x + 5 }
+		```
+		 As the lambda has a single parameter, x, and the compiler can infer that x is an Int, we can omit the x parameter from the lambda, and replace it with it
+		```
+		val addFive: (Int) -> Int = { it + 5 }
+		```
+	- Use Unit to say a lambda has no return value
+		```
+		val myLambda: () -> Unit = { println("Hi!") }
+		```
 
 
 ### execute a lambda
@@ -283,3 +295,12 @@ val addInts = { x: Int, y: Int -> x + y }
 val result = addInts.invoke(6, 7)
 ```
 
+### Higher-order function
+A function that uses a lambda as a parameter or return value is known as a
+higher-order function. E.g. convert a temperature from Centigrade to Fahrenheit, or convert a weight from kilograms to pounds, depending on the formula that we pass to it in the lambda argument.
+declare a function
+![[Kotlin-2023727-1.png]]
+implement the function
+![[Kotlin-2023727-2.png]]
+run the function
+![[Kotlin-2023727-3.png]]
