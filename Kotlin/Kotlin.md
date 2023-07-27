@@ -322,14 +322,14 @@ run the function
 
 - A function can return a lambda
 	The exact lambda that’s returned by the below function depends on the value of the String that’s passed to it.
-	![[Kotlin-2023727-1.png]]
+	![[Kotlin-2023727-1 2.png]]
 	The following code, for example, invokes getConversionLambda’s return value to get the value of 2.5 kilograms in pounds, and assigns it to a variable named pounds:
-	![[Kotlin-2023727-2.png]]
+	![[_assets/Kotlin-2023727-2.png]]
 	And the following example above uses getConversionLambda to get a lambda that converts a temperature from Centigrade to Fahrenheit, and then passes it to the convert function.
 
 - A *type alias* lets you provide an alternative name for an existing type, which you can then use in your code. You define a type alias using the **typealias** keyword.
 	
-	![[Kotlin-2023727-3.png]]
+	![[_assets/Kotlin-2023727-3.png]]
 	![[Kotlin-2023727-5.png]]
 	You can use **typealias** to provide an alternative name for any type, not just function types. e.g.
 	```
