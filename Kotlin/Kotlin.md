@@ -299,8 +299,39 @@ val result = addInts.invoke(6, 7)
 A function that uses a lambda as a parameter or return value is known as a
 higher-order function. E.g. convert a temperature from Centigrade to Fahrenheit, or convert a weight from kilograms to pounds, depending on the formula that we pass to it in the lambda argument.
 declare a function
-![[Kotlin-2023727-1.png]]
+![[assets/Kotlin-2023727-1.png]]
 implement the function
-![[Kotlin-2023727-2.png]]
+![[assets/Kotlin-2023727-2.png]]
 run the function
-![[Kotlin-2023727-3.png]]
+![[assets/Kotlin-2023727-3.png]]
+- If **the final parameter** of a function you want to call is a lambda, you can move the lambda argument outside the function call’s parentheses
+	
+	![[_assets/Kotlin-2023727-1.png]]
+
+- If you have a function that has just one parameter, and that parameter is a lambda, you can omit the parentheses entirely when you call the function.
+	e.g.  for convertFive() function
+	```
+	fun convertFive(converter: (Int) -> Double) : Double {
+		val result = converter(5)
+		println("5 is converted to $result")
+		return result
+	}
+	```
+	You can call it like this:
+	![[Kotlin-2023727-1 1.png]]
+
+- A function can return a lambda
+	The exact lambda that’s returned by the below function depends on the value of the String that’s passed to it.
+	![[Kotlin-2023727-1.png]]
+	The following code, for example, invokes getConversionLambda’s return value to get the value of 2.5 kilograms in pounds, and assigns it to a variable named pounds:
+	![[Kotlin-2023727-2.png]]
+	And the following example above uses getConversionLambda to get a lambda that converts a temperature from Centigrade to Fahrenheit, and then passes it to the convert function.
+
+- A *type alias* lets you provide an alternative name for an existing type, which you can then use in your code. You define a type alias using the **typealias** keyword.
+	
+	![[Kotlin-2023727-3.png]]
+	![[Kotlin-2023727-5.png]]
+	You can use **typealias** to provide an alternative name for any type, not just function types. e.g.
+	```
+	typealias DuckArray = Array<Duck>
+	```
