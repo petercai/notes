@@ -107,6 +107,11 @@ or
 ![[Android app-2023726-3.png]]
 
 ## Layout
+All layouts are a type of **ViewGroup** and a ViewGroup is a type of **View**
+![[Android app-2023728-11.png]]
+
+- Every UI component you add to a layout is a type of View: an object that takes up space on the screen.
+- Every layout is a type of ViewGroup: a type of View that can contain other Views.
 
 ### Linear loyout
 Using a **linear layout** means that UI components are displayed in a vertical column or a horizontal row. A linear layout is the most appropriate type of layout to use if you want to arrange the components in a single row or column. 
@@ -134,16 +139,34 @@ Using a **linear layout** means that UI components are displayed in a vertical c
 		You can use padding attributes such as paddingTop with views, but it has a different effect. As you’ve seen, layout_marginTop increases the amount of space above the view. paddingTop, however, increases the height of the view by adding extra space inside it:
 		![[Android app-2023728-10.png]]
 
+- Another example
+	![[Android app-2023728-15.png]]
 - The layout’s views are inflated into objects
+
 ### FrameLayout
-a **frame layout** stacks its views, one on top of another. 
-	If you want a layout whose views can overlap, a simple option is to use a frame layout. Instead of displaying its views in a single row or column, it stacks them, one on top of another. It’s often used to hold just a single view.
+a **frame layout** stacks its views, one on top of another. If you want a layout whose views can overlap, a simple option is to use a frame layout. Instead of displaying its views in a single row or column, it stacks them, one on top of another. It’s often used to hold just a single view.
+- A frame layout stacks views in the order they appear in the layout XML
+	The first view is displayed first, the second is stacked on top of it, and so on.
+![[Android app-2023728-13.png]]
+
+##### ScrollView
+![[Android app-2023728-14.png]]
+
 
 ### Image
-ndroid’s preferred image format is WebP, which combines a small file size with a minimum loss of quality. You can convert images to WebP in Android Studio by right-clicking on
+Android’s preferred image format is WebP, which combines a small file size with a minimum loss of quality. You can convert images to WebP in Android Studio by right-clicking on
 the image, and choosing the “Convert to WebP” option.
 
+The default folder for storing image resources in your app is app/src/main/res/drawable folder.
 
+#### ImageView
+![[Android app-2023728-12.png]]
+#### Button
+Buttons can include attributes such as `android:drawableStart` and `android:drawableEnd`, which allow you to position an image at the start or end of the button. The following code, for example, adds a duck image at the start of a button:
+```
+android:drawableStart="@drawable/duck"
+```
+Android also includes an image button view: a button with an image but no text.
 
 
 ## EventListener
