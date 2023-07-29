@@ -50,6 +50,11 @@ Every Android app must include a file called AndroidManifest.xml, which lives in
 R refers to **R.java**. It’s a special file that’s automatically generated when you build the app. Android uses R.java to keep track of any resources used within the app such as layouts, String resources, and views.
 When you pass the findViewById method a value of R.id.brands, Android looks up the brands ID from R, and uses this to return a reference to the brands view. Similarly, when you pass the setContentView method a value of R.layout.activity_main, Android looks up the correct layout from R, and assigns it to the activity. You don’t change any of the code in R.java yourself: Android Studio automatically generates it for you.
 
+### Layout inflation
+As well as displaying the layout on the device screen, the setContentView() method converts the views in the layout’s XML into objects. This process is called **layout inflation** because it inflates each view into an object
+
+
+
 ## Intent Filters
 Intents are objects to tell Android that something needs to be done, and they can be
 explicit by exactly specifying which component needs to be called or implicit if we don’t
@@ -103,9 +108,10 @@ or
 
 ## Layout
 
-- Using a **linear layout** means that UI components are displayed in a vertical column or a horizontal row. A linear layout is the most appropriate type of layout to use if you want to arrange the components in a single row or column. 
+### Linear loyout
+Using a **linear layout** means that UI components are displayed in a vertical column or a horizontal row. A linear layout is the most appropriate type of layout to use if you want to arrange the components in a single row or column. 
 	![[Android app-2023728-1.png]]
-- a **frame layout** stacks its views, one on top of another. 
+
 
 - add weight to view
 	![[Android app-2023728-3.png]]
@@ -129,6 +135,16 @@ or
 		![[Android app-2023728-10.png]]
 
 - The layout’s views are inflated into objects
+### FrameLayout
+a **frame layout** stacks its views, one on top of another. 
+	If you want a layout whose views can overlap, a simple option is to use a frame layout. Instead of displaying its views in a single row or column, it stacks them, one on top of another. It’s often used to hold just a single view.
+
+### Image
+ndroid’s preferred image format is WebP, which combines a small file size with a minimum loss of quality. You can convert images to WebP in Android Studio by right-clicking on
+the image, and choosing the “Convert to WebP” option.
+
+
+
 
 ## EventListener
 
