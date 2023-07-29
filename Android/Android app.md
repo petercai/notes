@@ -152,6 +152,14 @@ a **frame layout** stacks its views, one on top of another. If you want a layout
 ##### ScrollView
 ![[Android app-2023728-14.png]]
 
+### ConstraintLayout
+
+The constraint layouts are specifically designed to work with Android Studio’s design editor.  Constraint layouts can be built visually. You drag and drop views into the design editor’s blueprint, and give it instructions for how each view should be displayed. Constraint layouts are part of a suite of libraries known as **Android Jetpack**.
+> **Android Jetpack** is a collection of libraries that help you follow best practice, reduce boilerplate code, and make your coding life easier. It includes constraint layouts, navigation, the Room persistence library (which helps you build databases) and lots, lots more.
+> Every project needs to know where to find any extra Jetpack libraries it needs, and this is done by adding a reference to the Google repository in the project’s build.gradle file. It's  in the repositories section under allprojects:
+> ![[Android app-2023729-1.png]]
+> To use constraint layouts, a reference to its library needs to be included in the app’s build.gradle file.
+> ![[Android app-2023729-2.png]]
 
 ### Image
 Android’s preferred image format is WebP, which combines a small file size with a minimum loss of quality. You can convert images to WebP in Android Studio by right-clicking on

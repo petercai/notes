@@ -13,7 +13,7 @@
 
 **正 文**
 
-![](https://mmbiz.qpic.cn/mmbiz_png/MHUYuRza9XXs6ZgPXPgq4d0EamTH6xXcMNoCuad3NGhB6S5ehibqZF6DYedz1aVQuKYbqvjclEkKgLVJRGWpeiaw/640?wx_fmt=png)
+![](_assets/640-9.png)
 
 **1.Stable Diffusion能干嘛**
 
@@ -27,9 +27,9 @@
 
 (我有一个朋友，每到晚上的时候，就很喜欢看这种视频)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/c3uTNeJbsrPiclkzNbYYibvoQ498n4fXiaBhR8zmbrgpv81YZ2MTJc8ln6e4ozRSDEDIGF4WWKGn4hwTjLnSMa3zA/640?wx_fmt=png)
+![](_assets/640-14.png)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/c3uTNeJbsrPiclkzNbYYibvoQ498n4fXiaBbd1xGWoIyKBadNWJKHuptzv4YPDnwQ0bfqtFRbEIsUwibOh9LK5Urxw/640?wx_fmt=png)
+![](_assets/640-15.png)
 
 **02.生成头像、壁纸**
 
@@ -37,9 +37,9 @@
 
 现在SD就可以用来定制个人的二次元头像、盲盒模型或定制壁纸
 
-![](https://mmbiz.qpic.cn/mmbiz_png/c3uTNeJbsrPiclkzNbYYibvoQ498n4fXiaBraNEC52DpYQXbIWeqdV5hmzrnPL5BsDJa6RlooaX0kRY0nZcgjG9og/640?wx_fmt=png)
+![](_assets/640-11.png)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/c3uTNeJbsrPiclkzNbYYibvoQ498n4fXiaBBAPYnTWibn5VnAYh7z9UCVXBiaHuWaicLgk1qu9ucniastTFmM7ib7S09eg/640?wx_fmt=png)
+![](_assets/640-14.png)
 
 **03.绘画辅助**
 
@@ -47,7 +47,7 @@
 
 比如线稿上色、或者是获取图画的线稿等
 
-![](https://mmbiz.qpic.cn/mmbiz_png/c3uTNeJbsrPiclkzNbYYibvoQ498n4fXiaBDIxwBh9Ib7nqZ3OicTXicvPB8jC6GpUmbKD27Ml5p1f7bhxvJvc7Ly4A/640?wx_fmt=png)
+![](_assets/640-10.png)
 
 Stable diffusion还有很多功能，比如恢复画质、室内设计等
 
@@ -74,7 +74,7 @@ Stable diffusion还有很多功能，比如恢复画质、室内设计等
 
 完全不影响！
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/c3uTNeJbsrPiclkzNbYYibvoQ498n4fXiaBwKpeMEHvXVgDpK2WMerVQBWvQ0lOqxiaCwY2iaohibj3WyLZTeCtbCogQ/640?wx_fmt=jpeg)
+![](_assets/640-1.jpg)
 
 很多人想学习stable diffusion，上网一搜，大多数教程都先告诉你SD的原理是什么
 
@@ -123,7 +123,7 @@ Stable diffusion还有很多功能，比如恢复画质、室内设计等
 
 在桌面上找到“我的电脑”——鼠标右键点击——点击“属性”——查看Windows规格
 
-![](https://mmbiz.qpic.cn/mmbiz_png/c3uTNeJbsrPiclkzNbYYibvoQ498n4fXiaBu2z9WHr72MPoNkEKg6q91jxecJyBskbunWiaHAyDjS7fibcouIicJVluA/640?wx_fmt=png)
+![](_assets/640-7.png)
 
 **02.检查电脑性能**
 
@@ -142,7 +142,7 @@ Stable diffusion还有很多功能，比如恢复画质、室内设计等
 
 ①鼠标右击桌面底部任务栏——点击“任务管理器”
 
-![](https://mmbiz.qpic.cn/mmbiz_png/c3uTNeJbsrPiclkzNbYYibvoQ498n4fXiaBWanTc4f7EEAL1Umw3BhP1GLWZaCADRQYMSicWiaryYls5pQ12OQsSxBw/640?wx_fmt=png)
+![](_assets/640-7.png)
 
 ②查看电脑的运行内存
 
@@ -156,7 +156,7 @@ Stable diffusion还有很多功能，比如恢复画质、室内设计等
 > 
 > 32GB：那么你就可以非常自由的使用SD啦！
 
-![](https://mmbiz.qpic.cn/mmbiz_png/c3uTNeJbsrPiclkzNbYYibvoQ498n4fXiaBjBxpX4S2EQia0JKo1TLQ9uB4L0jQhlmouOwDGfJRRrCqbGE6usRstCw/640?wx_fmt=png)
+![](_assets/640-6.png)
 
 ③查看“GPU”
 
@@ -178,7 +178,7 @@ GPU就是显卡的意思
 > 
 > 8GB：5~20秒可以出一张图，基本上SD的所有功能都对你开放
 
-![](https://mmbiz.qpic.cn/mmbiz_png/c3uTNeJbsrPiclkzNbYYibvoQ498n4fXiaBneDb5wMo9BfYQy05utAWCLZiarftkTCPWdcUNfT1lOLD9lSu8My5KXA/640?wx_fmt=png)
+![](_assets/640-6.png)
   
 
 好啦，如果你的电脑满足以上所说的配置，那么恭喜你！你可以顺利的安装Stable Diffusion并展开学习啦！
@@ -212,15 +212,15 @@ http://account.qingjiaocloud.com/signup?inviteCode=R0JJ9CHY
 
 ①点击上面链接，注册账号
 
-![](https://mmbiz.qpic.cn/mmbiz_png/c3uTNeJbsrPiclkzNbYYibvoQ498n4fXiaB45XBOibVy0pAM7bywJvJXiaTiaHmOd0m4mK2y4YG7uKhsGUxLfafuZ5LA/640?wx_fmt=png)
+![](_assets/640-4.png)
 
 ②下载并安装后，登录刚刚注册好的账户
 
-![](https://mmbiz.qpic.cn/mmbiz_png/c3uTNeJbsrPiclkzNbYYibvoQ498n4fXiaBMyR2F7ScGOB66DSwO3qTibK31PRDWAicjcgEzdwQLW7BCtJH9Qr268KQ/640?wx_fmt=png)
+![](_assets/640-5.png)
 
 ③点击右上角的个人中心进行实名认证
 
-![](https://mmbiz.qpic.cn/mmbiz_png/c3uTNeJbsrPiclkzNbYYibvoQ498n4fXiaBnSD9CfqdCHvqD8Nc1yexPTs8v1Rvts5BOs54kkxN7aJYxPENUlYOZA/640?wx_fmt=png)
+![](_assets/640-7.png)
 
 ④在进行实名认证后回到主界面，点击新增云桌面
 
@@ -230,25 +230,25 @@ http://account.qingjiaocloud.com/signup?inviteCode=R0JJ9CHY
 
 （大多数云平台都是2~3元一个小时）
 
-![](https://mmbiz.qpic.cn/mmbiz_png/c3uTNeJbsrPiclkzNbYYibvoQ498n4fXiaBguXxspF6DYMqULmfVCQwVzp7yUC3dEwyQyloodwqBLxfDk2t5WXDVw/640?wx_fmt=png)
+![](_assets/640-7.png)
 
 ⑤在新弹出的框框中点击“开机”按钮，稍等一下之后，点击“进入桌面”
 
 进入桌面之后弹出的全部框框可以直接关掉
 
-![](https://mmbiz.qpic.cn/mmbiz_png/c3uTNeJbsrPiclkzNbYYibvoQ498n4fXiaBXUhavwWGb90YJd5aQtXO2yKQKFqFJHic2rTNVBr0KUWuG8ibKjduQasw/640?wx_fmt=png)
+![](_assets/640-7.png)
 
 ⑥点击新打开桌面的“此电脑”，在C盘里面找到SD的根目录，点击“A启动器.exe”
 
-![](https://mmbiz.qpic.cn/mmbiz_png/c3uTNeJbsrPiclkzNbYYibvoQ498n4fXiaBrvV4aGjtckvAvW7FWAlJGnLlk2GZZzhLSc78RWzbl2Ql6go4FibMuOw/640?wx_fmt=png)
+![](_assets/640-7.png)
 
 ⑦点击右下角的“一键启动”就可以进入SD啦
 
-![](https://mmbiz.qpic.cn/mmbiz_png/c3uTNeJbsrPiclkzNbYYibvoQ498n4fXiaBQppeq5gEMmyxeKdlvSkfSLt3kiae8YoegibYBZO7jHQUiakqicn2PzEbPA/640?wx_fmt=png)
+![](_assets/640-8.png)
 
 ⑧用完云平台之后，记得关机噢，不然会持续计费
 
-![](https://mmbiz.qpic.cn/mmbiz_png/c3uTNeJbsrPiclkzNbYYibvoQ498n4fXiaBODHibUTCiaZePKlV5ObmNzvcdKK3MUWfcCuoibK1EPS4bNfMNPzGVjeVA/640?wx_fmt=png)
+![](_assets/640-7.png)
 
 **3.一键式安装SD本地部署，解压即用，小白的福音**
 ----------------------------
@@ -273,19 +273,19 @@ http://account.qingjiaocloud.com/signup?inviteCode=R0JJ9CHY
 
 ③打开文件夹《1.秋叶整合包主包》——鼠标右击文件——点击“解压文件”
 
-![](https://mmbiz.qpic.cn/mmbiz_png/c3uTNeJbsrPiclkzNbYYibvoQ498n4fXiaBSicODibCZXa1N1rEkzQjZ7gS1kwTpXpzuS228eKwAcHib4kq3wqfTkZxw/640?wx_fmt=png)
+![](_assets/640-13.png)
 
 ④选择解压到D盘或者E盘，小心C盘被占满！！点击确定
 
-![](https://mmbiz.qpic.cn/mmbiz_png/c3uTNeJbsrPiclkzNbYYibvoQ498n4fXiaBsu9MuqYkS7f7ncP8ehmariaxzWsLft5RW3ScUibN7fiavRic5FHwuRebxQ/640?wx_fmt=png)
+![](_assets/640-5.png)
 
 ⑤解压完成后，来到第二个文件夹，双击里面的文件
 
-![](https://mmbiz.qpic.cn/mmbiz_png/c3uTNeJbsrPiclkzNbYYibvoQ498n4fXiaBmoVIGPVgc6Y6tydt5Kfnibn66q9CiaMQj1Z7Vchj63p6QE4Bsy4Aze7Q/640?wx_fmt=png)
+![](_assets/640-7.png)
 
 点击安装
 
-![](https://mmbiz.qpic.cn/mmbiz_png/c3uTNeJbsrPiclkzNbYYibvoQ498n4fXiaBk8LXNs88muRLOPetqbnfh1ZBNt67JKDywtiaAIcBfd3WWmnC5cC3CUw/640?wx_fmt=png)
+![](_assets/640-7.png)
 
 ⑥打开刚刚解压保存的SD的根目录，找到启动器
 
@@ -293,7 +293,7 @@ http://account.qingjiaocloud.com/signup?inviteCode=R0JJ9CHY
 
 这样下次进入就可以直接在桌面双击进入，不用每次都到文件夹里面找啦！
 
-![](https://mmbiz.qpic.cn/mmbiz_png/c3uTNeJbsrPiclkzNbYYibvoQ498n4fXiaB1VdzAZGjhUUjVaibibSDHbnHzlwxzfZQAD671XIANUCAX0hgFD9zmlXA/640?wx_fmt=png)
+![](_assets/640-7.png)
 
 ⑦双击启动器，等待更新
 
@@ -301,15 +301,15 @@ http://account.qingjiaocloud.com/signup?inviteCode=R0JJ9CHY
 
 在显存优化里，根据自己电脑的显存选择（就是上面查看的专用GPU内存），自己电脑是多少就选多少
 
-![](https://mmbiz.qpic.cn/mmbiz_png/c3uTNeJbsrPiclkzNbYYibvoQ498n4fXiaBYUgUicHN79l13pdqD46n38oTLW1HUUzWxGzyUoSbQ6FJEKib7kEGPicPg/640?wx_fmt=png)
+![](_assets/640-7.png)
 
 ⑧回到第一个一键启动，点击右下角的一键启动
 
-![](https://mmbiz.qpic.cn/mmbiz_png/c3uTNeJbsrPiclkzNbYYibvoQ498n4fXiaByPiazWMoA395tibYzTIpFKJzOGvEvFicM6XHcBMHHibbibYAW74kBGG30YA/640?wx_fmt=png)
+![](_assets/640-9.png)
 
 出现这个代码页面不用管，等一下就行了！SD的主界面会自动在网页上弹出来
 
-![](https://mmbiz.qpic.cn/mmbiz_png/c3uTNeJbsrPiclkzNbYYibvoQ498n4fXiaBfOn5BocVyr1Ac8ia3UEHmdspSlYnibQjPfDAjvHAPd5ydVBddxfV5m0w/640?wx_fmt=png)
+![](_assets/640-7.png)
 
 如果在上面的页面出现了报错
 
@@ -319,13 +319,13 @@ http://account.qingjiaocloud.com/signup?inviteCode=R0JJ9CHY
 
 最后点击“修复”按钮
 
-![](https://mmbiz.qpic.cn/mmbiz_png/c3uTNeJbsrPiclkzNbYYibvoQ498n4fXiaBWEVtHPU47Qk0kwDyDCabYK9eZU6icQw8afbBXJnsz5HcDtDAJ3Ribp3Q/640?wx_fmt=png)
+![](_assets/640-7.png)
 
 下面这个页面就是SD的主页面，大家看到这样一个复杂的页面千万不要慌
 
 实际上有些功能在我们基础使用中用不上
 
-![](https://mmbiz.qpic.cn/mmbiz_png/c3uTNeJbsrPiclkzNbYYibvoQ498n4fXiaBNeiaBNF3icgomZZ1XYkRckZVHvXQdH9ssibB6c7vAibdPom4hfLhjibebHg/640?wx_fmt=png)
+![](_assets/640-7.png)
 
 接下来我们就把常用功能配合上实际例子来讲解
 
@@ -346,7 +346,7 @@ http://account.qingjiaocloud.com/signup?inviteCode=R0JJ9CHY
 
 假如现在我想生成一个真人AI小姐姐，就选用chilloutmix的大模型
 
-![](https://mmbiz.qpic.cn/mmbiz_png/c3uTNeJbsrPiclkzNbYYibvoQ498n4fXiaB9nbADAYxXPmBedjqIFP0orf0iaWh8WhaaQdZJlTpC20wvNPqXsMPeNg/640?wx_fmt=png)
+![](_assets/640-7.png)
 
 那么问题来了，我们这些模型从哪来呢？下载的模型放在哪里呢？
 
@@ -375,7 +375,7 @@ http://account.qingjiaocloud.com/signup?inviteCode=R0JJ9CHY
 
 输入的关键词越准确，出来的照片就会越接近自己脑海里的画面！
 
-![](https://mmbiz.qpic.cn/mmbiz_png/c3uTNeJbsrPiclkzNbYYibvoQ498n4fXiaBsU0XW3IaahxItvRqibO8PCp4xKpFkNSAkiaibmwa0thia44Ufuibxkc3J8Q/640?wx_fmt=png)
+![](_assets/640-5.png)
 
 那怎么写关键词呢？
 
@@ -393,19 +393,19 @@ http://account.qingjiaocloud.com/signup?inviteCode=R0JJ9CHY
 
 当然了，SD只能识别英语，但我们也不用担心，直接用翻译就可以啦！
 
-![](https://mmbiz.qpic.cn/mmbiz_png/c3uTNeJbsrPiclkzNbYYibvoQ498n4fXiaBnXxHMu2fxfHloICK1lzuILooPSiczJ30AiaRCBdfYGWXmm06M2GQ902g/640?wx_fmt=png)
+![](_assets/640-7.png)
 
 输入到SD就是这样的⬇
 
-![](https://mmbiz.qpic.cn/mmbiz_png/c3uTNeJbsrPiclkzNbYYibvoQ498n4fXiaBqtnSibpxf1tKM15w2ugRSHfxl7vFBI6pqkW1PqTbibDWdsbpm48knZKQ/640?wx_fmt=png)
+![](_assets/640-5.png)
 
 接着点击右边这个“生成”按钮
 
-![](https://mmbiz.qpic.cn/mmbiz_png/c3uTNeJbsrPiclkzNbYYibvoQ498n4fXiaBDgQZG4Tjjt5gQqibKmO6dPsHR1pDuCJ8I9XvWKPugJlqTdeYOzsCJdw/640?wx_fmt=png)
+![](_assets/640-5.png)
 
 这样你在SD的第一张图就出来啦！
 
-![](https://mmbiz.qpic.cn/mmbiz_png/c3uTNeJbsrPiclkzNbYYibvoQ498n4fXiaBbktyF5joE6ywI7QrnpHY06lURnTgfpoDG8rOhY8nJ4WHwrCrYicgZOw/640?wx_fmt=png)
+![](_assets/640-14.png)
 
 hhh是不是很多小伙伴已经按捺不住去试了试呢，出来的照片是不是有点不尽人意！
 
@@ -413,7 +413,7 @@ hhh是不是很多小伙伴已经按捺不住去试了试呢，出来的照片�
 
 这里是我上面这张图输入的关键词
 
-![](https://mmbiz.qpic.cn/mmbiz_png/c3uTNeJbsrPiclkzNbYYibvoQ498n4fXiaBXicWMLlib1JXvTI1k8yaZ3aS6eLX5FSaMnHtLibnw3VciasxoibmKbCkJmA/640?wx_fmt=png)
+![](_assets/640-5.png)
 
 看到这一大串英文千万别害怕！写关键词也是有模板的！
 
@@ -429,7 +429,7 @@ hhh是不是很多小伙伴已经按捺不住去试了试呢，出来的照片�
 
 翻译成对应的英文就是：Highest quality, ultra-high definition, masterpieces, 8k quality,
 
-![](https://mmbiz.qpic.cn/mmbiz_png/c3uTNeJbsrPiclkzNbYYibvoQ498n4fXiaBhcmgsZtPmibPY5FO1ic7x7drnrUvggtTibhyfYYTOfvxB2LsxxvH76LZA/640?wx_fmt=png)
+![](_assets/640-2.jpg)
 
 写完质量词，接着就是我们照片的内容
 
@@ -443,7 +443,7 @@ hhh是不是很多小伙伴已经按捺不住去试了试呢，出来的照片�
 
 这些照片内容大家都是可以随意改的，但是像精致的五官、细节的眼睛这类词语，大家可以都加上去
 
-![](https://mmbiz.qpic.cn/mmbiz_png/c3uTNeJbsrPiclkzNbYYibvoQ498n4fXiaBxib098ZIkkKDRiaLftQoXxF4iamhMF56mnLCnHhs2egvCibwUxic5U8jQKA/640?wx_fmt=png)
+![](_assets/640-7.png)
 
 写完五官之后，我们就可以想一下让照片的人**物穿什么衣服**，裤子，或者加上帽子之类的配饰
 
@@ -451,13 +451,13 @@ hhh是不是很多小伙伴已经按捺不住去试了试呢，出来的照片�
 
 比如：白色的毛衣、项链（white sweater, necklace,）
 
-![](https://mmbiz.qpic.cn/mmbiz_png/c3uTNeJbsrPiclkzNbYYibvoQ498n4fXiaBA7ic2gicfHGzbhBvV4ElvTIsGkUNLfVRx4h26HRp6xzuJ47qrBhc3PmQ/640?wx_fmt=png)
+![](_assets/640-7.png)
 
 最后我们就可以写上其他乱七八糟的东西，比如**背景、天气、照片姿势、构图**等等
 
 比如说：在街上，阳光，上半身照片（street, Sunshine, upper body photos,）
 
-![](https://mmbiz.qpic.cn/mmbiz_png/c3uTNeJbsrPiclkzNbYYibvoQ498n4fXiaBN0fvOqOlibp5wiciaicNSSrHxmUXtvK9MJlouftqs0rIDm5b6qZ4rqN2tw/640?wx_fmt=png)
+![](_assets/640-7.png)
 
 好啦，这样一套下来，我们的关键词就写的差不多了
 
@@ -469,9 +469,9 @@ hhh是不是很多小伙伴已经按捺不住去试了试呢，出来的照片�
 
 **画质+主体+主体细节+人物服装+其他（背景、天气、构图等）**
 
-![](https://mmbiz.qpic.cn/mmbiz_png/c3uTNeJbsrPiclkzNbYYibvoQ498n4fXiaBTPVn5pa9JYamVaicCa5sOLkjEiciaw8TibUDEwpCM9yM6xdiaKEnXHqcCCw/640?wx_fmt=png)
+![](_assets/640-7.png)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/c3uTNeJbsrPiclkzNbYYibvoQ498n4fXiaBrC10vCrCpQ5CY8KJKe8ZoZunVKzxn5nqeibvXCbKdLGlHTVZ6Biada6A/640?wx_fmt=png)
+![](_assets/640-14.png)
 
 好，现在我们新生成了一张照片，但是发现她并没有我关键词里的卷发，
 
@@ -493,7 +493,7 @@ hhh是不是很多小伙伴已经按捺不住去试了试呢，出来的照片�
 
 这就是在第一种的基础上加上数值，直接一个curly hair是1，大于1就是加权重，小于1就是减权重
 
-![](https://mmbiz.qpic.cn/mmbiz_png/c3uTNeJbsrPiclkzNbYYibvoQ498n4fXiaBOY9uicFib8LT2nsa2YVNKGdkLM6ibqyUP2ibgYKxtBNW4n049xPXiaYsibicw/640?wx_fmt=png)
+![](_assets/640-7.png)
 
 ### **02.负面关键词**
 
@@ -505,7 +505,7 @@ hhh是不是很多小伙伴已经按捺不住去试了试呢，出来的照片�
 
 所以，我们就可以通过输入负面关键词告诉SD，我不希望照片会出现什么内容
 
-![](https://mmbiz.qpic.cn/mmbiz_png/c3uTNeJbsrPiclkzNbYYibvoQ498n4fXiaBIQ8a71iamJFghoibtDic0XB3zwUwgD9Sp3MC6KWzekMjgH6Mib1prZje3A/640?wx_fmt=png)
+![](_assets/640-7.png)
 
 比如说我不希望照片出现：低质量，多余的手，多余的手指，不好看的脸等等...
 
@@ -515,7 +515,7 @@ hhh是不是很多小伙伴已经按捺不住去试了试呢，出来的照片�
 
 (worst quality:2), (low quality:2), (normal quality:2), lowres, ((monochrome)), ((grayscale)), bad anatomy,DeepNegative, skin spots, acnes, skin blemishes,(fat:1.2),facing away, looking away,tilted head, lowres,bad anatomy,bad hands, missing fingers,extra digit, fewer digits,bad feet,poorly drawn hands,poorly drawn face,mutation,deformed,extra fingers,extra limbs,extra arms,extra legs,malformed limbs,fused fingers,too many fingers,long neck,cross-eyed,mutated hands,polar lowres,bad body,bad proportions,gross proportions,missing arms,missing legs,extra digit, extra arms, extra leg, extra foot,teethcroppe,signature, watermark, username,blurry,cropped,jpeg artifacts,text,error
 
-![](https://mmbiz.qpic.cn/mmbiz_png/c3uTNeJbsrPiclkzNbYYibvoQ498n4fXiaBAB4Y1qoRUVVLAmKM3GxWeU8FDxXo6FHicIjSsou9YiaA0r8EDvJMPm3w/640?wx_fmt=png)
+![](_assets/640-7.png)
 
 当然你如果还有什么不想出现在照片上的东西，也可以自己加上去
 
@@ -525,7 +525,7 @@ hhh是不是很多小伙伴已经按捺不住去试了试呢，出来的照片�
 
 还不知道写些什么的，大家可以去看看！
 
-![](https://mmbiz.qpic.cn/mmbiz_png/c3uTNeJbsrPiclkzNbYYibvoQ498n4fXiaBXYZ5ulW0icbfD6dkH9GiaQibNp5GAXVnKSEDQiaTic9bz4jY3ibHSNiaseoLA/640?wx_fmt=png)
+![](_assets/640-12.png)
 
 **3.两分钟打造你的专属模特**
 -----------------
@@ -534,7 +534,7 @@ hhh是不是很多小伙伴已经按捺不住去试了试呢，出来的照片�
 
 但是现在我想要生成5678张照片，而且我要出来的照片都是同一张脸，这怎么办呢？
 
-![](https://mmbiz.qpic.cn/mmbiz_png/c3uTNeJbsrPiclkzNbYYibvoQ498n4fXiaBwYGh2az5E0iaxVXVKOafPCCmgOFfLbxEDXmsz1tPabHkzvsEoZGqyMg/640?wx_fmt=png)
+![](_assets/640-13.png)
 
 这时候我们就要用到Lora模型
 
@@ -542,15 +542,15 @@ hhh是不是很多小伙伴已经按捺不住去试了试呢，出来的照片�
 
 点击“生成”下面的的第三个按钮，就会弹出新的选项框
 
-![](https://mmbiz.qpic.cn/mmbiz_png/c3uTNeJbsrPiclkzNbYYibvoQ498n4fXiaBtNnhHWZbfqaQdD5Q6ibORt97anrDKnePSWWQuDwlzCpWHXDMVD7BAiaA/640?wx_fmt=png)
+![](_assets/640-7.png)
 
 找到Lora，就会出现我们下载保存到电脑的Lora模型
 
-![](https://mmbiz.qpic.cn/mmbiz_png/c3uTNeJbsrPiclkzNbYYibvoQ498n4fXiaBJIiajPygx4AZjnvvBNUWDicIIJyNSbucicHE3QScdNialeBJS55AGjEIFQ/640?wx_fmt=png)
+![](_assets/640-7.png)
 
 点击我们要用的Lora，就会自动添加到关键词的文本框里面
 
-![](https://mmbiz.qpic.cn/mmbiz_png/c3uTNeJbsrPiclkzNbYYibvoQ498n4fXiaB3ctibdw9F7081LI9L8D62y0nXXZJufVZOl3ZO67WnaicpiaMw2y7YQPVg/640?wx_fmt=png)
+![](_assets/640-7.png)
 
 前面那四张照片用到的就是这三个Lora，由此可见，我们的Lora是可以叠加使用的
 
@@ -568,7 +568,7 @@ hhh是不是很多小伙伴已经按捺不住去试了试呢，出来的照片�
 
 想要生成一个好看的小姐姐，就要多去尝试不同的权重组合
 
-![](https://mmbiz.qpic.cn/mmbiz_png/c3uTNeJbsrPiclkzNbYYibvoQ498n4fXiaBmEQUglGSvXTicCxrsZmwmhYjpZibYeEvpPhGGzN9HBHaFgwls5jO2CPg/640?wx_fmt=png)
+![](_assets/640-2.jpg)
 
 现在问题又来了，我们怎么选择Lora呢？
 
@@ -595,7 +595,7 @@ hhh是不是很多小伙伴已经按捺不住去试了试呢，出来的照片�
 
 可偏偏生成出来的图就是不一样？
 
-![](https://mmbiz.qpic.cn/mmbiz_png/c3uTNeJbsrPiclkzNbYYibvoQ498n4fXiaBtJqhEKiaRBTZ01P4KvUu8ic6CagxALUWdOgsNP71FAeWIibG1noubGV6Q/640?wx_fmt=png)
+![](_assets/640-12.png)
 
 那是因为影响照片的因素还有一个“随机数种子（Seed）”
 
@@ -603,7 +603,7 @@ hhh是不是很多小伙伴已经按捺不住去试了试呢，出来的照片�
 
 它会决定我们照片的基础轮廓，相当于决定了我们照片人物的外形轮廓，包括姿势和站位等
 
-![](https://mmbiz.qpic.cn/mmbiz_png/c3uTNeJbsrPiclkzNbYYibvoQ498n4fXiaBichWw3Egh3AIAGKEibvuk4SAiavs1b112qUgJllPvaVOwrmvBQzDfIibIQ/640?wx_fmt=png)
+![](_assets/640-7.png)
 
 当随机数为“-1”的时候，SD就会随机给你的照片生成一个种子，这个种子就理解成不一样的线稿就可以
 
@@ -611,7 +611,7 @@ hhh是不是很多小伙伴已经按捺不住去试了试呢，出来的照片�
 
 在我们点击生成的照片下面，有一大串英文，里面的seed值就是我们当前生成照片的seed值
 
-![](https://mmbiz.qpic.cn/mmbiz_png/c3uTNeJbsrPiclkzNbYYibvoQ498n4fXiaBhK7xeyuA1OdFR63P9jsNeo9HYC97QTichQoOKibR541up97cBosM8uicQ/640?wx_fmt=png)
+![](_assets/640-7.png)
 
 只有当我们所有参数，包括随机数种子跟别人的照片都一样时，我们才能生成跟别人差不多一样的照片。
 
@@ -626,17 +626,17 @@ hhh是不是很多小伙伴已经按捺不住去试了试呢，出来的照片�
 
 Stable Diffusion不用一分钟，不管你是要2.5D还是2D的照片，它都能生成！
 
-![](https://mmbiz.qpic.cn/mmbiz_png/c3uTNeJbsrPiclkzNbYYibvoQ498n4fXiaBeic3jD4G2mfoGcbCPfibcnTRCPqecTB2a7cI26Xz3WjfDTf0o9Zkcbiaw/640?wx_fmt=png)
+![](_assets/640-12.png)
 
 这里我们用到的是图生图里面的功能
 
-![](https://mmbiz.qpic.cn/mmbiz_png/c3uTNeJbsrPiclkzNbYYibvoQ498n4fXiaB7M1N0Et2OjdnQgQV8Js8KWj0M5o84kyYCpy2Ux8usBn0hmTfiaEuwBw/640?wx_fmt=png)
+![](_assets/640-7.png)
 
 我们是要用自己的照片生成一张二次元的照片
 
 一定要记得换大模型！！选一个能生成二次元照片的大模型就可以
 
-![](https://mmbiz.qpic.cn/mmbiz_png/c3uTNeJbsrPiclkzNbYYibvoQ498n4fXiaB4ibvydxFUEr91SOibfGokmq38Nnd3VHia8LyGKtK6icutZUnOJvum87dag/640?wx_fmt=png)
+![](_assets/640-7.png)
 
 至于正面关键词呢
 
@@ -646,11 +646,11 @@ Stable Diffusion不用一分钟，不管你是要2.5D还是2D的照片，它都�
 
 负面关键词我们就复制前面给大家的就可以啦
 
-![](https://mmbiz.qpic.cn/mmbiz_png/c3uTNeJbsrPiclkzNbYYibvoQ498n4fXiaBiaUvOpUR1kPRjlH70Au47adg367DqBsSxrX6emSIafic8ia3C4Wy4gCWQ/640?wx_fmt=png)
+![](_assets/640-7.png)
 
 接着我们就在这个空白的地方点击上传自己需要生成的照片
 
-![](https://mmbiz.qpic.cn/mmbiz_png/c3uTNeJbsrPiclkzNbYYibvoQ498n4fXiaBVm6LM4mRZGnPJxBeYqscibKEDGfeUF3KTpAqJNAzRxibb71yvao7jTvQ/640?wx_fmt=png)
+![](_assets/640-7.png)
 
 接着鼠标往下移，找到“重绘幅度”
 
@@ -662,7 +662,7 @@ Stable Diffusion不用一分钟，不管你是要2.5D还是2D的照片，它都�
 
 大家可以多试试几个参数
 
-![](https://mmbiz.qpic.cn/mmbiz_png/c3uTNeJbsrPiclkzNbYYibvoQ498n4fXiaBrjxyn73wZJp4loibzCMibicGKewC7WNcBT0rogNYJo2StpqoImWOj8Huw/640?wx_fmt=png)
+![](_assets/640-7.png)
 
 这样设置下来一分钟都不用！就可以生成自己的二次元造型，大家就省下20块钱啦！
 
@@ -677,21 +677,21 @@ Stable Diffusion不用一分钟，不管你是要2.5D还是2D的照片，它都�
 
 这就让我觉得我画画天赋很高了哈哈哈！！
 
-![](https://mmbiz.qpic.cn/mmbiz_png/c3uTNeJbsrPiclkzNbYYibvoQ498n4fXiaBN5wmRs4VibJKXHX9AEWM02GnAPo6lmzfDhEiakhbrpCxsy9lqs9BNz0g/640?wx_fmt=png)
+![](_assets/640-2.jpg)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/c3uTNeJbsrPiclkzNbYYibvoQ498n4fXiaBPe8aoyLEco8ibDX8P1yEibKP8mNVUVkXkPbfbTXicun4r6YC8VlU98MIg/640?wx_fmt=png)
+![](_assets/640-9.png)
 
 这个就是SD图生图里的涂鸦功能，点击空白的地方上传一张纯白的图片，也就是你的画纸
 
-![](https://mmbiz.qpic.cn/mmbiz_png/c3uTNeJbsrPiclkzNbYYibvoQ498n4fXiaBVm6LM4mRZGnPJxBeYqscibKEDGfeUF3KTpAqJNAzRxibb71yvao7jTvQ/640?wx_fmt=png)
+![](_assets/640-7.png)
 
 右边的两个小按钮点开就可以调节画笔的大小和颜色
 
-![](https://mmbiz.qpic.cn/mmbiz_png/c3uTNeJbsrPiclkzNbYYibvoQ498n4fXiaBPmwYY9NDevsLJKianIY0PF2fI3LEYIuJB46ssgWpHPbzcWVbvGqRHkw/640?wx_fmt=png)
+![](_assets/640-2.jpg)
 
 接着就在画纸上随便画画
 
-![](https://mmbiz.qpic.cn/mmbiz_png/c3uTNeJbsrPiclkzNbYYibvoQ498n4fXiaBjt4eMdYfyqWKwtRuckrv9LXxdibAaTTmSU56K5k1C5V1w6IicQQ3N0Cg/640?wx_fmt=png)
+![](_assets/640-7.png)
 
 然后挑合适的大模型，想要什么画风就挑什么模型
 
@@ -703,11 +703,11 @@ Stable Diffusion不用一分钟，不管你是要2.5D还是2D的照片，它都�
 
 比如说我画的就是：河流，森林(river,forest)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/c3uTNeJbsrPiclkzNbYYibvoQ498n4fXiaBFPw9Tgapbib22pqCf7hMticicpCiaVQ8icjnFZKia3NiaSyicpOR2G5EicdvxJQ/640?wx_fmt=png)
+![](_assets/640-7.png)
 
 最后我们把下面的重绘幅度拉到0.6~0.8，点击生成就可以啦！
 
-![](https://mmbiz.qpic.cn/mmbiz_png/c3uTNeJbsrPiclkzNbYYibvoQ498n4fXiaBRicFHsoLfwqvME2BKz1jZdTJYfEH2yGdvFKOeGmNmvicN6H79S7nWVdw/640?wx_fmt=png)
+![](_assets/640-7.png)
 
 是不是非常简单，自己随便画几笔，就能生成出非常好看的照片了！
 
@@ -718,15 +718,15 @@ Stable Diffusion不用一分钟，不管你是要2.5D还是2D的照片，它都�
 
 那我要怎么在不改变其它地方的情况下，给她换上更好看的衣服呢？
 
-![](https://mmbiz.qpic.cn/mmbiz_png/c3uTNeJbsrPiclkzNbYYibvoQ498n4fXiaBcWufDUPDcYnlQPS5PdH82OeonYzZXCjhYG1PUgHbUtANktke8QIxUA/640?wx_fmt=png)
+![](_assets/640-14.png)
 
 这里用到的是图生图中局部重绘的功能，导入要调整的照片
 
-![](https://mmbiz.qpic.cn/mmbiz_png/c3uTNeJbsrPiclkzNbYYibvoQ498n4fXiaBNlMgXOictDSIztd1TnYAxSZopRqwsFCNib7nfsCRibaU5vsLXdic2NOm0A/640?wx_fmt=png)
+![](_assets/640-7.png)
 
 点击右边的画笔可以调整大小，把人物衣服部分全部涂黑
 
-![](https://mmbiz.qpic.cn/mmbiz_png/c3uTNeJbsrPiclkzNbYYibvoQ498n4fXiaBZiaVyqiadU0Ud5vGTfOBO03aVL4ZRCxbQbvX7EMVWZymAZeOz01PMkmg/640?wx_fmt=png)
+![](_assets/640-2.jpg)
 
 接着输入关键词，先输入质量词（如：高质量，高清画质，8k等）
 
@@ -738,7 +738,7 @@ Stable Diffusion不用一分钟，不管你是要2.5D还是2D的照片，它都�
 
 点击生成就可以啦！  
 
-![](https://mmbiz.qpic.cn/mmbiz_png/c3uTNeJbsrPiclkzNbYYibvoQ498n4fXiaBqLbCWdCT1A7iaqHR0Xlxwng05CDySU5KCfq6nwHPDHWWNIz64b4rncA/640?wx_fmt=png)
+![](_assets/640-13.png)
 
 同样的道理，我们还可以用这个功能来换脸，
 
@@ -754,17 +754,17 @@ Stable Diffusion不用一分钟，不管你是要2.5D还是2D的照片，它都�
 
 那我们就可以用到一个新的功能——“涂鸦重绘”
 
-![](https://mmbiz.qpic.cn/mmbiz_png/c3uTNeJbsrPiclkzNbYYibvoQ498n4fXiaBNlMgXOictDSIztd1TnYAxSZopRqwsFCNib7nfsCRibaU5vsLXdic2NOm0A/640?wx_fmt=png)
+![](_assets/640-7.png)
 
 导入照片之后，在右边调整画笔大小和颜色，然后就可以自己设计衣服的颜色啦
 
-![](https://mmbiz.qpic.cn/mmbiz_png/c3uTNeJbsrPiclkzNbYYibvoQ498n4fXiaBSZJ4gzYdnWuqHU3ialMsjqzFES7AE2Zc4Nt6VS7DVWz6LWibggXcl3Gg/640?wx_fmt=png)
+![](_assets/640-7.png)
 
 关键词就像前面说的那样输入就可以啦，
 
 每次点击生成都能出来不一样的衣服
 
-![](https://mmbiz.qpic.cn/mmbiz_png/c3uTNeJbsrPiclkzNbYYibvoQ498n4fXiaBdlGttvhnicu7vDpZup0ZvM0jyuTZ0F1QJhicicpMb5w3g0bkTSxfxIC3Q/640?wx_fmt=png)
+![](_assets/640-14.png)
 
 **8.两步拯救超糊照片**
 --------------
@@ -773,17 +773,17 @@ SD除了生成新的照片外，还可以用来修复我们比较糊的照片
 
 出来的效果比大多数软件都要好！
 
-![](https://mmbiz.qpic.cn/mmbiz_png/c3uTNeJbsrPiclkzNbYYibvoQ498n4fXiaBeOxibeyHZKkWkEX8uAkYXQ2cIXgjrMANVVaREbnDeJCOFB25ZiaDoK8g/640?wx_fmt=png)
+![](_assets/640-2.jpg)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/c3uTNeJbsrPiclkzNbYYibvoQ498n4fXiaBicaotVDZ5SPN1XeYt8h7RmyFWOayZRwnkU8wU1yaVsuM71yich9JlaIg/640?wx_fmt=png)
+![](_assets/640-2.jpg)
 
 这个恢复画质的功能在SD里叫“后期处理”，点击下面空白的地方上传图片
 
-![](https://mmbiz.qpic.cn/mmbiz_png/c3uTNeJbsrPiclkzNbYYibvoQ498n4fXiaBibaCHLdE445bVR9tnHaMo40SHTWY1v4E8nlianWuia08gTQgJeYxLMib1g/640?wx_fmt=png)
+![](_assets/640-2.jpg)
 
 接着我们看到下面这个“Upscaler 1”，也就是放大器
 
-![](https://mmbiz.qpic.cn/mmbiz_png/c3uTNeJbsrPiclkzNbYYibvoQ498n4fXiaBUV4Pf9N3MxvKlIYxoJxvkwtDPuBHkum7LOwRQOC3RbkTIVlWnEtiaVw/640?wx_fmt=png)
+![](_assets/640-7.png)
 
 **修复二次元的照片就选“R-ESRGAN 4x+Anime68”**
 
@@ -791,7 +791,7 @@ SD除了生成新的照片外，还可以用来修复我们比较糊的照片
 
 其他放大器出来的效果都没有这两个好
 
-![](https://mmbiz.qpic.cn/mmbiz_png/c3uTNeJbsrPiclkzNbYYibvoQ498n4fXiaBqUuYmfeWW3PEb0tVpx6pSsZyqWMkAFrjhyEdDiaEA3VenKkHSUx21Mg/640?wx_fmt=png)
+![](_assets/640-7.png)
 
 最后点击生成就可以！
 
@@ -799,25 +799,25 @@ SD除了生成新的照片外，还可以用来修复我们比较糊的照片
 
 比如说我们现在要修复这张表情包
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/c3uTNeJbsrPiclkzNbYYibvoQ498n4fXiaB6swT3noqJibxmVQgQGEqWOTn7u1FdiaPOichz9Bnk8WJQGymcSYKEXgIg/640?wx_fmt=jpeg)
+![](_assets/640-2.jpg)
 
 我们先把照片导入到SD
 
-![](https://mmbiz.qpic.cn/mmbiz_png/c3uTNeJbsrPiclkzNbYYibvoQ498n4fXiaBLH1PZfasPkMMhcNhHNic6NGsiaybQXWDqXo97nSxZ6S0mCvTcTHNWevQ/640?wx_fmt=png)
+![](_assets/640-12.png)
 
 这边放大器选择“无（None）”
 
-![](https://mmbiz.qpic.cn/mmbiz_png/c3uTNeJbsrPiclkzNbYYibvoQ498n4fXiaBye5lS6D6BJL92Z4oHFszXYdwWvKPd6oLPeAT0MYNLNNh6TDiaepBiacA/640?wx_fmt=png)
+![](_assets/640-2.jpg)
 
 再往下看到这个“GFPGAN强度”
 
 这个是专门用来修复人脸的，把参数拉满（1）就行
 
-![](https://mmbiz.qpic.cn/mmbiz_png/c3uTNeJbsrPiclkzNbYYibvoQ498n4fXiaB4qAjPPPkkp48PPfzicpj3SaficQ21M7yhACJ7ia2mnJDMgKBrEEXNVu8w/640?wx_fmt=png)
+![](_assets/640-7.png)
 
 接着点击“生成”
 
-![](https://mmbiz.qpic.cn/mmbiz_png/c3uTNeJbsrPiclkzNbYYibvoQ498n4fXiaBaPv6AqChQ0zXBjFAZ2kXFYiaaqC2SOjdj5E6fXrs9IY5siajYGOJnZpA/640?wx_fmt=png)
+![](_assets/640-8.png)
 
 这样我们的人脸就修复了，但是也只能修复脸的部分，除了脸其他的地方还是比较糊。
 
@@ -832,21 +832,21 @@ SD除了生成新的照片外，还可以用来修复我们比较糊的照片
 
 第一个就是“PNG图片信息”
 
-![](https://mmbiz.qpic.cn/mmbiz_png/c3uTNeJbsrPiclkzNbYYibvoQ498n4fXiaBgUlJEnIG8nvzr3Iz5XGPSwXlv6PFoXAS8cVZv4rLu3KbHdt3Ab24dA/640?wx_fmt=png)
+![](_assets/640-7.png)
 
 把照片导进去，右边就会自动弹出照片的信息，包括正面关键词、负面关键词，还有其他种子、大模型等信息
 
-![](https://mmbiz.qpic.cn/mmbiz_png/c3uTNeJbsrPiclkzNbYYibvoQ498n4fXiaBWTn6kw7lse61tDuzmpD7TDBRQ5ic70j3eToWzq8ic5URIDb7skgg626g/640?wx_fmt=png)
+![](_assets/640-2.jpg)
 
 我们可以复制这一大串信息，来到“文生图”的页面，把全部信息粘贴到关键词的文本框中
 
-![](https://mmbiz.qpic.cn/mmbiz_png/c3uTNeJbsrPiclkzNbYYibvoQ498n4fXiaBzMOgcRl7eqAAstIWpKBwiaJhEo87AtuXTSXOyAODiaczqiaficoI6p0peA/640?wx_fmt=png)
+![](_assets/640-12.png)
 
 然后点击“生成”按钮下面的第一个小按钮，SD就会自动帮你把信息分配到合适的地方，用上一样的效果和模型
 
 这时候点击生成，就能得到一张差不多一样的照片（前提是有一样的大模型和Lora）
 
-![](https://mmbiz.qpic.cn/mmbiz_png/c3uTNeJbsrPiclkzNbYYibvoQ498n4fXiaBmUW3U7d7MMoo1o6DWscTQ90R9jVhBjFHQocyuBAFj6JTKu3NWmJ0Cg/640?wx_fmt=png)
+![](_assets/640-7.png)
 
 有时候我们把照片导入进去之后，发现右边并没有照片生成的信息
 
@@ -854,17 +854,17 @@ SD除了生成新的照片外，还可以用来修复我们比较糊的照片
 
 那我们就没法用这个功能
 
-![](https://mmbiz.qpic.cn/mmbiz_png/c3uTNeJbsrPiclkzNbYYibvoQ498n4fXiaBQkhYBMTnH8ticfMPCz7t5HeMcd7zsoKSKtZ9fxJ3qUfia2PjEpDSsvag/640?wx_fmt=png)
+![](_assets/640-12.png)
 
 但是我们可以用后面这个“标签器（Tagger）”
 
 它可以帮助我们生成照片的关键词
 
-![](https://mmbiz.qpic.cn/mmbiz_png/c3uTNeJbsrPiclkzNbYYibvoQ498n4fXiaBLQUh6LqvkbCusibyHTOVgc2guAdJn0XfzOaTlIcricuESJicWoJz11wZg/640?wx_fmt=png)
+![](_assets/640-2.jpg)
 
 比如说我们现在导入一张照片，右边就会出来这张照片的关键词
 
-![](https://mmbiz.qpic.cn/mmbiz_png/c3uTNeJbsrPiclkzNbYYibvoQ498n4fXiaBRTic0zQ6MrGIwM1UAsbhUAlVoR6I573BIbCBTuQSRc4EIP61gnFyr0g/640?wx_fmt=png)
+![](_assets/640-13.png)
 
 anya (spy x family), 1girl, solo, school uniform, eden academy school uniform, pink hair, green eyes, female child, looking at viewer, open mouth, ahoge, meme, salute, child, parody, upper body, black dress
 
@@ -891,21 +891,21 @@ anya (spy x family), 1girl, solo, school uniform, eden academy school uniform, p
 
 简单来说就是可以用它控制照片的线条，比如人物的动作、建筑物的线条等
 
-![](https://mmbiz.qpic.cn/mmbiz_png/c3uTNeJbsrPiclkzNbYYibvoQ498n4fXiaBIGHfag4iaU4GO2wM9vUK2w2C3HGvnhAjhMN8elLSxW7Z0oqdYygLFvQ/640?wx_fmt=png)
+![](_assets/640-2.jpg)
 
 比如，我现在想让左边照片的小姐姐摆出右边小姐姐的姿势,得到最右边的一张照片
 
-![](https://mmbiz.qpic.cn/mmbiz_png/c3uTNeJbsrPiclkzNbYYibvoQ498n4fXiaB8XpXib9XCjmqdVxRVVZhN1ktiaQXcbU2MAXCvH0EMyMCb4mZf7O0qDqg/640?wx_fmt=png)
+![](_assets/640-9.png)
 
 首先，大模型和关键词我们还是正常的填写
 
 生成一张我们我们想要的小姐姐的照片
 
-![](https://mmbiz.qpic.cn/mmbiz_png/c3uTNeJbsrPiclkzNbYYibvoQ498n4fXiaBn8XiciaiaMd54RDvzWHVYABneaUU25QqSOjMZnyeKFGzBQG74cpDkN6rA/640?wx_fmt=png)
+![](_assets/640-8.png)
 
 接着鼠标滑到最下面，点击“ControlNet”
 
-![](https://mmbiz.qpic.cn/mmbiz_png/c3uTNeJbsrPiclkzNbYYibvoQ498n4fXiaBbicCrEf0FCwcFxdWZ9S1TgaPWDrHkG7kFQtTeS7F5vkECibeiaQdArlOg/640?wx_fmt=png)
+![](_assets/640-12.png)
 
 ①点击空白的地方，上传我们需要指定的姿势的照片
 
@@ -913,19 +913,19 @@ anya (spy x family), 1girl, solo, school uniform, eden academy school uniform, p
 
 ③在“预处理器”和“模型”里选择“openpose”，这就是用来让计算机识别人物姿势的  
 
-![](https://mmbiz.qpic.cn/mmbiz_png/c3uTNeJbsrPiclkzNbYYibvoQ498n4fXiaB4CRrtWWkHxFUZ7iaQNj5w4iaVWasMfPPPHwuYJTHttCUSY59b2WkFtbg/640?wx_fmt=png)
+![](_assets/640-8.png)
 
 下一步就点击这个“预览预处理结果”
 
-![](https://mmbiz.qpic.cn/mmbiz_png/c3uTNeJbsrPiclkzNbYYibvoQ498n4fXiaBRYJA1hpo3X04jfrbyZDXWVk6ibn9lqiaLNyovYjo70Rv9jGPzXb6Hb6A/640?wx_fmt=png)
+![](_assets/640-12.png)
 
 接着原来照片的右边就会出现人物姿势的线条，最后点击生成照片
 
-![](https://mmbiz.qpic.cn/mmbiz_png/c3uTNeJbsrPiclkzNbYYibvoQ498n4fXiaBEcAEkM7U6ia34EPkViceiaiauteEFWDtSictylqEuTdFwbia2x0lz08YO00w/640?wx_fmt=png)
+![](_assets/640-2.jpg)
 
 这样我们一张指定姿势的美女小姐姐就生成啦！
 
-![](https://mmbiz.qpic.cn/mmbiz_png/c3uTNeJbsrPiclkzNbYYibvoQ498n4fXiaB4qLvrrUGbLGdubcroic4Xh6t1ztJhNs2RPicqpuSRNnePO8SibE8SuIBg/640?wx_fmt=png)
+![](_assets/640-2.jpg)
 
 **11.插画师的福音，线稿秒上色**
 -------------------
@@ -944,7 +944,7 @@ anya (spy x family), 1girl, solo, school uniform, eden academy school uniform, p
 
 这也是通过使用“ControlNet”这个功能生成的
 
-![](https://mmbiz.qpic.cn/mmbiz_png/c3uTNeJbsrPiclkzNbYYibvoQ498n4fXiaBDIxwBh9Ib7nqZ3OicTXicvPB8jC6GpUmbKD27Ml5p1f7bhxvJvc7Ly4A/640?wx_fmt=png)
+![](_assets/640-15.png)
 
 首先，我们点开"ControlNet"的状态栏
 
@@ -956,7 +956,7 @@ anya (spy x family), 1girl, solo, school uniform, eden academy school uniform, p
 
 ④在模型里面选择“canny”的模型
 
-![](https://mmbiz.qpic.cn/mmbiz_png/c3uTNeJbsrPiclkzNbYYibvoQ498n4fXiaBoMhib9U4jWkAkTiacibKBS543YuC1fngX49Jw6Cp0jpibxiapYIib1RtITfg/640?wx_fmt=png)
+![](_assets/640-12.png)
 
 接着去设置我们前面的内容
 
@@ -978,11 +978,11 @@ anya (spy x family), 1girl, solo, school uniform, eden academy school uniform, p
 
 负面关键词只要复制前面的就可以
 
-![](https://mmbiz.qpic.cn/mmbiz_png/c3uTNeJbsrPiclkzNbYYibvoQ498n4fXiaBSY5gBve2lp6DiaVjPXPoJdnNwlp3VHtv9TPLPCwmg6xgz4Uz3sLibhMg/640?wx_fmt=other)
+![](_assets/640-9.png)
 
 就这样不管再复杂的线稿，在SD里面都可以很快速的上好颜色
 
-![](https://mmbiz.qpic.cn/mmbiz_png/c3uTNeJbsrPiclkzNbYYibvoQ498n4fXiaB6ky8sNpkVASDhTIcLYOiaNMVnQOqBZia9xsgg8bFeTtDib6XjPAfr6nKw/640?wx_fmt=png)
+![](_assets/640-14.png)
 
 **12.小白也能进行室内设计**
 -----------------
@@ -995,7 +995,7 @@ anya (spy x family), 1girl, solo, school uniform, eden academy school uniform, p
 
 我想看看我的房子弄成不同的风格是怎样的
 
-![](https://mmbiz.qpic.cn/mmbiz_png/c3uTNeJbsrPiclkzNbYYibvoQ498n4fXiaBqwnWMeDW8vo7icHEciccouiaHlq8WrNvxSq4hiad4L4Tm1aq1ncjFXia7KQ/640?wx_fmt=png)
+![](_assets/640-9.png)
 
 首先先点开“ControlNet”的状态栏
 
@@ -1005,7 +1005,7 @@ anya (spy x family), 1girl, solo, school uniform, eden academy school uniform, p
 
 ③预处理器和模型都选“msld”，这是用来计算房屋线条的
 
-![](https://mmbiz.qpic.cn/mmbiz_png/c3uTNeJbsrPiclkzNbYYibvoQ498n4fXiaB1S4J3I7QJoONoicB0wGq67nICyF5mlzcl9Znty9WO0r72ciaIYghXBKg/640?wx_fmt=png)
+![](_assets/640-13.png)
 
 接着切换一个现实照片的大模型
 
@@ -1013,7 +1013,7 @@ anya (spy x family), 1girl, solo, school uniform, eden academy school uniform, p
 
 然后就是输入照片的主体：一个客厅
 
-![](https://mmbiz.qpic.cn/mmbiz_png/c3uTNeJbsrPiclkzNbYYibvoQ498n4fXiaBDsUJ5hacHaOevvf6036AlDkorgwjdECpXbYny4rCMmiaXSq4fsiaow4g/640?wx_fmt=png)
+![](_assets/640-8.png)
 
 最后点击生成
 
@@ -1034,13 +1034,13 @@ anya (spy x family), 1girl, solo, school uniform, eden academy school uniform, p
 
 没加VAE的照片是灰蒙蒙的
 
-![](https://mmbiz.qpic.cn/mmbiz_png/c3uTNeJbsrPiclkzNbYYibvoQ498n4fXiaBqng6IwQu6uU1HmZSWtkWmBj2UyqNDMSkXBtj4zq4wVSibw0Fw7s3paA/640?wx_fmt=png)
+![](_assets/640-12.png)
 
 但在一般情况下，如果我们对照片的色彩没有特别要求的时候，只选定一个VAE来使用就可以。
 
 下面这个就是我比较常用的VAE
 
-![](https://mmbiz.qpic.cn/mmbiz_png/c3uTNeJbsrPiclkzNbYYibvoQ498n4fXiaBlhmbibd0IVlCEqcNibJ8JYUctIibTFG8EgKPiaLMejveZIfZkjqibZQYZqg/640?wx_fmt=png)
+![](_assets/640-2.jpg)
 
 **2.迭代步数**
 ----------
@@ -1049,7 +1049,7 @@ anya (spy x family), 1girl, solo, school uniform, eden academy school uniform, p
 
 迭代步数的意思就是我们在这幅画上画多少笔
 
-![](https://mmbiz.qpic.cn/mmbiz_png/c3uTNeJbsrPiclkzNbYYibvoQ498n4fXiaBm3LpZIFouzbLa30Afy0x3Qu81VkDibdgOAtF3GBaA7STXfIpxcoIoZw/640?wx_fmt=png)
+![](_assets/640-12.png)
 
 一般我们把参数设置在20~30之间
 
@@ -1063,14 +1063,14 @@ anya (spy x family), 1girl, solo, school uniform, eden academy school uniform, p
 
 **电脑配置比较好的就可以设置在25~30之间**
 
-![](https://mmbiz.qpic.cn/mmbiz_png/c3uTNeJbsrPiclkzNbYYibvoQ498n4fXiaBV5th365qKH3IIMrZb54YThVd3TXgWvN3uA7DBu8ncicEHBgxVHwDGxA/640?wx_fmt=png)
+![](_assets/640-2.jpg)
 
 **3.采样方法**
 ----------
 
 采用方法的不同就相当于我们画画的方式不一样
 
-![](https://mmbiz.qpic.cn/mmbiz_png/c3uTNeJbsrPiclkzNbYYibvoQ498n4fXiaBe1YdPxr3rlib8ia6KgkC7AibaqZQI6QDz0VDbiarbsKoHBDsfD9JiaAhtvw/640?wx_fmt=png)
+![](_assets/640-2.jpg)
 
 那这么多采用方法怎么选呢？
 
@@ -1080,7 +1080,7 @@ anya (spy x family), 1girl, solo, school uniform, eden academy school uniform, p
 
 用下面框出来的几个，出来的照片质量比较高，而且出图速度也比较快
 
-![](https://mmbiz.qpic.cn/mmbiz_png/c3uTNeJbsrPiclkzNbYYibvoQ498n4fXiaBZ5SzrlbQbsPsic2B7gfSosFux1bSuSVbGWkts9hfoHxoQg6rEniarh9g/640?wx_fmt=png)
+![](_assets/640-2.jpg)
 
 **4.面部修复+高分辨率修复**
 -----------------
@@ -1091,7 +1091,7 @@ anya (spy x family), 1girl, solo, school uniform, eden academy school uniform, p
 
 高分辨率修复：电脑配置好就可以用；电脑配置稍微差点的别开，否则照片无法生成
 
-![](https://mmbiz.qpic.cn/mmbiz_png/c3uTNeJbsrPiclkzNbYYibvoQ498n4fXiaBQaLbxEib6VPicnmIZdxS4ch9hlZ3c7QNUdPx6MibSYrkPYysPByXcdXKA/640?wx_fmt=png)
+![](_assets/640-12.png)
 
 **5.图片分辨率（图片大小）**
 -----------------
@@ -1106,7 +1106,7 @@ anya (spy x family), 1girl, solo, school uniform, eden academy school uniform, p
 
 电脑配置稍微差点的朋友们，千万别看网上设置成什么1024、2048，我们电脑跑不动哒！
 
-![](https://mmbiz.qpic.cn/mmbiz_png/c3uTNeJbsrPiclkzNbYYibvoQ498n4fXiaBhRmJQelmsaulnnnbwgoq7h0dVlM2niaVdM39KzCgurwCEBTz4L7ZJjw/640?wx_fmt=png)
+![](_assets/640-8.png)
 
 **6.生成多图**
 ----------
@@ -1115,7 +1115,7 @@ anya (spy x family), 1girl, solo, school uniform, eden academy school uniform, p
 
 假如我们把两个参数都设置成2
 
-![](https://mmbiz.qpic.cn/mmbiz_png/c3uTNeJbsrPiclkzNbYYibvoQ498n4fXiaBicYjKoncib9UW1icWcGHLATDdWJeR7DBAhGzYWT4KUocZicfWx1QqFKqMw/640?wx_fmt=png)
+![](_assets/640-2.jpg)
 
 总批次数的意思就是生成两批
 
@@ -1142,7 +1142,7 @@ anya (spy x family), 1girl, solo, school uniform, eden academy school uniform, p
 
 那我们就要用到最下面“脚本”里的“提示词矩阵”，直接点击就可以
 
-![](https://mmbiz.qpic.cn/mmbiz_png/c3uTNeJbsrPiclkzNbYYibvoQ498n4fXiaBtZNGzyiaibhSOPOCGsl2RVonibnhJaacOsdia5pibOrWOKRubyicKXC3mldQ/640?wx_fmt=png)
+![](_assets/640-8.png)
 
 接着来到关键词的文本框
 
@@ -1152,29 +1152,29 @@ anya (spy x family), 1girl, solo, school uniform, eden academy school uniform, p
 
 看看加上最高质量（the best quality）和不加有什么区别
 
-![](https://mmbiz.qpic.cn/mmbiz_png/c3uTNeJbsrPiclkzNbYYibvoQ498n4fXiaB3hX0hwGG4OOfRqKibUMNqtib3eA0UC4WeayA2bIxcChXICn6GN4GEZMQ/640?wx_fmt=png)
+![](_assets/640-10.png)
 
 书写的格式：把需要进行对比的关键词放在最后，用“|”把关键词和前面的关键词分隔开
 
 也就是：**关键词|需要对比的关键词**
 
-![](https://mmbiz.qpic.cn/mmbiz_png/c3uTNeJbsrPiclkzNbYYibvoQ498n4fXiaBfMIpAiatKECmSNbI4DPich50hx18PGZuSezD7sb5OqV4FenVkqDDMV3w/640?wx_fmt=png)
+![](_assets/640-2.jpg)
 
 点击生成就会出现两张拼在一起的照片，
 
 我们就可以看到加了“最高质量（the best quality）”的照片会更加清晰
 
-![](https://mmbiz.qpic.cn/mmbiz_png/c3uTNeJbsrPiclkzNbYYibvoQ498n4fXiaB5ZTmUhwSf7bcSEPvgPXNiaib5gEIH2xYftR7PHibA1ZYxWgYsKVeBP96Q/640?wx_fmt=png)
+![](_assets/640-9.png)
 
 那如果现在想要比较不同的采用方法下，迭代步数不一样，生成的照片有什么区别，该怎么操作呢？
 
 这里用到的就是脚本里的“X/Y/Z图表”
 
-![](https://mmbiz.qpic.cn/mmbiz_png/c3uTNeJbsrPiclkzNbYYibvoQ498n4fXiaBADyfPKKicoFJia9JFDqAKMibxAg8lZ8Oj1mibIkB1cOCSfCU6yNfibrg8ZQ/640?wx_fmt=png)
+![](_assets/640-12.png)
 
 在X轴类型里面选择“迭代步数”，右边的X轴值就输入需要进行比较的步数
 
-![](https://mmbiz.qpic.cn/mmbiz_png/c3uTNeJbsrPiclkzNbYYibvoQ498n4fXiaBNmwPBYnjNic0e7W4picTVneaNNRs7vGpt3NLnm2XAnf8vnf1TeK3vjgw/640?wx_fmt=png)
+![](_assets/640-8.png)
 
 在Y轴类型里面选择“采用器”，接着点击最右边的笔记本图标
 
@@ -1182,7 +1182,7 @@ anya (spy x family), 1girl, solo, school uniform, eden academy school uniform, p
 
 我们这里就选三个比较常用的采样器
 
-![](https://mmbiz.qpic.cn/mmbiz_png/c3uTNeJbsrPiclkzNbYYibvoQ498n4fXiaBQICpmTGbDfnxI5JlEgZePa3ic9BTfwNInO7x8lMBJibB4yV37KiaB7F6Q/640?wx_fmt=png)
+![](_assets/640-12.png)
 
 这边X轴和Y轴的信息是可以全部换过来写的，看个人习惯
 
@@ -1194,7 +1194,7 @@ anya (spy x family), 1girl, solo, school uniform, eden academy school uniform, p
 
 这样比较下来，我们就可以选择自己更喜欢的采样方法和迭代步数
 
-![](https://mmbiz.qpic.cn/mmbiz_png/c3uTNeJbsrPiclkzNbYYibvoQ498n4fXiaBWlJZampHicBaeE7e7LlOfY7HRGkJzFcVXADgzVtOibrOsbbez6Kz0tZQ/640?wx_fmt=png)
+![](_assets/640-11.png)
 
 **1.模型在哪下载**
 ------------
@@ -1217,7 +1217,7 @@ LoRA=Lora
 
 常用的就是这两个
 
-![](https://mmbiz.qpic.cn/mmbiz_png/c3uTNeJbsrPiclkzNbYYibvoQ498n4fXiaBHxyXz0nsEJibr3ZicKNgcQQibkbwzQOlQY7UoficxHZ3VJINcJnogxawwA/640?wx_fmt=png)
+![](_assets/640-15.png)
 
 **03.看照片，看到感兴趣的就点进去**
 
@@ -1225,13 +1225,13 @@ LoRA=Lora
 
 文件保存到哪里在这一节的第二部分  
 
-![](https://mmbiz.qpic.cn/mmbiz_png/c3uTNeJbsrPiclkzNbYYibvoQ498n4fXiaBXYwPcQ7HwngPhlK8dcntcSnXvhcrMQmib6Gazupn9CViaocv8yiaLopIQ/640?wx_fmt=png)
+![](_assets/640-14.png)
 
 另外，我们还可以点击左上角的“Images”
 
 这里就是看别人已经做好的图片，找到喜欢的点进去
 
-![](https://mmbiz.qpic.cn/mmbiz_png/c3uTNeJbsrPiclkzNbYYibvoQ498n4fXiaBekk0mFIYNJBjosr5WgbkOIAxFS6hLdpmfGDZha8BCdddP9goksu4dw/640?wx_fmt=png)
+![](_assets/640-10.png)
 
 点进去之后的页面我们就可以看到这张图的全部信息，
 
@@ -1241,7 +1241,7 @@ LoRA=Lora
 
 点击最下面的“Copy...Data”就可以复制图片的所有信息
 
-![](https://mmbiz.qpic.cn/mmbiz_png/c3uTNeJbsrPiclkzNbYYibvoQ498n4fXiaB4xonaOrf7ZUeTHPZgzIonicLKJCoA5zcImy7rB5t7c2Gjl66XqeN0MA/640?wx_fmt=png)
+![](_assets/640-9.png)
 
 回到SD，粘贴到关键词的文本框，点击右边的按钮
 
@@ -1249,11 +1249,11 @@ LoRA=Lora
 
 要注意的就是，**大模型是需要我们手动去换**的！
 
-![](https://mmbiz.qpic.cn/mmbiz_png/c3uTNeJbsrPiclkzNbYYibvoQ498n4fXiaBs7ia7mzGbP0Q0UoYicuuXRxopIBXn8KVnkDBibwnicsCESibaBHBYjxDZBg/640?wx_fmt=png)
+![](_assets/640-13.png)
 
 这样我们就可以生成出跟大神几乎一样的照片了！（电脑网络配置的不同，出来的照片有细微差别）
 
-![](https://mmbiz.qpic.cn/mmbiz_png/c3uTNeJbsrPiclkzNbYYibvoQ498n4fXiaBtbXtaJWBEDSLiczj9YKD2aetVCsyfBv1YwszeU2C2icEicR17mGwgoTSQ/640?wx_fmt=png)
+![](_assets/640-10.png)
 
 **2.模型下载到哪里**
 -------------
@@ -1264,15 +1264,15 @@ LoRA=Lora
 
 这里的SD根目录就是大家在下载时，存放SD的那个文件夹
 
-![](https://mmbiz.qpic.cn/mmbiz_png/c3uTNeJbsrPiclkzNbYYibvoQ498n4fXiaBdg4EZflQ2DtQcm5GqibG4R0qa6c76jLVprN9LP97nDtYibnUCXqzdTMQ/640?wx_fmt=png)
+![](_assets/640-8.png)
 
 **02.Lora**
 
-![](https://mmbiz.qpic.cn/mmbiz_png/c3uTNeJbsrPiclkzNbYYibvoQ498n4fXiaBcxGibayLYicH8BQX1boNZFnse8gFcMTzm55EHKEia17oN6ttWtAyKu7lg/640?wx_fmt=png)
+![](_assets/640-8.png)
 
 **03.VAE**
 
-![](https://mmbiz.qpic.cn/mmbiz_png/c3uTNeJbsrPiclkzNbYYibvoQ498n4fXiaBibXUChOjYCViamlp4gjXA79jvgYxqTGq2muQ78oOm2AWE2KSMt3aXwlg/640?wx_fmt=png)
+![](_assets/640-2.jpg)
 
 **3.如何分辨模型**
 ------------
@@ -1283,13 +1283,13 @@ LoRA=Lora
 
 把模型拖动到空白处
 
-![](https://mmbiz.qpic.cn/mmbiz_png/c3uTNeJbsrPiclkzNbYYibvoQ498n4fXiaBiaCmmgFZVEyuEx0pIrlJHm22knnJR44uiak70sFTD4WS6efdsM43dqDQ/640?wx_fmt=png)
+![](_assets/640-8.png)
 
 接着就会自动弹出模型的信息
 
 在模型种类里面就可以看到是什么模型啦！
 
-![](https://mmbiz.qpic.cn/mmbiz_png/c3uTNeJbsrPiclkzNbYYibvoQ498n4fXiaBUOPhFmEpbvMiblaqJsx2MdLibNIvqIx1iacUYKcJN6ce7YVDTKFarSa3A/640?wx_fmt=png)
+![](_assets/640-8.png)
 
 关键词链接：关键词分类查询 \- 飞书云文档 (feishu.cn)
 
@@ -1307,11 +1307,11 @@ LoRA=Lora
 
 我们下个文章再见！
 
-![](https://mmbiz.qpic.cn/mmbiz_png/4n2Er87oT9F7RMxsI8mP8xlxiaf0XLRVqtPQ6xuUVIgMlBVoOgPTsYRia9g5NLBTe01zTphh4wnNmoUKYVxHK8Rw/640?wx_fmt=png)
+![](_assets/640-8.png)
 
 如果你想和我交流，可以加我微信(****lldxx06****)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/dO6zkoWjaqLbXj49N6meNBRjnApmhk2yiaNYVWDfNh73GrgQY86Cqs08FytHwXaCz8CZBic1q8Omqv2BN4cs09Ow/640?wx_fmt=png)
+![](_assets/640-10.png)
 
 还有更多AI应用干货，都在「**生财项目研习社**」知识星球
 
