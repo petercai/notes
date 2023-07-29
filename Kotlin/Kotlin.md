@@ -11,6 +11,33 @@ if (x > y) "x is greater than y" else "x is not greater than y"
 ```
 is the `if` expression. It first checks the `if`’s condition: `x > y`. If this condition is _true_, the expression returns the `String` “x is greater than y”. Otherwise (`else`) the condition is _false_, and the expression returns the `String` “x is not greater than y” instead.
 
+## String
+
+### String Template
+string templates allow you to embed expressions or variables directly within a string, making it easy to create formatted strings. To define a string template, you need to use the `$` symbol followed by the expression or variable name enclosed in curly braces `{}`. When the string is evaluated, the expression inside the curly braces will be replaced with its value.
+
+```
+val variable = "world"
+val templateString = "Hello, $variable!"
+```
+String templates also support more complex expressions and even function calls:
+
+```
+val a = 10
+val b = 5
+val sumString = "The sum of $a and $b is ${a + b}."
+
+data class Person(val name: String, val age: Int)
+
+val person = Person("John", 30)
+val greeting = "Hello, my name is ${person.name}, and I am ${person.age} years old."
+
+```
+
+
+
+String templates make it easy to create dynamic and readable strings without the need for complex string concatenation or formatting operations.
+
 ## function
 every variable you declare in a function must be initialized before it can be used.
 ### parameters
@@ -125,7 +152,7 @@ An interface lets you define common behavior **OUTSIDE** a superclass hierarch.
 	But there are some situations in which smart casting doesn’t happen. The is operator won’t smart cast a var property in a class, for example, because the compiler can’t guarantee that some other code won’t sneak in and update the property.
 	![[Kotlin-2023722-1 10.png]]
 
-- Use as to perform an explicit cast
+- Use **as** to perform an explicit cast
 	![[Kotlin-2023722-1 11.png]]
 
 ## data class

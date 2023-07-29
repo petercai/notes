@@ -10,6 +10,9 @@ navigate back, the activity gets removed from the stack. And when the root activ
 
 **AndroidManifest.xml** describes the app and declares all the components that are part
 of the app.
+Every Android app must include a file called AndroidManifest.xml, which lives in the app/src/main folder of your project. The AndroidManifest.xml file contains essential information about your app that the Android operating system, the Android build tools, and the Google Play Store need to know about. This includes the app’s package name, details of any activities, and any permissions the app requires.
+
+![[Android app-2023728-2.png]]
 
 ## Activities
 1. The main activity, as declared inside AndroidManifest.xml, gets started by launching the app.
@@ -43,6 +46,9 @@ of the app.
 ![[Android app-2023726-1 3.png]]
 ![[Android app-2023726-1 4.png]]
 
+### So what’s R?
+R refers to **R.java**. It’s a special file that’s automatically generated when you build the app. Android uses R.java to keep track of any resources used within the app such as layouts, String resources, and views.
+When you pass the findViewById method a value of R.id.brands, Android looks up the brands ID from R, and uses this to return a reference to the brands view. Similarly, when you pass the setContentView method a value of R.layout.activity_main, Android looks up the correct layout from R, and assigns it to the activity. You don’t change any of the code in R.java yourself: Android Studio automatically generates it for you.
 
 ## Intent Filters
 Intents are objects to tell Android that something needs to be done, and they can be
@@ -97,15 +103,36 @@ or
 
 ## Layout
 
-- Using a **linear layout** means that UI components are displayed in a
-vertical column or a horizontal row.
-A linear layout is the most appropriate type of layout to use if you
-want to arrange the components in a single row or column. 
+- Using a **linear layout** means that UI components are displayed in a vertical column or a horizontal row. A linear layout is the most appropriate type of layout to use if you want to arrange the components in a single row or column. 
+	![[Android app-2023728-1.png]]
+- a **frame layout** stacks its views, one on top of another. 
 
+- add weight to view
+	![[Android app-2023728-3.png]]
+	![[Android app-2023728-4.png]]
+
+- The **gravity** attribute controls the position of a view’s contents. `android:gravity` lets you say where you want the view’s contents to appear inside the view.
+	![[Android app-2023728-7.png]]
+	You can also apply multiple gravities to a view by separating each value with a “|”. To sink a view’s contents to the bottom-end corner, for example, you’d use:
+	```
+	android:gravity="bottom|end"
+	```
+
+
+	![[Android app-2023728-5.png]]
+	![[Android app-2023728-6.png]]
+- Use margins to add space between views
+	![[Android app-2023728-8.png]]
+	![[Android app-2023728-9.png]]
+	- padding vs. margin
+		You can use padding attributes such as paddingTop with views, but it has a different effect. As you’ve seen, layout_marginTop increases the amount of space above the view. paddingTop, however, increases the height of the view by adding extra space inside it:
+		![[Android app-2023728-10.png]]
+
+- The layout’s views are inflated into objects
 
 ## EventListener
 
 1. The **findViewById** method lets you get a reference to any view in the layout that has an ID. 
 	![[Android app-2023726-1 5.png]]
-2. Calls view's **setOnClickListener()** method using lamda code to register a handler
+2. Calls view's **setOnClickListener()** method using lamda code to register a handler. The **setOnClickListener** method takes one parameter—a lambda—which describes what should happen when the button is clicked.
 	![[Android app-2023726-1 6.png]]
