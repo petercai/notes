@@ -85,7 +85,8 @@ So Intents can be used to launch activities and services and to fire broadcast m
 - stopped
 - destroyed
 
-![[Android app-2023730-2.png]]
+![[Android app-2023730-5.png]]
+
 ***When you override any activity lifecycle method in your activity, you need to call the Activity superclass method or the compiler will complain.***
 
 The onRestart() method is called before onStart(), but only when the activity becomes visible again after previously losing visibility. It’s not called when the activity first becomes visible.
@@ -131,7 +132,12 @@ A chronometer is a type of text view that acts as a simple timer. It has built-i
 ![[Android app-2023726-1 2.png]]
 or
 ![[Android app-2023726-3.png]]
+### EventListener
 
+1. The **findViewById** method lets you get a reference to any view in the layout that has an ID. 
+	![[Android app-2023726-1 5.png]]
+2. Calls view's **setOnClickListener()** method using lamda code to register a handler. The **setOnClickListener** method takes one parameter—a lambda—which describes what should happen when the button is clicked.
+	![[Android app-2023726-1 6.png]]
 ## Layout
 All layouts are a type of **ViewGroup** and a ViewGroup is a type of **View**
 ![[Android app-2023728-11.png]]
@@ -204,9 +210,3 @@ android:drawableStart="@drawable/duck"
 Android also includes an image button view: a button with an image but no text.
 
 
-## EventListener
-
-1. The **findViewById** method lets you get a reference to any view in the layout that has an ID. 
-	![[Android app-2023726-1 5.png]]
-2. Calls view's **setOnClickListener()** method using lamda code to register a handler. The **setOnClickListener** method takes one parameter—a lambda—which describes what should happen when the button is clicked.
-	![[Android app-2023726-1 6.png]]
