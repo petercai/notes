@@ -46,6 +46,8 @@ Every Android app must include a file called AndroidManifest.xml, which lives in
 ![[Android app-2023726-1 3.png]]
 ![[Android app-2023726-1 4.png]]
 
+![[Android app-2023730-1.png]]
+
 ### So what’s R?
 R refers to **R.java**. It’s a special file that’s automatically generated when you build the app. Android uses R.java to keep track of any resources used within the app such as layouts, String resources, and views.
 When you pass the findViewById method a value of R.id.brands, Android looks up the brands ID from R, and uses this to return a reference to the brands view. Similarly, when you pass the setContentView method a value of R.layout.activity_main, Android looks up the correct layout from R, and assigns it to the activity. You don’t change any of the code in R.java yourself: Android Studio automatically generates it for you.
@@ -55,7 +57,7 @@ As well as displaying the layout on the device screen, the setContentView() meth
 
 
 
-## Intent Filters
+### Intent Filters
 Intents are objects to tell Android that something needs to be done, and they can be
 explicit by exactly specifying which component needs to be called or implicit if we don’t
 precisely specify the called component but let Android decide which app and which
@@ -82,8 +84,22 @@ So Intents can be used to launch activities and services and to fire broadcast m
 - paused
 - stopped
 - destroyed
+
+![[Android app-2023730-2.png]]
+
+![[Android app-2023730-3.png]]
+
+1. The activity gets launched, and the onCreate() method runs. Any activity initialization code in the onCreate() method runs. At this point, the activity isn’t yet visible, as no call to onStart() has been made.
+2. The onStart() method runs. It gets called when the activity is about to become visible. After the onStart() method has run, the user can see the activity on the screen.
+3. The onStop() method runs when the activity stops being visible to the user. After the onStop() method has run, the activity is no longer visible.
+4. If the activity becomes visible to the user again, the onRestart() method gets called followed by onStart(). The activity may go through this cycle many times if the activity repeatedly loses visibility and then becomes visible again.
+5. Finally, the activity is destroyed. The onStop() method will get called before onDestroy().
+
 ![[Android app-2023722-1.png]]
 ![[Android app-2023722-2.png]]
+
+### Bundle
+A Bundle is a type of object that’s used to hold key/value pairs. <u>Before the activity is destroyed, Android lets you put key/value pairs into a Bundle</u>. T<u>his Bundle is then picked up by the new instance of the activity when it’s recreated</u>. Using a Bundle therefore gives you a way of reinstating an activity’s state when you rotate the device screen
 
 ## Services
 Services are components running without a user interface apart from notifications in
@@ -95,6 +111,9 @@ the status bar or per Toast and with a conceptual affinity toward long-running p
 
 - A **spinner** provides a drop-down list of values. It allows you to choose a
 single value from a set of values.
+
+### Chronometer
+A chronometer is a type of text view that acts as a simple timer. It has built-in methods you can use to start and stop it, and it displays the elapsed time.
 
 ### array
 ![[Android app-2023726-1 1.png]]
@@ -161,6 +180,7 @@ The constraint layouts are specifically designed to work with Android Studio’s
 > To use constraint layouts, a reference to its library needs to be included in the app’s build.gradle file.
 > ![[Android app-2023729-2.png]]
 
+- A **constraint** is a connection or attachment that tells the layout where the view should be positioned. You can use a constraint to attach a view to the start edge of the layout, or underneath another view.
 ### Image
 Android’s preferred image format is WebP, which combines a small file size with a minimum loss of quality. You can convert images to WebP in Android Studio by right-clicking on
 the image, and choosing the “Convert to WebP” option.
