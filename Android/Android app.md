@@ -132,6 +132,23 @@ A chronometer is a type of text view that acts as a simple timer. It has built-i
 ![[Android app-2023726-1 2.png]]
 or
 ![[Android app-2023726-3.png]]
+### Image
+Android’s preferred image format is WebP, which combines a small file size with a minimum loss of quality. You can convert images to WebP in Android Studio by right-clicking on
+the image, and choosing the “Convert to WebP” option.
+
+The default folder for storing image resources in your app is app/src/main/res/drawable folder.
+
+### ImageView
+![[Android app-2023728-12.png]]
+### Button
+Buttons can include attributes such as `android:drawableStart` and `android:drawableEnd`, which allow you to position an image at the start or end of the button. The following code, for example, adds a duck image at the start of a button:
+```
+android:drawableStart="@drawable/duck"
+```
+Android also includes an image button view: a button with an image but no text.
+
+
+
 ### EventListener
 
 1. The **findViewById** method lets you get a reference to any view in the layout that has an ID. 
@@ -194,19 +211,19 @@ The constraint layouts are specifically designed to work with Android Studio’s
 > ![[Android app-2023729-2.png]]
 
 - A **constraint** is a connection or attachment that tells the layout where the view should be positioned. You can use a constraint to attach a view to the start edge of the layout, or underneath another view.
-### Image
-Android’s preferred image format is WebP, which combines a small file size with a minimum loss of quality. You can convert images to WebP in Android Studio by right-clicking on
-the image, and choosing the “Convert to WebP” option.
 
-The default folder for storing image resources in your app is app/src/main/res/drawable folder.
+### Navigation and Fragment
+A fragment is like a kind of subactivity that’s displayed inside an activity’s layout. It has Kotlin code that controls its behavior, and an associated layout that defines its appearance.
+Fragment class is part of Android Jetpack. 
+#### OnCreateView()
+Fragment code looks similar to activity code:
+![[Android app-2023730-6.png]]
 
-#### ImageView
-![[Android app-2023728-12.png]]
-#### Button
-Buttons can include attributes such as `android:drawableStart` and `android:drawableEnd`, which allow you to position an image at the start or end of the button. The following code, for example, adds a duck image at the start of a button:
-```
-android:drawableStart="@drawable/duck"
-```
-Android also includes an image button view: a button with an image but no text.
-
-
+- The first parameter is a **LayoutInflater** that you use to inflate the fragment’s layout - inflating a layout turns its XML views into objects.
+- The second parameter is a **ViewGroup**?. This is the ViewGroup in the activity’s layout that displays the fragment.
+- The final parameter is a **Bundle**?. This is used if you’ve previously saved the fragment’s state, and want to reinstate it.
+- The onCreateView() method returns a **View**?, which is an inflated version of the fragment’s layout.
+#### LayoutInflater.inflate()
+The inflate() is the fragment equivalent of activity’s setContentView() method, as it’s used to inflate the fragment’s layout
+into a hierarchy of View objects.
+Navigate between screens using the Navigation component.  The Navigation component is part of Android Jetpack
