@@ -86,14 +86,21 @@ So Intents can be used to launch activities and services and to fire broadcast m
 - destroyed
 
 ![[Android app-2023730-2.png]]
+***When you override any activity lifecycle method in your activity, you need to call the Activity superclass method or the compiler will complain.***
 
-![[Android app-2023730-3.png]]
+The onRestart() method is called before onStart(), but only when the activity becomes visible again after previously losing visibility. It’s not called when the activity first becomes visible.
+*onStart() gets called whenever the activity becomes visible.
+onRestart() only gets called when the activity becomes visible again after losing visibility.*
 
-1. The activity gets launched, and the onCreate() method runs. Any activity initialization code in the onCreate() method runs. At this point, the activity isn’t yet visible, as no call to onStart() has been made.
-2. The onStart() method runs. It gets called when the activity is about to become visible. After the onStart() method has run, the user can see the activity on the screen.
-3. The onStop() method runs when the activity stops being visible to the user. After the onStop() method has run, the activity is no longer visible.
-4. If the activity becomes visible to the user again, the onRestart() method gets called followed by onStart(). The activity may go through this cycle many times if the activity repeatedly loses visibility and then becomes visible again.
-5. Finally, the activity is destroyed. The onStop() method will get called before onDestroy().
+![[Android app-2023730-4.png]]
+
+1. The activity gets launched, and the onCreate() and onStart() methods run. At this point, the activity is visible, but it doesn’t have the focus.
+2. The onResume() method runs. It gets called when the activity is about to move into the foreground. After the onResume() method has run, the activity has the focus and the user can interact with it.
+3. The onPause() method runs when the activity stops being in the foreground. After the onPause() method has run, the activity is still visible but doesn’t have the focus.
+4. If the activity moves into the foreground again, the onResume() method gets called. The activity may go through this cycle many times if the activity repeatedly loses and then regains the focus.
+5. If the activity stops being visible to the user, the onStop() method gets called. After the onStop() method has run, the activity is no longer visible.
+6. If the activity becomes visible to the user again, the onRestart() method gets called, followed by onStart() and onResume(). The activity may go through this cycle many times.
+7. Finally, the activity is destroyed. As the activity moves from running to destroyed, the onPause() and onStop() methods get called before the activity is destroyed.
 
 ![[Android app-2023722-1.png]]
 ![[Android app-2023722-2.png]]
