@@ -215,6 +215,18 @@ The constraint layouts are specifically designed to work with Android Studio’s
 ### Navigation and Fragment
 A fragment is like a kind of subactivity that’s displayed inside an activity’s layout. It has Kotlin code that controls its behavior, and an associated layout that defines its appearance.
 Fragment class is part of Android Jetpack. 
+
+#### FragmentContainerView
+
+![[Android app-2023730-7.png]]
+
+You add a fragment to a layout using a **FragmentContainerView**. This is a type of FrameLayout that’s used to display fragments.
+![[Android app-2023730-8.png]]
+You specify which fragment you want to display by setting the FragmentContainerView’s android:name attribute to the fully qualified fragment name, including its package.
+
+When Android creates the activity’s layout, it populates the FragmentContainerView with the View object returned by the fragment’s onCreateView() method. This View is the fragment’s user interface.
+
+
 #### OnCreateView()
 Fragment code looks similar to activity code:
 ![[Android app-2023730-6.png]]
@@ -224,6 +236,8 @@ Fragment code looks similar to activity code:
 - The final parameter is a **Bundle**?. This is used if you’ve previously saved the fragment’s state, and want to reinstate it.
 - The onCreateView() method returns a **View**?, which is an inflated version of the fragment’s layout.
 #### LayoutInflater.inflate()
-The inflate() is the fragment equivalent of activity’s setContentView() method, as it’s used to inflate the fragment’s layout
-into a hierarchy of View objects.
+The inflate() is the fragment equivalent of activity’s setContentView() method, as it’s used to inflate the fragment’s layout into a hierarchy of View objects.
+
+
+
 Navigate between screens using the Navigation component.  The Navigation component is part of Android Jetpack
