@@ -212,7 +212,7 @@ The constraint layouts are specifically designed to work with Android Studio’s
 
 - A **constraint** is a connection or attachment that tells the layout where the view should be positioned. You can use a constraint to attach a view to the start edge of the layout, or underneath another view.
 
-### Navigation and Fragment
+### Fragment
 A fragment is like a kind of subactivity that’s displayed inside an activity’s layout. It has Kotlin code that controls its behavior, and an associated layout that defines its appearance.
 Fragment class is part of Android Jetpack. 
 
@@ -239,5 +239,14 @@ Fragment code looks similar to activity code:
 The inflate() is the fragment equivalent of activity’s setContentView() method, as it’s used to inflate the fragment’s layout into a hierarchy of View objects.
 
 
+### Navigation
 
-Navigate between screens using the Navigation component.  The Navigation component is part of Android Jetpack
+Navigate between screens using the Navigation component.  The Navigation component is part of Android Jetpack. It’s extremely flexible, and simplifies many of the complexities of fragment navigation— such as fragment transactions and back stack manipulation.
+
+Navigating between fragments is comprised of three main parts:
+- A navigation grap
+	The navigation graph holds all of the navigation-related information that your app requires, and describes the possible paths the user can take when navigating the app.
+- A navigation host
+	A navigation host is an empty container that’s used to display the fragment you navigate to. You add the navigation host to your activity’s layout.
+- A navigation controller
+	The navigation controller controls which fragment is displayed in the navigation host as the user navigates through the app.
