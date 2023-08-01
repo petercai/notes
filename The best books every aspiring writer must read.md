@@ -20,7 +20,7 @@ This resource will not only help you improve your craft but also show you how to
 Best writing books for beginners
 --------------------------------
 
-![](https://ghost.org/resources/content/images/2021/10/best-books-for-beginner-writers.png)
+![](_assets/best-books-for-beginner-writers.png)
 
 ### You Are a Writer by Jeff Goins
 
@@ -99,7 +99,7 @@ One technique mentioned in the book which many new writers find helpful is to wr
 Best books to improve writing style
 -----------------------------------
 
-![](https://ghost.org/resources/content/images/2021/10/best-books-on-writing-style.png)
+![](_assets/best-books-on-writing-style.png)
 
 ### The Blue Book of Grammar and Punctuation by Jane Straus
 
@@ -140,7 +140,7 @@ It’s recommended to pick up a physical copy of this book, since having it with
 Best books on writing organization
 ----------------------------------
 
-![](https://ghost.org/resources/content/images/2021/10/books-writing-organization.png)
+![](_assets/books-writing-organization.png)
 
 ### Save the Cat! Writes a Novel by Jessica Brody
 
@@ -181,7 +181,7 @@ The third section in Zinsser’s book covers particular forms of nonfiction writ
 Best books for modern writing examples
 --------------------------------------
 
-![](https://ghost.org/resources/content/images/2021/10/modern-writing-examples.png)
+![](_assets/modern-writing-examples.png)
 
 ### The Psychology of Money by Morgan Housel
 
@@ -224,7 +224,7 @@ For those wanting to trim the fat in their writing, this is one author worth stu
 Best books on generating new ideas
 ----------------------------------
 
-![](https://ghost.org/resources/content/images/2021/10/writing-prompt-ideas.png)
+![](_assets/writing-prompt-ideas.png)
 
 ### Choose Yourself by James Altucher
 
@@ -265,7 +265,7 @@ The solution, then, is to push through it. Your best ideas are already there; th
 Best books on writing faster
 ----------------------------
 
-![](https://ghost.org/resources/content/images/2021/10/how-to-write-faster.png)
+![](_assets/how-to-write-faster.png)
 
 ### 5,000 Words Per Hour by Chris Fox
 
@@ -312,7 +312,7 @@ This resource is also a valuable introduction to voice, and how finding yours ca
 Best books on the business of writing
 -------------------------------------
 
-![](https://ghost.org/resources/content/images/2021/10/books-on-making-money-writing.png)
+![](_assets/books-on-making-money-writing.png)
 
 ### Real Artists Don’t Starve by Jeff Goins
 
