@@ -150,11 +150,20 @@ Android also includes an image button view: a button with an image but no text.
 
 
 ### EventListener
-
+The Fragment class isn’t a subclass of Activity.
+#### In Activity
 1. The **findViewById** method lets you get a reference to any view in the layout that has an ID. 
 	![[Android app-2023726-1 5.png]]
 2. Calls view's **setOnClickListener()** method using lamda code to register a handler. The **setOnClickListener** method takes one parameter—a lambda—which describes what should happen when the button is clicked.
 	![[Android app-2023726-1 6.png]]
+
+#### In Fragment
+
+The **first** difference is that you add an OnClickListener to a fragment’s button in the fragment’s onCreateView() method, not onCreate(). This is because a fragment first has access to its views in onCreateView(), so it’s the best place to set any OnClickListeners.
+
+The **second** difference is the Fragment class doesn’t include a findViewById() method, so you can’t directly call it to get a reference to any views. You can, however, call findViewById() on the fragment’s root view instead.
+
+![[Android app-2023802-1.png]]
 ## Layout
 All layouts are a type of **ViewGroup** and a ViewGroup is a type of **View**
 ![[Android app-2023728-11.png]]
@@ -198,7 +207,18 @@ a **frame layout** stacks its views, one on top of another. If you want a layout
 	The first view is displayed first, the second is stacked on top of it, and so on.
 ![[Android app-2023728-13.png]]
 
-##### ScrollView
+#### FragmentContainerView
+
+![[Android app-2023730-7.png]]
+
+You add a fragment to a layout using a **FragmentContainerView**. This is a type of FrameLayout that’s used to display fragments.
+![[Android app-2023730-8.png]]
+You specify which fragment you want to display by setting the FragmentContainerView’s android:name attribute to the fully qualified fragment name, including its package.
+
+When Android creates the activity’s layout, it populates the FragmentContainerView with the View object returned by the fragment’s onCreateView() method. This View is the fragment’s user interface.
+
+
+### ScrollView
 ![[Android app-2023728-14.png]]
 
 ### ConstraintLayout
@@ -213,22 +233,12 @@ The constraint layouts are specifically designed to work with Android Studio’s
 - A **constraint** is a connection or attachment that tells the layout where the view should be positioned. You can use a constraint to attach a view to the start edge of the layout, or underneath another view.
 
 ### Fragment
-A fragment is like a kind of subactivity that’s displayed inside an activity’s layout. It has Kotlin code that controls its behavior, and an associated layout that defines its appearance.
-Fragment class is part of Android Jetpack. 
-
-#### FragmentContainerView
-
-![[Android app-2023730-7.png]]
-
-You add a fragment to a layout using a **FragmentContainerView**. This is a type of FrameLayout that’s used to display fragments.
-![[Android app-2023730-8.png]]
-You specify which fragment you want to display by setting the FragmentContainerView’s android:name attribute to the fully qualified fragment name, including its package.
-
-When Android creates the activity’s layout, it populates the FragmentContainerView with the View object returned by the fragment’s onCreateView() method. This View is the fragment’s user interface.
-
-
+A fragment is like a kind of subactivity that’s displayed inside an activity’s layout. It has Kotlin code that controls its behavior, and an associated layout that defines its appearance. Fragment class is part of Android Jetpack. 
+A fragment has Kotlin code and a layout.
+The Fragment class doesn’t extend Activity.
+Fragments don’t have a findViewById() method.
 #### OnCreateView()
-Fragment code looks similar to activity code:
+onCreateView() gets called each time Android needs the fragment’s layout. Fragment code looks similar to activity code:
 ![[Android app-2023730-6.png]]
 
 - The first parameter is a **LayoutInflater** that you use to inflate the fragment’s layout - inflating a layout turns its XML views into objects.
@@ -244,9 +254,79 @@ The inflate() is the fragment equivalent of activity’s setContentView() method
 Navigate between screens using the Navigation component.  The Navigation component is part of Android Jetpack. It’s extremely flexible, and simplifies many of the complexities of fragment navigation— such as fragment transactions and back stack manipulation.
 
 Navigating between fragments is comprised of three main parts:
-- A navigation grap
+- A **navigation grap**
 	The navigation graph holds all of the navigation-related information that your app requires, and describes the possible paths the user can take when navigating the app.
-- A navigation host
-	A navigation host is an empty container that’s used to display the fragment you navigate to. You add the navigation host to your activity’s layout.
-- A navigation controller
-	The navigation controller controls which fragment is displayed in the navigation host as the user navigates through the app.
+	A navigation graph describes possible destinations and navigation paths. It uses actions to describe these paths.
+- A **navigation host**
+	A navigation host is **an empty container** that’s used to display the **fragment** you navigate to. You add the navigation host to your activity’s layout. The Navigation component comes with a default navigation host named NavHostFragment, which extends the Fragment class and implements the NavHost interface.
+- A **navigation controller**
+	The navigation controller controls which fragment is displayed in the navigation host as the user navigates through the app. A navigation controller uses actions to control which fragment is displayed in the navigation host.
+	
+![[Android app-2023801-2.png]]
+#### Destination
+A destination is a screen in the app—usually a fragment—which the user can navigate to.
+![[Android app-2023731-1.png]]
+
+
+#### Action
+Actions are used to connect destinations in the navigation graph, and they define possible paths the user can take when navigating through the app. Every action must have a unique ID. Android uses this ID to determine which destination needs to be displayed as the user navigates through the app.
+![[Android app-2023801-1.png]]
+#### Host (or NavHost)
+the Navigation component comes with a built-in one named **NavHostFragment** . It’s a subclass of Fragment that implements the NavHost interface.
+![[Android app-2023801-3.png]]
+NavHostFragment ca be added it to a layout file using a ~~FragmentContainerView~~ FrameLayout.
+![[Android app-2023801-5.png]]
+
+correction:
+```
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"  
+    xmlns:app="http://schemas.android.com/apk/res-auto"  
+    xmlns:tools="http://schemas.android.com/tools"  
+    android:layout_width="match_parent"  
+    android:layout_height="match_parent"  
+    tools:context=".ui.activity.MainActivity">    
+    <fragment  
+        android:id="@+id/nav_host_fragment"  
+        android:name="androidx.navigation.fragment.NavHostFragment"  
+        android:layout_width="match_parent"  
+        android:layout_height="match_parent"  
+        app:defaultNavHost="true"  
+        app:layout_constraintBottom_toBottomOf="parent"  
+        app:layout_constraintLeft_toLeftOf="parent"  
+        app:layout_constraintRight_toRightOf="parent"  
+        app:layout_constraintTop_toTopOf="parent"  
+        app:navGraph="@navigation/nav_graph" />    
+</FrameLayout>
+```
+
+The **app:navGraph** attribute tells the navigation host which navigation
+graph to use, in this case nav_graph.xml. The navigation graph specifies
+which fragment to display first (its start destination) and lets the user
+navigate between its destinations.
+The **app:defaultNavHost** attribute lets the navigation host interact
+with the device back button.
+
+We’ve now created a navigation graph, and linked it to a navigation host
+that’s held in a ~~FragmentContainerView~~ FrameLayout in MainActivity’s
+layout. When the app runs, WelcomeFragment—which is the navigation
+graph’s start destination—will be displayed.
+
+
+#### NavController
+Each time you want to navigate to a new fragment, 
+you **first** need to get a reference to a navigation controller. You do this by calling the findNavController() method on its root View object.
+```
+val navController = view.findNavController()
+```
+Once you have a navigation controller, you ask it to navigate to a new
+destination by calling its navigate() method. This method takes one
+parameter: a navigation action ID.
+![[Android app-2023802-2.png]]
+Big picture:
+
+![[Android app-2023802-4.png]]
+
+
+
+
+
