@@ -11,7 +11,9 @@ Spring Security, a part of the Spring Framework, allows you to integrate securit
 Here's an example of how the JWK JSON format might look in a Spring Security application:
 
 
-`{
+
+```
+{
   "keys": [
     {
       "kid": "1",
@@ -21,7 +23,9 @@ Here's an example of how the JWK JSON format might look in a Spring Security app
       "e": "AQAB"
     }
   ]
-}` 
+}
+```
+
 
 In this example:
 
@@ -40,8 +44,8 @@ To convert the JSON Web Key (JWK) set response to a PEM format file, you'll need
 
 Assuming you have the JWK set response as a JSON object like the one you mentioned earlier:
 
-
-`{
+```
+{
   "keys": [
     {
       "kid": "1",
@@ -51,7 +55,9 @@ Assuming you have the JWK set response as a JSON object like the one you mention
       "e": "AQAB"
     }
   ]
-}` 
+}
+```
+
 
 Follow these steps:
 
@@ -65,7 +71,9 @@ Here's a sample Python script that demonstrates this process using the `cryptogr
 
 
 
-`from cryptography.hazmat.backends import default_backend
+
+```
+from cryptography.hazmat.backends import default_backend
 from cryptography.hazmat.primitives.asymmetric import rsa
 from cryptography.hazmat.primitives import serialization
 from cryptography.hazmat.primitives.serialization import Encoding, PublicFormat
@@ -106,7 +114,9 @@ pem = public_key.public_bytes(
 )
 
 with open("jwt_public_key.pem", "wb") as pem_file:
-    pem_file.write(pem)` 
+    pem_file.write(pem)
+```
+
 
 Replace `"your_modulus_base64_encoded"` with the actual Base64-encoded modulus and `"AQAB"` with the actual Base64-encoded exponent from your JWK response. After running this script, you should have a `jwt_public_key.pem` file containing the RSA public key in PEM format.
 
@@ -118,7 +128,8 @@ here's an improved version of the Python script that reads the JWK set from a UR
 
 
 
-`import requests
+```
+import requests
 from cryptography.hazmat.backends import default_backend
 from cryptography.hazmat.primitives.asymmetric import rsa
 from cryptography.hazmat.primitives import serialization
@@ -151,7 +162,9 @@ pem = public_key.public_bytes(
 )
 
 with open("jwt_public_key.pem", "wb") as pem_file:
-    pem_file.write(pem)` 
+    pem_file.write(pem)
+```
+
 
 Replace `"https://example.com/jwk-set-url"` with the actual URL of your JWK set. This script fetches the JWK set from the URL, extracts the modulus and exponent, and converts them to an RSA public key in PEM format just like before. The resulting `jwt_public_key.pem` file will contain the public key in PEM format.
 
