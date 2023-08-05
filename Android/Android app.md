@@ -108,6 +108,28 @@ onRestart() only gets called when the activity becomes visible again after losin
 
 ### Bundle
 A Bundle is a type of object that’s used to hold key/value pairs. <u>Before the activity is destroyed, Android lets you put key/value pairs into a Bundle</u>. T<u>his Bundle is then picked up by the new instance of the activity when it’s recreated</u>. Using a Bundle therefore gives you a way of reinstating an activity’s state when you rotate the device screen
+- Bundles are passed from one instance of an activity to another using two methods: onSaveInstanceState() and onCreate(). 
+- onSaveInstanceState() lets you add values to a Bundle before the activity is destroyed, and onCreate() picks the Bundle up again when the activity has been recreated.
+- 
+	![[Android app-2023805-2.png]]
+	
+```
+override fun onSaveInstanceState(savedInstanceState: Bundle) {
+	savedInstanceState.putInt("answer", 42)
+	super.onSaveInstanceState(savedInstanceState)
+}
+```
+	![[Android app-2023805-3.png]]
+	
+## JetPack
+
+**Android Jetpack** is a collection of libraries that help you follow best practice, reduce boilerplate code, and make your coding life easier. It includes constraint layouts, navigation, the Room persistence library (which helps you build databases) and lots, lots more.
+
+![[Android app-2023805-1.png]]
+
+> Every project needs to know where to find any extra Jetpack libraries it needs, and this is done by adding a reference to the Google repository in the project’s build.gradle file. It's  in the repositories section under all projects:
+> 
+> ![[Android app-2023729-1.png]]
 
 ## Services
 Services are components running without a user interface apart from notifications in
@@ -226,9 +248,7 @@ When Android creates the activity’s layout, it populates the FragmentContainer
 ### ConstraintLayout
 
 The constraint layouts are specifically designed to work with Android Studio’s design editor.  Constraint layouts can be built visually. You drag and drop views into the design editor’s blueprint, and give it instructions for how each view should be displayed. Constraint layouts are part of a suite of libraries known as **Android Jetpack**.
-> **Android Jetpack** is a collection of libraries that help you follow best practice, reduce boilerplate code, and make your coding life easier. It includes constraint layouts, navigation, the Room persistence library (which helps you build databases) and lots, lots more.
-> Every project needs to know where to find any extra Jetpack libraries it needs, and this is done by adding a reference to the Google repository in the project’s build.gradle file. It's  in the repositories section under allprojects:
-> ![[Android app-2023729-1.png]]
+> 
 > To use constraint layouts, a reference to its library needs to be included in the app’s build.gradle file.
 > ![[Android app-2023729-2.png]]
 
