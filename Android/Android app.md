@@ -175,11 +175,13 @@ All layouts are a type of **ViewGroup** and a ViewGroup is a type of **View**
 Using a **linear layout** means that UI components are displayed in a vertical column or a horizontal row. A linear layout is the most appropriate type of layout to use if you want to arrange the components in a single row or column. 
 	![[Android app-2023728-1.png]]
 
+### EditText
 
-- add weight to view
+#### 1. add weight to make multi-line textbox
 	![[Android app-2023728-3.png]]
 	![[Android app-2023728-4.png]]
 
+#### 2. Gravity
 - The **gravity** attribute controls the position of a view’s contents. `android:gravity` lets you say where you want the view’s contents to appear inside the view.
 	![[Android app-2023728-7.png]]
 	You can also apply multiple gravities to a view by separating each value with a “|”. To sink a view’s contents to the bottom-end corner, for example, you’d use:
@@ -190,7 +192,7 @@ Using a **linear layout** means that UI components are displayed in a vertical c
 
 	![[Android app-2023728-5.png]]
 	![[Android app-2023728-6.png]]
-- Use margins to add space between views
+#### 3. Use margins to add space between views
 	![[Android app-2023728-8.png]]
 	![[Android app-2023728-9.png]]
 	- padding vs. margin
