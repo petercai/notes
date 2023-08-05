@@ -1,7 +1,7 @@
 #  JVM 基础
 思维导图：
 
-![](https://static001.geekbang.org/infoq/4c/4cc50d6746946e70d4daf6d0b3f0bfe0.webp?x-oss-process=image%2Fresize%2Cp_80%2Fformat%2Cpng)
+![](_assets/4cc50d6746946e70d4daf6d0b3f0bfe0.webp.png)
 
 1，JVM 是什么？
 ----------
@@ -12,7 +12,7 @@ JVM 是 `Java Virtual Machine` （Java 虚拟机）的缩写，JVM 是一种用�
 
 所谓 java 能实现跨平台，是由在不同平台上运行不同的虚拟机决定的，因此 java 文件的执行不直接在操作系统上执行，而是通过 jvm 虚拟机执行，我们可以从这张图看到，JVM 并没有直接与硬件打交道，而是与操作系统交互用以执行 java 程序。
 
-![](https://static001.geekbang.org/infoq/73/73047d9c580b6f5850073d812be7553c.webp?x-oss-process=image%2Fresize%2Cp_80%2Fformat%2Cpng)
+![](_assets/73047d9c580b6f5850073d812be7553c.webp.png)
 
 ### 1.2，JVM 运行流程
 
@@ -34,7 +34,7 @@ JVM 是 `Java Virtual Machine` （Java 虚拟机）的缩写，JVM 是一种用�
 
 运行时数据区
 
-![](https://static001.geekbang.org/infoq/b0/b0757b1c799a3486ed7c659d854538d1.webp?x-oss-process=image%2Fresize%2Cp_80%2Fformat%2Cpng)
+![](_assets/b0757b1c799a3486ed7c659d854538d1.webp.png)
 
 ### 2.1，程序计算器
 
@@ -98,7 +98,7 @@ System.out.println(s2==s3);
 
 这个输出的结果肯定是 false，采用 new 的时候会在堆内存开辟一块空间存放 hello 对象，虽然 s2 和 s3 指向的内容相同，但是栈种存放的地址不同，所以是不相等的。
 
-![](https://static001.geekbang.org/infoq/57/577d0d937cd47f6f9ee695697595c2fc.webp?x-oss-process=image%2Fresize%2Cp_80%2Fformat%2Cpng)
+![](_assets/577d0d937cd47f6f9ee695697595c2fc.webp.png)
 
 对于引用类型来说，"=="指的是地址值的比较。
 
@@ -113,7 +113,7 @@ String s3=new String("hello");
 System.out.println(s2.intern()==s3.intern());
 ```
 
-![](https://static001.geekbang.org/infoq/b2/b26c365b2acd5b567e486b533118a988.webp?x-oss-process=image%2Fresize%2Cp_80%2Fformat%2Cpng)
+![](_assets/b26c365b2acd5b567e486b533118a988.webp.png)
 
 **如果常量池中存在当前字符串，那么直接返回常量池中该对象的引用 **。
 
@@ -132,7 +132,7 @@ System.out.println(s2.intern()==s3.intern());
 
 下面这张图就是 Java 对象创建的过程，总共来说分为五部分；
 
-![](https://static001.geekbang.org/infoq/5c/5caa24a145aa69774c258e8bab6cdd5f.webp?x-oss-process=image%2Fresize%2Cp_80%2Fformat%2Cpng)
+![](_assets/5caa24a145aa69774c258e8bab6cdd5f.webp.png)
 
 ### 3.1，类加载过程
 
@@ -190,7 +190,7 @@ System.out.println(s2.intern()==s3.intern());
 
 如果使用句柄的话，那么 Java 堆中将会划分出一块内存来作为句柄池， `reference` 中存储的就是对象的句柄地址，而句柄中包含了对象实例数据与类型数据各自的具体地址信息。如图所示：
 
-![](https://static001.geekbang.org/infoq/b6/b603efff627fe836b726508f55d05ed3.webp?x-oss-process=image%2Fresize%2Cp_80%2Fformat%2Cpng)
+![](_assets/b603efff627fe836b726508f55d05ed3.webp.png)
 
 通过句柄访问对象
 
@@ -198,7 +198,7 @@ System.out.println(s2.intern()==s3.intern());
 
 如果使用直接指针访问，那么 Java 堆对象的布局中就必须考虑如何放置访问类型数据的相关信息，而 reference 中存储的直接就是对象的地址。如图所示：
 
-![](https://static001.geekbang.org/infoq/dd/dd47750e91f56fa923e56ea8f14a0220.webp?x-oss-process=image%2Fresize%2Cp_80%2Fformat%2Cpng)
+![](_assets/dd47750e91f56fa923e56ea8f14a0220.webp.png)
 
 通过直接指针访问对象
 
@@ -233,11 +233,11 @@ heapOOMList.add(new HeapOOM());
 
 在运行这个程序之前，我们先要设置 Java 虚拟机的参数。由于 IDEA 默认设置的堆内存很大，所以我们需要单个配置； `点击Run >> Edit Configurations` ，然后就开始配置，如下，初始化堆内存和最大堆内存都设置为 10m，看看上面的死循环能否在 10m 内存中完成；
 
-![](https://static001.geekbang.org/infoq/32/32c347c7754c5722135006fe08f04fca.webp?x-oss-process=image%2Fresize%2Cp_80%2Fformat%2Cpng)
+![](_assets/32c347c7754c5722135006fe08f04fca.webp.png)
 
 我们来看运行结果：
 
-![](https://static001.geekbang.org/infoq/06/06f241037afa90d8bd59afd929a71a5c.webp?x-oss-process=image%2Fresize%2Cp_80%2Fformat%2Cpng)
+![](_assets/06f241037afa90d8bd59afd929a71a5c.webp.png)
 
 可以看到堆内存发生异常，上面的 **死循环中我们不断地 new 对象，导致堆内存已经耗尽，无法为新生的对象分配内存，从而发生异常 **。
 
@@ -264,7 +264,7 @@ test();
 
 运行结果如下：
 
-![](https://static001.geekbang.org/infoq/bc/bc29e16b44c58b5a0e1179dd715a7250.webp?x-oss-process=image%2Fresize%2Cp_80%2Fformat%2Cpng)
+![](_assets/bc29e16b44c58b5a0e1179dd715a7250.webp.png)
 
 这种是 **线程请求的栈深度超过虚拟机所允许的最大深度，抛出 **`StackOverflowError` **异常 **，原因就是使用不合理的递归造成的。
 
