@@ -98,6 +98,45 @@ If a superclass property has been defined using var, you don’t need to overrid
 - The function parameters in the subclass must match those in the superclass.
 - The function return types must be compatible.
 
+### companion object
+In Kotlin, a `companion object` is a construct that allows you to define properties and methods that are associated with a class itself rather than with instances of the class. It is similar to the concept of static members in other programming languages, but it offers more capabilities and flexibility.
+
+```
+class MyClass {
+    companion object {
+        val myProperty: Int = 42
+        
+        fun myFunction() {
+            println("Hello from myFunction!")
+        }
+    }
+}
+```
+In this example, the `companion object` block is defined inside the class `MyClass`. The properties and methods defined within the `companion object` are accessible using the class name without creating an instance of the class:
+
+```
+val propertyValue = MyClass.myProperty // Accessing the property
+MyClass.myFunction() // Calling the method
+```
+Key characteristics of `companion object`:
+
+1. **Singleton-like Behavior:** The `companion object` is a single instance that is shared among all instances of the class. It's like having a singleton tied to the class itself.
+    
+2. **Nameless by Default:** While you can provide a name for the `companion object` (e.g., `companion object MyCompanion`), you can also simply use the keyword `companion` without a name.
+    
+3. **Access to Private Members:** Members of the `companion object` can access private members of the containing class, just like normal methods and properties within the class.
+    
+4. **Interfaces and Inheritance:** A `companion object` can implement interfaces and participate in inheritance hierarchies. This means you can define and override methods and properties in a `companion object` similar to regular classes.
+    
+5. **Factory Methods:** You can use a `companion object` to provide factory methods for creating instances of a class. This is often used when you want to provide more descriptive or customizable ways to create instances.
+    
+6. **Named Constructors:** You can define named constructors in a `companion object` to provide alternate ways of creating instances.
+    
+7. **Property Initialization:** You can initialize properties within the `companion object` using the `init` block, just like in a regular class.
+    
+
+In summary, the `companion object` in Kotlin provides a powerful way to define class-level properties and methods, create factory methods, and organize related functionality that should be associated with the class itself rather than instances of the class.
+
 ## Polymorphism
 In essence, polymorphism allows objects of different types to be treated as if they belong to a common superclass or interface.
 - Polymorphism is the ability to use any subtype object in place of its supertype. As different subclasses can have different implementations of the same function, it allows each object to respond to function calls in the way that’s most appropriate for each object.

@@ -254,7 +254,7 @@ The constraint layouts are specifically designed to work with Android Studio’s
 
 - A **constraint** is a connection or attachment that tells the layout where the view should be positioned. You can use a constraint to attach a view to the start edge of the layout, or underneath another view.
 
-### Fragment
+## Fragment
 A fragment is like a kind of subactivity that’s displayed inside an activity’s layout. It has Kotlin code that controls its behavior, and an associated layout that defines its appearance. Fragment class is part of Android Jetpack. 
 A fragment has Kotlin code and a layout.
 The Fragment class doesn’t extend Activity.
@@ -271,7 +271,7 @@ onCreateView() gets called each time Android needs the fragment’s layout. Frag
 The inflate() is the fragment equivalent of activity’s setContentView() method, as it’s used to inflate the fragment’s layout into a hierarchy of View objects.
 
 
-### Navigation
+## Navigation
 
 Navigate between screens using the Navigation component.  The Navigation component is part of Android Jetpack. It’s extremely flexible, and simplifies many of the complexities of fragment navigation— such as fragment transactions and back stack manipulation.
 
@@ -296,44 +296,30 @@ Actions are used to connect destinations in the navigation graph, and they defin
 #### Host (or NavHost)
 the Navigation component comes with a built-in one named **NavHostFragment** . It’s a subclass of Fragment that implements the NavHost interface.
 ![[Android app-2023801-3.png]]
-NavHostFragment ca be added it to a layout file using a ~~FragmentContainerView~~ FrameLayout.
-![[Android app-2023801-5.png]]
+NavHostFragment ca be added it to a layout file using a FragmentContainerView .
 
-correction:
 ```
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"  
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"  
     xmlns:app="http://schemas.android.com/apk/res-auto"  
     xmlns:tools="http://schemas.android.com/tools"  
     android:layout_width="match_parent"  
     android:layout_height="match_parent"  
-    tools:context=".ui.activity.MainActivity">    
-    <fragment  
-        android:id="@+id/nav_host_fragment"  
+    tools:context=".MainActivity">  
+  
+    <androidx.fragment.app.FragmentContainerView  
+        android:id="@+id/fragmentContainerView"  
         android:name="androidx.navigation.fragment.NavHostFragment"  
         android:layout_width="match_parent"  
         android:layout_height="match_parent"  
         app:defaultNavHost="true"  
-        app:layout_constraintBottom_toBottomOf="parent"  
-        app:layout_constraintLeft_toLeftOf="parent"  
-        app:layout_constraintRight_toRightOf="parent"  
-        app:layout_constraintTop_toTopOf="parent"  
-        app:navGraph="@navigation/nav_graph" />    
-</FrameLayout>
+        app:navGraph="@navigation/nav_graph" />  
+</androidx.constraintlayout.widget.ConstraintLayout>
 ```
 
-The **app:navGraph** attribute tells the navigation host which navigation
-graph to use, in this case nav_graph.xml. The navigation graph specifies
-which fragment to display first (its start destination) and lets the user
-navigate between its destinations.
-The **app:defaultNavHost** attribute lets the navigation host interact
-with the device back button.
+The **app:navGraph** attribute tells the navigation host which navigation graph to use, in this case nav_graph.xml. The navigation graph specifies which fragment to display first (its start destination) and lets the user navigate between its destinations.
+The **app:defaultNavHost** attribute lets the navigation host interact with the device back button.
 
-We’ve now created a navigation graph, and linked it to a navigation host
-that’s held in a ~~FragmentContainerView~~ FrameLayout in MainActivity’s
-layout. When the app runs, WelcomeFragment—which is the navigation
-graph’s start destination—will be displayed.
-
-
+We’ve now created a navigation graph, and linked it to a navigation host that’s held in a FragmentContainerView  in MainActivity’s layout. When the app runs, WelcomeFragment—which is the navigation graph’s start destination—will be displayed.
 #### NavController
 Each time you want to navigate to a new fragment, 
 you **first** need to get a reference to a navigation controller. You do this by calling the findNavController() method on its root View object.
@@ -348,7 +334,39 @@ Big picture:
 
 ![[Android app-2023802-4.png]]
 
+### Safe Args
+You navigate from one destination to another by passing a **navigation action** to the navigation controller. If you want to pass an argument to a destination, you do so by passing its value to the navigation action. 
+When the navigation controller receives an action that includes an argument, it navigates to the appropriate fragment, and passes along the argument’s value.
 
+You can add arguments to navigation actions using a **Directions** class.
+*build.gradle(project)*
+```
+buildscript {  
+    def nav_version = '2.6.0'  
+    repositories {  
+        google()  
+        jcenter()  
+        maven { url 'https://jitpack.io' }  
+    }    dependencies {  
+        classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$nav_version"  
+    }  
+}
+```
 
+*build.gradle(module)*
+```
+plugins {  
+    ...  
+    id 'androidx.navigation.safeargs.kotlin'  
+}
+```
+The **Safe Args plug-in** generates **Directions** and Args **classes**. Use the **Directions** class to pass arguments to a destination. Use the **Args** class to retrieve them.
 
+Each Args class includes a fromBundle() method that you use to retrieve any arguments that have been passed to the fragment.
+![[Android app-2023806-1.png]]
+
+### "back" button - back stack
+if you want, you can pop destinations off the back stack as the user navigates through the app. You do this by specifying pop behavior in the navigation graph.
+
+![[Android app-2023806-2.png]]
 
