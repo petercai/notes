@@ -55,7 +55,10 @@ When you pass the findViewById method a value of R.id.brands, Android looks up t
 ### Layout inflation
 As well as displaying the layout on the device screen, the setContentView() method converts the views in the layout’s XML into objects. This process is called **layout inflation** because it inflates each view into an object
 
-
+The MainActivity’s layout file (activity_main.xml) is inflated into a hierarchy of View objects.
+If the file describes a linear layout that contains a text view and a button, the layout gets inflated into LinearLayout, TextView, and Button objects. The LinearLayout is the **root** view of
+this hierarchy.
+![[Android app-2023807-1.png]]
 
 ### Intent Filters
 Intents are objects to tell Android that something needs to be done, and they can be
@@ -137,15 +140,132 @@ the status bar or per Toast and with a conceptual affinity toward long-running p
 
 
 ## View class
-![[_assets/Android app-2023726-1.png]]
 
-- A **spinner** provides a drop-down list of values. It allows you to choose a
+### View binding
+View binding is a type-safe, more efficient alternative to calling findViewById(). To use view binding, you first need to enable it in the android section of the app’s build.gradle file. 
+![[Android app-2023806-3.png]]
+
+#### Enabling view binding generates code for each layout
+When you enable view binding, it automatically creates a binding class for each of the layout files in your app.
+
+#### Binding in Activity
+An activity can interact with its views from onCreate() to onDestroy().
+![[Android app-2023807-6.png]]
+The activity has access to the views in its layout from onCreate() to onDestroy(), it can interact with them in any of its methods.  
+ 
+ An activity first gets access to its layout when its onCreate() method runs. This is the first method in the activity’s lifecycle, and it’s used to inflate the layout (or bind to it with view binding) and perform any initial setup.
+
+![[Android app-2023807-2.png]]
+![[Android app-2023807-3.png]]
+
+![[Android app-2023807-4.png]]
+
+The above code declares a property named binding whose type is ActivityMainBinding. This property gets set in the activity’s onCreate() method using the following code:
+![[Android app-2023807-5.png]]
+
+This calls ActivityMainBinding’s inflate() method, which creates an ActivityMainBinding object that’s linked to the activity’s layout.
+
+The code:
+```
+val view = binding.rootsetContentView(view)
+```
+gets a reference to the binding object’s root view, and uses the setContentView() method to display it. Once you’ve added view binding to an activity in this way, you can use the binding property to interact with the layout’s views
+
+#### Binding in Fragment
+A fragment can only interact with its views from onCreateView() to onDestroyView().
+![[Android app-2023807-7.png]]
+A fragment first gets access to its layout when its onCreateView() method runs. This gets called when an activity needs access to the fragment’s layout, so it’s used to inflate the layout and perform any initial setup such as setting OnClickListeners.
+
+onCreateView(), however, isn’t the first method in the fragment’s lifecycle. There are other methods, such as onCreate(), that run before onCreateView(), so they can’t interact with the fragment’s views.
+
+After its onCreateView() method has run, the fragment continues to have access to its views until its onDestroyView() method has finished running. This gets called when the activity no longer needs the fragment’s layout, which may be because the activity needs to navigate to a different fragment, or it’s being destroyed.
+
+onDestroyView(), however, isn’t the final method in the fragment’s lifecycle. There are other methods, such as onDestroy(), that run after onDestroyView(), so these can’t interact with the fragment’s views either.
+![[Android app-2023807-8.png]]
+
+
+![[Android app-2023807-9.png]]
+
+
+**Activities and fragments get access to their views at different points intheir lifecycles.**
+
+An activity can interact with its views from when it’s been created and its onCreate() method is called. It continues to have access to these views until the activity is destroyed, which happens at the end of its lifecycle.
+
+A fragment, however, can only interact with its views from when its onCreateView() method gets called. This means that the \_binding property can only be set to a view binding object in this method. 
+
+The fragment continues to have access to its views until its onDestroyView() method runs. At this point, the fragment’s layout is discarded, so \_binding needs to be set to null. This prevents the fragment from trying to use the view binding object when it can no longer interact with views.
+
+
+### View Model
+A view model is a separate class that sits alongside the activity or fragment code. It’s responsible for all of the data that needs to be displayed on the screen, along with any business logic.
+The view model can survive configuration changes.
+A view model holds business logic.
+
+#### 1. Add a view model dependency to the app build.gradle file
+![[Android app-2023807-10.png]]
+
+#### 2. extend ViewModel class
+![[Android app-2023807-11.png]]
+
+#### 3. Use ViewModeProvider to create model instances
+ViewModelProvider is a special class whose job is to provide activities and fragments with view models. It ensures that a new view model object only gets created if one doesn’t already exist.
+When the screen is rotated, any fragments that are displayed on the screen get destroyed and recreated. When this happens, the view model provider makes sure that the same view model object continues to be used. The view model keeps its state, so any properties that are usedby the fragment don’t get reset.
+
+![[Android app-2023807-12.png]]
+The view model provider keeps hold of the view model so long as the activity or fragment stays alive. When a fragment is detached or removed from its activity, for example, the view model provider lets go of the fragment’s view model. The next time the view model provider is asked to provide a view model object, it creates a new one.
+
+### Live Data
+Live data lets the view model tell interested parties—such as fragments and activities—when its property values have been updated. They can then react to these changes by updating views, or calling other methods.
+
+#### 1. add library dependencies
+![[Android app-2023807-13.png]]
+
+#### 2. use MutableLiveData
+You specify that a property uses live data by changing its type to MutableLiveData\<Type\>, where Type is the type of data the property should hold.
+![[Android app-2023807-15.png]]
+
+#### 3. Live data objects use a value property
+When you use MutableLiveData properties, you update their values using a property named value. E.g.
+```
+secretWordDisplay.value = deriveSecretWordDisplay()
+```
+
+#### 4. The fragment observes the changes
+![[Android app-2023807-16.png]]
+
+### Data binding
+#### 1. enable data binding
+![[Android app-2023807-17.png]]
+#### 2. Add \<layout\> and \<data\> elements
+![[Android app-2023807-18.png]]
+
+#### 3. Set the layout’s data binding variable
+
+```
+<data>
+	<variable
+		name="resultViewModel"
+		type="com.hfad.guessinggame.ResultViewModel" />
+</data>
+```
+![[Android app-2023807-19.png]]
+
+#### 4.  Use the layout’s data binding variable to access the view model
+![[Android app-2023807-20.png]]
+
+
+
+
+
+### Spinner
+A **spinner** provides a drop-down list of values. It allows you to choose a
 single value from a set of values.
 
 ### Chronometer
 A chronometer is a type of text view that acts as a simple timer. It has built-in methods you can use to start and stop it, and it displays the elapsed time.
 
-### array
+### Array
+
 ![[Android app-2023726-1 1.png]]
 ![[Android app-2023726-2.png]]
 
@@ -168,7 +288,7 @@ Buttons can include attributes such as `android:drawableStart` and `android:draw
 android:drawableStart="@drawable/duck"
 ```
 Android also includes an image button view: a button with an image but no text.
-
+![[_assets/Android app-2023726-1.png]]
 
 
 ### EventListener
@@ -186,6 +306,15 @@ The **first** difference is that you add an OnClickListener to a fragment’s bu
 The **second** difference is the Fragment class doesn’t include a findViewById() method, so you can’t directly call it to get a reference to any views. You can, however, call findViewById() on the fragment’s root view instead.
 
 ![[Android app-2023802-1.png]]
+
+## Database
+Most Android databases use SQLite. Android Jetpack includes a persistence library
+named **Room** that sits on top of SQLite.
+**Room** apps are usually structured using MVVM, which is an architectural design pattern that’s used to structure apps. It stands for Model-View-ViewModel.
+![[Android app-2023807-21.png]]
+
+
+
 ## Layout
 All layouts are a type of **ViewGroup** and a ViewGroup is a type of **View**
 ![[Android app-2023728-11.png]]
