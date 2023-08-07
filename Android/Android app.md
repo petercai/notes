@@ -313,6 +313,30 @@ named **Room** that sits on top of SQLite.
 **Room** apps are usually structured using MVVM, which is an architectural design pattern that’s used to structure apps. It stands for Model-View-ViewModel.
 ![[Android app-2023807-21.png]]
 
+### 1. build.gradle
+- project
+	![[Android app-2023807-22.png]]
+- app
+	![[Android app-2023807-23.png]]
+
+### Room database
+- data classes for the tables
+	![[Android app-2023807-25.png]]
+	
+- interface for data classes (DAO)
+	![[Android app-2023807-26.png]]
+
+- Database class
+	![[Android app-2023807-27.png]]
+	**<u>entities</u>** specifies any classes—marked with @Entity—that define the 	tables you want Room to add to the database. For the Tasks app, this is the 	Task data class.
+	**<u>version</u>** is an Int that specifies the database version. In this case, it’s 1,  as this is the first version of the database.
+	**<u>exportSchema</u>** tells Room whether to export the database schema into a folder so that you can record its version history. 
+
+	![[Android app-2023807-28.png]]
+
+
+
+
 
 
 ## Layout
