@@ -319,7 +319,7 @@ named **Room** that sits on top of SQLite.
 - app
 	![[Android app-2023807-23.png]]
 
-### Room database
+### 2. Room database
 - data classes for the tables
 	![[Android app-2023807-25.png]]
 	
@@ -334,10 +334,23 @@ named **Room** that sits on top of SQLite.
 
 	![[Android app-2023807-28.png]]
 
+Any data access operations must be performed on a background thread so they don’t block Android’s main thread and hold up the UI.
+
+### 3. Async with Suspendable
+Kotlin coroutines can be used to run data access code in the background. A **coroutine** is a piece of **suspendable** code that can be run in the background.
+![[Android app-2023807-29.png]]
+
+#### 1. mark DAO's method with suspend
+Marking methods with suspend turns each one into a suspendable coroutine.
+    ![[Android app-2023807-30.png]]
+#### 2. ViewModel launch DAO's suspendable methods in background
+    ![[Android app-2023807-32.png]]
+##### ViewModel needs a view model factor for constructor has DAO
+You add a view model to fragment code by asking the view model provider to provide one. The view model provider will return the fragment’s current view model object if one exists, or create a new one if it doesn’t.
+If the view model includes a no-argument constructor, the view model provider can create an instance of it with no extra help. But if the constructor has arguments (e.g. DAO), it needs the assistance of a view model factory.
 
 
-
-
+CompositeDisposable???
 
 ## Layout
 All layouts are a type of **ViewGroup** and a ViewGroup is a type of **View**
@@ -522,4 +535,32 @@ Each Args class includes a fromBundle() method that you use to retrieve any argu
 if you want, you can pop destinations off the back stack as the user navigates through the app. You do this by specifying pop behavior in the navigation graph.
 
 ![[Android app-2023806-2.png]]
+
+## Material View
+
+### Scrolling and collapsing toolbars
+You can make the toolbar scroll off the screen, or collapse, if the user scrolls content.
+    ![[Android app-2023808-2.png]]
+    To do this, we first need to change the app’s theme to one that has no app bar. Open the file themes.xml in the *app/src/main/res/values* folder, and update its code to include the style.
+    ![[Android app-2023808-7.png]]
+### Radio buttons, checkboxes, and chips
+    ![[Android app-2023808-3.png]]
+### Floating action buttons (**FAB**s)
+FABs are special buttons that float above the main screen.
+    ![[Android app-2023808-4.png]]
+
+### Snackbars
+These are pop-up messages you can interact with.
+    ![[Android app-2023808-5.png]]
+
+
+
+## Thread and Async
+Using Disposable and CompositeDisposable helps you prevent memory leaks and efficiently manage resources in asynchronous scenarios, which are common in Android development when dealing with things like network requests, database operations, and UI events.
+### Disposable and CompositeDisposable
+In the context of reactive programming libraries like RxJava or RxKotlin, a **Disposable** represents a reference to a resource that needs to be released or disposed of when it's no longer needed. For example, when you subscribe to an Observable, it returns a Disposable object that you can use to stop receiving emissions and release associated resources.
+
+A **CompositeDisposable** is a container that holds multiple Disposable objects. It's often used to manage and dispose of multiple subscriptions simultaneously. When you have multiple observables or other resources to manage, you can add their corresponding Disposables to a CompositeDisposable. Then, when you want to clean up and release all those resources, you can call the `dispose()` method on the CompositeDisposable, and it will automatically dispose of all the contained Disposable objects.
+
+### Corountie & Suspendable
 
