@@ -1,9 +1,5 @@
 # 25 Eclipse Shortcut Keys for Code Editing
-Details
 
-Written by  
-
-Last Updated on 07 August 2019   |  [ Print ](https://www.codejava.net/ides/eclipse/25-eclipse-shortcut-keys-for-code-editing?tmpl=component&print=1&page= "Print") [Email](https://www.codejava.net/component/mailto/?tmpl=component&template=protostar&link=4557981ff8246d50f838692d2f7e11d45b62c7f6 "Email")
 
 When using an IDE, you cannot be more productive without using its shortcut keys frequently as your habit. In this article, we summarize a list of shortcut keys which are useful for editing Java code in Eclipse IDE.
 

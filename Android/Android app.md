@@ -407,7 +407,17 @@ You specify which fragment you want to display by setting the FragmentContainerV
 
 When Android creates the activity’s layout, it populates the FragmentContainerView with the View object returned by the fragment’s onCreateView() method. This View is the fragment’s user interface.
 
+### CoordinatorLayout
+A coordinator layout is like a souped-up frame layout that’s used to coordinate animations between different views. It can coordinate the user scrolling the layout’s main content with the toolbar moving off the screen. You need to include any views whose animations you want to coordinate in the coordinator layout. 
+A CoordinatorLayout allows the behavior of one view to affect the behavior of another.
+The CoordinatorLayout is usually the root element of your layout.
 
+### AppBarLayout
+An app bar layout is a type of vertical linear layout that’s designed to work with app bars. It works with the coordinator layout to enable toolbar animation.
+![[Android app-2023814-1.png]]
+
+### NestedScrollView
+You now need to add a nested scroll view so the layout’s main content can scroll. This kind of view works just like a normal scroll view, except that it enables nested scrolling. This is important, because the coordinator layout only listens for nested scroll events. If you use a normal scroll view in your layout, the toolbar won’t be able to respond when the user scrolls the screen.
 ### ScrollView
 ![[Android app-2023728-14.png]]
 
