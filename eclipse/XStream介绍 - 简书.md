@@ -1,8 +1,5 @@
 # XStream介绍 - 简书
-[![](_assets/7bb6532d8f48.jpeg.webp)
-](https://www.jianshu.com/u/c349fdb89f87)
 
-0.1782020.07.04 05:58:12字数 800阅读 2,893
 
 XStream是一个实现javaBean与XML互相转换的工具，极大地简化了开发人员的对XML的处理
 
