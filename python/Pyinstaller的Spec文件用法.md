@@ -34,7 +34,7 @@ SPEC打包
 ### SPEC内容说明
 
 下图就是对一个main.py进行打包时，默认生成的spec文件，我们来看下每个参数表示的含义  
-![](https://img-blog.csdnimg.cn/20210105162403295.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3RhbmdmcmVlemU=,size_16,color_FFFFFF,t_70)
+![](_assets/20210105162403295.png)
 
 | 变量 | 含义 |
 | --- | --- |
@@ -113,7 +113,7 @@ Pyinstaller库中有一些自带的runtime_hooks、hookspath脚本，可以去�
 
 其他PC上exe都可以正常运行，但是有一台就是不行，把控制台打开查看打印，报的是ImportError，这肯定不可能。  
 后来查到exe还需要vc环境，所以就安装了个vc运行时库，问题就解决了。  
-![](https://img-blog.csdnimg.cn/20210106090709335.png)
+![](_assets/20210106090709335.png)
 
 加密问题
 ----

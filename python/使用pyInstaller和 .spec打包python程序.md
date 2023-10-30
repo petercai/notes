@@ -88,15 +88,15 @@ block_cipher
 
 2.对于非py文件，依次加入到datas=\[ \]内，前面是文件名，后面是目标目录名称。
 
-  ![](http://img.blog.itpub.net/blog/2023/05/30/e4d108e485fe8cb1.png?x-oss-process=style/bb)
+  ![](_assets/e4d108e485fe8cb1.png)
 
-![](http://img.blog.itpub.net/blog/2023/05/30/ec5eb272c4cc6ac2.png?x-oss-process=style/bb)
+![](_assets/ec5eb272c4cc6ac2.png)
 
 输入如下格式的命令即可
 
 然后会产生两个目录，build和dist，生成的文件在dist目录中，包括新产生的exe文件、依赖的python的包、静态的程序文件。
 
-![](http://img.blog.itpub.net/blog/2023/05/30/db418b69f77ec190.png?x-oss-process=style/bb)
+![](_assets/db418b69f77ec190.png)
 
 **基于python研发的智盟AI视觉识别系统** 基于深度学习技术 (DL，Deep Learning)应用，其核心是 Inteance UniReco 模型 ，通过将输入图像进行分 patch 的操作，送入到 encoder （编码器）中，将 RGB 三维彩色空间进行自动可学习的特征提取，包括纹理、结构、颜色等多达 2048 维特征。 相比于传统的图像处理算法的低维度、纯手动方式，该模型能够捕获更多潜在以及非视觉直观感知的特征用于视觉多种识别任务。
 

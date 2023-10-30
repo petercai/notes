@@ -102,7 +102,7 @@ Java源文件是以".java"结尾，其中写了Java源代码的文件。
 
 *   前三种进入通过绝对路径进入Java源文件方式示意图
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6293081a33c945cfb03f0e387fc9f0d6~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp)
+![](_assets/6293081a33c945cfb03f0e387fc9f0d6~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 * * *
 
@@ -118,7 +118,7 @@ Java源文件是以".java"结尾，其中写了Java源代码的文件。
 
 ###### [](https://link.juejin.cn/?target=)示意图
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/771ce36050e74f459526cdb593ce95d1~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp)
+![](_assets/771ce36050e74f459526cdb593ce95d1~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 * * *
 
@@ -155,7 +155,7 @@ java  源文件路径（绝对路径/相对路径）
 
 ##### [](https://link.juejin.cn/?target=)示意图：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/12af63a5e23548c8ac3ada4cbf3247a3~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp)
+![](_assets/12af63a5e23548c8ac3ada4cbf3247a3~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 * * *
 
