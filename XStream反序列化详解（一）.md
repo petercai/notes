@@ -1,4 +1,4 @@
-# XStream反序列化详解（一） | m0d9's blog
+# XStream反序列化详解（一）
 XStream 反序列化问题由来已久，从<=1.4.6版本之下的EventHandler利用方式，到20年的CVE-2020-26217，再到21年钟师傅、threedr3am、whit3p1g师傅们不要钱似的6个CVE。它的成因不同于fastjson之类，也有异于原生Java反序列化，很有特点，值得学习。
 
 本节其实算是Wh1t3p1g师傅《回顾XStream反序列化漏洞》的学习笔记，也试着解释师傅没提到的一些细节问题。

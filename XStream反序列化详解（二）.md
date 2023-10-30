@@ -1,4 +1,4 @@
-# XStream反序列化详解（二） | m0d9's blog
+# XStream反序列化详解（二）
 [2021-05-10](https://m0d9.me/2021/05/10/XStream%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E8%AF%A6%E8%A7%A3%EF%BC%88%E4%BA%8C%EF%BC%89/)
 
 前文已经讲过XStream的反序列化特性及漏洞产生的原因，以及<=1.4.6版本的几个gadget，在此背景上，本节准备复现披露的几个RCE CVE，正向分析下。
