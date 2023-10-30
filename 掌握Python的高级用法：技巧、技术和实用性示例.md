@@ -1,5 +1,4 @@
-# 掌握Python的高级用法：技巧、技术和实用性示例 - 掘金
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4be65071dd194e3381588f4cec45dbb4~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=953&h=500&s=296270&e=png&b=2e5577)
+# 掌握Python的高级用法：技巧、技术和实用性示例
 
 Python是一门强大而灵活的编程语言，具备各种高级用法，可以帮助你更有效地编写代码、解决问题以及提高代码质量。
 

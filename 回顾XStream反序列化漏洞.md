@@ -1,4 +1,4 @@
-# 回顾XStream反序列化漏洞-安全客 - 安全资讯平台
+# 回顾XStream反序列化漏洞
 ![](https://p5.ssl.qhimg.com/t01cf2f5f46b40eb938.jpg)
 
 0x00 前言

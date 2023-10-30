@@ -1,4 +1,4 @@
-# 剑指JUC原理-5.synchronized底层原理 - 掘金
+# 剑指JUC原理-5.synchronized底层原理
 Java对象头
 -------
 

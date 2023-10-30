@@ -1,4 +1,4 @@
-# 想要逃离 Chrome？请收下这份 Firefox 终极隐私指南 - 少数派
+# Firefox 终极隐私指南 
 **Matrix 首页推荐** 
 
 [Matrix](https://sspai.com/matrix) 是少数派的写作社区，我们主张分享真实的产品体验，有实用价值的经验与思考。我们会不定期挑选 Matrix 最优质的文章，展示来自用户的最真实的体验和观点。   
