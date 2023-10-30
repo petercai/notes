@@ -26,15 +26,15 @@ git submodule update --init --recursive
 
 idea打开 需要jdk17
 
-![](https://images.seebug.org/content/images/2023/09/b7757ffb-f097-41e6-9b35-7d998fe31874.png-w331s)
+![](_assets/b7757ffb-f097-41e6-9b35-7d998fe31874.png-w331s.png)
 
 gradle也需要jdk17
 
-![](https://images.seebug.org/content/images/2023/09/21/1695290373000-2mrqch.png-w331s)
+![](_assets/1695290373000-2mrqch.png-w331s.png)
 
 然后运行`pascal.taie.Main`，配置下主类，加一个jvm options `Xmx`防止oom异常
 
-![](https://images.seebug.org/content/images/2023/09/21/1695290392000-3mjdim.png-w331s)
+![](_assets/1695290392000-3mjdim.png-w331s.png)
 
 输出
 
@@ -286,7 +286,7 @@ tai-e实现了插件式编程，将分析拆成小模块，官方wiki中提到�
 
 TaintAnalysis类实现了`pascal.taie.analysis.pta.plugin.Plugin`接口，该接口有几个生命周期函数
 
-![](https://images.seebug.org/content/images/2023/09/21/1695290401000-4rjlai.png-w331s)
+![](_assets/1695290401000-4rjlai.png-w331s.png)
 
 我们增加程序分析入口点肯定是在onStart函数中，所以在TaintAnalysis类重写onStart函数
 
@@ -300,17 +300,17 @@ public void onStart() {
 
 添加entrypoint需要调用`pascal.taie.analysis.pta.core.solver.Solver#addEntryPoint`函数，该函数需要一个EntryPoint对象，EntryPoint构造函数中需要两个参数`JMethod method, ParamProvider paramProvider`，分别对应了入口点函数的JMethod对象，和入口点函数的参数处理器。其中ParamProvider接口有几个实现类
 
-![](https://images.seebug.org/content/images/2023/09/1bdf98f7-f940-497d-bd7c-b614af668101.png-w331s)
+![](_assets/1bdf98f7-f940-497d-bd7c-b614af668101.png-w331s.png)
 
 分别对应不同情况下的参数提供器。其中MainEntryPointParamProvider就是对应的Main函数的参数处理器
 
-![](https://images.seebug.org/content/images/2023/09/b9472563-72cf-47a4-b230-6d7753b138fa.png-w331s)
+![](_assets/b9472563-72cf-47a4-b230-6d7753b138fa.png-w331s.png)
 
 其中getParamObjs调用getMainArgs拿到模拟的main函数的参数`String[] args`，模拟参数用了`heapModel.getMockObj()`。
 
 [官方的代码中ThreadHandler的onStart函数](https://github.com/pascal-lab/Tai-e/blob/d9784e3/src/main/java/pascal/taie/analysis/pta/plugin/ThreadHandler.java#L124-L129)是一个非常好的参数模拟并添加入口点的参考例子
 
-![](https://images.seebug.org/content/images/2023/09/21/1695290490000-7tgzyq.png-w331s)
+![](_assets/1695290490000-7tgzyq.png-w331s.png)
 
 参考这个我们来照猫画虎，首先我们需要拿到`com.example.demo6.HelloServlet`的JMethod对象，很简单，直接用tai-e的类型系统就行
 
@@ -385,5 +385,5 @@ TaintFlow{<com.example.demo6.HelloServlet: void doGet(javax.servlet.http.HttpSer
 
 * * *
 
-![](https://images.seebug.org/content/images/2017/08/0e69b04c-e31f-4884-8091-24ec334fbd7e.jpeg)
+![](_assets/0e69b04c-e31f-4884-8091-24ec334fbd7e.jpeg.jpg)
  本文由 Seebug Paper 发布，如需转载请注明来源。本文地址：[https://paper.seebug.org/3040/](https://paper.seebug.org/3040/)

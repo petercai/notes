@@ -9,7 +9,7 @@ XStream 反序列化问题由来已久，从<=1.4.6版本之下的EventHandler�
 ### [](#1-1-源码解析 "1.1 源码解析")1.1 源码解析
 
 参考【3】  
-![](https://m0d9.me/images/pasted-136.png)
+![](_assets/pasted-136.png)
 
 #### [](#Mapper "Mapper")Mapper
 
@@ -51,7 +51,7 @@ convert(parent, type, converter);
 都知道反序列化是通过 `ObjectInputStream.readObject()`实现Input转Object的。针对实现了Serializable接口的类，XStream也是通过调用readObject进行转化的，但是Input是xml格式的，如何做到的呢？
 
 `ObjectInputStream.readObject()`的实现流程如下：  
-![](https://m0d9.me/images/pasted-135.png)
+![](_assets/pasted-135.png)
 
 可以看到Input会被解析成一个个类似TC_OBJECT的数据结构，Xstream 大致来说是通过CustomObjectInputStream实现这种解析xml结构的。
 

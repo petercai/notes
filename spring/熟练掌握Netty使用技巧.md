@@ -61,11 +61,11 @@ Netty 是一个基于 JAVA NIO 类库的`异步通信框架`，用于创建异
 
 > Channel 和 EventLoop 的关系
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/645e34f5790a4d8fb15fd64ed96b0738~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=958&h=567&s=47347&e=png&b=fafafa)
+![](_assets/645e34f5790a4d8fb15fd64ed96b0738~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 > Channel 和 Handler 的关系
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/fac638f885574269963593f58ec263c1~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp)
+![](_assets/fac638f885574269963593f58ec263c1~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 第三步 ： 熟悉用法
 ----------
@@ -266,7 +266,7 @@ public class DemoService {
 
 ```
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/457d0d6c4eff452bb5c0362bf3b50eb0~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=907&h=701&s=74342&e=png&b=2b2b2b)
+![](_assets/457d0d6c4eff452bb5c0362bf3b50eb0~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 可以看到流程很清晰了，先创建双端，然后双端建立连接，随后发生交互
 

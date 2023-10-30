@@ -21,7 +21,7 @@
 
 _是什么？_
 
-首先哈这个graphql 到底是什么东西，我们需要心中有数，它实际上是一种规范，或者说是一个 “前后端交换数据的协议，你请求啥啥啥必须要在xx里这样写，我才能查出来给你”，它的演示图 如下 ![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/91005ec5fd714e3aa272794eb844ae62~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.awebp)
+首先哈这个graphql 到底是什么东西，我们需要心中有数，它实际上是一种规范，或者说是一个 “前后端交换数据的协议，你请求啥啥啥必须要在xx里这样写，我才能查出来给你”，它的演示图 如下 ![](_assets/91005ec5fd714e3aa272794eb844ae62~tplv-k3u1fbpfcp-zoom-in-crop-mark!4536!0!0!0.awebp.webp)
 
 假设我要查询：“id=123user的name ，和他去过的所有城市的名字和所属省份 并且取前十条数据”，那么我可以这样写
 
@@ -174,9 +174,9 @@ _如果你是POST 你可以这样_
 
 > 好啦，上面讲啦很多废话，讲啦很多理论的东西，现在我们先看看如何实际运用哈。首先这里说明一下，我们是基于已经构建好的REST API 进行的修改，如果你不晓得我这个API 是如何构建的，请移步看另一片文章，那里有详细的说明，它大概长这样
 
-_项目结构_ ![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/be1161b5c8814964931114d8150499b4~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.awebp)
+_项目结构_ ![](_assets/be1161b5c8814964931114d8150499b4~tplv-k3u1fbpfcp-zoom-in-crop-mark!4536!0!0!0.awebp.webp)
 
-_POST MAN_ ![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a92e5f7c0fc84a0c83a943feb2cdb77e~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.awebp)
+_POST MAN_ ![](_assets/a92e5f7c0fc84a0c83a943feb2cdb77e~tplv-k3u1fbpfcp-zoom-in-crop-mark!4536!0!0!0.awebp.webp)
 
 1.  首先我们开始我们项目第一步，工欲善必先利其器也， 首先我们准备 graphql、express-graphql、graphql-tools，第一个是核心必须要的，第二个 是和express 配套的，第三个是一个tools 工具可以方便整理和管理你的 schema等内容
     
@@ -398,7 +398,7 @@ curl --location -g --request GET 'http://localhost:3000/graphql?query={books { i
 
 在Postman 上，实际上在body 参数上是有快捷的 GraphQL 操作的，特别骚气的是 它可以 自动获取你的所有 schema 并且如果在你写的时候有自动提示，如果你写错啦，它还会自动报错，啊，这个功能还是香的啊，
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8fd6843f2f304786860616a253e64505~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.awebp)
+![](_assets/8fd6843f2f304786860616a253e64505~tplv-k3u1fbpfcp-zoom-in-crop-mark!4536!0!0!0.awebp.webp)
 
 下面我给了一个update的时候的 c-url供你体验
 

@@ -4,7 +4,7 @@
 
         在责任链模式中，多个处理器依次处理同一个请求。一个请求先经过 A 处理器处理，然后再把请求传递给 B 处理器，B 处理器处理完后再传递给 C 处理器，以此类推，形成一个链条，链条上的每个处理器各自承担各自的处理职责。
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0ef5bd999fe749739a9bde36a5d62cae~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=2137&h=977&s=266237&e=png&b=fefafa)
+![](_assets/0ef5bd999fe749739a9bde36a5d62cae~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 2\. 责任链模式优点
 -----------

@@ -155,25 +155,25 @@ System.out.println(xml);
 
 在TreeUnmarshaller类的convertAnother方法处下断点，如下图所示
 
-![](https://images.seebug.org/content/images/2021/04/06/1617677139000-1.png-w331s)
+![](_assets/1617677139000-1.png-w331s.png)
 
 这里会获取一个converter，中文直译为转换器，Xstream的思路是通过不同的converter来处理序列化数据中不同类型的数据，我们跟进该方法看看在处理最外层的没有实现Serializable接口的People类时用的是哪种converter
 
-![](https://images.seebug.org/content/images/2021/04/06/1617677139000-2.png-w331s)
+![](_assets/1617677139000-2.png-w331s.png)
 
 从执行的结果中可以看到最终返回一个ReflectionConverter，当然不同的类型在这里会返回不同的Converter，这里仅仅只是处理我们自定义的未实现Serializable接口的People类时使用ReflectionConverter，该Converter的原理是通过反射获取类对象并通过反射为其每个属性进行赋值，那如过是处理实现了Serializable接口并且重写了readObject方法的People类时会有什么不一样呢？
 
 更换序列化后的数据，在同样的位置打上断点，会发现这里处理People的Converter由ReflectionConverter变成了，SerializableConverter。
 
-![](https://images.seebug.org/content/images/2021/04/06/1617677139000-3.png-w331s)
+![](_assets/1617677139000-3.png-w331s.png)
 
 这是我们尝试在People类的readObject类处打上断点
 
-![](https://images.seebug.org/content/images/2021/04/06/1617677139000-4.png-w331s)
+![](_assets/1617677139000-4.png-w331s.png)
 
 会发现执行过程中居然调用了我们重写的readObject方法，此时的调用链如下
 
-![](https://images.seebug.org/content/images/2021/04/06/1617677140000-5.png-w331s)
+![](_assets/1617677140000-5.png-w331s.png)
 
 既然会调用readObject方法的话，那此时我们的思路应该就很清晰了，只需要找到一条利用链，就可以尝试进行反序列化攻击了
 
@@ -290,39 +290,39 @@ System.out.println(xml);
 
 不难看出最外层封装的类是PriorityQueue，PriorityQueue是实现了Serializable接口并且重写了readObject方法的这点从POC中PriorityQueue的标签上也看得出，结合我们之前对XStream的分析 这次我们直接在PriorityQueued的readObject方法中打上断点。
 
-![](https://images.seebug.org/content/images/2021/04/06/1617677140000-6.png-w331s)
+![](_assets/1617677140000-6.png-w331s.png)
 
 研究过java反序列化的同学对PriorityQueue这个类肯定不会陌生，经典的CommonCollections利用链中有几个就用到了PriorityQueue，放一下此刻的调用链。
 
-![](https://images.seebug.org/content/images/2021/04/06/1617677140000-7.png-w331s)
+![](_assets/1617677140000-7.png-w331s.png)
 
 然后我们跟进heapify()方法，
 
-![](https://images.seebug.org/content/images/2021/04/06/1617677140000-8.png-w331s)
+![](_assets/1617677140000-8.png-w331s.png)
 
 经过一些调试来到了PriorityQueue类的siftDownUsingComparator方法中如下图所示。
 
-![](https://images.seebug.org/content/images/2021/04/06/1617677140000-9.png-w331s)
+![](_assets/1617677140000-9.png-w331s.png)
 
 这里调用了PriorityQueue类中存储在comparator属性中的对象的compare方法，这时我们回过头来再去看一下POC
 
-![](https://images.seebug.org/content/images/2021/04/06/1617677140000-10.png-w331s)
+![](_assets/1617677140000-10.png-w331s.png)
 
 我们可以很直观的从XStream序列化的数据中看到PriorityQueue类的comparator属性中存储的是一个`sun.awt.datatransfer.DataTransferer$IndexOrderComparator`类型的对象 也就是说接下来会调用`DataTransferer$IndexOrderComparator`对象的compare方法。
 
-![](https://images.seebug.org/content/images/2021/04/06/1617677141000-11.png-w331s)
+![](_assets/1617677141000-11.png-w331s.png)
 
 剩下的过程就是一系列的嵌套调用，最终会执行到com.sun.rowset.JdbcRowSetImpl的getDatabaseMetaData中，并最终在JdbcRowSetImpl的connect方法中通过JNDI去lookup事先封装在JdbcRowSetImpl的dataSource中的恶意地址
 
-![](https://images.seebug.org/content/images/2021/04/06/1617677141000-12.png-w331s)
+![](_assets/1617677141000-12.png-w331s.png)
 
-![](https://images.seebug.org/content/images/2021/04/06/1617677141000-13.png-w331s)
+![](_assets/1617677141000-13.png-w331s.png)
 
-![](https://images.seebug.org/content/images/2021/04/06/1617677141000-14.png-w331s)
+![](_assets/1617677141000-14.png-w331s.png)
 
 最后贴一下调用栈
 
-![](https://images.seebug.org/content/images/2021/04/06/1617677141000-15.png-w331s)
+![](_assets/1617677141000-15.png-w331s.png)
 
 CVE-2021-21344分析至此完毕。
 
@@ -395,11 +395,11 @@ CVE-2021-21344分析至此完毕。
 
 可以看到21345的利用链较之21344的利用链来说变化不大，唯一的不同点在于执行代码的位置不再使用JdbcRowSetImpl去远程加载恶意类来到本地执行恶意代码，而是使用`com.sun.corba.se.impl.activation.ServerTableEntry`类直接在本地执行恶意代码，从利用的复杂度上来和21344做比较的话无疑是简单的不少，既然整个利用链中变化的只有这一处，那就单分析这个类就可以了，将断点直接打在ServerTableEntry类的verify方法上。
 
-![](https://images.seebug.org/content/images/2021/04/06/1617677141000-16.png-w331s)
+![](_assets/1617677141000-16.png-w331s.png)
 
 这里直接将activationCmd属性中的值作为参数调用Runtime.exec来进行执行，而activationCmd在序列化的数据中就已经被我们自定义了值。
 
-![](https://images.seebug.org/content/images/2021/04/06/1617677142000-17.png-w331s)
+![](_assets/1617677142000-17.png-w331s.png)
 
 由于调用栈和CVE-2021-21344基本一样所以就不再重复粘贴的，至此CVE-2021-21345分析完毕
 
@@ -493,11 +493,11 @@ CVE-2021-21344分析至此完毕。
 
 这里我先用jdk 1.8.20版本来复现这个漏洞，然而执行的时候却返回以下错误
 
-![](https://images.seebug.org/content/images/2021/04/06/1617677142000-18.png-w331s)
+![](_assets/1617677142000-18.png-w331s.png)
 
 一开始没太明白这里是出了什么问题 先是跟着报错信息中提示的路径去看了一下，发现是在反序列化PriorityQueue的comparator属性的时候出现了问题。
 
-![](https://images.seebug.org/content/images/2021/04/06/1617677142000-19.png-w331s)
+![](_assets/1617677142000-19.png-w331s.png)
 
 经过一段跟踪调试，跟踪到类加载的地方发现根本找不到这个ObservableList$1的对象，从这个名字带有$1不难看出，这是一个匿名内部类对象，此时我们先去ObservableList这个类中去查看一下，然后发现ObservableList是一个接口类型，源码如下
 
@@ -569,23 +569,23 @@ public default SortedList<E> sorted() {
 
 可以看到sorted()方法里面多了一个Comparator类型的匿名内部类对象，而这个就是我们反序列化是POC中的那个ObservableList$1，这里写一个简单的例子验证一下
 
-![](https://images.seebug.org/content/images/2021/04/06/1617677142000-20.png-w331s)
+![](_assets/1617677142000-20.png-w331s.png)
 
 该漏洞利用的时候对JDK的版本有一定的限制，
 
 接下来开始继续分析，然后当我用JDK1.8.131再次运行的时候又爆了另一个错误
 
-![](https://images.seebug.org/content/images/2021/04/06/1617677143000-21.png-w331s)
+![](_assets/1617677143000-21.png-w331s.png)
 
 这里提示找不到 java.security.ProtectionDomain$Key.outer-class这个属性，然后经过一段让人头秃的调试后终于搞明白了其中缘由。
 
 首先着重看一下出现问题的POC的位置
 
-![](https://images.seebug.org/content/images/2021/04/06/1617677143000-22.png-w331s)
+![](_assets/1617677143000-22.png-w331s.png)
 
 导致报错的就是这个outer-class标签，报错的原因是反序列化的时候找不到这个outer-class属性，我们来到对应的类也就是ProtectionDomain$Key这个类中查看一下
 
-![](https://images.seebug.org/content/images/2021/04/06/1617677143000-23.png-w331s)
+![](_assets/1617677143000-23.png-w331s.png)
 
 发现key是一个静态内部类。
 
@@ -644,13 +644,13 @@ class Foo {
 
 查看执行结果
 
-![](https://images.seebug.org/content/images/2021/04/06/1617677143000-24.png-w331s)
+![](_assets/1617677143000-24.png-w331s.png)
 
 当引用了自己的成员内部类时，XStream就会通过outer-class来进行标识。在回过去看poc就可以理解这里表示的意思是Key作为一个成员内部类被ProtectionDomain引用，但是在jdk1.8.131中ProtectionDomain$Key是一个静态内部类呀，静态内部类XStream序列化的时候是不会通过\\<outer-class>标签进行标识的
 
 介于之前菜的坑，我又将jdk版本更换到1.8.221版本此时再看ProtectionDomain$Key这个类，可以看到在1.8.221版本的jdk中，Key已经从静态内部来改成一个成员内部类了，此时在运行POC就不会报找不到outer-class的错误了。
 
-![](https://images.seebug.org/content/images/2021/04/06/1617677143000-25.png-w331s)
+![](_assets/1617677143000-25.png-w331s.png)
 
 当然既然在jdk1.8.131版本中Key时静态内部类，那我们也可以直接通过在POC中删除\\<outer-class>这个标签来避免这个报错。
 
@@ -658,7 +658,7 @@ class Foo {
 
 接着用我们写的Demo中的Foo类和它的成员内部类Bar类来进行讲解，在Foo$Bar对象生成过后我打一个断点
 
-![](https://images.seebug.org/content/images/2021/04/06/1617677143000-26.png-w331s)
+![](_assets/1617677143000-26.png-w331s.png)
 
 这里有一个变量名为this$0的一个变量，仔细观察他的类型，发现是一个Foo类型的，也就是说他是Foo这个最外层的类对象，还记得学习java基础的时候在学习内部类的时候学过的一个知识点，就是内部类可以直接使用外部类的公有或私有变量，而外部类却不能直接使用内部类的变量，就是因为内部类会在编译时就加入一个外部类作为变量。
 
@@ -666,39 +666,39 @@ class Foo {
 
 同样的PriorityQueue部分就不再重复讲解了，只贴一下调用链
 
-![](https://images.seebug.org/content/images/2021/04/06/1617677144000-27.png-w331s)
+![](_assets/1617677144000-27.png-w331s.png)
 
 我们从ObsevableList$1这个匿名内部类开始讲起，我们来看下这个匿名内部类的实现
 
-![](https://images.seebug.org/content/images/2021/04/06/1617677144000-28.png-w331s)
+![](_assets/1617677144000-28.png-w331s.png)
 
 这里 o1和o2是同一个Base64Data对象，目的调用Base64Data.toString方法，跟入查看toString方法详情
 
-![](https://images.seebug.org/content/images/2021/04/06/1617677145000-29.png-w331s)
+![](_assets/1617677145000-29.png-w331s.png)
 
 toString方法中调用了Base64Data.get方法，继续跟入，在get方法中调用了ByteArrayOutputStreamEx.readFrom()方法，而传入的参数则是一个SequenceInputStream对象。
 
-![](https://images.seebug.org/content/images/2021/04/06/1617677145000-30.png-w331s)
+![](_assets/1617677145000-30.png-w331s.png)
 
 这里先粘贴一下此时整个Base64Data对象的封装情况。
 
-![](https://images.seebug.org/content/images/2021/04/06/1617677145000-31.png-w331s)
+![](_assets/1617677145000-31.png-w331s.png)
 
 跟入ByteArrayOutputStreamEx.readFrom()方法，经过几次嵌套调用后，来到了SequenceInputStream.nextStream()方法中，这里的关键是调用了属性e，也就是POC中就封装进去的MultiUIDefaults$MultiUIDefaultsEnumerator对象的hasMoreElements()方法
 
-![](https://images.seebug.org/content/images/2021/04/06/1617677145000-32.png-w331s)
+![](_assets/1617677145000-32.png-w331s.png)
 
 继续跟进，就会看到调用了JavacProcessingEnvironment$NameProcessIterator.hasNext()方法
 
-![](https://images.seebug.org/content/images/2021/04/06/1617677145000-33.png-w331s)
+![](_assets/1617677145000-33.png-w331s.png)
 
 当跟入到hasNext()方法方法后可以看到该方法中的关键点在于，调用processorCL的loadClass方法
 
-![](https://images.seebug.org/content/images/2021/04/06/1617677145000-34.png-w331s)
+![](_assets/1617677145000-34.png-w331s.png)
 
 我们直接从POC中来查看processorCL就是封装进去的URLClassLoader对象，而var1就是封装入names属性中的Arrays$ArrayList对象中存储的字符串也就是恶意类的名字。
 
-![](https://images.seebug.org/content/images/2021/04/06/1617677145000-35.png-w331s)
+![](_assets/1617677145000-35.png-w331s.png)
 
 接下来的步骤就是通过URLClassloader去远程加载恶意类到本地 然后执行静态代码块中的恶意代码从而导致RCE，这个过程就不进行深入赘述了，至此CVE-2021-21347漏洞分析完毕
 
@@ -789,7 +789,7 @@ toString方法中调用了Base64Data.get方法，继续跟入，在get方法中�
 
 该漏洞的整个利用链和CVE-2021-21345如出一辙，不同的地方在于，最后的加载恶意Class的Classloader不再使用URLClassloader去远程加载，而是采用了com.sun.org.apache.bcel.internal.util.ClassLoader，这里相信对FastJson有了解的同学应该不陌生，这里使用了BCEL的方式来进行恶意代码执行
 
-![](https://images.seebug.org/content/images/2021/04/06/1617677146000-36.png-w331s)
+![](_assets/1617677146000-36.png-w331s.png)
 
 但是整个利用链和CVE-2021-21347是一样的，所以这里也就不重复赘述了。
 
@@ -877,37 +877,37 @@ toString方法中调用了Base64Data.get方法，继续跟入，在get方法中�
 
 这次用到的gadget入口点为javax.naming.ldap.Rdn$RdnEntry，在使用该POC之前仍然有一个点是需要注意的，\ <__overrideDefaultParser>这个标签在低版本的jdk中是没有的，需要进行更换。
 
-![](https://images.seebug.org/content/images/2021/04/06/1617677146000-37.png-w331s)
+![](_assets/1617677146000-37.png-w331s.png)
 
 更换成以下标签。
 
-![](https://images.seebug.org/content/images/2021/04/06/1617677146000-38.png-w331s)
+![](_assets/1617677146000-38.png-w331s.png)
 
 接下来就用jdk1.8.20为例，来进行分析。首先在POC中我们可以直观的看到，有两个Rdn$RdnEntry的序列化数据，最外层的触发点是Rdn$RdnEntry.compareTo方法，该方法是对比两个Rdn$RdnEntry的value属性是否相同。
 
-![](https://images.seebug.org/content/images/2021/04/06/1617677146000-39.png-w331s)
+![](_assets/1617677146000-39.png-w331s.png)
 
 当前对象的value属性是一个Xstring对象，在POC中的这个位置。
 
-![](https://images.seebug.org/content/images/2021/04/06/1617677146000-40.png-w331s)
+![](_assets/1617677146000-40.png-w331s.png)
 
 所以跟进Xstring.equals方法，该方法中需要注意的是调用了obj2 也就是传入的XRTreeFrag.toString方法，跟进该方法
 
-![](https://images.seebug.org/content/images/2021/04/06/1617677146000-41.png-w331s)
+![](_assets/1617677146000-41.png-w331s.png)
 
 经过一次嵌套调用后，来到XRTreeFrag.str方法中 这里调用了之前就封装在POC中的SAX2DTM对象，如下图所示
 
-![](https://images.seebug.org/content/images/2021/04/06/1617677146000-42.png-w331s)
+![](_assets/1617677146000-42.png-w331s.png)
 
-![](https://images.seebug.org/content/images/2021/04/06/1617677147000-43.png-w331s)
+![](_assets/1617677147000-43.png-w331s.png)
 
 跟入SAX2DTM.getStringValue方法，经过两次嵌套调用后，来到了SAX2DTM.nextNode方法中，该方法中需要注意的是调用了m\_incrementalSAXSource属性也就是POC中封装好的IncrementalSAXSource\_Xerces对象的deliverMoreNodes方法。
 
-![](https://images.seebug.org/content/images/2021/04/06/1617677148000-44.png-w331s)
+![](_assets/1617677148000-44.png-w331s.png)
 
 继续向下执行，最终会执行到IncrementalSAXSource_Xerces.parseSome方法，该方法会通过反射调用JdbcRowSetImpl.setAutoCommit方法。
 
-![](https://images.seebug.org/content/images/2021/04/06/1617677148000-45.png-w331s)
+![](_assets/1617677148000-45.png-w331s.png)
 
 接下来的流程就还是JdbcRowSetImpl的老一套了，就不再深入说明了。至此CVE-2021-21351分析完毕
 
@@ -965,5 +965,5 @@ protected void setupSecurity() {
 
 * * *
 
-![](https://images.seebug.org/content/images/2017/08/0e69b04c-e31f-4884-8091-24ec334fbd7e.jpeg)
+![](_assets/0e69b04c-e31f-4884-8091-24ec334fbd7e.jpeg.jpg)
  本文由 Seebug Paper 发布，如需转载请注明来源。本文地址：[https://paper.seebug.org/1543/](https://paper.seebug.org/1543/)

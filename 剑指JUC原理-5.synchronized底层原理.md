@@ -6,7 +6,7 @@ Java对象头
 
 普通对象
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/934f2cb960814b7a958df5b623220882~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=616&h=133&s=69152&e=png&b=fcfafa)
+![](_assets/934f2cb960814b7a958df5b623220882~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 在Java虚拟机中，每个对象都有一个对象头（Object Header），其中包含了一些用于管理对象的元数据信息。对象头通常由两部分组成：mark word（标记字）和klass word（类指针字）。
 
@@ -27,7 +27,7 @@ Klass Word（类指针字）：Klass Word**是指向对象所属类的指针**�
 
 ### Mark Word结构
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/488a8119a4df49b9a270e7f50c55e6b3~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=1410&h=562&s=435102&e=png&b=fdfcfc)
+![](_assets/488a8119a4df49b9a270e7f50c55e6b3~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 这个部分后面再详细讲解，这里其实可以理解为各种锁的状态
 
@@ -40,7 +40,7 @@ Monitor 被翻译为**监视器**或**管程**
 
 Monitor 结构如下
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2f23bf594a6c4da89b0290ecf95370de~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=1018&h=408&s=97053&e=png&b=fbf5f4)
+![](_assets/2f23bf594a6c4da89b0290ecf95370de~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 *   刚开始 Monitor 中 Owner 为 null
 *   当 Thread-2 执行 synchronized(obj) 就会将 Monitor 的所有者 Owner 置为 Thread-2，Monitor中只能有一 个 Owner
@@ -164,24 +164,24 @@ public static void method1() {
 
 创建锁记录（Lock Record）对象，每个线程的栈帧都会包含一个锁记录的结构，内部可以存储锁定对象的 Mark Word
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/36c6f6f194f34e1381ba05cd821a6eb7~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=802&h=427&s=94290&e=png&b=fef6f1)
+![](_assets/36c6f6f194f34e1381ba05cd821a6eb7~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 让锁记录中 Object reference 指向锁对象，并尝试用 cas 替换 Object 的 Mark Word，将 Mark Word 的值存 入锁记录
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b9b3d05950d04679a5b164ef30de3ca5~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=831&h=471&s=90358&e=png&b=fdf6f3)
+![](_assets/b9b3d05950d04679a5b164ef30de3ca5~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 锁记录替换对象头中的MarkWord
 
 如果 cas 替换成功，对象头中存储了 锁记录地址和状态 00 ，表示由该线程给对象加锁，这时图示如下
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1d13e5f56d8f492d9ec6ee6e7d580858~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=916&h=490&s=89007&e=png&b=fcf7f5)
+![](_assets/1d13e5f56d8f492d9ec6ee6e7d580858~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 如果 cas 失败，有两种情况
 
 *   如果是其它线程已经持有了该 Object 的轻量级锁，这时表明有竞争，进入**锁膨胀**过程
 *   如果是自己执行了 synchronized 锁重入，那么再添加一条 Lock Record 作为重入的计数
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/59e9895942374a41923f2cd9f6439dc8~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=859&h=514&s=122634&e=png&b=fcf6f4)
+![](_assets/59e9895942374a41923f2cd9f6439dc8~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 ```java
 static final Object obj = new Object();
@@ -201,7 +201,7 @@ public static void method2() {
 
 当退出 synchronized 代码块（解锁时）如果有取值为 null 的锁记录，表示有重入，这时重置锁记录，表示重 入计数减一
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/97554da63b8c4051bbd2a28f5d835a77~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=814&h=456&s=86083&e=png&b=fbf4f0)
+![](_assets/97554da63b8c4051bbd2a28f5d835a77~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 当退出 synchronized 代码块（解锁时）锁记录的值不为 null，这时使用 cas 将 Mark Word 的值恢复给对象头
 
@@ -224,14 +224,14 @@ public static void method1() {
 
 当 Thread-1 进行轻量级加锁时，Thread-0 已经对该对象加了轻量级锁
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/886c057b481547269e1a3ddb4d101c5b~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=1021&h=367&s=89276&e=png&b=fdf7f6)
+![](_assets/886c057b481547269e1a3ddb4d101c5b~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 这时 Thread-1 加轻量级锁失败，进入锁膨胀流程
 
 *   即为 Object 对象申请 Monitor 锁，让 Object 指向重量级锁地址
 *   然后自己进入 Monitor 的 EntryList BLOCKED
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/eb7be8ea50ce45da9934bcbe30aa30e2~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=1054&h=379&s=84175&e=png&b=fcf4ee)
+![](_assets/eb7be8ea50ce45da9934bcbe30aa30e2~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 当 Thread-0 退出同步块解锁时，使用 cas 将 Mark Word 的值恢复给对象头，失败。这时会进入重量级解锁 流程，即按照 Monitor 地址找到 Monitor 对象，设置 Owner 为 null，唤醒 EntryList 中 BLOCKED 线程
 
@@ -241,11 +241,11 @@ public static void method1() {
 
 自旋重试成功的情况
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2d27f6d57d66469ab21c5c50a669747f~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=1006&h=619&s=144788&e=png&b=fafafa)
+![](_assets/2d27f6d57d66469ab21c5c50a669747f~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 自旋重试失败的情况
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/789c675fc5ee41d1a868ac1c3f7046c7~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=1008&h=570&s=138010&e=png&b=f9f9f9)
+![](_assets/789c675fc5ee41d1a868ac1c3f7046c7~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 自旋会占用 CPU 时间，单核 CPU 自旋就是浪费，多核 CPU 自旋才能发挥优势。
 
@@ -281,9 +281,9 @@ public static void m3() {
 
 ```
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a87bb98819ba4d2fba3940cccde3b4e2~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=864&h=667&s=138702&e=png&b=fefee0)
+![](_assets/a87bb98819ba4d2fba3940cccde3b4e2~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5951112d28514c55bdb32923524ab5f7~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=862&h=465&s=76247&e=png&b=fefde0)
+![](_assets/5951112d28514c55bdb32923524ab5f7~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 #### 偏向状态
 
@@ -293,7 +293,7 @@ public static void m3() {
 
 **回忆一下对象头格式**
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0eb3ea4cece14282b6612fe9c3dc4bbf~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=1023&h=406&s=69587&e=png&b=f8f8f8)
+![](_assets/0eb3ea4cece14282b6612fe9c3dc4bbf~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 一个对象创建时：
 
@@ -359,7 +359,7 @@ public static void main(String[] args) throws IOException {
 
 调用了对象的 hashCode，但偏向锁的对象 MarkWord 中存储的是线程 id，如果调用 hashCode 会导致偏向锁被 撤销，如图所示：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ffc25b977dcd4fe1a56b8376c663dd5c~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=1215&h=489&s=183776&e=png&b=f8f7f7)
+![](_assets/ffc25b977dcd4fe1a56b8376c663dd5c~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 *   轻量级锁会在锁记录中记录 hashCode
 *   重量级锁会在 Monitor 中记录 hashCode

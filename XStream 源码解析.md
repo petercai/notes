@@ -73,7 +73,7 @@ public void testPopulationOfAnObjectGraphStartingWithALiveRootObject() throws Ex
 3、详细设计
 ------
 
-![](https://upload-images.jianshu.io/upload_images/89809-1a18dc65647577ef.png)
+![](_assets/89809-1a18dc65647577ef.png.webp)
 
 image.png
 
@@ -227,7 +227,7 @@ DefaultMapper的realClass方法
 
   
 
-![](https://upload-images.jianshu.io/upload_images/89809-918ada361885ee8c.png)
+![](_assets/89809-918ada361885ee8c.png.webp)
 
 image.png
 

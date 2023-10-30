@@ -21,7 +21,7 @@ Building Database
 
 在`CodeQL`的历史文档中（加入`Github`之前），有大致描述其创建数据库的过程，如下图，见\[1\]
 
-![](https://images.seebug.org/content/images/2022/06/c72eaefc-e52f-4691-a638-8780f2b23022.png-w331s)
+![](_assets/c72eaefc-e52f-4691-a638-8780f2b23022.png-w331s.png)
 
 它的工作流程大致是，在`javac`编译目标代码时，通过`Extractor`与其进行交互。`Extractor`会根据每一个`java`文件的内容生成一个`trap`文件，后续再根据`trap`文件生成实际的数据库。同时它会将处理的每一个`java`文件拷贝一份保存在数据中，便于后续展示查询结果时能看到代码的上下文。
 
@@ -82,8 +82,8 @@ rem Wrapper provided for users who explicitly configured VS Code to point to cod
 exit /b %errorlevel%
 ```
 
-在`win`平台，它借助`exe`文件来处理要执行的命令，这不是我们想看到的。好在还有另一个`shell`脚本文件`codeql`，为`linux`平台提供服务。可以通过它来了解`codeql.exe`的内部逻辑 ![](https://images.seebug.org/content/images/2022/06/ac256114-ae65-45f3-8812-4160467fd352.png-w331s)
- ![](https://images.seebug.org/content/images/2022/06/ebf3502b-eceb-4c7e-aaaa-07b27dfe9616.png-w331s)
+在`win`平台，它借助`exe`文件来处理要执行的命令，这不是我们想看到的。好在还有另一个`shell`脚本文件`codeql`，为`linux`平台提供服务。可以通过它来了解`codeql.exe`的内部逻辑 ![](_assets/ac256114-ae65-45f3-8812-4160467fd352.png-w331s.png)
+ ![](_assets/ebf3502b-eceb-4c7e-aaaa-07b27dfe9616.png-w331s.png)
 
 它的大概意思是，设置环境变量`CODEQL_PLATFORM`，`CODEQL_JAVA_HOME`和`CODEQL_DIST`后，执行`codeql.jar`。再回过头细看`database-create-20220509.114127.634.log`里面会记录使用成功加载`java`的`extracotr`（**Successfully loaded extractor Java**），位于`java\tools`目录下
 
@@ -207,7 +207,7 @@ CODEQL_DIST=C:\Program Files\codeql;
 
 环境变量中出现了很多熟悉的面孔，在`java`的`extractor`中见过它们。由于前面执行的命令涉及到`tracer.exe`和`runner.exe`，如果直接以它们为目标进行分析需要借助其它逆向工具，导致问题过于复杂，先不走这条路。这里先通过`process hacker`查看这条命令执行过程中的变化
 
-![](https://images.seebug.org/content/images/2022/06/7dc4e925-2076-42ab-b4c2-f6ca3a5da1e6.jpg-w331s)
+![](_assets/7dc4e925-2076-42ab-b4c2-f6ca3a5da1e6.jpg-w331s.jpg)
 
 从进程创建的结构看，后`3`个`java.exe`依次执行的命令如下
 
@@ -828,7 +828,7 @@ boolean runExtractor() {
 
 `process`函数的内容如下，根据输入的源代码文件内容进行处理，而`CompilationUnitExtractor`在创建时传入的`cu(JCCompilationUnit)`对象，保存着编辑器处理后的上下文信息。
 
-![](https://images.seebug.org/content/images/2022/06/8e909631-820d-4fdb-a489-a7f22f9b9741.png-w331s)
+![](_assets/8e909631-820d-4fdb-a489-a7f22f9b9741.png-w331s.png)
 
 以`ClassDeclExtractor#visitClassDef`为例，会通过调用`this.onDemand.getClassKey`得到当前类的唯一标签，其它方法也是类似的。
 
@@ -919,5 +919,5 @@ References
 
 * * *
 
-![](https://images.seebug.org/content/images/2017/08/0e69b04c-e31f-4884-8091-24ec334fbd7e.jpeg)
+![](_assets/0e69b04c-e31f-4884-8091-24ec334fbd7e.jpeg.jpg)
  本文由 Seebug Paper 发布，如需转载请注明来源。本文地址：[https://paper.seebug.org/1921/](https://paper.seebug.org/1921/)

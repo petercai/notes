@@ -193,7 +193,7 @@ jdk.nashorn.internal.objects.NativeString#hashCode
 
 1.  官网的java.util.ArrayListItr实现用的是java.util.ArrayListItr  
     其中需要注意ArrayList.this，当ArrayList add/grow，都会更新ArrayList.elementData，所以iter.next()成功取到ProcessBuilder实例。  
-    ![](https://m0d9.me/images/pasted-138.png)
+    ![](_assets/pasted-138.png)
     
 2.  Wh1t3p1g师傅的java.util.CollectionsEmptyIterator实现用的是java.util.CollectionsEmptyIterator，这里注意嵌套了两层
     
@@ -210,7 +210,7 @@ jdk.nashorn.internal.objects.NativeString#hashCode
     *   step1:利用的是EmptyIterator hasNext() 为false，构造了第一层FilterIterator iter1，使得iter1.next() = iter1.next
     *   step2:再构造一层 FilterIterator iter2，iter2.iter=iter1,使得iter2.next() = iter2.iter1.next() = iter2.iter1.next
 
-![](https://m0d9.me/images/pasted-139.png)
+![](_assets/pasted-139.png)
 
 ### [](#黑名单： "黑名单：")黑名单：
 

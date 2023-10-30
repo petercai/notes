@@ -75,7 +75,7 @@ SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c
 
 [https://jwt.io/](https://jwt.io/ "https://jwt.io/ ")
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030417000-5ac430ff-ba62-46d9-bda1-3f60f2f417b8.png-w331s)
+![](_assets/1698030417000-5ac430ff-ba62-46d9-bda1-3f60f2f417b8.png-w331s.png)
 
 #### 工作原理
 
@@ -93,27 +93,27 @@ JWT的工作流程如下：
 
 Step 1：用户携带JWS(带有签名的JWT)访问应用
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030419000-ee95471b-4068-4978-b667-a52b7a49d758.png-w331s)
+![](_assets/1698030419000-ee95471b-4068-4978-b667-a52b7a49d758.png-w331s.png)
 
 Step 2：应用程序解码JWS得到JKU字段
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030419000-a4d87641-83ec-4f03-86cd-c492a5f07c1c.png-w331s)
+![](_assets/1698030419000-a4d87641-83ec-4f03-86cd-c492a5f07c1c.png-w331s.png)
 
 Step 3：应用根据JKU访问返回JWK的服务器
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030420000-19d19989-361f-4cde-a908-18e100882122.png-w331s)
+![](_assets/1698030420000-19d19989-361f-4cde-a908-18e100882122.png-w331s.png)
 
 Step 4：应用程序得到JWK
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030420000-84a5576b-96b9-445f-b25c-8f5aef4cead6.png-w331s)
+![](_assets/1698030420000-84a5576b-96b9-445f-b25c-8f5aef4cead6.png-w331s.png)
 
 Step 5：使用JWK验证用户JWS
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030420000-4e7c5e64-ff49-4108-985c-a785056a0f4e.jpg-w331s)
+![](_assets/1698030420000-4e7c5e64-ff49-4108-985c-a785056a0f4e.jpg-w331s.jpg)
 
 Step 6：验证通过则正常响应
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030420000-a94ccc39-1069-416c-a3b8-431691475d7b.png-w331s)
+![](_assets/1698030420000-a94ccc39-1069-416c-a3b8-431691475d7b.png-w331s.png)
 
 #### 漏洞攻防
 
@@ -181,7 +181,7 @@ JWT库会通常提供一种验证令牌的方法和一种解码令牌的方法�
 
 靶场地址：[https://portswigger.net/web-security/jwt/lab-jwt-authentication-bypass-via-unverified-signature](https://portswigger.net/web-security/jwt/lab-jwt-authentication-bypass-via-unverified-signature "https://portswigger.net/web-security/jwt/lab-jwt-authentication-bypass-via-unverified-signature ")
 
-![](https://images.seebug.org/content/images/2023/10/317898cd-0bb1-4780-9cf3-f11719598be3.png-w331s)
+![](_assets/317898cd-0bb1-4780-9cf3-f11719598be3.png-w331s.png)
 
 演示步骤：
 
@@ -192,7 +192,7 @@ Step 1：点击上方的"Access the Lab"访问靶场并登录账户
 密码:TfXG;83yacz;#"zt8eBQ)57Lb]dr-b&_
 ```
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030420000-ea2b7c61-8167-4888-8e30-75827b35c10b.png-w331s)
+![](_assets/1698030420000-ea2b7c61-8167-4888-8e30-75827b35c10b.png-w331s.png)
 
 Step 2：进入到Web界面并登录靶场账户
 
@@ -200,21 +200,21 @@ Step 2：进入到Web界面并登录靶场账户
 wiener:peter
 ```
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030420000-1697ccbc-1ed2-44d3-98f9-eb5416f8e8ef.jpg-w331s)
+![](_assets/1698030420000-1697ccbc-1ed2-44d3-98f9-eb5416f8e8ef.jpg-w331s.jpg)
 
 ![](https://paper.seebug.org/3057/img/cdc28433-a8f5-40d6-ab31-0270a9032201.png)
 
 登录之后会看到如下一个更新邮箱的界面
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030420000-e42e220b-1c9b-458f-8b86-82144fa2b70a.png-w331s)
+![](_assets/1698030420000-e42e220b-1c9b-458f-8b86-82144fa2b70a.png-w331s.png)
 
 Step 3：此时在我们的burpsuite中我们可以看到如下的会话信息
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030420000-7f9dbb54-7dc5-4e77-865a-24de92ac86d7.png-w331s)
+![](_assets/1698030420000-7f9dbb54-7dc5-4e77-865a-24de92ac86d7.png-w331s.png)
 
 此时查询当前用户可以看到会显示当前用户为wiener：
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030421000-756e366f-ee16-423b-a268-eeffbcd32a96.png-w331s)
+![](_assets/1698030421000-756e366f-ee16-423b-a268-eeffbcd32a96.png-w331s.png)
 
 截取上面中间一部分base64编码的部分更改上面的sub为"administrator"
 
@@ -222,7 +222,7 @@ Step 3：此时在我们的burpsuite中我们可以看到如下的会话信息
 eyJpc3MiOiJwb3J0c3dpZ2dlciIsInN1YiI6IndpZW5lciIsImV4cCI6MTY4Nzc5MDA4M30
 ```
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030421000-dc93251e-a956-451f-8ba9-c86fea666210.png-w331s)
+![](_assets/1698030421000-dc93251e-a956-451f-8ba9-c86fea666210.png-w331s.png)
 
 构造一个sub为"administrator"的载荷并将其进行base64编码处理：
 
@@ -230,15 +230,15 @@ eyJpc3MiOiJwb3J0c3dpZ2dlciIsInN1YiI6IndpZW5lciIsImV4cCI6MTY4Nzc5MDA4M30
 eyJpc3MiOiJwb3J0c3dpZ2dlciIsInN1YiI6ImFkbWluaXN0cmF0b3IiLCJleHAiOjE2ODc3OTAwODN9
 ```
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030421000-33071582-35a0-404e-8235-30600b389843.png-w331s)
+![](_assets/1698030421000-33071582-35a0-404e-8235-30600b389843.png-w331s.png)
 
 替换之后重新发送请求：
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030421000-381c394e-eb28-4c66-a8b1-78134893fb85.png-w331s)
+![](_assets/1698030421000-381c394e-eb28-4c66-a8b1-78134893fb85.png-w331s.png)
 
 按照题目要求访问/admin路径，发现两个删除用户的调用接口：
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030421000-43004b3c-f7bf-4740-8853-f95cd6740dd6.png-w331s)
+![](_assets/1698030421000-43004b3c-f7bf-4740-8853-f95cd6740dd6.png-w331s.png)
 
 请求敏感链接——删除用户carlos
 
@@ -246,11 +246,11 @@ eyJpc3MiOiJwb3J0c3dpZ2dlciIsInN1YiI6ImFkbWluaXN0cmF0b3IiLCJleHAiOjE2ODc3OTAwODN9
 GET /admin/delete?username=carlos HTTP/1.1
 ```
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030421000-263ab1c6-3447-4807-b40e-c8858ac7d847.png-w331s)
+![](_assets/1698030421000-263ab1c6-3447-4807-b40e-c8858ac7d847.png-w331s.png)
 
 完成靶场的解答：
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030421000-d711a95d-195e-4202-8673-79aa793840fb.png-w331s)
+![](_assets/1698030421000-d711a95d-195e-4202-8673-79aa793840fb.png-w331s.png)
 
 ##### 签名用None
 
@@ -269,7 +269,7 @@ GET /admin/delete?username=carlos HTTP/1.1
 
 实验靶场：[https://portswigger.net/web-security/jwt/lab-jwt-authentication-bypass-via-flawed-signature-verification](https://portswigger.net/web-security/jwt/lab-jwt-authentication-bypass-via-flawed-signature-verification "https://portswigger.net/web-security/jwt/lab-jwt-authentication-bypass-via-flawed-signature-verification")
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030422000-637620e7-1460-4f71-b297-da8f96e26c33.png-w331s)
+![](_assets/1698030422000-637620e7-1460-4f71-b297-da8f96e26c33.png-w331s.png)
 
 实验流程：
 
@@ -277,7 +277,7 @@ Step 1：点击上方的"Access the lab"访问靶场环境
 
 [https://0a9c00a8030ba77784d7b92d00cc0086.web-security-academy.net/](https://0a9c00a8030ba77784d7b92d00cc0086.web-security-academy.net/ "https://0a9c00a8030ba77784d7b92d00cc0086.web-security-academy.net/")
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030422000-d417da65-d874-49cf-b5b7-085c8d5f98c8.jpg-w331s)
+![](_assets/1698030422000-d417da65-d874-49cf-b5b7-085c8d5f98c8.jpg-w331s.jpg)
 
 Step 2：使用账户密码进行登录
 
@@ -285,15 +285,15 @@ Step 2：使用账户密码进行登录
 wiener:peter
 ```
 
-![](https://images.seebug.org/content/images/2023/10/366d97fc-200a-401d-ad9a-3e4a0324c9c1.png-w331s)
+![](_assets/366d97fc-200a-401d-ad9a-3e4a0324c9c1.png-w331s.png)
 
 Step 3：登录之后可以看到如下界面
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030422000-0cb644ba-25e4-4be8-b241-0281e628fb01.png-w331s)
+![](_assets/1698030422000-0cb644ba-25e4-4be8-b241-0281e628fb01.png-w331s.png)
 
 Step 4：捕获到的数据报信息如下所示
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030422000-9d7769dd-9b4e-4c7f-b4d7-5745e8b8d5ee.png-w331s)
+![](_assets/1698030422000-9d7769dd-9b4e-4c7f-b4d7-5745e8b8d5ee.png-w331s.png)
 
 截取JWT的第二部分对其进行base64解码:
 
@@ -301,7 +301,7 @@ Step 4：捕获到的数据报信息如下所示
 eyJpc3MiOiJwb3J0c3dpZ2dlciIsInN1YiI6IndpZW5lciIsImV4cCI6MTY4Nzc5MzQ5M30
 ```
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030422000-f0174506-d302-4e41-a07e-b5b5ca78a79a.png-w331s)
+![](_assets/1698030422000-f0174506-d302-4e41-a07e-b5b5ca78a79a.png-w331s.png)
 
 将上述的sub字段值更改为"administrator"
 
@@ -309,11 +309,11 @@ eyJpc3MiOiJwb3J0c3dpZ2dlciIsInN1YiI6IndpZW5lciIsImV4cCI6MTY4Nzc5MzQ5M30
 eyJpc3MiOiJwb3J0c3dpZ2dlciIsInN1YiI6ImFkbWluaXN0cmF0b3IiLCJleHAiOjE2ODc3OTM0OTN9
 ```
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030422000-805c5896-55c1-43f6-8f58-eacb962fc47f.png-w331s)
+![](_assets/1698030422000-805c5896-55c1-43f6-8f58-eacb962fc47f.png-w331s.png)
 
 Step 5：在使用wiener用户的凭据访问/admin是会提示401 Unauthorized
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030423000-04fa050c-dc31-41ed-ab99-391361c87aea.png-w331s)
+![](_assets/1698030423000-04fa050c-dc31-41ed-ab99-391361c87aea.png-w331s.png)
 
 Step 6：将第一步分的alg参数改为none
 
@@ -321,7 +321,7 @@ Step 6：将第一步分的alg参数改为none
 eyJraWQiOiIyNmNlNGNmMi0wYjFhLTQzZTUtOWYzNy1kOTA2ZjkxZmY2MzkiLCJhbGciOiJSUzI1NiJ9
 ```
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030423000-730007e1-bc76-40d6-9062-d0a3f95dba62.png-w331s)
+![](_assets/1698030423000-730007e1-bc76-40d6-9062-d0a3f95dba62.png-w331s.png)
 
 更改之后的header部分：
 
@@ -329,17 +329,17 @@ eyJraWQiOiIyNmNlNGNmMi0wYjFhLTQzZTUtOWYzNy1kOTA2ZjkxZmY2MzkiLCJhbGciOiJSUzI1NiJ9
 eyJraWQiOiIyNmNlNGNmMi0wYjFhLTQzZTUtOWYzNy1kOTA2ZjkxZmY2MzkiLCJhbGciOiJub25lIn0=
 ```
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030423000-3966b4b2-0a4e-45cc-8d19-33df618bcc78.png-w331s)
+![](_assets/1698030423000-3966b4b2-0a4e-45cc-8d19-33df618bcc78.png-w331s.png)
 
 替换JWT Token中的第二部分为之前我们构造的信息，同时移除签名部分，再次请求数据获取到敏感数据链接
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030423000-ef289fc2-864d-41b7-8c9b-eb25b60a7a9a.png-w331s)
+![](_assets/1698030423000-ef289fc2-864d-41b7-8c9b-eb25b60a7a9a.png-w331s.png)
 
 调用敏感链接移除用户信息，完成解题操作：
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030423000-ab032307-beaa-4186-bf71-2d1aab7d9d4c.png-w331s)
+![](_assets/1698030423000-ab032307-beaa-4186-bf71-2d1aab7d9d4c.png-w331s.png)
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030423000-8c16ff8e-e39e-4e70-8477-3ee724d0376a.png-w331s)
+![](_assets/1698030423000-8c16ff8e-e39e-4e70-8477-3ee724d0376a.png-w331s.png)
 
 ##### 密钥暴力猜解
 
@@ -450,7 +450,7 @@ public class JWTExample {
 
 [https://github.com/wallarm/jwt-secrets/blob/master/jwt.secrets.list](https://github.com/wallarm/jwt-secrets/blob/master/jwt.secrets.lis "https://github.com/wallarm/jwt-secrets/blob/master/jwt.secrets.list")
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030424000-50306769-e441-4c8f-a70a-a34ada8f08a5.png-w331s)
+![](_assets/1698030424000-50306769-e441-4c8f-a70a-a34ada8f08a5.png-w331s.png)
 
 在这里我们也建议使用hashcat来强力破解密钥，您可以手动安装hashcat，也可以在Kali Linux上使用预先安装好的hashcat，您只需要一个来自目标服务器的有效的、签名的JWT和一个众所周知的秘密的单词表然后就可以运行以下命令，将JWT和单词列表作为参数传入:
 
@@ -466,13 +466,13 @@ Hashcat会使用单词列表中的每个密钥对来自JWT的报头和有效载�
 
 靶场地址：[https://portswigger.net/web-security/jwt/lab-jwt-authentication-bypass-via-weak-signing-key](https://portswigger.net/web-security/jwt/lab-jwt-authentication-bypass-via-weak-signing-key "https://portswigger.net/web-security/jwt/lab-jwt-authentication-bypass-via-weak-signing-key")
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030424000-9da0cb11-b67e-4f5a-b731-137513cb4545.png-w331s)
+![](_assets/1698030424000-9da0cb11-b67e-4f5a-b731-137513cb4545.png-w331s.png)
 
 实验步骤：
 
 Step 1：点击上述"Access the lab"进入到靶场环境
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030424000-905a419d-013e-4410-84d6-7664ba315156.jpg-w331s)
+![](_assets/1698030424000-905a419d-013e-4410-84d6-7664ba315156.jpg-w331s.jpg)
 
 Step 2：使用以下账户进行登录操作
 
@@ -480,7 +480,7 @@ Step 2：使用以下账户进行登录操作
 wiener:peter
 ```
 
-![](https://images.seebug.org/content/images/2023/10/db48184d-216d-45f9-b040-0a889272a2dd.png-w331s)
+![](_assets/db48184d-216d-45f9-b040-0a889272a2dd.png-w331s.png)
 
 Step 3：捕获到如下有效的JWT凭据信息
 
@@ -488,9 +488,9 @@ Step 3：捕获到如下有效的JWT凭据信息
 eyJraWQiOiI4M2RhOGNjMi1hZmZiLTRmZGMtYWMwYS1iMWNmMTBkNjkyZGYiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJwb3J0c3dpZ2dlciIsInN1YiI6IndpZW5lciIsImV4cCI6MTY4Nzc5NjQwMn0.IhZV-7RHTpEcQvkcZOA3knCYmQD0YUg-NFMj9fWSFjw
 ```
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030424000-a270d959-5c81-4f5c-ad9c-8c4240c8feaf.png-w331s)
+![](_assets/1698030424000-a270d959-5c81-4f5c-ad9c-8c4240c8feaf.png-w331s.png)
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030424000-1392aaf5-e63f-436a-9848-b5b40b6c6033.png-w331s)
+![](_assets/1698030424000-1392aaf5-e63f-436a-9848-b5b40b6c6033.png-w331s.png)
 
 Step 4：使用字典进行暴力猜解操作
 
@@ -507,7 +507,7 @@ hashcat -a 0 -m 16500 <jwt> <wordlist>
 hashcat -m 16500 jwt.txt -a 0 secrets.txt --force
 ```
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030425000-41d30385-7dd8-4947-8989-4d5a2207dba9.png-w331s)
+![](_assets/1698030425000-41d30385-7dd8-4947-8989-4d5a2207dba9.png-w331s.png)
 
 **方式二：jwt_tool**
 
@@ -523,7 +523,7 @@ hashcat -m 16500 jwt.txt -a 0 secrets.txt --force
 *   (CVE-2019-20933/CVE-2020-28637) Blank password vulnerability
 *   (CVE-2020-28042) Null signature vulnerability
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030425000-b3acaba2-8ed3-4c24-a839-86a4a2749e18.png-w331s)
+![](_assets/1698030425000-b3acaba2-8ed3-4c24-a839-86a4a2749e18.png-w331s.png)
 
 Step 1：克隆项目到本地
 
@@ -531,7 +531,7 @@ Step 1：克隆项目到本地
 https://github.com/ticarpi/jwt_tool
 ```
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030425000-b7ded249-6a0a-4df8-84a5-0dd963413751.png-w331s)
+![](_assets/1698030425000-b7ded249-6a0a-4df8-84a5-0dd963413751.png-w331s.png)
 
 Step 2：安装依赖库
 
@@ -539,7 +539,7 @@ Step 2：安装依赖库
 pip3 install pycryptodomex
 ```
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030425000-bbca2e7d-3124-4197-853a-3f3a8c486e43.png-w331s)
+![](_assets/1698030425000-bbca2e7d-3124-4197-853a-3f3a8c486e43.png-w331s.png)
 
 Step 3：运行jwt_tool并查看用法信息
 
@@ -547,7 +547,7 @@ Step 3：运行jwt_tool并查看用法信息
 python3 jwt_tool.py -h
 ```
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030425000-40268951-fc8b-49a3-ab85-4c15336ae24b.jpg-w331s)
+![](_assets/1698030425000-40268951-fc8b-49a3-ab85-4c15336ae24b.jpg-w331s.jpg)
 
 ```
 usage: jwt_tool.py [-h] [-b] [-t TARGETURL] [-rc COOKIES] [-rh HEADERS] [-pd POSTDATA] [-cv CANARYVALUE] [-np] [-nr] [-M MODE] [-X EXPLOIT] [-ju JWKSURL] [-S SIGN] [-pr PRIVKEY] [-T] [-I] [-hc HEADERCLAIM] [-pc PAYLOADCLAIM] [-hv HEADERVALUE]
@@ -633,7 +633,7 @@ python3 jwt_tool.py JWT_HERE -C -d dictionary.txt
 python3 jwt_tool.py eyJraWQiOiI4M2RhOGNjMi1hZmZiLTRmZGMtYWMwYS1iMWNmMTBkNjkyZGYiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJwb3J0c3dpZ2dlciIsInN1YiI6IndpZW5lciIsImV4cCI6MTY4Nzc5NjQwMn0.IhZV-7RHTpEcQvkcZOA3knCYmQD0YUg-NFMj9fWSFjw -C -d secrets.txt
 ```
 
-![](https://images.seebug.org/content/images/2023/10/eb5d66e5-240f-4df0-8fa3-441bf6d0dfc2.jpg-w331s)
+![](_assets/eb5d66e5-240f-4df0-8fa3-441bf6d0dfc2.jpg-w331s.jpg)
 
 附加扩展：
 
@@ -655,7 +655,7 @@ eyJraWQiOiJjY2Y4Yjk3YS05NGZlLTRjN2QtOWI2MS0yNzZmMDY1NGMyZWIiLCJhbGciOiJIUzI1NiJ9
 {"kid":"ccf8b97a-94fe-4c7d-9b61-276f0654c2eb","alg":"HS256"}
 ```
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030425000-e5cd361e-9335-4c44-b5e5-45f42812db20.png-w331s)
+![](_assets/1698030425000-e5cd361e-9335-4c44-b5e5-45f42812db20.png-w331s.png)
 
 payload(前)：
 
@@ -664,7 +664,7 @@ eyJpc3MiOiJwb3J0c3dpZ2dlciIsInN1YiI6IndpZW5lciIsImV4cCI6MTY4Nzc5OTk1OX0
 {"iss":"portswigger","sub":"wiener","exp":1687799959}
 ```
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030425000-aba0455e-530f-475f-8b75-b723dee4b18a.png-w331s)
+![](_assets/1698030425000-aba0455e-530f-475f-8b75-b723dee4b18a.png-w331s.png)
 
 payload(新)：
 
@@ -673,7 +673,7 @@ payload(新)：
 eyJpc3MiOiJwb3J0c3dpZ2dlciIsInN1YiI6ImFkbWluaXN0cmF0b3IiLCJleHAiOjE2ODc3OTk5NTl9
 ```
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030426000-ed882dab-67df-40d7-bbbe-deb704210de8.png-w331s)
+![](_assets/1698030426000-ed882dab-67df-40d7-bbbe-deb704210de8.png-w331s.png)
 
 Signer:
 
@@ -681,7 +681,7 @@ Signer:
 E891AutpjiwkhVUDV2dZdrfGzsv5TweyIUUhT_a1Ar0
 ```
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030426000-34cd3801-aa7d-4578-b6f2-e4e56eb35691.png-w331s)
+![](_assets/1698030426000-34cd3801-aa7d-4578-b6f2-e4e56eb35691.png-w331s.png)
 
 最终高权限的JWT token如下：
 
@@ -689,17 +689,17 @@ E891AutpjiwkhVUDV2dZdrfGzsv5TweyIUUhT_a1Ar0
 eyJraWQiOiJjY2Y4Yjk3YS05NGZlLTRjN2QtOWI2MS0yNzZmMDY1NGMyZWIiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJwb3J0c3dpZ2dlciIsInN1YiI6ImFkbWluaXN0cmF0b3IiLCJleHAiOjE2ODc3OTk5NTl9.E891AutpjiwkhVUDV2dZdrfGzsv5TweyIUUhT_a1Ar0
 ```
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030426000-2cd5d264-5d0d-42b4-8a5a-ecaed6592e85.png-w331s)
+![](_assets/1698030426000-2cd5d264-5d0d-42b4-8a5a-ecaed6592e85.png-w331s.png)
 
 Step 6：访问/admin路径
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030426000-a7426043-1089-4a69-ad85-4c4a1e3612e8.png-w331s)
+![](_assets/1698030426000-a7426043-1089-4a69-ad85-4c4a1e3612e8.png-w331s.png)
 
 Step 7：调用接口删除用户完成解答
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030426000-0d2a2f6b-ea83-4bf7-95a1-b75013d2bbc2.png-w331s)
+![](_assets/1698030426000-0d2a2f6b-ea83-4bf7-95a1-b75013d2bbc2.png-w331s.png)
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030426000-984c7a23-f68e-48e7-8d2c-7e4a4a775879.png-w331s)
+![](_assets/1698030426000-984c7a23-f68e-48e7-8d2c-7e4a4a775879.png-w331s.png)
 
 ##### JWT头部注入
 
@@ -737,11 +737,11 @@ Step 7：调用接口删除用户完成解答
 
 靶场地址：[https://portswigger.net/web-security/jwt/lab-jwt-authentication-bypass-via-jwk-header-injection](https://portswigger.net/web-security/jwt/lab-jwt-authentication-bypass-via-jwk-header-injection "https://portswigger.net/web-security/jwt/lab-jwt-authentication-bypass-via-jwk-header-injection")
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030426000-3563cc30-e07e-47f6-a2ab-8fee93f0ec95.png-w331s)
+![](_assets/1698030426000-3563cc30-e07e-47f6-a2ab-8fee93f0ec95.png-w331s.png)
 
 Step 1：点击"ACCESS THE LAB"访问靶场
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030426000-f1ff7c39-3b98-4df4-ab75-b1ca9185b1dc.jpg-w331s)
+![](_assets/1698030426000-f1ff7c39-3b98-4df4-ab75-b1ca9185b1dc.jpg-w331s.jpg)
 
 Step 2：点击"My Account"登录系统
 
@@ -749,19 +749,19 @@ Step 2：点击"My Account"登录系统
 wiener:peter
 ```
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030426000-52609be1-31f6-4a27-ac1d-11054e914660.png-w331s)
+![](_assets/1698030426000-52609be1-31f6-4a27-ac1d-11054e914660.png-w331s.png)
 
 Step 3：登录之后可以看到如下邮箱更新界面
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030427000-8b163327-5bee-4f59-9a10-698e80ee0ba6.png-w331s)
+![](_assets/1698030427000-8b163327-5bee-4f59-9a10-698e80ee0ba6.png-w331s.png)
 
 Step 4：下面我们开始操作，不过在此之前我们得先武器化以下自己，在Burpsuite界面选择"Extender"选项卡，紧接着点击"BApp Store"安装"JWT Editor"
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030427000-55d78122-322a-40e6-90b9-f4829ca58fcf.png-w331s)
+![](_assets/1698030427000-55d78122-322a-40e6-90b9-f4829ca58fcf.png-w331s.png)
 
 之后你可以看到如下的选项卡界面
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030427000-91c26046-fd4f-4134-8a2d-80b88466f871.png-w331s)
+![](_assets/1698030427000-91c26046-fd4f-4134-8a2d-80b88466f871.png-w331s.png)
 
 Step 5：生成一个新的RSA密钥
 
@@ -780,33 +780,33 @@ Step 5：生成一个新的RSA密钥
 }
 ```
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030427000-9505509a-d16c-47a8-a2d2-07b3d5c57494.png-w331s)
+![](_assets/1698030427000-9505509a-d16c-47a8-a2d2-07b3d5c57494.png-w331s.png)
 
 Step 6：刷新页面拦截到请求并将请求发送到Repeat模块
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030427000-137a5978-6fba-4623-be3f-5073b6298c5a.png-w331s)
+![](_assets/1698030427000-137a5978-6fba-4623-be3f-5073b6298c5a.png-w331s.png)
 
 Step 7：在Repeat模块，我们切换到JSON Web Token选项卡，修改JWT的有效负载将sub内容修改为administrator
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030427000-774ec456-7ea7-49d7-8dea-422ddbd60d59.png-w331s)
+![](_assets/1698030427000-774ec456-7ea7-49d7-8dea-422ddbd60d59.png-w331s.png)
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030427000-7a7c9b63-625e-453e-89c8-155148819987.png-w331s)
+![](_assets/1698030427000-7a7c9b63-625e-453e-89c8-155148819987.png-w331s.png)
 
 Step 8：点击"Attack"，然后选择"Embedded JWK"，出现提示时选择您新生成的RSA密钥
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030428000-129de703-8e90-476c-ac6d-506161abe5e4.png-w331s)
+![](_assets/1698030428000-129de703-8e90-476c-ac6d-506161abe5e4.png-w331s.png)
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030428000-6eb97b76-93b5-4356-b299-dee972792229.png-w331s)
+![](_assets/1698030428000-6eb97b76-93b5-4356-b299-dee972792229.png-w331s.png)
 
 Step 9：之后成功越权
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030428000-13b25996-17d5-446d-ba73-9027dbced817.png-w331s)
+![](_assets/1698030428000-13b25996-17d5-446d-ba73-9027dbced817.png-w331s.png)
 
 Step 10：调用敏感操作接口删除carlos用户完成解题
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030428000-47bbc487-aa19-4694-b26d-6346dacdccfb.png-w331s)
+![](_assets/1698030428000-47bbc487-aa19-4694-b26d-6346dacdccfb.png-w331s.png)
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030428000-c4a4ff0b-3347-4896-997e-da0d7c9be722.png-w331s)
+![](_assets/1698030428000-c4a4ff0b-3347-4896-997e-da0d7c9be722.png-w331s.png)
 
 ###### 注入场景2
 
@@ -835,11 +835,11 @@ JWK集合有时会通过一个标准端点公开，比如:/.well-known/jwks.json
 
 靶场地址：[https://portswigger.net/web-security/jwt/lab-jwt-authentication-bypass-via-jku-header-injection](https://portswigger.net/web-security/jwt/lab-jwt-authentication-bypass-via-jku-header-injection "https://portswigger.net/web-security/jwt/lab-jwt-authentication-bypass-via-jku-header-injection")
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030428000-fbb1af56-21df-4a8e-9978-92fd9173f12e.png-w331s)
+![](_assets/1698030428000-fbb1af56-21df-4a8e-9978-92fd9173f12e.png-w331s.png)
 
 Step 1：首先点击上方的"ACCESS THE LAB"选项卡进入实验环境
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030428000-b17e4c3e-b4e0-44f6-bfdd-28c6d2ba3386.jpg-w331s)
+![](_assets/1698030428000-b17e4c3e-b4e0-44f6-bfdd-28c6d2ba3386.jpg-w331s.jpg)
 
 Step 2：登录系统
 
@@ -847,11 +847,11 @@ Step 2：登录系统
 wiener:peter
 ```
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030428000-eec3a373-9255-451a-9d85-8444570e946b.png-w331s)
+![](_assets/1698030428000-eec3a373-9255-451a-9d85-8444570e946b.png-w331s.png)
 
 Step 3：随后你会看到一个用户邮箱更新的表单
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030429000-22063378-15b5-4016-887f-aa87165944f1.png-w331s)
+![](_assets/1698030429000-22063378-15b5-4016-887f-aa87165944f1.png-w331s.png)
 
 Step 4：使用burpsuite生成一个新的RSA密钥
 
@@ -870,11 +870,11 @@ Step 4：使用burpsuite生成一个新的RSA密钥
 }
 ```
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030427000-9505509a-d16c-47a8-a2d2-07b3d5c57494.png-w331s)
+![](_assets/1698030427000-9505509a-d16c-47a8-a2d2-07b3d5c57494.png-w331s.png)
 
 Step 5：发送请求到repeat
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030429000-c413b70d-13ae-41df-96ad-9b73f8ca18d1.png-w331s)
+![](_assets/1698030429000-c413b70d-13ae-41df-96ad-9b73f8ca18d1.png-w331s.png)
 
 Step 6：复制公钥作为JWK
 
@@ -887,7 +887,7 @@ Step 6：复制公钥作为JWK
 }
 ```
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030429000-cc4e6ba0-0a23-4d50-b971-bf7f6518efef.png-w331s)
+![](_assets/1698030429000-cc4e6ba0-0a23-4d50-b971-bf7f6518efef.png-w331s.png)
 
 Step 7：在题目中选择"Go eo exploit server"，然后加上key头并保存到exploit的body中
 
@@ -904,35 +904,35 @@ Step 7：在题目中选择"Go eo exploit server"，然后加上key头并保存�
 }
 ```
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030429000-a5ef0aba-f73d-4397-a9e8-524897b94f2e.png-w331s)
+![](_assets/1698030429000-a5ef0aba-f73d-4397-a9e8-524897b94f2e.png-w331s.png)
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030429000-f8f9a3ec-ca87-4371-87e5-5ed64501d0c8.png-w331s)
+![](_assets/1698030429000-f8f9a3ec-ca87-4371-87e5-5ed64501d0c8.png-w331s.png)
 
 Step 8：然后切换至repeat的"JSON Web Token"界面，将kid修改成自己生成的JWK中的kid值，将jku的值改为exploit
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030429000-7ad8e66a-15aa-4326-bdff-2d7d41da6529.png-w331s)
+![](_assets/1698030429000-7ad8e66a-15aa-4326-bdff-2d7d41da6529.png-w331s.png)
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030429000-96c582e0-f56b-4cd3-afef-d633b14e3973.png-w331s)
+![](_assets/1698030429000-96c582e0-f56b-4cd3-afef-d633b14e3973.png-w331s.png)
 
 Step 9：切换sub为administrator
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030430000-72abb4cb-3b15-4e13-a62d-5e956b95cdec.png-w331s)
+![](_assets/1698030430000-72abb4cb-3b15-4e13-a62d-5e956b95cdec.png-w331s.png)
 
 Step 10：点击下面的sign，选择Don’t modify header模式
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030430000-899f09c1-2bb7-4cad-a9d5-70f21da657a0.png-w331s)
+![](_assets/1698030430000-899f09c1-2bb7-4cad-a9d5-70f21da657a0.png-w331s.png)
 
 Step 11：更改请求路径发送请求成功越权
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030430000-0fb62375-a1f1-4f83-aab0-efe544d67aee.png-w331s)
+![](_assets/1698030430000-0fb62375-a1f1-4f83-aab0-efe544d67aee.png-w331s.png)
 
 Step 12：请求敏感路径删除carlos用户
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030430000-6511900a-d1c3-4fb7-9b63-5b537ffca92b.png-w331s)
+![](_assets/1698030430000-6511900a-d1c3-4fb7-9b63-5b537ffca92b.png-w331s.png)
 
 Step 13：成功解题
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030430000-69c0b318-a93a-4d89-aff7-51e12571d11a.png-w331s)
+![](_assets/1698030430000-69c0b318-a93a-4d89-aff7-51e12571d11a.png-w331s.png)
 
 ###### 注入场景3
 
@@ -951,11 +951,11 @@ Step 13：成功解题
 
 靶场地址：[https://portswigger.net/web-security/jwt/lab-jwt-authentication-bypass-via-kid-header-path-traversal](https://portswigger.net/web-security/jwt/lab-jwt-authentication-bypass-via-kid-header-path-traversal "https://portswigger.net/web-security/jwt/lab-jwt-authentication-bypass-via-kid-header-path-traversal")
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030430000-1510c84e-b4a7-4f04-aae4-67a966c826e5.png-w331s)
+![](_assets/1698030430000-1510c84e-b4a7-4f04-aae4-67a966c826e5.png-w331s.png)
 
 Step 1：点击上方"Access The Lab"进入靶场
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030430000-5f285d3a-3323-4af2-9df2-f496d895d487.jpg-w331s)
+![](_assets/1698030430000-5f285d3a-3323-4af2-9df2-f496d895d487.jpg-w331s.jpg)
 
 Step 2：登录靶场
 
@@ -963,11 +963,11 @@ Step 2：登录靶场
 wiener:peter
 ```
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030430000-e60abd09-ab0f-4923-8649-32bb8d52376c.png-w331s)
+![](_assets/1698030430000-e60abd09-ab0f-4923-8649-32bb8d52376c.png-w331s.png)
 
 Step 3：登录后进入到如下邮箱更新界面
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030431000-9a7cda52-5151-405f-b707-a4d0e1a0d616.png-w331s)
+![](_assets/1698030431000-9a7cda52-5151-405f-b707-a4d0e1a0d616.png-w331s.png)
 
 Step 4：使用burpsuite的插件生成一个对称密钥(Symmetric Key)并将k的值修改为"AA=="即为null
 
@@ -979,15 +979,15 @@ Step 4：使用burpsuite的插件生成一个对称密钥(Symmetric Key)并将k�
 }
 ```
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030431000-e410be39-40ae-4297-b9e9-41b48c7338bf.png-w331s)
+![](_assets/1698030431000-e410be39-40ae-4297-b9e9-41b48c7338bf.png-w331s.png)
 
 Step 5：拦截一个请求将其发送到repeat模块
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030431000-7859c485-3de3-4d1e-b3a8-eb83e897ac08.png-w331s)
+![](_assets/1698030431000-7859c485-3de3-4d1e-b3a8-eb83e897ac08.png-w331s.png)
 
 Step 6：此时直接访问/admin——提示"401 Unauthorized"
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030431000-5d3ad3ba-26b4-4fa4-a810-20c9f77ce0a1.png-w331s)
+![](_assets/1698030431000-5d3ad3ba-26b4-4fa4-a810-20c9f77ce0a1.png-w331s.png)
 
 Step 7：在JSON Web Token界面中修改kid值和sub进行目录遍历，这里的"/dev/null"文件名与"AA=="一致都为null，对称密钥，所以可以成功绕过
 
@@ -998,23 +998,23 @@ Step 7：在JSON Web Token界面中修改kid值和sub进行目录遍历，这里
 }
 ```
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030431000-09813d4e-e1a2-462a-a431-881a04e57b75.png-w331s)
+![](_assets/1698030431000-09813d4e-e1a2-462a-a431-881a04e57b75.png-w331s.png)
 
 Step 8：点击sign选择OCT8 的密钥攻击
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030431000-29abbc1e-e680-4be8-833a-2e8563052680.png-w331s)
+![](_assets/1698030431000-29abbc1e-e680-4be8-833a-2e8563052680.png-w331s.png)
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030431000-194747c0-1aad-4986-b6c3-d30c01ff481e.png-w331s)
+![](_assets/1698030431000-194747c0-1aad-4986-b6c3-d30c01ff481e.png-w331s.png)
 
 Step 9：成功越权
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030431000-83bdef69-eb9a-40ba-9fae-8584d86019a6.png-w331s)
+![](_assets/1698030431000-83bdef69-eb9a-40ba-9fae-8584d86019a6.png-w331s.png)
 
 Step 10：调用敏感接口删除carlos用户完成解题
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030432000-357b887b-b12c-4ca7-ba2f-163775746503.png-w331s)
+![](_assets/1698030432000-357b887b-b12c-4ca7-ba2f-163775746503.png-w331s.png)
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030432000-81bdd569-b87a-4b46-977b-b742733d8694.png-w331s)
+![](_assets/1698030432000-81bdd569-b87a-4b46-977b-b742733d8694.png-w331s.png)
 
 ##### JWT算法混淆
 
@@ -1024,11 +1024,11 @@ Step 10：调用敏感接口删除carlos用户完成解题
 
 JWT可以使用一系列不同的算法进行签名，其中一些，例如:HS256(HMAC+SHA-256)使用"对称"密钥，这意味着服务器使用单个密钥对令牌进行签名和验证，显然这需要像密码一样保密
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030432000-c7b3227c-bdf7-4fb8-81e2-e8f85c17b398.jpg-w331s)
+![](_assets/1698030432000-c7b3227c-bdf7-4fb8-81e2-e8f85c17b398.jpg-w331s.jpg)
 
 其他算法，例如:RS256(RSA+SHA-256)使用"非对称"密钥对，它由一个私钥和一个数学上相关的公钥组成，私钥用于服务器对令牌进行签名，公钥可用于验证签名，顾名思义，私钥必须保密，但公钥通常是共享的，这样任何人都可以验证服务器发出的令牌的签名
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030432000-444da96b-137e-4d5a-b147-45c085757e91.jpg-w331s)
+![](_assets/1698030432000-444da96b-137e-4d5a-b147-45c085757e91.jpg-w331s.jpg)
 
 ###### 混淆攻击
 
@@ -1055,17 +1055,17 @@ verify(token, publicKey);
 
 攻击流程简易视图如下：
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030432000-cc281833-046b-4935-95ce-a35a74068691.png-w331s)
+![](_assets/1698030432000-cc281833-046b-4935-95ce-a35a74068691.png-w331s.png)
 
 ###### 攻击演示
 
 靶场地址：[https://portswigger.net/web-security/jwt/algorithm-confusion/lab-jwt-authentication-bypass-via-algorithm-confusion](https://portswigger.net/web-security/jwt/algorithm-confusion/lab-jwt-authentication-bypass-via-algorithm-confusion "https://portswigger.net/web-security/jwt/algorithm-confusion/lab-jwt-authentication-bypass-via-algorithm-confusion")
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030432000-f97cb650-93f1-4abd-89a9-b159b3354640.png-w331s)
+![](_assets/1698030432000-f97cb650-93f1-4abd-89a9-b159b3354640.png-w331s.png)
 
 Step 1：点击"Access the lab"访问靶场
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030432000-2cc0297b-5680-43df-b948-92b583c887f2.jpg-w331s)
+![](_assets/1698030432000-2cc0297b-5680-43df-b948-92b583c887f2.jpg-w331s.jpg)
 
 Step 2：使用账户密码登录
 
@@ -1073,11 +1073,11 @@ Step 2：使用账户密码登录
 wiener:peter
 ```
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030433000-04b70c7f-18c7-44dd-b1c8-6ad68fd3951c.png-w331s)
+![](_assets/1698030433000-04b70c7f-18c7-44dd-b1c8-6ad68fd3951c.png-w331s.png)
 
 Step 3：登录之后进入到用户邮箱更新操作界面
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030433000-3de4d964-5e66-464e-82b9-e02c128f1b5a.png-w331s)
+![](_assets/1698030433000-3de4d964-5e66-464e-82b9-e02c128f1b5a.png-w331s.png)
 
 Step 4：服务器有时通过映射到/jwks.json或/.well-known/jwks.json的端点将它们的公钥公开为JSON Web Key(JWK)对象，比如大家熟知的/jwks.json，这些可能被存储在一个称为密钥的jwk数组中，这就是众所周知的JWK集合，即使密钥没有公开，您也可以从一对现有的jwt中提取它
 
@@ -1119,7 +1119,7 @@ Step 4：服务器有时通过映射到/jwks.json或/.well-known/jwks.json的端
 }
 ```
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030433000-33eb3522-964d-4103-aaa1-f307f9336788.png-w331s)
+![](_assets/1698030433000-33eb3522-964d-4103-aaa1-f307f9336788.png-w331s.png)
 
 Step 5：在Burpsuite的JWT Editor Keys中点击"New RSA Key"，用之前泄露的JWK而生成一个新的RSA Key
 
@@ -1134,7 +1134,7 @@ Step 5：在Burpsuite的JWT Editor Keys中点击"New RSA Key"，用之前泄露�
 }
 ```
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030433000-d45e6874-fd17-4b4a-bbf3-d88e5ca08c47.png-w331s)
+![](_assets/1698030433000-d45e6874-fd17-4b4a-bbf3-d88e5ca08c47.png-w331s.png)
 
 Step 6：选中"Copy Public Key as PEM"，同时将其进行base64编码操作，保存一下得到的字符串(备注:上下的一串-----END PUBLIC KEY-----不要删掉)
 
@@ -1150,7 +1150,7 @@ AwIDAQAB
 -----END PUBLIC KEY-----
 ```
 
-![](https://images.seebug.org/content/images/2023/10/600cd101-abea-460b-8989-7504e60a4ac2.png-w331s)
+![](_assets/600cd101-abea-460b-8989-7504e60a4ac2.png-w331s.png)
 
 base64后结果：
 
@@ -1158,7 +1158,7 @@ base64后结果：
 LS0tLS1CRUdJTiBQVUJMSUMgS0VZLS0tLS0KTUlJQklqQU5CZ2txaGtpRzl3MEJBUUVGQUFPQ0FROEFNSUlCQ2dLQ0FRRUF6c2lJc1ZxQUtTcE9uT3hNS3JJMApoVDNwOG0vTkszVm9lakZudDRIeDJDRnp2SnNaNC85bW1vSVZ3aS9uWFlyN050TlY3c3RPU1M0TUd6WWRKNTd0CjR2ODNCOWg3dUkxZmRLU3ArTCtjaXNnMzFTMFdtNUIvTERudnVBQkZNY1NoSitES1RnRVlmTEhhRzMxSnVkbHkKSmRuZmdOSUlhMFhMK3diR2g3WHNoZjhSdHpSOEZDMkRmQXBYLytLWFlObkh4blRLVFBYbDV1bkJnQ3h5bnkybgoyQ3dvQ0lpWWV0N3M3WDFjM3Fod2t0V2s2eEpUbXZrcmQ4NUtCbERTeUVqQmhFUFBYcmJWZnFvOHNOeGtZK0UyCkZYSW9QSXQ4bS9WU1hsc0t5WnBqcGZYVEpKWm8vSXFhekFsMVhCVzZiandXanh3ZWUwWGJ5dDdNMS8xZFRLamEKQXdJREFRQUIKLS0tLS1FTkQgUFVCTElDIEtFWS0tLS0tCg==
 ```
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030433000-9febe885-ac19-43d5-92c1-474646682427.png-w331s)
+![](_assets/1698030433000-9febe885-ac19-43d5-92c1-474646682427.png-w331s.png)
 
 Step 7：在JWT Editor Keys处，生成新的对称加密Key，用之前保存的base64编码去替换k的值
 
@@ -1170,29 +1170,29 @@ Step 7：在JWT Editor Keys处，生成新的对称加密Key，用之前保存�
 }
 ```
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030433000-9f10ae56-bfdf-49a5-9e21-278bfcb3f140.png-w331s)
+![](_assets/1698030433000-9f10ae56-bfdf-49a5-9e21-278bfcb3f140.png-w331s.png)
 
 Step 8：捕获请求数据报并将其发送到repeat模块
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030433000-d1cd0d2d-e3a0-41d6-9e18-d3a4c80dc972.png-w331s)
+![](_assets/1698030433000-d1cd0d2d-e3a0-41d6-9e18-d3a4c80dc972.png-w331s.png)
 
 此时直接请求/admin是无法请求到的
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030433000-4dc55f9b-87c1-4c3a-8e09-ab85820197fb.png-w331s)
+![](_assets/1698030433000-4dc55f9b-87c1-4c3a-8e09-ab85820197fb.png-w331s.png)
 
 Step 9：随后修改alg为HS256，修改sub为administrator并进行Sign操作
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030434000-6663cf4d-3f62-4d0b-80d5-6092355fed46.png-w331s)
+![](_assets/1698030434000-6663cf4d-3f62-4d0b-80d5-6092355fed46.png-w331s.png)
 
 Step 10：重新发送数据包可以看到回显成功
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030434000-2ddd0856-77a1-422a-9dac-f4cc5578ff24.png-w331s)
+![](_assets/1698030434000-2ddd0856-77a1-422a-9dac-f4cc5578ff24.png-w331s.png)
 
 Step 11：请求敏感连接删除用户完成解题
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030434000-ce86d5e6-da90-4997-b756-32e1f8958114.png-w331s)
+![](_assets/1698030434000-ce86d5e6-da90-4997-b756-32e1f8958114.png-w331s.png)
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030434000-1988280a-1986-4169-bd8f-9fec06263fff.png-w331s)
+![](_assets/1698030434000-1988280a-1986-4169-bd8f-9fec06263fff.png-w331s.png)
 
 ##### 令牌派生公钥
 
@@ -1202,7 +1202,7 @@ Step 11：请求敏感连接删除用户完成解题
 
 [https://github.com/silentsignal/rsa_sign2n](https://github.com/silentsignal/rsa_sign2n "https://github.com/silentsignal/rsa_sign2n ")
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030434000-2ddbb72a-e5ee-4277-86f1-36e4323129ad.png-w331s)
+![](_assets/1698030434000-2ddbb72a-e5ee-4277-86f1-36e4323129ad.png-w331s.png)
 
 ###### 简易示例
 
@@ -1210,11 +1210,11 @@ Step 11：请求敏感连接删除用户完成解题
 
 [https://portswigger.net/web-security/jwt/algorithm-confusion/lab-jwt-authentication-bypass-via-algorithm-confusion-with-no-exposed-key](https://portswigger.net/web-security/jwt/algorithm-confusion/lab-jwt-authentication-bypass-via-algorithm-confusion-with-no-exposed-key "https://portswigger.net/web-security/jwt/algorithm-confusion/lab-jwt-authentication-bypass-via-algorithm-confusion-with-no-exposed-key ")
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030434000-3a1da2c9-dab4-4426-8ba2-c3fe57c86319.png-w331s)
+![](_assets/1698030434000-3a1da2c9-dab4-4426-8ba2-c3fe57c86319.png-w331s.png)
 
 Step 1：安装常规操作登录登出，再登录，获取两个JWT
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030434000-aa5697d3-2759-47c0-b5cc-81300d492b37.jpg-w331s)
+![](_assets/1698030434000-aa5697d3-2759-47c0-b5cc-81300d492b37.jpg-w331s.jpg)
 
 随后将其放到Port提供的docker工具里面运行，运行的命令如下
 
@@ -1222,19 +1222,19 @@ Step 1：安装常规操作登录登出，再登录，获取两个JWT
 docker run --rm -it portswigger/sig2n <token1> <token2>
 ```
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030435000-0cf788f8-0fdb-4edc-95fa-a68e05f5fc4d.png-w331s)
+![](_assets/1698030435000-0cf788f8-0fdb-4edc-95fa-a68e05f5fc4d.png-w331s.png)
 
 jwt _ forgery.py脚本会输出一系列token的存在情况值
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030435000-7971f5ef-8dea-4991-a623-f70588480397.png-w331s)
+![](_assets/1698030435000-7971f5ef-8dea-4991-a623-f70588480397.png-w331s.png)
 
 Step 2：这里我们尝试每一个Tempered JWT，Port这里给了提示说是X.509 形式的，所以我们只需要将X.509形式的JWT进行验证即可，当Response回应200时代表token是有效的，若为302则代表了重定向，下图是一个成功的案例
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030435000-6e76d5af-85d4-489e-a1a6-5fa164176bbb.jpg-w331s)
+![](_assets/1698030435000-6e76d5af-85d4-489e-a1a6-5fa164176bbb.jpg-w331s.jpg)
 
 Step 3：将JWT的Base64编码拿过来先放到记事本里面暂存，在Burpsuite的JWT Editor Keys点击New Symmetric Key，将上面的Base64编码拿过来替换此对称密钥的k值，生成对称密钥之后进行和之前攻击一致的Sign操作
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030435000-b2d0a383-d6a8-4b41-a434-edaa0874492f.png-w331s)
+![](_assets/1698030435000-b2d0a383-d6a8-4b41-a434-edaa0874492f.png-w331s.png)
 
 ##### 敏感信息泄露
 
@@ -1252,7 +1252,7 @@ JWT敏感信息泄露是指攻击者通过某种方式获取了JWT中包含的�
 
 靶场地址：[https://authlab.digi.ninja/Leaky_JWT](https://authlab.digi.ninja/Leaky_JWT "https://authlab.digi.ninja/Leaky_JWT")
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030435000-db2e1292-caeb-469c-b388-ecdbb7d59889.png-w331s)
+![](_assets/1698030435000-db2e1292-caeb-469c-b388-ecdbb7d59889.png-w331s.png)
 
 靶场JWT信息如上所示，而在实战中我们可以去抓包，如果抓到的数据包中有类似这样的JWT认证那我们就可以直接拿去解密了，我们拿到的数据是这样的：
 
@@ -1264,19 +1264,19 @@ eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsZXZlbCI6ImFkbWluIiwicGFzc3dvcmQiOiIyYWM
 
 [https://base64.us/](https://base64.us/ "https://base64.us/")
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030435000-bcd9e8a5-4aaf-438c-85b8-f34b0ddeb59e.png-w331s)
+![](_assets/1698030435000-bcd9e8a5-4aaf-438c-85b8-f34b0ddeb59e.png-w331s.png)
 
 在这里我们可以看到payload部分的数据解密出来后包含password字段信息，后面解出来的是一串MD5数据，之后我们将其拿到MD5在线解密网站进行解密操作：
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030436000-eb6101e6-6520-4c25-a72f-973170db1241.png-w331s)
+![](_assets/1698030436000-eb6101e6-6520-4c25-a72f-973170db1241.png-w331s.png)
 
 随后得到密码Password1并使用其作为密码，使用joe作为用户名进行登录操作：
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030436000-11d524b7-8e4b-42cb-9313-2e30a4371835.png-w331s)
+![](_assets/1698030436000-11d524b7-8e4b-42cb-9313-2e30a4371835.png-w331s.png)
 
 随后成功登录：
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030436000-565049fe-8178-4310-8074-2950ae4b5ff6.png-w331s)
+![](_assets/1698030436000-565049fe-8178-4310-8074-2950ae4b5ff6.png-w331s.png)
 
 ##### 密钥硬编码类
 
@@ -1294,7 +1294,7 @@ JWT中的密钥是用于对令牌进行签名或加密的关键信息，在实�
 
 JWT密钥硬编码：
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030436000-35eedb39-37a3-4af0-9696-3a6cf3c1582d.png-w331s)
+![](_assets/1698030436000-35eedb39-37a3-4af0-9696-3a6cf3c1582d.png-w331s.png)
 
 #### 会话续期
 
@@ -1314,37 +1314,37 @@ JWT(JSON Web Token)的续期机制是指在JWT过期之后通过一定的方式�
 
 用户登录成功获取到一个JWT Token，JWT Token由包含算法信息的header和包含用户非敏感信息的body以及对header和body数据签名后的sing值拼接base64后生成，body中包含用户token失效时间戳exp(默认1小时)、用户id标识u
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030436000-0d337055-e517-4812-9464-0060b3285699.jpg-w331s)
+![](_assets/1698030436000-0d337055-e517-4812-9464-0060b3285699.jpg-w331s.jpg)
 
 JWT Token有效期为1小时
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030436000-d41b7dc0-f0ca-4dd8-8b54-cc6b181a417d.jpg-w331s)
+![](_assets/1698030436000-d41b7dc0-f0ca-4dd8-8b54-cc6b181a417d.jpg-w331s.jpg)
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030436000-daef7a79-4596-4c31-a80c-cc670d0b6595.jpg-w331s)
+![](_assets/1698030436000-daef7a79-4596-4c31-a80c-cc670d0b6595.jpg-w331s.jpg)
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030436000-e5d826a1-274d-46b7-b8df-bb52d1606a4c.jpg-w331s)
+![](_assets/1698030436000-e5d826a1-274d-46b7-b8df-bb52d1606a4c.jpg-w331s.jpg)
 
 但是在过期后发现使用之前过期的JWT Token可以继续进行会话操作
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030436000-0d337055-e517-4812-9464-0060b3285699.jpg-w331s)
+![](_assets/1698030436000-0d337055-e517-4812-9464-0060b3285699.jpg-w331s.jpg)
 
 ###### Token刷新缺陷
 
 JWT Token在续期设计时由于代码编写错误将新老token更新逻辑设计错误，使得新Token和老Token一致，导致JWT 续期失败
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030437000-f1e8eee6-b99a-42f2-95e4-312cc2b6b38d.jpg-w331s)
+![](_assets/1698030437000-f1e8eee6-b99a-42f2-95e4-312cc2b6b38d.jpg-w331s.jpg)
 
 测试效果如下：
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030437000-f1afdf09-aa25-4ae0-a809-347d9c78d05f.jpg-w331s)
+![](_assets/1698030437000-f1afdf09-aa25-4ae0-a809-347d9c78d05f.jpg-w331s.jpg)
 
 ###### N个新Token生成
 
 功能测试时发现JWT Token首次生成时默认失效时120分钟，续期业务逻辑中仅在JWT Token的后1/3时间，也就是80-120分钟时进行续期操作，在此期间用户的Token会进行刷新操作，使用新的Token请求到服务器段，服务器端会返回一个新的JWT Token到前端，供前端使用，但是在续期期间旧的Token可以无限制生成多个有效的JWT Token，存在一定程度上的被利用风险
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030437000-29a6c135-dc83-412c-856c-efe1f17d2b69.jpg-w331s)
+![](_assets/1698030437000-29a6c135-dc83-412c-856c-efe1f17d2b69.jpg-w331s.jpg)
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030437000-f408cd79-3511-44b9-8d3e-2a62c8ac5fba.jpg-w331s)
+![](_assets/1698030437000-f408cd79-3511-44b9-8d3e-2a62c8ac5fba.jpg-w331s.jpg)
 
 #### **JKU攻防**
 
@@ -1358,7 +1358,7 @@ JWT Token在续期设计时由于代码编写错误将新老token更新逻辑设
     
 *   攻击者的JWS成功得到验证，进而可以越权访问应用
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030437000-13d10266-7945-4cfc-83c9-b1b6808dc6bb.jpg-w331s)
+![](_assets/1698030437000-13d10266-7945-4cfc-83c9-b1b6808dc6bb.jpg-w331s.jpg)
 
 为了保证JWK服务器的可信，应用程序会对JKU的指向增加各种防护措施，比如对URL进行白名单过滤，想要攻击成功也并非容易的事
 
@@ -1382,17 +1382,17 @@ https://trusted  => http://trusted@malicious.com
 
 重定向漏洞的利用方式可以参考下图
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030438000-ee692941-04f4-441e-9b90-cc15077f7d67.jpg-w331s)
+![](_assets/1698030438000-ee692941-04f4-441e-9b90-cc15077f7d67.jpg-w331s.jpg)
 
 攻击者使用恶意JWS访问应用程序，应用程序向得到JKU并访问JKU指向的链接，此时可信服务器返回一个重定向使得应用程序从恶意服务器中获取JWK
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030438000-05608865-1d7b-4766-839f-8ae008c530ca.jpg-w331s)
+![](_assets/1698030438000-05608865-1d7b-4766-839f-8ae008c530ca.jpg-w331s.jpg)
 
 **C、利用CRLF注入漏洞**
 
 攻击者在JKU中嵌入CRLF，构造HTTP报文使得应用程序得到的返回内容被攻击者控制，攻击者将返回内容控制为自己生成的JWK，即可绕过验证，具体利用场景如下：
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030438000-5a70d4e6-ee0e-4982-8a79-b3faaf37c2fb.png-w331s)
+![](_assets/1698030438000-5a70d4e6-ee0e-4982-8a79-b3faaf37c2fb.png-w331s.png)
 
 ##### JKU利用实例1
 
@@ -1400,7 +1400,7 @@ https://trusted  => http://trusted@malicious.com
 
 [https://attackdefense.com/challengedetails?cid=1424](https://attackdefense.com/challengedetails?cid=1424 "https://attackdefense.com/challengedetails?cid=1424 ")
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030438000-51ab7f19-d865-41aa-9ff3-2a222f4bee84.png-w331s)
+![](_assets/1698030438000-51ab7f19-d865-41aa-9ff3-2a222f4bee84.png-w331s.png)
 
 ###### 场景描述
 
@@ -1424,67 +1424,67 @@ Step 1：使用namap扫描目标主机
 nmap 192.79.23.3
 ```
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030438000-202b6873-1ff3-440b-ae4a-ecaff1082bc7.jpg-w331s)
+![](_assets/1698030438000-202b6873-1ff3-440b-ae4a-ecaff1082bc7.jpg-w331s.jpg)
 
 Step 2：深度探测服务发现目标主机允许着Apache和Python简易Web服务
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030438000-70603f2c-1b40-49cc-a90e-e97a4930b6ee.jpg-w331s)
+![](_assets/1698030438000-70603f2c-1b40-49cc-a90e-e97a4930b6ee.jpg-w331s.jpg)
 
 Step 3：请求REST接口
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030438000-49eeb261-cad8-428a-a1c9-ad52b6da81f4.jpg-w331s)
+![](_assets/1698030438000-49eeb261-cad8-428a-a1c9-ad52b6da81f4.jpg-w331s.jpg)
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030439000-893c10b8-33e8-4dce-b281-b5b508fcba0e.jpg-w331s)
+![](_assets/1698030439000-893c10b8-33e8-4dce-b281-b5b508fcba0e.jpg-w331s.jpg)
 
 Step 4：获取JWT Token
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030439000-dd148941-71aa-4f40-92b2-6ede949c7a54.jpg-w331s)
+![](_assets/1698030439000-dd148941-71aa-4f40-92b2-6ede949c7a54.jpg-w331s.jpg)
 
 Step 5：JWT Token解码
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030439000-3faf00ef-6812-4028-9806-068a1d56db3c.jpg-w331s)
+![](_assets/1698030439000-3faf00ef-6812-4028-9806-068a1d56db3c.jpg-w331s.jpg)
 
 Step 6：获取JWKS.json
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030439000-670647ef-a3c2-4479-946f-ae5da252e982.jpg-w331s)
+![](_assets/1698030439000-670647ef-a3c2-4479-946f-ae5da252e982.jpg-w331s.jpg)
 
 Step 7：尝试使用获取到的Token来获取golden Token，发现失败，提示必须要Admin
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030439000-39d5b5bd-17d1-4070-ac7a-da1e421fcb62.jpg-w331s)
+![](_assets/1698030439000-39d5b5bd-17d1-4070-ac7a-da1e421fcb62.jpg-w331s.jpg)
 
 Step 8：创建一个公钥-私钥对
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030439000-6e874bfd-e893-4bde-9beb-37ab76f4b633.jpg-w331s)
+![](_assets/1698030439000-6e874bfd-e893-4bde-9beb-37ab76f4b633.jpg-w331s.jpg)
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030439000-1c6515e3-d5f6-436c-b2f5-44fd8f92793d.jpg-w331s)
+![](_assets/1698030439000-1c6515e3-d5f6-436c-b2f5-44fd8f92793d.jpg-w331s.jpg)
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030440000-50198b01-ffc6-4701-955b-e9a069b5d080.jpg-w331s)
+![](_assets/1698030440000-50198b01-ffc6-4701-955b-e9a069b5d080.jpg-w331s.jpg)
 
 Step 9：使用交易对创建虚假Token
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030440000-d4a2d26d-eef4-4c7c-bd1f-527259a75336.jpg-w331s)
+![](_assets/1698030440000-d4a2d26d-eef4-4c7c-bd1f-527259a75336.jpg-w331s.jpg)
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030440000-d1549f0c-f5f0-44b7-bbf8-df637087bf9e.jpg-w331s)
+![](_assets/1698030440000-d1549f0c-f5f0-44b7-bbf8-df637087bf9e.jpg-w331s.jpg)
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030440000-52730286-f8b5-4687-9aba-563d23af31c3.jpg-w331s)
+![](_assets/1698030440000-52730286-f8b5-4687-9aba-563d23af31c3.jpg-w331s.jpg)
 
 Step 10：更改用户名为admin同时更改jku的地址连接
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030440000-d43c5ffd-f076-48c5-82c1-c527484a9185.jpg-w331s)
+![](_assets/1698030440000-d43c5ffd-f076-48c5-82c1-c527484a9185.jpg-w331s.jpg)
 
 Step 11：再次尝试获取jwks.json的信息
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030440000-28ad6553-e86a-4622-9c95-1854e694f0ea.jpg-w331s)
+![](_assets/1698030440000-28ad6553-e86a-4622-9c95-1854e694f0ea.jpg-w331s.jpg)
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030441000-1162fe56-1734-4d68-9a96-f347b13d8c57.jpg-w331s)
+![](_assets/1698030441000-1162fe56-1734-4d68-9a96-f347b13d8c57.jpg-w331s.jpg)
 
 Step 12：修改n和e的值并开启一个监听服务
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030441000-cadc281e-096a-4a0f-890a-9e18d276f673.jpg-w331s)
+![](_assets/1698030441000-cadc281e-096a-4a0f-890a-9e18d276f673.jpg-w331s.jpg)
 
 Step 13：使用虚假的token去获取glodenticket
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030441000-c6a57369-ac5d-41e5-983c-3c7c6cb9b861.jpg-w331s)
+![](_assets/1698030441000-c6a57369-ac5d-41e5-983c-3c7c6cb9b861.jpg-w331s.jpg)
 
 ##### **JKU利用实例2**
 
@@ -1503,11 +1503,11 @@ Step 13：使用虚假的token去获取glodenticket
 
 Step 1：访问5000端口返回JWS，可以看到里面的JKU指向 [http://localhost:5001/vuln/JWK](http://localhost:5001/vuln/JWK "http://localhost:5001/vuln/JWK")
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030441000-71ef5d5e-fad9-474e-9326-7ac758ccfb29.png-w331s)
+![](_assets/1698030441000-71ef5d5e-fad9-474e-9326-7ac758ccfb29.png-w331s.png)
 
 Step 2：访问 [http://localhost:5001/vuln/JWK](http://localhost:5001/vuln/JWK "http://localhost:5001/vuln/JWK") 得到JWK
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030441000-f22bc678-2aa5-4127-ad2b-a14ec6c45bad.png-w331s)
+![](_assets/1698030441000-f22bc678-2aa5-4127-ad2b-a14ec6c45bad.png-w331s.png)
 
 但是这里的JKU被白名单限定在了localhost域，无法直接修改JKU指向我们自己的服务器，下面再次回顾一下JKU的利用手段
 
@@ -1611,7 +1611,7 @@ if __name__ == '__main__':
 
 [https://github.com/ticarpi/jwt_tool](https://github.com/ticarpi/jwt_tool "https://github.com/ticarpi/jwt_tool")
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030441000-91f61e3b-fe08-40ea-94c1-bbf5aae76045.png-w331s)
+![](_assets/1698030441000-91f61e3b-fe08-40ea-94c1-bbf5aae76045.png-w331s.png)
 
 ###### 主要功能
 
@@ -1645,7 +1645,7 @@ if __name__ == '__main__':
 
 [https://github.com/ticarpi/jwt\_tool/wiki/Using-jwt\_tool](https://github.com/ticarpi/jwt_tool/wiki/Using-jwt_tool "https://github.com/ticarpi/jwt_tool/wiki/Using-jwt_tool")
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030441000-badb949f-1bb2-4b6c-8ce8-a42493a136ac.png-w331s)
+![](_assets/1698030441000-badb949f-1bb2-4b6c-8ce8-a42493a136ac.png-w331s.png)
 
 ##### MyJWT
 
@@ -1653,7 +1653,7 @@ if __name__ == '__main__':
 
 [https://github.com/tyki6/MyJWT/](https://github.com/tyki6/MyJWT/ "https://github.com/tyki6/MyJWT/ ")
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030442000-a0ca27c6-7b69-4977-af65-77746e6c5e67.png-w331s)
+![](_assets/1698030442000-a0ca27c6-7b69-4977-af65-77746e6c5e67.png-w331s.png)
 
 ###### 功能说明
 
@@ -1676,7 +1676,7 @@ if __name__ == '__main__':
 
 [https://gist.github.com/imparabl3/efcf4a991244b9f8f99ac39a7c8cfe6f](https://gist.github.com/imparabl3/efcf4a991244b9f8f99ac39a7c8cfe6f "https://gist.github.com/imparabl3/efcf4a991244b9f8f99ac39a7c8cfe6f ")
 
-![](https://images.seebug.org/content/images/2023/10/23/1698030442000-2e4e5aa1-fe00-4033-b4d5-901c3b082d5e.png-w331s)
+![](_assets/1698030442000-2e4e5aa1-fe00-4033-b4d5-901c3b082d5e.png-w331s.png)
 
 ###### 脚本功能
 

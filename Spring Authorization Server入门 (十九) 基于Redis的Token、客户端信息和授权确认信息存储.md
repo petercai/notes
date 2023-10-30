@@ -1,4 +1,5 @@
-# Spring Authorization Server入门 (十九) 基于Redis的Token、客户端信息和授权确认信息存储 - 掘金
+# Spring Authorization Server入门 (十九) 基于Redis的Token、客户端信息和授权确认信息存储 
+
 本文对应的是文档中的[How-to: Implement core services with JPA](https://link.juejin.cn/?target=https%3A%2F%2Fdocs.spring.io%2Fspring-authorization-server%2Fdocs%2Fcurrent%2Freference%2Fhtml%2Fguides%2Fhow-to-jpa.html "https://docs.spring.io/spring-authorization-server/docs/current/reference/html/guides/how-to-jpa.html")，文档中使用Jpa实现了核心的三个服务类：授权信息、客户端信息和授权确认的服务；本文会使用Spring Data Redis参考文档来添加新的实现。在这里也放一下文档中的一句话： _**本指南的目的是为您自己实现这些服务提供一个起点，以便您可以根据自己的需要进行修改。** _
 
 因为本文使用的是Spring Data，所以需要先定义对应的实体，然后根据实体定义对应的Repository(Spring Data Repository)，最后实现核心的service，使用这些Repository操作Redis。

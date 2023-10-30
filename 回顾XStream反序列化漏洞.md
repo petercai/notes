@@ -1,5 +1,5 @@
 # 回顾XStream反序列化漏洞
-![](https://p5.ssl.qhimg.com/t01cf2f5f46b40eb938.jpg)
+![](_assets/t01cf2f5f46b40eb938.jpg)
 
 0x00 前言
 -------
@@ -40,17 +40,17 @@ XStream反序列化同fastjson这种不一样的地方是fastjson会在反序列
 
 `com.thoughtworks.xstream.converters.collections.MapConverter#unmarshal`
 
-![](https://p0.ssl.qhimg.com/t011e23a07205eb0494.png)
+![](_assets/t011e23a07205eb0494.png)
 
 `populateMap`函数会去处理后续的值，这里我们直接来看具体put的地方
 
 `com.thoughtworks.xstream.converters.collections.MapConverter#putCurrentEntryIntoMap`
 
-![](https://p3.ssl.qhimg.com/t01c305e9593eb993cd.png)
+![](_assets/t01c305e9593eb993cd.png)
 
 这里target作为接收者，会调用Map的put函数，后续就是我们熟悉的对key调用hashCode函数
 
-![](https://p2.ssl.qhimg.com/t01f0a4270bf5f5a674.png)
+![](_assets/t01f0a4270bf5f5a674.png)
 
 2\. TreeSet/TreeMapConverter
 ----------------------------
@@ -59,21 +59,21 @@ XStream反序列化同fastjson这种不一样的地方是fastjson会在反序列
 
 从TreeSetConverter来讲
 
-![](https://p1.ssl.qhimg.com/t010b40bce8e1361820.png)
+![](_assets/t010b40bce8e1361820.png)
 
 从treeset中取出field treemap后，去进一步调用TreeMapConverter来还原TreeMap
 
 `com.thoughtworks.xstream.converters.collections.TreeMapConverter#populateTreeMap`
 
-![](https://p5.ssl.qhimg.com/t01d8dee0f703cd700f.png)
+![](_assets/t01d8dee0f703cd700f.png)
 
 这里先用soredMap来填充需要还原的Entry，后续将调用`TreeMap.putAll`
 
-![](https://p2.ssl.qhimg.com/t01a7b75def6028b233.png)
+![](_assets/t01a7b75def6028b233.png)
 
 最终会调用到`java.util.AbstractMap#putAll`
 
-![](https://p4.ssl.qhimg.com/t01e8b6ab8c827b6cc0.png)
+![](_assets/t01e8b6ab8c827b6cc0.png)
 
 这里的put函数为`TreeMap.put`,不看具体的代码了，他的主要功能就是填充数据，并且在填充时将会比较当前存在key，如果是相同的key，则替换原有老的值。这个过程会去调用key的`compareTo`函数
 
@@ -81,7 +81,7 @@ XStream反序列化同fastjson这种不一样的地方是fastjson会在反序列
 
 还需要提及的是XStream还支持对动态代理的方式进行还原
 
-![](https://p0.ssl.qhimg.com/t011be94cf1205898c8.png)
+![](_assets/t011be94cf1205898c8.png)
 
 这里的还原过程不说了，我们主要的关注点是使用Proxy动态代理，我们可以扩展前面两种的自动调用函数的攻击面，下一章会举`EventHandler`的例子
 
@@ -94,19 +94,19 @@ XStream反序列化同fastjson这种不一样的地方是fastjson会在反序列
 
 XStream反序列化用的最多的`EventHandler`，来看看他的`invoke`函数
 
-![](https://p4.ssl.qhimg.com/t0108e07ebb2a075c4b.png)
+![](_assets/t0108e07ebb2a075c4b.png)
 
 主要实现在`invokeInternal`函数内
 
 首先需要判断此时调用的函数是否为`hashCode`、`equals`、`toString`，如果是的话，采用以下的方式来处理。
 
-![](https://p4.ssl.qhimg.com/t01a3f3bef2c7e537e6.png)
+![](_assets/t01a3f3bef2c7e537e6.png)
 
 但是我们需要利用的是`invokeInternal`函数后续的部分，所以我们利用的时候不能用它来调用上面的3个函数，**意味着我前面提到的`Map`的方式，不适合用在这个地方**；而`TreeSet`这种调用`compareTo`函数，可以用来继续往下走。
 
 继续往下看
 
-![](https://p4.ssl.qhimg.com/t013c15fb99d847f5c5.png)
+![](_assets/t013c15fb99d847f5c5.png)
 
 后续的就是经典的java反射机制来实现函数调用，并且这里的target和action都是可控的。
 
@@ -164,11 +164,11 @@ new MethodClosure(Runtime.getRuntime(), "exec");
 
 `ConvertedClosure`调用的是父类`org.codehaus.groovy.runtime.ConversionHandler#invoke`
 
-![](https://p4.ssl.qhimg.com/t0133a0697c81d7b8f0.png)
+![](_assets/t0133a0697c81d7b8f0.png)
 
 主要看这个部分，对于当前调用的函数，如果非Object的函数(如toString、hashCode等)，并且不是`GroovyObject`的函数，会去调用子类的`invokeCustom`，这里看`org.codehaus.groovy.runtime.ConvertedClosure#invokeCustom`
 
-![](https://p2.ssl.qhimg.com/t012c9dc33dfd716315.png)
+![](_assets/t012c9dc33dfd716315.png)
 
 这里的属性都是可控的，也就意味着我们可以去调用去调用前面构造好的`MethodClosure`，这里后续调用`call`的过程可以看最近的这篇[文章](https://paper.seebug.org/1171/)
 
@@ -184,7 +184,7 @@ PS：这里需要提一下的是由于`compareTo`会带上一个参数，所以�
 
 `groovy.util.Expando#hashCode`
 
-![](https://p5.ssl.qhimg.com/t01b0b9986ab4441829.png)
+![](_assets/t01b0b9986ab4441829.png)
 
 如果在类属性`expandoProperties`中存在`hashCode:methodclosure`的内容，我们可以在这里直接调用`MethodClosure`的`call`函数，跟上面`ConvertedClosure`后续的调用一样，但是这里调用时没有函数参数过来，所以这里的思路是`ProcessBuilder.start`或者fastjson那种getters的利用，见[POC](https://github.com/wh1t3p1g/ysomap/blob/master/core/src/main/java/ysomap/core/payload/xstream/GroovyExpando.java)
 
@@ -196,15 +196,15 @@ PS：这里需要提一下的是由于`compareTo`会带上一个参数，所以�
 
 关注`jdk.nashorn.internal.objects.NativeString#hashCode`
 
-![](https://p3.ssl.qhimg.com/t0113070d7233b8272e.png)
+![](_assets/t0113070d7233b8272e.png)
 
 后续调用`getStringValue`函数，在这个函数里去调用了`this.value.toString()`，这里的value的类型为`CharSequence`，所以我们接下来要找可以利用的`CharSequence`的实现类，这里用到的是`com.sun.xml.internal.bind.v2.runtime.unmarshaller.Base64Data#toString`函数
 
-![](https://p1.ssl.qhimg.com/t0108ae9ba73d86150e.png)
+![](_assets/t0108ae9ba73d86150e.png)
 
 这里紧接着会去调用`ByteArrayOutputStreamEx`的`readFrom`，这个函数用到的主要是这边传入的InputStream的read函数
 
-![](https://p2.ssl.qhimg.com/t017cb7663e66494f46.png)
+![](_assets/t017cb7663e66494f46.png)
 
 实际上`is`我们是可以控制的，因为这里调用的`this.dataHandler.getDataSource().getInputStream()`，他的值传递都可以用类属性的方式把他构建出来，分别是
 
@@ -221,31 +221,31 @@ PS：这里需要提一下的是由于`compareTo`会带上一个参数，所以�
 
 继续看下去，`javax.crypto.CipherInputStream#read`
 
-![](https://p3.ssl.qhimg.com/t01e710f6d73828f866.png)
+![](_assets/t01e710f6d73828f866.png)
 
-![](https://p4.ssl.qhimg.com/t01a3a55d0e56513a83.png)
+![](_assets/t01a3a55d0e56513a83.png)
 
 此时需要构造一个`Cipher`类型，并且后续调用`Cipher.update`函数，这里可以用`javax.crypto.NullCipher`来填充，因为最终用到的是父类`Cipher.update`，只要不重载`update`，其他的子类也可以。
 
 继续看`Cipher.update`
 
-![](https://p0.ssl.qhimg.com/t01807ec8c713c80b1f.png)
+![](_assets/t01807ec8c713c80b1f.png)
 
-![](https://p0.ssl.qhimg.com/t019346e4b76477de56.png)
+![](_assets/t019346e4b76477de56.png)
 
 说了那么久，我们终于到了至关重要的一个地方，`serviceIterator.next`函数
 
 后续我们将调用ImageIO下的`javax.imageio.spi.FilterIterator#next`
 
-![](https://p0.ssl.qhimg.com/t013d6e012d0d027816.png)
+![](_assets/t013d6e012d0d027816.png)
 
-![](https://p2.ssl.qhimg.com/t0199a0597c5287d20c.png)
+![](_assets/t0199a0597c5287d20c.png)
 
 `advance`函数会去调用`filter.filter`函数，而ImageIO存在一个有趣的filter
 
 `javax.imageio.ImageIO.ContainsFilter#filter`
 
-![](https://p0.ssl.qhimg.com/t017ddb463b7c0283c7.png)
+![](_assets/t017ddb463b7c0283c7.png)
 
 我们可以指定一个Method对象去invoke，到了这里就是激动人心的Java反射机制了，我们提前构造好method对象，就可以调用任意的函数。
 
@@ -272,9 +272,9 @@ XStream 处理Map类型 去调用jdk.nashorn.internal.objects.NativeString#hashC
 
 先来看一下`java.util.ServiceLoader.LazyIterator#next`
 
-![](https://p1.ssl.qhimg.com/t01c4c58555cf624c29.png)
+![](_assets/t01c4c58555cf624c29.png)
 
-![](https://p0.ssl.qhimg.com/t016ce34cd91ecae818.png)
+![](_assets/t016ce34cd91ecae818.png)
 
 当类属性`acc`为空时，会去调用`nextService`函数，而在该函数里面，我们看到了令人熟悉的`Class.forName`的调用。并且我们去实例化的`classname`、`loader`，都是类属性，属于我们可以控制的东西。
 
@@ -286,33 +286,33 @@ XStream 处理Map类型 去调用jdk.nashorn.internal.objects.NativeString#hashC
 
 这里来提一下关于POC的构造，如果你使用了当前这个利用链，并且不对`ClassLoader`做处理的话，你会发现怎么都打不通，因为这里在实际还原`ClassLoader`的时候出现了错误
 
-![](https://p2.ssl.qhimg.com/t01a946871fc565543d.png)
+![](_assets/t01a946871fc565543d.png)
 
 这里有两种解决方案，一是去除这种还原有问题的类（会很麻烦），二是直接把`ClassLoader`里的一些无关紧要的东西剔除掉。
 
 这里我选择了第二种，经过调试去除了以下几个属性的值
 
-![](https://p5.ssl.qhimg.com/t016f4a25518ffad596.png)
+![](_assets/t016f4a25518ffad596.png)
 
 这里由于我们剔除了`ignored_packages`和`deferTo`，导致BCEL的ClassLoader在载入普通的类的时候会出现加载错误的问题
 
-![](https://p3.ssl.qhimg.com/t01425d989e486abc77.png)
+![](_assets/t01425d989e486abc77.png)
 
 来看看怎么解决这个问题
 
 首先BCEL的`ClassLoader.loadClass`，一共尝试4次不同的载入方法
 
 1.  从当前ClassLoader的classes去找  
-    ![](https://p2.ssl.qhimg.com/t015c3639f9bde3a1a5.png)
+    ![](_assets/t015c3639f9bde3a1a5.png)
     
 2.  对于默认忽略的包`java./sun./javax.`，使用`deferTo`去重新加载，这里的`deferTo`是系统的ClassLoader（`ClassLoader.getSystemClassLoader()`)  
-    ![](https://p2.ssl.qhimg.com/t01e07dcc736d7ff1dc.png)
+    ![](_assets/t01e07dcc736d7ff1dc.png)
     
 3.  对于classname以`BCEL`开头的，根据classname的值去defineClass，这边就是我们最喜欢的任意载入字节码的地方  
-    ![](https://p4.ssl.qhimg.com/t012ff266a449e89f98.png)
+    ![](_assets/t012ff266a449e89f98.png)
     
 4.  最后一次是用`repository`去载入当前的classname，如果这里还没找到，就会爆没有找到Class的错误  
-    ![](https://p0.ssl.qhimg.com/t01403a228695d7677c.png)
+    ![](_assets/t01403a228695d7677c.png)
     PS：这部分`repository`取的`SyntheticRepository.getInstance()`，还不是很清楚这个左右，后续整理一下ClassLoader相关的知识再做补充
 
 再来看我们报错的原因，因为删除`ignored_packages`和`deferTo`之后，相当于第二种情况无法载入了，而显然`java.lang.Object`不符合第三种情况。最后第4种里面也没有找到这个`java.lang.Object`，所以最终爆了`ClassNotFoundException`
@@ -321,7 +321,7 @@ XStream 处理Map类型 去调用jdk.nashorn.internal.objects.NativeString#hashC
 
 比如这里我产生的字节码里面用上了`Runtime`，就得加上这个类
 
-![](https://p5.ssl.qhimg.com/t016133cf8794e9c0b0.png)
+![](_assets/t016133cf8794e9c0b0.png)
 
 这里的Object必须加上，毕竟所有的对象都继承自Object
 
@@ -342,7 +342,7 @@ XStream在1.4.7版本之后支持使用白名单和黑名单的方式来方式�
 
 `EventHandler`的处理由`ReflectionConverter`来处理的，在1.4.7-1.4.9版本，在`canConvert`处添加了对`EventHandler`的限制
 
-![](https://p0.ssl.qhimg.com/t016f8761b4830feb5e.png)
+![](_assets/t016f8761b4830feb5e.png)
 
 所以`EventHandler`的POC就失效了，但是其他的几种并没有失效
 
@@ -352,7 +352,7 @@ XStream在1.4.7版本之后支持使用白名单和黑名单的方式来方式�
 
 除了新增设置白名单的方式，也新增加了`InternalBlackList`这个converter，他设置的权限为`LOW`，而`ReflectionConverter`权限为`Very_low`，所以会先过一次黑名单检查（XStream在注册converters时，以权限的方式来决定次序）。
 
-![](https://p5.ssl.qhimg.com/t0167034d39e5228b81.png)
+![](_assets/t0167034d39e5228b81.png)
 
 所以这里1,4,5都跪了，只剩下groovy这种了，当然肯定还有其他没有发现的利用链，所以最安全的方法还是使用白名单的方式，不能依赖XStream的黑名单来做安全防御。
 

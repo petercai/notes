@@ -78,7 +78,7 @@ public static List<Apple> filterApples(List<Apple> inventory, Color color) {
 程序员又要定义一个方法来针对重量的筛选了，但是这样会造成的代码冗余了。有没有更好的解决方案呢？答案是肯定的，那就是把行为抽象出来。  
 如下图所示，如果我们可把Color这个参数，改成传入我们需要的特定行为，比如筛选不同颜色的苹果，或者根据指定重量来筛选苹果等一系列行为，并且在if语句中，进行行为的判断，如果符合某一种行为，那么就执行if语句里面的。 这样，我们就不需要针对不同的行为去拷贝那么多重复的代码了。
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/24efedc6005044ff91e1c640be04a873~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=1236&h=318&s=21290&e=png&b=2c2c2c)
+![](_assets/24efedc6005044ff91e1c640be04a873~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 行为参数化
 -----
@@ -160,7 +160,7 @@ public static void main(String[] args) {
 这个时候，就要提到我们大名鼎鼎的Lambda表达式了。  
 我们观察我们先前定义的策略，可以看到，我们需要的就是test方法里面的那部分代码，如下图所示：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/376052eac34546f3b56367fb47ed3b24~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=1779&h=1177&s=278551&e=png&b=fdfdfd)
+![](_assets/376052eac34546f3b56367fb47ed3b24~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
   
 也就是说，我们可以把apple.getWeight() > 150这行代码直接传递给filteApples方法，不需要定义那么多的ApplePredicate的实现类了，删除不必要的代码了。  
 就像下面的代码：
