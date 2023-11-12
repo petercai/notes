@@ -1,4 +1,0 @@
-# 1. Command an Menu
-Declaring and implementing a menu or toolbar item using the command API involves declaring a command, at least one menu contribution for that command, and at least one handler for that command.
-The command declaration is the abstract binding point associating one or more menu contributions with one or more handlers
-![[Eclipse - show actions in toolbar-20231022-1.png]]A menu contribution declaration defines where in the user interface that command should appear, and the text and image associated with that representation. A handler declaration  associates a command with a concrete class implementing the behavior for that command.
