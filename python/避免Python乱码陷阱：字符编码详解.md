@@ -1,5 +1,4 @@
 # 避免Python乱码陷阱：字符编码详解
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/404cfe9b397e456eb64f92fc3e7576fe~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=953&h=500&s=296270&e=png&b=2e5577)
 
 [更多学习内容](https://link.juejin.cn/?target=http%3A%2F%2Fipengtao.com%2F "http://ipengtao.com/")
 
