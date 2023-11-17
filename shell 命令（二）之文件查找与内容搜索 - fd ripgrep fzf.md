@@ -39,23 +39,23 @@ brew install fd
 
 案例一 简单搜索 \- fd pattern
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/26529577412548e8a3e87f1f2cc6ba53~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=872&h=248&s=100072&e=gif&f=72&b=233337)
+![](_assets/26529577412548e8a3e87f1f2cc6ba53~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 案例二 正则查询 \- fd regex_exp
 
 如查找包含文件名中包含日期的文件：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/696bfb84de7f4ed584bf6a5755157eb8~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=876&h=328&s=503912&e=gif&f=158&b=223236)
+![](_assets/696bfb84de7f4ed584bf6a5755157eb8~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 或者查找所有的 go 代码文件。
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ce457785cf424a4c8a452dc39ed2b53c~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=876&h=328&s=126651&e=gif&f=63&b=233337)
+![](_assets/ce457785cf424a4c8a452dc39ed2b53c~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 这个表达式更加正确的表述是 fd `.*\.go$`，超出所有以 `.go` 结尾的文件。
 
 案例三 通配符
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/19cf55d543384a6d8e6ea4050607a3df~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=876&h=328&s=217686&e=gif&f=106&b=233337)
+![](_assets/19cf55d543384a6d8e6ea4050607a3df~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 案例四 指定类型
 
@@ -63,17 +63,17 @@ brew install fd
 
 如下示例查找以 `.py` 为扩展且文件名包含 `moving_average` 的文件：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/487f6088152f4b5b8e584d9f44d99020~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=876&h=328&s=176209&e=gif&f=138&b=233337)
+![](_assets/487f6088152f4b5b8e584d9f44d99020~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 如果无 patern，效果则是查找所有的 `.py` 的文件，如下所示：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1dca18e9efce44c494178e7263f3da47~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=876&h=328&s=262816&e=gif&f=116&b=233337)
+![](_assets/1dca18e9efce44c494178e7263f3da47~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 案例五 隐藏文件和 `.gitinogre`
 
 默认情况下，fd 的查找结果不包含隐藏文件，可通过 -H 选项启用：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/523a3a8e9cc74f248d12e8a869d13dbe~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=1886&h=452&s=118947&e=png&b=283237)
+![](_assets/523a3a8e9cc74f248d12e8a869d13dbe~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 从上图可以看出，其中包含了不少 .git/config 文件，而 .git 是隐藏文件。
 
@@ -103,7 +103,7 @@ hyperfine --warmup 3 "find . -iname *.go" "fd -i -g '*.go' -uu"
 
 ```
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/441b152e772f436683d31e6c53eec53a~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=876&h=328&s=1030275&e=gif&f=344&b=233337)
+![](_assets/441b152e772f436683d31e6c53eec53a~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 [ripgrep](https://link.juejin.cn/?target=https%3A%2F%2Fgithub.com%2FBurntSushi%2Fripgrep "https://github.com/BurntSushi/ripgrep")
 ---------------------------------------------------------------------------------------------------------------------------------
@@ -123,7 +123,7 @@ brew install ripgrep
 
 默认高亮显示，对比于 `grep --color main . -nR` 简洁易用，体验更好。效果如下：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c567772480084985bc1fd60f08ea7fe6~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=878&h=330&s=185300&e=gif&f=47&b=233337)
+![](_assets/c567772480084985bc1fd60f08ea7fe6~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 用法二 搜索指定目录，rg patern directory
 
@@ -132,7 +132,7 @@ rg main ~/Code/golang-examples/
 
 ```
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3653459f434f4e01b1eaf8979afa37bc~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=878&h=330&s=170818&e=gif&f=107&b=233337)
+![](_assets/3653459f434f4e01b1eaf8979afa37bc~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 用法三 搜索指定文件，rg pattern filepath
 
@@ -141,7 +141,7 @@ rg main ~/Code/golang-examples/main.go
 
 ```
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8d1b07b910d0452ab67272f877a02ddb~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=1712&h=358&s=57982&e=png&b=283237)
+![](_assets/8d1b07b910d0452ab67272f877a02ddb~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 用法四 通配符禁用目录
 
@@ -194,7 +194,7 @@ rg main ~/Code/golang-examples r main # 只替换输出，未修改文件
 
 ```
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4cd1c983ca104c9e985be92ac0c5a109~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=1910&h=1166&s=238436&e=png&b=283237)
+![](_assets/4cd1c983ca104c9e985be92ac0c5a109~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 ### 配置
 
@@ -248,7 +248,7 @@ brew install fzf
 
 默认在当前所在目录进入交互式目录文件搜索路径，效果如下所示：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b018a96efa8f430eb20b2c5e89cf68b7~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=974&h=442&s=1049703&e=gif&f=104&b=233337)
+![](_assets/b018a96efa8f430eb20b2c5e89cf68b7~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 支持通过 CTRL+P/N 上下选择，确认搜索结果后，输入 Enter 确认后，它会将输出直接作为输出打印到标准输出。
 
@@ -261,7 +261,7 @@ echo "one\ntwo\nthree\nfour" | fzf
 
 ```
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d1bda96dd1604965ba7398035746e54e~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=868&h=286&s=152111&e=gif&f=103&b=233337)
+![](_assets/d1bda96dd1604965ba7398035746e54e~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 如此一来，更过可能就诞生了，如 ls 的文件作为输入：
 
@@ -270,7 +270,7 @@ ls | fzf
 
 ```
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/260c0f4e8b394a16bee3c62958a47530~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=868&h=286&s=171872&e=gif&f=104&b=233337)
+![](_assets/260c0f4e8b394a16bee3c62958a47530~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 将上面介绍的 fd 的查找结果作为输入：
 
@@ -279,7 +279,7 @@ fd --type file | fzf
 
 ```
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/25db475858ad44559c42c62ea32519c2~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=868&h=286&s=438440&e=gif&f=152&b=233337)
+![](_assets/25db475858ad44559c42c62ea32519c2~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 用法三 将搜索结果作为其他命令的输入；
 
@@ -290,7 +290,7 @@ vim `fzf`
 
 ```
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8f8b6166a08f42279c41f1ac94eae1d5~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=868&h=286&s=335826&e=gif&f=122&b=233337)
+![](_assets/8f8b6166a08f42279c41f1ac94eae1d5~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 将 fzf 的搜索结果作为 vim 命令的输入。
 
@@ -305,7 +305,7 @@ vim `fzf`
 
 ```
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7797dca6191b4aa08065744733c056c2~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=868&h=286&s=546784&e=gif&f=232&b=233337)
+![](_assets/7797dca6191b4aa08065744733c056c2~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 默认的 `zoxide query --list` 只记录的是 zoxide 中的历史记录，如想实现全局查询，可替换为类似如下命令：
 
@@ -314,7 +314,7 @@ cd `fd --type=directory | fzf`
 
 ```
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4f149639630d419db5f3e557b61b00b1~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=868&h=286&s=480132&e=gif&f=162&b=233337)
+![](_assets/4f149639630d419db5f3e557b61b00b1~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 如下是一个 cdg 的命令实现，可实现 cd 命令的任意目录的快速交互式搜索：
 
@@ -325,7 +325,7 @@ alias cdg='cd_global() {cd $(fd --type directory $1 $2 | fzf)}; cd_global'
 
 使用方式形如 `cdg pattern directory`，在哪一个目录下查询包含 pattern 的目录，确认后即可 cd 进入到这个目录。
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d0cc795ee8ad44dfb9c8d0218cc5834c~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=868&h=286&s=208607&e=gif&f=139&b=233337)
+![](_assets/d0cc795ee8ad44dfb9c8d0218cc5834c~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 说明下，我实际使用下来，这个命令确实很少需要，因为大多数时间我还是在访问我经常使用的目录，默认 zoxide 的能力完全足够使用。
 
