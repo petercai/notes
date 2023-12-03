@@ -64,3 +64,61 @@ The **org.eclipse.ui.decorators** extension point provides a mechanism for addin
 **IColorDecorator**. If the information to decorate an object is not immediately available, for example the type of decoration depends on a network query, then implement **IDelayedLabelDecorator**.
 
 ![[Eclipse Adv. topics-20231203-1.png]]
+
+## ILightweightLableDecorator
+Instances of **ILightweightLabelDecorator** can modify the image, text, font, and color displayed for an object. Create the class that contains the decorative behavior when you specify the class attribute by clicking the class label to the left of the class attribute’s value.
+
+## Decorative label decorators
+If you simply want to decorate a label by adding a static image in one of the quadrants without any text modifications, then you can specify the icon attribute instead of the class attribute. If the class attribute is not specified,Eclipse places the image specified by the icon attribute in the quadrant specified by the location attribute.
+In this case, there is no need to create a class that implements ILightweightLabelDecorator because Eclipse provides this behavior for you. A read-only file decorator is one example of a decorative label decorator.
+
+```
+<decorator
+	lightweight="true"
+	location="BOTTOM_LEFT"
+	label="Locked"
+	icon="icons/locked_overlay.gif"
+	state="true"
+	id="com.qualityeclipse.favorites.locked">
+	<description>
+		Indicates whether a file is locked
+	</description>
+	<enablement>
+		<and>
+			<objectClass
+				name="org.eclipse.core.resources.IResource"/>
+			<objectState name="readOnly" value="true"/>
+			</and>
+	</enablement>
+</decorator>
+```
+
+With this declaration in the plug-in manifest, a small lock icon appears in the lower left corner of the icon associated with any locked resource:
+
+![[Eclipse Adv. topics-20231203-2.png]]
+
+## IDecoratorManager
+If you want to decorate your own view. Eclipse provides a **DecoratingLabelProvider** and a decorator manager via the **getDecoratorManager**() method in **IWorkbench**. 
+
+
+# Background Tasks - Jobs API
+Long-running operations should be executed in the background so that the UI stays responsive. One solution is to fork a lower-priority thread to perform the operation rather than performing the operation in the UI thread. But, how do you keep the user informed as to the progress of the background operation? Eclipse provides a Jobs API for creating, managing, and displaying background operations.
+
+# Plug-in ClassLoaders
+Most of the time you can easily ignore ClassLoaders, knowing that as long as your classpath is correct—or in this case, the dependency declaration in the plug-in manifest —class
+loading will happen automatically, without intervention. But what if you want to load classes that are not known when a plug-in is compiled? Information about code developed by the user in the workspace is accessible via the JDT interfaces such as ICompilationUnit, IType, and IMethod; however, it is not normally on a plug-in’s classpath and thus cannot be executed. Normally, this is a good thing, because code under development can throw exceptions, or under rare circumstances, crash Eclipse without any warning.
+
+The Eclipse debugger executes user-developed code in a separate VM to avoid these problems, but it is a heavyweight, involving the overhead of launching a separate VM and communicating with it to obtain results. If you need a quick way to execute user-developed code in the same VM as Eclipse and are willing to accept the risks involved in doing so, then you need to write a ClassLoader.
+
+
+# Early Startup
+Early plug-in startup use the **org.eclipse.ui.startup** extension point to ensure that your plug-in will be started when Eclipse starts. Doing so should not be done lightly because it defeats the Eclipse lazy-loading mechanism, causing Eclipse to always load and execute your plug-in thus consuming precious memory and startup time. If you must do this, then keep your early startup plug-in small so that it takes up less memory and executes quickly when it starts.
+
+## Managing early startup
+Eclipse does not provide a mechanism for programmatically specifying whether a plug-in should be started immediately when it is launched. If you have one or more plug-ins that may need early startup, then consider creating a small plug-in that manages early startup. For example, if you have a large plug-in that only needs early startup if the user has enabled
+some functionality, then create a small early startup plug-in that determines whether that functionality has been enabled, and if so, starts the larger plug-in.
+![[Eclipse Adv. topics-20231203-3.png]]
+
+
+
+
