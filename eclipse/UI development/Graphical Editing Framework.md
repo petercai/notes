@@ -58,23 +58,251 @@ The JFace library replaces events and listeners with **actions** and **contribut
 ### Event processing in SWT
 The SWT event-processing cycle is depicted in figure 4.1. It begins with the operating system’s event queue, which records and lists actions taken by the user. Once an SWT application begins running, its Display class sorts through this queue using its **readAndDispatch**() method and **msg** field, which acts as a handle to the underlying OS message queue. If it finds anything relevant, it sends the event to its **top-level Shell** object, which <u>determines which widget should receive the event</u>. The **Shell** then sends the event to the widget that the user acted on, which transfers this information to an associated interface called a **listener**. One of the **listener**’s methods performs the necessary processing or invokes another method to handle the user’s action, called an **event handle**r.
 ![[Graphical Editing Framework-20231203-7.png]]
+When making a widget responsive to events, the main tasks of the GUI designer are determining which events need to be acted on, creating and associating listeners to sense these events, and then building event handlers to perform the necessary processing. This section will show how to accomplish these tasks using the SWT data structures contained in the **org.eclipse.swt.events** package.
+
+#### Using typed listeners and events
+Most of the listener interfaces in SWT only react to a particular set of user actions. They’re called **typed listeners** for this reason, and they inherit from the **TypedListener** class. Similarly, the events corresponding to these specific actions are **typed events**, which subclass the **TypedEvent** class. For example, a mouse click or double-click is represented by a **MouseEvent**, which is sent to an appropriate **MouseListener** for processing. Keyboard actions performed by the user are translated into **KeyEvents**, which are picked up by **KeyListeners**. A full list of these typed events and listeners is shown below.
+
+![[Graphical Editing Framework-20231203-8.png]]
+In order to function, these listeners must be associated with components of the GUI. For example, a **TreeListener** will only receive **TreeEvents** if it’s associated with a **Tree** object. But not every GUI component can use each listener. For example, as shown in the GUI component column of the table, a **Control** component broadcasts many more types of events than a **Tracker** object. There are also listeners, such as **MenuListeners** and **TreeListeners**, that can only be attached to very specific widgets. This attachment is performed by invoking the component’s **add...Listener()** method with the typed listener as the argument.
+
+##### Understanding Event classes
+The Event column in table 4.1 lists the subclasses of **TypedEvent** that the **Display** and **Shell** objects send to **typed listeners**. Although programmers generally don’t manipulate these classes directly, the classes contain member fields that provide information regarding the event’s occurrence. This information can be used in event handlers to obtain information about the environment. These fields, inherited from the **TypedEvent** and **EventObject** classes:
+![[Graphical Editing Framework-20231203-9.png]]
+In addition to these, many event classes have other fields that provide more information about the user’s action. For example, the **MouseEvent** class also includes a button field, which tells which mouse button was pressed, and x and y, which specify the widget-relative coordinates of the mouse action. The **ShellEvent** class contains a boolean field called **doit**, which lets you specify whether a given action will result in its intended effect. Finally, the **PaintEvent** class provides additional methods.
+
+##### Programming with listeners
+There are two main methods of incorporating listeners in code. The first creates <u>an anonymous interface in the component’s add...Listener() method</u>, which narrows the scope of the listener to the component only. This method is shown in the following code snippet:
+
+```
+Button button = new Button(shell, SWT.PUSH | SWT.CENTER);
+button.addMouseListener(new MouseListener()
+{
+	public void mouseDown(MouseEvent e)
+	{
+		clkdwnEventHandler();
+	}
+	public void mouseUp(MouseEvent e)
+	{
+		clkupEventHandler();
+	}
+	public void mouseDoubleClick(MouseEvent e)
+	{
+		dblclkEventHandler();
+	}
+});
+```
+
+#### Adapters
+**Adapters** are **abstract classes** that implement **Listener** interfaces and provide default implementations for each of their required methods. This means that when you associate a widget with an adapter instead of a listener, you only need to write code for the method(s) you’re interested in. Although this may seem like a minor convenience, it can save you a great deal of programming time whenyou’re working with complex GUIs.
+	 NOTE
+		The adapters mentioned in this section are very different from the model-based adapters provided by the JFace library. Here, adapters reduce the amount of code necessary to create listener interfaces. 
+**Adapters** are only available for events whose listeners have more than one member method. The full list of these classes is shown in table 4.3, along with their associated Listener classes.
+![[Graphical Editing Framework-20231204-1.png]]
+Adapter objects are easy to code and are created with the same add...Listener() methods. Two examples are shown here:
+
+```
+button.addMouseListener(new MouseAdapter()
+{
+	public void mouseDoubleClick(MouseEvent e)
+	{
+		dblclkEventHandler();
+	}
+)};
+```
+
+#### Keyboard events
+Although most of the events in table 4.1 are straightforward to understand and use, the keyboard event classes require further explanation. Specifically, these events include the **KeyEvent** class, which is created any time a key is pressed, and its two subclasses, **TraverseEvent** and **VerifyEvent**. A **TraverseEvent** results when the user presses an arrow key or the Tab key in order to focus on the next widget. A **VerifyEvent** fires when the user enters text that the program needs to check before taking further action.
+
+In addition to the fields inherited from the **TypedEvent** and **EventObject** classes, the **KeyEvent** class has three member fields that provide information concerning the key that triggered the event:
+- **character**—Provides a char value representing the pressed key.
+ - **stateMask**—Returns an integer representing the state of the keyboard modifier keys. By examining this integer, a program can determine whether any of the Alt, Ctrl, Shift, and Command keys are currently pressed.
+ - keyCode—Provides the SWT public constant corresponding to the typed key, called the key code. These public constants are presented in table 4.4.
+![[Graphical Editing Framework-20231204-2.png]]
+The following code snippet shows how to use a **KeyListener** to receive and process a **KeyEvent**. It also uses the fields (character, stateMask, and keyCode) to acquire information about the pressed key:
+
+```
+Button button = new Button(shell, SWT.CENTER);
+button.addKeyListener(new KeyAdapter()
+{
+	public void keyPressed(KeyEvent e)
+	{
+		String string = "";
+		if ((e.stateMask & SWT.ALT) != 0) string += "ALT-";
+		if ((e.stateMask & SWT.CTRL) != 0) string += "CTRL-";
+		if ((e.stateMask & SWT.COMMAND) != 0) string += "COMMAND-";
+		if ((e.stateMask & SWT.SHIFT) != 0) string += "SHIFT-";
+		switch (e.keyCode)
+		{
+			case SWT.BS: string += "BACKSPACE"; break;
+			case SWT.CR: string += "CARRIAGE RETURN"; break;
+			case SWT.DEL: string += "DELETE"; break;
+			case SWT.ESC: string += "ESCAPE"; break;
+			case SWT.LF: string += "LINE FEED"; break;
+			case SWT.TAB: string += "TAB"; break;
+			default: string += e.character; break;
+		}
+		System.out.println (string);
+	}
+});
+```
+
+The **TraverseEvent** fires when the user presses a key to progress from one component to another, such as in a group of buttons or checkboxes. The two fields contained in this class let you control whether the traversal action will change the focus to another control, or whether the focus will remain on the widget that fired the event. 
+- The simplest field, **doit**, is a boolean value that allows (TRUE) or disallows (FALSE) traversal for the given widget. 
+-  The second field of the TraverseEvent class, detail, is more complicated. It’s an integer that represents the identity of the key that caused the event. For example, if the user presses the Tab key to switch to a new component, the detail field will contain the SWT constant **TRAVERSE_TAB_NEXT**.
+
+Each type of control has a different default behavior for a given traversal key. For example, a TraverseEvent that results from a TRAVERSE_TAB_NEXT action will, by default, cause a traversal if the component is a radio button, but not if it’s a Canvas object. Therefore, by setting the doit field to TRUE, you override the default setting and allow the user to traverse. Setting the field to FALSE keeps the focus on the component.
+
+The use of the **VerifyEvent** is similar to that of the TraverseEvent. The goal is to determine beforehand whether the user’s action should result in the usual or default behavior. In this case, you can check the user’s text to determine whether it should be updated or deleted in the application. Two of the class fields, start and end, specify the range of the input, and the text field contains the input String under examination. Having looked at the user’s text, you set the boolean doit field to allow (TRUE) or disallow (FALSE) the action.
+
+#### Customizing event processing with untyped events
+**Typed events and listeners** enable event processing with classes and interfaces expressly suited to their tasks. Further, typed listeners provide specific methods to receive and handle these events. By narrowing the scope of listeners and events to handle only particular actions, <u>the use of typed components reduces the possibility of committing coding errors</u>.
+However, if you prefer coding flexibility over safety, SWT provides **untyped events and listeners**. When an **untyped listener**, represented by the Listener class, is associated with a GUI component, it <u>receives every class of event that the component is capable of sending</u>. Therefore, you have to manipulate the **catch-all event**, represented by the **Event** class, to determine which action the user performed. The proper event-handling method can then be invoked.
+
+It’s important to note that Eclipse.org recommends **against** using **untyped events and listeners**. In fact, it mentions that they are “not intended to be used by applications.” These mechanisms also aren’t included with their typed counterparts in the **org.eclipse.swt.events** package. Instead, both the **untyped Listener interface and the Event class** are located in the **org.eclipse.swt.widgets** package.
+
+Despite this, the SWT code snippets provided by the Eclipse website use untyped listeners and events exclusively. This makes coding convenient, since you can create a customized listener that reacts to a specified set of events. An example is shown here:
+
+```
+Listener listener = new Listener ()
+{
+	public void handleEvent (Event event)
+	{
+	switch (event.type)
+	{
+		case SWT.KeyDown:
+			if (event.character == 'b')
+			System.out.println("Key"+event.character);
+			break;
+		case SWT.MouseDown:
+			if (event.button == 3)
+			System.out.println("Right click");
+			break;
+		case SWT.MouseDoubleClick:
+			System.out.println("Double click");
+			break;
+		}
+	}
+};
+Button button = new Button(shell, SWT.CENTER);
+button.addListener(SWT.KeyDown, listener);
+button.addListener(SWT.MouseDown, listener);
+button.addListener(SWT.MouseDoubleClick, listener);
+```
+
+In order to take the place of typed events, the Event class contains all the fields in each typed event. It has the same character field as a KeyEvent and the same button field as a MouseEvent. As shown in the previous code, it also has a field called type, which refers to the nature of the event. 
+![[Graphical Editing Framework-20231204-3.png]]
+
+### Event processing in JFace
+A listener interface can provide the same event handling for different controls, but its usage depends on the component that launched the event. Listeners that receive MouseEvents can’t be used for menu bar selections. Even untyped Events are only useful after the program determines which type of control triggered the event.
+
+But when you’re dealing with complex user interfaces, it’s helpful to separate the event-handling capability from the GUI components that generated the event. 
+ - This allows one group to work on a GUI’s event handling independently from the group designing its appearance. 
+ -  Also, if a listener’s capability can be attached to any component, then its code can be reused more often. 
+ - Finally, if one section of a program deals strictly with the GUI’s view and another is concerned only with event processing, then the code is easier to develop and understand.
+
+JFace provides this separation with its **Action** and **ActionContributionItem** classes. Put simply, an **ActionContributionItem** combines the function of a GUI widget and its attached listener class. Whenever the user interfaces with it, it triggers its associated **Action** class, which takes care of handling the event. Although this may seem similar to SWT’s listener/event model, these classes are more abstract, simpler to use, and narrower in scope.
+#### Understanding actions and contributions
+Although it’s interesting to know that you can handle **TraverseEvents** and **ArmEvents** if they occur, few applications use them. Also, it may be fascinating to attach multiple listeners and event handlers to a widget, but GUI components usually perform only a single function in response to a single input type. Because SWT’s structure provides for every conceivable component and combination of events, even the simplest listener/event code requires complexity.
+
+It would make event programming easier if a toolset concentrated on only those few widgets and events that are used most often and made their usage as simple as possible. JFace’s event-processing structure does exactly this: Its goal is to make event processing more straightforward, allowing programmers to receive and use common events with fewer lines of code. In reaching this goal, JFace makes three assumptions:
+ -  The user’s actions will involve buttons, toolbars, and menus.
+ -  Each component will have only one associated event.
+ -  Each event will have only one event handler.
+By taking these assumptions into account, JFace simplifies event processing considerably. The first assumption means that contributions only need to take one of three forms. The second assumption provides the separation of contributions from their associated actions; that is, if each contributing component triggers only one event, then it doesn’t matter what action is triggered or which component fired the event. The third assumption means that each action needs only one event-handling routine. This simplified event model for SWT/JFace.
+![[Graphical Editing Framework-20231204-4.png]]
+Like the SWT event model, the interface process begins with the **Display** class keeping track of the operating system’s event queue. This time, though, it passes information to the **ApplicationWindow**, which contains the Display’s **Shell** object.
+The **ApplicationWindow** creates an **Action** class and sends it to the contribution that generated the original event. The **contribution** then invokes the **run**() method of the **Action** class as the single event handler.
+
+The **Action** class behaves similarly to SWT’s **Event** class, but the contribution capability is more complicated. The two main contribution classes are the **ContributionItem** class and the **ContributionManager** class. The **ContributionItem** class provides individual GUI components that trigger actions, and the **ContributionManager** class produces objects capable of containing **ContributionItems**. Because these are both abstract classes, event handling is performed with their subclasses.
+![[Graphical Editing Framework-20231204-5.png]]
+Although the **ActionContributionItem** class is one of many concrete subclasses of **ContributionItem**, it’s the most important. This class is created and implemented in an **ApplicationWindow** to connect an action to the GUI. It has no set appearance, but instead takes the form of a button, menu bar item, or toolbar item, depending on your use of the **fill()** method.
+The second way to incorporate contributions in an application involves the use of a **ContributionManager** subclass. These subclasses serve as containers for **ContributionItems**, combining them to improve GUI organization and simplify programming. The **MenuManager** class combines **ContributionItems** in a window’s top-level menu, and the **ToolBarManager** class places these objects in a toolbar located just under the menu.
+#### Creating Action classes
+Code below creates a subclass of the abstract Action class called StatusAction. This class functions by sending a String to an ApplicationWindow’s status line whenever it triggers.
+Because this class will be implemented in a toolbar, it needs an associated image. 
+
+```
+public class StatusAction extends Action
+	StatusLineManager statman;
+	short triggercount = 0;
+	public StatusAction(StatusLineManager sm)
+	{
+		super("&Trigger@Ctrl+T", AS_PUSH_BUTTON);
+		statman = sm;
+		setToolTipText("Trigger the Action");
+		setImageDescriptor(ImageDescriptor.createFromFile
+			(this.getClass(),"eclipse.gif"));
+	}
+	public void run()
+	{
+		triggercount++;
+		statman.setMessage("The status action has fired. Count: " +
+			triggercount);
+	}
+}
+```
+
+#### Implementing contributions in an ApplicationWindow
+Because actions and contributions can only be associated with buttons, toolbar items, and menu items, any application demonstrating their capability must rely on these components. Code below shows how **ContributionItem** and **ContributionManager** classes are
+added to a window. Three contributor classes, **ActionContributionItem**, **MenuManager**, and **ToolBarManager**, all trigger the StatusAction when acted on. This action sends a message to the status line at the bottom of the window.
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+```
+public class Contributions extends ApplicationWindow
+	StatusLineManager slm = new StatusLineManager();
+	StatusAction status_action = new StatusAction(slm);
+	ActionContributionItem aci = new
+		ActionContributionItem(status_action); // 1. Assign contribution
+	public Contributions()
+	{ // 2. add resources to ApplicationWindow
+		super(null);
+		addStatusLine();
+		addMenuBar();
+		addToolBar(SWT.FLAT | SWT.WRAP);
+	}
+	protected Control createContents(Composite parent)
+	{
+		getShell().setText("Action/Contribution Example");
+		parent.setSize(290,150);
+		aci.fill(parent); //3. create button within window
+		return parent;
+	}
+	public static void main(String[] args)
+	{
+		Contributions swin = new Contributions();
+		swin.setBlockOnOpen(true);
+		swin.open();
+		Display.getCurrent().dispose();
+	}
+	protected MenuManager createMenuManager()
+	{
+		MenuManager main_menu = new MenuManager(null);
+		MenuManager action_menu = new MenuManager("Menu");
+		main_menu.add(action_menu);
+		action_menu.add(status_action); // 1. assign contribution
+		return main_menu;
+	}
+	protected ToolBarManager createToolBarManager(int style)
+	{
+		ToolBarManager tool_bar_manager = new ToolBarManager(style);
+		tool_bar_manager.add(status_action); //1.
+		return tool_bar_manager;
+	}
+	protected StatusLineManager createStatusLineManager()
+	{
+		return slm;
+	}
+}
+```
+1. Beneath the class declaration, the program constructs an instance of the StatusAction with a StatusLineManager object as its argument. Then, it creates an ActionContributionItem object and identifies it with the StatusAction instance. This contribution has no form yet, but is simply a high-level means of connecting an action to the user interface.
+2. The constructor method creates an **ApplicationWindow** object and adds a menu, toolbar, and status line.
+3. The **createContents**() method sets the title and size of the window and then invokes **aci.fill()**. This method is important since it places the **ActionContributionItem** object in the GUI. In this case, because the **fill()** argument is a **Composite** object, the contributor takes the form of a button that triggers a **StatusEvent** whenever it’s pressed.
+The last three methods in Contributions are also straightforward. The main() method takes care of creating and opening the window and then disposing of the GUI resources. Then, the **createMenuManager**() method creates a menu instance at the top of the window. Because it’s a subclass of **ContributionManager**, an **Action** object can be associated with it, and the **status_action** object is added with the **add()** method. This method is also used in the **createToolBarManager**() method to associate the action instance. In both cases, an **ActionContributionItem** is implicitly created and added to the menu in the form of a menu item and to the toolbar as a toolbar item.
+#### Interfacing with contributions
+There are two main ways of incorporating an **ActionContributionItem** in a GUI. 
+1. The first method is to use the add() method of a ContributionManager subclass, as performed by the MenuManager and ToolBarManager in the Contributions application. 
+2. The second is to use the fill() method associated with the ActionContributionItem class and add an SWT widget as its argument. If the argument is a Composite, as in Contributions, then the contributor will appear as determined by the STYLE property of the action. If the argument is an SWT Menu object, then the contributor will take the form of a menu item. Finally, if the argument is an SWT ToolBar object, then the contributor will appear as an item in a toolbar.
 
 
 # Draw2D
