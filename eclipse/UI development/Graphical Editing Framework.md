@@ -1,3 +1,94 @@
+
+# SWT
+SWT uses heavyweight components from the underlying platform. The communication between SWT/JFace and the operating system is performed using the Java Native Interface (JNI).  SWT/JFace relies on JNI to manage the operating system’s rendering instead of performing all the work by itself.
+
+SWT/JFace lets you determine when your resources should be deallocated. The toolset simplifies this process by providing **dispose**() methods within the component classes. Also,
+once you have freed a parent resource, its child resources will automatically be disposed of. This means that few explicit deallocation calls are necessary within most applications. You might call SWT/JFace’s resource management semi-automatic.
+
+## Display & Shell
+When the **Shell**’s **open**() method is invoked, the application’s main window takes shape and its children are rendered in the display. So long as the **Shell** remains open, the **Display** instance uses its **readAndDispatch**() method to keep track of relevant user events in the platform’s event queue. When one of these actions involves closing the window, the resources associated with the Display object (such as the **Shell** and its children) are deallocated.
+![[Graphical Editing Framework-20231203-6.png]]
+### Display 
+Although the **Display** class has no visible form, it keeps track of the GUI resources and manages communication with the operating system. That is, it concerns itself with how its windows are displayed, moved, and redrawn. It also ensures that events such as mouse clicks and keystroke actions are sent to the widgets that can handle them.
+#### Operation of the Display class
+Although the **Display** class may only appear in a few lines of your GUI code, it’s important to respect and understand its operation. It’s the workhorse of any SWT/JFace application, and whether you work with SWT/JFace or SWT alone, you must include an instance of this class in your program. This way, your interface will be able to use the widgets and containers of the operating system and respond to the user’s actions. Although most applications do little more than create a **Display** object and invoke a few of its methods, the role played by this class is sufficiently important to be worth describing in detail.
+The main task of the **Display** class is to<u> translate SWT/JFace commands from your code into low-level calls to the operating system</u>. This process comprises two parts and begins once the application creates an instance of the **Display** class: 
+First, the **Display** object constructs an instance of the OS class, which represents the platform’s operating system (OS). This class provides access to the computer’s low-level resources through a series of special Java procedures called native methods.
+Then, like a switchboard operator, this Display object uses these methods to direct commands to the operating system and convey user actions to the application.
+
+#### Methods of the Display class
+Table 2.1 identifies and describes a number of methods that belong to the **Display** class. This isn’t a full listing, but it shows the methods vital for SWT/JFace GUIs to function and those necessary to implement particular capabilities in an application:
+![[Graphical Editing Framework-20231203-3.png]]
+The first two methods must be used in any SWT-based GUI. The first, **Display**(), creates an instance of the class and associates it with the GUI. The second, **getCurrent**(), returns the primary thread of the application, the user-interface thread. This method is generally used with the **dispose**() method to end the operation of the Display.
+
+The next two methods in the table enable the application to receive notifications from the operating system whenever the user takes an action associated with the GUI. it’s important to understand the **readAndDispatch**() method, which accesses the operating system’s event queue and determines whether any of the user’s actions are related to the GUI. Using this method, the Application class knows whether the user has decided to dispose of the Shell. If so, the method returns TRUE, and the application ends. Otherwise, the Display object invokes its **sleep**() method, and the application continues waiting.
+
+Although the **Display** class is important, there is no way to directly see the effects of its operation. Instead, you need to use classes with visual representations. The most important of these is the **Shell** class.
+
+### The Shell class
+Just as the **Display** class provides window management, the **Shell** class functions as the <u>GUI’s primary window</u>. Unlike the **Display** object, a Shell **instance** has a visual implementation. The **Shell** class accesses the operating system through the OS class to an extent, but only to keep track of opening, activating, maximizing, minimizing, and closing the main window.
+The main function of the **Shell** class is to provide a common connection point for the **containers**, **widgets**, and **events** that need to be integrated into the GUI. In this respect, Shell serves as the parent class to these components. Figure 2.2 shows the relationship between an application’s operating system, Display, Shell, and their widgets.
+![[Graphical Editing Framework-20231203-4.png]]
+Every SWT/JFace application bases its widgets on a main **Shell** object, but other shells may exist in an application. They’re generally associated with temporary windows or dialog boxes. Because <u>these shells aren’t directly attached to the Display instanc</u>e, they’re referred to as
+secondary shells. <u>Shells that are attached to the Display are called top-level shells.</u>
+
+The **Shell** instance created in an application has a number of properties associated with it that allow users to alter its state or read information. These characteristics make up the component’s style. You can control a Shell’s style by adding a second argument to its constructor. If the only argument in an application **Shell** declaration is the display, it receives the default style for top-level windows, called **SHELL_TRIM**. This combines a number of individual style elements and tells the application that the window should have a title bar (SWT.**TITLE**) and that the user can minimize (SWT.**MIN**), maximize (SWT.**MAX**), resize (SWT.**RESIZE**), and close (SWT.**CLOSE**) the shell. The other default shell style, **DIALOG_TRIM**,
+ensures that dialog shells have title bars, a border around the active area
+(SWT.**BORDER**), and the ability to be closed.
+
+### Model-based adapters
+Eclipse documentation uses two terms to refer to JFace classes that work with SWT
+widgets: **helper classes** and **model-based adapters**. We’ll call them model-based adapters, or
+JFace adapters. These adapters can be split into four categories. 
+![[Graphical Editing Framework-20231203-5.png]]
+The first and most widely used category of model-based adapters includes the
+**Viewer** classes. In SWT, the information and appearance of a GUI component are bound together. However, viewers separate these aspects and allow for the same information to be presented in different forms. For example, the information in an SWT tree can’t be separated from the tree object. But the same information in a JFace **TreeViewer** can be displayed in a **TableViewer** or a **ListViewer**.
+
+The next category involves **Actions** and **Contributions**. These adapters simplify event handling, separating the response to a user’s command from the GUI events that result in that response. This can be best explained with an example. In SWT, if four different buttons will close a dialog box, then you must write four different event-handling routines even though they accomplish the same result. In JFace, these four routines can be combined in an
+action, and JFace automatically makes the four buttons contributors to that action.
+
+The third category involves **image and font registries**. In SWT, it’s important to keep the number of allocated fonts and images to a minimum, since they require operating system resources. But with JFace registries, these resources can be allocated and deallocated when
+needed. Therefore, if you’re using multiple images and fonts, you don’t need to be concerned with manual garbage collection. 
+
+The last group comprises **JFace dialogs and wizards**. These are the simplest adapters to understand, since they extend the capability of SWT dialogs. JFace provides dialogs that present messages, display errors, and show the progress of ongoing processes. In addition, JFace provides a specialized dialog called a wizard, which guides the user through a group of tasks,such as installing software or configuring an input file.
+
+## Events
+The JFace library replaces events and listeners with **actions** and **contributions**, which perform the same function as their SWT counterparts but in very different ways. These new classes simplify the process of event programming by separating the event-processing methods from the GUI’s appearance.
+
+### Event processing in SWT
+The SWT event-processing cycle is depicted in figure 4.1. It begins with the operating system’s event queue, which records and lists actions taken by the user. Once an SWT application begins running, its Display class sorts through this queue using its **readAndDispatch**() method and **msg** field, which acts as a handle to the underlying OS message queue. If it finds anything relevant, it sends the event to its **top-level Shell** object, which <u>determines which widget should receive the event</u>. The **Shell** then sends the event to the widget that the user acted on, which transfers this information to an associated interface called a **listener**. One of the **listener**’s methods performs the necessary processing or invokes another method to handle the user’s action, called an **event handle**r.
+![[Graphical Editing Framework-20231203-7.png]]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Draw2D
+Draw2D relies on many constructs from SWT (not JFace), but you must draw and design most of the graphical components within it. You also need to specify their event responses and any drag-and-drop capability. Essentially, the Draw2D library serves as a complete graphics package, with the additional feature that these graphics can be moved and associated with events.
+### Using Draw2D’s primary classes
+If you’ve understood our discussion of SWT so far, then Draw2D won’t present much difficulty. As shown in table C.1, the two libraries use related classes and provide similar structures for drawing, event handling, and component layout. In fact, all Draw2D GUIs must be added to an SWT Canvas. The first difference is that whereas a normal Canvas adds a GC object to provide graphics, a Canvas in a Draw2D application uses an instance of a LightweightSystem.
+![[Graphical Editing Framework-20231203-1.png]]
+**LightweightSystems** function similarly to Display objects in SWT. They have no visual representation but provide event handling and interaction with the external environment. As the name implies, **LightweightSystems** operate at a level removed from the operating system. This means you lose the advantages of SWT/JFace’s heavyweight rendering, such as its rapid execution and native look and feel. However, now you can truly customize the appearance and operation of your components.
+Without question, the most important class in Draw2D is the **Figure**, and the majority of our Draw2D discussion will focus on its methods and subclasses. Like an SWT **Shell**, it must be added to a **LightweightSystem** in order to provide a basis for the GUI’s appearance. Like an SWT Control, it provides for resizing and relocating, adding **Listeners** and **LayoutManagers**, and setting colors and fonts. It also functions like a **Composite** in SWT, providing methods for adding and removing other Figure **objects**—children—within its frame. However, unlike Widget and Control objects, you can easily subclass Figures. Their graphical aspects can be represented by a drawing or image. 
+![[Graphical Editing Framework-20231203-2.png]]
+Not only can Figures use separate Listener interfaces, they can also perform the majority of
+their event handling by themselves. Figures can even initiate specific kinds of events to alert other objects in the GUI.
+To add images and drawings to **Figures**, you need to use instances of the **Graphics** class. It functions similar to SWT’s **GC** (graphics context) class, and it provides methods for incorporating graphics in a given area. It also contains many of the same methods as GC, particularly for drawing lines and shapes, displaying images, and working with fonts. However, the **Graphics** class provides one very different capability: Its objects can be moved, or translated, within the **LightweightSystem**. This means that when you want to change the position of a graphical component, Draw2D provides its own drag-and-drop capability to translate a **Figure** to the desired location.
+
 # Graphical Editing Framework
 
 ## GEF Architecture
