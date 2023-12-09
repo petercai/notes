@@ -1,4 +1,5 @@
-# Github上获赞59.8K的面试神技—1658页《Java面试突击核心讲》 - 掘金
+# Github上获赞59.8K的面试神技—1658页《Java面试突击核心讲》
+
 ![](_assets/8cb3025e8b37465593edd0f755a2034d~tplv-k3u1fbpfcp-zoom-in-crop-mark!1512!0!0!0.awebp.webp)
 
 经过 20 多位一线互联网大厂老师整合最新的 Java 架构师面试题后，成功总结出了这份 Java 架构师面试 PDF，我愿意称它为 Java 面试的“完美圣经”！

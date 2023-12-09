@@ -1,4 +1,5 @@
-# Github: 使用 Github Action CI/CD Maven 自动化打包 JAR 发布 Release_Ayou10031的博客-CSDN博客_github ci release
+# Github: 使用 Github Action CI/CD Maven 自动化打包 JAR 发布
+
 本篇文章主要是对我最近使用 **Github Action** 的一些总结，自己以前有一个需求，就是希望写完代码上传到 Github 之后自动发布 Release，为了方便以后下载以备不时只需，所以花了点时间研究了一下[自动化测试](https://so.csdn.net/so/search?q=%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95&spm=1001.2101.3001.7020)和部署，发现还挺好用的,这里主要就说一下我的配置逻辑，关于 Github Action 相关的知识还需自行阅读
 
 > [Github Action 文档](https://docs.github.com/cn/actions/quickstart)
