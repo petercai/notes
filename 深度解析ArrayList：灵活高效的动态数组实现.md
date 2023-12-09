@@ -8,7 +8,7 @@
 
 比如有一个ArrayList,size = 3;
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d0416ecea0e84b6bbe5ab09e881f499e~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=801&h=426&s=23007&e=png&a=1&b=f8ece9)
+![](_assets/d0416ecea0e84b6bbe5ab09e881f499e~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 arrayList.png
 
@@ -184,7 +184,7 @@ private static int calculateCapacity(Object[] elementData, int minCapacity) {
 
 当前方法返回的值是如果源集合是空的，则返回 默认容量（10）和元素集合添加元素所需最小的长度值比较，值大的一个，若不为空则返回minCapacity。
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f184806058e649d18fd19efcdc2c628c~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=739&h=345&s=35577&e=png&b=fefdfd)
+![](_assets/f184806058e649d18fd19efcdc2c628c~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 _20230828230112.png
 
@@ -236,11 +236,11 @@ private void grow(int minCapacity) {
 
 检查新容量是否超过了最大数组容量限制。MAX\_ARRAY\_SIZE是ArrayList内部定义的一个常量，表示数组的最大容量。如果新容量超过这个限制，就调用hugeCapacity(minCapacity)方法来获得一个足够大的容量。
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d600aad396be485bb87388d3cc6e09fc~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=664&h=195&s=20446&e=png&b=fefefe)
+![](_assets/d600aad396be485bb87388d3cc6e09fc~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 _20230828230251.png
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f90e07682346443cb8ef21d922882024~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=882&h=216&s=26540&e=png&b=fdfafa)
+![](_assets/f90e07682346443cb8ef21d922882024~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 _20230828230304.png
 

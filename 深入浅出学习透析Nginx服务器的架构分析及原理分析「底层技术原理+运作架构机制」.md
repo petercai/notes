@@ -26,7 +26,7 @@ Ngnix 高可用，至少包含两个 Ngnix 服务器，一台主服务器，一�
 
 大多数场景下，Nginx采用一主多从的主从架构，如下图所示。
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8565debdf62547e7bb282157902deac3~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp)
+![](_assets/8565debdf62547e7bb282157902deac3~tplv-k3u1fbpfcp-zoom-in-crop-mark!1512!0!0!0.awebp.webp)
 
 #### Nginx服务节点
 
@@ -72,7 +72,7 @@ Nginx支持sendfile机制
 
 一般情况下的数据处理模型和流程，如下所示。
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/82e33eed56984efcb68dc5a4ac7bf0af~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp)
+![](_assets/82e33eed56984efcb68dc5a4ac7bf0af~tplv-k3u1fbpfcp-zoom-in-crop-mark!1512!0!0!0.awebp.webp)
 
 1.  用户将请求发给内核。
 2.  内核根据用户的请求调用相应用户进程，用户进程在处理时需要申请对应的资源。
@@ -82,7 +82,7 @@ Nginx支持sendfile机制
 
 这个功能用户进程只是发生了一个封装报文的过程，却要绕一大圈， 所以有了Sendfile，它的总体工作流程，如下所示。
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ccddf9118ca84ac18e32a918c4497c1b~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp)
+![](_assets/ccddf9118ca84ac18e32a918c4497c1b~tplv-k3u1fbpfcp-zoom-in-crop-mark!1512!0!0!0.awebp.webp)
 
 因此，Nginx引入了sendfile 机制，使得内核在接受到数据之后，不再依靠用户进程给予封装，而是自己查找自己封装，减少了一个很长一段时间的浪费，这是一个提升性能的核心点。
 
@@ -97,10 +97,10 @@ Ngnix 一般作为入口负载均衡或内部负载均衡，结合反向代理�
 
 Ngnix 服务器在用户访问的最前端。根据用户请求再转发到具体的应用服务器或二级负载均衡服务器（LVS）。
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c41b86b9b0464cda96a0d5256288e9c5~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp)
+![](_assets/c41b86b9b0464cda96a0d5256288e9c5~tplv-k3u1fbpfcp-zoom-in-crop-mark!1512!0!0!0.awebp.webp)
 
 ### 内部负载均衡架构
 
 LVS 作为入口负载均衡，将请求转发到二级 Ngnix 服务器，Ngnix 再根据请求转发到具体的应用服务器。
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8b2024c0f0ad45be94a20a0ac5eb0627~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp)
+![](_assets/8b2024c0f0ad45be94a20a0ac5eb0627~tplv-k3u1fbpfcp-zoom-in-crop-mark!1512!0!0!0.awebp.webp)

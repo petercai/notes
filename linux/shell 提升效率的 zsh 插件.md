@@ -163,7 +163,7 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 
 安装后，就已经有一些默认效果，如命令行提示符的主题变化。
 
-![](https://cdn.jsdelivr.net/gh/poloxue/images@main/2023-10-16-zsh-themes-and-plugin-01.png)
+![](_assets/2023-10-16-zsh-themes-and-plugin-01.png)
 
 ### 主题
 
@@ -173,7 +173,7 @@ oh-my-zsh 提供了许多内置主题，查看 [themes](https://github.com/ohmyz
 
 执行 `source ~/.zshrc` 生效，查看主题效果。
 
-![](https://cdn.jsdelivr.net/gh/poloxue/images@main/2023-10-16-zsh-themes-and-plugin-02.png)
+![](_assets/2023-10-16-zsh-themes-and-plugin-02.png)
 
 另外，oh-my-zsh 还提供了 random 主题，它会在 oh-my-zsh 内置主题中随机选择主题展示。
 
@@ -181,7 +181,7 @@ oh-my-zsh 提供了许多内置主题，查看 [themes](https://github.com/ohmyz
 
 演示效果，如下所示：
 
-![](https://cdn.jsdelivr.net/gh/poloxue/images@main/2023-10-16-zsh-themes-and-plugin-03.gif)
+![](_assets/2023-10-16-zsh-themes-and-plugin-03.gif)
 
 ### 内置插件
 
@@ -216,7 +216,7 @@ oh-my-zsh 提供的所有内置插件，都可以在仓库 [ohmyzsh/ohmyzsh/plug
 
 [web-search](https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/web-search/) 提供在终端直接搜索信息能力，将自动跳转浏览器，到指定的搜索引擎执行搜索请求。
 
-![](https://cdn.jsdelivr.net/gh/poloxue/images@main/2023-10-16-zsh-themes-and-plugin-04.gif)
+![](_assets/2023-10-16-zsh-themes-and-plugin-04.gif)
 
 常见的搜索引擎基本都是支持的，诸如 google, bing, baidu, 甚至是 github 等。
 
@@ -231,7 +231,7 @@ oh-my-zsh 提供的所有内置插件，都可以在仓库 [ohmyzsh/ohmyzsh/plug
 
 演示效果如下：
 
-![](https://cdn.jsdelivr.net/gh/poloxue/images@main/2023-10-16-zsh-themes-and-plugin-05.gif)
+![](_assets/2023-10-16-zsh-themes-and-plugin-05.gif)
 
 #### 插件 4 - z
 
@@ -243,19 +243,19 @@ oh-my-zsh 提供的所有内置插件，都可以在仓库 [ohmyzsh/ohmyzsh/plug
 
 1.  输入 z，紧跟 tab 键，会直接列出访问过的目录，效果如下：
 
-![](https://cdn.jsdelivr.net/gh/poloxue/images@main/2023-10-16-zsh-themes-and-plugin-06.gif)
+![](_assets/2023-10-16-zsh-themes-and-plugin-06.gif)
 
 2.  输入 z blog，紧跟 tab 键，会直接列出访问过包含 blog 的目录，效果如下：
 
-![](https://cdn.jsdelivr.net/gh/poloxue/images@main/2023-10-16-zsh-themes-and-plugin-07.gif)
+![](_assets/2023-10-16-zsh-themes-and-plugin-07.gif)
 
 3.  输入 z tmux，因为包含 tmux 的目录只有一个，直接选中，效果如下：
 
-![](https://cdn.jsdelivr.net/gh/poloxue/images@main/2023-10-16-zsh-themes-and-plugin-08.gif)
+![](_assets/2023-10-16-zsh-themes-and-plugin-08.gif)
 
 4.  输入 z tmux，直接 Enter 确认，进入到目录，效果如下：
 
-![](https://cdn.jsdelivr.net/gh/poloxue/images@main/2023-10-16-zsh-themes-and-plugin-09.gif)
+![](_assets/2023-10-16-zsh-themes-and-plugin-09.gif)
 
 #### 插件 5 - vi-mode
 
@@ -317,17 +317,17 @@ zsh-syntax-highlighting 是 zsh 的语法高亮插件，如果输入的命令不
 
 错误命令提示
 
-![](https://cdn.jsdelivr.net/gh/poloxue/images@main/2023-10-16-zsh-themes-and-plugin-10.gif)
+![](_assets/2023-10-16-zsh-themes-and-plugin-10.gif)
 
 正确命令提示
 
-![](https://cdn.jsdelivr.net/gh/poloxue/images@main/2023-10-16-zsh-themes-and-plugin-11.gif)
+![](_assets/2023-10-16-zsh-themes-and-plugin-11.gif)
 
 #### 插件 7 - zsh-autosuggestions
 
 zsh-autosuggestions 用于提示补全建议，当输入字符后，它会自动给我们一些建议。输入 -> 右方向键可将建议直接输入终端。
 
-![](https://cdn.jsdelivr.net/gh/poloxue/images@main/2023-10-16-zsh-themes-and-plugin-12.gif)
+![](_assets/2023-10-16-zsh-themes-and-plugin-12.gif)
 
 如果想改变接受建议的默认按键，例如，希望通过输入 `Ctrl + /` 接受建议，配置实现，如下所示：
 

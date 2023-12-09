@@ -9,11 +9,11 @@
 
 ### -XshowSettings:vm
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6236e7510c314712835556af7bfe1802~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp)
+![](_assets/6236e7510c314712835556af7bfe1802~tplv-k3u1fbpfcp-zoom-in-crop-mark!1512!0!0!0.awebp.webp)
 
 ### Jps -lVvm
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/800b76d1667e4e5eb82c4eead6fde4ee~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp)
+![](_assets/800b76d1667e4e5eb82c4eead6fde4ee~tplv-k3u1fbpfcp-zoom-in-crop-mark!1512!0!0!0.awebp.webp)
 
 我们在运行的时候将JVM堆内存内存设置为3000MB，而-XshowSettings:vm打印出的JVM将最大堆大小为1.09G，如果按照这个内存进行分配内存的话很可能会导致实际内存和预分配内存所造成的不一致问题。
 
@@ -28,7 +28,7 @@ JDK8u131在JDK9中有一个很好的特性，即JVM能够检测在Docker容器�
 
 > **注意：如果将这两个标志与Xms和Xmx标志一起设置，那么jvm的行为将是什么？-Xmx标志将覆盖-XX:+ UseCGroupMemoryLimitForHeap标志**。
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c8fea0fe18da4da18b470944b6fd91cd~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp)
+![](_assets/c8fea0fe18da4da18b470944b6fd91cd~tplv-k3u1fbpfcp-zoom-in-crop-mark!1512!0!0!0.awebp.webp)
 
 ### 参数分析
 
@@ -51,11 +51,11 @@ JDK8u131在JDK9中有一个很好的特性，即JVM能够检测在Docker容器�
 
 > **答案：MaxRAMFraction=1仍将为其他非堆内存留出一些空间**。
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2ffb2d30a70b4c2680e7022a42613ec9~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp)
+![](_assets/2ffb2d30a70b4c2680e7022a42613ec9~tplv-k3u1fbpfcp-zoom-in-crop-mark!1512!0!0!0.awebp.webp)
 
 注意：如果容器使用堆外内存，这可能会有风险，因为几乎所有的容器内存都分配给了堆。您必须将-XX:MaxRAMFraction=2设置为堆只使用50%的容器内存，或者使用Xmx。
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/06e87800c83348719c76e57302db791d~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp)
+![](_assets/06e87800c83348719c76e57302db791d~tplv-k3u1fbpfcp-zoom-in-crop-mark!1512!0!0!0.awebp.webp)
 
 ### 容器内部感知CGroup资源限制
 
@@ -79,13 +79,13 @@ Java 程序在运行时会调用外部进程、申请 Native Memory 等，所以
 
 接下来了我们需要进行分析出heap之外的一部分就是对外内存就是Off Heap Space，也就是Direct buffer memory堆外内存。主要通过的方式就是采用Unsafe方式进行申请内存，大多数场景也会通过Direct ByteBuffer方式进行获取。好废话不多说进入正题。
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/113c667be0ee4b09b536a8f4d80668b7~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp)
+![](_assets/113c667be0ee4b09b536a8f4d80668b7~tplv-k3u1fbpfcp-zoom-in-crop-mark!1512!0!0!0.awebp.webp)
 
 ##### JVM参数MaxDirectMemorySize
 
 研究一下jvm的-XX:MaxDirectMemorySize，该参数指定了DirectByteBuffer能分配的空间的限额，如果没有显示指定这个参数启动jvm，默认值是xmx对应的值（低版本是减去幸存区的大小）。
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2b75c84803224fd5b340b2a5f7b99b6f~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp)
+![](_assets/2b75c84803224fd5b340b2a5f7b99b6f~tplv-k3u1fbpfcp-zoom-in-crop-mark!1512!0!0!0.awebp.webp)
 
 而Runtime.maxMemory()在HotSpot VM里的实现是：
 
@@ -93,7 +93,7 @@ Java 程序在运行时会调用外部进程、申请 Native Memory 等，所以
 
 DirectByteBuffer对象是一种典型的”冰山对象”，在堆中存在少量的泄露的对象，但其下面连接用堆外内存，这种情况容易造成内存的大量使用而得不到释放
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/078840deef6f48d0b47655b3ae6508f9~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp)
+![](_assets/078840deef6f48d0b47655b3ae6508f9~tplv-k3u1fbpfcp-zoom-in-crop-mark!1512!0!0!0.awebp.webp)
 
 -XX:MaxDirectMemorySize=size 用于设置 New I/O (java.nio) direct-buffer allocations 的最大大小，size 的单位可以使用 k/K、m/M、g/G；如果没有设置该参数则默认值为 0，意味着JVM自己自动给NIO direct-buffer allocations选择最大大小。
 

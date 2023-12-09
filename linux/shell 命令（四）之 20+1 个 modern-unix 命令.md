@@ -67,7 +67,7 @@ lsd --long --header --git
 
  |
 
-![](https://cdn.jsdelivr.net/gh/poloxue/images@latest/2023-11-07-high-productivity-shell-commands-part4-01.png)
+![](_assets/2023-11-07-high-productivity-shell-commands-part4-01.png)
 
 delta
 -----
@@ -92,132 +92,132 @@ diff -u main1.go main2.go | delta
 
  |
 
-![](https://cdn.jsdelivr.net/gh/poloxue/images@latest/2023-11-07-high-productivity-shell-commands-part4-02.png)
+![](_assets/2023-11-07-high-productivity-shell-commands-part4-02.png)
 
 与 git diff 一起使用
 
-![](https://cdn.jsdelivr.net/gh/poloxue/images@latest/2023-11-07-high-productivity-shell-commands-part4-03.png)
+![](_assets/2023-11-07-high-productivity-shell-commands-part4-03.png)
 
 dust
 ----
 
 [dust](https://github.com/bootandy/dust) \- 使用 rust 实现，du+rust = dust，更直观的 du 命令。默认行为，以找到最大文件为第一选择。
 
-![](https://cdn.jsdelivr.net/gh/poloxue/images@latest/2023-11-07-high-productivity-shell-commands-part4-04.png)
+![](_assets/2023-11-07-high-productivity-shell-commands-part4-04.png)
 
 duf
 ---
 
 [duf](https://github.com/muesli/duf) \- 视觉体验更佳 df，可作为 df 的替代品，按类型分组展示。
 
-![](https://cdn.jsdelivr.net/gh/poloxue/images@latest/2023-11-07-high-productivity-shell-commands-part4-05.png)
+![](_assets/2023-11-07-high-productivity-shell-commands-part4-05.png)
 
 broof
 -----
 
 [broot](https://github.com/Canop/broot) \- 终端文件浏览器，类似于 mac 的 finder 的终端版本。
 
-![](https://cdn.jsdelivr.net/gh/poloxue/images@latest/2023-11-07-high-productivity-shell-commands-part4-06.gif)
+![](_assets/2023-11-07-high-productivity-shell-commands-part4-06.gif)
 
 我觉得，如果说到命令行文件浏览器，lf 体验更佳，是一个更不错的选择，比起 broot，支持的 vim 方式导航和搜索。有兴趣也可以了解下。
 
-![](https://cdn.jsdelivr.net/gh/poloxue/images@latest/2023-11-07-high-productivity-shell-commands-part4-07.gif)
+![](_assets/2023-11-07-high-productivity-shell-commands-part4-07.gif)
 
 ### ag
 
 [ag](https://github.com/ggreer/the_silver_searcher) \- 类似于 ack 的代码搜索工具，但搜索速度更快。其实，和 rg 有点类似，但做了个压测，性能没有 rg 优秀。
 
-![](https://cdn.jsdelivr.net/gh/poloxue/images@latest/2023-11-07-high-productivity-shell-commands-part4-10.png)
+![](_assets/2023-11-07-high-productivity-shell-commands-part4-10.png)
 
 ### mcfly
 
 [mcfly](https://github.com/cantino/mcfly) \- mcfly 智能搜索引擎取代 CTRL-R 默认的搜索引擎，会考虑你的工作环境和历史命令等，通过一个小型网络进行优先级排序。
 
-![](https://cdn.jsdelivr.net/gh/poloxue/images@latest/2023-11-07-high-productivity-shell-commands-part4-08.gif)
+![](_assets/2023-11-07-high-productivity-shell-commands-part4-08.gif)
 
 ### choose
 
 [choose](https://github.com/theryangeary/choose) \- 快速且易于使用的 cut 命令。
 
-![](https://cdn.jsdelivr.net/gh/poloxue/images@latest/2023-11-07-high-productivity-shell-commands-part4-11.png)
+![](_assets/2023-11-07-high-productivity-shell-commands-part4-11.png)
 
 ### sd
 
 [sd](https://github.com/chmln/sd) \- 更直观的 “选择替换” 命令，可用于替换 sed。
 
-![](https://cdn.jsdelivr.net/gh/poloxue/images@latest/2023-11-07-high-productivity-shell-commands-part4-09.png)
+![](_assets/2023-11-07-high-productivity-shell-commands-part4-09.png)
 
 ### cheat
 
 [cheat](https://github.com/cheat/cheat) \- 是 unix 命令的备忘录，是一个命令行辅助工具。
 
-![](https://cdn.jsdelivr.net/gh/poloxue/images@latest/2023-11-07-high-productivity-shell-commands-part4-12.png)
+![](_assets/2023-11-07-high-productivity-shell-commands-part4-12.png)
 
 ### tldr
 
 [tldr](https://github.com/tldr-pages/tldr) \- “too long, don’t read”，和 cheat 类似，列出某个命令的常见使用案例。它是一个社区驱动的项目。
 
-![](https://cdn.jsdelivr.net/gh/poloxue/images@latest/2023-11-07-high-productivity-shell-commands-part4-13.png)
+![](_assets/2023-11-07-high-productivity-shell-commands-part4-13.png)
 
 bottom
 ------
 
 [bottom](https://github.com/ClementTsang/bottom) \- 运行于终端的跨平台系统监视器，可视化。
 
-![](https://cdn.jsdelivr.net/gh/poloxue/images@latest/2023-11-12-high-productivity-shell-commands-part4-14.png)
+![](_assets/2023-11-12-high-productivity-shell-commands-part4-14.png)
 
 gtop
 ----
 
 [gtop](https://github.com/aksakalli/gtop) \- 和 bottom 有点类似，系统监控面板。
 
-![](https://cdn.jsdelivr.net/gh/poloxue/images@latest/2023-11-12-high-productivity-shell-commands-part4-15.png)
+![](_assets/2023-11-12-high-productivity-shell-commands-part4-15.png)
 
 glances
 -------
 
 [glances](https://github.com/nicolargo/glances) \- 可用于替代 top/htop，监控 GNU/Linux、BSD、Mac OS 和 windows 系统。
 
-![](https://cdn.jsdelivr.net/gh/poloxue/images@latest/2023-11-12-high-productivity-shell-commands-part4-16.png)
+![](_assets/2023-11-12-high-productivity-shell-commands-part4-16.png)
 
 hyperfine
 ---------
 
 [hyerfine](https://github.com/sharkdp/hyperfine) \- 压测工具，可同时压测多个命令。
 
-![](https://cdn.jsdelivr.net/gh/poloxue/images@latest/2023-11-12-high-productivity-shell-commands-part4-17.gif)
+![](_assets/2023-11-12-high-productivity-shell-commands-part4-17.gif)
 
 gping
 -----
 
 [gping](https://github.com/orf/gping) \- ping 的终端可视化版本，体验不错，值得一试；
 
-![](https://cdn.jsdelivr.net/gh/poloxue/images@latest/2023-11-12-high-productivity-shell-commands-part4-18.gif)
+![](_assets/2023-11-12-high-productivity-shell-commands-part4-18.gif)
 
 procs
 -----
 
 [procs](https://github.com/dalance/procs) \- rust 编写的 ps 的替代版本。
 
-![](https://cdn.jsdelivr.net/gh/poloxue/images@latest/2023-11-12-high-productivity-shell-commands-part4-19.gif)
+![](_assets/2023-11-12-high-productivity-shell-commands-part4-19.gif)
 
 curlie
 ------
 
 [curlie](https://github.com/rs/curlie) \- http 客户端，号称是，兼具 curl 的强大与 httpie 的易用性。
 
-![](https://cdn.jsdelivr.net/gh/poloxue/images@latest/2023-11-12-high-productivity-shell-commands-part4-20.png)
+![](_assets/2023-11-12-high-productivity-shell-commands-part4-20.png)
 
 xh
 --
 
 [xh](https://github.com/ducaale/xh) \- 兼顾 httpie 的易用性，同时注重高性能的 http 客户端。
 
-![](https://cdn.jsdelivr.net/gh/poloxue/images@latest/2023-11-12-high-productivity-shell-commands-part4-21.gif)
+![](_assets/2023-11-12-high-productivity-shell-commands-part4-21.gif)
 
 dog
 ---
 
 [dog](https://github.com/ogham/dog) \- 依旧是 rust 实现的 DNS 分析工具 dig 的替代版本。
 
-![](https://cdn.jsdelivr.net/gh/poloxue/images@latest/2023-11-12-high-productivity-shell-commands-part4-22.png)
+![](_assets/2023-11-12-high-productivity-shell-commands-part4-22.png)

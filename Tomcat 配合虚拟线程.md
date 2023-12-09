@@ -7,7 +7,7 @@ Java 21 在今年早些时候的 9 月 19 日就正式发布，并开始正式�
 
 本文大纲如下，
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6c22b016220d4a6888f2b111cf266aa7~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=1234&h=554&s=73512&e=png&b=ffffff)
+![](_assets/6c22b016220d4a6888f2b111cf266aa7~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 Tomcat 使用虚拟线程
 -------------
@@ -24,9 +24,9 @@ Tomcat 使用虚拟线程
 
 在 Spring Boot 3.2 版本以前，Tomcat 默认的线程池使用的就是 Java 提供的 ThreadPoolExecutor 线程池，在 3.2 版本以后，Spring Boot 修改了创建线程池的方法如下所以，
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/231e6158b56d4275ba8d654be5ef3561~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=1377&h=349&s=68413&e=png&b=2a2c39)
+![](_assets/231e6158b56d4275ba8d654be5ef3561~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/282457a4ac1c4deaae335312bcd2dbd2~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=1164&h=189&s=29072&e=png&b=2a2b38)
+![](_assets/282457a4ac1c4deaae335312bcd2dbd2~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 可以看到 Tomcat 会先判断是否启用了虚拟线程，启用了的话就直接创建一个虚拟线程执行器 `VirtualThreadExecutor`。
 
@@ -34,17 +34,17 @@ Tomcat 使用虚拟线程
 
 `Jre21Compat` 类则是 Tomcat 为了兼容 Java21 版本虚拟线程新增的一个兼容类。这个类利用反射方法来调用 `Thread.ofVirtual().start(() -> {})` 方法，以便进行任务处理，代码截图如下，
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/cb5dfa81666942c1ae0bb991e3b36abb~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=1075&h=460&s=64042&e=png&b=2a2b38)
+![](_assets/cb5dfa81666942c1ae0bb991e3b36abb~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9285e44d6b64498c92d1a6d0b167de51~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=1048&h=1542&s=229172&e=png&b=292b37)
+![](_assets/9285e44d6b64498c92d1a6d0b167de51~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 虽然以上代码可以启用 Tomcat 的虚拟线程支持。但是在 Spring Boot 中其实不是这样设置的。还记得上文提到的在 Spring Boot 3.2 中，使用 Tomcat 作为 web 容器时，启用虚拟线程只需要将 `spring.threads.virtual.enabled` 属性设置为 true 吗？
 
 Spring Boot 3.2 中是通过 `tomcatVirtualThreadsProtocolHandlerCustomizer` 方法来兼容虚拟线程启用逻辑的，`@ConditionalOnThreading(Threading.VIRTUAL)` 条件用判断 `spring.threads.virtual.enabled` 属性是否启用。代码如下，
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/51190c8d52864943b15846038d2532b0~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=1192&h=920&s=151151&e=png&b=292b37)
+![](_assets/51190c8d52864943b15846038d2532b0~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/982b2d2f1f444a419f398b21ccb5b310~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=1197&h=1075&s=129535&e=png&b=292b37)
+![](_assets/982b2d2f1f444a419f398b21ccb5b310~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 到这里其实本文所需要讲的涉及源码的部分就全部讲完了。可以看到 Tomcat 引入虚拟线程并不复杂，引入后不在需要维护线程池，减轻了执行器的复杂度。
 
@@ -77,7 +77,7 @@ jmter 实测
 *   系统类型 x86_64
 *   系统配置：2 核 4 G 5M 带宽
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7fb05ab9307843489e8a5be778055093~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=2314&h=1094&s=197947&e=png&b=ffffff)
+![](_assets/7fb05ab9307843489e8a5be778055093~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 ### 测试项目
 
@@ -105,9 +105,9 @@ newbee-mall-pro 是 newbee-mall 商城的 pro 版本实现了推荐算法、商�
 
 压测结果如下，
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c1c5f9500d474fb3887261c3d27e3922~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=920&h=797&s=105836&e=png&b=000000)
+![](_assets/c1c5f9500d474fb3887261c3d27e3922~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c139a4d4733a45c69490d7880242eae4~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=2049&h=1150&s=196303&e=png&b=3d4042)
+![](_assets/c139a4d4733a45c69490d7880242eae4~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 可以看到 CPU 占用达到百分之 142，内存占用达到百分之 35 的情况下，压测吞吐量最大可以达到 1731。
 
@@ -115,13 +115,13 @@ newbee-mall-pro 是 newbee-mall 商城的 pro 版本实现了推荐算法、商�
 
 考虑到有 2000 个线程进行压测，所以将 Tomcat 线程池的最大线程数也设置到 2000，如下图，
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e9af611437564f3dbea5d32d79e0781a~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=426&h=336&s=28302&e=png&b=2c2e3b)
+![](_assets/e9af611437564f3dbea5d32d79e0781a~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 压测结果如下，
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6703e8bdf7bb4528b04003dc8ff228cd~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=959&h=799&s=102907&e=png&b=000000)
+![](_assets/6703e8bdf7bb4528b04003dc8ff228cd~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/fe5c87f0fffd4d619dc1cd46c7889195~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=2049&h=1150&s=204090&e=png&b=3d4042)
+![](_assets/fe5c87f0fffd4d619dc1cd46c7889195~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 可以看到 CPU 占用达到百分之 170，内存占用达到百分之 35 的情况下，压测吞吐量可以达到 1492。
 

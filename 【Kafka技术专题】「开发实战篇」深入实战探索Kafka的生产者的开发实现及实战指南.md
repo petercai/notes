@@ -9,7 +9,7 @@
 
 ### 传统的消息队列&新式的消息队列的模式
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/44a47854e57e47fe8319713a7777af9e~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp)
+![](_assets/44a47854e57e47fe8319713a7777af9e~tplv-k3u1fbpfcp-zoom-in-crop-mark!1512!0!0!0.awebp.webp)
 
 上面是传统的消息队列，比如一个用户要注册信息，当用户信息写入数据库后，后面还有一些其他流程，比如发送短信，则需要等这些流程处理完成后，在返回给用户
 
@@ -22,7 +22,7 @@ kafka的基础架构主要有broker、生产者、消费者组构成，当前还
 
 > 生产者负责发送消息发送到分区。
 
-> **kafka有主题（Topic）的概念，它是承载真实数据的逻辑容器，而在主题之下还分为若干个分区，也就是说kafka的消息组织方式实际上是三级结构： 主题---分区---消息。主题下的每条消息只会保存在某一个分区中，而不会在多个分区中保存多份。官网上的这张图非常清晰地展示了kafka的三级结构**，如下： ![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c587ee34ad804162a0b00b8bf7cd5d2c~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp)
+> **kafka有主题（Topic）的概念，它是承载真实数据的逻辑容器，而在主题之下还分为若干个分区，也就是说kafka的消息组织方式实际上是三级结构： 主题---分区---消息。主题下的每条消息只会保存在某一个分区中，而不会在多个分区中保存多份。官网上的这张图非常清晰地展示了kafka的三级结构**，如下： ![](_assets/c587ee34ad804162a0b00b8bf7cd5d2c~tplv-k3u1fbpfcp-zoom-in-crop-mark!1512!0!0!0.awebp.webp)
 
 *   **其实分区的作用就是提供负载均衡的能力，或者说对数据进行分区的主要原因，就是为了实现系统的高伸缩性**。
     
@@ -114,8 +114,8 @@ public class RoundRobinPartitioner implements Partitioner {
 
 > **为保证 producer 发送的数据，能可靠的发送到指定的 topic，topic 的每个 partition 收到producer 发送的数据后，都需要向 producer 发送 ack（acknowledgement 确认收到），如果producer 收到 ack，就会进行下一轮的发送，否则重新发送数据。** 
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/94540bd38ccb41f182ec78a2fb2e76b8~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp)
- ![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c82cff5d61a8497ab8ac3211c64a9b1d~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp)
+![](_assets/94540bd38ccb41f182ec78a2fb2e76b8~tplv-k3u1fbpfcp-zoom-in-crop-mark!1512!0!0!0.awebp.webp)
+ ![](_assets/c82cff5d61a8497ab8ac3211c64a9b1d~tplv-k3u1fbpfcp-zoom-in-crop-mark!1512!0!0!0.awebp.webp)
 
 Kafka 选择了第二种方案，原因如下：
 
@@ -147,15 +147,15 @@ ISR
 *   acks = -1(all)：生产者等待Leader 和ISR 集合内的所有Follower 都完成同步才会发送ack 。但当Follower同步完之后，broker发送ack之前，**Leader发生故障时，此时会重新从ISR内选举一个新的Leader，此时由于生产者没收到ack，于是生产者会重新发消息给新的Leader，此时就会造成数据重复。** 
     
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/52177e3dba9946f99835e21904b9a56e~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp)
+![](_assets/52177e3dba9946f99835e21904b9a56e~tplv-k3u1fbpfcp-zoom-in-crop-mark!1512!0!0!0.awebp.webp)
 
 ### 故障处理细节
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/435b3fa61ecc4d7abdcf44ce1fa579b5~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp)
+![](_assets/435b3fa61ecc4d7abdcf44ce1fa579b5~tplv-k3u1fbpfcp-zoom-in-crop-mark!1512!0!0!0.awebp.webp)
 
 * * *
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/35a9330268a84cc7ae7749470cbb83aa~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp)
+![](_assets/35a9330268a84cc7ae7749470cbb83aa~tplv-k3u1fbpfcp-zoom-in-crop-mark!1512!0!0!0.awebp.webp)
 
 *   **LEO——Log End Offset：Producer 写入到 Kafka 中的最新一条数据的 offset。** 
 *   **HW——High Watermark：：指的是消费者能见到的最大的 offset，ISR 队列中最小的 LEO**。
@@ -207,7 +207,7 @@ Kafka的幂等性其实就是将原来需要在下游进行的去重操作放在
 *   **同时，Transaction Coordinator 将事务信息写入Kafka的一个内部Topic，即使整个kafka服务重启，由于事务状态已持久化到topic，进行中的事务状态也可以得到恢复，然后继续进行。** 
     
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3d145763073b4cc59daf17788752a8fa~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp)
+![](_assets/3d145763073b4cc59daf17788752a8fa~tplv-k3u1fbpfcp-zoom-in-crop-mark!1512!0!0!0.awebp.webp)
 
 由上图可以看出：KafkaProducer有两个基本线程：
 
@@ -245,7 +245,7 @@ Kafka的幂等性其实就是将原来需要在下游进行的去重操作放在
 
 producer 写入消息序列图如下所示：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9aef27d24009455b881ac8f5012bfee9~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp)
+![](_assets/9aef27d24009455b881ac8f5012bfee9~tplv-k3u1fbpfcp-zoom-in-crop-mark!1512!0!0!0.awebp.webp)
 
 流程说明：
 -----

@@ -2,7 +2,7 @@
 
 这基本也是java业界都认可的开发规范，我们团队也是以此规范为基础，在结合实际情况，补充完善。最近在团队遇到的几个问题，加深了我对这份开发规范中几个点的理解，下面就一一道来。
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0d948520c3f24b739517e4634e8906a1~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=657&h=84&s=25725&e=png&b=fefcfc)
+![](_assets/0d948520c3f24b739517e4634e8906a1~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 这条规范说明了，在异常发送记录日志时，要记录案发现场信息和异常堆栈信息，不处理要往上throws，切勿吃掉异常。  
 堆栈信息比较好理解，就是把整个方法调用链打印出来，方便定位具体是哪个方法出错。而案发现场信息我认为至少要能说明：“谁发生了什么错误”。  
@@ -41,7 +41,7 @@ log.error("{} findDataInfo error", id, cause);
 有了异常堆栈信息就很清晰了，原来是返回参数反序列失败了，接口提供方新增一个不兼容的参数导致反序列失败。(这点在下一个规范还会提到)  
 可见日志打印不清晰给排查问题带来多大的麻烦，记住：**日志一定要打印关键信息，异常要打印堆栈。** 
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/98ed079fd882434bba0a9716dbd77f23~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=695&h=66&s=19798&e=png&b=fffefe)
+![](_assets/98ed079fd882434bba0a9716dbd77f23~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 上面提到的返回参数反序列化失败就是枚举造成的，原因是这个接口返回新增一个枚举值，这个枚举值原本返回给前端使用的，没想到还有其它服务也调用了它，最终在反序列化时就报错了，找不到“xxx”枚举值。  
 比如如下接口，你提交一个不认得的黑色BLACK，就会报反序列错误：
@@ -70,7 +70,7 @@ log.error("{} findDataInfo error", id, cause);
 ```
 
 关于这一点我们看下作者孤尽对它的阐述：  
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f4ac9d31da2e46338d3f6b1f0bf4d62b~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=1184&h=218&s=48130&e=png&b=f6f8fa)
+![](_assets/f4ac9d31da2e46338d3f6b1f0bf4d62b~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 这就是我们出问题的场景，提供方新增了一个枚举值，而使用方没有升级，导致错误。可能有的同学说那通知使用方升级不就可以了？是的，但这出现了依赖问题，如果使用方有成百上千个，你会非常头痛。
 
@@ -78,7 +78,7 @@ log.error("{} findDataInfo error", id, cause);
 我的理解是：作为枚举的提供者，不得随意新增/修改内容，或者说修改前要同步到所有枚举使用者，让大家知道，否则使用者就可能因为不认识这个枚举而报错，这是不可接受的。  
 但反过来，枚举提供者是可以将它作为输入参数的，如果调用者传了一个不存在的值就会报错，这是合理的，因为提供者并没有说支持这个值，调用者正常就不应该传递这个值，所以这种报错是合理的。
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/963c8a5d1bc0480287afe52927d63758~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=683&h=150&s=32857&e=png&b=fffefe)
+![](_assets/963c8a5d1bc0480287afe52927d63758~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 以下是规范里的说明：  
 1）增加查询分析器解析成本。  
@@ -89,16 +89,16 @@ log.error("{} findDataInfo error", id, cause);
 在我们开发中，有的同学为了方便，还是使用了select *，一直以来也风平浪静，运行得好好的，直到有一天对该表加了个字段，代码没更新，报错了~，你没看错，代码没动，加个字段程序就报错了。  
 报错信息如下：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9755d03bdbe44f29bed56a494037752e~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=1068&h=222&s=62440&e=png&b=f9fafd)
+![](_assets/9755d03bdbe44f29bed56a494037752e~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 数组越界！问题可以在本地稳定复现，先把程序跑起来，执行 select * 的sql，再add column给表新增一个字段，再次执行相同的sql，报错。
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e1b6ba03846d4be69c646305394679a0~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=1103&h=402&s=54663&e=png&b=2b2b2b)
+![](_assets/e1b6ba03846d4be69c646305394679a0~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 具体原因是我们程序使用了sharding-jdbc做分表(5.1.2版本)，它会在服务启动时，加载字段信息缓存，在查询后做字段匹配，出错就在匹配时。  
 具体代码位置在：com.mysql.cj.protocol.a.MergingColumnDefinitionFactory#createFromFields
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/80eaea7710234330add9271f2dcc8e76~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=1361&h=356&s=47325&e=png&b=2c2c2c)
+![](_assets/80eaea7710234330add9271f2dcc8e76~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 这个缓存是跟数据库链接相关的，只有链接失效时，才会重新加载。主要有两个参数和它相关：  
 spring.shardingsphere.datasource.master.idle-timeout 默认10min  

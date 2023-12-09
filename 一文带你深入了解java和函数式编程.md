@@ -1,5 +1,5 @@
 # 一文带你深入了解java和函数式编程
-函数不同于OOP中的方法，可以理解成数学中的`函数`，是一种将输入集与输出集关联的表达式。和命令式编程不同，函数式编程只取决于它的输入，不依赖于函数外状态。 ![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/11a2f71041d84678b5db21a49c474f55~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp)
+函数不同于OOP中的方法，可以理解成数学中的`函数`，是一种将输入集与输出集关联的表达式。和命令式编程不同，函数式编程只取决于它的输入，不依赖于函数外状态。 ![](_assets/11a2f71041d84678b5db21a49c474f55~tplv-k3u1fbpfcp-zoom-in-crop-mark!1512!0!0!0.awebp.webp)
 
 > [编程范式的分类](https://link.juejin.cn/?target=https%3A%2F%2Fwww.baeldung.com%2Fjava-functional-programming "https://www.baeldung.com/java-functional-programming"): 编程范式可以分为命令式和声明式。
 > 
@@ -53,7 +53,7 @@ public void test_Stream() {
 
 纯函数是没有状态的、无副作用的。可以简单的认为: `你搞几次都是没有关系的~`
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1548ff4937bf4bbe8d846adabb5b8c0b~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp)
+![](_assets/1548ff4937bf4bbe8d846adabb5b8c0b~tplv-k3u1fbpfcp-zoom-in-crop-mark!1512!0!0!0.awebp.webp)
 
 这和OOP冲突。面向对象鼓励我们将对象的状态隐藏，只公开访问和修改对象的必要方法。甚至，将数据存储到数据库中，对于纯函数而言也是“有副作用”的。更有甚者，连打日志都认为是一种副作用。
 
@@ -80,7 +80,7 @@ Referential Transparency 透明引用
 
 迭代调用发生在函数的最后。因此不需要没深入调用一层就新建一个栈。
 
-需要编译器支持，目前java还不支持，Scala和Groovy都已经支持了。本质上就是通过重用栈的方式来优化递归的性能损耗。 ![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/fb602bb3e23a4a908430fddd463cbb50~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp)
+需要编译器支持，目前java还不支持，Scala和Groovy都已经支持了。本质上就是通过重用栈的方式来优化递归的性能损耗。 ![](_assets/fb602bb3e23a4a908430fddd463cbb50~tplv-k3u1fbpfcp-zoom-in-crop-mark!1512!0!0!0.awebp.webp)
 
 Monads
 ------

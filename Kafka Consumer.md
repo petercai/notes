@@ -2,7 +2,7 @@
 Consumer api 澄清
 ---------------
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/eed607c4193b484090ad1704bb945a84~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp)
+![](_assets/eed607c4193b484090ad1704bb945a84~tplv-k3u1fbpfcp-zoom-in-crop-mark!1512!0!0!0.awebp.webp)
  在 **kafka 0.9.0** 版本之前，**Consumer** 有两套 **API** ，一套高级 **API**，一套低级 **API**
 
 [高级 Consumer API 和低级 Consumer API](https://link.juejin.cn/?target=https%3A%2F%2Fwww.cnblogs.com%2Fbeipiaodiaosi%2Fp%2F11311507.html "https://www.cnblogs.com/beipiaodiaosi/p/11311507.html")
@@ -58,13 +58,13 @@ Consumer Group
 
 例如，下面的 Topic 1 有三个 **partition**，我们启用 3 个 **Consumer** 去同时消费，每个
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6036d201be5b4afcbef2cd8bbeb78448~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp)
+![](_assets/6036d201be5b4afcbef2cd8bbeb78448~tplv-k3u1fbpfcp-zoom-in-crop-mark!1512!0!0!0.awebp.webp)
 
 **Consumer** 只消费一个 **partition** ，这种由多个 **Consumer** 来共同消费一个 **Topic** 的组织形式，就被称为 **Consumer Group**
 
 注意 **Consumer** 并不是越多越好，在一个**Consumer Group** 中，如果一个 **Topic** 的消费者数量，超过了该 **Topic** 的 **Partition** 数量，那么多出来的 **Consumer** 是消费不到数据的
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c05ab86e36464e81917fde7d847a10ea~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp)
+![](_assets/c05ab86e36464e81917fde7d847a10ea~tplv-k3u1fbpfcp-zoom-in-crop-mark!1512!0!0!0.awebp.webp)
 
 > **kafka** 通过 **Consumer Group** 的并发消费的设计，大大提高了 **Consumer** 客户端的消费性能
 
@@ -76,7 +76,7 @@ Consumer Group
 
 我们可以定义多个 **Consumer Group** ，每一个 **Consumer Group** 就是一个消费方，他们之间彼此隔离，互不影响，每个 **Consumer Group** 都可以消费到完整的 **Topic** ，而且消费进度也相互隔离，可以一个 **Consumer Group** 消费的快，另一个 **Consumer Group** 消费的慢
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f30989d305bc441fb3b5112d773f41d6~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp)
+![](_assets/f30989d305bc441fb3b5112d773f41d6~tplv-k3u1fbpfcp-zoom-in-crop-mark!1512!0!0!0.awebp.webp)
 
 ### Consumer Group 总结
 
@@ -99,9 +99,9 @@ Consumer 与 Topic 之间的分区分配策略
 
 **RangeAssignor** 策略的原理是按照消费者总数和分区总数进行整除运算来获得一个跨度，然后将分区按照跨度进行平均分配，以保证分区尽可能均匀地分配给所有的消费者。
 
-假设某个 **Topic** 有 7 个分区，当分别有1、2、3 个消费者消费时的分配情况如下 ![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a0023eb5ec1540c09cd8c2e331551526~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp)
+假设某个 **Topic** 有 7 个分区，当分别有1、2、3 个消费者消费时的分配情况如下 ![](_assets/a0023eb5ec1540c09cd8c2e331551526~tplv-k3u1fbpfcp-zoom-in-crop-mark!1512!0!0!0.awebp.webp)
 
-当消费者数量超过分区数量时，就会有消费者分配不到分区 ![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/eb69d457eebb43f2a584e4951b67a7e3~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp)
+当消费者数量超过分区数量时，就会有消费者分配不到分区 ![](_assets/eb69d457eebb43f2a584e4951b67a7e3~tplv-k3u1fbpfcp-zoom-in-crop-mark!1512!0!0!0.awebp.webp)
 
 ### RoundRobinAssignor 分配策略
 
@@ -113,11 +113,11 @@ Consumer 与 Topic 之间的分区分配策略
 
 例如，消费组中有 2 个消费者 C0 和 C1，都订阅了主题 topic 0 和 topic 1，并且每个主题都有 3 个分区，则分配情况如下
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ba52467fab564098828c46ca751c018a~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp)
+![](_assets/ba52467fab564098828c46ca751c018a~tplv-k3u1fbpfcp-zoom-in-crop-mark!1512!0!0!0.awebp.webp)
 
 但如果同一个消费组内的消费者所订阅的信息是不相同的，那么在执行分区分配的时候就不是完全的轮询分配，有可能会导致分区分配的不均匀
 
-例如，消费组内有 3 个消费者 C0、C1 和 C2，它们共订阅了 3 个主题：t0、t1、t2，这 3 个主题分别有 1、2、3 个分区。消费者 C0 订阅的是主题 t0，消费者 C1 订阅的是主题 t0 和 t1，消费者 C2 订阅的是主题 t0、t1 和 t2，那么最终的分配结果为 ![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a466340f8bc1463dbc08e2afa5d611f0~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp)
+例如，消费组内有 3 个消费者 C0、C1 和 C2，它们共订阅了 3 个主题：t0、t1、t2，这 3 个主题分别有 1、2、3 个分区。消费者 C0 订阅的是主题 t0，消费者 C1 订阅的是主题 t0 和 t1，消费者 C2 订阅的是主题 t0、t1 和 t2，那么最终的分配结果为 ![](_assets/a466340f8bc1463dbc08e2afa5d611f0~tplv-k3u1fbpfcp-zoom-in-crop-mark!1512!0!0!0.awebp.webp)
 
 ### StickyAssignor 分配策略
 
@@ -128,7 +128,7 @@ Consumer 与 Topic 之间的分区分配策略
 
 当两者发生冲突时，优先第一个目标
 
-上面的那个场景，如果使用 **StickyAssignor** 分配策略，则结果如下 ![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3b88027538b2401aba5a87f4bad0909d~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp)
+上面的那个场景，如果使用 **StickyAssignor** 分配策略，则结果如下 ![](_assets/3b88027538b2401aba5a87f4bad0909d~tplv-k3u1fbpfcp-zoom-in-crop-mark!1512!0!0!0.awebp.webp)
 
 ### CooperativeStickyAssignor 分配策略
 
@@ -145,7 +145,7 @@ Consumer 与 Topic 之间的分区分配策略
 
 **渐进式重平衡(Rebalance)** 的核心思想是，使用连续的 **Rebalance**，每次**Rebalance**时只撤消或迁移分区总数的几个子集
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/cf76a5a8832b4beb885299f19a3084b8~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp)
+![](_assets/cf76a5a8832b4beb885299f19a3084b8~tplv-k3u1fbpfcp-zoom-in-crop-mark!1512!0!0!0.awebp.webp)
 
 如上图所示，**渐进式 Rebalance 协议**，在 **Rebalance** 的时候不需要当前所有的 **Consumer** 释放所拥有的资源，而是当需要触发 **Rebalance** 的时候对当前资源进行登记，然后进行渐进式的 **Rebalance**。
 

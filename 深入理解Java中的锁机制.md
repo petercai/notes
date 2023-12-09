@@ -1,6 +1,6 @@
 # 深入理解Java中的锁机制
 
-[![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/cc27fc75a3774af98cadb0ec68660729~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=941&h=461&s=42628&e=png&b=ffffff)
+[![](_assets/cc27fc75a3774af98cadb0ec68660729~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 ](https://link.juejin.cn/?target=https%3A%2F%2Fimgse.com%2Fi%2FpiyCGcV "https://imgse.com/i/piyCGcV")
 
 ### 引言
@@ -33,7 +33,7 @@ public class Counter {
 
 这个例子中，`increment` 方法被 `synchronized` 修饰，这意味着在任一时刻，只有一个线程可以访问这个方法。这就是最基础的锁机制在Java中的应用。别着急，后面咱们还会看到更多复杂和强大的锁的使用方法。
 
-[![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7a1a10dfe51d4e6894ba84143525266d~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=680&h=792&s=76682&e=png&b=fefefe)
+[![](_assets/7a1a10dfe51d4e6894ba84143525266d~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 ](https://link.juejin.cn/?target=https%3A%2F%2Fimgse.com%2Fi%2FpiyC3pq "https://imgse.com/i/piyC3pq")
 
 ### Java中的锁类型
@@ -171,7 +171,7 @@ public class DeadlockDemo {
 
 这里，`method1` 和 `method2` 分别锁定了两个资源，但顺序相反，容易造成死锁。
 
-[![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8e94a90c8c7341dbb86ecedaf4788e5d~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=680&h=518&s=26494&e=png&b=ffffff)
+[![](_assets/8e94a90c8c7341dbb86ecedaf4788e5d~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 ](https://link.juejin.cn/?target=https%3A%2F%2Fimgse.com%2Fi%2FpiyC810 "https://imgse.com/i/piyC810")
 
 ### Java并发工具类中的锁

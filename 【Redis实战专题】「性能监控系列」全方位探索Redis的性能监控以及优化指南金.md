@@ -20,7 +20,7 @@ Redis基本的监控命令—INFO 命令
 
 INFO命令在使用时，可以带一个参数section，这个参数的取值有好几种，相应的，INFO 命令也会返回不同类型的监控信息。如下图所示：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c92bcf99d8354eb398def68c27edbb47~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp)
+![](_assets/c92bcf99d8354eb398def68c27edbb47~tplv-k3u1fbpfcp-zoom-in-crop-mark!1512!0!0!0.awebp.webp)
 
 在监控Redis 运行状态时，INFO命令返回的结果非常有用。如果你想了解 INFO 命令的所有参数返回结果的详细含义。可以根据[Redis中文官方文档-Info质量](https://link.juejin.cn/?target=https%3A%2F%2Fwww.redis.net.cn%2Forder%2F3676.html "https://www.redis.net.cn/order/3676.html")以及[Redis官方文档](https://link.juejin.cn/?target=https%3A%2F%2Fredis.io%2F "https://redis.io/")进行介绍说明。这里，我给你提几个运维时需要重点关注的参数以及它们的重要返回结果。
 
@@ -32,7 +32,7 @@ INFO命令在使用时，可以带一个参数section，这个参数的取值有
 
 当执行`info stats`指令的时候所出现的效果：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d33cb47d24f7488d8419b291b0da6fd1~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp)
+![](_assets/d33cb47d24f7488d8419b291b0da6fd1~tplv-k3u1fbpfcp-zoom-in-crop-mark!1512!0!0!0.awebp.webp)
 
 分析的大多数结果
 
@@ -63,7 +63,7 @@ rejected_connections: 0
 
 当你启用RDB或AOF功能时，你就需要重点关注下 persistence 参数的返回结果，你可以通过它查看到 RDB 或者 AOF 的执行情况。总体介绍一下持久化相关的监控信息，如下图所示：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ce68253783294085861b3aa18f75c26d~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp)
+![](_assets/ce68253783294085861b3aa18f75c26d~tplv-k3u1fbpfcp-zoom-in-crop-mark!1512!0!0!0.awebp.webp)
 
 #### RDB相关的信息统计
 
@@ -88,7 +88,7 @@ rejected_connections: 0
 
 #### info clients
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a539839b37984d5cbc537e897d7bbf18~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp)
+![](_assets/a539839b37984d5cbc537e897d7bbf18~tplv-k3u1fbpfcp-zoom-in-crop-mark!1512!0!0!0.awebp.webp)
 
 主要标识已连接客户端的信息，它包含以下域：
 
@@ -111,7 +111,7 @@ blocked_clients:40
 
 主要用于统计相关的命令指令的执行速度以及相关的指令执行频率。
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9d646e19105c43018501adaf43e2da6b~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp)
+![](_assets/9d646e19105c43018501adaf43e2da6b~tplv-k3u1fbpfcp-zoom-in-crop-mark!1512!0!0!0.awebp.webp)
 
 部分记录了各种不同类型的命令的执行统计信息，比如命令执行的次数、命令耗费的 CPU 时间、执行每个命令耗费的平均 CPU 时间等等。对于每种类型的命令，这个部分都会添加一行以下格式的信息：
 
@@ -129,7 +129,7 @@ cmdstat_multi:calls=2792,usec=188,usec_per_call=0.07
 
 cpu 部分记录了 CPU 的计算量统计信息，它包含以下域：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/46e14e9a8a36442ca7bc6407875bfb87~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp)
+![](_assets/46e14e9a8a36442ca7bc6407875bfb87~tplv-k3u1fbpfcp-zoom-in-crop-mark!1512!0!0!0.awebp.webp)
 
 *   used\_cpu\_sys : Redis 服务器耗费的系统 CPU时间 。
 *   used\_cpu\_user : Redis 服务器耗费的用户 CPU时间 。
@@ -149,7 +149,7 @@ user\_cpu\_sys是Redis主进程消耗，user\_cpu\_sys_children是后台进程�
 
 memory 部分记录了服务器的内存信息，它包含以下域
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8b8f8d57d1d3487eb5c7bc255879b79b~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp)
+![](_assets/8b8f8d57d1d3487eb5c7bc255879b79b~tplv-k3u1fbpfcp-zoom-in-crop-mark!1512!0!0!0.awebp.webp)
 
 *   used_memory : 由Redis分配器分配的内存总量，以字节（byte）为单位
 *   used\_memory\_human : 以用户可读的格式返回Redis分配的内存总量
@@ -172,7 +172,7 @@ memory 部分记录了服务器的内存信息，它包含以下域
 
 #### info replication
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/dff709c3ad3b435b81b0091dcf2a4a16~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp)
+![](_assets/dff709c3ad3b435b81b0091dcf2a4a16~tplv-k3u1fbpfcp-zoom-in-crop-mark!1512!0!0!0.awebp.webp)
 
 ##### 主/从复制信息
 

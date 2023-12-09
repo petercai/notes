@@ -18,7 +18,7 @@ OK，到这里，我们需要了解下操作系统是如何实现多线程执行
 
 我们知道，现代的计算机通常都由多个CPU组成，多个CPU可以同时执行多个任务；而对于单个CPU，也是可以执行多个任务。单个CPU执行多个任务的方式，是通过让各个线程交替执行，比如线程A执行1ms，线程B执行1ms，线程A再执行1ms......由于每个线程单次执行的时间特别短，所以对于我们来说感觉是多个任务同时执行。CPU依赖**时间片分配算法**来进行任务的切换，某个任务从未执行到执行状态的切换，就完成了一次上下文的切换。
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/29d3b3a5155b4a9db62164bf325b2a68~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp)
+![](_assets/29d3b3a5155b4a9db62164bf325b2a68~tplv-k3u1fbpfcp-zoom-in-crop-mark!1512!0!0!0.awebp.webp)
 
 所以，操作系统借助于多线程机制，实现了任务的并发执行。所以并发编程主要针对的也就是多线程场景下的编程实现。
 
@@ -213,7 +213,7 @@ public class ConcurrencyTest3 {
 *   L2缓存容量比L1大，速度比L1慢，每个核都有L2缓存
 *   L3缓存容量最大，速度最慢，多个核共享L3缓存
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/31360af7ab2a4b59a46a3962b6088abf~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp)
+![](_assets/31360af7ab2a4b59a46a3962b6088abf~tplv-k3u1fbpfcp-zoom-in-crop-mark!1512!0!0!0.awebp.webp)
 
 由于CPU在执行过程中，会优先从CPU Cache中获取数据，当多级CPU Cache中都没有数据时，才会到主内存进行数据加载，所以大多数时候CPU 都在操作Cache，而某个CPU核心中Cache的数据，对于其他CPU核心是不可见的：比如某个变量在核1中进行了+1操作，但是在另外一个核2中无法感知这个+1操作，获取的还是+1操作前的值，如果在核2中再进行计算操作，则两个核心中的数据就会不一致。
 
@@ -232,7 +232,7 @@ CPU对线程的调度，是通过时间片分配算法进行的，每个线程�
 
 比如当num = 0是，当线程t1将执行`num++`后变为1，则将`num = 1`写回到内存；线程t2在执行时，可能从内存中获取的值也是`num = 0`，执行`num++`后变为1，这次又将`num = 1`写回到内存，导致前一个更新被覆盖。这就是原子性问题的原因。
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5934ad81b5754f0cb58172ed9be93ec8~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp)
+![](_assets/5934ad81b5754f0cb58172ed9be93ec8~tplv-k3u1fbpfcp-zoom-in-crop-mark!1512!0!0!0.awebp.webp)
 
 在Java中，我们可以使用synchronized、lock或者atomic原子操作类，来避免出现原子问题，我们将在后面进行深入的探讨。
 

@@ -11,7 +11,7 @@ Spring Boot
 *   **[Spring Boot 官方文档](https://link.juejin.cn/?target=https%3A%2F%2Fspring.io%2Fprojects%2Fspring-boot%23learn "https://spring.io/projects/spring-boot#learn")**
 *   **[Spring Boot 2.0 官方发布日志](https://link.juejin.cn/?target=https%3A%2F%2Fgithub.com%2Fspring-projects%2Fspring-boot%2Fwiki%2FSpring-Boot-2.0-Release-Notes "https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-2.0-Release-Notes")**
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f3ecbe7e6dd543a1acea0fe60cc3e028~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp?)
+![](_assets/f3ecbe7e6dd543a1acea0fe60cc3e028~tplv-k3u1fbpfcp-zoom-in-crop-mark!1512!0!0!0.awebp.webp)
 
 [](https://link.juejin.cn/?target=https%3A%2F%2Fwww.techgrow.cn%2Fposts%2F88441946.html%23Spring-Cloud "https://www.techgrow.cn/posts/88441946.html#Spring-Cloud")Spring Cloud
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -23,7 +23,7 @@ Spring Boot
 *   **[Maven 中央仓库](https://link.juejin.cn/?target=https%3A%2F%2Fmvnrepository.com%2Fartifact%2Forg.springframework.cloud%2Fspring-cloud-dependencies "https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-dependencies")**
 *   **[Spring Cloud 官方文档](https://link.juejin.cn/?target=https%3A%2F%2Fspring.io%2Fprojects%2Fspring-cloud%23learn "https://spring.io/projects/spring-cloud#learn")**
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d72c20d09bec4434be5eb12d4752e8ee~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp?)
+![](_assets/d72c20d09bec4434be5eb12d4752e8ee~tplv-k3u1fbpfcp-zoom-in-crop-mark!1512!0!0!0.awebp.webp)
 
 ### SpringBoot 版本的对应关系
 
@@ -40,7 +40,7 @@ Spring Boot
 
 **最新官方给出说明：SpringCloud Dalston，Edgware，Finchely，Greenwich版本已经`End of life`，不再迭代，只修复对应BUG fixes。** 
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f3a72b1b8ccf493abfb3a3db001d3508~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp?)
+![](_assets/f3a72b1b8ccf493abfb3a3db001d3508~tplv-k3u1fbpfcp-zoom-in-crop-mark!1512!0!0!0.awebp.webp)
 
 Spring Cloud Alibaba
 --------------------
@@ -102,7 +102,7 @@ Netflix 公司在 2018 年前后宣布其核心组件 Hystrix、Ribbon、Zuul、
 
 ### 替代方案概览
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/070bb4134e6f461fa66e7b5a73bffd68~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp)
+![](_assets/070bb4134e6f461fa66e7b5a73bffd68~tplv-k3u1fbpfcp-zoom-in-crop-mark!1512!0!0!0.awebp.webp)
 
 ### 替代方案介绍
 

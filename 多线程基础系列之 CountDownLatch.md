@@ -14,8 +14,8 @@
 
 | 单线程等待执行 | 多线程同步等待执行 |
 | --- | --- |
-| ![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7998776f8f2a4e6aa9dc5ad56c474f6e~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=551&h=553&s=28916&e=png&b=ffffff)
- | ![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/80527cc86ee349b49c9d31fcceb7d394~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=845&h=535&s=35274&e=png&b=ffffff)
+| ![](_assets/7998776f8f2a4e6aa9dc5ad56c474f6e~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
+ | ![](_assets/80527cc86ee349b49c9d31fcceb7d394~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
  |
 
 有了上面理解，接下来再看看应用场景
@@ -112,7 +112,7 @@ latch.await();
 
 内部实现一个 AbstractQueuedSynchronizer（AQS 队列同步器），源码并不多，主要，通过改变 `private volatile int state` 值来实现线程之间的协助。 state 不为 0 继续等待，为 0 向下执行。调用 countDown 则 state 减一
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/00885e22a5734a25a829911fbad35170~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=1331&h=955&s=98484&e=png&b=2b2b2b)
+![](_assets/00885e22a5734a25a829911fbad35170~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 _学会慢慢的把这些工具类应用到你的工程里面，别再做 CRUD boy 了。_
 

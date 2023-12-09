@@ -56,7 +56,7 @@ public class CompletableFuture<T> implements Future<T>, CompletionStage<T> {
 
 ### 2.3 CompletionStage
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e4daa633e24a408d9bb5d39fc617909b~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp?)
+![](_assets/e4daa633e24a408d9bb5d39fc617909b~tplv-k3u1fbpfcp-zoom-in-crop-mark!1512!0!0!0.awebp.webp)
 
 `CompletionStage<T>`接口提供了更多方法来更好的实现异步编排，并且大量的使用了`JDK8`引入的函数式编程概念。由`stage`执行的计算可以表示为`Function，Consumer或Runnable`（使用名称分别包括`apply 、accept或run`的方法 ），具体取决于它是否需要参数和/或产生结果。 例如：
 
@@ -76,37 +76,37 @@ stage.thenApply(x -> square(x)).thenAccept(x -> System.out.print(x)).thenRun(() 
 
 **举个常见的案例🌰**，在`APP`查询首页信息的时候，一般会涉及到不同的`RPC`远程调用来获取很多用户相关信息数据，比如：_**商品banner轮播图信息、用户message消息信息、用户权益信息、用户优惠券信息**_ 等，假设每个`rpc invoke()`耗时是`250ms`，那么基于同步的方式获取到话，算下来接口的`RT`至少大于1s，这响应时长对于首页来说是万万不能接受的，因此，我们这种场景就可以通过多线程异步的方式去优化。
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/bfe7313dd9d147708012e4c01e5dbfee~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp?)
+![](_assets/bfe7313dd9d147708012e4c01e5dbfee~tplv-k3u1fbpfcp-zoom-in-crop-mark!1512!0!0!0.awebp.webp)
 
 ### 3.2 CompletableFuture依赖链分析
 
 根据`CompletableFuture`依赖数量，可以分为以下几类：_**零依赖、单依赖、双重依赖和多重依赖**_ 。
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/48960e80fad446199da168604bbff090~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp?)
+![](_assets/48960e80fad446199da168604bbff090~tplv-k3u1fbpfcp-zoom-in-crop-mark!1512!0!0!0.awebp.webp)
 
 #### 零依赖
 
 下图`Future1、Future2`都是零依赖的体现：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e42a20d0b506486fbe5335457acd8a35~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp?)
+![](_assets/e42a20d0b506486fbe5335457acd8a35~tplv-k3u1fbpfcp-zoom-in-crop-mark!1512!0!0!0.awebp.webp)
 
 #### 单依赖：仅依赖于一个CompletableFuture
 
 下图`Future3、Future5`都是单依赖的体现，分别依赖于`Future1`和`Future2`：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1832f187dd3a4f2b9de8e78d823a5cbb~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp?)
+![](_assets/1832f187dd3a4f2b9de8e78d823a5cbb~tplv-k3u1fbpfcp-zoom-in-crop-mark!1512!0!0!0.awebp.webp)
 
 #### 双重依赖：同时依赖于两个CompletableFuture
 
 下图`Future4`即为双重依赖的体现，同时依赖于`Future1`和`Future2`：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/94b671634f384b9998fb9a99e5f79c08~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp?)
+![](_assets/94b671634f384b9998fb9a99e5f79c08~tplv-k3u1fbpfcp-zoom-in-crop-mark!1512!0!0!0.awebp.webp)
 
 #### 多重依赖：同时依赖于多个CompletableFuture
 
 下图`Future6`即为多重依赖的体现，同时依赖于`Future3`、`Future4`和`Future5`：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/72c1570aa3be4b55bf0a8b092d0478cb~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp?)
+![](_assets/72c1570aa3be4b55bf0a8b092d0478cb~tplv-k3u1fbpfcp-zoom-in-crop-mark!1512!0!0!0.awebp.webp)
 
 类似这种多重依赖的流程来说，结果依赖于三个步骤：_**`Future3、Future4、Future5`**_，这种多元依赖可以通过`allOf()`或`anyOf()`方法来实现，区别是当需要多个依赖全部完成时使用`allOf()`，当多个依赖中的任意一个完成即可时使用`anyOf()`，如下代码所示：
 

@@ -6,7 +6,7 @@ Java内存模型(JMM)
 
 提到这两个有关于线程的关键字，那么我们不得不提到`Java`的内存模型了(JMM)，下面我们先看一下 **Java内存模型** 在处理多线程方面的工作原理图。
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/688335a2cb764bca973782cf8d8cf5b6~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp?)
+![](_assets/688335a2cb764bca973782cf8d8cf5b6~tplv-k3u1fbpfcp-zoom-in-crop-mark!1512!0!0!0.awebp.webp)
 
 **Java内存模型(java Memory Model)** 描述了`Java`程序中各种变量(线程共享变量)的访问规则，以及在`JVM`中将变量存储到内存和从内存中读取出变量这样的底层细节。
 
@@ -24,7 +24,7 @@ Java内存模型(JMM)
 
 下图为一个共享变量实现可见性原理的一个示例：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/fad1562f62e04918965f99b7a2767e9e~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp?)
+![](_assets/fad1562f62e04918965f99b7a2767e9e~tplv-k3u1fbpfcp-zoom-in-crop-mark!1512!0!0!0.awebp.webp)
 
 其中，线程对共享变量的操作，遵循以下两条规则:
 

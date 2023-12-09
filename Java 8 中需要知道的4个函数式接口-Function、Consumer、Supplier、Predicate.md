@@ -4,7 +4,7 @@
 
 Java 8 中提供了许多函数式接口，包括Function、Consumer、Supplier、Predicate 等等。这 4 个接口就是本篇将要分享的内容，它们都位于 `java.util.function` 包下。
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b3092d19a2a340bfba4c8f2541b301ec~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp)
+![](_assets/b3092d19a2a340bfba4c8f2541b301ec~tplv-k3u1fbpfcp-zoom-in-crop-mark!1512!0!0!0.awebp.webp)
 
 为什么需要知道这几个函数式接口？
 ----------------

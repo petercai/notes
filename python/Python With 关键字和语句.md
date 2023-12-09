@@ -73,7 +73,7 @@ Git 源代码
 
 访问地址为： [python-tutorials/FileWith.py at master · cwiki-us-docs/python-tutorials · GitHub](https://link.juejin.cn/?target=https%3A%2F%2Fgithub.com%2Fcwiki-us-docs%2Fpython-tutorials%2Fblob%2Fmaster%2Ftests%2FFileWith.py "https://github.com/cwiki-us-docs/python-tutorials/blob/master/tests/FileWith.py")
 
-[![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5cf46981e05a44fbbe487d8771e2393b~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp)
+[![](_assets/5cf46981e05a44fbbe487d8771e2393b~tplv-k3u1fbpfcp-zoom-in-crop-mark!1512!0!0!0.awebp.webp)
 ](https://link.juejin.cn/?target=https%3A%2F%2Fcdn.ossez.com%2Fdiscourse-uploads%2Foriginal%2F2X%2F7%2F7a264870c897b776b47d7ac079ec235c69194067.png "https://cdn.ossez.com/discourse-uploads/original/2X/7/7a264870c897b776b47d7ac079ec235c69194067.png")
 
 我们尝试不在这里讨论过多过于复杂内容，我们想尽量简化操作。

@@ -100,6 +100,6 @@ block_cipher
 
 **基于python研发的智盟AI视觉识别系统** 基于深度学习技术 (DL，Deep Learning)应用，其核心是 Inteance UniReco 模型 ，通过将输入图像进行分 patch 的操作，送入到 encoder （编码器）中，将 RGB 三维彩色空间进行自动可学习的特征提取，包括纹理、结构、颜色等多达 2048 维特征。 相比于传统的图像处理算法的低维度、纯手动方式，该模型能够捕获更多潜在以及非视觉直观感知的特征用于视觉多种识别任务。
 
-![](https://video.z.itpub.net/customerTrans/9c72e1d03d0902634721c6f997332e07/1ff081b4-1886a7cc7c7-0006-c155-e72-64f3f.mp4?x-oss-process=video/snapshot,t_1000,m_fast)
+![](_assets/1ff081b4-1886a7cc7c7-0006-c155-e72-64f3f.mp4.jpg)
 
 来自 “ ITPUB博客 ” ，链接：http://blog.itpub.net/725190/viewspace-2955439/，如需转载，请注明出处，否则将追究法律责任。

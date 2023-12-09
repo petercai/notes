@@ -52,7 +52,7 @@ obj.cmd()
 
 这样就可以获取到方法然后去实现反射了，我就不演示setattr了，自行演示吧。
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9e6f643349ee452e962cc9198c65d55a~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=923&h=45&s=3574&e=png&b=2b2b2b)
+![](_assets/9e6f643349ee452e962cc9198c65d55a~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 单例模式是一种常用的设计模式，它可以确保一个类只有一个实例，并且提供一个全局访问点，方便其他对象对该实例进行调用。在Python中，我们可以通过使用模块级别的变量来实现单例模式，这种方式非常简洁和高效。
 

@@ -1,6 +1,6 @@
 # Redis性能瓶颈揭秘：如何优化大key问题
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f6bd99459ae24aacb34924f37af90750~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp)
+![](_assets/f6bd99459ae24aacb34924f37af90750~tplv-k3u1fbpfcp-zoom-in-crop-mark!1512!0!0!0.awebp.webp)
 
 Redis大key问题指的是某个key对应的value值所占的内存空间比较大，导致Redis的性能下降、内存不足、数据不均衡以及主从同步延迟等问题。
 

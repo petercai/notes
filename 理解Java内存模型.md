@@ -13,7 +13,7 @@
 
 由于计算机的存储设备与处理器的运算速度有几个数量级的差距，为了避免处理器等待缓慢的内存读写操作完成，现代计算机系统通过加入一层读写速度尽可能接近处理器运算速度的高速缓存。缓存作为内存和处理器之间的缓冲：将运算需要使用到的数据复制到缓存中，让运算能快速运行，当运算结束后再从缓存同步回内存之中。
 
-![](https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2018/11/19/1672b9fc595c4f0f~tplv-t2oaga2asx-jj-mark:3024:0:0:0:q75.awebp)
+![](_assets/1672b9fc595c4f0f~tplv-t2oaga2asx-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 *   **缓存一致性问题**
 
@@ -21,19 +21,19 @@
 
 在多处理器的系统中(或者单处理器多核的系统)，每个处理器(每个核)都有自己的高速缓存，而它们有共享同一主内存(Main Memory)。当多个处理器的运算任务都涉及同一块主内存区域时，将可能导致各自的缓存数据不一致。 为此，需要各个处理器访问缓存时都遵循一些协议，在读写时要根据协议进行操作，来维护缓存的一致性。
 
-![](https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2018/11/19/1672b9fc57c248f4~tplv-t2oaga2asx-jj-mark:3024:0:0:0:q75.awebp)
+![](_assets/1672b9fc57c248f4~tplv-t2oaga2asx-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 *   **代码乱序执行优化问题**
 
 为了使得处理器内部的运算单元尽量被充分利用，提高运算效率，处理器可能会对输入的代码进行乱序执行，处理器会在计算之后将乱序执行的结果重组，**乱序优化可以保证在单线程下该执行结果与顺序执行的结果是一致的**，但不保证程序中各个语句计算的先后顺序与输入代码中的顺序一致。
 
-![](https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2018/11/19/1672b9fc59738a21~tplv-t2oaga2asx-jj-mark:3024:0:0:0:q75.awebp)
+![](_assets/1672b9fc59738a21~tplv-t2oaga2asx-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 乱序执行技术是处理器为提高运算速度而做出违背代码原有顺序的优化。在单核时代，处理器保证做出的优化不会导致执行结果远离预期目标，但在多核环境下却并非如此。
 
 多核环境下， 如果存在一个核的计算任务依赖另一个核 计的算任务的中间结果，而且对相关数据读写没做任何防护措施，那么其顺序性并不能靠代码的先后顺序来保证，处理器最终得出的结果和我们逻辑得到的结果可能会大不相同。
 
-![](https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2018/11/19/1672b9fc57e69354~tplv-t2oaga2asx-jj-mark:3024:0:0:0:q75.awebp)
+![](_assets/1672b9fc57e69354~tplv-t2oaga2asx-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 以上图为例进行说明：CPU的core2中的逻辑B依赖core1中的逻辑A先执行
 
@@ -59,7 +59,7 @@ Java内存模型的组成
 
 Java内存模型抽象示意图如下：
 
-![](https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2018/11/19/1672b9fc5988f121~tplv-t2oaga2asx-jj-mark:3024:0:0:0:q75.awebp)
+![](_assets/1672b9fc5988f121~tplv-t2oaga2asx-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 JVM内存操作的并发问题
 ------------
@@ -82,7 +82,7 @@ JVM内存操作的并发问题
 
 为了更好理解内存的交互操作，以线程通信为例，我们看看具体如何进行线程间值的同步：
 
-![](https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2018/11/19/1672b9fcfe5ffb33~tplv-t2oaga2asx-jj-mark:3024:0:0:0:q75.awebp)
+![](_assets/1672b9fcfe5ffb33~tplv-t2oaga2asx-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 线程1和线程2都有主内存中共享变量x的副本，初始时，这3个内存中x的值都为0。线程1中更新x的值为1之后同步到线程2主要涉及2个步骤：
 
@@ -100,7 +100,7 @@ JVM内存操作的并发问题
 
 ### 8种基本操作
 
-![](https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2018/11/19/1672b9fcfecdf9c5~tplv-t2oaga2asx-jj-mark:3024:0:0:0:q75.awebp)
+![](_assets/1672b9fcfecdf9c5~tplv-t2oaga2asx-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 *   lock (锁定) 作用于**主内存**的变量，它把一个变量标识为一条线程独占的状态。
 *   unlock (解锁) 作用于**主内存**的变量，它把一个处于锁定状态的变量释放出来，释放后的变量才可以被其他线程锁定。
@@ -269,7 +269,7 @@ doSomethingWithConfig();
 
 具体实现方式是在编译期生成字节码时，会在指令序列中增加内存屏障来保证，下面是基于保守策略的JMM内存屏障插入策略：
 
-![](https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2018/11/19/1672b9fcff24e95a~tplv-t2oaga2asx-jj-mark:3024:0:0:0:q75.awebp)
+![](_assets/1672b9fcff24e95a~tplv-t2oaga2asx-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 *   在每个volatile写操作的前面插入一个StoreStore屏障。 该屏障除了保证了屏障之前的写操作和该屏障之后的写操作不能重排序，还会保证了volatile写操作之前，任何的读写操作都会先于volatile被提交。
     

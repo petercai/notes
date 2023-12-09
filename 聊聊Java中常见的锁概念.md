@@ -41,7 +41,7 @@ JVM 开发者发现在很多情况下，synchronized 中的代码是被多个线
 公平锁/非公平锁
 --------
 
-第 4 种分类是公平锁和非公平锁。公平锁的公平的含义在于如果线程现在拿不到这把锁，那么线程就都会进入等待，开始排队，在等待队列里等待时间长的线程会优先拿到这把锁，有先来先得的意思。而非公平锁就不那么“完美”了，它会在一定情况下，忽略掉已经在排队的线程，发生插队现象。 ![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e04dc1db013a4d959cc2f97e32f8178c~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp)
+第 4 种分类是公平锁和非公平锁。公平锁的公平的含义在于如果线程现在拿不到这把锁，那么线程就都会进入等待，开始排队，在等待队列里等待时间长的线程会优先拿到这把锁，有先来先得的意思。而非公平锁就不那么“完美”了，它会在一定情况下，忽略掉已经在排队的线程，发生插队现象。 ![](_assets/e04dc1db013a4d959cc2f97e32f8178c~tplv-k3u1fbpfcp-zoom-in-crop-mark!1512!0!0!0.awebp.webp)
 
 悲观锁/乐观锁
 -------
@@ -58,7 +58,7 @@ JVM 开发者发现在很多情况下，synchronized 中的代码是被多个线
 
 ### 对比自旋和非自旋的获取锁的流程
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6f720ff0a11d4b5aa45db2bc87256eb4~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp)
+![](_assets/6f720ff0a11d4b5aa45db2bc87256eb4~tplv-k3u1fbpfcp-zoom-in-crop-mark!1512!0!0!0.awebp.webp)
 
 可中断锁/不可中断锁
 ----------
@@ -115,7 +115,7 @@ public void lockCoarsening() {
 锁升级的路径
 ------
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/14f4003f2249456d893008fbc142b864~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp)
+![](_assets/14f4003f2249456d893008fbc142b864~tplv-k3u1fbpfcp-zoom-in-crop-mark!1512!0!0!0.awebp.webp)
  你可以发现锁升级的路径：无锁→偏向锁→轻量级锁→重量级锁。 综上所述：**偏向锁性能最好，可以避免执行 CAS 操作。而轻量级锁利用自旋和 CAS 避免了重量级锁带来的线程阻塞和唤醒，性能中等。重量级锁则会把获取不到锁的线程阻塞，性能最差。** 
 
 1.  永远只在更新对象的成员变量时加锁

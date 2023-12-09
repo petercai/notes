@@ -1,6 +1,6 @@
 # 深入浅出Java中高效的ConcurrentLinkedQueue队列底层实现与源码分析
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/658f85faf1ea4e85a5dd3bbcdc9dbb11~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=7019&h=4963&s=1255864&e=png&b=ffffff)
+![](_assets/658f85faf1ea4e85a5dd3bbcdc9dbb11~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 * * *
 
@@ -141,7 +141,7 @@ public class ConcurrentLinkedQueue<E> extends AbstractQueue<E>
 
   如下是部分源码截图：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e359f6ebe4704142a0d111086cb00d80~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=1211&h=936&s=110348&e=png&b=2c2c2c)
+![](_assets/e359f6ebe4704142a0d111086cb00d80~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 ### offer方法
 
@@ -205,7 +205,7 @@ Node类定义了以下方法：
 *   lazySetNext(Node val)：无锁操作设置节点的下一个节点。
 *   casNext(Node cmp, Node val)：比- compare And Swap节点的下一个节点。
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d2db360267364b9881f26b9a97ed0c3d~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=1089&h=561&s=53193&e=png&b=2b2b2b)
+![](_assets/d2db360267364b9881f26b9a97ed0c3d~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 ### ConcurrentLinkedQueue类
 
@@ -221,7 +221,7 @@ ConcurrentLinkedQueue类定义了以下方法：
 *   updateHead(Node h, Node p)：更新头节点指针。
 *   updateTail(Node t, Node p)：更新尾节点指针。
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/13c5c708e2bb4026951e666d9cf0897c~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=1084&h=757&s=61071&e=png&b=2c2c2c)
+![](_assets/13c5c708e2bb4026951e666d9cf0897c~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 测试用例
 ----
@@ -295,7 +295,7 @@ public class ConcurrentLinkedQueueTest {
 
   根据如上测试用例，本地测试结果如下，仅供参考，你们也可以自行修改测试用例或者添加更多的测试数据或测试方法，进行熟练学习以此加深理解。
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/73783b1ef72b4371b40f20ecca49c2ee~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=1157&h=835&s=72154&e=png&b=2c2c2c)
+![](_assets/73783b1ef72b4371b40f20ecca49c2ee~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 ### 测试代码分析
 

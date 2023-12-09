@@ -335,5 +335,5 @@ public class MessageService {
 
 实际上，`Spring`的事务是通过`ThreadLocal`来保证线程安全的，事务和当前线程绑定，多个线程自然会让事务失效。
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c61edd2ab4884c8a83e9e185aa60312b~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp?)
+![](_assets/c61edd2ab4884c8a83e9e185aa60312b~tplv-k3u1fbpfcp-zoom-in-crop-mark!1512!0!0!0.awebp.webp)
 

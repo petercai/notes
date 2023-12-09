@@ -20,7 +20,7 @@ Hence due to the above reason, I got the error while accessing a share from my W
 
 Here is the complete error message – You can’t connect to the file share because it’s not secure. This share requires the obsolete SMB1 protocol, which is unsafe and could expose your system to attack. Your system requires SMB2 or higher. For more info on resolving this issue, see: [https://go.microsoft.com/fwlink/?linkid=852747](https://support.microsoft.com/en-us/help/4034314/smbv1-is-not-installed-by-default-in-windows)
 
-[![](https://www.prajwaldesai.com/wp-content/uploads/2019/07/You-cant-connect-to-the-file-share-because-its-not-secure-Snap1.png)
+[![](_assets/You-cant-connect-to-the-file-share-because-its-not-secure-Snap1.png)
 ](https://www.prajwaldesai.com/wp-content/uploads/2019/07/You-cant-connect-to-the-file-share-because-its-not-secure-Snap1.png)
 
 Cannot Connect to File Share
@@ -40,7 +40,7 @@ On your Computer, open the PowerShell and run the below command. This command gi
 
 Get-WindowsOptionalFeature –Online –FeatureName SMB1Protocol
 
-[![](https://www.prajwaldesai.com/wp-content/uploads/2019/07/You-cant-connect-to-the-file-share-because-its-not-secure-Snap2.jpg)
+[![](_assets/You-cant-connect-to-the-file-share-because-its-not-secure-Snap2.jpg)
 ](https://www.prajwaldesai.com/wp-content/uploads/2019/07/You-cant-connect-to-the-file-share-because-its-not-secure-Snap2.jpg)
 
 Run the below command to Enable SM1Protocol on your computer.
@@ -48,7 +48,7 @@ Run the below command to Enable SM1Protocol on your computer.
 Enable-WindowsOptionalFeature -Online -FeatureName SMB1Protocol
 
 After you execute this command, you must restart your computer. After you restart, login to the computer and you shouldn’t see the file share access error again.  
-[![](https://www.prajwaldesai.com/wp-content/uploads/2019/07/You-cant-connect-to-the-file-share-because-its-not-secure-Snap3.jpg)
+[![](_assets/You-cant-connect-to-the-file-share-because-its-not-secure-Snap3.jpg)
 ](https://www.prajwaldesai.com/wp-content/uploads/2019/07/You-cant-connect-to-the-file-share-because-its-not-secure-Snap3.jpg)
 
 ![](https://www.prajwaldesai.com/wp-content/uploads/2020/07/cropped-PD-Logo-90.png)

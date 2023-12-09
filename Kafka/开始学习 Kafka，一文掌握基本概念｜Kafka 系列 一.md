@@ -7,7 +7,7 @@
 
 消息引擎系统是一组规范：企业利用这组规范在不同系统之间传递语义准确的消息，实现松耦合的异步式数据传递。
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/13eba0c52dc5409cafbf8ba707370dcb~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=1598&h=896&s=141617&e=png&b=ffffff)
+![](_assets/13eba0c52dc5409cafbf8ba707370dcb~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 作为一款消息引擎，它主要有以下使用场景。
 
@@ -25,7 +25,7 @@
 1.  消息传递的格式是什么？
 2.  消息是如何传递的，协议是什么？
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/df4bff7b05034033b2a05b3c344c4c45~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=484&h=610&s=34594&e=png&b=fcfcfc)
+![](_assets/df4bff7b05034033b2a05b3c344c4c45~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 消息传递的格式选择有很多，比如 JSON、XML、Protobuf 等，对于 Kafka 来说，他使用的是纯二进制的字节序列，当然消息还是结构化的，只是在使用之前都要将其转换成二进制的字节序列。
 
@@ -33,11 +33,11 @@
 
 1.  **点对点模型**：也叫消息队列模型。一个系统发送方发送的消息只能被指定接收方接收，其他任何系统都不能再读取 发送的消息。
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e333056622584b87ae5481f8bc3f9000~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=422&h=620&s=25940&e=png&b=fefefe)
+![](_assets/e333056622584b87ae5481f8bc3f9000~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 2.  **发布 / 订阅模型**：有一个主题（Topic）的概念，发送方也称为发布者（Publisher），接收方称为订阅者（Subscriber）。和点对点模型不同的是，这个模型可能存在多个发布者向相同的主题发送消息，而订阅者也可能存在多个，它们都能接收到相同主题的消息。举个例子，杂志订阅就是一种典型的发布 / 订阅模型，不同的居民可以订阅相同的杂志。
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c130bf0d207b499ab390e5d70412e69a~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=916&h=616&s=36342&e=png&b=fcfcfc)
+![](_assets/c130bf0d207b499ab390e5d70412e69a~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 生产者和消费者
 -------
@@ -62,7 +62,7 @@ Broker 服务端
 
 服务实例(Broker)：Kafka 的服务器端由被称为 Broker 的服务进程构成，一个 Kafka 集群由多个 Broker 组成。
 
-Broker 负责接收和处理客户端发送过来的请求，以及对消息进行持久化。Broker 通常分散运行在不同的机器上，这样如果集群中某一台机器宕机，其他机器上的 Broker 也可以对外提供服务。这种多个 Broker 部署方式的方式保证了 Kafka 的高可用。 ![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/50b77069b23e4fceb22bdf9f9f8c5ff0~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=516&h=434&s=34971&e=png&b=fcfcfc)
+Broker 负责接收和处理客户端发送过来的请求，以及对消息进行持久化。Broker 通常分散运行在不同的机器上，这样如果集群中某一台机器宕机，其他机器上的 Broker 也可以对外提供服务。这种多个 Broker 部署方式的方式保证了 Kafka 的高可用。 ![](_assets/50b77069b23e4fceb22bdf9f9f8c5ff0~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 分片和副本
 -----
@@ -73,7 +73,7 @@ Broker 负责接收和处理客户端发送过来的请求，以及对消息进�
 
 因为一个 Topic 中的消息可能非常多，多到一台Broker存不下，因此需要拆分成多段存储在不同的机器里，并且这样做还能**提高读写性能**。
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/89dd8cbd8d3c4dec8d3b91460ae16557~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=1808&h=794&s=216077&e=png&b=f7f5f4)
+![](_assets/89dd8cbd8d3c4dec8d3b91460ae16557~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 *   副本(Replica)：Kafka 中同一条消息能够被拷贝多份冗余存储，也就是副本。副本分为领导者副本（Leader Replica）和追随者副本（Follower Replica）。副本是在分区层级下的，即每个分区可配置多个副本实现高可用。（默认分区副本数不得超过kafka节点数），**多个副本满足高可用**，副本数量越多，可靠性越高。
     *   领导者副本（Leader Replica）：只有Leader能对客户端提供服务。生产者总是向领导者副本写消息，消费者总是从领导者副本读消息。
@@ -84,7 +84,7 @@ Broker 负责接收和处理客户端发送过来的请求，以及对消息进�
 
 由于 Kafka 中的消息都是增量存储的，所以读取和消费消息都有一个位移的概念。
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/910bce2b3af34e3b892f4b1a1162d092~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=1518&h=742&s=599875&e=png&b=fcfcfc)
+![](_assets/910bce2b3af34e3b892f4b1a1162d092~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 *   消息位移(Offset)：表示 每个Partition中每条消息的位置信息，是一个单调递增且不会改变的值。
 *   消费者位移(Consumer Offset)：表示消费者消费的进度，每个消费者都有自己的消费者位移。

@@ -1,6 +1,6 @@
 # 深入剖析Java中的ArrayBlockingQueue底层实现与源码分析
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7be56386e9224349a05dc33f48d2b59a~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=7019&h=4963&s=1255864&e=png&b=ffffff)
+![](_assets/7be56386e9224349a05dc33f48d2b59a~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 * * *
   在Java开发中，队列是一种常见的数据结构，而其中的ArrayBlockingQueue是一个经典且实用的队列实现。它采用数组作为底层实现，在多线程并发访问下表现出较好的稳定性和高效性。本文将深入剖析Java中的ArrayBlockingQueue底层实现与源码分析。
@@ -35,7 +35,7 @@ public ArrayBlockingQueue(int capacity, boolean fair) {
 
   如下是部分源码截图：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/27596858de4940ac87b8038f63537561~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=1166&h=931&s=88480&e=png&b=2b2b2b)
+![](_assets/27596858de4940ac87b8038f63537561~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 ### add方法：
 
@@ -61,7 +61,7 @@ public boolean add(E e) {
 
 因为这个队列应该有一个容量限制，所以当队列已经满了，就不能再放入元素了，此时抛出 IllegalStateException 异常，提示调用者队列已满。
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/596027ad9e1b4395b9c925a7da9a9f46~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=826&h=120&s=7436&e=png&b=2c2c2c)
+![](_assets/596027ad9e1b4395b9c925a7da9a9f46~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 ### offer方法：
 
@@ -90,7 +90,7 @@ public boolean offer(E e) {
 
   这是一个队列的 offer 方法实现，用于向队列中添加元素。它的参数是要添加的元素 e，返回值是一个 boolean 类型，表示添加是否成功。首先，它会判断要添加的元素是否为 null，如果是则抛出 NullPointerException 异常。然后获取队列的锁，使用的是 ReentrantLock，确保线程安全。接下来，它会检查队列的容量是否已满，如果已满则无法添加，返回 false，否则就调用 insert 方法将元素添加到队列中，并返回 true 表示添加成功。最后，释放锁。
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ee5f536d86044c99a962728f0d813458~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=1072&h=419&s=30529&e=png&b=2c2c2c)
+![](_assets/ee5f536d86044c99a962728f0d813458~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 ### put方法：
 
@@ -132,7 +132,7 @@ public void put(E e) throws InterruptedException {
 
   总体来说，这个方法在多线程环境下保证了有界队列的线程安全，同时也保证了生产者线程在队列已满时的阻塞加入操作。
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4c6a30818d1f43f5b9d2f9d457d14ef9~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=907&h=347&s=26130&e=png&b=2b2b2b)
+![](_assets/4c6a30818d1f43f5b9d2f9d457d14ef9~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 ### take方法：
 
@@ -173,7 +173,7 @@ public E take() throws InterruptedException {
 
   值得注意的是，await() 方法会让当前线程进入一个等待状态，直到被唤醒或者中断。而 extract() 方法则是队列中元素删除的具体实现方法。
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b9906067b70147a8944f0aff4ca835e4~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=922&h=311&s=23941&e=png&b=2b2b2b)
+![](_assets/b9906067b70147a8944f0aff4ca835e4~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 ### poll方法：
 
@@ -210,7 +210,7 @@ public E poll() {
 
   总体来说，这段代码实现了一个线程安全的队列，保证了在多线程环境下插入元素的正确性和一致性。同时，通过使用`ReentrantLock`实现锁的获取和释放，相比于`synchronized`关键字，具有更高的灵活性和可控性。
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/54058765b1344b38a33444970a90737d~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=914&h=266&s=19103&e=png&b=2c2c2c)
+![](_assets/54058765b1344b38a33444970a90737d~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 ### remove方法：
 
@@ -245,7 +245,7 @@ public boolean remove(Object o) {
 
   最后，解锁锁对象，结束方法。
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f5bca0152ef34e3391c8ccdf2866acc6~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=1156&h=586&s=49059&e=png&b=2b2b2b)
+![](_assets/f5bca0152ef34e3391c8ccdf2866acc6~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 应用场景案例：
 -------
@@ -345,7 +345,7 @@ public class ArrayBlockingQueueTest {
 
 实际执行结果如下：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/99a11f4a600d4c1b82713b0167bf2c47~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=1146&h=866&s=68739&e=png&b=2c2c2c)
+![](_assets/99a11f4a600d4c1b82713b0167bf2c47~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 ### 测试代码分析
 

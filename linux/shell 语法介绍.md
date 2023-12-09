@@ -147,19 +147,19 @@ arr[${
 
 接着来看下shell中如何对字符串进行比较，
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/238dd3f923b349a2aaf15e2c80531ba3~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=868&h=210&s=76549&e=png&b=fdfdfd)
+![](_assets/238dd3f923b349a2aaf15e2c80531ba3~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 字符串的比较是可以用\> < 这种符号的，数字则不同。
 
 ### 数字比较
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/70572d8d40f740a8852f9888dde4c4f9~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=856&h=208&s=81120&e=png&b=fdfdfd)
+![](_assets/70572d8d40f740a8852f9888dde4c4f9~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 ### 文件相关的判断
 
 除了数字和字符串的比较，我们平时还经常会用到对文件的判断，比如判断文件是否存在等，如下是对文件相关操作的判断。
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/31ba95a2d3df4985b1d0e6b07e9872c6~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=863&h=577&s=240669&e=png&b=fcfcfc)
+![](_assets/31ba95a2d3df4985b1d0e6b07e9872c6~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 ### if 语句
 

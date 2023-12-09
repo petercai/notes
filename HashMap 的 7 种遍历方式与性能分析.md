@@ -3,7 +3,7 @@
 
 本文**先从 HashMap 的遍历方法讲起，然后再从性能、原理以及安全性等方面，来分析 HashMap 各种遍历方式的优势与不足**，本文主要内容如下图所示：
 
-![](https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2020/4/29/171c4a0d0966394e~tplv-t2oaga2asx-jj-mark:3024:0:0:0:q75.png)
+![](_assets/171c4a0d0966394e~tplv-t2oaga2asx-jj-mark!3024!0!0!0!q75.png)
 
 HashMap 遍历
 ----------
@@ -459,7 +459,7 @@ public class HashMapCycleTest {
 
 所有被添加了 `@Benchmark` 注解的方法都会被测试，因为 parallelStream 为多线程版本性能一定是最好的，所以就不参与测试了，其他 6 个方法的测试结果如下：
 
-![](https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2020/5/6/171e90d85d78fb77~tplv-t2oaga2asx-jj-mark:3024:0:0:0:q75.png)
+![](_assets/171e90d85d78fb77~tplv-t2oaga2asx-jj-mark!3024!0!0!0!q75.png)
 
 其中 Score 列表示平均执行时间， `±` 符号表示误差。从以上结果可以看出，`lambda` 表达式和两个 `entrySet` 的性能相近，并且执行速度最快，接下来是 `stream` ，然后是两个 `keySet`。
 
@@ -687,7 +687,7 @@ for (Map.Entry<Integer, String> entry : map.entrySet()) {
 
 以上程序的执行结果：
 
-![](https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2020/4/29/171c4a0d097540a2~tplv-t2oaga2asx-jj-mark:3024:0:0:0:q75.png)
+![](_assets/171c4a0d097540a2~tplv-t2oaga2asx-jj-mark!3024!0!0!0!q75.png)
 
 测试结果：**For 循环中删除数据非安全**。
 
@@ -707,7 +707,7 @@ map.forEach((key, value) -> {
 
 以上程序的执行结果：
 
-![](https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2020/4/29/171c4a0d09e94a64~tplv-t2oaga2asx-jj-mark:3024:0:0:0:q75.png)
+![](_assets/171c4a0d09e94a64~tplv-t2oaga2asx-jj-mark!3024!0!0!0!q75.png)
 
 测试结果：**Lambda 循环中删除数据非安全**。
 
@@ -746,7 +746,7 @@ map.entrySet().stream().forEach((entry) -> {
 
 以上程序的执行结果：
 
-![](https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2020/4/29/171c4a0d0ae810fa~tplv-t2oaga2asx-jj-mark:3024:0:0:0:q75.png)
+![](_assets/171c4a0d0ae810fa~tplv-t2oaga2asx-jj-mark!3024!0!0!0!q75.png)
 
 测试结果：**Stream 循环中删除数据非安全**。
 

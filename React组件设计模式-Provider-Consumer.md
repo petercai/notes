@@ -16,7 +16,7 @@ context做的事情就是创建一个上下文对象，并且对外暴露`提供
 
 这里要用到一个小例子，功能就是主题颜色的切换。效果如图：
 
-![](https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2019/6/6/16b2c429ad2f6fd7~tplv-t2oaga2asx-jj-mark:3024:0:0:0:q75.awebp)
+![](_assets/16b2c429ad2f6fd7~tplv-t2oaga2asx-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 根据上边的概念和功能，分解一下要实现的步骤：
 

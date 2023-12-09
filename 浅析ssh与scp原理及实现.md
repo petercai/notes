@@ -19,7 +19,7 @@ ssh登录及原理
 ssh组成与实现
 --------
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ab38df6082214b578c7f0c7b6765b9b1~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=413&h=122&s=12041&e=png&b=fbfafa)
+![](_assets/ab38df6082214b578c7f0c7b6765b9b1~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 1.  传输层协议**SSH-TRANS**： 这部分提供了服务器认证，保密性及完整性，此外它还能够提供压缩功能，`SSH-TRANS`通常运行在`TCP/IP`之上，也可能用于其他可靠的数据流上，`TRANS`提供了强力的加密技术、密码主机认证及完整性保护
 2.  用户认证协议：用于向服务器提供客户端用户鉴别功能，运行在运输层协议上，从低层协议接受会话标识符

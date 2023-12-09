@@ -10,7 +10,7 @@
 
 Redis客户端与服务端的模型主要是下图所示。
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b22490a02e5d4af5bd0917951bf18bd0~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp)
+![](_assets/b22490a02e5d4af5bd0917951bf18bd0~tplv-k3u1fbpfcp-zoom-in-crop-mark!1512!0!0!0.awebp.webp)
 
 每次客户端调用都经历了发送命令、执行命令、返回结果三个过程。
 
@@ -19,7 +19,7 @@ Redis客户端与服务端的模型主要是下图所示。
 
 本章的文章内容主要是一下几点。
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e70d094703b34bb29c4868477e3a080b~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp)
+![](_assets/e70d094703b34bb29c4868477e3a080b~tplv-k3u1fbpfcp-zoom-in-crop-mark!1512!0!0!0.awebp.webp)
 
 ### 什么是慢查询
 
@@ -41,11 +41,11 @@ Redis慢查询日志功能是用于记录执行时间超过给定时长的命令
 
 Redis是单线程来处理命令，所以一条命令从客户端到达服务端不会立即被执行，所有的命令都会进入一个队列，然后逐个被执行。
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d6ea27f4ee884a639b518f3daf8a83b0~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp)
+![](_assets/d6ea27f4ee884a639b518f3daf8a83b0~tplv-k3u1fbpfcp-zoom-in-crop-mark!1512!0!0!0.awebp.webp)
 
 因此Redis服务端去执行操作的是可以主要以下几个步骤：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6bd5932553f64ba184855c1241760e9f~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp)
+![](_assets/6bd5932553f64ba184855c1241760e9f~tplv-k3u1fbpfcp-zoom-in-crop-mark!1512!0!0!0.awebp.webp)
 
 > **所有的指令都有先后顺序，但是真正意义到达服务端的执行顺序也是不确定的，因为中间有网络传输。但是可以肯定的是，不会有两条命令被同时执行，这样就不会产生并发问题，这就是Redis单线程的基本模型。** 
 

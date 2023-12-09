@@ -236,11 +236,11 @@ public class CreateOrderDTO {
 
 如果这时候在实体类上添加无参构造函数，在项目运行会编译报错，此时可以手动添加一个有参函数，也可以在无参函数上添加`@Tolerate`注解实现无参构造器的生成。
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d4c99e5d8bac4ba19e2bfd56befe5a09~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp?)
+![](_assets/d4c99e5d8bac4ba19e2bfd56befe5a09~tplv-k3u1fbpfcp-zoom-in-crop-mark!1512!0!0!0.awebp.webp)
 
 无参构造函数加上`@Tolerate`注解才能编译成功！
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e0c9f7c85bf34aa0be2d2e0acdf2b694~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp?)
+![](_assets/e0c9f7c85bf34aa0be2d2e0acdf2b694~tplv-k3u1fbpfcp-zoom-in-crop-mark!1512!0!0!0.awebp.webp)
 
 如果是使用`@Data`和`@Builder`、`@AllArgsConstructor`三个注解修饰实体类，编译之后生成的`class`文件跟上面的一样，会生成`无参构造器、全参构造器、Builder、getter&setter、equals、hashCode等`方法，_**区别是全参构造器为public修饰符修饰**_：
 

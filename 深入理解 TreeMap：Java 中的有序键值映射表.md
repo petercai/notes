@@ -1,6 +1,6 @@
 # 深入理解 TreeMap：Java 中的有序键值映射表 
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f04620cf858248eabb89831067b0d7b8~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=7019&h=4963&s=1255864&e=png&b=ffffff)
+![](_assets/f04620cf858248eabb89831067b0d7b8~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 * * *
   在 Java 编程中，我们经常需要使用到键值映射表这种数据结构。其中，HashMap 是最常用的一种，它能够以 O(1) 的时间复杂度完成插入、查找、删除等操作。但是，HashMap 并不能对键进行排序，因此如果我们需要按有序方式来保存键值对，就需要使用到 TreeMap了。
@@ -47,7 +47,7 @@ public class TreeMap<K,V> extends AbstractMap<K,V>
 
   如下是部分源码截图：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f9ca16a8291e4622a80e7b4a1a5bf508~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=1201&h=930&s=106278&e=png&b=2b2b2b)
+![](_assets/f9ca16a8291e4622a80e7b4a1a5bf508~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
   下面我们来看一下 TreeMap 中最重要的实现类 Entry。Entry 类表示 TreeMap 中的一个键值对，它包含了键和值两个属性，其中键是有序的。
 
@@ -79,7 +79,7 @@ static final class Entry<K,V> implements Map.Entry<K,V> {
 
   如下是部分源码截图：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/951a47e2cca64dbbbdfe6568af4ea815~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=1211&h=882&s=121364&e=png&b=2c2c2c)
+![](_assets/951a47e2cca64dbbbdfe6568af4ea815~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 应用场景案例
 ------
@@ -353,7 +353,7 @@ Tom : 85
 
 具体执行截图如下：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/77fda65ddcd34261aa2c5765625b741e~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=1151&h=874&s=70307&e=png&b=2c2c2c)
+![](_assets/77fda65ddcd34261aa2c5765625b741e~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 ### 测试代码分析
 
@@ -447,7 +447,7 @@ Delete 1000000 elements time: 65ms
 
 ```
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/30dfc0b44c16403390eb3b195e039275~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=1147&h=895&s=72956&e=png&b=2c2c2c)
+![](_assets/30dfc0b44c16403390eb3b195e039275~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 #### 测试代码分析
 

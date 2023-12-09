@@ -13,7 +13,7 @@ Project setup models always need a product setup model first to create the Eclip
 
 Later in this tutorial, we will describe in detail how to specify product setup models and then project setup models. Before we cover this, a few words about how Oomph is working in general and about the different components it consists of. The following diagram shows a (simplified) overview of all relevant Oomph components. The **Oomph installer** (also called Eclipse installer) is a dedicated application, you can download and launch. As the name implies, it is responsible for installing Eclipse instances. Therefore, it presents the user a list of available project setup models and, subsequently, a list of available project setup models. Based on those two models, it will create an Eclipse installation for you. Additionally, it allows the user to select a few settings, which are related to the installation, such as the installation directory. We will describe the installer more in detail later.
 
-![](https://eclipsesource.com/blogs/tutorials/oomph-basic-tutorial/images/image11_hub8fc797f91f8133ad195fcc2ff7bae81_22893_797x274_resize_q100_h2_box_3.webp)
+![](_assets/image11_hub8fc797f91f8133ad195fcc2ff7bae81_22893_797x274_resize_q100_h2_box_3.webp)
 
 Besides the Oomph installer, Oomph also provides three “runtime” components, which are typically installed in the Eclipse instances: the **Oomph Updater**, the **Oomph Project Setup** and the **Oomph Authoring** tooling, including the **Preference Recorder**.
 
@@ -32,7 +32,7 @@ The Oomph Installer / Eclipse Installer
 
 The Oomph installer (also called Eclipse installer) is a stand-alone SWT application, which can read product/project setup models and, based on those, install pre-configured Eclipse instances. If you only want to consume a setup model, this is the only tool you need to use. You can download the installer for your operating system [from eclipse.org](https://wiki.eclipse.org/Eclipse_Oomph_Installer). After the installation, you can simply launch the installer. The installer supports two modes, “the simple mode” and “the advanced mode”. You can always switch between the two. Generally, the simple mode is easier to use, if you just want to install a default Eclipse, however, it does not provide all of the configuration options of the advanced mode. By default, the installer is launched in the simple mode, to switch to advanced mode, please click on the menu button in the top right corner.
 
-![](https://eclipsesource.com/blogs/tutorials/oomph-basic-tutorial/images/image13_hu045418b286c5e87b1fe1791df97d8e8f_5281_604x113_resize_q100_h2_box_3.webp)
+![](_assets/image13_hu045418b286c5e87b1fe1791df97d8e8f_5281_604x113_resize_q100_h2_box_3.webp)
 
 In the following sections, we will describe all of the options of the Oomph installer. Those, which are only available in advanced mode are marked as such.
 
@@ -80,7 +80,7 @@ The Oomph authoring tooling enables you to create and modify product and project
 
 Both artifacts can be opened in a tree-based editor. It displays a hierarchy of elements, which specify the setup model in detail. In the following two sections, we describe the most relevant elements of a product setup model and a project setup model.
 
-![](https://eclipsesource.com/blogs/tutorials/oomph-basic-tutorial/images/image03_hu1090f44b36d9e2c433bc05fb46ac2c8f_15706_506x440_resize_q100_h2_box_3.webp)
+![](_assets/image03_hu1090f44b36d9e2c433bc05fb46ac2c8f_15706_506x440_resize_q100_h2_box_3.webp)
 
 Both, product and project setup models are extensively based on using variables. This improves the maintainability of Oomph profiles and also allows you to connect generic profiles to user specific settings. As an example, a project setup needs to know about the JRE in order to be used for launching applications. When specifying a project setup model, you do not know, where the JRE of a future user is located, therefore, the profile is bound to a variable, which can then be instantiated by the later user of a profile, meaning the user can select the JRE to be used. Some variables are predefined by Oomph, for example the location of the Eclipse Git and Gerrit server.
 
@@ -89,17 +89,17 @@ Oomph Product Setup Models
 
 In this section, we describe how to define a custom product setup model. To create one, right click a container project, click “new” and select Oomph => Setup Product Model. The initial wizard allows you to specify a Label, a name, a description, the release train your product is based on, an installable unit ID, the container project, and a file name. The wizard focusses on the use case, where you want to specify a custom product based on Eclipse. Therefore, it will configure the product to contain basic features such as the Eclipse platform, the Eclipse IDE platform and Eclipse RCP. Additionally, it will add a feature using the ID you have specified under “installable unit ID”. If you want to configure a product based on Eclipse, this ID should be the ID of the root feature of your product. In the following, we describe the use case to build a custom IDE as we have done for the [EclipseSource Oomph Profile](https://eclipsesource.com/blogs/2015/08/17/introducing-the-eclipsesource-oomph-profile/). In this use case, we just bundle existing plugins for the Eclipse IDE, we do not provide any custom features. However, technically, both use cases are working the same and the way you specify them is similar. As a reference and to see the final result of this tutorial, you have can a look at the [EclipseSource Oomph Profile](https://eclipsesource.com/blogs/2015/08/17/introducing-the-eclipsesource-oomph-profile/), which can be [found on github](https://github.com/eclipsesource/oomph).
 
-![](https://eclipsesource.com/blogs/tutorials/oomph-basic-tutorial/images/image04_hue85204da95872773b17c92c1fa95a759_16061_525x555_resize_q100_h2_box_3.webp)
+![](_assets/image04_hue85204da95872773b17c92c1fa95a759_16061_525x555_resize_q100_h2_box_3.webp)
 
 Once you have create the product setup model, it is opened with the Oomph editor. As you can see in the following screenshot, the initial model contains one root node and three elements on the first level. The root node represents the product itself. In its properties, you can adapt the Label, the id, and the description. This information will be shown in the Oomph installer, when users select your product.
 
 The node “BrandingInfo” contains two key/value pairs, which specify the name of the folder, in which the product will be installed. This is not the installation folder name, which can be specified in the installer before the installation. Oomph will create a subfolder in the installation folder that is named as specified in the product setup model. For our use case, we leave those values to the default “eclipse”. The next element “Installation” is required by Oomph, but can be ignored for now.
 
-![](https://eclipsesource.com/blogs/tutorials/oomph-basic-tutorial/images/image09-1_hue241ced2e60b0dc54b047af5d3860e80_3309_165x114_resize_q100_h2_box_3.webp)
+![](_assets/image09-1_hue241ced2e60b0dc54b047af5d3860e80_3309_165x114_resize_q100_h2_box_3.webp)
 
 The fourth element “Mars” is a “Product Version”, it has been created because we selected “Mars” in the initial creation wizard. Product versions allow us to maintain a product setup model for several Eclipse release streams in parallel, e.g. for Mars and Luna. At the moment, our product just supports Mars. You can add additional product versions with a right click on the product (the root node). If we unfold the Mars product version node, we see the core element of the initial product, a “P2 Director” element. This element specifies a list of features, which will be installed into our product.
 
-![](https://eclipsesource.com/blogs/tutorials/oomph-basic-tutorial/images/image07_hu8ecafe9dd55929d32dd690f44fad8faf_3454_415x128_resize_q100_h2_box_3.webp)
+![](_assets/image07_hu8ecafe9dd55929d32dd690f44fad8faf_3454_415x128_resize_q100_h2_box_3.webp)
 
 In the following sections, we will describe the above mentioned elements as well as the other most relevant elements in more detail. Please note that this is not a complete list, we just focus on the core features of Oomph. If you feel something is missing, please contact us, as we might be able to extend this tutorial in the future.
 
@@ -126,11 +126,11 @@ The next thing to consider is configuring the projects to be imported to your Ec
 
 The final option in the initial wizard is selecting the default JRE for you project.
 
-![](https://eclipsesource.com/blogs/tutorials/oomph-basic-tutorial/images/image00-2_hue04b649d5736658a0120e4fc82680762_18559_532x639_resize_q100_h2_box_3.webp)
+![](_assets/image00-2_hue04b649d5736658a0120e4fc82680762_18559_532x639_resize_q100_h2_box_3.webp)
 
 After finishing the wizard, the Oomph authoring tooling creates a pre-configured project setup file for you. In the following sections, we will describe possible adaptations of this default, starting with the configuration of which projects are imported after the repo is cloned.
 
-![](https://eclipsesource.com/blogs/tutorials/oomph-basic-tutorial/images/image11%20%281%29_hu646f0aa4cf81168a1c569fb2473cf2b5_8628_599x181_resize_q100_h2_box_3.webp)
+![](_assets/image11%20%281%29_hu646f0aa4cf81168a1c569fb2473cf2b5_8628_599x181_resize_q100_h2_box_3.webp)
 
 ### Simple Project Import
 
@@ -144,19 +144,19 @@ In the following, we describe both ways of importing projects. Please note, that
 
 In order to simply import projects from a git clone, please add a “Projects Import” task to your project setup model:
 
-![](https://eclipsesource.com/blogs/tutorials/oomph-basic-tutorial/images/image2_hu30fb493f0048fa2134d82f23c900cc04_74834_624x356_resize_q100_h2_box_3.webp)
+![](_assets/image2_hu30fb493f0048fa2134d82f23c900cc04_74834_624x356_resize_q100_h2_box_3.webp)
 
 After adding the project import task, you need to configure it using a “Source Locator”, which can be created as a child element of the project import task.
 
-![](https://eclipsesource.com/blogs/tutorials/oomph-basic-tutorial/images/image6-1_hu5400bb0d587c6dd43bf4c3194ffc5df9_11506_595x51_resize_q100_h2_box_3.webp)
+![](_assets/image6-1_hu5400bb0d587c6dd43bf4c3194ffc5df9_11506_595x51_resize_q100_h2_box_3.webp)
 
 The source locator specifies the location from which to import the projects. You should use variables for the “Root Folder” value, typically the git clone location: ${git.clone.location}
 
-![](https://eclipsesource.com/blogs/tutorials/oomph-basic-tutorial/images/image9_hu21459a999b1bfc50bbcd7e7731ad4d30_8294_379x95_resize_q100_h2_box_3.webp)
+![](_assets/image9_hu21459a999b1bfc50bbcd7e7731ad4d30_8294_379x95_resize_q100_h2_box_3.webp)
 
 To filter imported projects, you can add “predicates” as a child node to the source locator, e.g. you could only import “plugins”:
 
-![](https://eclipsesource.com/blogs/tutorials/oomph-basic-tutorial/images/image7_hub129f37eddb25d443028304de55ed880_5571_354x70_resize_q100_h2_box_3.webp)
+![](_assets/image7_hub129f37eddb25d443028304de55ed880_5571_354x70_resize_q100_h2_box_3.webp)
 
 Using the simple project import, Oomph will import all projects from the clone location into your workspace (depending on the predicates) without checking whether the OSGi dependencies of the project are satisfied or not. This is useful for plain Java projects or if you want to use your own “classic” target definition file instead of the targlet platform created by Oomph.
 
@@ -164,13 +164,13 @@ Using the simple project import, Oomph will import all projects from the clone l
 
 The alternative to the simple project import task is the “Targlets” (“Modular Target”) task, which is specific for OSGi-based projects. Instead of adding a “Projects Import” task, please add a “Targlet” task to your project setup model. If you have used the project setup model creation wizard, Oomph will already create a template targlet for you.
 
-![](https://eclipsesource.com/blogs/tutorials/oomph-basic-tutorial/images/image13%20%281%29_hu4897ea00516747b0f16caf6dfb7b65bb_77821_622x437_resize_q100_h2_box_3.webp)
+![](_assets/image13%20%281%29_hu4897ea00516747b0f16caf6dfb7b65bb_77821_622x437_resize_q100_h2_box_3.webp)
 
 The ”Targlets” task defines what makes up your project setup. This not only includes features to be imported from repositories, but also dependencies like the eclipse platform. A Targlet contains requirements, those features which need to be resolved. It further can contain Source Locators, this is used to resolve the requirements from the sources by importing the features and its plugins. And finally it contains repositories, which are used to resolve the dependencies as binaries by adding them to a target definition.
 
 During the resolution, all features (and their projects) which are exclusively available from a git repository will be imported as projects, all other features will be used in the oomph target. Oomph will transitively resolve all requirements, so if your project has one “root feature”, it is enough to add this one to the targlet.
 
-![](https://eclipsesource.com/blogs/tutorials/oomph-basic-tutorial/images/image3_huce73e070484315047533e2e56d91cfb3_21672_326x169_resize_q100_h2_box_3.webp)
+![](_assets/image3_huce73e070484315047533e2e56d91cfb3_21672_326x169_resize_q100_h2_box_3.webp)
 
 Please note, that targlets only work with OSGi projects. The advantage of using targlets is that you can ensure, that the resulting workspace will be fully resolved without any dependency issues. Please also note, that you cannot use a default target definition file in combination with a targlet and your installation will not finish if a dependency is missing.
 

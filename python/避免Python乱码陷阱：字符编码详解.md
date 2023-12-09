@@ -137,4 +137,4 @@ print(decoded_text)
 
 [更多学习内容](https://link.juejin.cn/?target=http%3A%2F%2Fipengtao.com%2F "http://ipengtao.com/")
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/326fd2f36433408b944365d881ec80e3~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=1200&h=1146&s=53628&e=webp&b=fffcfc)``
+![](_assets/326fd2f36433408b944365d881ec80e3~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)``

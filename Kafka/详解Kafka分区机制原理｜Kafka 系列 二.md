@@ -16,7 +16,7 @@ Kafka 的分区机制的本质就是将一个大的 Topic 进行拆分，将一�
 2.  拆分成多个队列，可以在多个生产者和消费者的情况下发挥多机性能，可以分流和并行处理消息，从而**提高读写性能**，提升系统的吞吐力。
 3.  有利于系统扩缩容，提高系统的可扩展性。不同分区在不同的broker上，可以通过增加新机器提高吞吐，并且增加新机器的时候可以通过调整分区的分布来调配负载。
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6ccf4a36a8bf451fb77d161c841f7a46~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=1294&h=656&s=479843&e=png&b=fdfdfd)
+![](_assets/6ccf4a36a8bf451fb77d161c841f7a46~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 但是分区数不是越多越好，需要根据系统具体情况来设置。比如3个Broker就应该至少有3个分区，如果broker性能之间有差异，可以调大分区数进行调配。也可以通过broker的倍数来设置分区数，并且进行性能压测，测试集群的吞吐量。
 
@@ -91,7 +91,7 @@ default byte[] serialize(String topic, Headers headers, T data) {
 
 看到 key 等序列化方法我们可以明白，key 的序列号值只受到 record.key() 的影响，所以同样的key会被固定分配到同样的partition中。（注意这里的key是指用于分区的key，而不是topic）
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3747cdd0463e41c4bc0281a9d244447a~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=1298&h=498&s=83170&e=png&b=fdfdfd)
+![](_assets/3747cdd0463e41c4bc0281a9d244447a~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 粘性分区策略
 ------
@@ -130,7 +130,7 @@ private final ConcurrentMap<TopicPartition, Deque<ProducerBatch>> batches;
 
 粘性分区策略就是在相同的分区中，优先填满一个ProducerBatch，发送，再去填充另一个ProducerBatch。参见下图，第一个分区会被优先塞满并发送。
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e1227923fdd749acab58fef9338d8449~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=1360&h=538&s=98533&e=png&b=fefdfd)
+![](_assets/e1227923fdd749acab58fef9338d8449~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 在一个 ProducerBatch 发送结束，选择新分区的时候，是随机选择的，之后便会继续优先填满新的分区。
 
@@ -178,7 +178,7 @@ Kafka 中提供了轮训策略的实现 `RoundRobinPartitioner`。当用户希�
 
 举例，有三个分区，针对于同一个producer，第一条消息发送到partition1，第二条消息发送到partition2，第三条发送到partition3，以此类推。
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2f1d1fbb01634c45bf9d4b0397259640~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=1260&h=462&s=53065&e=png&b=fdfdfd)
+![](_assets/2f1d1fbb01634c45bf9d4b0397259640~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 ```scss
 public int partition(String topic, Object key, byte[] keyBytes, Object value, byte[] valueBytes, Cluster cluster) {

@@ -5,20 +5,20 @@ Javassist是一个强大的字节码操作工具，它提供了在运行时编�
 
 ### 引入依赖
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c57852bb5d834ec4b60b156f178a2948~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=1736&h=708&s=110886&e=png&b=151718)
+![](_assets/c57852bb5d834ec4b60b156f178a2948~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 ### 如何创建一个类？
 
 使用Javassist创建一个类非常简单，以下是一个基本的示例：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ff04df71978c4878a6818106b030e6ae~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=3904&h=2108&s=392340&e=png&b=151718)
+![](_assets/ff04df71978c4878a6818106b030e6ae~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
-利用IDEA的反编译可以看到所创建出来的类为： ![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/433996e32e14434bb69ae5d522ca25e1~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=3904&h=624&s=80736&e=png&b=151718)
+利用IDEA的反编译可以看到所创建出来的类为： ![](_assets/433996e32e14434bb69ae5d522ca25e1~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
  ClassPool表示管理类的类池，可以用它来创建（makeClass）或获取（getCtClass）某个类（CtClass）。
 
-当getCtClass()获取某个类时，比如： ![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/af596a6db3554a449c05131740b717f0~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=3904&h=380&s=72473&e=png&b=151718)
+当getCtClass()获取某个类时，比如： ![](_assets/af596a6db3554a449c05131740b717f0~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
-默认情况下会利用**系统类加载器**来进行加载，以下是getCtClass()中较底层的源码： ![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6f137a10e08f4455a19cdd34304f624b~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=3904&h=872&s=171129&e=png&b=151718)
+默认情况下会利用**系统类加载器**来进行加载，以下是getCtClass()中较底层的源码： ![](_assets/6f137a10e08f4455a19cdd34304f624b~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 CtClass表示一个类，可以利用它来操作方法和字段。
 
@@ -26,27 +26,27 @@ CtClass表示一个类，可以利用它来操作方法和字段。
 
 要在类中创建方法和字段，可以使用`CtMethod`和`CtField`类。以下是一个例子：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5d41597a388a49ba81b41aecea173f5a~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=5120&h=956&s=264990&e=png&b=151718)
+![](_assets/5d41597a388a49ba81b41aecea173f5a~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
-对应的类也变为了： ![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3a130fbb51a7437c9375a893610ee82b~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=4376&h=1120&s=165490&e=png&b=151718)
+对应的类也变为了： ![](_assets/3a130fbb51a7437c9375a893610ee82b~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 CtMethod其实有更多强大的方法，比如可以直接复制另外一个方法的方法体作为自己的方法体，比如可以设置在当前方法的前后插入额外逻辑等等。
 
-可以直接利用CtClass得到Class对象，从而利用反射来调用方法： ![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/dea84303578748af9bf1b27fbfaf8935~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=4376&h=708&s=156354&e=png&b=151718)
+可以直接利用CtClass得到Class对象，从而利用反射来调用方法： ![](_assets/dea84303578748af9bf1b27fbfaf8935~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 ### 如何修改类？
 
-要修改类，就先获取现有的类，然后进行修改，以下是一个简单的例子： ![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/878ba5fe2f0441d9b41b7e1dba567636~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=4376&h=1204&s=369197&e=png&b=151718)
+要修改类，就先获取现有的类，然后进行修改，以下是一个简单的例子： ![](_assets/878ba5fe2f0441d9b41b7e1dba567636~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
-采用反射调用existingMethod()方法，就能看到AOP的效果： ![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2600e42e63d84ccd90feae6e2accef72~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=4376&h=544&s=78210&e=png&b=151718)
+采用反射调用existingMethod()方法，就能看到AOP的效果： ![](_assets/2600e42e63d84ccd90feae6e2accef72~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
-被修改后的类为： ![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e064b9b6bb7f439ca4af4a2632c62196~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=4376&h=1368&s=256559&e=png&b=151718)
+被修改后的类为： ![](_assets/e064b9b6bb7f439ca4af4a2632c62196~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 ### 如何继承另外一个类，实现一个接口？
 
-要继承另一个类和实现一个接口，可以使用`CtClass`的`getSuperclass`和`addInterface`方法。以下是一个例子： ![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6f2136eb64bc4145a9c34737088aec7c~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=4376&h=708&s=174693&e=png&b=151718)
+要继承另一个类和实现一个接口，可以使用`CtClass`的`getSuperclass`和`addInterface`方法。以下是一个例子： ![](_assets/6f2136eb64bc4145a9c34737088aec7c~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
-新生成的类为： ![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/87f706e9931141cbbdbfa7d915c650f0~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=4376&h=1120&s=185752&e=png&b=151718)
+新生成的类为： ![](_assets/87f706e9931141cbbdbfa7d915c650f0~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 ### 结语
 

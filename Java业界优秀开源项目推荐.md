@@ -12,7 +12,7 @@
 *   [Gittee](https://link.juejin.cn/?target=https%3A%2F%2Fgitee.com%2Frenrenio%2Frenren-fast "https://gitee.com/renrenio/renren-fast")
 *   [开发文档](https://link.juejin.cn/?target=https%3A%2F%2Fwww.renren.io%2Fguide "https://www.renren.io/guide")
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4fe6b817c6694434b036e5a3eec96dcb~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=1920&h=937&s=218583&e=png&b=fefefe)
+![](_assets/4fe6b817c6694434b036e5a3eec96dcb~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 ### renren-cloud 微服务
 
@@ -21,7 +21,7 @@
 
 账号密码：admin/admin
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b4b26e84d5f34c369fae88839b40e22f~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=2134&h=1221&s=161906&e=png&b=ffffff)
+![](_assets/b4b26e84d5f34c369fae88839b40e22f~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 ### jeecg-boot
 
@@ -31,7 +31,7 @@
 *   [开发文档](https://link.juejin.cn/?target=http%3A%2F%2Fdoc.jeecg.com%2F2043868 "http://doc.jeecg.com/2043868")
 *   [项目演示](https://link.juejin.cn/?target=http%3A%2F%2Fboot.jeecg.com%2F "http://boot.jeecg.com/")
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/fad27773034e40dd9ad3a3b1d18f2d31~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=2141&h=1236&s=188752&e=png&b=fefefe)
+![](_assets/fad27773034e40dd9ad3a3b1d18f2d31~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 ### lamp《灯灯》中后台快速开发平台
 
@@ -39,7 +39,7 @@
 *   [开发文档](https://link.juejin.cn/?target=https%3A%2F%2Fwww.kancloud.cn%2Fzuihou%2Fzuihou-admin-cloud%2F2003631 "https://www.kancloud.cn/zuihou/zuihou-admin-cloud/2003631")
 *   [项目演示](https://link.juejin.cn/?target=https%3A%2F%2Fpro.tangyh.top "https://pro.tangyh.top")
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/abde14a02cdb4f44944cf591fa0a7246~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=1800&h=1201&s=210335&e=png&b=fefefe)
+![](_assets/abde14a02cdb4f44944cf591fa0a7246~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 微服务
 ---
@@ -94,7 +94,7 @@
 
 ### jeepay - 适合互联网企业使用的开源支支付系统 (微信支付基于最新wxjava开发)
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5dd43590bbca44ef9a4b96e1f8b90f66~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=1252&h=811&s=258675&e=png&b=f3ebe8)
+![](_assets/5dd43590bbca44ef9a4b96e1f8b90f66~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 **项目介绍：**  `Jeepay`是一套适合互联网企业使用的开源支付系统，支持多渠道服务商和普通商户模式。已对接`微信支付`，`支付宝`，`云闪付`官方接口，支持聚合码支付。Jeepay使用`Spring Boot`和`Ant Design Vue`开发，集成`Spring Security`实现权限管理功能，是一套非常实用的web开发框架。
 
@@ -103,7 +103,7 @@ Gitee：[gitee.com/jeequan/jee…](https://link.juejin.cn/?target=https%3A%2F%2F
 
 ### 聚合支付系统XxPay
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a94c277a5fd649f89092a1c9c73b6219~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=2354&h=1406&s=825005&e=png&b=fbfbfb)
+![](_assets/a94c277a5fd649f89092a1c9c73b6219~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 **项目介绍：** `XxPay`聚合支付使用`Java`开发，包括`Spring Cloud`、`Dubbo`、`Spring Boot`三个架构版本，已接入微信、支付宝等主流支付渠道，可直接用于生产环境。
 
@@ -111,7 +111,7 @@ Gitee：[gitee.com/jeequan/jee…](https://link.juejin.cn/?target=https%3A%2F%2F
 
 ### 龙果支付系统roncoo-pay
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/81929f533f42478ca4f3e5db6a3ac389~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=657&h=462&s=199923&e=png&b=f6ece6)
+![](_assets/81929f533f42478ca4f3e5db6a3ac389~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 **项目介绍：**龙果支付系统核心目标是汇聚所有主流支付渠道，打造一款轻量、便捷、易用，且集支付、资金对账、资金清结算于一体的支付系统，满足互联网业务系统的收款和业务资金管理需求。
 
@@ -158,14 +158,14 @@ http客户端框架
 
 `Forest`是一个开源的 Java HTTP 客户端框架，用来访问第三方服务 `RESTful` 接口:
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/726891d78a504a3d89423ee6a9250eb8~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=1346&h=532&s=76429&e=png&b=000000)
+![](_assets/726891d78a504a3d89423ee6a9250eb8~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 *   [Gitee开源地址](https://link.juejin.cn/?target=https%3A%2F%2Fgitee.com%2Fdromara%2Fforest "https://gitee.com/dromara/forest")
 *   [开发文档说明](https://link.juejin.cn/?target=https%3A%2F%2Fforest.dtflyx.com%2Fdocs%2F "https://forest.dtflyx.com/docs/")
 
 ### OkHttps
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9e40b77724ce48898314a85e706e0dcb~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=1116&h=481&s=42174&e=png&b=ffffff)
+![](_assets/9e40b77724ce48898314a85e706e0dcb~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 *   [Gitee开源地址](https://link.juejin.cn/?target=https%3A%2F%2Fgitee.com%2Fejlchina-zhxu%2Fokhttps "https://gitee.com/ejlchina-zhxu/okhttps")
 *   [开发文档](https://link.juejin.cn/?target=https%3A%2F%2Fokhttps.ejlchina.com%2Fv3%2Fgetstart.htm "https://okhttps.ejlchina.com/v3/getstart.htm")
@@ -180,13 +180,13 @@ http客户端框架
 
 *   [开发手册](https://link.juejin.cn/?target=https%3A%2F%2Fwww.yuque.com%2Flinkwechat%2Fhelp%2Fdsatfs "https://www.yuque.com/linkwechat/help/dsatfs")
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/de2e195e435b48538aef5ccaad40c87a~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=891&h=260&s=53284&e=png&b=ffffff)
+![](_assets/de2e195e435b48538aef5ccaad40c87a~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 ### MoChat
 
 *   [开发wiki](https://link.juejin.cn/?target=https%3A%2F%2Fmochat.wiki%2F "https://mochat.wiki/")
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e16f9adf56a6453691861d0332bd89e3~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=880&h=433&s=179611&e=png&b=ffffff)
+![](_assets/e16f9adf56a6453691861d0332bd89e3~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 面试指南+Java知识梳理
 -------------
@@ -207,7 +207,7 @@ http客户端框架
 *   [sa-token](https://link.juejin.cn/?target=https%3A%2F%2Fgitee.com%2Fdromara%2Fsa-token "https://gitee.com/dromara/sa-token")
 *   [权限管理系统snowy](https://link.juejin.cn/?target=https%3A%2F%2Fgitee.com%2Fxiaonuobase%2Fsnowy.git "https://gitee.com/xiaonuobase/snowy.git")
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/43c9e9661a9b404c92496979dfe10f1b~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=1192&h=751&s=338998&e=png&b=e2e2e2)
+![](_assets/43c9e9661a9b404c92496979dfe10f1b~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
  开发文档：[sa-token.dev33.cn/doc/index.h…](https://link.juejin.cn/?target=https%3A%2F%2Fsa-token.dev33.cn%2Fdoc%2Findex.html%23%2F "https://sa-token.dev33.cn/doc/index.html#/")
 
 CRM客户关系管理系统
@@ -220,7 +220,7 @@ CRM客户关系管理系统
 *   [悟空开源地址](https://link.juejin.cn/?target=https%3A%2F%2Fgitee.com%2Fwukongcrm%2Fcrm_pro "https://gitee.com/wukongcrm/crm_pro")
 *   [开发文档地址](https://link.juejin.cn/?target=https%3A%2F%2Fwww.5kcrm.com%2F "https://www.5kcrm.com/")
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/55629d3c2c844bd9884cdc1abe12dfb3~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=1901&h=937&s=151307&e=png&b=fefefe)
+![](_assets/55629d3c2c844bd9884cdc1abe12dfb3~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 IM即时通讯
 ------
@@ -249,28 +249,28 @@ IM即时通讯
 开源地址：[github.com/d2-projects…](https://link.juejin.cn/?target=https%3A%2F%2Fgithub.com%2Fd2-projects%2Fd2-admin "https://github.com/d2-projects/d2-admin")  
 文档地址：[d2.pub/zh/doc/d2-a…](https://link.juejin.cn/?target=https%3A%2F%2Fd2.pub%2Fzh%2Fdoc%2Fd2-admin "https://d2.pub/zh/doc/d2-admin")
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b807a2474c9a407b93faf3135f6cc4ba~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=1901&h=904&s=110403&e=png&b=ffffff)
+![](_assets/b807a2474c9a407b93faf3135f6cc4ba~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 ### vue-element-admin
 
 开源地址：[github.com/PanJiaChen/…](https://link.juejin.cn/?target=https%3A%2F%2Fgithub.com%2FPanJiaChen%2Fvue-element-admin "https://github.com/PanJiaChen/vue-element-admin")  
 文档地址：[panjiachen.github.io/vue-element…](https://link.juejin.cn/?target=https%3A%2F%2Fpanjiachen.github.io%2Fvue-element-admin-site%2Fzh "https://panjiachen.github.io/vue-element-admin-site/zh")
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6f586d043778485dbf965d0bd29f2091~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=1008&h=462&s=71023&e=png&b=fefefe)
+![](_assets/6f586d043778485dbf965d0bd29f2091~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 ### JEECG-BOOT
 
 开源地址：[github.com/zhangdaisco…](https://link.juejin.cn/?target=https%3A%2F%2Fgithub.com%2Fzhangdaiscott%2Fjeecg-boot "https://github.com/zhangdaiscott/jeecg-boot")  
 文档地址：[doc.jeecg.com/2043868](https://link.juejin.cn/?target=http%3A%2F%2Fdoc.jeecg.com%2F2043868 "http://doc.jeecg.com/2043868")
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7aad81a99bd4496094766e5d400922e1~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=1002&h=458&s=100615&e=png&b=fefefe)
+![](_assets/7aad81a99bd4496094766e5d400922e1~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 ### vue-admin-beautiful
 
 开源地址：[github.com/chuzhixin/v…](https://link.juejin.cn/?target=https%3A%2F%2Fgithub.com%2Fchuzhixin%2Fvue-admin-beautiful "https://github.com/chuzhixin/vue-admin-beautiful")  
 文档地址：[www.gin-vue-admin.com](https://link.juejin.cn/?target=https%3A%2F%2Fwww.gin-vue-admin.com "https://www.gin-vue-admin.com")
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/77977ee464174867b3a676db01073387~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=1005&h=454&s=112745&e=png&b=fefdfd)
+![](_assets/77977ee464174867b3a676db01073387~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 ### ant-design-pro
 

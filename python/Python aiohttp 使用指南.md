@@ -1,7 +1,7 @@
 # Python aiohttp 使用指南
 aiohttp 就是 **[Python](https://link.juejin.cn/?target=https%3A%2F%2Fapifox.com%2Fapiskills%2Fparsing-json-data-with-python%2F "https://apifox.com/apiskills/parsing-json-data-with-python/")** 中一款优秀的异步 Web 框架，它能够帮助我们构建高效的异步 Web 应用和异步 HTTP 客户端。在本文中，我们将深入探讨 aiohttp 是什么以及如何使用它，通过简单易懂的案例带领你理解异步编程，以及如何处理异步请求和异步 HTTP 客户端。
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/cee5bb8c7675462ab75d963564f90563~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=2090&h=1114&s=293320&e=png&b=fefafa)
+![](_assets/cee5bb8c7675462ab75d963564f90563~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 什么是 aiohttp？
 ------------
@@ -86,7 +86,7 @@ if __name__ == "__main__":
 
 在你的 IDE 编辑器中运行上面的代码，你将会看到 aiohttp 服务器已经在本地运行，并监听在默认端口上。当你在浏览器中打开 `http://localhost:8080`，将会看到 "Hello, aiohttp!" 的响应。
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/10e149e36e4a43998d6235f436669d2b~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=794&h=283&s=8219&e=png&b=fcfcfc)
+![](_assets/10e149e36e4a43998d6235f436669d2b~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 ### 调试 aiohttp 接口
 
@@ -94,7 +94,7 @@ Apifox = Postman + Swagger + Mock + JMeter，Apifox 支持调试 http(s)、WebSo
 
 在本文的例子中，就可以通过 Apifox 来测试接口。新建一个项目后，在项目中选择 **“调试模式”** ，填写请求地址后即可快速发送请求，并获得响应结果，上文的实践案例如图所示：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/87e30ae07c0d47c5a3d5f7287004f55c~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=2095&h=1258&s=224833&e=png&b=fdfdfd)
+![](_assets/87e30ae07c0d47c5a3d5f7287004f55c~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 ### 处理异步请求 \- [POST](https://link.juejin.cn/?target=https%3A%2F%2Fapifox.com%2Fapiskills%2Fthe-difference-between-put-and-post%2F "https://apifox.com/apiskills/the-difference-between-put-and-post/") 请求示例
 

@@ -8,7 +8,7 @@
 
 线程是进程下的一个子概念，进程是操作系统分配资源（CPU+内存）的最小单位，因此每个进程拥有自己独立的内存空间（分段实现），而线程则没有，一个进程下的所有线程共享该进程本身所持有的内存空间。
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2d9b1b0e5c40411c822f1199e6d032ca~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=1141&h=646&s=24762&e=png&b=ffffff)
+![](_assets/2d9b1b0e5c40411c822f1199e6d032ca~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 #### 用户线程与内核线程
 
@@ -20,7 +20,7 @@
 
 即1个用户线程映射到1个内核线程上，这种模式下，一个用户线程就是一个内核线程，线程之间互不影响。缺点是创建和调度内核线程的系统调用次数会非常多，效率比较差。
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2595f9811a0e4f62b55b226ac22af187~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=1627&h=845&s=52758&e=png&b=ffffff)
+![](_assets/2595f9811a0e4f62b55b226ac22af187~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 > 目前主流的JVM虚拟机在主流的平台上都是采用1:1映射进行用户线程到内核线程的映射
 
@@ -28,7 +28,7 @@
 
 所有的用户线程都映射到一个内核线程上，这种模式下，只需要创建一个内核线程，由编程语言自行调度该线程何时运行哪个用户线程。优点是系统调用的开销较小，缺点则是非常依赖编程语言对用户线程的调度，用户线程阻塞的风险较高。
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/06fed5ae9a7c4064933bc42fb0fcbe2e~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=1640&h=902&s=42372&e=png&b=ffffff)
+![](_assets/06fed5ae9a7c4064933bc42fb0fcbe2e~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 > 采用N:1映射的编程语言也被称为"单线程模型"，比较出名的是JavaScript（Node）
 
@@ -36,7 +36,7 @@
 
 创建一定数量的内核线程，并把用户线程按照一定的策略分配到这些内核线程上，这种方式算是结合了前两者的优点，但对编程语言所提供的调度器分配策略有非常高的要求
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/479e69c5a51d432083c61eee6ca8cef2~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=2015&h=1298&s=66927&e=png&b=ffffff)
+![](_assets/479e69c5a51d432083c61eee6ca8cef2~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 > 采用N:M映射的典型例子是Go语言，通过复杂调度器建立起Go Routine（用户级）和内核线程的灵活映射，以实现并发效率的最大化
 
@@ -66,7 +66,7 @@ t.sleep(3000);
 
 Java中为线程抽象了6种状态，下图标识了6种状态之间的相互转换关系：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/cbe9e76e6470487191b3075141e5507c~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=2794&h=1422&s=142288&e=png&b=ffffff)
+![](_assets/cbe9e76e6470487191b3075141e5507c~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 *   New：Thread刚被创建出来时的初始状态
 *   Runnable：说明当前线程处于**可执行**状态，注意可运行并不一定意味着真的在CPU上运行（细分一下的话，真实运行的状态为Running，还没调度到CPU的状态为Ready）
@@ -103,7 +103,7 @@ Java中为线程抽象了6种状态，下图标识了6种状态之间的相互�
 
 **notify()**：从对应object的wait set中取出一个（随机）线程，重新设置为RUNNABLE状态，如果使用notifyAll()则是将wait set中的所有线程都取出设置为RUNNABLE状态。
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a86af4f9595b4dcfbba57c185b51a8c1~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=2311&h=1534&s=100058&e=png&b=ffffff)
+![](_assets/a86af4f9595b4dcfbba57c185b51a8c1~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 通过wait()和notify()机制可以快速实现线程的等待和恢复，适用于多个线程之间互相"协同"的场景，可以认为是协同式调度思路的一种体现。
 
@@ -138,7 +138,7 @@ synchronized(o) {
 
 只有当对应对象的锁被其他线程释放后，才会从blocked set中（随机）取出一个线程，重新标记为RUNNABLE状态，需要注意的这个被唤醒的线程会立刻获取对应对象的锁，所以blocked set中其他的线程会继续等待。
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/bab4672f9713492e864b8fe80d16f4f8~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=2311&h=1534&s=103089&e=png&b=ffffff)
+![](_assets/bab4672f9713492e864b8fe80d16f4f8~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 3.  TIMED_WAITING: sleep()
 
@@ -198,7 +198,7 @@ Thread t = new Thread(() -> {
 
 在Java中通常使用JUC包提供的ExecutorService工具来创建和维护线程池，下面是ThreadPoolExecutorService的基本参数和工作原理：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5b70664537c34b01873fdfbd160b1339~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=5204&h=2248&s=418893&e=png&b=ffffff)
+![](_assets/5b70664537c34b01873fdfbd160b1339~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 ### 线程安全问题
 
@@ -235,7 +235,7 @@ CAS的特点在于引入了"预期值对比"这一流程，进而可以由调用
 
 CAS只对比value的当前值和expect是否**相等**，在大多数情况下，这可以说明本次线程的操作并没有受到其他线程的干扰，但存在一种例外，那就是value对应的值被多次修改后，又回到初始值的情况：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e4161e740f0947ae867be6f06c2b0e5e~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=3464&h=2926&s=291918&e=png&b=ffffff)
+![](_assets/e4161e740f0947ae867be6f06c2b0e5e~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 解决A-B-A的方法是引入**版本号**，每当对应的value值修改时，版本号就+1，通过对比value值的版本号就可以精确地判断对应值是否有发生过修改了。
 
@@ -243,7 +243,7 @@ CAS只对比value的当前值和expect是否**相等**，在大多数情况下�
 
 利用CAS可以实现乐观的并发控制，"乐观"指的是假设内存资源不会有较多的并发竞争，在这种假设下，线程使用CAS修改数据时出现并发冲突的概率很小，所以只需要在出现冲突的时"多尝试几次"，就可以解决冲突了。
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c71d6f257a804bb08b8d296c449c7599~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=1337&h=793&s=36282&e=png&b=ffffff)
+![](_assets/c71d6f257a804bb08b8d296c449c7599~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 > CAS失败时的重试过程基本就是一个循环，这个循环的过程也被称为"自旋"，自旋过程中线程不会阻塞、不会挂起，持续处于RUNNABLE状态，不会释放已经获得的锁。
 
@@ -257,7 +257,7 @@ CAS只对比value的当前值和expect是否**相等**，在大多数情况下�
 
 monitor又是一个JVM C++层面的数据结构，一个monitor结构会明确关联一个Java Object对象，而一个monitor结构里面又主要包含了以下三个部分：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7e7a32db8cfc4f3a9e35ebfb491fa2b9~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=562&h=92&s=129796&e=png&a=1&b=b7d9f0)
+![](_assets/7e7a32db8cfc4f3a9e35ebfb491fa2b9~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 *   Owner：当前拥有该monitor的线程。monitor本身采用操作系统的mutex lock，结合cas保障同一时刻一定只有一个线程能够成为monitor的Owner，从根本上实现线程访问的互斥性。
 *   Wait Set：当一个拥有该monitor的线程调用对应对象的wait()方法时，该线程就会释放monitor owner，并被加入该monitor的WaitSet中（也就是上文wait()机制中所说的对象的wait set）。
@@ -315,7 +315,7 @@ A.hello();
 
 一个对象当前是否被线程上锁，又是处于何种锁状态，在对象头的MarkWord中进行标记，不同锁状态下的MarkWord结构分别如下图所示：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0d41b1cff1f843308c9d9410e322472d~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=791&h=272&s=142612&e=png&b=faf9f9)
+![](_assets/0d41b1cff1f843308c9d9410e322472d~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 **无锁（自旋）**
 
@@ -353,11 +353,11 @@ A.hello();
 
 下面是常规情况下锁的膨胀流程：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5ffb83c0624149808fae62b661778ee6~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=5193&h=1784&s=343604&e=png&b=ffffff)
+![](_assets/5ffb83c0624149808fae62b661778ee6~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 > 正常情况下，对象锁的等级会按照抢占锁的数量逐步膨胀升级，但有一种例外情况是当某个线程调用`Object.wait()`/`Object.notify()`方法时，由于需要使用到monitor结构中的wait set，所以会立刻将对象的锁膨胀为重量级锁并为对象分配关联monitor对象 可参见下述JDK源码（`/src/hotspot/share/runtime/synchronizer.cpp`）：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7ff4e0c287f34c179f0f8f747dd7fd6f~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=783&h=459&s=108116&e=png&b=f7f7f7)
+![](_assets/7ff4e0c287f34c179f0f8f747dd7fd6f~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 #### AQS
 
@@ -371,7 +371,7 @@ AQS提供了一套能够实现多线程之间状态同步的机制，并通过�
 
 AQS的核心组成包含两部分：一个线程共享的状态变量state（由volatile修饰，保障多线程之间的可见性）和一个基于双向链表实现的FIFO等待队列（CLH无锁队列）queue：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6456d3fa795046758764c0ac37b5b12f~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=3409&h=2520&s=222192&e=png&b=ffffff)
+![](_assets/6456d3fa795046758764c0ac37b5b12f~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 queue中的Node是对线程信息的一个封装（并不是线程本身），里面包括线程的引用和节点本身的状态（注意，不是线程的状态，这里节点的状态是用于AQS实现调度而设置的）。
 
@@ -457,7 +457,7 @@ Java提供AQS最大的原因在于提供可定制性，`synchronized`的实现�
 
 `synchronized`实现的锁是非公平调度的，而基于AQS实现的锁在加锁时可以通过`tryAcquire`/`nonfairTryAcquire`来决定是加公平锁还是非公平锁：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d409ab00487c4a1b8203dde6db56e176~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=4292&h=2125&s=232123&e=png&b=ffffff)
+![](_assets/d409ab00487c4a1b8203dde6db56e176~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 #### 锁的可重入性
 
@@ -466,7 +466,7 @@ Java提供AQS最大的原因在于提供可定制性，`synchronized`的实现�
 *   可重入锁：同一个线程可以多次尝试对该资源加锁，只要该线程已经持有了资源的锁，后续再尝试加锁就直接成功
 *   不可重入锁：同一个线程只能对一个资源加一次锁，如果该线程已经持有了资源的锁，再次尝试锁定该资源时会判断当前资源已经被锁定，不能获取锁，从而陷入死锁
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7856244f201c4fc496c535066e37f6e2~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=5463&h=1222&s=261237&e=png&b=ffffff)
+![](_assets/7856244f201c4fc496c535066e37f6e2~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 `synchronized`实现的锁是可重入的，基于AQS的锁是否可重入则由`tryAcquire`的实现锁决定（典型实现：`ReentrantLock`可重入，`NonReentrantLock`不可重入）。
 
@@ -485,7 +485,7 @@ Java提供AQS最大的原因在于提供可定制性，`synchronized`的实现�
 
 具体到实现上，`synchronized`只能实现独占的互斥锁，而基于AQS的锁，只要允许state的值超过1，那就是共享锁，否则就是独占锁，下面是一个基于AQS实现读写锁的简单示范：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c8fcf1f7de384aab90fc1c2317784268~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=2722&h=1669&s=131140&e=png&b=ffffff)
+![](_assets/c8fcf1f7de384aab90fc1c2317784268~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 ### volatile
 
@@ -493,7 +493,7 @@ volatile关键字是为了解决多线程并发访问共享变量时的不可见
 
 JVM内存模型下，为每个线程抽象了一个"工作内存"的概念，当线程访问一个主内存中的数据时，会在对应线程的工作内存中产生一个该数据的副本，随后线程对该变量的操作都是基于这个副本，最终该副本再通过save同步到主内存。
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/338cf680434b44b6bdd246901ada8287~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=3330&h=1777&s=186618&e=png&b=ffffff)
+![](_assets/338cf680434b44b6bdd246901ada8287~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 这个工作内存的抽象，落实到具体操作系统和计算机硬件的实现上，就是CPU的缓存和内存之间的关系，举一个具体的例子，假设有一个双核的CPU，每个核心都拥有一个独立的1级缓存，以及一个共享的2级缓存，如果每个核心都正在执行一个线程，那么这个核心的1级缓存就是该线程的工作内存（这只是一个例子，具体实现由JVM和平台共同决定）。
 
@@ -545,7 +545,7 @@ public class Test {
 
 当在一个线程内对某个ThreadLocal变量赋值的时候，（若该变量在该线程中的副本还没创建）会在其ThreadLocals数组中插入一个Entry，K为该ThreadLocal对象，V则是该线程内所赋的副本值。插入的位置（数组下标）是通过一套hash算法计算得到。
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f9ef9efaf220442595b08f41fad31472~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=2838&h=1824&s=203803&e=png&b=ffffff)
+![](_assets/f9ef9efaf220442595b08f41fad31472~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 一个线程获取某个ThreadLocal变量的时候，则是在该线程的ThreadLocals数组中通过hash计算定位到对应的下标，取出Entry对象，进而得到Value。
 

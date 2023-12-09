@@ -42,13 +42,13 @@ _**JDK1.8**_
 > put操作：对于`ConcurrentHashMap`的数据插入，这里需要进行两次的`hash`计算`index`值，第一次是计算当前key存在当哪一块小的segment中，第二次`hash`操作找相应的`HashEntry`位置。  
 > get操作：对于数据获取，`ConcurrentHashMap`第一次需要经过一次`hash`定位到`Segment`的位置，然后再`hash`定位到指定的`HashEntry`，遍历该`HashEntry`下的链表进行对比，成功就返回，不成功就返回null。
 
-**JDK1.7 HashMap和ConcurrentHashMap示意图**： ![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/acf1cacf706e463aa372d24fab9a7c7d~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp?)
+**JDK1.7 HashMap和ConcurrentHashMap示意图**： ![](_assets/acf1cacf706e463aa372d24fab9a7c7d~tplv-k3u1fbpfcp-zoom-in-crop-mark!1512!0!0!0.awebp.webp)
 
 > JDK1.7 `HashMap`的数据结构图如上所示，其内部实际上是一个数组，数组中的每个元素都是一个单向链表，链表中的每个元素都是嵌套类`Entry`的实例，`Entry`实例包含了4个属性：key、value、hash值和用于指向单向链表下一个元素的`next`节点。
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/96520e245dee44bca576bed407feffcb~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp?)
+![](_assets/96520e245dee44bca576bed407feffcb~tplv-k3u1fbpfcp-zoom-in-crop-mark!1512!0!0!0.awebp.webp)
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9041fdea84874b50825c11ae86ac3493~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp?)
+![](_assets/9041fdea84874b50825c11ae86ac3493~tplv-k3u1fbpfcp-zoom-in-crop-mark!1512!0!0!0.awebp.webp)
 
 > 🙋‍♂️与`HashMap`不同，`ConcurrentHashMap`采用分段锁的思想实现并发操作，因此是线程安全的。`ConcurrentHashMap`是由多个`Segment`组成（`Segment`的数量也就是锁的并发度），每个`Segment`都是继承自`ReentrantLock`并单独加锁，索引每次进行加锁操作锁住的都是一个`Segemnt`，这样保证了每个`Segment`都是线程安全的，进而实现了全局的线程安全。
 

@@ -59,7 +59,7 @@
 
 例如我的集群部署在虚拟机里，12核cpu,就可以在**kafka/config/sever.properties**配置文件中，设置默认分区12，以后每次创建topic都是12个分区。
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7eb3bacdfa5a49058816c4b390229732~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp)
+![](_assets/7eb3bacdfa5a49058816c4b390229732~tplv-k3u1fbpfcp-zoom-in-crop-mark!1512!0!0!0.awebp.webp)
 
 
 【Kafka实战指南】Kafka安装及日志存储结构

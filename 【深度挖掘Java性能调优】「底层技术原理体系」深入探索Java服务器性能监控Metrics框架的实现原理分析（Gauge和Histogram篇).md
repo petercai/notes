@@ -13,7 +13,7 @@
 
 与Counter一样，计量器也是一个数字类型的指标，但和计数器不同的是，它主要用于收集指标的瞬时值，因此它是可变的。它的常用用法如下所示：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/23b0b0ac7fc64551bf0b313f0918e5a2~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=1426&h=756&s=111629&e=png&b=f5edfb)
+![](_assets/23b0b0ac7fc64551bf0b313f0918e5a2~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 *   使用Gauge进行记录以统计API的响应时间，因为响应时间是可变的，可能会有高低波动。
 *   统计CPU的负载，可以了解系统的负荷情况。
@@ -63,7 +63,7 @@ Histogram主要的用途是表示分布情况，直方图用于测量和统计�
 
 使用`Reservoir`类能够实现高效地统计数据，而不需要记录和排序所有数据，同时能够保持近似的分布情况，为后续的数据分析提供准确可靠的结果。
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/754add2e5dcc41e1bc306b07f8bfc55b~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=1106&h=1206&s=62101&e=png&b=ffffff)
+![](_assets/754add2e5dcc41e1bc306b07f8bfc55b~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 了解了基本原理之后，我们来看一下histogram的源码。
 
@@ -129,7 +129,7 @@ public class Snapshot {
 
 UniformReservoir 默认保存1028条记录，每次进行update操作的时候，首先会依次地将值填入1028条记录中，当记录满了之后，就会使用随机替换0 - 1027中的一条。因为是随机替换，所以也不需要进行加锁和解锁。
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/863be9dbc6f84217b31d970f9a153147~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=904&h=564&s=34593&e=png&b=ffffff)
+![](_assets/863be9dbc6f84217b31d970f9a153147~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 ```markdown
 - SlidingWindowReservoir **固定大小的数据池**，从0到n-1填入数据，不断循环。也不会进行加锁和解锁。

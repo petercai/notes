@@ -1,7 +1,7 @@
 # Kafka的Consumer负载均衡算法
 有一个topic：test，然后这个topic的partition和他们所在的broker的图如下：
 
-![](https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2018/9/27/1661a6519a487842~tplv-t2oaga2asx-jj-mark:3024:0:0:0:q75.png)
+![](_assets/1661a6519a487842~tplv-t2oaga2asx-jj-mark!3024!0!0!0!q75.png)
 
 ```bash
     1. 其中 broker有两个，也就是服务器有两台。
@@ -57,7 +57,7 @@
 但是partition只有P0-P5根本就没有P6和P7，所以这两个消费者相当于是会被闲置的，就相当于占用资源，却没什么用，所以在这里真正起到作用的就是C0-C5。  
 如下图所示：
 
-![](https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2018/9/27/1661a6562d11fa89~tplv-t2oaga2asx-jj-mark:3024:0:0:0:q75.png)
+![](_assets/1661a6562d11fa89~tplv-t2oaga2asx-jj-mark!3024!0!0!0!q75.png)
 
 **如果这个消费组里面的消费者少于partition数量呢（比如5个）？** 那么还是依葫芦画瓢，根据上面的算法：
 
@@ -78,7 +78,7 @@
 
 如下所示：
 
-![](https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2018/9/27/1661a669c146c43e~tplv-t2oaga2asx-jj-mark:3024:0:0:0:q75.png)
+![](_assets/1661a669c146c43e~tplv-t2oaga2asx-jj-mark!3024!0!0!0!q75.png)
 
 总结：
 ---

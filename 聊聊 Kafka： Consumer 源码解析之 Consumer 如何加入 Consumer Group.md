@@ -17,7 +17,7 @@
 
 \_\_consumer\_offsets 这个内部 Topic，专门用来存储 Consumer Group 消费的情况，默认情况下有 50 个 partition，每个 partition 默认三个副本。如下图所示：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f89409a1c0494f1d8207913dd3d3c133~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp)
+![](_assets/f89409a1c0494f1d8207913dd3d3c133~tplv-k3u1fbpfcp-zoom-in-crop-mark!1512!0!0!0.awebp.webp)
 
 ### 2.2 Consumer 如何找到 GroupCoordinator 的？
 
@@ -37,30 +37,30 @@ abs(GroupId.hashCode()) % NumPartitions
 
 ### 3.1 消费端
 
-在协调器 AbstractCoordinator 中的内部类 MemberState 中我们可以看到协调器的四种状态，分别是未注册、重分配后没收到响应、重分配后收到响应但还没有收到分配、稳定状态。 ![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/53d6d927e1f7434e98c1e58ba873b341~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp)
- 上述消费端的四种状态的转换如下图所示： ![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/62b023ed13fe461481a0d32710e58c18~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp)
+在协调器 AbstractCoordinator 中的内部类 MemberState 中我们可以看到协调器的四种状态，分别是未注册、重分配后没收到响应、重分配后收到响应但还没有收到分配、稳定状态。 ![](_assets/53d6d927e1f7434e98c1e58ba873b341~tplv-k3u1fbpfcp-zoom-in-crop-mark!1512!0!0!0.awebp.webp)
+ 上述消费端的四种状态的转换如下图所示： ![](_assets/62b023ed13fe461481a0d32710e58c18~tplv-k3u1fbpfcp-zoom-in-crop-mark!1512!0!0!0.awebp.webp)
 
 ### 3.2 服务端
 
 对于 Kafka 服务端的组则有五种状态 Empty、PreparingRebalance、CompletingRebalance、Stable、Dead。他们的状态转换如下图所示：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/bee7ef200349449fbd790692cf26ff3d~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp)
- ![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d6199595a441440b887ef8fd6508ccae~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp)
+![](_assets/bee7ef200349449fbd790692cf26ff3d~tplv-k3u1fbpfcp-zoom-in-crop-mark!1512!0!0!0.awebp.webp)
+ ![](_assets/d6199595a441440b887ef8fd6508ccae~tplv-k3u1fbpfcp-zoom-in-crop-mark!1512!0!0!0.awebp.webp)
 
 四、Consumer 加入 Consumer Group 流程
 -------------------------------
 
 说 Consumer 如何加入 Consumer Group 之前，我们还是先来回顾下上一篇消息消费的测试案例。
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/38746743404d42bca6a86c64a7815192~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp)
- 核心方法是 poll() 方法，我们这里简单提一下，后面我们会详细介绍 Consumer 关于 poll 的网络模型。 ![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/df382df2b6e94804ad6b7c3f2fddd36f~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp)
+![](_assets/38746743404d42bca6a86c64a7815192~tplv-k3u1fbpfcp-zoom-in-crop-mark!1512!0!0!0.awebp.webp)
+ 核心方法是 poll() 方法，我们这里简单提一下，后面我们会详细介绍 Consumer 关于 poll 的网络模型。 ![](_assets/df382df2b6e94804ad6b7c3f2fddd36f~tplv-k3u1fbpfcp-zoom-in-crop-mark!1512!0!0!0.awebp.webp)
  Consumer 如何加入 Consumer Group 的，我们得来看啥时候与 GroupCoordinator 交互通信的，不难发现在消息拉取请求做准备 updateAssignmentMetadataIfNeeded() 这个方法里。
 
 然后关于对 ConsumerCoordinator 的处理都集中在 coordinator.poll() 方法中。
 
 我们来跟一下这两个方法：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/94c86a4904f748e1b5954a7c41711f9c~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp)
+![](_assets/94c86a4904f748e1b5954a7c41711f9c~tplv-k3u1fbpfcp-zoom-in-crop-mark!1512!0!0!0.awebp.webp)
 
 `org.apache.kafka.clients.consumer.internals.ConsumerCoordinator#poll(org.apache.kafka.common.utils.Timer, boolean)` 方法中，具体可以分为以下几个步骤：
 
@@ -83,15 +83,15 @@ abs(GroupId.hashCode()) % NumPartitions
 
 ### 5.1 org.apache.kafka.clients.consumer.internals.AbstractCoordinator#ensureCoordinatorReady
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/69e9de4659774af3a9435ed96ec3caa1~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp)
+![](_assets/69e9de4659774af3a9435ed96ec3caa1~tplv-k3u1fbpfcp-zoom-in-crop-mark!1512!0!0!0.awebp.webp)
 
 ### 5.2 org.apache.kafka.clients.consumer.internals.AbstractCoordinator#lookupCoordinator
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/091261e317be4ef78cfff7c6e766b701~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp)
+![](_assets/091261e317be4ef78cfff7c6e766b701~tplv-k3u1fbpfcp-zoom-in-crop-mark!1512!0!0!0.awebp.webp)
 
 ### 5.3 org.apache.kafka.clients.consumer.internals.AbstractCoordinator#sendFindCoordinatorRequest
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/631bf85a11c546b8b4f48befac107dec~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp)
+![](_assets/631bf85a11c546b8b4f48befac107dec~tplv-k3u1fbpfcp-zoom-in-crop-mark!1512!0!0!0.awebp.webp)
 
 ### 5.4 小结
 
@@ -102,7 +102,7 @@ abs(GroupId.hashCode()) % NumPartitions
 六、rejoinNeededOrPending()
 -------------------------
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a6c5cbce3685499db18ad38dbd6c841f~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp)
+![](_assets/a6c5cbce3685499db18ad38dbd6c841f~tplv-k3u1fbpfcp-zoom-in-crop-mark!1512!0!0!0.awebp.webp)
  关于 rejoin, 下列几种情况会触发再均衡 reblance 操作
 
 *   新的消费者加入消费组 (第一次进行消费也属于这种情况)
@@ -148,7 +148,7 @@ boolean ensureActiveGroup(final Timer timer) {
 
 join-group 的请求是在 joinGroupIfNeeded() 中实现的。
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c74851bc6f42411fa9c6ac66552a7f93~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp)
+![](_assets/c74851bc6f42411fa9c6ac66552a7f93~tplv-k3u1fbpfcp-zoom-in-crop-mark!1512!0!0!0.awebp.webp)
 
 ### 7.2 initiateJoinGroup()
 
@@ -194,7 +194,7 @@ private synchronized RequestFuture<ByteBuffer> initiateJoinGroup() {
 
 继续跟 sendJoinGroupRequest() 方法
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/688a96a7bbf54e70bb7ee12a9ed317f1~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp)
+![](_assets/688a96a7bbf54e70bb7ee12a9ed317f1~tplv-k3u1fbpfcp-zoom-in-crop-mark!1512!0!0!0.awebp.webp)
  sendJoinGroupRequest()：向 GroupCoordinator 发送 join-group 请求
 
 *   如果 group 是新的 group.id，那么此时 group 初始化的状态为 `Empty`。
@@ -206,11 +206,11 @@ private synchronized RequestFuture<ByteBuffer> initiateJoinGroup() {
 
 ### 7.4 sendSyncGroupRequest() ：sync-group 请求
 
-sync-group 发送请求核心代码如下： ![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/886037aef2f04bd794c182a105842b7c~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp)
+sync-group 发送请求核心代码如下： ![](_assets/886037aef2f04bd794c182a105842b7c~tplv-k3u1fbpfcp-zoom-in-crop-mark!1512!0!0!0.awebp.webp)
 
 ### 7.5 onJoinComplete()
 
 经过上面的步骤，一个 consumer 实例就已经加入 group 成功了，加入 group 成功后，将会触发ConsumerCoordinator 的 onJoinComplete() 方法，其作用就是：更新订阅的 tp 列表以及更新其对应的 metadata。
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f7c7f01dd6504e749f147e31490824a6~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp)
+![](_assets/f7c7f01dd6504e749f147e31490824a6~tplv-k3u1fbpfcp-zoom-in-crop-mark!1512!0!0!0.awebp.webp)
  至此，一个 consumer 实例算是真正上意义上加入 group 成功。然后消费者就进入正常工作状态，同时消费者也通过向 GroupCoordinator 发送心跳来维持它们与消费者的从属关系以及它们对分区的所有权关系。只要以正常的间隔发送心跳，就被认为是活跃的，但是如果 GroupCoordinator 没有响应，那么就会发送 LeaveGroup 请求退出消费组。

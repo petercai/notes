@@ -36,7 +36,7 @@ entr 实现 Live Reloading
 
 [entry](https://link.juejin.cn/?target=https%3A%2F%2Fgithub.com%2Feradman%2Fentr "https://github.com/eradman/entr") 命令的是什么？直接看演示效果，如下所示：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a04ef76ee94b43f9968262c6320fc7ad~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=1250&h=348&s=640973&e=gif&f=258&b=28373b)
+![](_assets/a04ef76ee94b43f9968262c6320fc7ad~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 大概看出，[entr](https://link.juejin.cn/?target=https%3A%2F%2Fgithub.com%2Feradman%2Fentr "https://github.com/eradman/entr") 是用于监听文件变化并执行指定命令。看到这，有没有想到啥？对，entr 可用于服务的热加载（Live Reloading）。
 
@@ -98,11 +98,11 @@ fd -e go | entr -r go run *.go 重启服务
 
 效果如下：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4f3c0c5c8c614414b53637d7c72e9c92~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=1336&h=746&s=2683400&e=gif&f=335&b=233338)
+![](_assets/4f3c0c5c8c614414b53637d7c72e9c92~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.gif)
 
 另外，如希望每次重新启动后，执行清屏操作清屏，可使用 -c 选项。效果如下所示：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a94a282bbdaa499eaa4079bdbe61cedd~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=1342&h=682&s=1122357&e=gif&f=194&b=233237)
+![](_assets/a94a282bbdaa499eaa4079bdbe61cedd~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.gif)
 
 但是，这里还有一个缺点，检查有新文件创建，entry 默认无法检测。
 
@@ -130,7 +130,7 @@ trap "echo 'command you want to execute'" SIGINT; while true do sleep 10; done
 
 效果如下所示：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b5841e9e6ac842439f7dfc87e8ac48e0~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=874&h=526&s=245075&e=gif&f=97&b=233337)
+![](_assets/b5841e9e6ac842439f7dfc87e8ac48e0~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 如此的话，简单改造下前面的命令。
 
@@ -148,7 +148,7 @@ done
 
 查看演示效果，如下所示：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0fd676fac4814b49b5b4c9895fb97315~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=1334&h=676&s=1065246&e=gif&f=174&b=233237)
+![](_assets/0fd676fac4814b49b5b4c9895fb97315~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.gif)
 
 到这里，就为我们的项目添加了一个实时构建编译的能力。
 
@@ -204,7 +204,7 @@ http ://httpbin.org/get
 
 演示效果：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9a39ef8feb7e4634bc2b0ac737b18873~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=892&h=302&s=158834&e=gif&f=100&b=fefefe)
+![](_assets/9a39ef8feb7e4634bc2b0ac737b18873~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 另外，METHOD 默认也可省略的，省略规则是：
 
@@ -317,7 +317,7 @@ http --style=autumn ://httpbin.org/get
 
 演示效果：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2be098ef31934750a2ccd94d4b64caa8~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=1690&h=982&s=174092&e=png&b=283237)
+![](_assets/2be098ef31934750a2ccd94d4b64caa8~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 #### 文件下载
 

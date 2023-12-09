@@ -1,6 +1,6 @@
 # 全面了解Java中常用的集合类：LinkedHashMap的应用与实践
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a4df2b708b644ffdb5743f205d383b6d~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=7019&h=4963&s=1255864&e=png&b=ffffff)
+![](_assets/a4df2b708b644ffdb5743f205d383b6d~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 * * *
   Java是一种面向对象的编程语言，集合类是在Java编程中常用的一种数据结构，包括数组和集合。在Java中，集合类可以用来存储和操作一组对象数据，是Java编程中不可或缺的一部分。在本文中，我们将详细介绍Java中一个常用的集合类：LinkedHashMap。
@@ -54,7 +54,7 @@ Entry 类的构造函数接受四个参数，分别是哈希值、键对象、�
 
   如下是部分源码截图：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ec7eb2098f9a4949a1d5326c981214fd~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=1202&h=930&s=92966&e=png&b=2c2c2c)
+![](_assets/ec7eb2098f9a4949a1d5326c981214fd~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 应用场景案例
 ------
@@ -139,7 +139,7 @@ key: 3, value: pear
 
 ```
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b7222cd3ed9f42acb461926f1c19be4f~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=1132&h=886&s=77520&e=png&b=2c2c2c)
+![](_assets/b7222cd3ed9f42acb461926f1c19be4f~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 ### 测试代码分析
 

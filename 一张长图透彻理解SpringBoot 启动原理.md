@@ -2,7 +2,7 @@
 一张长图透彻解释 Spring启动顺序
 -------------------
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f817d280732e42c18e342c2163f75011~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=1213&h=2593&s=332656&e=jpg&b=fcf8f5)
+![](_assets/f817d280732e42c18e342c2163f75011~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 测试对Spring启动原理的理解程度
 ------------------
@@ -158,7 +158,7 @@ public class TestSpringOrder3 implements
 一张长图透彻解释 Spring启动顺序
 -------------------
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f817d280732e42c18e342c2163f75011~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=1213&h=2593&s=332656&e=jpg&b=fcf8f5)
+![](_assets/f817d280732e42c18e342c2163f75011~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 ### 实例化和初始化的区别
 
@@ -290,26 +290,26 @@ Spring 重要扩展点的启动顺序
 
 ### SmartInitializingSingleton 接口的执行位置
 
-下图代码说明了，Spring在初始化全部 单例Bean以后，会执行 SmartInitializingSingleton 接口。 ![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1c28d31de79c47b48a7a87ac24f50245~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=2146&h=1836&s=548611&e=png&b=101020)
+下图代码说明了，Spring在初始化全部 单例Bean以后，会执行 SmartInitializingSingleton 接口。 ![](_assets/1c28d31de79c47b48a7a87ac24f50245~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 ### Autowired 何时装配Bean的依赖
 
-在Bean实例化之后，但初始化之前，`AutowiredAnnotationBeanPostProcessor` 会注入Autowired字段。 ![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3bc4f7da5f0d4839a7a60fc0d991b0d4~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=1488&h=182&s=80934&e=png&b=4a463b)
+在Bean实例化之后，但初始化之前，`AutowiredAnnotationBeanPostProcessor` 会注入Autowired字段。 ![](_assets/3bc4f7da5f0d4839a7a60fc0d991b0d4~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 ### SpringBoot 何时开启Http端口
 
-下图代码中可以看到，SpringBoot会首先启动 Spring上下文，完成后才启动 嵌入式Web容器，初始化SpringMVC，监听端口 ![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/28bd69883797447da7e1e4a030d9b819~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=1514&h=702&s=181359&e=png&b=101020)
+下图代码中可以看到，SpringBoot会首先启动 Spring上下文，完成后才启动 嵌入式Web容器，初始化SpringMVC，监听端口 ![](_assets/28bd69883797447da7e1e4a030d9b819~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 ### Spring 初始化Bean的关键代码
 
 下图我加了注释，Spring初始化Bean的关键代码，全在 这个方法里，感兴趣的可以自行查阅代码 。 AbstractAutowireCapableBeanFactory#initializeBean
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b3fb53bc84c24383ad37d54a99ba15bd~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=1001&h=567&s=144349&e=png&b=101020)
+![](_assets/b3fb53bc84c24383ad37d54a99ba15bd~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 ### Spring CommandLineRunner 执行位置
 
-Spring Boot外部，当启动完Spring上下文以后，最后才启动 CommandLineRunner。 ![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d10073a980944822b2a489ffeb667ef2~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=1558&h=696&s=248095&e=png&b=101020)
- ![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a7ef17a4fff8427bb28b49b8a0326012~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=1286&h=198&s=65458&e=png&b=4a4840)
+Spring Boot外部，当启动完Spring上下文以后，最后才启动 CommandLineRunner。 ![](_assets/d10073a980944822b2a489ffeb667ef2~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
+ ![](_assets/a7ef17a4fff8427bb28b49b8a0326012~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 总结
 --

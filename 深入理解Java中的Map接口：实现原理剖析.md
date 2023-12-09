@@ -1,6 +1,6 @@
 # 深入理解Java中的Map接口：实现原理剖析
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a09868eb820646abbc9d7b7bae2c0482~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=7019&h=4963&s=1255864&e=png&b=ffffff)
+![](_assets/a09868eb820646abbc9d7b7bae2c0482~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 * * *
   在Java的众多数据结构中，Map接口是一个非常常用的接口，它允许我们通过键值对的方式来存储和访问数据。在实际的开发中，我们可能会使用到多种不同的Map实现类，如HashMap、TreeMap、LinkedHashMap等，但是对于Map接口的底层实现原理，我们是否真正了解呢？本文将从源代码的角度出发，深入剖析Java中Map接口的实现原理，帮助我们更好地理解和使用它。
@@ -66,7 +66,7 @@ public V put(K key, V value) {
 
   如下是部分源码截图：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f780674fccfc40b5b69efc4e5d7f7f5c~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=1224&h=935&s=118540&e=png&b=2b2b2b)
+![](_assets/f780674fccfc40b5b69efc4e5d7f7f5c~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 ##### get操作
 
@@ -148,7 +148,7 @@ final Entry<K,V> removeEntryForKey(Object key) {
 
   如下是部分源码截图：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3f5b92a5c3b3491ba5fde67dbf860116~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=1141&h=180&s=18914&e=png&b=2c2c2c)
+![](_assets/3f5b92a5c3b3491ba5fde67dbf860116~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 ### TreeMap
 
@@ -496,7 +496,7 @@ public class MapTest {
 
   根据如上测试用例，本地测试结果如下，仅供参考，你们也可以自行修改测试用例或者添加更多的测试数据或测试方法，进行熟练学习以此加深理解。
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/69e57f309888411d93281a75b30ee474~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=1211&h=882&s=85605&e=png&b=2c2c2c)
+![](_assets/69e57f309888411d93281a75b30ee474~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 ### 测试代码分析
 

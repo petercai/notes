@@ -52,7 +52,7 @@
 
 **输出结果**
 
-![](https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2019/8/2/16c50c7e1f168c59~tplv-t2oaga2asx-jj-mark:3024:0:0:0:q75.png)
+![](_assets/16c50c7e1f168c59~tplv-t2oaga2asx-jj-mark!3024!0!0!0!q75.png)
 
 #### 1.2 实例分析
 
@@ -129,7 +129,7 @@ Supplier 接口是一个**供给型**的接口，其实，说白了就是一个*
 
 **输出结果**
 
-![](https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2019/8/2/16c50c7e1fc2070f~tplv-t2oaga2asx-jj-mark:3024:0:0:0:q75.png)
+![](_assets/16c50c7e1fc2070f~tplv-t2oaga2asx-jj-mark!3024!0!0!0!q75.png)
 
 #### 2.2 实例分析
 
@@ -209,7 +209,7 @@ Supplier<Integer> supplier = new Supplier<Integer>() {
 
 **输出结果**
 
-![](https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2019/8/2/16c50c7e1f0ac7c8~tplv-t2oaga2asx-jj-mark:3024:0:0:0:q75.png)
+![](_assets/16c50c7e1f0ac7c8~tplv-t2oaga2asx-jj-mark!3024!0!0!0!q75.png)
 
 **代码分析**
 
@@ -291,7 +291,7 @@ Predicate 接口是一个谓词型接口，其实，这个就是一个类似于 
 
 **输出结果**
 
-![](https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2019/8/2/16c50c7e211581fe~tplv-t2oaga2asx-jj-mark:3024:0:0:0:q75.png)
+![](_assets/16c50c7e211581fe~tplv-t2oaga2asx-jj-mark!3024!0!0!0!q75.png)
 
 #### 3.2 实例分析
 
@@ -363,7 +363,7 @@ lambda 表达式返回一个 `Predicate` 接口，然后调用 `test` 方法！
 
 **输出结果**
 
-![](https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2019/8/2/16c50c7e20371ada~tplv-t2oaga2asx-jj-mark:3024:0:0:0:q75.png)
+![](_assets/16c50c7e20371ada~tplv-t2oaga2asx-jj-mark!3024!0!0!0!q75.png)
 
 这段代码，首先创建一个 Predicate 对象，然后实现 `test` 方法，在 test 方法中做一个判断：**如果传入的参数大于 5 ，就返回 true，否则返回 false**；
 
@@ -412,7 +412,7 @@ Function 接口是一个功能型接口，它的一个作用就是转换作用�
 
 **输出结果**
 
-![](https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2019/8/2/16c50c7e1f8b23d9~tplv-t2oaga2asx-jj-mark:3024:0:0:0:q75.png)
+![](_assets/16c50c7e1f8b23d9~tplv-t2oaga2asx-jj-mark!3024!0!0!0!q75.png)
 
 #### 4.2 代码分析
 

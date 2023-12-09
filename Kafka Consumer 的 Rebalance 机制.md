@@ -7,7 +7,7 @@ Kafka 之前版本的 Consumer Groups
 
 ### Consumer Group
 
-![](https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2019/11/19/16e82bf2d623075e~tplv-t2oaga2asx-jj-mark:3024:0:0:0:q75.awebp)
+![](_assets/16e82bf2d623075e~tplv-t2oaga2asx-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 如上图所示，`Consumer` 使用 `Consumer Group` 名称标记自己，并且发布到主题的每条记录都会传递到每个订阅消费者组中的一个 `Consumer` 实例。 `Consumer` 实例可以在单独的进程中或在单独的机器上。
 
@@ -21,11 +21,11 @@ Kafka 之前版本的 Consumer Groups
 
 在 `Kafka 0.8.2` 之前是这样的
 
-![](https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2019/11/19/16e82bf3544f43ee~tplv-t2oaga2asx-jj-mark:3024:0:0:0:q75.awebp)
+![](_assets/16e82bf3544f43ee~tplv-t2oaga2asx-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 之后是这样的：
 
-![](https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2019/11/19/16e82bf30624d9dc~tplv-t2oaga2asx-jj-mark:3024:0:0:0:q75.awebp)
+![](_assets/16e82bf30624d9dc~tplv-t2oaga2asx-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 每个 `Group` 都会选择一个 `Coordinator` 来完成自己组内各 `Partition` 的 `Offset` 信息，选择的规则如下：
 
@@ -72,25 +72,25 @@ Consumer Rebalance Protocol
 
 Known Issue #1: Stop-the-world Rebalance
 
-![](https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2019/11/19/16e82bf309b51c0b~tplv-t2oaga2asx-jj-mark:3024:0:0:0:q75.awebp)
+![](_assets/16e82bf309b51c0b~tplv-t2oaga2asx-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 如上图所示：之前版本的 `Kafka` 在发生 `Rebalance` 时候会释放 `Consumer Group` 的所有资源，造成比较长的 `Stop-the-world`
 
 Known Issue #2: Back-and-forth Rebalance
 
-![](https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2019/11/19/16e82bf352865c95~tplv-t2oaga2asx-jj-mark:3024:0:0:0:q75.awebp)
+![](_assets/16e82bf352865c95~tplv-t2oaga2asx-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 如上图所示：在发生 `Rebalance` 的时候发生的不必要的资源释放与重新分配。
 
 当前的 Rebalance 与 改进后的 ReBalance 对比
 ---------------------------------
 
-![](https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2019/11/19/16e82bf222819b78~tplv-t2oaga2asx-jj-mark:3024:0:0:0:q75.awebp)
+![](_assets/16e82bf222819b78~tplv-t2oaga2asx-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 渐进式 Rebalance 协议
 ----------------
 
-![](https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2019/11/19/16e82bf267963509~tplv-t2oaga2asx-jj-mark:3024:0:0:0:q75.awebp)
+![](_assets/16e82bf267963509~tplv-t2oaga2asx-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 如上图所示，新的渐进式 Rebalance 协议，在 Rebalance 的时候不需要当前所有的 Consumer 释放所拥有的资源，而是当需要触发 Rebalance 的时候对当前资源进行登记，然后进行渐进式的 Rebalance。 这样做产生的优化效果
 

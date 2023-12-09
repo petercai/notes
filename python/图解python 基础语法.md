@@ -25,7 +25,7 @@ Type "help", "copyright", "credits" **or** "license" **for** more information.
 
 ```
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ec28aea80fce4e6ebba1c571480976ec~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp?)
+![](_assets/ec28aea80fce4e6ebba1c571480976ec~tplv-k3u1fbpfcp-zoom-in-crop-mark!1512!0!0!0.awebp.webp)
 
 在 python 提示符中输入以下文本信息，然后按 Enter 键查看运行效果：
 
@@ -48,7 +48,7 @@ Hello, ShowMeAI, this is Python!
 
 如果我们需要完成的任务较为复杂，我们可以把中间处理过程组织梳理成python脚本，然后通过脚本参数调用解释器开始执行脚本，直到脚本执行完毕。当脚本执行完成后，解释器不再有效。
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/538ce418f36e431abd589ad1b098ddeb~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp?)
+![](_assets/538ce418f36e431abd589ad1b098ddeb~tplv-k3u1fbpfcp-zoom-in-crop-mark!1512!0!0!0.awebp.webp)
 
 让我们写一个简单的 Python 脚本程序。所有 Python 文件将以 **.py** 为扩展名。将以下的源代码拷贝至 test.py 文件中。
 
@@ -73,7 +73,7 @@ Hello, ShowMeAI, this is Python!
 
 标识符是允许作为变量（函数、类等）名称的有效字符串。其中，有一部分是关键字（语言本身保留的标识符），它是不能做它用的标识符的，否则会引起语法错误（SyntaxError 异常）。Python 还有称为 built-in 标识符集合，虽然它们不是保留字，但是不推荐使用这些特别的名字。
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a211b950e9ad43dc8a5686515b3f8cf9~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp?)
+![](_assets/a211b950e9ad43dc8a5686515b3f8cf9~tplv-k3u1fbpfcp-zoom-in-crop-mark!1512!0!0!0.awebp.webp)
 
 Python 是动态类型语言， 也就是说不需要预先声明变量的类型。 变量的类型和值在赋值那一刻被初始化。变量赋值通过等号来执行。
 
@@ -108,13 +108,13 @@ Python的有效标识符由大小写字母、下划线和数字组成。数字�
 | else | is | with |
 | except | lambda | yield |
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3137556d3ac24163b72e09216fb3fef6~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp?)
+![](_assets/3137556d3ac24163b72e09216fb3fef6~tplv-k3u1fbpfcp-zoom-in-crop-mark!1512!0!0!0.awebp.webp)
 
 学习 Python 与其他语言最大的区别就是，Python 的代码块不使用大括号 **{}** 来控制类，函数以及其他逻辑判断。python 最具特色的就是用缩进来写模块。
 
 缩进可使用tab或空格等，空白数量是可变的，但是所有代码块语句必须包含相同的缩进空白数量。
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/530b14fa718d4db087dc15834dc470e8~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp?)
+![](_assets/530b14fa718d4db087dc15834dc470e8~tplv-k3u1fbpfcp-zoom-in-crop-mark!1512!0!0!0.awebp.webp)
 
 以下实例缩进为四个空格:
 
@@ -197,7 +197,7 @@ paragraph = """这是包含多行的语句。
 
 ```
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/eed4f92c4fc742729b3338ba0f46ad4a~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp?)
+![](_assets/eed4f92c4fc742729b3338ba0f46ad4a~tplv-k3u1fbpfcp-zoom-in-crop-mark!1512!0!0!0.awebp.webp)
 
 python中单行注释采用 **#** 开头。
 

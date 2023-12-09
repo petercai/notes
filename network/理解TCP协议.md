@@ -15,7 +15,7 @@ TCP：**传输控制协议**（英语：**T**ransmission **C**ontrol **P**rotoco
 
 ### TCP报文
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c80822361f2d41fa8c31f7d1627cab56~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=642&h=436&s=53934&e=png&b=fdfdfd)
+![](_assets/c80822361f2d41fa8c31f7d1627cab56~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 1.源端口，目的端口：每个两字节
 
@@ -98,7 +98,7 @@ TCP：可靠传输，HTTP用的就是TCP（后面用为了追求性能用UDP去�
 
 #### 三次握手
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f434374734fb44ab82f7ad90736c2303~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=1068&h=627&s=223103&e=png&b=fafafa)
+![](_assets/f434374734fb44ab82f7ad90736c2303~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
  第一次握手：客户端向服务器发送TCP请求连接报文，SYN置1，seq=x (都知道SYN和seq是啥吧)
 
 第二次握手：服务器收到报文，发送TCP确认报文，SYN=ACK=1，seq=y ack=x+1
@@ -127,7 +127,7 @@ TCP：可靠传输，HTTP用的就是TCP（后面用为了追求性能用UDP去�
 
 #### 四次挥手
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e432d5e9d6f644e0a6960f8754d7a71d~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=694&h=424&s=169908&e=png&b=fafafa)
+![](_assets/e432d5e9d6f644e0a6960f8754d7a71d~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
  第一次：客户端主动发送断开请求，FIN=1(这是一个请求断开的报文)，seq=x
 
 第二次：服务器收到之后 发送 ACK=1 seq=v ack=x+1 然后处于半关闭状态Close-wait

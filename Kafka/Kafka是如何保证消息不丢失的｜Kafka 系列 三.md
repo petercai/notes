@@ -3,7 +3,7 @@
 
 简单来说，一条消息会经历如下三个位置的流转：生产者、服务端、消费者。那么如何保证消息不丢失也要从三个角度来考虑：**生产者发送消息**、**服务端存储消息**、**消费者消费消息**。
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5f4e7a9246be4a13924663b6198128fe~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=1336&h=318&s=58392&e=png&b=fdfdfd)
+![](_assets/5f4e7a9246be4a13924663b6198128fe~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 Kafka并不是一个神乎其神的智能框架，它不丢失消息的前提是在这三个环节都正确，要求我们正确使用、正确配置。
 
@@ -114,11 +114,11 @@ min.insync.replicas = 2
 
 首先要明白，consumer消费消息的时候是用 消费者位移(Consumer Offset) 来标记消费位置的。之前的文章已经提及过。
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/cafb8bc0ab19499e8508258674895e15~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=2030&h=1050&s=140713&e=png&b=fcfcfc)
+![](_assets/cafb8bc0ab19499e8508258674895e15~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 一个partition可以被多个消费者组的不同消费者消费，并且分别记录其位移数据，如下图。
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/11ec5a0276304b599ee32d49147cbd74~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=1354&h=832&s=124636&e=png&b=ffffff)
+![](_assets/11ec5a0276304b599ee32d49147cbd74~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 每次接收到消息并处理完业务逻辑消费完成后，我们要明确的告诉客户端消费的位移。注意是**先消费然后更新位移**。我们还需要设置参数`enable.auto.commit = false`, 采用手动提交位移的方式。
 

@@ -1,5 +1,5 @@
 # 深入理解Java中的PriorityQueue底层实现与源码分析
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1cec678aeb9e4708b30f2386694ff8a8~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=7019&h=4963&s=1255864&e=png&b=ffffff)
+![](_assets/1cec678aeb9e4708b30f2386694ff8a8~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 * * *
   PriorityQueue是Java中一个非常常用的数据结构，它可以实现基于优先级的排序，常用于任务调度、事件处理等场景。本文将深入探讨Java中PriorityQueue的底层实现与源码分析，帮助读者更好地理解PriorityQueue的内部原理。
@@ -46,7 +46,7 @@
 
 ```
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/42fb5ffc60064341ab92c03f4f3cb313~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=1036&h=265&s=22205&e=png&b=2c2c2c)
+![](_assets/42fb5ffc60064341ab92c03f4f3cb313~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
   PriorityQueue有四个构造函数：默认构造函数、指定初始化容量的构造函数、指定Comparator的构造函数和同时指定初始化容量与Comparator的构造函数。
 
@@ -89,7 +89,7 @@
 
   如果指定了Comparator，则通过siftUpUsingComparator()方法来维护小根堆的性质；否则通过siftUpComparable()方法维护小根堆的性质。这里的siftUp()方法还是比较关键的，它是用来上浮元素，维护小根堆的性质的。
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/715fd405c2884b2eb94e55fd3de6fdde~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=1061&h=524&s=35081&e=png&b=2b2b2b)
+![](_assets/715fd405c2884b2eb94e55fd3de6fdde~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 ### 删除元素
 
@@ -361,7 +361,7 @@ public class PriorityQueue<E> extends AbstractQueue<E> implements java.io.Serial
 
   如下是部分源码截图：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2e78d2b1700b4ff2a8ea2e684b85f1a0~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=1199&h=935&s=105838&e=png&b=2c2c2c)
+![](_assets/2e78d2b1700b4ff2a8ea2e684b85f1a0~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 具体分析如下：
 
@@ -435,7 +435,7 @@ public class PriorityQueueTest {
 
 实际执行结果如下：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d7405bcdb8e74c2f8b2a958b958728e0~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=1137&h=831&s=66570&e=png&b=2c2c2c)
+![](_assets/d7405bcdb8e74c2f8b2a958b958728e0~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 ### 测试代码分析
 

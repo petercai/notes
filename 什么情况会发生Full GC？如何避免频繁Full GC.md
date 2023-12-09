@@ -2,7 +2,7 @@
 Minor GC、Major GC 和 Full GC区别？
 ------------------------------
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0f1ebed125404724bfc99addb9d49c6f~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=1239&h=385&s=56162&e=png&a=1&b=fcf8ed)
+![](_assets/0f1ebed125404724bfc99addb9d49c6f~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 Minor GC、Major GC和Full GC是垃圾回收中的三个重要概念，它们描述了垃圾回收的不同阶段和范围：
 

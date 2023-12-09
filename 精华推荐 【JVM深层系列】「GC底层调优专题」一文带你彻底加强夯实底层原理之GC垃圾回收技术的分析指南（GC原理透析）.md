@@ -15,7 +15,7 @@
 
 这形成了分代数据模型。基于这一结构, VM中的内存被分为年轻代(Young Generation)和老年代(Old Generation)，老年代有时候也称为年老区(Tenured)。如下所示。
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9929a1756b214e8983efcd51efda8f35~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp)
+![](_assets/9929a1756b214e8983efcd51efda8f35~tplv-k3u1fbpfcp-zoom-in-crop-mark!1512!0!0!0.awebp.webp)
 
 从上图可以看出拆分为这样两个可清理的单独区域，允许采用不同的算法来大幅提高GC的性能。
 
@@ -27,25 +27,25 @@
 
 GC算法专门针对“总体生命周期较短”，“总体生命周期较长” 这类特征的对象来进行优化, JVM对收集那种存活时间半长不长的对象就显得非常尴尬了，如下图对象分布。
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/97ff7d0cb1fc4b7ab837e35b6786417d~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp)
+![](_assets/97ff7d0cb1fc4b7ab837e35b6786417d~tplv-k3u1fbpfcp-zoom-in-crop-mark!1512!0!0!0.awebp.webp)
 
 堆内存中的内存池划分也是类似的。不太容易理解的地方在于各个内存池中的垃圾收集是如何运行的。
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e6d36b84c7c34236a72ec41af5a63bde~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp)
+![](_assets/e6d36b84c7c34236a72ec41af5a63bde~tplv-k3u1fbpfcp-zoom-in-crop-mark!1512!0!0!0.awebp.webp)
 
 #### 新生代(Eden,伊甸园)
 
 Eden是内存中的一个区域， 用来分配新创建的对象。通常会有多个线程同时创建多个对象，所以Eden区被划分为多个线程本地分配缓冲区(Thread Local Allocation Buffer, 简称TLAB)。通过这种缓冲区划分，大部分对象直接由JVM 在对应线程的TLAB中分配, 避免与其他线程的同步操作。
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5b03c7456f964116a6e38815ea401da5~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp)
+![](_assets/5b03c7456f964116a6e38815ea401da5~tplv-k3u1fbpfcp-zoom-in-crop-mark!1512!0!0!0.awebp.webp)
 
 如果 TLAB 中没有足够的内存空间, 就会在共享Eden区(shared Eden space)之中分配。如果共享Eden区也没有足够的空间, 就会触发一次 年轻代GC 来释放内存空间。如果GC之后 Eden 区依然没有足够的空闲内存区域, 则对象就会被分配到老年代空间(Old Generation)。
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6a449e3c77294b08bbf0ab1fd168222b~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp)
+![](_assets/6a449e3c77294b08bbf0ab1fd168222b~tplv-k3u1fbpfcp-zoom-in-crop-mark!1512!0!0!0.awebp.webp)
 
 当Eden区进行垃圾收集时，GC将所有从root可达的对象过一遍, 并标记为存活对象。
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/cb979d7ea7f44b3092eefc35c8e51399~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp)
+![](_assets/cb979d7ea7f44b3092eefc35c8e51399~tplv-k3u1fbpfcp-zoom-in-crop-mark!1512!0!0!0.awebp.webp)
 
 对象间可能会有跨代的引用，所以需要一种方法来标记从其他分代中指向Eden的所有引用。这样做又会遭遇各个分代之间一遍又一遍的引用。JVM在实现时采用了卡片标记(card-marking)。
 
@@ -57,15 +57,15 @@ JVM只需要记住Eden区中 “脏”对象的粗略位置，可能有老年代
 
 Eden区的旁边是两个存活区, 称为 from 空间和 to 空间。需要着重强调的的是, 任意时刻总有一个存活区是空的(empty)。
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/391069bd1d414ec38b72ebe5b75b778c~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp)
+![](_assets/391069bd1d414ec38b72ebe5b75b778c~tplv-k3u1fbpfcp-zoom-in-crop-mark!1512!0!0!0.awebp.webp)
 
 空的那个存活区用于在下一次年轻代GC时存放收集的对象。年轻代中所有的存活对象(包括Edenq区和非空的那个 “from” 存活区)都会被复制到 ”to“ 存活区。GC过程完成后, ”to“ 区有对象,而 ‘from’ 区里没有对象。两者的角色进行正好切换 。
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/eb57d3560816400898842ec3b35c13d0~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp)
+![](_assets/eb57d3560816400898842ec3b35c13d0~tplv-k3u1fbpfcp-zoom-in-crop-mark!1512!0!0!0.awebp.webp)
 
 存活的对象会在两个存活区之间复制多次，直到某些对象的存活时间达到一定的阀值。分代理论假设, 存活超过一定时间的对象很可能会继续存活更长时间。
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b97c4bbebbdb4b358a11f8a0211cb21c~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp)
+![](_assets/b97c4bbebbdb4b358a11f8a0211cb21c~tplv-k3u1fbpfcp-zoom-in-crop-mark!1512!0!0!0.awebp.webp)
 
 这类“ 年老” 的对象因此被提升(promoted )到老年代。提升的时候， 存活区的对象不再是复制到另一个存活区,而是迁移到老年代, 并在老年代一直驻留, 直到变为不可达对象。
 
@@ -93,13 +93,13 @@ Eden区的旁边是两个存活区, 称为 from 空间和 to 空间。需要着�
 
 它存储元数据(metadata)的地方,比如 class 信息等。此外,这个区域中也保存有其他的数据和信息, 包括内部化的字符串(internalized strings)等等。
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6b44048fae094fd1a3443a00b93e50c2~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp)
+![](_assets/6b44048fae094fd1a3443a00b93e50c2~tplv-k3u1fbpfcp-zoom-in-crop-mark!1512!0!0!0.awebp.webp)
 
 #### 元数据区(Metaspace)
 
 Java 8直接删除了永久代(Permanent Generation)，改用Metaspace。将静态变量和字符串常量都放到其中。像类定义(class definitions)之类的信息会被加载到Metaspace 中。
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b4fa08e3b279413f8d340588d51f3bba~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp)
+![](_assets/b4fa08e3b279413f8d340588d51f3bba~tplv-k3u1fbpfcp-zoom-in-crop-mark!1512!0!0!0.awebp.webp)
 
 元数据区位于本地内存(native memory)，不再影响到普通的Java对象。默认情况下, Metaspace的大小只受限于Java进程可用的本地内存。
 
@@ -117,11 +117,11 @@ Java 8直接删除了永久代(Permanent Generation)，改用Metaspace。将静�
 
 #### Java8之前
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f6a946ccebfc4af590207afbed044e3b~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp)
+![](_assets/f6a946ccebfc4af590207afbed044e3b~tplv-k3u1fbpfcp-zoom-in-crop-mark!1512!0!0!0.awebp.webp)
 
 #### Java8之后
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ece7eff1d4b948e0ac99e3e9edc52465~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp)
+![](_assets/ece7eff1d4b948e0ac99e3e9edc52465~tplv-k3u1fbpfcp-zoom-in-crop-mark!1512!0!0!0.awebp.webp)
 
 垃圾收集（Garbage Collection）通常分为：Minor GC - Major GC - Full GC 。接下来介绍这些事件及其区别，然后你会发现这些区别也不是特别清晰。
 
@@ -150,7 +150,7 @@ GC的优点和缺点（GC Benefits/Cost）
 
 > **年轻代内存的垃圾收集称为Minor GC。那什么时候会触发MinorG以及出发MinorGC得我条件是什么？**
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/51d02ba170ae4569be72e7e85180e389~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp)
+![](_assets/51d02ba170ae4569be72e7e85180e389~tplv-k3u1fbpfcp-zoom-in-crop-mark!1512!0!0!0.awebp.webp)
 
 ##### 触发MinorGC的时机
 
@@ -171,7 +171,7 @@ Minor GC实际上忽略了老年代，主要面向的对象范围有两部分组
 
 所以，Minor GC的定义很简单、清理的就是年轻代，如下图所示。
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1c2d8728500545ef919705384c6656f0~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp)
+![](_assets/1c2d8728500545ef919705384c6656f0~tplv-k3u1fbpfcp-zoom-in-crop-mark!1512!0!0!0.awebp.webp)
 
 #### Major GC vs Full GC
 
@@ -197,7 +197,7 @@ Minor GC实际上忽略了老年代，主要面向的对象范围有两部分组
 
 共享指针方式的引用计数法， 可以应用到所有对象。许多语言都采用这种方法，包括 Perl、Python 和 PHP 等。下图很好地展示了这种方式：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5df1a71b01aa44b6a1c19904eb27f1a9~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp)
+![](_assets/5df1a71b01aa44b6a1c19904eb27f1a9~tplv-k3u1fbpfcp-zoom-in-crop-mark!1512!0!0!0.awebp.webp)
 
 上图中所展示的GC ROOTS，表示程序正在使用的对象。主要（**这里指的不是全部**）集中在于当前正在执行的方法中的局部变量或者是静态变量等。在这里主要我指的是Java。
 
@@ -208,7 +208,7 @@ Minor GC实际上忽略了老年代，主要面向的对象范围有两部分组
 
 引用计数器无法针对于循环引用这种场景进行正确的处理和探测。任何作用域中都没有引用指向这些对象，但由于循环引用, 导致引用计数一直大于零，如下图所示。
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c13477ff055643c6b5c048e6a4a6a1fd~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp)
+![](_assets/c13477ff055643c6b5c048e6a4a6a1fd~tplv-k3u1fbpfcp-zoom-in-crop-mark!1512!0!0!0.awebp.webp)
 
 *   红色线路和红色圆圈对象实际上属于垃圾引用以及垃圾对象，但由于引用计数的局限，所以存在内存泄漏，永远都无法进行回收该区域的对象内存。
 

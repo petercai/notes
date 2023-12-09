@@ -1,6 +1,6 @@
 # 详解Java之Future和Callable 
 
-[![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/03da3283dd4b444a81d4af576c6683fa~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=981&h=394&s=39436&e=png&b=ffffff)
+[![](_assets/03da3283dd4b444a81d4af576c6683fa~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 ](https://link.juejin.cn/?target=https%3A%2F%2Fimgse.com%2Fi%2FpisOocQ "https://imgse.com/i/pisOocQ")
 
 ### 引言
@@ -62,7 +62,7 @@ public class CallableExample {
 
 在这个例子中，小黑使用了一个线程池 `ExecutorService` 来提交 `MyCallable` 任务。`submit` 方法会返回一个 `Future` 对象，咱们可以用它来获取任务的结果。注意，`future.get()` 会阻塞，直到任务执行完成，所以如果任务很耗时，咱们可能不想在主线程中调用它。
 
-[![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/be33fe72a3f149dd8dc2bbfb7512749d~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=975&h=703&s=26949&e=png&b=ffffff)
+[![](_assets/be33fe72a3f149dd8dc2bbfb7512749d~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 ](https://link.juejin.cn/?target=https%3A%2F%2Fimgse.com%2Fi%2FpisOI1g "https://imgse.com/i/pisOI1g")
 
 ### 探索Future
@@ -102,7 +102,7 @@ executor.shutdown();
 
 使用 `futureTask.get()` 可以获取任务的结果。但这个方法会阻塞，意味着它会在那儿等着，直到衣服从后库房送来。如果小黑不想等，他可以去逛逛其他店，也就是做一些其他的事情，然后回来拿结果。
 
-[![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ed878c3e1e0b4b25aa08acf191a2dca4~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=928&h=885&s=30901&e=png&b=ffffff)
+[![](_assets/ed878c3e1e0b4b25aa08acf191a2dca4~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 ](https://link.juejin.cn/?target=https%3A%2F%2Fimgse.com%2Fi%2FpisO59S "https://imgse.com/i/pisO59S")
 
 ### Callable与Runnable的比较

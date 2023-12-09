@@ -4,7 +4,7 @@
 监控工作可以分为四个部分
 ------------
 
-根据以下这四个部分，我们能够完成对后台服务的监控工作，从而能够及时了解和处理服务的运行情况，优化性能，提供更好的用户体验，并确保服务的可靠性和稳定性。 ![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9cf0a441d8d740e299c2607c869e672b~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=1216&h=680&s=64472&e=png&b=f5ecfa)
+根据以下这四个部分，我们能够完成对后台服务的监控工作，从而能够及时了解和处理服务的运行情况，优化性能，提供更好的用户体验，并确保服务的可靠性和稳定性。 ![](_assets/9cf0a441d8d740e299c2607c869e672b~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 *   **定义监控数据的产生**：我们需要明确定义要监控的数据，包括哪些指标和数据需要收集和监控，以满足监控需求。这可以包括硬件资源利用率、服务的核心性能指标、业务处理的成功率等。
     
@@ -124,11 +124,11 @@ public class Counter {
 
 ```
 
-基本的执行流程图： ![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/19cecbb2a8374129986eba8fd3601e12~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=333&h=497&s=23230&e=png&b=fefefe)
+基本的执行流程图： ![](_assets/19cecbb2a8374129986eba8fd3601e12~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 ##### Counter分析总结
 
-Counter 的底层实现使用了基础（Base）和单元（Cell）来存储计数值。在高并发情况下，线程会针对不同的 `Cell` 进行自增操作，从而避免了竞争，减少了资源争用。而在低并发情况下，通过直接对 `Base` 进行自增操作，避免了锁的开销，提高了性能，也保证了 Counter 的高性能和并发性能。 ![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/064de616885f495087dd2165675203b3~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=1917&h=464&s=76326&e=png&b=0a0f32)
+Counter 的底层实现使用了基础（Base）和单元（Cell）来存储计数值。在高并发情况下，线程会针对不同的 `Cell` 进行自增操作，从而避免了竞争，减少了资源争用。而在低并发情况下，通过直接对 `Base` 进行自增操作，避免了锁的开销，提高了性能，也保证了 Counter 的高性能和并发性能。 ![](_assets/064de616885f495087dd2165675203b3~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
  这种基于 `Base` 和 `Cell` 的实现方式能够平衡高并发和低并发情况下的性能需求，确保了 `Counter` 的自增操作的原子性和并发性能。
 
 ###### 从CPU和内存角度去分析资源开销
