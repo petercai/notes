@@ -33,7 +33,7 @@ set key1 value nx ex 10
 
 ```
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ad48fde5ecfd4a0384bb17d81b133cce~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=1440&h=206&s=121796&e=png&b=010101)
+![](_assets/ad48fde5ecfd4a0384bb17d81b133cce~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 锁误释放问题
 ------
@@ -76,7 +76,7 @@ redis-cli  script load "$(cat cad.lua)"
 
 ```
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/606c6c33554c4cbbbf889e2a256c96cb~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=1230&h=188&s=50225&e=png&b=010101)
+![](_assets/606c6c33554c4cbbbf889e2a256c96cb~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 执行lua脚本，指定参数参数，传入KEY、Value
 

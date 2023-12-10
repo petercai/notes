@@ -1,7 +1,7 @@
 # Windows 通过 Git Bash 配置 Oh My Zsh
 > 在 Unix 环境中，Oh-My-Zsh 能极大提高终端易用性，并提供高度之定义功能，本文讲解 Windows 下通过 Git Bash 配置 OhMyZsh，实现让终端如在 Unix 环境下般便捷易用。
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7da126a3022449b6bfc257b2a4f339cb~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=1248&h=641&s=49093&e=png&b=0f0f0f)
+![](_assets/7da126a3022449b6bfc257b2a4f339cb~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 一、安装 Git Bash
 -------------
@@ -153,7 +153,7 @@ source ~/.zshrc
 
 ### 2.配置
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3e446eb9d1f6466597efb7dca0dfdcde~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=1677&h=824&s=66424&e=jpg&b=2e2e2e)
+![](_assets/3e446eb9d1f6466597efb7dca0dfdcde~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 六、配置IDEA、VsCode或其他IDE软件
 -----------------------

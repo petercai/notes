@@ -2,7 +2,7 @@
 
 当我们需要执行多个异步任务，并且需要等待它们全部完成才可以继续时，可以使用以下两种实现方案：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/761aefc46d31429da9a646da48cfa069~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=1030&h=362&s=30830&e=png&b=fffefe)
+![](_assets/761aefc46d31429da9a646da48cfa069~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 方案一：CountDownLatch
 ------------------
@@ -113,7 +113,7 @@ public class CompletableFutureDemo {
 
 在实际使用中，可以根据具体需求选择合适的方案。
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1c6e96a5b0324fa6a34becdb6ac7e5c2~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=1060&h=259&s=67451&e=png&b=fffefe)
+![](_assets/1c6e96a5b0324fa6a34becdb6ac7e5c2~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 CountDownLatch 和 CompletableFuture 都是用于在多线程环境中同步线程的工具。它们都具有各自的优缺点，适用于不同的场景。
 
@@ -123,7 +123,7 @@ CountDownLatch 和 CompletableFuture 都是用于在多线程环境中同步线�
 | 使用难度 | 简单 | 复杂 |
 | 适用场景 | 简单的同步场景 | 各种同步、异步场景 |
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/575c1db91ca84b809ad1690d2f711585~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=1020&h=219&s=33026&e=png&b=dbe4f2)
+![](_assets/575c1db91ca84b809ad1690d2f711585~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 CountDownLatch
 --------------

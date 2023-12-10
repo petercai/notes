@@ -5,9 +5,9 @@
 
 其实 “头”就是“枝”。在 git 内部，分支存储在名为 `.git/refs/heads` 的目录中
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f93ec260f4cb43afac5fc810e86bbfee~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=1620&h=458&s=138391&e=png&b=2f393d)
+![](_assets/f93ec260f4cb43afac5fc810e86bbfee~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
-而 `HEAD` 是当前分支。它存储在 `.git/HEAD` 中。 ![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d31c57266aa6411492a604c507df430d~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=998&h=366&s=47404&e=png&b=2f393d)
+而 `HEAD` 是当前分支。它存储在 `.git/HEAD` 中。 ![](_assets/d31c57266aa6411492a604c507df430d~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 **“a head 是一个分支， HEAD 是当前分支” 这绝对是 git 中最奇怪的术语之一。** 
 

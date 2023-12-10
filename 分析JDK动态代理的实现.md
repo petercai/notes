@@ -87,7 +87,7 @@ public class Test {
 
 最后输出的结果
 
-![](https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2020/1/29/16feff1fbe9d42e7~tplv-t2oaga2asx-jj-mark:3024:0:0:0:q75.png)
+![](_assets/16feff1fbe9d42e7~tplv-t2oaga2asx-jj-mark!3024!0!0!0!q75.png)
 
 通过输出结果可以知道，实际上执行的是代理对象里面的invoke()方法。
 
@@ -434,11 +434,11 @@ private static final class ProxyClassFactory
 
 1，我们在运行`Test`类之前，首先进行一个配置，在红色框框的部分添加这个属性`-Dsun.misc.ProxyGenerator.saveGeneratedFiles=true`
 
-![](https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2020/1/29/16ff10d346fdd232~tplv-t2oaga2asx-jj-mark:3024:0:0:0:q75.png)
+![](_assets/16ff10d346fdd232~tplv-t2oaga2asx-jj-mark!3024!0!0!0!q75.png)
 
 2，在运行代码之前，设置系统全局属性，添加红色方框部分的代码
 
-![](https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2020/1/29/16ff113cb8ab6c4f~tplv-t2oaga2asx-jj-mark:3024:0:0:0:q75.png)
+![](_assets/16ff113cb8ab6c4f~tplv-t2oaga2asx-jj-mark!3024!0!0!0!q75.png)
 
 运行代码，代码执行完成之后就会在`main()`所在类的同级目录下看到创建了一个com.sun.proxy包，该包下面有一个`$Proxy0.class`类似的class文件，这就是生成的代理类。
 
