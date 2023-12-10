@@ -301,8 +301,562 @@ public class Contributions extends ApplicationWindow
 The last three methods in Contributions are also straightforward. The main() method takes care of creating and opening the window and then disposing of the GUI resources. Then, the **createMenuManager**() method creates a menu instance at the top of the window. Because it’s a subclass of **ContributionManager**, an **Action** object can be associated with it, and the **status_action** object is added with the **add()** method. This method is also used in the **createToolBarManager**() method to associate the action instance. In both cases, an **ActionContributionItem** is implicitly created and added to the menu in the form of a menu item and to the toolbar as a toolbar item.
 #### Interfacing with contributions
 There are two main ways of incorporating an **ActionContributionItem** in a GUI. 
-1. The first method is to use the add() method of a ContributionManager subclass, as performed by the MenuManager and ToolBarManager in the Contributions application. 
-2. The second is to use the fill() method associated with the ActionContributionItem class and add an SWT widget as its argument. If the argument is a Composite, as in Contributions, then the contributor will appear as determined by the STYLE property of the action. If the argument is an SWT Menu object, then the contributor will take the form of a menu item. Finally, if the argument is an SWT ToolBar object, then the contributor will appear as an item in a toolbar.
+1. The first method is to use the add() method of a **ContributionManager** subclass, as performed by the **MenuManager** and **ToolBarManager** in the Contributions application. 
+2. The second is to use the **fill**() method associated with the **ActionContributionItem** class and add an SWT widget as its argument. If the argument is a **Composite**, as in **Contributions**, then the contributor will appear as determined by the **STYLE** property of the action. If the argument is an SWT **Menu** object, then the contributor will take the form of a menu item. Finally, if the argument is an SWT ToolBar object, then the contributor will appear as an item in a toolbar.
+
+![[Graphical Editing Framework-20231209-1.png]]
+An interesting characteristic of the ContributionManager class is that its **add**() method is overloaded to accept arguments of both **Action** and **ActionContributionItem** classes. So, you can associate a ContributionItem with a ContributionManager implicitly (with the Action) or explicitly (with the ActionContributionItem). But there’s a fundamental difference: You can perform implicit contribution association repeatedly with the same Action object, as shown in the Contributions class. Explicit contribution association can be performed only once.
+
+
+#### Exploring the Action class
+You need to keep in mind many more aspects of the Action class. The **Action** class contains a large number of methods to enhance the capability of your user interface. These have been divided into categories and listed in the tables that follow. The first set of methods is important in any implementation of the Action class. The first and most important method is **run**(). As we mentioned earlier, this is the single event-handling routine in an Action class, and it’s invoked every time the action is triggered. The next method in the table serves as the default constructor. In addition, constructor methods initialize the member fields associated with the Action class, which we’ll fully describe shortly.
+![[Graphical Editing Framework-20231209-2.png]]
+![[Graphical Editing Framework-20231209-3.png]]
+![[Graphical Editing Framework-20231209-4.png]]
+![[Graphical Editing Framework-20231209-5.png]]
+![[Graphical Editing Framework-20231209-6.png]]
+![[Graphical Editing Framework-20231209-7.png]]
+
+
+# Layout
+Layouts are associated with a composite and help organize the controls within it.
+
+## The fill layout
+
+```
+public class FillLayoutComposite extends Composite {
+	public FillLayoutComposite(Composite parent) {
+		super(parent, SWT.NONE);
+		FillLayout layout = new FillLayout( SWT.VERTICAL);
+		setLayout(layout);
+		for (int i = 0; i < 8; ++i) {
+			Button button = new Button(this, SWT.NONE);
+			button.setText("Sample Text");
+			}
+	}
+}
+```
+
+The fill layout is a simple layout that takes the child controls and lays them out at equal intervals to fill the space in a composite. By default, the controls are stacked side by side, from left to right. Each control is given the space it needs, and any leftover space in the composite is divided among the child controls.
+
+## The row layout
+
+```
+RowLayout layout = new RowLayout(SWT.HORIZONTAL);
+```
+
+The row layout arranges child controls into single row by default, you need to pass in SWT.WRAP to get the functionality of additional rows. The row layout provides additional customization options by giving you access to margin and spacing options. 
+	(Note that the name row layout is a bit of a misnomer, because you can choose to use either a horizontal row or a vertical row. The vertical row layout is therefore really a column layout.)
+
+Much of the other behavior in a RowLayout is specified through property values. We’re mainly concerned with the following properties:
+- **wrap**—A boolean value that defaults to true. You’ll probably want to keep the default. Switching it off will result in all the controls staying on a single row, with the controls cut off at the end of the visible edge of the parent composite.
+- **pack**—A boolean value that defaults to true. This property keeps child controls the same size, which typically is desirable in the context of a row layout. You get even rows of controls by setting pack; on the other hand, keeping pack off lets controls retain their natural sizing.
+- **justify**—A boolean value that defaults to false. This property distributes controls evenly across the expanse of the parent composite. If justify is on and the parent is resized, then all the child controls pick up the slack and redistribute themselves evenly across the empty space.
+
+## The grid layout
+The grid layout builds on the row layout model by allowing you to explicitly create multiple rows and columns.  Factor in a flexible grid data object, and the end result is that the grid layout is the most useful and widely used layout. 
+```
+public class GridLayoutComposite extends Composite {
+	public GridLayoutComposite(Composite parent) {
+		super(parent, SWT.NONE);
+		GridLayout layout = new GridLayout(4,false);
+		setLayout(layout);
+		for (int i = 0; i < 16; ++i) {
+			Button button = new Button(this, SWT.NONE);
+			button.setText("Cell " + i);
+		}
+	}
+}
+```
+Note that the constructor takes two parameters: the number of columns and a boolean to indicate whether the columns should take up an even amount of space. By passing false, you tell the layout to only use the minimum amount of space needed for each column.
+
+### GridData
+The key to using the grid layout is understanding that a single child control can span more
+than one grid cell at a time. You do this through layout data. In this case, let’s turn to the **GridData** object, which provides additional hints for the **GridLayout** on how to lay out a Control.
+
+```
+Text t = new Text(this, SWT.MULTI);
+GridData data = new GridData(GridData.FILL_BOTH);
+data.horizontalSpan = 2;
+data.verticalSpan = 2;
+t.setLayoutData(data);
+```
+
+#### Using GridData styles
+The constructor takes a series of style constants, which when combined determine how the layout will position an individual widget. These styles fall into three categories: **FILL**, **HORIZONTAL_ALIGN**, and **VERTICAL_ALIGN**.
+The various **FILL** styles determine whether the cell should be expanded to fill available space. Valid values include **FILL_HORIZONTAL**, which indicates that the cell should be expanded horizontally; **FILL_VERTICAL**, to expand the cell vertically; and **FILL_BOTH**, which effectively causes the cell to fill all the space available.
+The **ALIGN** styles, on the other hand, determine where the control should be positioned in the cell. Values include **BEGINNING**, **END**, **CENTER**, and FILL. **BEGINNING** positions the control at the left or topmost edge of the cell, whereas **END** puts the control at the right or bottommost edge. **CENTER** centers the control, and **FILL** causes the control to expand to fill all available space.
+![[Graphical Editing Framework-20231209-8.png]]
+
+#### Using GridData size attributes
+GridData also has a number of public attributes that can be set to control its behavior. Several of these are boolean values that are automatically managed when the different styles are set, so it isn’t typically necessary to manipulate them directly. Some, however, are integer values used to precisely control the size of individual cells.
+![[Graphical Editing Framework-20231209-9.png]]
+
+## The form layout
+The form  layout lets you create a UI based on gluing together controls relative to each other or the parent composite.
+This makes it much easier to create resizable forms with controls of differingsizes. A typical dialog box, for example, has a large central text area and two buttons located just below and to the right. In this case, the most natural way to think of how the controls should be positioned is by envisioning them relative to each other.
+The **FormLayout** class is fairly simple. The only configuration options come from attributes that control the height and width of the margins around the edge of the layout, and the spacing attribute, which lets you specify the amount of space (in pixels) to be placed between all controls. 
+```
+public class FormLayoutComposite extends Composite {
+	public FormLayoutComposite(Composite parent) {
+		super(parent, SWT.NONE);
+		
+		FormLayout layout = new FormLayout();
+		setLayout(layout);
+		
+		Text t = new Text(this, SWT.MULTI);
+		FormData data = new FormData();
+		data.top = new FormAttachment(0, 0); // Test goes at uppper left
+		data.left = new FormAttachment(0, 0);
+		data.right = new FormAttachment(100);
+		data.bottom = new FormAttachment(75);
+		t.setLayoutData(data);
+		
+		Button ok = new Button(this, SWT.NONE);
+		ok.setText("Ok");
+		Button cancel = new Button(this, SWT.NONE);
+		cancel.setText("Cancel");
+		
+		data = new FormData();
+		data.top = new FormAttachment(t); // Ok button positioned relative
+										// to other widgets
+		data.right = new FormAttachment(cancel);
+		ok.setLayoutData(data);
+		data = new FormData();
+		data.top = new FormAttachment(t);
+		data.right = new FormAttachment(100); // Cancel button on right side
+		cancel.setLayoutData(data);
+	}
+}
+```
+
+### Using FormData
+A **FormData** instance is typically associated with each child control in a composite. Even more so than with other layouts, it’s important to provide configuration data for each child, because the whole idea of a form layout is to specify positions of child controls relative to each other. If a given control doesn’t have a **FormData** instance describing it, it will default to being placed in the upper-right corner of the composite, which is rarely what you want.
+The **width** and height attributes specify the dimensions of a control in pixels. More important are the **top**, **bottom**, **right**, and **left** attributes, each of which holds an instance of **FormAttachment**. These attachments describe the control’s relations to other controls in the composite.
+
+### Specifying relations using FormAttachment
+Understanding the **FormAttachment** class is the most important part of using a form layout. As mentioned earlier, each instance of **FormAttachment** describes the positioning of one side of a control. You can use FormAttachment two different ways.
+First, you can specify a **FormAttachment** using a percentage of the parent composite. For example, if the left side of a FormData is set to a FormAttachmentwith 50%, then the left edge of the control will be placed at the horizontal middle of the parent. Likewise, setting the top edge to 75% positions the control three quarters of the way down the composite
+![[Graphical Editing Framework-20231210-1.png]]
+Specifying FormAttachments in terms of percentages can be useful, but you shouldn’t use this approach often. Specifying all your controls using percentages isn’t much different from assigning them absolute pixel positions: It quickly becomes difficult to visualize the positions of each element; and when the composite is resized, it’s unlikely that the controls will still be in the positions you desire. The point of using a FormLayout is to position controls relative to each other, which the second form of FormAttachment allows.
+
+The second series of FormAttachment constructors are based on passing in other controls. They’re used to position the edge of one control next to another. By setting the right attribute of the **FormData** for button1 to a FormAttachment constructed with button2, you’re saying that button1 should always be positioned such that button2 is immediately to its right. Laying out most or all of your controls in this fashion has several benefits. The intent of your layout code becomes easier to understand: Instead of your having to guess which controls are meant to be next to each other based on percentages or pixels, it becomes obvious that, for example, control foo should always be below bar. Second, the form layout is also aware of your intent. However the composite may be resized, it will
+always be able to maintain the correct relative positions.
+![[Graphical Editing Framework-20231210-2.png]]
+
+
+# Graphics
+
+## The graphic context
+The graphic context functions like a drawing board on top of a **Control**. It lets you add custom shapes, images, and multifont text to GUI components. It also provides event processing for these graphics by controlling when the Control’s visuals are updated.
+
+In SWT/JFace, the graphic context is encapsulated in the **GC** class. GC objects attach to existing Controls and make it possible to add graphics. This section will deal with how this important class and its methods operate.
+
+### Creating a GC object
+The first step in building a graphically oriented application is creating a graphic context and associating it with a component. The GC constructor method performs both tasks.
+![[Graphical Editing Framework-20231210-3.png]]
+
+The style constant mentioned in the second constructor determines how text appears in the display. The two values are **RIGHT_TO_LEFT** and **LEFT_TO_RIGHT**; the default style is **LEFT_TO_RIGHT**.
+The first argument requires an object that implements the **Drawable** interface. This interface contains methods that relate to the internals of a graphic context. SWT provides three classes that implement **Drawable**: **Image**, **Device**, and **Control**. Unless you create your own **Drawable** objects, you can only add graphics to instances of these classes or their subclasses. 
+![[Graphical Editing Framework-20231210-5.png]]
+The **Device** class represents any mechanism capable of displaying SWT/JFace objects. This is easier to understand if you consider its two main subclasses: **Printer**, which represents print devices, and **Display**, which accesses a computer’s console. The **Display** class, the base class of any SWT/JFace application. But since this chapter deals with adding graphics to individual components, we’ll associate our GC with the third **Drawable** class, **Control**. 
+A **Control** object is <u>any widget that has a counterpart in the underlying operating system. </u>I<u>nstances of this class and its subclasses can be resized, traversed, and associated with events and graphics</u>. Although of all them can contain graphics, only one class is particularly suited for GC objects: **Canvas**. This class not only provides the containment property of a Composite, but also can be customized with a number of styles that determine how graphics are shown in its region.
+
+
+### Drawing shapes on a Canvas
+A full graphical application, DrawExample.java, uses a GC object to draw lines and shapes on a Canvas instance.
+```
+public class DrawExample
+{
+	public static void main (String [] args)
+	{
+		Display display = new Display();
+		Shell shell = new Shell(display);
+		shell.setText("Drawing Example");
+		
+		Canvas canvas = new Canvas(shell, SWT.NONE); // Create Cavas object
+		canvas.setSize(150, 150);
+		canvas.setLocation(20, 20);
+		
+		shell.open ();
+		shell.setSize(200,220);
+		
+		GC gc = new GC(canvas); // Create graphic context in Cavas
+		gc.drawRectangle(10, 10, 40, 45);
+		gc.drawOval(65, 10, 30, 35);
+		gc.drawLine(130, 10, 90, 80);
+		gc.drawPolygon(new int[] {20, 70, 45, 90, 70, 70});
+		gc.drawPolyline(new int[] {10,120,70,100,100,130,130,75});
+		gc.dispose(); // Deallocate Coor object when finished
+		
+		while (!shell.isDisposed())
+		{
+			if (!display.readAndDispatch())
+			display.sleep();
+		}
+		display.dispose();
+	}
+}
+```
+This example demonstrates two important concerns to keep in mind when you work with
+GCs. 
+- First, the program constructs its **Canvas** object before invoking the **shell**.**open**() method; it creates and uses the **GC** object afterward. This sequence is necessary since **open**() clears the **Canvas** display. This also means that graphic contexts must be created in the same class as the **Shell** object. 
+- Second, the program deallocates the GC object immediately after its last usage. Doing so frees up computer resources quickly without affecting the drawing process. Along with those used in DrawExample.java, the GC class provides a number of methods that draw and fill shapes on a Drawable object.
+![[Graphical Editing Framework-20231210-6.png]]
+One problem with DrawExample is that its shapes are erased whenever the shell is obscured or minimized. This is an important concern, since we need to make sure the graphics remain visible despite windowing changes. For this purpose, SWT lets you control when a **Drawable** object is refreshed. This updating process is called **painting**.
+
+### Painting and PaintEvents
+When a GC method draws an image on a **Drawable** object, <u>it performs the painting process only once</u>. If a user resizes the object or covers it with another window, its graphics are erased. Therefore, it’s important that an application maintain its appearance whenever its display is affected by an external event. 
+
+These external events are called **PaintEvent**s, and the interfaces that receive them are **PaintListener**s. A **Control** triggers a **PaintEvent** any time its appearance is changed by the application or through outside activity. The following snippet shows an example; because a PaintListener has only one event handling method, no adapter class is necessary:
+
+```
+Canvas canvas = new Canvas(shell, SWT.NONE);
+canvas.setSize(150, 150);
+canvas.setLocation(20, 20);
+canvas.addPaintListener(new PaintListener()
+{
+	public void paintControl(PaintEvent pe)
+	{
+		GC gc = pe.gc;
+		gc.drawPolyline(new int[] {10,120,70,100,100,130,130,75});
+	}
+});
+shell.open();
+```
+An interesting aspect of using **PaintListeners** is that each **PaintEvent** object contains its own GC. This is important for two reasons. 
+- First, because the GC instance is created by the event, the PaintEvent takes care of its disposal. 
+- Second, the application can create the GC before the shell is opened, which means that graphics can be configured in a separate class.
+
+SWT optimizes painting in **PaintListener** interfaces, and its designers strongly recommend painting with Controls only in response to **PaintEvent**s. If an application must update its graphics for another reason, they recommend using the control’s **redraw**() method, which adds a paint request to the queue. Afterward, you can invoke the **update**() method to process all the paint requests associated with the object.
+
+It’s important to remember that, although painting in a **PaintListener** is recommended for **Control** objects, **Device** and **Image** objects can’t use this interface. If you need to create graphics in an image or device, you must create a separate GC object and dispose of it when you’re finished.
+
+### Clipping and Canvas styles
+By default, the area available for drawing with a graphic context is the same as that of its associated **Control**. However, the GC provides methods that establish bounds for its own graphical region, called the <u>clipping region</u>. The **setClipping**() method specifies the limits for the GC’s graphics, and the **getClipping**() method returns the coordinates of the clipping region.
+The concept of clipping is also important when you’re dealing with **PaintEvent**s. Not only do these events fire whenever a **Drawable** object is covered by another window, but they also keep track of the area being obscured. That is, if a user covers part of a Canvas with a second window, the **PaintEvent** determines which section has been clipped and sets its x, y, height, and width fields according to the smallest rectangle that encloses the concealed region. This is necessary since repainting refreshes only this clipped region, not the entire object.
+If multiple sections of a **Control** object are obscured, then by default, the object merges these sections into a single region and requests that it be repainted. However, if an application requires that separate requests be made for each concealed area, then the **Control** should be constructed with the **NO_MERGE_PAINTS** style. This is the first of the styles associated with the **Composite** class but specifically intended for **Canvas** objects. 
+![[Graphical Editing Framework-20231210-7.png]]
+Normally, when a user clicks a window, any keyboard input is directed to it. This property is called<u> focus behavio</u>r, and you can remove it from a **Canvas** object by constructing the object with the **NO_FOCUS** style. Similarly, when a **Canvas** is resized, a **PaintEvent** is triggered by default and the display is repainted. You can change this default behavior by using the **NO_REDRAW_RESIZE** style. It’s important to note, though, that using this style may cause graphical artifacts during a resize operation.
+Before a graphic context draws its images, its Canvas paints itself with the color of its shell, the default background color. These paint operations can cause screen flicker on certain displays. You can prevent this by using the **NO_BACKGROUND** style, which prevents the first painting. Without a background color, the graphic context must cover every pixel of the **Canvas**, or it will take the appearance of the screen behind the shell.
+
+### Programming with colors
+One of the fundamental aspects of any graphical toolset is its use of colors. The theory behind colors is straightforward, but their practical usage requires explanation. This section will discuss how colors are represented in SWT and how to allocate and deallocate them in a program. It will also discuss two classes provided by the JFace library that simplify the process of working with colors.
+
+#### Color development with SWT
+Because monitors use light to provide color, it makes sense to use light’s primary colors—red, green, and blue (RGB)—to represent the colors of a display. This color system is additive, which means that colors are generated by adding red, green, and blue elements to a black field. For example, if 24 bits are used to specify the RGB value at a point, then black (the absence of light) is represented in hexadecimal as 0x000000, and white (the combination of light) as 0xFFFFFF. SWT follows this course by providing classes and methods that access and use RGB objects.
+This concept may seem simple, but SWT’s designers faced a serious challenge in implementing it on multiple platforms. The problem involved providing a standard set of colors despite variations in display resolution and color management policy. In the end, they decided on a two-part solution. 
+First, SWT provides a set of 16 basic colors (called system colors) using the display’s **getSystemColor**() method. This method takes an integer representing one of SWT’s color constants and returns a Color object. 
+![[Graphical Editing Framework-20231210-8.png]]
+If you want to use colors that fall outside this set, you must allocate a Color object according to its RGB values. You do so by invoking one of two constructor methods associated with the Color class. If a display’s resolution is too low to show this color, then it will use the system color with the nearest RGB value.
+![[Graphical Editing Framework-20231210-9.png]]
+In both constructors, the first argument is an object of the Device class. Afterward, the color’s RGB value is set according to three integers between 0 and 255, or an instance of the RGB class. This RGB class, whose constructor is RGB(int, int, int), is used to describe a color according to the values of its elements. It’s important to remember that creating an RGB instance doesn’t create a color and that an RGB object doesn’t require disposal.
+
+```
+public class Colors extends Canvas
+{
+	public Colors(Composite parent)
+	{
+		super(parent, SWT.NONE);
+		setBackground(this.getDisplay().
+		getSystemColor(SWT.COLOR_DARK_GRAY)); // User system color for Cavas
+		addPaintListener(drawListener);
+	}
+	
+	PaintListener drawListener = new PaintListener()
+	{
+		public void paintControl(PaintEvent pe)
+		{
+			Display disp = pe.display;
+			Color light_gray = new Color(disp, 0xE0, 0xE0, 0xE0); // Create color
+												// object based on RGB value
+			GC gc = pe.gc;
+			gc.setBackground(light_gray);
+			gc.fillPolygon(new int[] {20, 20, 60, 50, 100, 20});
+			gc.fillOval(120, 30, 50, 50);
+			light_gray.dispose(); // Deallocate Color object when finished
+		}
+	};
+}
+```
+#### Additional color capability with JFace
+JFace uses the same color methodology as SWT. It also provides two interesting classes to simplify color manipulation: **JFaceColors**, located in the **org.eclipse.jface.resource** package; and **ColorSelector**, located in the **org.eclipse.jface.preference** package.
+##### The JFaceColors class
+The **JFaceColors** class contains a number of static methods that you can use to obtain colors in an Eclipse Workbench application. **getBannerBackground**() returns the color of an application’s banner, and **getErrorBorder**() returns the border color of widgets that display errors. There are also methods that return colors of different kinds of text.
+
+The **JFaceColors** class also provides a useful method that can be invoked in both SWT and JFace applications: **setColors**(), which you can use to set both the foreground and background colors of a widget at once. The following code snippet makes the button’s foreground color red and its background color green:
+```
+Button button = new Button(parent, SWT.NONE);
+red = display.getSystemColor(SWT.COLOR_RED);
+green = display.getSystemColor(SWT.COLOR_GREEN);
+JFaceColors.setColors(button,red,green);
+```
+There is also a **disposeColors**() method, which despite its described capability of deallocating all colors at once, can’t replace the dispose() method in the Color class. Instead, it’s meant to perform additional tasks when the workbench disposes of its color resources.
+
+##### The ColorSelector class
+Another class offered by the JFace toolset lets the user choose colors in an application. Although the **ColorSelector** is part of JFace’s Preference framework, we felt it necessary to mention its capability here. In essence, this class adds a button to an instance of SWT’s **ColorDialog** class. 
+The **ColorSelector** sets and retrieves the RGB value corresponding to the user’s selection. The **setColorValue**() method sets the default selection as the dialog box is created. The **getColorValue**() method converts the user’s selection into an RGB object that can be used to allocate the color. This is shown in the following code snippet:
+```
+ColorSelector cs = new ColorSelector(this);
+Button button = cs.getButton();
+RGB RGBchoice = cs.getColorValue();
+```
+Colors improve the appearance of a GUI, but they don’t convey useful information. A proper user interface needs to communicate with the user. This means adding text, which means working with resources that control how text is presented. These resources are called fonts.
+
+## Displaying text with fonts
+This section will present the means of choosing, allocating, and deallocating fonts with the SWT toolset. Then, we’ll show you how to simplify these tasks with JFace. In keeping with its goal of maintaining a native look and feel, the SWT/JFace toolkit relies primarily on fonts provided by the operating system. Unfortunately, these fonts vary from one platform to another. Therefore, when this section describes a font’s name, it means the name of one of the fonts installed on your system.
+
+### Using fonts with SWT
+SWT provides a number of font-related classes that perform one of three functions. The first involves font management—allocating and deallocating Font objects. The second function is implementing fonts in objects to change the display of their text. Finally, SWT contains methods that provide measurements of text dimensions for use in graphical applications.
+#### Font management
+**FontData** objects provide the basic data for creating Font instances. This data consists
+of three parts, which are also the three arguments to the most common **FontData** constructor method:
+```
+FontData(String name, int height, int style)
+```
+The first argument represents the name of the font, such as Times New Roman or Arial. The height refers to the number of points in the font, and the style represents the type of font face: **SWT.NORMAL**, **SWT.ITALIC**, or **SWT.BOLD**.
+In addition, you can customize a **FontData** object by specifying its locale (the application’s geographic location and the set of characters that should be used). A font’s locale can be determined by invoking the **getLocale**() method and specified with **setLocale**().
+Neither **RGB** or **FontData** instances need to be disposed of, but Font objects require allocation and deallocation. 
+![[Graphical Editing Framework-20231210-10.png]]
+There is only one deallocation method for the Font class: **dispose**(). You should invoke it shortly after the Font’s last usage.
+
+##### Implementing fonts in objects
+In SWT, fonts are generally associated with one of two GUI objects: **Controls** and **GCs**. When you use the **setFont**() method associated with Controls, any text presented with a **setText**() method is displayed with the specified font. Graphic contexts also use the **setFont**() method, but they provide a number of different methods for painting text in its clipping region. 
+![[Graphical Editing Framework-20231210-11.png]]
+Because of the overloaded **drawString**() and **drawText**() methods, this table requires some explanation. Although implementations of **drawString**() and **drawText**() have the same argument types and functions, the difference is that <u>drawText() processes carriage returns and tab expansions</u>, whereas <u>drawString() disregards them</u>. Also, the two integers following the String argument represent the coordinates of the text display.
+
+The Boolean argument in the second and fourth methods <u>indicates whether the text background should be transparent</u>. If this value is set to TRUE, then the color of the rectangle containing the text won’t be changed. If it’s FALSE, the color of the rectangle will be set to that of the graphic context’s background.
+
+The third integer in the last drawText() method represents a flag that changes the text display. These flags are as follows:
+- DRAW_DELIMITER—Displays the text as multiple lines if necessary
+- DRAW_TAB—Expands tabs in the text
+- DRAW_MNEMONIC—Underlines accelerator keys
+- DRAW_TRANSPARENT—Determines whether the text background will be the same color as its associated object
+Many of these flags are implemented in the code that follows.
+
+##### Measuring font parameters
+When incorporating text in GUIs, you may want to know the text’s dimensions, which means knowing the measurements of a given font. SWT provides this information through its **FontMetrics** class, which contains a number of methods for determining these parameters. 
+![[Graphical Editing Framework-20231210-12.png]]
+This class has no constructor methods. Instead, the GC object must invoke its **getFontMetrics**() method. It returns a **FontMetrics** object for the font used in the graphic context and lets you use the listed methods. Each returns an integer that measures the given dimension according to the number of pixels.
+
+
+```
+public class Fonts extends Canvas
+{
+	static Shell mainShell;
+	static Composite comp;
+	FontData fontdata;
+	public Fonts(Composite parent)
+	{
+		super(parent, SWT.BORDER);
+		parent.setSize(600, 200);
+		addPaintListener(DrawListener);
+		comp = this;
+		mainShell = parent.getShell();
+		
+		Button fontChoice = new Button(this, SWT.CENTER);
+		fontChoice.setBounds(20,20,100,20);
+		fontChoice.setText("Choose font");
+		fontChoice.addMouseListener(new MouseAdapter()
+		{
+			public void mouseDown(MouseEvent me)
+			{
+				FontDialog fd = new FontDialog(mainShell); // Open FontDialog box
+				fontdata = fd.open();
+				comp.redraw();
+			}
+		});
+	}
+	PaintListener DrawListener = new PaintListener()
+	{
+		public void paintControl(PaintEvent pe)
+		{
+			Display disp = pe.display;
+			GC gc = pe.gc;
+			gc.setBackground(pe.display.getSystemColor(SWT.COLOR_DARK_GRAY));
+			if (fontdata != null)
+			{
+				Font GCFont = new Font(disp, fontdata);// Create Fond based on user
+				gc.setFont(GCFont);
+				FontMetrics fm = gc.getFontMetrics(); // Measure properties of font
+				gc.drawText("The average character width for this font is " +
+				fm.getAverageCharWidth() + " pixels.", 20, 60);
+				gc.drawText("The ascent for this font is " +
+				fm.getAscent() + " pixels.", 20, 100, true);
+				gc.drawText("The &descent for this font is " 
+					+ fm.getDescent()
+					+ " pixels.", 20, 140, SWT.DRAW_MNEMONIC|SWT.DRAW_TRANSPARENT);
+				GCFont.dispose();
+			}
+		}
+	};
+}
+```
+Once the user clicks the Choose Font button, the MouseEvent handler creates an instance of a FontDialog and makes it visible by invoking the dialog’s open() method. This method returns a FontData object, which is used in the DrawListener interface to create a font for the graphic context. This GC object, created by the PaintEvent, then invokes its getFontMetrics() method to measure the parameters of the font.
+
+When the graphic context sets its foreground color to SWT.COLOR_DARK_GRAY, this usually means that all text created by the GC will be surrounded by this color. However, only the first drawText() method is surrounded by the foreground color; this is because the second and third invocations are considered transparent and take the color of the underlying Canvas. The third drawText() method also enables mnemonic characters, which means that an ampersand (&) before a letter results in the display underlining this character.
+
+In the DrawListener interface, a great deal of the processing is performed only after the FontData object has been set by the FontDialog. This is necessary since errors will result if the FontData argument is null. Also, since the graphic context only draws its text after a PaintEvent, the MouseAdapter ends by invoking the redraw() method, which causes the Canvas to repaint itself.
+
+### Improved font management with JFace
+One of the main functions of SWT’s graphics is to provide font management—the allocation and deallocation of font resources. This can be accomplished with the Font constructor and dispose() methods, but there is no efficient way to manage multiple fonts in a single
+application. JFace provides this capability with its **FontRegistry** class, located in the **org.eclipse.jface.resource** package.
+By using a **FontRegistry**, you don’t need to worry about the creation or disposal of Fonts. Instead, the **FontRegistry**’s **put**() method lets you match a String value with a corresponding **FontData**[] object. This method can be invoked multiple times to add more Fonts to the registry. Then, when the application needs a new Font to change its text display, it calls the registry’s **get**() method, which returns a Font object based on the argument’s String value. 
+```
+FontRegistry fr = JFaceResources.getFontRegistry();
+fr.put("User_choice", fontdialog.getFontList());
+fr.put("WingDings", WDFont.getFontData());
+Font choice = fr.get("User_choice");
+
+```
+Rather than create an empty registry, this code uses the preexisting **FontRegistry** associated with JFace and adds two more fonts. The first font is placed in the registry from the result of a **FontDialog** selection, and the second is taken from a font that existed previously in the application. In the last line, the **FontRegistry** converts the **FontData**[] object associated with the **FontDialog** into a Font instance. Just as the **FontRegistry** manages the creation of this font, it also performs its disposal, as well as that of every font in its registry.
+
+The fonts in the **FontRegistry** include those used in the Eclipse Workbench’s banners and dialog boxes. However, you need the **JFaceResources** class to access them. The following code shows how this can be performed. It’s important to note that the Strings used to invoke the registry’s get() method, as well as the **FontRegistry** itself, are member fields in JFaceResources:
+```
+FontRegistry fr = JFaceResources.getFontRegistry();
+Font headFont = fr.get(JFaceResources.HEADER_FONT);
+Font dialogFont = fr.get(JFaceResources.DIALOG_FONT);
+```
+![[Graphical Editing Framework-20231210-13.png]]
+
+
+## Incorporating images in graphics
+SWT provides classes and methods for image management and integration in much the same way that it provides for font handling. Also, JFace provides built-in resources and registries that reduce the amount of complexity involved with image management.
+### Allocating images
+Most applications only create Image objects to add existing image files to a user
+interface. In this case, you should use the first and simplest of the Image constructor methods:
+```
+Image(Device, String)
+```
+Applications seeking to present the image in a GUI invoke this method using the Display object as the first argument and the image file’s pathname as the second. As of the time of this writing, SWT accepts .jpg, .gif, .png, .bmp, and .ico file types.
+If the image file resides in the same directory as a known class, then an InputStream can be generated by invoking the class’s getResourceAsStream() method. With this InputStream, you can use the second constructor method:
+```
+InputStream is = KnownClass.getResourceAsStream("Image.jpg");
+Image Knownimage = new Image(Display, is);
+```
+![[Graphical Editing Framework-20231210-14.png]]
+The third and fourth constructor methods create empty Image instances with dimensions set by the method’s arguments. The two integers specify the x and y parameters of the image, and the Rectangle object in the fourth method frames the image according to its boundaries. The fifth creates an Image based on a second Image instance and an integer flag that determines whether the image should appear disabled or in grayscale.
+
+The last two constructor methods construct Image instances using objects of the **ImageData** class. This class provides device-independent information about an Image object and contains methods to manipulate the image. Like the FontData class, instances of **ImageData** don’t use operating system resources and don’t require deallocation. Image instances, however, need to invoke their **dispose**() methods when they’re no longer in use.
+
+First, it’s important for you to understand how images are integrated in applications. The process of adding an Image to a GUI begins with creating a graphic context. This GC object then calls its **drawImage**() method, which takes one of two forms, based on whether the image will be presented with its original dimensions
+
+```
+public class ImageTest extends Composite
+{
+	public ImageTest(Composite parent)
+	{
+		super(parent, SWT.NONE);
+		parent.setSize(320,190);
+		
+		// create ImageData object from file
+		InputStream is = getClass().getResourceAsStream("eclipse_lg.gif");
+		final ImageData eclipseData = new ImageData(is).scaledTo(87,123);
+		
+		this.addPaintListener(new PaintListener()
+		{
+			public void paintControl(PaintEvent pe)
+			{
+				GC gc = pe.gc;
+				
+				// Create Image from ImageData
+				Image eclipse = new Image(pe.display, eclipseData);
+				gc.drawImage(eclipse, 20, 20);
+				
+				gc.drawText("The image height is: " 
+					+ eclipseData.height 
+					+ " pixels.",120,30);
+				gc.drawText("The image width is: " 
+					+ eclipseData.width 
+					+ " pixels.",120,70);
+				gc.drawText("The image depth is: " 
+					+ eclipseData.depth 
+					+ " bits per pixel.",120,110);
+				eclipse.dispose();
+			}
+		});
+	}
+}
+```
+This code begins by constructing an **ImageData** object using an InputStream. In this case, it makes sense to start with an **ImageData** instance since Image objects can’t be resized or recolored. This resizing process is performed using the **scaleTo**() method, which shrinks the image for the GUI.
+When a **PaintEvent** occurs, the program invokes the **paintControl**() method. This method creates the window’s graphic context and an Image object based on the **ImageData**. To the right of the image, three statements provide information regarding the fields of the ImageData instance. It’s worth noting that by changing the coordinates, you can superimpose the text (or any graphic) on the image.
+
+### Creating a bitmap with ImageData
+The easiest way to learn about ImageData is to design, build, and display an instance of this class. In this case, you’ll create a bitmap and use it to form an Image. Doing so will introduce many of the fields and methods associated with the ImageData class and provide a better idea why this class is necessary.
+The first step involves determining which colors will be used.  To tell ImageData about the colors you’ll be using, you need to create an instance of the PaletteData class. This object contains an array of the RGB values in the image. It consists of three elements: 0x000000 (black), 0x808080 (gray), and 0xFFFFFF (white).
+Each pixel in an image has three pieces of information: its x coordinate, or offset; its y coordinate, or scanline; and the pixel’s color, which is referred to as its value or index. Because this image contains only three colors, you don’t need to assign each pixel its full RGB value (0x000000, 0x808080, 0xFFFFFF). Instead, it’s simpler and less memory-intensive to use the color’s index in the **PaletteData** array and assign pixel values of (0, 1, 2). This simplified mapping between a pixel’s value and color is referred to as an indexed palette. For example, because the eclipse_lg.gif file used in the last code snippet has a depth of only 8 bits per pixel, each pixel is assigned a value between 1 and 28 (255).
+However, for images with depth greater than 8 bits per pixel, the additional processing needed to translate between an index and its color isn’t worth the reduced memory. These images use a direct palette, which directly assigns a pixel’s value to its RGB value. The **isDirect**() method in the **PaletteData** class tells whether an instance uses direct or indexed conversion.
+
+```
+public class FlagGraphic
+{
+	public FlagGraphic()
+	{
+		int pix = 20;
+		int numRows = 6;
+		int numCols = 11;
+		PaletteData pd = new PaletteData(new RGB[] // Create color palette
+		{
+			new RGB(0x00, 0x00, 0x00),
+			new RGB(0x80, 0x80, 0x80),
+			new RGB(0xFF, 0xFF, 0xFF)
+		});
+		final ImageData flagData = new ImageData(pix*numCols, pix*numRows, 2, pd);
+		
+		for(int x=0; x<pix*numCols; x++) // Set value of each pixel in image
+		{
+			for(int y=0; y<pix*numRows; y++)
+			{
+				int value = (((x/pix)%3) + (3-((y/pix)%3))) % 3;
+				flagData.setPixel(x,y,value);
+			}
+		}
+	}
+}
+```
+This example begins by creating a PaletteData object as an array of RGB objects corresponding to black, gray, and white colors. Then, an ImageData instance is constructed with the dimensions of the image, the depth of the image, and the PaletteData. Because there are three possible colors, the depth is set to 2, which provides support for up to 2^2 (4) colors. If an image’s color depth is 1, 2, 4, or 8, then the application creates an indexed palette for the ImageData object during its allocation process. For images with greater depth, the application will create a direct palette.
+	NOTE
+	If the user attempts to create a palette with a depth outside the set of {1,
+	2, 4, 8, 16, 24, 32}, the compiler will throw an ERROR_INVALID_ARGUMENT.
+![[Graphical Editing Framework-20231210-15.png]]
+It’s important to remember that, because **flagData** only works with RGB, **PaletteData**, and **ImageData** objects, no **dispose**() methods need to be invoked. Deallocation is only necessary when an **ImageData** instance is used to create an Image or if the RGB values are used to create Colors.
+
+### Manipulating images with ImageData
+Along with the bitmap methods described so far, the **ImageData** class also contains methods that provide graphical effects. You can set pixels in an image to provide transparency instead of a color. Using alpha blending, two images can be combined into an image that contains elements of both. Finally, using the **ImageData** and **ImageLoader** classes, you can sequence images into animated GIF files.
+#### Transparency
+With sufficient color depth, the RGB system can provide any color in the visible spectrum. However, this won’t help if you want sections of the image to be transparent. No combination of red, green, and blue elements will add up to a see-through color, so you need to set a specific pixel value to represent transparency. This way, any pixel with this value will instead take the color of the background behind it. This capability is provided with the transparentPixel field of the ImageData class. This is simple to use in code, as the following snippet shows:
+```
+flagData.transparentPixel = 2;
+Image flagImage = new Image(pe.display, flagData);
+gc.drawImage(flagImage, 20, 20);
+```
+In this code, any pixels in **FlagImage** with the value of 2 (representing white) take the color of the image’s background. 
+The right image is the result of setting the transparentPixel value to 1 (representing gray).
+In addition to the transparentPixel field, the ImageData class contains a number of methods that provide information about transparency. The getTransparencyMask() method returns an ImageData object with its transparent pixels separated in a mask array. The **getTransparencyType**() method returns an integer representing the type of transparency used. In many image-editing toolsets, a program can specify different degrees of transparency in an image. However, since there is no **setTransparencyType**() method at the time of this writing, this feature has yet to be integrated in SWT.
+**Transparency** is a helpful capability, but it’s still static. It would be much more striking to create a series of images and display them at short time intervals to provide the illusion of continuous motion. 
+
+#### Saving and animating images
+Of the many common types of images, the Graphics Interchange Format (GIF) is the only one that supports animation. Therefore, before we can discuss animation in depth, we need to describe how SWT’s Image objects are saved as image files. This means looking into SWT’s **ImageLoader** class.
+Like the **ImageData** constructors, the **ImageLoader** class contains methods that accept image files and streams and return ImageData[] objects. However, this class’s main purpose involves converting ImageData[] instances into OutputStreams and image files. This way, graphics can be persisted instead of being disposed with their Image objects. 
+![[Graphical Editing Framework-20231210-16.png]]
+
+### Managing images with JFace
+The ImageRegistry class lets you incorporate multiple images in an application without worrying about resource deallocation. It also uses the same access methods as the FontRegistry class. To place an image in the registry, you use the put() method with an
+Image object and a String. When the image needs to be displayed, the get() method returns the image based on the key. 
+```
+ImageRegistry ir = new ImageRegistry();
+ir.put("Eclipse", new Image(display, "eclipse_lg.gif"));
+Image eclipse = ir.get("Eclipse");
+```
+In this case, you still need to allocate resources for the Image object. This may cause a problem if the application places many images in the registry but only needs to display a few. For this reason, JFace created the **ImageDescriptor** class. Like SWT’s **ImageData** class, the **ImageDescriptor** contains the information needed for an image without requiring allocation of system resources. The **get**() and **put**() methods associated with the **ImageRegistry** class are also available for **ImageDescriptor** objects:
+```
+ImageRegistry ir = new ImageRegistry();
+ImageDescriptor id = createFromFile(getClass(),"eclipse_lg.gif");
+ir.put("Eclipse", id);
+Image eclipse = ir.get("Eclipse");
+```
+If you use **ImageDescriptors**, the **put**() and **get**() operations can be performed without allocating for Image objects. This way, you can add a large number of **ImageDescriptors** to an application’s **ImageRegistry** without worrying about image creation. Finally, since an **ImageRegistry** disposes of its contents when its **Display** object is closed, you don’t need to concern yourself with image deallocation.
+
 
 
 # Draw2D
