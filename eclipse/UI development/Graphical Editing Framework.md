@@ -864,12 +864,33 @@ Draw2D relies on many constructs from SWT (not JFace), but you must draw and des
 ### Using Draw2D’s primary classes
 If you’ve understood our discussion of SWT so far, then Draw2D won’t present much difficulty. As shown in table C.1, the two libraries use related classes and provide similar structures for drawing, event handling, and component layout. In fact, all Draw2D GUIs must be added to an SWT Canvas. The first difference is that whereas a normal Canvas adds a GC object to provide graphics, a Canvas in a Draw2D application uses an instance of a LightweightSystem.
 ![[Graphical Editing Framework-20231203-1.png]]
-**LightweightSystems** function similarly to Display objects in SWT. They have no visual representation but provide event handling and interaction with the external environment. As the name implies, **LightweightSystems** operate at a level removed from the operating system. This means you lose the advantages of SWT/JFace’s heavyweight rendering, such as its rapid execution and native look and feel. However, now you can truly customize the appearance and operation of your components.
+**LightweightSystems** function similarly to **Display** objects in SWT. <u>They have no visual representation but provide event handling and interaction with the external environmen</u>t. As the name implies, **LightweightSystems** operate at a level removed from the operating system. This means you lose the advantages of SWT/JFace’s heavyweight rendering, such as its rapid execution and native look and feel. However, now you can truly customize the appearance and operation of your components.
 Without question, the most important class in Draw2D is the **Figure**, and the majority of our Draw2D discussion will focus on its methods and subclasses. Like an SWT **Shell**, it must be added to a **LightweightSystem** in order to provide a basis for the GUI’s appearance. Like an SWT Control, it provides for resizing and relocating, adding **Listeners** and **LayoutManagers**, and setting colors and fonts. It also functions like a **Composite** in SWT, providing methods for adding and removing other Figure **objects**—children—within its frame. However, unlike Widget and Control objects, you can easily subclass Figures. Their graphical aspects can be represented by a drawing or image. 
 ![[Graphical Editing Framework-20231203-2.png]]
-Not only can Figures use separate Listener interfaces, they can also perform the majority of
-their event handling by themselves. Figures can even initiate specific kinds of events to alert other objects in the GUI.
+Not only can **Figures** use separate **Listener** interfaces, they can also perform the majority of
+their event handling by themselves. <u>Figures can even initiate specific kinds of events to alert other objects in the GUI</u>.
 To add images and drawings to **Figures**, you need to use instances of the **Graphics** class. It functions similar to SWT’s **GC** (graphics context) class, and it provides methods for incorporating graphics in a given area. It also contains many of the same methods as GC, particularly for drawing lines and shapes, displaying images, and working with fonts. However, the **Graphics** class provides one very different capability: Its objects can be moved, or translated, within the **LightweightSystem**. This means that when you want to change the position of a graphical component, Draw2D provides its own drag-and-drop capability to translate a **Figure** to the desired location.
+
+
+## Draw2D Figures
+As you’ll see, it takes a fair amount of code to build a Draw2D GUI. However, unlike those in an SWT/JFace GUI, Draw2D elements can be moved and manipulated. These components, including the overall container, are descendents of Draw2D’s main class, **Figure**. This class contains a number of subclasses that produce the visual aspects of the toolset’s GUI. 
+![[Graphical Editing Framework-20231216-1.png]]
+### Figure methods
+Like the SWT **Control** class, the **Figure** class contains many methods for manipulating its properties. We can’t describe all 137 of them, but we can divide them into four main categories:
+■ Working with the Figure’s visual aspects
+■ Event handling
+■ Keeping track of parents and children
+■ Managing graphics
+
+#### Working with a Figure’s visual aspects
+The methods in the first category are exactly like those in SWT. These include getting and setting the Figure’s bounds, location, and size. The Figure’s maximum and minimum size can be controlled as well as its border size and visible area. This category also provides methods for changing the Figure’s foreground and background color and getting/setting its focus and visibility parameters.
+#### Event handling in Draw2D
+The process of handling events in Draw2D is also similar to SWT, but it provides a few new events and listeners. Unlike SWT, Figures can handle many of their own events. 
+![[Graphical Editing Framework-20231216-2.png]]
+
+
+
+
 
 # Graphical Editing Framework
 
