@@ -1003,6 +1003,7 @@ In addition to decorators, you can add **Labels** or other **Figures** to **Conn
 The **Connection**’s router refers to the path it takes from one anchor to the next. The four subclasses of **AbstractConnectionRouter** are listed below:
 ![[Graphical Editing Framework-20231216-5.png]]
 
+## Drag-and-drop in Draw2D
 
 
 
@@ -1012,22 +1013,23 @@ The **Connection**’s router refers to the path it takes from one anchor to the
 
 ## GEF Architecture
 The GEF framework is designed using the Model-View-Controller (MVC) architecture. MVC
-is comprised of three major components: the model, the view and the controller. The model holds the information to be displayed and is persisted across sessions. The view renders information on the screen and provides basic user interaction. The controller coordinates the activities of the model and the view, passing information between them as necessary.
+is comprised of three major components: the model, the view and the controller. The **model** holds the information to be displayed and is persisted across sessions. The **view** renders information on the screen and provides basic user interaction. The controller coordinates the activities of the model and the view, passing information between them as necessary.
 **Model <—> Controller <—> View**
-When an object is added to the GEF model, a corresponding controller is instantiated which then creates the view objects representing that model object. In the reverse direction, when the user interacts with the view, the controller updates the model with the new information.
+When an object is added to the GEF model, a corresponding **controller** is instantiated which then creates the **view** objects representing that **model** object. In the reverse direction, when the user interacts with the view, the controller updates the model with the new information.
 - **model**—the underlying objects being represented graphically 
-- **view**—a GEF canvas containing a collection of figures
-- **controller**—a collection of GEF edit parts
+- **view**—a GEF canvas containing a collection of figures. The View aspect is generally implemented as a **Figure** or **Image**.
+- **controller**—a collection of GEF edit parts. The Controller is a subclass of **AbstractGraphicalEditPart**
 
-GEF provides various edit part (controller) and figure (view) classes for you to extend, minimizing the effort necessary to use the graphical framework in your application.
+GEF provides various **edit part** (controller) and **figure** (view) classes for you to extend, minimizing the effort necessary to use the graphical framework in your application.
 
 The GEF project is made up of three subsections:
 • **Draw2D**—(org.eclipse.draw2d.*) a lightweight framework layered on top of SWT for rendering graphical information.
 • **GEF Framework**—(org.eclipse.gef.*) an MVC framework layered on top of Draw2D to facilitate user interaction with graphical information.
 • **Zest**—(org.eclipse.zest.*) a graphing framework layered on top of Draw2D for graphing. 
 
+
 ## GEF Model
-First, the model is responsible for providing all data that will be viewable and modifiable by the user; no data should be stored in the controller or view. Next, the model needs to provide a way for the data to be persisted across sessions. Finally, while the controller will have references to the model, the model should not reference the controller or view.
+First, the **model** is responsible for <u>providing all data that will be viewable and modifiable by the user</u>; no data should be stored in the controller or view. Next, the model needs to provide a way for the data to be persisted across sessions. Finally, while the controller will have references to the model, the model should not reference the controller or view.
 Instead, <u>the controller registers itself with the model as a listener so that model changes are communicated to the controller using the observer pattern.</u>
 
 ## GEF Controller
@@ -1312,3 +1314,124 @@ One way to solve the z-order and location issues just described is to update the
 
 
 ## Palette
+( Appendix D of SWT/JFace in Action)
+### MVC interaction with Palette
+The GEF editing modification requires a complex data exchange involving **Tools**, **Requests**, **EditPolicys**, **Commands**, and **PropertyChangeEvents**.  When the user causes an event, a
+**Tool** object sends a **Request** to the selected **EditPart**. This **EditPart** uses a List of **EditPolicys** to create a **Command** that updates the **Model** class. When the **Model** changes, it fires a **PropertyChangeEvent**. After receiving this event, the **EditPart** modifies the component’s **Figure** (View) by invoking one of its **refresh**() methods.
+
+![[Graphical Editing Framework-20231216-6.png]]
+
+### PaletteViewer (Tool, ToolEntry, TemplateEntry, PaletteRoot)
+The PaletteViewer class builds components and handles events for the lefthand section of the Canvas, whose default width is 125 pixels. Like the viewer on the right-hand side, it implements the GraphicalViewer interface. But PaletteViewer has a number of distinguishing features:
+■ The ability to add buttons that provide editing functions, called **ToolEntry**s
+■ The ability to add buttons that create new components, called **TemplateEntry**s
+■ Configuration information contained in a single object, the **PaletteRoot**
+This **PaletteRoot** is important for a PaletteViewer because it provides the entries that will be available to the user. Like a Model class, it contains the palette’s information.
+![[Graphical Editing Framework-20231216-7.png]]
+
+```
+public class FlowchartPalette
+{
+	public static final String
+			TERMINATOR_TEMPLATE = "TERM_TEMP",
+			DECISION_TEMPLATE = "DEC_TEMP",
+			PROCESS_TEMPLATE = "PROC_TEMP";
+	
+	public static PaletteRoot getPaletteRoot()
+	{
+		PaletteRoot root = new PaletteRoot();
+		
+		PaletteGroup toolGroup = new PaletteGroup("Chart Tools");
+		List toolList = new ArrayList();
+		
+		ToolEntry tool = new SelectionToolEntry(); // Create palette entries
+											// that activate tools
+		toolList.add(tool);
+		root.setDefaultEntry(tool);
+		
+		tool = new MarqueeToolEntry(); // 2nd palette entry
+		toolList.add(tool);
+		
+		tool = new ConnectionCreationToolEntry( // 3rd palette entry
+			"Connection_Tool", "Used to connect multiple components", null,
+		ImageDescriptor.getMissingImageDescriptor(),
+		ImageDescriptor.getMissingImageDescriptor() );
+		toolList.add(tool);
+		toolGroup.addAll(toolList); // add tool entry list to group
+		
+		PaletteGroup templateGroup =
+			new PaletteGroup("Chart Templates");
+		List templateList = new ArrayList();
+		
+		CombinedTemplateCreationEntry entry = new
+			CombinedTemplateCreationEntry(
+			"Terminator", "Start or End Component", TERMINATOR_TEMPLATE,
+			new ModelFactory(TERMINATOR_TEMPLATE),
+			ImageDescriptor.getMissingImageDescriptor(),
+			ImageDescriptor.getMissingImageDescriptor());
+		templateList.add(entry);
+		entry = new CombinedTemplateCreationEntry(
+			"Process", "Action within a flowchart", PROCESS_TEMPLATE,
+			new ModelFactory(PROCESS_TEMPLATE),
+			ImageDescriptor.getMissingImageDescriptor(),
+			ImageDescriptor.getMissingImageDescriptor());
+		templateList.add(entry);
+		
+		entry = new CombinedTemplateCreationEntry(
+			"Decision", "Choosing between 'Yes' and 'No'", DECISION_TEMPLATE,
+			new ModelFactory(DECISION_TEMPLATE),
+			ImageDescriptor.getMissingImageDescriptor(),
+			ImageDescriptor.getMissingImageDescriptor());
+		templateList.add(entry);
+		templateGroup.addAll(templateList);
+		
+		List rootList = new ArrayList();
+		rootList.add(toolGroup);
+		rootList.add(templateGroup);
+		
+		root.addAll(rootList);
+		return root;
+	}
+}
+```
+A **PaletteRoot** is a collection of **PaletteGroups**, which are collections of entries. These entries, represented by the **ToolEntry** and **CombinedTemplateCreationEntry** classes, create buttons that will be added to the palette. Except for the **SelectionTool** and the **MarqueeSelectionTool**, these entries are initialized with descriptors, images, and classes that implement the **CreationFactory** interface. 
+
+#### Handling events with the ToolEntry and Tool classes
+The first three entries in the palette are **ToolEntry**s, which provide the ability to select and connect existing components. Whenever any of these entries are clicked, they create a new **Tool** object. The top tool entry, labeled **Select**, creates a **SelectionTool**; the **Marquee** entry creates a **MarqueeSelectionTool**; and the **Connection_Tool** entry creates a **ConnectionCreationTool**.
+The entries are simple to understand, but what exactly is a Tool? A **Tool** provides a distinctive means of interpreting keyboard and mouse events. For example, when you click a component with the **SelectionTool** activated, there will be a different result than if the **ConnectionCreationTool** had been activated. This is because the two Tools have different handlers for **MouseEvents**; they also interact differently with components and their **EditPart**s. These Tool/EditPart interactions are accomplished through **Request**s. Table below lists a group of important Tools provided in GEF, their functions, and the **Requests** they send to **EditParts** during activation.
+![[Graphical Editing Framework-20231216-8.png]]
+It’s important to note that **DragTrackers** such as ResizeTracker and **ConnectionBendpointTracker** are also GEF Tools. They determine how **DragEvent**s affect an
+**EditPart**. Whereas a Tool’s activation is independent of the components in the editor, **DragTrackers** are specified in **EditParts**. In many cases, a high-level **Tool** transfers its event-handling authority to the **DragTracker** associated with the **EditPart**.
+For example, when a user clicks a Decision component, the **SelectionTool** will activate. But if the user presses the button and moves the mouse, then the **SelectionTool** delegates authority to the **DecisionPart**’s **DragTracker**.
+
+#### Requests
+Requests are the means by which Tools perform editing. When a component is clicked with the **SelectionTool** activated, the Tool sends a **SelectionRequest** or a **LocationRequest** to the **EditPart**. Similarly, when the **ConnectionCreationTool** is activated, the tool sends a **CreateConnectionRequest**. In each case, the **Request** provides the **EditPart** with information about the event, such as which key was pressed or which button was clicked.
+When an EditPart receives a Request, it responds with a Command object if one
+is available. This Command tells the Tool how the EditPart should be altered when
+the event occurs. Once the Tool receives a Command, it takes responsibility for mod-
+ifying the EditPart by invoking the Command’s execute() method. We’ll discuss
+Commands in depth shortly.
+We need to mention two points about Requests. First, there is no subpackage
+(such as com.swtjface.flowchart.requests) for Requests because GEF already
+provides all the classes that will be needed in most editors. However, users can cre-
+ate their own Tools and Requests as needed.
+Second, although Requests are generally categorized according to their class,
+they’re further distinguished by a TYPE field. This integer makes the Request’s
+function more specific. For example, when the mouse hovers over an EditPart,
+the SelectionTool sends a LocationRequest to the component. Because this Loca-
+tionRequest’s TYPE field is REQ_SELECTION_HOVER, the part knows that the mouse is
+hovering above it.
+EditDomains and Tools
+Although EditDomain objects operate behind the scenes, it’s important to know
+what they are and how they relate to palettes and palette entries. EditDomains keep
+track of an editor’s state information, and part of this information consists of which
+Tool is currently active. The EditDomain sets the editor’s default Tool, which is usu-
+ally the SelectionTool, and manages the process of switching from one Tool to the
+next. It ensures that only one Tool is active at any time and directs events to it.
+This object also plays a role in creating an editor’s palette. The EditDomain
+ensures that the PaletteViewer receives the PaletteRoot containing the List of
+ToolEntrys and TemplateEntrys. Then, it determines which Tool in the List is the
+default tool and activates this Tool when the editor initializes.
+D.3.2 Creating components with templates
+At the time of this writing, the GEF documentation describes many classes that
+create and handle templates, but it never explains exactly what a template is. An
