@@ -885,8 +885,124 @@ Like the SWT **Control** class, the **Figure** class contains many methods for m
 #### Working with a Figure’s visual aspects
 The methods in the first category are exactly like those in SWT. These include getting and setting the Figure’s bounds, location, and size. The Figure’s maximum and minimum size can be controlled as well as its border size and visible area. This category also provides methods for changing the Figure’s foreground and background color and getting/setting its focus and visibility parameters.
 #### Event handling in Draw2D
-The process of handling events in Draw2D is also similar to SWT, but it provides a few new events and listeners. Unlike SWT, Figures can handle many of their own events. 
+The process of handling events in Draw2D is also similar to SWT, but it provides a few new events and listeners. Unlike SWT, **Figures** can handle many of their own events. 
 ![[Graphical Editing Framework-20231216-2.png]]
+The first five methods look and act just like those in SWT, with **addListener**() receiving untyped Events. But the last three methods are unique to Draw2D. The **addAncestorListener**() method responds to any changes to the Figure’s ancestors and functions like the Swing implementation. Similarly, the **FigureListener** responds whenever the **Figure** is moved.
+The last method, **addPropertyChangeListener**(), lets you create your own events. This process starts by associating a property, such as a Figure’s location, with a String descriptor. Then, when **firePropertyChange**() is invoked with this String, any PropertyChangeListeners listening for this property change respond. We’ll revisit this subject in greater depth when we discuss the GEF and its model classes.
+#### Parent and child Figures
+SWT and JFace allow components to be included in other components by providing a **Composite** class. But in Draw2D, any **Figure** can be a container, and any **Figure** can be contained. Therefore, Draw2D uses the term parent to refer to the outer graphic and child to refer to the graphic contained within. You create and manipulate these relationships with the methods listed below.
+![[Graphical Editing Framework-20231216-3.png]]
+In SWT, Buttons and Labels add themselves to Composites by identifying parents in their constructors. In Draw2D, a parent **Figure** uses its **add**() method to include **Figures** in its List of children. This method can include an optional constraint (such as the child’s size or location) and/or an index in the parent’s List. Parent **Figures** can obtain this List with the **getChildren**() method, and children can access their parent with **getParent**(). Parents can also enable or disable children with **setChildrenEnabled**() or alter an aspect of the child with **setConstraint**().
+### Managing graphics
+Although Draw2D provides a **Graphics** class that performs most of the duties of SWT’s GC, **Figures** have a few graphical methods of their own. Not only can they control their display with **paint**(), they can also use **paintBorder**() and **paintClientArea**() to select which section to show. **Figures** can display their children with **paintChildren**() or use **paintFigure**() to only show themselves. There are also a number of **repaint**() methods available, which work similarly to those in SWT.
+Draw2D contains methods for finding information about the user’s selection location. This is different from SWT because Draw2D is particularly concerned with precise mouse movements, whereas an SWT GUI is only concerned about the selected **Control**. These methods include **FindMouseEventAt**(), **FindFigureAt**(), and **FindFigureAt**().
+
+## Labels and Clickables
+The first **Figure** subclasses for our investigation are the simplest: **Labels** and **Clickables**. These objects look and act similarly to their SWT counterparts, but there are a few interesting concerns that you need to keep in mind.
+### Labels
+Draw2D **Labels** resemble those of SWT but contain more methods for <u>text measurement</u> and <u>image location</u>. You can measure the parameters of the Label’s String through **getTextBounds**() and **getTextLocation**(). Similarly, if the Label is associated with an **Image**, then **getIconBounds**() and **getIconAlignment**() will provide information about the Image.
+
+### Clickables
+This class, which includes **Buttons** and **Toggles**, provides binary information concerning the user’s preferences. Like SWT Buttons, they can be configured with style bits to appear like toggle buttons, checkboxes, or regular pushbuttons. You can also control their selection and add images or text. But there are two main differences between Draw2D Clickables and SWT Buttons. The first is that **Clickables** can take the appearance of any Draw2D Figure. The second has to do with **Clickable** event handling.
+Draw2D user interfaces are generally more complex than those created with SWT and JFace. Therefore, a Clickable’s state information is managed by a **ButtonModel** or **ToggleModel** object. This separates the component’s appearance from its behavior and enables you to develop the two aspects independently. You can also contain these **Model** objects in a **ButtonGroup**, which manages multiple **Clickables** at once.
+**Clickables** update their **Model** objects by calling **fireChangeEvent**(), which works like the **Figure**’s **firePropertyChangeEvent**(). **Clickable** properties, such as **MOUSEOVER_PROPERTY** and **PRESSED_PROPERTY**, are represented by constants in the **Model** class. When they change, the **Model** may fire a number of Draw2D events or inform its **ButtonGroup** by default.
+
+```
+public class Draw2D_Example
+{
+public static void main(String args[])
+{
+	final Label label = new Label("Press a button!");
+	Shell shell = new Shell();
+	LightweightSystem lws = new LightweightSystem(shell);
+	Figure rootFigure = new Figure();
+	rootFigure.setLayoutManager(new XYLayout());
+	lws.setContents(rootFigure);
+	
+	Clickable above = new CheckBox("I'm above!");
+	rootFigure.add(above, new Rectangle(10,10,80,20));
+	ButtonModel aModel = new ToggleModel();
+	aModel.addChangeListener(new ChangeListener()
+		{
+		public void handleStateChanged(ChangeEvent e)
+		{
+		label.setText("Above");
+		}
+		});
+	above.setModel(aModel);
+	
+	Clickable below = new CheckBox("I'm below!");
+	rootFigure.add(below, new Rectangle(10,40,80,20));
+	ButtonModel bModel = new ToggleModel();
+	bModel.addChangeListener(new ChangeListener()
+		{
+		public void handleStateChanged(ChangeEvent e)
+		{
+			label.setText("Below");
+		}
+		});
+	below.setModel(bModel);
+	
+	ButtonGroup bGroup = new ButtonGroup();
+	bGroup.add(aModel);
+	bGroup.add(bModel);
+	bGroup.setDefault(bModel);
+	rootFigure.add(label, new Rectangle(10,70,80,20));
+	
+	shell.setSize(130,120);
+	shell.open();
+	shell.setText("Example");
+	Display display = Display.getDefault();
+	while (!shell.isDisposed())
+	{
+		if (!display.readAndDispatch())
+		{
+			display.sleep ();
+		}
+	}
+}
+```
+A Draw2D application is just an SWT Shell with a **LightweightSystem** and **Figures**. It’s important to understand that the **ChangeListener** is created by the **button’s Model** and responds to **any mouse action**, including clicks and hovering. Also, because the two Models are added to the ButtonGroup, only one of them can be selected at a time.
+In order for the parent **Figure** to understand the **Rectangle** constraints of its children, you must configure it with a **LayoutManager** called **XYLayout**. We’ll now focus on **LayoutManagers** and how they enable you to determine how children are arranged within **Figures**.
+
+## Using LayoutManagers and panes
+**LayoutManagers**, like SWT’s Layout classes, specify how child components should be positioned and sized in a container. This section describes **LayoutManager**’s subclasses and how you can use them.
+In addition, we’ll go over Draw2D’s panes: **ScrollPanes**, **LayerPanes**, and their subclasses. Draw2D has no Composite class, but these panes generally serve as background containers for its GUIs. As you’ll see, these window-like classes provide a number of capabilities that make it simple to build graphical editors. 
+
+### Understanding LayoutManager subclasses
+In SWT, containers rely on a default layout policy for their children; but Draw2D demands that you choose a **LayoutManager** subclass. Two of these, **FlowFigureLayout** and **ScrollBarLayout**, are only useful for specific Figures.
+![[Graphical Editing Framework-20231216-4.png]]
+
+### LayeredPanes
+Since Draw2D applications can become very complex, a **LayeredPane** provides many levels for displaying **Figures**. Using **transparent Layers**, you can separate the graphical aspects of your GUIs. Different Layers can have different properties, including separate **LayoutManagers**. This will be important for our editor, because we add not only **Figures** but also **Connections** and **feedback**.
+The first step in understanding how **LayeredPanes** work is learning about **Layers**. These transparent objects can be manipulated as individual **Figures**, and the **Layer** class contains two methods of its own: **containsPoint**() and **findFigureAt**(). These objects have fixed boundaries, but the **FreeformLayer** subclass can be extended in all directions. This is necessary for a graphical editing application whose drawings are larger than the window’s visible region.
+A **LayeredPane** adds new Layers with its **add**() method, which specifies the **Layer** object, a key to identify it, and an index representing its position. It can also remove **Layers** or change their positions in its stack.
+By choosing subclasses of **LayeredPane**, you can increase its capabilities. If you’d like to be able to zoom in on sections of the pane, choose **ScalableLayeredPane**. Use **FreeformLayeredPane** if you’d like to extend the window in all directions. If you want both capabilities, use **ScalableFreeformLayeredPane**.
+
+### ScrollPanes and Viewports
+ScrollPanes classes are easy to understand and function by creating Scrollbars on top of another Figure. The bars’ visibility can be configured so that they are always showing, never showing, or shown only when needed.
+At any given time, only a section of the ScrollPane can be seen. This visible region is called a **Viewport**. These work similarly to **Layers** but provide more methods for controlling size and shape. There is also a **FreeformViewport** for panes that can be extended in all directions.
+
+#### Using the Graphics class to create Shapes
+In SWT, graphic contexts (GCs) can either be created as separate objects or obtained as part of a PaintEvent. But in Draw2D, a **Figure** can acquire a **Graphics** object by one of the paint methods. The vast majority of the **Graphics** methods are exactly the same as those in GC; the only important difference is that Draw2D allows a **Graphics** object to move through its **translate**() method.
+
+### Draw2D geometry and graphs
+For higher-precision measurements, Draw2D provides **PrecisionPoints**, **PrecisionRectangles**, and **PrecisionDimensions**. It contains **Ray** objects that function like mathematical vectors and a **Transform** class to translate, rotate, and scale graphical **Points** and dimensions.
+The **org.eclipse.draw2d.graph** package contains a number of useful classes for creating and analyzing directed graphs. Along with basic **Nodes** and **Edges**, this package also provides a **DirectedGraphLayout** for arranging them. 
+Draw2D’s Figures aren’t connected by **Edges**, but by **Connection** objects. 
+
+## Understanding Connections
+The **FixedAnchor** class has figured prominently in our code listings so far. These objects (subclasses of **AbstractConnectionAnchor**) enable you to add lines, or **Connections**, between two **Figures**. Because Connections create relationships between components, they’re fundamental in system models and diagrams. However, managing **Connections** and their **ConnectionAnchors** can be complicated, so it’s important that you understand how they function.
+### Working with ConnectionAnchors
+**ConnectionAnchors** don’t have a visual representation. Instead, they specify a point on a **Figure** that can receive **Connections**. You add them by identifying the **Figure** in the **ConnectionAnchor**’s constructor method. This Figure is called the anchor’s owner, not its parent.
+The difficulty in working with anchors isn’t adding them, but placing them appropriately. For this reason, the only method required by the **ConnectionAnchor** interface is **getLocation**(). The **getLocation**() method is called whenever the owner’s location changes. The **Point** returned by the method tells the GUI where the anchor should be positioned. 
+### Adding Connections to the GUI
+Working with **Connections** is easier than dealing with their anchors, because Draw2D takes care of drawing the line. Draw2D’s implementation of the **Connection** interface is **PolylineConnection**, which is a connected line. **Connections** are more than connected lines. We need to set their source and target **Figures**, and we can configure their appearance and routing. With regard to appearance, you can add decorations to the start and end of the
+**Connection** by calling **setSourceDecoration**() or **setTargetDecoration**(). 
+In addition to decorators, you can add **Labels** or other **Figures** to **Connections** by using a **ConnectionEndpointLocator**. These objects are created with a **Connection** object and a boolean value representing whether the **Figure** should be added at the start or end. Then, **setVDistance**() tells the new **Figure** how far away it should be from the **Connection**, and **setUDistance**() specifies the distance to the **Connection**’s source or target.
+The **Connection**’s router refers to the path it takes from one anchor to the next. The four subclasses of **AbstractConnectionRouter** are listed below:
+![[Graphical Editing Framework-20231216-5.png]]
+
 
 
 
