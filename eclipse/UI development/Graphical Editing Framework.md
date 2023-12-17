@@ -1103,84 +1103,45 @@ Each figure in the GEF canvas must implement the IFigure interface. The Graphics
 
 
 ### Graphics
-When rendering a figure, the Graphics class provides many drawing primi-
-tives for things such as displaying text, drawing lines, and drawing and filling
-polygons. Some of the useful Graphics methods include:
-drawFocus(Rectangle)—Draws a focus rectangle.
-drawImage(Image, Point)—Draws the given image at a point.
-drawLine(Point, Point)—Draws a line between the two specified
-points using the current foreground color.
-drawPolygon(PointList)—Draws a closed polygon defined by the
-given PointList containing the vertices. The first and last points in the
-list will be connected.
-drawRectangle(Rectangle)—Draws the given rectangle using the cur-
-rent foreground color.
-drawRoundRectangle(Rectangle, int, int)—Draws a rectangle
-with rounded corners using the foreground color. The last two argu-
-ments represent the horizontal and vertical diameter of the corners.
-drawText(String, Point)—Draws the given string at the specified
-location using the current font and foreground color. The background of
-the text will be transparent. Tab expansion and carriage return process-
-ing are performed.
-fillPolygon(PointList)—Fills a closed polygon defined by the given
-PointList containing the vertices. The first and last points in the list
-will be connected.
-fillRectangle(Rectangle)—Fills the given rectangle using the cur-
-rent background color.
-fillRoundRectangle(Rectangle, int, int)—Fills a rectangle with
-rounded corners using the background color. The last two arguments
-represent the horizontal and vertical diameter of the corners.
-fillText(String, Point)—Draws the given string at the specified
-location using the current font and foreground color. The background of
-the text will be filled with the current background color. Tab expansion
-and carriage return processing are performed.
-getBackgroundColor()—Returns the background color.
-getForegroundColor()—Returns the foreground color.
-getLineStyle()—Returns the line style.
-getLineWidth()—Returns the current line width.
-rotate(float)—Rotates the coordinates by the given counter-clock-
-wise angle. All subsequent painting will be performed in the resulting
-coordinates. Some functions are illegal when a rotated coordinates sys-
-tem is in use. To restore access to those functions, it is necessary to call
-restore() or pop() to return to a non rotated state.
-setBackgroundColor(Color)—Sets the background color.
-setBackgroundPattern(Pattern)—Sets the pattern used for fill-type
-graphics operations. The pattern must not be disposed while it is refer-
-enced by the Graphics object.
-setForegroundColor(Color)—Sets the foreground color.
-setForegroundPattern(Pattern)—Sets the foreground pattern for
-draw and text operations. The pattern must not be disposed while it is
-referenced by the Graphics object.
-setLineStyle(int)—Sets the line style to the argument, which must be
-one of the constants SWT.LINE_SOLID, SWT.LINE_DASH, SWT.LINE_DOT,
-SWT.LINE_DASHDOT or SWT.LINE_DASHDOTDOT.
-setLineWidth(int)—Sets the line width.
-translate(Point)—Translates the receiver’s coordinates by the speci-
-fied x and y amounts. All subsequent painting will be performed in the
-resulting coordinate system. Integer translation used by itself does not
-require or start the use of the advanced graphics system in SWT. It is
-emulated until advanced graphics are triggered.
+When rendering a figure, the Graphics class provides many drawing primitives for things such as displaying text, drawing lines, and drawing and filling polygons. Some of the useful Graphics methods include:
+**drawFocus**(Rectangle)—Draws a focus rectangle.
+**drawImage**(Image, Point)—Draws the given image at a point.
+**drawLine**(Point, Point)—Draws a line between the two specified points using the current foreground color.
+**drawPolygon**(PointList)—Draws a closed polygon defined by the given PointList containing the vertices. The first and last points in the list will be connected.
+**drawRectangle**(Rectangle)—Draws the given rectangle using the current foreground color.
+**drawRoundRectangle**(Rectangle, int, int)—Draws a rectangle with rounded corners using the foreground color. The last two arguments represent the horizontal and vertical diameter of the corners.
+**drawText**(String, Point)—Draws the given string at the specified location using the current font and foreground color. The background of the text will be transparent. Tab expansion and carriage return processing are performed.
+**fillPolygon**(PointList)—Fills a closed polygon defined by the given PointList containing the vertices. The first and last points in the list will be connected.
+**fillRectangle**(Rectangle)—Fills the given rectangle using the current background color.
+**fillRoundRectangle**(Rectangle, int, int)—Fills a rectangle with rounded corners using the background color. The last two arguments represent the horizontal and vertical diameter of the corners.
+**fillText**(String, Point)—Draws the given string at the specified location using the current font and foreground color. The background of the text will be filled with the current background color. Tab expansion and carriage return processing are performed.
+**getBackgroundColor**()—Returns the background color.
+**getForegroundColor**()—Returns the foreground color.
+**getLineStyle**()—Returns the line style.
+**getLineWidth**()—Returns the current line width.
+**rotate**(float)—Rotates the coordinates by the given counter-clock-wise angle. All subsequent painting will be performed in the resulting coordinates. Some functions are illegal when a rotated coordinates system is in use. To restore access to those functions, it is necessary to call restore() or pop() to return to a non rotated state.
+**setBackgroundColor**(Color)—Sets the background color.
+**setBackgroundPattern**(Pattern)—Sets the pattern used for fill-type graphics operations. The pattern must not be disposed while it is referenced by the Graphics object.
+**setForegroundColor**(Color)—Sets the foreground color.
+**setForegroundPattern**(Pattern)—Sets the foreground pattern for draw and text operations. The pattern must not be disposed while it is referenced by the Graphics object.
+**setLineStyle**(int)—Sets the line style to the argument, which must be one of the constants SWT.LINE_SOLID, SWT.LINE_DASH, SWT.LINE_DOT, SWT.LINE_DASHDOT or SWT.LINE_DASHDOTDOT.
+**setLineWidth**(int)—Sets the line width.
+**translate**(Point)—Translates the receiver’s coordinates by the specified x and y amounts. All subsequent painting will be performed in the resulting coordinate system. Integer translation used by itself does not require or start the use of the advanced graphics system in SWT. It is emulated until advanced graphics are triggered.
 
-GEF provides a number of basic figure classes that can be extended or com-
-posed to build more complex figures. These classes include:
-Button—A figure typically having a border that appears to move up and
-down in response to being pressed.
-Ellipse—A figure that draws an ellipse filling its bounds.
-ImageFigure—A figure containing an image. Use this Figure, instead of
-a Label, when displaying Images without any accompanying text.
-Label—A figure that can display text and/or an image (see Section
-20.4.3.1, Composing Figures, on page 747).
-Panel—A figure container which is opaque by default.
-Polygon—A figure similar to a Polyline except it is closed and filled.
-Polyline—A figure rendered as a series of line segments.
-PolylineConnection—A figure used to visually connect other figures.
-RectangleFigure—A rectangular figure with square corners.
-RoundedRectangle—A rectangular figure with round corners (see Sec-
-tion 20.4.3.1, Composing Figures, on page 747).
-TextFlow—A figure for displaying a string of text across multiple lines.
-Thumbnail—A figure displaying an image at reduced size with the same
-aspect ratio as the original figure.
-Triangle—A figure rendering itself as a triangle.
+GEF provides a number of basic figure classes that can be extended or composed to build more complex figures. These classes include:
+**Button**—A figure typically having a border that appears to move up and down in response to being pressed.
+**Ellipse**—A figure that draws an ellipse filling its bounds.
+**ImageFigure**—A figure containing an image. Use this Figure, instead of a Label, when displaying Images without any accompanying text.
+**Label**—A figure that can display text and/or an image.
+**Panel**—A figure container which is opaque by default.
+**Polygon**—A figure similar to a Polyline except it is closed and filled.
+**Polyline**—A figure rendered as a series of line segments.
+**PolylineConnection**—A figure used to visually connect other figures.
+**RectangleFigure**—A rectangular figure with square corners.
+**RoundedRectangle**—A rectangular figure with round corners.
+**TextFlow**—A figure for displaying a string of text across multiple lines.
+**Thumbnail**—A figure displaying an image at reduced size with the same aspect ratio as the original figure.
+**Triangle**—A figure rendering itself as a triangle.
 
 ### Complex Figures
 Figures must be created for each of the edit parts. One approach is to build complex figures by composing simpler figures without creating any custom figures. In other cases, it is more useful to create a specialized figure class for each edit part class to be rendered on the screen. 
@@ -1406,32 +1367,136 @@ For example, when a user clicks a Decision component, the **SelectionTool** will
 
 #### Requests
 Requests are the means by which Tools perform editing. When a component is clicked with the **SelectionTool** activated, the Tool sends a **SelectionRequest** or a **LocationRequest** to the **EditPart**. Similarly, when the **ConnectionCreationTool** is activated, the tool sends a **CreateConnectionRequest**. In each case, the **Request** provides the **EditPart** with information about the event, such as which key was pressed or which button was clicked.
-When an EditPart receives a Request, it responds with a Command object if one
-is available. This Command tells the Tool how the EditPart should be altered when
-the event occurs. Once the Tool receives a Command, it takes responsibility for mod-
-ifying the EditPart by invoking the Command’s execute() method. We’ll discuss
-Commands in depth shortly.
-We need to mention two points about Requests. First, there is no subpackage
-(such as com.swtjface.flowchart.requests) for Requests because GEF already
-provides all the classes that will be needed in most editors. However, users can cre-
-ate their own Tools and Requests as needed.
-Second, although Requests are generally categorized according to their class,
-they’re further distinguished by a TYPE field. This integer makes the Request’s
-function more specific. For example, when the mouse hovers over an EditPart,
-the SelectionTool sends a LocationRequest to the component. Because this Loca-
-tionRequest’s TYPE field is REQ_SELECTION_HOVER, the part knows that the mouse is
-hovering above it.
-EditDomains and Tools
-Although EditDomain objects operate behind the scenes, it’s important to know
-what they are and how they relate to palettes and palette entries. EditDomains keep
-track of an editor’s state information, and part of this information consists of which
-Tool is currently active. The EditDomain sets the editor’s default Tool, which is usu-
-ally the SelectionTool, and manages the process of switching from one Tool to the
-next. It ensures that only one Tool is active at any time and directs events to it.
-This object also plays a role in creating an editor’s palette. The EditDomain
-ensures that the PaletteViewer receives the PaletteRoot containing the List of
-ToolEntrys and TemplateEntrys. Then, it determines which Tool in the List is the
-default tool and activates this Tool when the editor initializes.
-D.3.2 Creating components with templates
-At the time of this writing, the GEF documentation describes many classes that
-create and handle templates, but it never explains exactly what a template is. An
+When an **EditPart** receives a **Request**, it responds with a **Command** object if one is available. This **Command** tells the **Tool** how the **EditPart** should be altered when the event occurs. Once the **Tool** receives a **Command**, it takes responsibility for modifying the **EditPart** by invoking the **Command**’s **execute**() method. 
+We need to mention two points about Requests. 
+- First, there is no subpackage (such as com.swtjface.flowchart.requests) for **Request**s because GEF already provides all the classes that will be needed in most editors. However, users can create their own **Tool**s and **Requests** as needed.
+- Second, although **Requests** are generally categorized according to their class, they’re further distinguished by a TYPE field. This integer makes the Request’sfunction more specific. For example, when the mouse hovers over an **EditPart**, the **SelectionTool** sends a **LocationRequest** to the component. Because this **LocationRequest**’s **TYPE** field is **REQ_SELECTION_HOVER**, the part knows that the mouse is hovering above it.
+#### EditDomains and Tools
+Although **EditDomain** objects operate behind the scenes, it’s important to know what they are and how they relate to palettes and palette entries. **EditDomains** keep track of an editor’s state information, and part of this information consists of which **Tool** is currently active. The **EditDomain** sets the editor’s default Tool, which is usually the **SelectionTool**, and manages the process of switching from one **Tool** to the next. It ensures that only one **Tool** is active at any time and directs events to it.
+This object also plays a role in creating an editor’s palette. The **EditDomain** ensures that the **PaletteViewer** receives the **PaletteRoot** containing the List of **ToolEntry**s and **TemplateEntrys**. Then, it determines which **Tool** in the List is the default tool and activates this **Tool** when the editor initializes.
+####  Creating components with templates
+A template is any object that can be matched to a component. If you’d like to number your components, then you can use ints or chars as your templates.
+#### TemplateEntry objects
+Just as a **ToolEntry** creates **Tool** objects, **TemplateEntrys** create **templates**. After clicking a **TemplateEntry** in the palette, the user can either drag the template to the editor or click an area in the editor. Once the drop location is determined, the editor’s **TemplateTransferDropTargetListener** determines how the component will be created.
+In our example, the entry list consists of **CombinedTemplateCreationEntrys**, which create both a **template** and a **CreationEntryTool** to create the template’s matching component. The constructor for these entries requires a number of fields to specify its appearance and operation:
+■ **label** (a String)—The entry’s name
+■ **shortDesc** (a String)—Description when the mouse hovers over the entry
+■ **template** (an Object; a String, in our case)—The component to be created
+■ **factory** (a CreationFactory)—The class that builds the component
+■ **iconSmall** (an ImageDescriptor)—The image shown near the label
+■ **iconLarge** (an ImageDescriptor)—The image shown during the drag
+
+#### Converting templates to Model classes with a CreationFactory
+Components are created when the user drags a template from the palette and drops it in a container. The **CreationTool** tells the editor which component to build by identifying a class that implements the **CreationFactory** interface.
+This important interface contains only two methods: **getNewObject**() receives a template object and returns a newly created Model object for the requested component, and **getObjectType**() returns the template created by the palette tool. 
+
+### Model classes
+The role of a Model class is to keep track of a component’s editable characteristics, called properties. The Model class also fires events when these properties change. It’s important to
+note that although the methods are contained in the Model class, the **EditPart** invokes them.
+![[Graphical Editing Framework-20231216-9.png]]
+First, a Model object creates a **PropertyChangeSupport** instance during its creation. This enables an **EditPart** to listen to its **PropertyChangeEvents**. Then, when the **EditPart** is created, it calls the Model’s **addPropertyChangeListener**() method to be able to respond to these events. Whenever a property changes, the Model calls its **firePropertyChange**() method, and the **EditPart** handles the Event with its **propertyChange**() method. When the component is deallocated, the **EditPart** calls the Model’s **removePropertyChangeListener**() method.
+
+### Changing Model properties with Commands
+##### Commands and CommandStacks
+It’s possible to extend the Request class, but doing so is generally unnecessary since GEF provides so many subclasses of its own. However, you’ll have to build all your own **Command** classes; you must do so because **Commands** interact with Model objects, which have no standard structure beyond accessor/mutator methods. But GEF does provide an abstract **Command** class.
+The **execute**() method performs the real work of the **Command** by invoking the mutator methods (setXYZ()) of the Model class. This **execute**() method is called by the active Tool after it receives the Command in response to its Request. **Commands** can also have other methods and fields associated with them, and these are generally used to provide information for the **execute**() method.
+Two other important **Command** methods are **undo**() and **redo**(). As expected, these methods are used to reverse the results of **execute**() or reinvoke it. For these methods to work, the editor must keep track of which **Commands** have been executed. The data structure used for this task is the **CommandStack**, which is initialized during the editor’s construction. This object pushes executed **Commands** onto its Undo stack and pushes undone **Commands** onto its **Redo** stack. The Redo stack is cleared whenever a new **Command** is executed.
+
+### The Controller aspect: EditPart classes
+The  Controllers, represented by EditPart objects, whose activity may be divided into
+three main functions:
+■ Respond to Model changes and update the component’s View
+■ Keep track of the component’s **Connections** and **ConnectionAnchors**
+■ Activate **EditPolicys** and associate them with their editing roles
+The first function is important to understand. An **EditPart**’s **activate**() method is called during its creation. This invokes the Model’s **addPropertyChangeListener**() method and enables the **EditPart** to respond to property changes in the Model. This response is performed with the **propertyChange**() method, which updates the **View** with the new information from the Model.
+For example, when a **SetConstraintCommand** is executed, it calls the Model’s **setSize**() and **setLocation**() methods. When these properties change, the two **PropertyChangeEvents** are received by the **EditPart**, which modifies the Figure’s size and location.
+In addition to updating size and location, many **EditParts** must manage **Connection** objects. These **EditParts** need to implement the **NodeEditPart** interface, which provides methods for matching **Connections** with **ConnectionAnchors**. When a **PathCommand** needs to know where to attach a new **Connection**, it communicates with a **NodeEditPart**.
+The last **EditPart** function deals with **EditPolicys**, which determine the different ways the component can be edited. These policies function by creating **Command** objects in response to **Requests**. An **EditPart** specifies its applicable policies with the **createEditPolicies**() method and contains them in a List. 
+Although we refer to these objects as EditParts, all of the GEF Controllers are really extensions of the **AbstractGraphicalEditPart** class. This class provides many of the methods needed for **Connection** management and child/parent interaction. It also creates a default **DragTracker** object to handle **DragEvents**.
+
+### Creating new EditParts with EditPartFactory objects
+When a new child Model is created from its template, the parent Model fires a **PropertyChangeEvent**. In response, the parent **EditPart** invokes its **refreshChildren**() method. If any child Models exist without matching EditParts, then this method calls the **createChild**() method.
+**createChild**() accesses the editor’s **EditPartFactory** object. Just as our **ModelFactory** created Model classes according to templates, our **PartFactory** creates **EditParts** according to their Models. The interface specifies only one method, **createEditPart**()
+
+## Creating Commands with EditPolicy objects
+Let’s say that you has a **ChangeColorCommand**, and you want this Command to execute whenever the component receives a **DirectEditRequest**. For another component, you want the **ChangeShapeCommand** to be executed for this **Request**. Clearly, you need to modify the **EditPart** classes of these components, since these are the objects that receive **Requests**. But how do you make this distinction? The answer involves **EditPolicys**, which make it possible for **EditParts** to control how **Commands** are created in response to **Requests**. 
+### The getCommand() method
+Just as **execute**() makes **Command** operation possible, the **getCommand**() method
+performs the work for **EditPolicys**. Once a **Tool** determines which **EditPart** should receive a given **Request**, it calls the part’s **getCommand**() method with the **Request** object as its parameter. Then, the **EditPart** iterates through its list of **EditPolicy** objects and invokes each of their **getCommand**() methods. In each case, if the policy can respond to the **Request**, it returns a **Command** object to the **Tool**, which executes it.
+In addition, **EditPolicys** provide information to the **Command** that specify how its execution should be performed. That is, they tell the **Command** which Model properties should be modified and provide any parameters associated with the **Request**.
+##### GEF policies
+Although you can create customized **EditPolicys** from scratch, the GEF toolset provides a number of helpful abstract classes. To build concrete **EditPolicys**, you only need to specify which Model objects and properties should be changed when the **Command** executes.
+■ ComponentPolicy—Removes Activity objects from the Chart
+■ NodePolicy—Manages the process of adding new Paths
+■ LayoutPolicy—Creates and arranges Activity objects in the Chart
+![[Graphical Editing Framework-20231216-10.png]]The **ComponentEditPolicy** creates **Commands** when an **EditPart** is deleted or orphaned from a container. The **GraphicalEditPolicy** contains a number of subclasses for creating, deleting, and adding children to a **LayoutManager**. The **GraphicalNodeEditPolicy** subclass creates **Commands** for creating connections to and from a component. 
+
+
+## Adding Actions to the editor
+Users expect multiple ways to accomplish an editing task. For example, the Eclipse Workbench lets users copy GUI elements with a keystroke (Ctrl-C), a menu item (Edit->Copy), or an option in a context menu. GEF enables you to provide these capabilities through Actions.
+They can be associated with text, images, and accelerator keys; and they can appear as buttons, toolbar items, or options in a menu. However, GEF’s Actions have two important differences.
+- First, they’re subclasses of **WorkbenchPartAction**
+-  Second, although they invoke **run**() when activated, their operation varies from class to class. 
+A **SelectionAction** functions like a **Tool** by sending the selected component a **Request**. **StackActions** function by accessing the **CommandStack**, and **EditorPartActions** work by accessing the **EditorPart** itself.
+In order to function, WorkbenchPartActions need to notify the editor of their presence. This is accomplished by adding them to the editor’s ActionRegistry.
+
+### The ActionRegistry and ContextMenus
+Every **GraphicalEditor** creates an **ActionRegistry** as part of its initialization and populates it by calling **createActions**(). 
+
+```
+action = new UndoAction(this);
+registry.registerAction(action);
+getStackActions().add(action.getId());
+
+action = new RedoAction(this);
+registry.registerAction(action);
+getStackActions().add(action.getId());
+
+action = new SelectAllAction(this);
+registry.registerAction(action);
+
+action = new DeleteAction((IWorkbenchPart)this);
+registry.registerAction(action);
+getSelectionActions().add(action.getId());
+
+action = new SaveAction(this);
+registry.registerAction(action);
+getPropertyActions().add(action.getId());
+
+action = new PrintAction(this);
+registry.registerAction(action);
+```
+it’s helpful to know which **Actions** have already been added to your **GraphicalEditor** by default. It also shows that, in addition to the **ActionRegistry**, the editor keeps track of certain groups of **Action** classes.
+These groups include **PropertyActions**, which deal with changes to the editor’s state; **StackActions**, which manipulate the **CommandStack**; and **SelectionActions**, which communicate with selected components. If you intend to add custom **Actions** to your editor, you need to register them in the **ActionRegistry** and add them to any groups to which they belong. You do so by implementing the **createActions**() method in your editor.
+After you add your **Actions** to the editor, you need to make them available to the user. One of the simpler ways to do this involves a ContextMenu. This menu is easily accessible by right-clicking in the editor’s main window.
+![[Graphical Editing Framework-20231216-11.png]]
+
+### Redirecting Workbench actions with RetargetAction
+The Eclipse Workbench contains a number of global **Actions** that can be triggered through its main menu and toolbar. We’d like to redirect them to allow users to perform editing in our editor and use Actions such as Undo, Redo, and Delete.
+The process is simple. First, we need to create a set of **RetargetActions** and add them to the editor’s **ActionRegistry**. Then, these **Actions** must be made available to the user. All of this can be accomplished with one class: **ActionBarContributor**.
+#### RetargetActions
+**RetargetActions** function by directing the effects of the Workbench’s internal **Actions** to an application. When we use one of these **Actions**, its corresponding menu option is available for our editor. For example, when we add the **DeleteRetargetAction**, the Workbench’s Edit->Delete can be used to delete an EditPart.
+![[Graphical Editing Framework-20231216-12.png]]
+The **Label** column in the table refers to whether the **RetargetAction** can be given a custom label, which works like a tooltip. Only **UndoRetargetAction** and **RedoRetargetAction** are subclasses of **LabelRetargetAction**; the rest of the **RetargetActions** retain the label specified by the Workbench.
+
+## Introducing the EditorPart
+#### Working with EditorParts and GraphicalEditors
+Graphical components in the Eclipse Workbench are divided into **views** and **editors**. **Views**, which extend the **ViewPart** class, organize and display information about the Workbench. Editors function by allowing the user to manipulate and save files; they descend from the **EditorPart** class.
+Both **EditorPart** and its superclass, **WorkbenchPart**, are abstract classes with abstract methods. Therefore, if you’re seeking to build an Eclipse editor, you must
+provide code for each of these methods, shown below:
+![[Graphical Editing Framework-20231216-13.png]]
+The two most important of these are **init**() and **createPartControl**(). The Workbench calls **init**() when the user opens a file with the supported extension. Then, to display the editor, the workbench calls **createPartControl**(). Like the **createContents**() method of a JFace Window, this method embodies the editor’s appearance within a **Composite** object.
+The nature of this **Composite** determines how the editor looks and acts. For text editors, this is one large Text box. Graphical editors use a **Canvas**, but there’s much more to a graphical editor than this object. To provide added functionality, GEF supplies an **EditorPart** subclass, **GraphicalEditor**.
+The documentation recommends using the GraphicalEditor class as a reference. This class provides a number of important capabilities to the editor, such as an **ActionRegistry**, a **CommandStack**, an **EditDomain**, and a **SelectionSynchronizer** to coordinate selections across multiple viewers
+
+### Understanding the GraphicalViewer
+You can think of a GEF editor as a **GraphicalViewer** on top of a **Canvas** object. It handles events, keeps track of the user’s selections, and creates the basis for the editor’s **EditPart** hierarchy.
+You can extend **GraphicalViewerImpl**, a concrete class that implements the **GraphicalViewer** interface. 
+![[Graphical Editing Framework-20231216-14.png]]
+The first two methods create the structure underlying the GEF editor. First, the **createControl**() method builds the SWT **Canvas** object. Afterward, it creates a **LightWeightSystem** to hold the editor’s Draw2D **Figures**. These objects also provide a channel through which the Viewer can receive Events.
+The next two methods provide a basis for the editor’s MVC structure. First, the **setRootEditPart**() creates a new top-level parent for the **EditPart** hierarchy. It’s important to understand that this is not a part that we’ve created previously. It doesn’t perform event handling or specify **EditPolicys**; it does interact with the editor’s Layers, but its main purpose is to manage child **EditParts**.
+Another purpose of the **RootEditPart** is to specify a **Figure** to create when **setRootFigure**() is invoked. Again, this isn’t a **Figure** that we’ve coded. The nature of this **Figure** depends on the **RootEditPart**. 
+The next two methods continue this MVC development. The **getContents**() method initializes the Viewer by providing the top-level Model class of the Viewer.
+The next four methods handle events in the Viewer. The first method directs Events from the LightWeightSystem to the editor’s **EditDomain**. The Viewer creates Listeners for **DragEvents** and **DropTargetEvents** and also provides a **KeyHandler** to respond to keyboard actions. It’s important to note that the Viewer doesn’t respond to Events itself, but sends them to the object best suited to handle them.
+The last three methods in the table deal with the Viewer’s management of selections. The Viewer listens for the user’s selections and calls the **findObjectAtExcluding**() method to see if a selection location matches that of an **EditPart**. If so, the **EditPart** is added to the List of **EditParts** returned by **getSelectedEditParts**(). Even though the **SelectionTool** responds to the user’s selection, it gets its information from the Viewer.
+
