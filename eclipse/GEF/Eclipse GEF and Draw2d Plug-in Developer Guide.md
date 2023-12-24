@@ -63,9 +63,9 @@ The parent-child relationship of editparts carries over into their figures. The 
 
 ![](_assets/mvctree.gif)
 
-Connections are the exception to this simple tree structure. Connections represent a link or association between two objects. A Draw2d connection figure is used as the view. Connections may be stored in any way in the model, but the editparts are managed by the source and target editpart at each end. A connection editpart's figure containment is also handled specially. The connection figure is added to a special layer in the diagram so that it paints above the primary layer containing non-connection parts.
+Connections are the exception to this simple tree structure. <span style="background:#fff88f">Connections represent a link or association between two objects.</span> A Draw2d connection figure is used as the view. <u>Connections may be stored in any way in the model, but the editparts are managed by the source and target editpart at each end</u>. A connection editpart's figure containment is also handled specially. <span style="background:#fff88f">The connection figure is added to a special layer in the diagram so that it paints above the primary layer containing non-connection parts.</span>
 
-There are two types of editpart implementations provided with GEF. Graphical editparts use figures as their view. Graphical editparts also add the ability to support connections, which themselves are graphical editparts. The other type is a tree editpart. Tree editparts use SWT treeitems as their view.
+There are two types of editpart implementations provided with GEF. <span style="background:#fff88f">Graphical editparts use figures as their view</span>. <span style="background:#fff88f">Graphical editparts also add the ability to support connections, which themselves are graphical editparts</span>. The other type is a tree editpart. Tree editparts use SWT treeitems as their view.
 
 The responsibilities of each editpart include:
 
@@ -74,23 +74,23 @@ The responsibilities of each editpart include:
 *   Create and maintain connections editparts
 *   Support editing of the model
 
-Note that maintaining the view and other editparts implies that the editpart will be notified of changes in the model. Usually, the editpart hooks a listener directly to the model object(s) with which it is associated. When it receives notification, it updates its view or structure depending on the change.
+Note that<span style="background:#fff88f"> maintaining the view and other editparts implies that the editpart will be notified of changes in the model</span>. Usually, <span style="background:#fff88f">the editpart hooks a listener directly to the model object(s)</span> with which it is associated. When it receives notification, it updates its view or structure depending on the change.
 
-As the name implies, editparts must support editing the model. But first we will focus on the initial steps of building an application, which is to display the initial model.
+As the name implies, e<span style="background:#fff88f">ditparts must support editing the model</span>. But first we will focus on the initial steps of building an application, which is to display the initial model.
 
 Creating a Graphical View of a Model
 ------------------------------------
 
 Once you have a model and some figures with which to view it, the next step is to put the pieces together. This means creating the editparts that are going to work with each model and figure combination. GEF's implementations are abstract and must be extended for your application. But first, we need to set up the foundation.
 
-GEF includes the class `ScrollingGraphicalViewer`. This is a viewer implementation which uses a Draw2d `FigureCanvas`. **Most applications use this viewer** unless, for some reason, scrollbars are not needed. The next step is to decide which _root_ editpart to use. Each editpart viewer requires a special editpart called the root. This editpart does not correspond to anything in the model. Its function is to setup the viewer and provide a uniform context for all of the application's "real" editparts. There are two implementations to consider using:
+GEF includes the class <span style="background:#fff88f">`ScrollingGraphicalViewer`. This is a viewer implementation which uses a Draw2d `FigureCanvas`</span>. **Most applications use this viewer** unless, for some reason, scrollbars are not needed. <span style="background:#fff88f">The next step is to decide which _root_ editpart to use</span>. E<span style="background:#fff88f">ach editpart viewer requires a special editpart called the roo</span>t. T<span style="background:#fff88f">his editpart does not correspond to anything in the mode</span>l. Its functio<span style="background:#fff88f">n is to setup the viewer and provide a uniform context for all of the application's "real" editpar</span>ts. There are two implementations to consider using:
 
 *   `ScalableRootEditPart` \- provides the standard set of layers and supports zoom should the application decide to expose this to the user.
-    
-*   `ScalableFreeformRootEditPart` \- similar to above, but all of the layers conform to the _freeform_ interface, which allows the diagram to additionally extend into negative coordinates (to the left and up). This is the most flexible and **commonly used** root editpart.
-    
+  
+*   `ScalableFreeformRootEditPart` \- similar to above, but all of the layers conform to the <span style="background:#fff88f">_freeform_ interface, which allows the diagram to additionally extend into negative coordinates (to the left and up</span>). This is the most flexible and **commonly used** root editpart.
+   
 
-Now we have a viewer and its root editpart, so next we'll actually set some contents into the viewer. _Contents_ refers to the base model object that seeds the viewer with the graphical diagram being displayed. The viewer's `EditPartFactory` is then responsible for taking the contents and constructing the appropriate editpart, which is then set on the root editpart. Its figure gets added to the root's. At that point the contents editpart will construct its children editparts, reusing the viewer's factory, which in turn then create their children and/or connections, etc., until all of the editparts and their views have been created.
+Now we have a viewer and its root editpart, so next we'll actually set some contents into the viewer. <span style="background:#fff88f">_Contents_ refers to the base model object that seeds the viewer with the graphical diagram being displaye</span>d. The viewer's <span style="background:#fff88f">`EditPartFactory` is then responsible for taking the contents and constructing the appropriate editpart, which is then set on the root editpar</span>t. Its figure gets added to the root's. At that point the contents editpart will construct its children editparts, reusing the viewer's factory, which in turn then create their children and/or connections, etc., until all of the editparts and their views have been created.
 
 ![](_assets/factory.gif)
 

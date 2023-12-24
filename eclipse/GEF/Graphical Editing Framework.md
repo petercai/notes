@@ -1056,6 +1056,14 @@ When an object is added to the GEF model, a corresponding **controller** is inst
 - **controller**—a collection of GEF edit parts. The Controller is a subclass of **AbstractGraphicalEditPart**
 
 GEF provides various **edit part** (controller) and **figure** (view) classes for you to extend, minimizing the effort necessary to use the graphical framework in your application.
+![](_assets/gefmvc.gif)
+
+### Tools, Actions, Policies, Requests, and Commands
+The GEF architecture provides an extendable framework to associate user actions with changes in the model and view. **Tools** and **Actions** convert low-level user input into higher-level **Requests**. **EditPolicies** attached to **EditParts** translate these higher-level **Requests**
+into **Commands** that encapsulate changes to the model. These **Commands** are executed and placed on the command stack so that the user may choose to undo the operation at a later time.
+![[Graphical Editing Framework-20231224-2.png]]
+
+
 
 The GEF project is made up of three subsections:
 • **Draw2D**—(org.eclipse.draw2d.*) a lightweight framework layered on top of SWT for rendering graphical information.
@@ -1067,7 +1075,13 @@ The GEF project is made up of three subsections:
 First, the **model** is responsible for <u>providing all data that will be viewable and modifiable by the user</u>; no data should be stored in the controller or view. Next, the model needs to provide a way for the data to be persisted across sessions. Finally, while the controller will have references to the model, the model should not reference the controller or view.
 Instead, <u>the controller registers itself with the model as a listener so that model changes are communicated to the controller using the observer pattern.</u>
 
-## GEF Controller
+## GEF Controller/EditParts
+EditParts bind model elements to GEF figures. Each model object has a corresponding EditPart , which is responsible forseveral things:
+-  Constructing a figure to represent the model object
+-  Listening for model changes and updating the view accordingly
+-  Providing a collection of child model objects to be displayed
+Similar to Draw2D, which provides many different types of figures used in building complex views, GEF provides various EditPart classes used to observe and update model objects and manage the associated figures.
+
 The GEF controller is <u>a collection of edit parts</u>. As<u> new objects are added to the model, an edit part factory creates edit parts corresponding to the new model objects</u>. Each <u>edit part is responsible for creating figures representing its model objects and giving itself characteristics by overriding methods which declare</u>:
 • child edit parts
 • connections
@@ -1111,7 +1125,10 @@ There are edit parts to represent all the figures, except the connection figures
 #### EditPartFactory
 Every GEF canvas has exactly one edit part factory. When objects are added to the model, GEF uses the associated edit part factory to create edit parts corresponding to the new model objects.
 
-## GEF Figures
+## GEF Figures/View
+GEF supports representing a model as nodes in a graph or items in a tree. In a graph, the view is a collection of Draw2D figures displayed in an SWT canvas. Alternatively, GEF can represent model elements as SWT tree items displayed in an SWT tree. Many applications have both a GEF Editor displaying Draw2D figures with an outline view to one side constructed using a GEF tree viewer. Figures and tree items should not have direct
+knowledge or references to any model or controller objects.
+
 The GEF canvas, an instance of **FigureCanvas**, contains a collection of figures that visually represent the underlying model. It is the responsibility of each edit part to create and manage figures representing the model object associated with that edit part.
 
 ### IFigure
@@ -1207,7 +1224,17 @@ Any figure which has children must declare a LayoutManager, which is responsible
 • GridLayout
 • StackLayout
 
-## GEF in an Eclipse View
+## EditPartViewer
+At the core of every GEF view is an instance of **EditPartViewer**, which orchestrates the interaction of the model, the edit parts, and the view. There are four main elements of each EditPartViewer:
+-  **setContents**(…)—call this method to set the top-level model element for the model being displayed .
+- **EditPartFactory**—the factory used to construct all EditParts except for the root edit part.
+- **RootEditPart**—the top level edit part for the graph or tree that directly or indirectly contains all other edit parts.
+- **EditDomain**—responsible for directing user input and managing command stack and tool palette.
+![[Graphical Editing Framework-20231224-1.png]]
+The **EditPartViewer** to use depends upon how you want to visually represent your model:
+- **GraphicalViewerImpl**—used to display model elements as figures in a graph.
+- **ScrollingGraphicalViewer**—used to display model elements as figures in a scrollable graph.
+- **TreeViewer**—used to represent model elements as items in a tree. This is the org.eclipse.gef.ui.parts.TreeViewer class and not the JFace TreeViewer.
 
 At the highest level, GEF provides the **ScrollingGraphicalViewer** class, a type of edit part, for creating and managing a GEF canvas. Using the ScrollingGraphicalViewer.**createControl**() method, the canvas can be added to any SWT Composite.
 
@@ -1216,7 +1243,7 @@ The root edit part for graphical data is either **ScalableRootEditPart** or **Sc
 ![[Graphical Editing Framework-20231202-2.png]]
 
 
-When the view first becomes visible, the edit parts and figures are instantiated for the view. Typically, as the model changes, listeners notify the edit parts of the changes which in turn update the figures so that the visual representation stays in sync with the model. For now, we add a setFocus method to FavoritesGEFView so that the edit parts and figures are refreshed each time the Favorites GEF View gets focus. This is not optimal, but is useful for debugging purposes. 
+When the view first becomes visible, the edit parts and figures are instantiated for the view. Typically, as the model changes, listeners notify the edit parts of the changes which in turn update the figures so that the visual representation stays in sync with the model. 
 
 	Tip: If a child figure isn’t drawn in the GEF canvas, check that ...
 	1) the parent model object contains the expected child model object
@@ -1225,13 +1252,34 @@ When the view first becomes visible, the edit parts and figures are instantiated
 	4) the parent figure has a layout manager
 	5) the child figure’s constraint or bounds are properly set
 
+### EditPartFactory
+When the **EditPartViewer** needs to display a model element but does not have an EditPart associated with that model element already cached, it calls the **EditPartFactory** to construct a new EditPart for that model element. All EditParts except for the RootEditPart are instantiated using this technique. Each EditPart is then called to construct the figures or tree item used to represent its associated model object in the view 
 
+### RootEditPart
+The RootEditPart is the top level EditPart for the graph and directly or indirectly contains all other EditParts in the graph. TreeViewer provides its own RootEditPart, but there are several different RootEditParts that can be used with GraphicalViewerImpl depending the desired graph:
+- **SimpleRootEditPart**—constructs a simple non-scrolling layered view using StackLayout.
+- **FreeformGraphicalRootEditPart**—constructs a layered view using **FreeformViewport** for use with a **ScrollingGraphicalViewport** for displaying FreeformFigures .
+ - **ScalableFreeformRootEditPart**—constructs a layered view similar to **FreeformGraphicalRootEditPart**, but that can be zoomed.
+
+### EditPartViewer setContents
+Call EditPartViewer’s **setContents**(…) method to set the top-level model element displayed by the viewer . This method calls the **EditPartFactory** to construct an **EditPart** for the top-
+level model. This does not quite follow Java’s typical get/set method paradigm because to retrieve the top-level model element from an **EditPartViewer**, you must first call **getContents**() to get the top-level **EditPart**, and then call **getModel**() to retrieve the top-level model element from the top-level EditPart.
+
+```
+EditPart topLevelEditPart = myEditPartViewer.getContent();
+Object topLevelModelElement = topLevelEditPart.getModel();
+
+```
+
+### EditDomain
+The **EditDomain** is responsible for directing all user input and managing both the command stack and the tools palette. The **EditDomain** class provides for the general case, and the **DefaultEditDomain** subclass is for use with an Eclipse **IEditorPart**. Typically there is one
+**EditDomain** for each **EditPartViewer**, but the architecture allows for the more general case of having one **EditDomain** associated with multiple **EditPartViewers**
 ### Listening to Model changes
-As the model changes, we would like the view to automatically adjust so that it always displays the current model state. To accomplish this, create a new listener in the XxxEditPart to refresh the edit parts based upon the model changes.
+As the model changes, we would like the view to automatically adjust so that it always displays the current model state. To accomplish this, create a new listener in the **EditPart** to refresh the edit parts based upon the model changes.
 
-When a model change occurs, the edit part should act accordingly by refreshing whatever has changed from the model. For simplicity, the model listener described uses the refresh() method, which is appropriate for small to medium sized models. As models become larger, the time to execute the refresh() method increases in a linear fashion. If at some point performance becomes sluggish, consider using explicit calls to addChild() and removeChild() rather than calling refresh().
+When a model change occurs, the edit part should act accordingly by refreshing whatever has changed from the model. For simplicity, the model listener described uses the **refresh**() method, which is appropriate for small to medium sized models. As models become larger, the time to execute the **refresh**() method increases in a linear fashion. If at some point performance becomes sluggish, consider using explicit calls to **addChild**() and **removeChild**() rather than calling **refresh**().
 
-Edit parts have the methods activate() and deactivate() which are called when the edit part is added and removed. These methods provide the ideal place to add and remove model listeners. Add the following methods to XxxEditPart so that it will receive notifications as the model changes.
+Edit parts have the methods **activate**() and **deactivate**() which are called when the edit part is added and removed. These methods provide the ideal place to add and remove model listeners. Add the following methods to EditPart so that it will receive notifications as the model changes.
 
 ## GEF in an Eclipse Editor
 Per Editor Lifecycle, each editor is initialized with an editor input.
