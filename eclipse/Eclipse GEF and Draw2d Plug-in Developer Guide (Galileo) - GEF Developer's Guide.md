@@ -24,14 +24,11 @@
 Overview
 --------
 
-Draw2d focuses on efficient painting and layout of figures. The GEF plug-in adds editing on top of Draw2d. The purpose of this framework is to:
+**Draw2d** focuses on efficient painting and layout of figures. The GEF plug-in adds editing on top of Draw2d. The purpose of this framework is to:
 
 1.  Facilitate the display of any model graphically using draw2d figures
-    
 2.  Support interactions from mouse, keyboard, or the Workbench
-    
-3.  Provide common components related to the above
-    
+3.  Provide common components related to the above  
 
 The diagram below shows a high-level view of GEF.  GEF can be loosely defined as the region in the middle. The framework provides the link between an application's model and view. It also provides input handlers, such as tools and actions, that turn events into requests. Requests and Commands are used to encapsulate interactions and their effects on the model.
 
@@ -41,7 +38,7 @@ In MVC (model-view-controller) design, the controller is often the only connecti
 
 **Model**
 
-> The model is any data that gets persisted. Any model can be used with GEF. The model must have some sort of notification mechanism. Although not technically the model, commands are closely related. A command is how the model is modified in a way that can be undone and redone by the user. In general, commands should work only on the model itself.
+> The model is any data that gets persisted. Any model can be used with GEF.<u> The model must have some sort of notification mechanism</u>. Although not technically the model, commands are closely related.<u> A command is how the model is modified in a way that can be undone and redone by the user. In general, commands should work only on the model itself.</u>
 
 **View (Figures/TreeItems)**
 

@@ -1006,8 +1006,43 @@ The **Connection**’s router refers to the path it takes from one anchor to the
 ## Drag-and-drop in Draw2D
 
 
+# Zest
 
+## GraphViewer
+The Zest GraphViewer class provides similar services to the various JFace viewers. Create the following methods to initialize the viewer field and set the viewer’s input:
 
+```
+private GraphViewer viewer;
+
+private Control createDiagram(Composite parent) {
+	viewer = new GraphViewer(parent, SWT.NONE);
+	return viewer.getControl();
+}
+private void setModel(GenealogyGraph newGraph) {
+	viewer.setInput(newGraph);
+}
+```
+
+## Content Provider
+Before the Zest diagram can be displayed, we must specify a content provider. Because Zest is a diagram with connections or “relationships,” we cannot implement **IStructuredContentProvider** from JFace but instead must implement one of the four Zest subinterfaces that have specialized methods for specifying both the objects in the diagram and the relationships between those objects. Each of these four interfaces takes a different approach to adapting a model to the diagram and is appropriate for adapting different
+types of models.
+-  **IGraphEntityContentProvider**—best for models that do not have elements representing the connections between other model objects 
+-  **IGraphEntityRelationshipContentProvider**—best for models that have elements representing both concrete objects and the connections between those objects 
+- **IGraphContentProvider**—best for models that are relationship-centric and have elements representing the connections between concrete objects rather than the concrete objects themselves 
+-  **INestedContentProvider**—used in conjunction with one of the content providers above to display nested content 
+
+### Presentation
+To make diagrams look better and be more informative, the **GraphViewer**’s label provider can implement any combination of the following interfaces to adjust the presentation:
+• ILabelProvider (required)
+• IColorProvider
+• IFigureProvider
+• ISelfStyleProvider
+• IEntityStyleProvider
+• IEntityConnectionStyleProvider
+• IConnectionStyleProvider
+
+#### Label Provider
+The GraphViewer’s default label provider uses the toString() method to provide text for both nodes and connections. 
 
 # Graphical Editing Framework
 
