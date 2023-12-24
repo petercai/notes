@@ -1281,21 +1281,28 @@ When a model change occurs, the edit part should act accordingly by refreshing w
 
 Edit parts have the methods **activate**() and **deactivate**() which are called when the edit part is added and removed. These methods provide the ideal place to add and remove model listeners. Add the following methods to EditPart so that it will receive notifications as the model changes.
 
-## GEF in an Eclipse Editor
-Per Editor Lifecycle, each editor is initialized with an editor input.
+## Tools
+Typically, a GEF Editor has an associated palette of tools. When the user selects a tool, it becomes the active tool for that editor’s **EditDomain**. When the user interacts with the canvas, low-level user input passes from the **EditPartViewer** and **EditDomain** to the active tool. This tool is then responsible for turning the lower-level action into a request. Many different types of tools are used to facilitate user interaction with the displayed information, such as
+ - **SelectionTool**—translates mouse click and drag events into background selection, figure selection, and handle manipulation requests
+ - **CreationTool**—translates mouse click and drag events into requests to create new model elements 
+- **DragEditPartsTracker**—translates mouse drag events into requests to move figures to a new location
+- **ConnectionDragCreationTool**—translates mouse click and drag events into connection creation requests
 
-Editors are typically built to modify some file type. But if the model is NOT stored in a workspace file and does not appear in the Package Explorer view. In the editor input class, the exists() method returns false indicating the the input is not from a workspace file, and the getPersistable() method returns null indicating that the model is not persisted in a workspace file.
+## GEF in an Eclipse Editor
+Per Editor Lifecycle, each editor is initialized with an editor input. With this editor, you can load and save graphs in your workspace. A tool palette is provided for selection,etc.
+
+**Editors** are typically built to modify some file type. But if the model is NOT stored in a workspace file and does not appear in the Package Explorer view. In the editor input class, the **exists**() <u>method returns false indicating the the input is not from a workspace file</u>, and the **getPersistable**() <u>method returns null indicating that the model is not persisted in a workspace file.</u>
 
 ###  Graphical Editor classes
 GEF provides three classes upon which editors can be built. **GraphicalEditor** is the superclass of both **GraphicalEditorWithPalette** and **GraphicalEditorWithFlyoutPalette** which, as their names suggest, implement extra methods which place a palette on the editor. If you do not need a palette in your editor, then extend GraphicalEditor rather than one of its subclasses.
 
 #### GraphicalEditor
 Some of the interesting methods provided by this superclass include:
-**createActions**()—Creates actions for this editor. Subclasses should override this method to create and register actions with the ActionRegistry.
-**getCommandStack**()—Returns the command stack.
-**getEditDomain**()—Returns the edit domain.
-**initializeGraphicalViewer**()—Override to set the contents of the GraphicalViewer after it has been created.
-**setEditDomain**(DefaultEditDomain)—Sets the EditDomain for this EditorPart.
+ -**createActions**()—Creates actions for this editor. Subclasses should override this method to create and register actions with the ActionRegistry.
+- **getCommandStack**()—Returns the command stack.
+- **getEditDomain**()—Returns the edit domain.
+- **initializeGraphicalViewer**()—Override to set the contents of the GraphicalViewer after it has been created.
+- **setEditDomain**(DefaultEditDomain)—Sets the EditDomain for this EditorPart.
 
 #### GraphicalEditorWithPalette
 This class extends **GraphicalEditor** to provide a fixed palette.
@@ -1502,6 +1509,13 @@ When a new child Model is created from its template, the parent Model fires a **
 **createChild**() accesses the editor’s **EditPartFactory** object. Just as our **ModelFactory** created Model classes according to templates, our **PartFactory** creates **EditParts** according to their Models. The interface specifies only one method, **createEditPart**()
 
 ## Creating Commands with EditPolicy objects
+
+### EditPolicy
+Multiple **EditPolicies** can be associated with each **EditPart** to translate requests into commands. If multiple **EditPolicies** return a command for the same request, then those commands are chained together and performed or reversed as a unit.
+### Commands
+Commands returned by **EditPolicy** methods contain the information required to make some application state change. Each **command** knows if the operation can be safely executed given the current model state and can undo and redo that operation. It is good practice to implement commands as small operations and compose more complex commands by chaining together many simple commands. Finally, it is important to note that although GEF commands and Eclipse commands are related concepts, they are implemented as completely separate class hierarchies.
+
+
 Let’s say that you has a **ChangeColorCommand**, and you want this Command to execute whenever the component receives a **DirectEditRequest**. For another component, you want the **ChangeShapeCommand** to be executed for this **Request**. Clearly, you need to modify the **EditPart** classes of these components, since these are the objects that receive **Requests**. But how do you make this distinction? The answer involves **EditPolicys**, which make it possible for **EditParts** to control how **Commands** are created in response to **Requests**. 
 ### The getCommand() method
 Just as **execute**() makes **Command** operation possible, the **getCommand**() method
@@ -1565,21 +1579,37 @@ The **Label** column in the table refers to whether the **RetargetAction** can b
 ## Introducing the EditorPart
 #### Working with EditorParts and GraphicalEditors
 Graphical components in the Eclipse Workbench are divided into **views** and **editors**. **Views**, which extend the **ViewPart** class, organize and display information about the Workbench. Editors function by allowing the user to manipulate and save files; they descend from the **EditorPart** class.
-Both **EditorPart** and its superclass, **WorkbenchPart**, are abstract classes with abstract methods. Therefore, if you’re seeking to build an Eclipse editor, you must
-provide code for each of these methods, shown below:
+Both **EditorPart** and its superclass, **WorkbenchPart**, are abstract classes with abstract methods. Therefore, if you’re seeking to build an Eclipse editor, you must provide code for each of these methods, shown below:
 ![[Graphical Editing Framework-20231216-13.png]]
-The two most important of these are **init**() and **createPartControl**(). The Workbench calls **init**() when the user opens a file with the supported extension. Then, to display the editor, the workbench calls **createPartControl**(). Like the **createContents**() method of a JFace Window, this method embodies the editor’s appearance within a **Composite** object.
+The two most important of these are **init**() and **createPartControl**(). 
+1. The Workbench calls **init**() when the user opens a file with the supported extension. 
+2. Then, to display the editor, the workbench calls **createPartControl**(). Like the **createContents**() method of a JFace Window, this method embodies the editor’s appearance within a **Composite** object.
 The nature of this **Composite** determines how the editor looks and acts. For text editors, this is one large Text box. Graphical editors use a **Canvas**, but there’s much more to a graphical editor than this object. To provide added functionality, GEF supplies an **EditorPart** subclass, **GraphicalEditor**.
-The documentation recommends using the GraphicalEditor class as a reference. This class provides a number of important capabilities to the editor, such as an **ActionRegistry**, a **CommandStack**, an **EditDomain**, and a **SelectionSynchronizer** to coordinate selections across multiple viewers
+The documentation recommends using the **GraphicalEditor** class as a reference. This class provides a number of important capabilities to the editor, such as 
+- an **ActionRegistry**, 
+- a **CommandStack**, 
+- an **EditDomain**, 
+- a **SelectionSynchronizer** to coordinate selections across multiple viewers
 
 ### Understanding the GraphicalViewer
 You can think of a GEF editor as a **GraphicalViewer** on top of a **Canvas** object. It handles events, keeps track of the user’s selections, and creates the basis for the editor’s **EditPart** hierarchy.
 You can extend **GraphicalViewerImpl**, a concrete class that implements the **GraphicalViewer** interface. 
 ![[Graphical Editing Framework-20231216-14.png]]
-The first two methods create the structure underlying the GEF editor. First, the **createControl**() method builds the SWT **Canvas** object. Afterward, it creates a **LightWeightSystem** to hold the editor’s Draw2D **Figures**. These objects also provide a channel through which the Viewer can receive Events.
-The next two methods provide a basis for the editor’s MVC structure. First, the **setRootEditPart**() creates a new top-level parent for the **EditPart** hierarchy. It’s important to understand that this is not a part that we’ve created previously. It doesn’t perform event handling or specify **EditPolicys**; it does interact with the editor’s Layers, but its main purpose is to manage child **EditParts**.
-Another purpose of the **RootEditPart** is to specify a **Figure** to create when **setRootFigure**() is invoked. Again, this isn’t a **Figure** that we’ve coded. The nature of this **Figure** depends on the **RootEditPart**. 
-The next two methods continue this MVC development. The **getContents**() method initializes the Viewer by providing the top-level Model class of the Viewer.
-The next four methods handle events in the Viewer. The first method directs Events from the LightWeightSystem to the editor’s **EditDomain**. The Viewer creates Listeners for **DragEvents** and **DropTargetEvents** and also provides a **KeyHandler** to respond to keyboard actions. It’s important to note that the Viewer doesn’t respond to Events itself, but sends them to the object best suited to handle them.
-The last three methods in the table deal with the Viewer’s management of selections. The Viewer listens for the user’s selections and calls the **findObjectAtExcluding**() method to see if a selection location matches that of an **EditPart**. If so, the **EditPart** is added to the List of **EditParts** returned by **getSelectedEditParts**(). Even though the **SelectionTool** responds to the user’s selection, it gets its information from the Viewer.
+- The first two methods create the structure underlying the GEF editor. 
+	1. First, the **createControl**() method builds the SWT **Canvas** object. 
+	2. Afterward, it creates a **LightWeightSystem** to hold the editor’s Draw2D **Figures**. These objects also provide a channel through which the Viewer can receive Events.
+- The next two methods provide a basis for the editor’s MVC structure. 
+	1. First, the **setRootEditPart**() creates a new top-level parent for the **EditPart** hierarchy. It’s important to understand that this is not a part that we’ve created previously. It doesn’t perform event handling or specify **EditPolicys**; it does interact with the editor’s Layers, but its main purpose is to manage child **EditParts**.
+	2. Another purpose of the **RootEditPart** is to specify a **Figure** to create when **setRootFigure**() is invoked. Again, this isn’t a **Figure** that we’ve coded. The nature of this **Figure** depends on the **RootEditPart**. 
+- The next two methods continue this MVC development. 
+	1. The **getContents**() method initializes the Viewer by providing the top-level Model class of the Viewer.
+	2. The next four methods handle events in the Viewer. 
+		1. The first method **getEditPartFactory**() directs Events from the LightWeightSystem to the editor’s **EditDomain**. 
+		2. The Viewer creates Listeners for **DragEvents** - **addDragSourceListener**() and 
+		3. **DropTargetEvents** - **addDropTargetListerer**() and 
+		4. also provides a **KeyHandler** - **setKeyHandler**() to respond to keyboard actions. It’s important to note that the<span style="background:#fff88f"> Viewer doesn’t respond to Events itself, but sends them to the object best suited to handle them</span>.
+- The last three methods in the table deal with the Viewer’s management of selections. 
+	1. **addSelectionChangeListener**()
+	2. The Viewer listens for the user’s selections and calls the **findObjectAtExcluding**() method to see if a selection location matches that of an **EditPart**. 
+	3. If so, the **EditPart** is added to the List of **EditParts** returned by **getSelectedEditParts**(). <span style="background:#fff88f">Even though the **SelectionTool** responds to the user’s selection, it gets its information from the Viewer.</span>
 
