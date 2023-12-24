@@ -1,10 +1,5 @@
-# Eclipse GEF and Draw2d Plug-in Developer Guide (Galileo) - GEF Developer's Guide
+# Eclipse GEF and Draw2d Plug-in Developer Guide 
  
-
-| Eclipse GEF and Draw2d Plug-in Developer Guide |
-| --- |
-| [Previous Page](https://www.linuxtopia.org/online_books/eclipse_documentation/eclipse_gef_draw2d_plug-in/topic/org.eclipse.draw2d.doc.isv/guide/eclipse_gef_draw2d_coordinates.html) | [Home](https://www.linuxtopia.org/online_books/eclipse_documentation/eclipse_gef_draw2d_plug-in/index.html) | [Next Page](https://www.linuxtopia.org/online_books/eclipse_documentation/eclipse_gef_draw2d_plug-in/nav/eclipse_gef_draw2d_16_1) |
-
 * * *
 
 *   [Overview](#Overview) \- Description of the "big picture"
@@ -42,15 +37,15 @@ In MVC (model-view-controller) design, the controller is often the only connecti
 
 **View (Figures/TreeItems)**
 
-> The view is anything visible to the user. Both Figures and TreeItems can be used as view elements.
+> The view is anything visible to the user. B<u>oth Figures and TreeItems can be used as view elements.</u>
 
 **Controller (EditPart)**
 
-> There is usually one controller per visualized model object. The controller is called an `EditPart`. Editparts are the link between the model and the view. They are also responsible for editing. Editparts contain helpers called _EditPolicies_, which handle the much of the editing task.
+> There is usually one controller per visualized model object. **The controller is called an `EditPart`.** <u>Editparts are the link between the model and the view. They are also responsible for editing</u>.<u> Editparts contain helpers called _EditPolicies_, which handle the much of the editing task</u>.
 
 **Viewers**
 
-> An `EditPartViewer` is where editparts display their view. There are two types of viewers provided in GEF. A graphical viewer hosts figures while a tree viewer displays native treeitems. GEF viewers are similar to JFace viewers in that they manage an SWT Control. Viewers are also a selection provider, and the unit of selection is the EditPart.
+> **An `EditPartViewer` is where editparts display their view**. There are two types of viewers provided in GEF. A <u>graphical viewer hosts figures</u> while a<u> tree viewer displays native treeitems</u>. GEF viewers are similar to JFace viewers in that they manage an SWT Control. V<u>iewers are also a selection provider, and the unit of selection is the EditPar</u>t.
 
 When can I use GEF?
 -------------------
