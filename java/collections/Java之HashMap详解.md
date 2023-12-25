@@ -1,4 +1,4 @@
-# Java之HashMap详解：深入剖析其底层实现与源码分析
+# Java之HashMap详解
 ![](_assets/1c4dea332fa145508ebe76308618d03e~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 * * *
@@ -7,7 +7,7 @@
 
   本文主要介绍HashMap的底层实现原理和源码分析。首先，介绍了HashMap的概念和基本操作，然后，深入讲解了HashMap的底层实现原理，包括哈希表、红黑树等相关知识。接着，介绍了HashMap的源码分析，包括put方法、get方法、resize方法等。最后，通过应用场景案例、优缺点分析、类代码方法介绍、测试用例和全文小结等方面全面解析了HashMap。
 
-概述
+## 概述
 --
 
   HashMap是Java集合框架中的一个重要类，它用于保存键值对。HashMap是基于哈希表实现的，它通过将键映射到存储桶中来实现快速访问。每个存储桶是一个链表，当多个键散列到同一个桶时，它们以链表的形式存储。
@@ -40,7 +40,7 @@ public V remove(Object key) {
 
 ![](_assets/97e9487115154d2b89fbf072c46cb751~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
-源代码解析
+## 代码解析
 -----
 
 ### put方法
@@ -127,13 +127,35 @@ void resize(int newCapacity) {
 
 ```
 
-应用场景案例
-------
+这些方法都是用于操作 Java 中的 HashMap 的方法。它们的区别在于它们在执行操作时对于已存在或不存在的键值对的处理方式不同。
 
-  HashMap常用于需要快速查找、插入和删除的场景中，例如：
-
-*   在Java中，我们经常会用HashMap来存储用户信息，以方便快速查找和操作；
-*   在Web应用程序中，我们经常会用HashMap来存储请求参数，以方便快速访问。
+### **`compute()`**:
+    - `compute(key, remappingFunction)` 方法用于根据指定键（key）的值和指定的 remapping 函数来重新计算（或生成）其映射的值。
+    - 如果指定键不存在或其值为 null，则该方法不执行任何操作，并返回 null。
+    - 如果 remapping 函数计算结果为 null，则指定键的映射会被移除。
+    - 示例：  
+```
+HashMap<String, Integer> map = new HashMap<>(); map.put("A", 1); map.compute("A", (k, v) -> (v == null) ? 100 : v * 10); // 更新键"A"对应的值为原值的十倍
+```
+  
+### **`computeIfAbsent()`**:
+    - `computeIfAbsent(key, mappingFunction)` 方法用于根据指定键（key）的缺失情况，如果键不存在或其值为 null，则使用指定的 mapping 函数生成该键的值。
+    - 如果指定键不存在，则使用 mapping 函数生成一个值并将其与键关联。
+    - 如果 mapping 函数返回 null，则不会进行键值对的关联。
+    - 示例：
+```
+HashMap<String, Integer> map = new HashMap<>(); map.computeIfAbsent("B", k -> 200); // 如果键"B"不存在，则关联键"B"和值200`
+```
+        
+### **`computeIfPresent()`**:
+    - `computeIfPresent(key, remappingFunction)` 方法用于根据指定键（key）的存在情况来重新计算其映射的值。
+    - 如果指定键存在且其值不为 null，则根据 remapping 函数重新计算键对应的值。
+    - 如果 remapping 函数计算结果为 null，则移除指定键的映射。
+    - 如果指定键不存在或其值为 null，则该方法不执行任何操作。
+    - 示例：
+```
+HashMap<String, Integer> map = new HashMap<>(); map.put("C", 3); map.computeIfPresent("C", (k, v) -> v * 5); // 如果键"C"存在，则将其值乘以5`
+```
 
 优缺点分析
 -----
