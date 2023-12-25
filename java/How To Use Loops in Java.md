@@ -1,5 +1,4 @@
-# How To Use Loops in Java | DigitalOcean
-_The author selected the [Free and Open Source Fund](https://www.brightfunds.org/funds/foss-nonprofits) to receive a donation as part of the [Write for DOnations](https://do.co/w4do-cta) program._
+# How To Use Loops in Java
 
 ### Introduction
 

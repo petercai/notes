@@ -94,10 +94,13 @@ button.addMouseListener(new MouseListener()
 ```
 
 #### Adapters
-**Adapters** are **abstract classes** that implement **Listener** interfaces and provide default implementations for each of their required methods. This means that when you associate a widget with an adapter instead of a listener, you only need to write code for the method(s) you’re interested in. Although this may seem like a minor convenience, it can save you a great deal of programming time whenyou’re working with complex GUIs.
+**Adapters** are 
+1. **abstract classes** that implement **Listener** interfaces and 
+2. provide default implementations for each of their required methods. 
+This means that when you associate a widget with an adapter instead of a listener, you only need to write code for the method(s) you’re interested in. Although this may seem like a minor convenience, it can save you a great deal of programming time whenyou’re working with complex GUIs.
 	 NOTE
-		The adapters mentioned in this section are very different from the model-based adapters provided by the JFace library. Here, adapters reduce the amount of code necessary to create listener interfaces. 
-**Adapters** are only available for events whose listeners have more than one member method. The full list of these classes is shown in table 4.3, along with their associated Listener classes.
+		The adapters mentioned in this section are very different from the model-based adapters provided by the JFace library. Here, <span style="background:#fff88f">adapters reduce the amount of code necessary to create listener interfaces. </span>
+**Adapters** ar<span style="background:#fff88f">e only available for events whose listeners have more than one member method. </span>T<u></u>he full list of these classes is shown below, along with their associated Listener classes.
 ![[Graphical Editing Framework-20231204-1.png]]
 Adapter objects are easy to code and are created with the same add...Listener() methods. Two examples are shown here:
 
@@ -192,6 +195,83 @@ button.addListener(SWT.MouseDoubleClick, listener);
 
 In order to take the place of typed events, the Event class contains all the fields in each typed event. It has the same character field as a KeyEvent and the same button field as a MouseEvent. As shown in the previous code, it also has a field called type, which refers to the nature of the event. 
 ![[Graphical Editing Framework-20231204-3.png]]
+
+### Transferring data
+In Eclipse, every time you **cut and paste**, the application must interact with the system clipboard, where data is stored temporarily. **Dragging and dropping** items requires similar communication, because the application needs to let the system know what kind of data formats it can provide as well as whether it will accept any given data type.
+SWT handles many of the common cases automatically. However, you need to handle this work yourself if you wish to support drag-and-drop operations or cutting and pasting with application-specific formats. 
+#### The Transfer class
+In order for data to be moved or copied between elements, there must be a way for those elements to agree on what format that data is in. If the application doesn’t understand a given format, it won’t make sense to try to import it—for example, there is no way for a text editor to handle an image that’s dropped into it. SWT provides a relatively simple way for elements to negotiate what data formats are acceptable through the use of the **Transfer** class and its subclasses.
+Each subclass of Transfer represents a certain type of data and knows how to convert that data between a Java representation and one that makes sense to the underlying operating system. SWT ships with Transfer subclasses to handle files, plain text, and text in Rich Text Format (RTF). If none of these meets your needs, you can write your own Transfer implementation. 
+Each Transfer and their subclass has a static factory method getInstance() to obtain an instance of the class. We can pass these instances around to designate what data types we’re interested in, but we never need to call any methods on them ourselves. Under the hood, SWT calls javaToNative() and nativeToJava() when appropriate to transform data.
+![[Graphical Editing Framework-20231224-3.png]]
+#### Drag-and-drop capability
+Allowing a user to drag an item from its current location to wherever they wish it to be can help make your application’s interface intuitive and easy to use. However, to accomplish this, a fair amount of work must go on behind the scenes.
+First, your application must make the system aware of the kinds of data it can provide or knows how to accept. These data types are configured separately for each widget—just because an object can accept objects dropped into it doesn’t imply that it can provide data to be dragged out. Once the system is aware of the capabilities of the various widgets in your application, those widgets will receive events when a drag or drop occurs that it must use to implement appropriate logic.
+
+##### Types of drag-and-drop operations
+When a user drags an item from one place to another, there are typically multiple ways the action can be interpreted—for example, as either a copy or a move. Each operating system has different keyboard conventions that are used to toggle between these operations. However, your widgets also need to tell SWT what operations they support. A read-only display may support copying items by dragging them out but may not allow the user to move them. Support for these operations is designated by using constants from the org.eclipse.swt.dnd.DND class, summarized below.
+![[Graphical Editing Framework-20231224-4.png]]
+#### Dropping items into an application
+You can register a control to be able to receive dropped data by using an instance of **DropTarget**. **DropTarget** stores both the type of data a widget can select and the operations that are legal to perform on that widget. The operating system uses this information to provide visual feedback as to whether an item may be dropped when it’s dragged over the widget. Once the target has been registered, any **DropTargetListeners** will receive **DropTargetEvents** when the user attempts to drop something within the control.
+
+Creating a **DropTarget** is simple. You instantiate it with a widget and a set of operations, and you <span style="background:#fff88f">set the allowed data types by calling</span> **setTransfer**(). A **listener** <span style="background:#fff88f">is then attached, which contains the logic to execute when something is dropped</span>. The following snippet demonstrates:
+
+```
+int operations = DND.DROP_MOVE | DND.DROP_COPY;
+DropTarget target = new DropTarget(control, operations);
+Transfer[] transfers = new Transfer[] {
+TextTransfer.getInstance(),
+RTFTransfer.getInstance() };
+target.setTransfer(transfers);
+target.addDropListener( new DropTargetListener(){...} );
+```
+
+If you’re working with a viewer, you must call the method **addDropSupport**() on the viewer instance instead of attempting to manipulate the control directly. The next snippet, taken from our file browser example, shows how we add support for dropping files into a list viewer:
+
+```
+Transfer[] types = new Transfer[] {
+	FileTransfer.getInstance()
+};
+viewer.addDropSupport(DND.DROP_COPY,types,new FileDropListener(this));
+```
+
+The registration process isn’t complicated. The most important part is implementing the **DropTargetListener** interface. The methods in this interface are called in the following specific order as the user drags an item into a control:
+1. **dragEnter**()—The cursor has entered the boundaries of the control while dragging an item.
+2. **dragOver**()—The cursor is moving across the control, dragging an item.
+3. **dragOperationChanged**()—This method may be called multiple times during the operation, whenever the user changes the type of operation to be performed. This occurs most often when the user presses or releases a modifier key, such as Ctrl or Option.
+4. **dropAccept**()—The user has dropped an item in the control. This is the application’s last chance to reject the drop or to change the type of operation being performed.
+5. **dropLeave**() - This method lets the application know that the user has moved the cursor outside of the control and that no drop will occur. May be called at any time before dropAccept().
+6. **drop**()—The data has been dropped. The listener must implement the appropriate logic to handle the data it has been given.
+Each method is given a **DropTargetEvent** containing information about the current operation. Most important, this event contains a list of data types that the data source can support, the current data type that will be dropped, the operations available to be performed, and the current operation to be performed. You can change the data type to be used and the operation to be performed by modifying the **currentDataType** and detail fields, respectively.
+
+#### Dragging items from your application
+A **DragSource** is created to register the control as a source of data. An implementation of **DragSourceListener** receives events when the user starts a drag operation and is responsible for implementing the logic once the item(s) have been dropped. The registration code looks almost identical. The first snippet shows how to create a DragSource by hand:
+
+```
+int operations = DND.DROP_MOVE | DND.DROP_COPY;
+DragSource source = new DragSource(control, operations);
+Transfer[] transfers = new Transfer[] {
+TextTransfer.getInstance(),
+RTFTransfer.getInstance() };
+source.setTransfer(transfers);
+source.addDragListener( new DragSourceListener(){...} );
+```
+
+Just like for a **DropTarget**, when you’re using a viewer a method on the viewer handles some of the work for you. The next excerpt shows the drag registration in the file browser example:
+
+```
+Transfer[] types = new Transfer[] {
+	FileTransfer.getInstance()
+};
+...
+viewer.addDragSupport(DND.DROP_COPY,types,new FileDragListener(this));
+```
+The **DragSourceListener** interface is much simpler than the one to handle drops; it consists of only three methods, called in the following order:
+1. **dragStart**()—The user has started dragging data from this control. If the drag should be allowed to proceed, the doit field of the event must be set to true.
+2. **dragSetData**()—A drop has been performed. This method must supply the data to be dropped by putting it in the event’s data field.
+3. **dragFinished**()—The drop has completed successfully. Any cleanup remaining to be done, such as deleting the original data for a move operation, should be performed here.
+Each method receives a **DragSourceEvent** with data about the drag. Unlike the
+**DropTargetEvent**, this event may not be modified except as noted.
 
 ### Event processing in JFace
 A listener interface can provide the same event handling for different controls, but its usage depends on the component that launched the event. Listeners that receive MouseEvents can’t be used for menu bar selections. Even untyped Events are only useful after the program determines which type of control triggered the event.
@@ -1076,7 +1156,7 @@ First, the **model** is responsible for <u>providing all data that will be viewa
 Instead, <u>the controller registers itself with the model as a listener so that model changes are communicated to the controller using the observer pattern.</u>
 
 ## GEF Controller/EditParts
-EditParts bind model elements to GEF figures. Each model object has a corresponding EditPart , which is responsible forseveral things:
+EditParts bind model elements to GEF figures. Each model object has a corresponding EditPart , which is responsible for several things:
 -  Constructing a figure to represent the model object
 -  Listening for model changes and updating the view accordingly
 -  Providing a collection of child model objects to be displayed
@@ -1124,6 +1204,16 @@ There are edit parts to represent all the figures, except the connection figures
 
 #### EditPartFactory
 Every GEF canvas has exactly one edit part factory. When objects are added to the model, GEF uses the associated edit part factory to create edit parts corresponding to the new model objects.
+
+### Listening for Model Changes
+We do not manipulate the graphical elements directly but rather modify the model and have the **EditParts** listen for model changes and update the graph accordingly. If a person is removed from the model, then the GenealogyGraphEditPart must notice this change and remove the corresponding EditPart from the GenealogyGraphEditor. To accomplish this, start by modifying the GenealogyGraphEditPart to implement the GenealogyGraphListener interface, then modify the GenealogyGraphEditPart constructor as shown below.
+
+```
+public GenealogyGraphEditPart(GenealogyGraph genealogyGraph) {
+setModel(genealogyGraph);
+genealogyGraph.addGenealogyGraphListener(this);
+}
+```
 
 ## GEF Figures/View
 GEF supports representing a model as nodes in a graph or items in a tree. In a graph, the view is a collection of Draw2D figures displayed in an SWT canvas. Alternatively, GEF can represent model elements as SWT tree items displayed in an SWT tree. Many applications have both a GEF Editor displaying Draw2D figures with an outline view to one side constructed using a GEF tree viewer. Figures and tree items should not have direct
