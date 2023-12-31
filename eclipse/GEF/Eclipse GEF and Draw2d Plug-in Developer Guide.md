@@ -173,7 +173,7 @@ Finally, there is a generic API telling an editpart to just "do something". This
 ### EditPolicies
 
 ![](_assets/editing2.gif)
-Editparts don't handle editing directly. Instead, they use EditPolicies. Each editpolicy is then able to focus on a single editing task or group of related tasks. This also allows editing behavior to be selectively reused across different editpart implementations. Also, behavior can change dynamically, such as when the layouts or routing methods change.
+<span style="background:#fff88f">Editparts don't handle editing directly. Instead, they use EditPolicies</span>. Each editpolicy is then able to focus on a single editing task or group of related tasks. This also allows editing behavior to be selectively reused across different editpart implementations. Also, behavior can change dynamically, such as when the layouts or routing methods change.
 
 When any of the above editing methods are called (except `performRequest()`), the editpart delegates to its policies to satisfy the request. Depending on the method, the editpart may stop at the first policy that handles a request, or it may allow each policy a chance to contribute. Refer to each method's javadoc for more details.
 

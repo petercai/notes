@@ -1042,7 +1042,9 @@ public static void main(String args[])
 	}
 }
 ```
+
 A Draw2D application is just an SWT Shell with a **LightweightSystem** and **Figures**. It’s important to understand that the **ChangeListener** is created by the **button’s Model** and responds to **any mouse action**, including clicks and hovering. Also, because the two Models are added to the ButtonGroup, only one of them can be selected at a time.
+
 In order for the parent **Figure** to understand the **Rectangle** constraints of its children, you must configure it with a **LayoutManager** called **XYLayout**. We’ll now focus on **LayoutManagers** and how they enable you to determine how children are arranged within **Figures**.
 
 ## Using LayoutManagers and panes
@@ -1071,7 +1073,28 @@ For higher-precision measurements, Draw2D provides **PrecisionPoints**, **Precis
 The **org.eclipse.draw2d.graph** package contains a number of useful classes for creating and analyzing directed graphs. Along with basic **Nodes** and **Edges**, this package also provides a **DirectedGraphLayout** for arranging them. 
 Draw2D’s Figures aren’t connected by **Edges**, but by **Connection** objects. 
 
-## Understanding Connections
+## Understanding Router and Connections
+### Router
+Eclipse Draw2D 框架提供了几种常用的路由器（Router）来处理连接线（Connection）在图形界面中的布局。至今，Draw2D 支持多种路由器，其中一些常见的包括：
+
+1. **FanRouter：** 将连接线布局成扇形或放射状，从一个中心节点向外辐射。The `FanRouter` is a type of router used in graph layout algorithms. Its primary purpose is to determine the paths for connections (edges) between nodes (vertices) in a graph.The `FanRouter` specifically arranges connections in a fan-like pattern, radiating out from a central point or node. This routing strategy is often used to visually organize connections in a clear and structured manner, especially when dealing with multiple connections originating or terminating at a single node. The router calculates and determines the paths for these connections, considering factors like node positions, connection constraints, and any other layout specifications provided. By using the `FanRouter`, developers can create graph layouts where connections spread out in a fan shape from a central point, aiding in visual clarity and comprehension of the graph structure.
+2. **ShortestPathConnectionRouter：** 计算两点之间的最短路径，以直线或近似直线的方式连接节点，避开障碍物或其他节点。 It calculates the shortest path between two points, avoiding obstacles, to create connections between nodes.
+3. **ManhattanConnectionRouter：** 采用曼哈顿风格的布局，连接线沿水平和垂直线段移动，形成网格状的外观。`ManhattanConnectionRouter` 是 Eclipse Draw2D 框架中的一种路由器，用于连接线（Connection）的布局。这种路由器采用了曼哈顿（Manhattan）风格的布局方式，其特点是连接线沿着水平和垂直线段移动，形成类似网格的外观。主要特征包括：
+	- **直角布局：** 连接线在沿着水平和垂直方向移动时只会形成直角转弯，而不是平滑的曲线路径。
+	- **网格状外观：** 连接线路径呈现出网格状的外观，更像是在水平和垂直方向上移动，使得连接线更直观易懂。
+	- **避开障碍物：** 路由器会尝试避开障碍物或其他节点，以保持连接线的连贯性和可读性。
+	![[Graphical Editing Framework-20231231-2.png]]
+1. **BendpointConnectionRouter：** 允许手动添加弯点（Bend points）以控制连接线路径，绕过障碍物或按照特定需求进行弯曲。This router allows manual insertion of bend points in a connection. It maintains these bend points while routing the connection around obstacles or other nodes.`   BendpointConnectionRouter` 是 Eclipse Draw2D 中的一种连接线路由器。它允许在连接线上手动添加弯点（Bend points），这些弯点可以控制连接线的路径，使其绕过障碍物或者按照特定的布局需求进行弯曲。要理解 `BendpointConnectionRouter` 的作用，可以考虑以下情况：
+	-  **手动控制连接线路径：** 开发者可以通过添加弯点来手动控制连接线的路径，从而避开其他节点、障碍物或者以某种特定的方式呈现连接线。
+	-  **保持弯点位置：** 一旦添加了弯点，`BendpointConnectionRouter` 将会尽可能保持这些弯点的位置，即使连接线需要进行路由以适应布局的改变或添加新的节点。
+	- **适应动态布局：** 在动态布局中，如果节点位置发生变化或者新增了节点，`BendpointConnectionRouter` 可以尽量保持连接线的弯点位置不变，从而保持连接线的可读性和布局的连贯性。
+	![[Graphical Editing Framework-20231231-1.png]]
+1. **RectilinearRouter：** 类似于曼哈顿路由器，但旨在最小化连接线路径中的弯曲。It routes connections using a "Manhattan" style, where the connection follows a series of horizontal and vertical segments, providing a grid-like appearance. `RectilinearRouter` 是 Eclipse Draw2D 框架中的另一种路由器，用于控制连接线（Connection）的布局。它与曼哈顿（Manhattan）风格类似，但在连接线布局的方式上有一些差异。主要特点包括：
+	-  **直角布局：** 与曼哈顿路由器类似，连接线在移动时只会形成直角转弯，而不是平滑的曲线路径。 
+	-  **最小化弯曲：** Rectilinear 路由器旨在最小化连接线路径中的弯曲。相对于曼哈顿路由器，它更加注重最小化连接线的弯曲数量，从而使布局更紧凑。
+	-  **网格状布局：** 同样呈现出网格状的外观，但相比曼哈顿路由器，Rectilinear 路由器更加注重最小化路径中的弯曲。
+
+
 The **FixedAnchor** class has figured prominently in our code listings so far. These objects (subclasses of **AbstractConnectionAnchor**) enable you to add lines, or **Connections**, between two **Figures**. Because Connections create relationships between components, they’re fundamental in system models and diagrams. However, managing **Connections** and their **ConnectionAnchors** can be complicated, so it’s important that you understand how they function.
 ### Working with ConnectionAnchors
 **ConnectionAnchors** don’t have a visual representation. Instead, they specify a point on a **Figure** that can receive **Connections**. You add them by identifying the **Figure** in the **ConnectionAnchor**’s constructor method. This Figure is called the anchor’s owner, not its parent.
@@ -1408,13 +1431,13 @@ A GEF editor not only displays information graphically, but also facilitates use
 
 
 ### User interaction with GEF
-As the user manipulates the figures, the GEF system breaks the continuous flow of user interaction into discrete GEF requests. These requests are forwarded to the appropriate GEF policy registered by the edit parts whose figure is being manipulated. Policies consume requests and produce GEF commands. Each command represents a specific change to the underlying model. By having user interaction broken into GEF commands, the GEF system can maintain a command stack and facilitate undo and redo operations in the typical Eclipse manner.
+As the user manipulates the figures, the GEF system breaks the continuous flow of user interaction into discrete GEF requests. These requests are forwarded to the appropriate **GEF policy** registered by the edit parts whose figure is being manipulated. <span style="background:#fff88f">Policies consume requests and produce GEF commands</span>. Each c<span style="background:#fff88f">ommand represents a specific change to the underlying mode</span>l. By <u>having user interaction broken into GEF commands, the GEF system can maintain a command stack and facilitate undo and redo operation</u>s in the typical Eclipse manner.
 
 #### GEF requests
-GEF requests encapsulate specifics about a particular user interaction such as selecting, dragging and connecting figures. Requests are used by the GEF system to capture the interaction and communicate this information to the appropriate GEF policy. The type of user interaction (the role) and the figure being manipulated is used to determine which GEF policy should receive the request.
+GEF **requests** <span style="background:#fff88f">encapsulate specifics about a particular user interaction such as selecting, dragging and connecting figures</span>. R<span style="background:#fff88f">equests are used by the GEF system to capture the interaction and communicate this information to the appropriate GEF</span> **policy**. <u>The type of user interaction (the role) and the figure being manipulated is used to determine which GEF policy should receive the request.</u>
 
 #### GEF roles
-A user interacts with a figure in one of several predefined ways called roles. GEF defines a number of roles, such as **LAYOUT_ROLE**, which indicates how a figure may be moved and resized by the user, and **COMPONENT_ROLE**, which indicates how a figure may be deleted. Each edit part may register a policy with each of these roles providing the specific operations to be performed when the user interacts with that edit part’s figure. The set of predefined GEF roles includes:
+<span style="background:#fff88f">A user interacts with a figure in one of several predefined ways called</span> **roles**. GEF defines a number of roles, such as **LAYOUT_ROLE**, <u>which indicates how a figure may be moved and resized by the user</u>, and **COMPONENT_ROLE**, which <span style="background:#fff88f">indicates how a figure may be delete</span>d. <u>Each edit part may register a policy with each of these roles providing the specific operations to be performed</u> when the user interacts with that edit part’s figure. The set of predefined GEF roles includes:
 EditPolicy.**COMPONENT_ROLE**—The key used to register a policy defining “fundamental” operations that modify or delete model elements. Generally, the policy associated with this role knows only about the model and performs operations on the model. Figure changes are not made directly by this policy, but rather are the result of the edit parts listening for and responding to model change events. We can subclass **ComponentEditPolicy** to create a policy for deleting favorites items.
 EditPolicy.**CONNECTION_ROLE**—The key used to register a policy defining connection operations such as creating a connection. **GraphicalNodeEditPolicy** provides much of the underlying functionality for implementing your own connection policy.
 EditPolicy.**LAYOUT_ROLE**—The key used to register a policy defining operations on the edit part’s figure such as creating, moving and resizing. We can subclass **XYLayoutEditPolicy** to create a policy for moving figures around the GEF editor.
@@ -1431,15 +1454,15 @@ protected void createEditPolicies() {
 
 #### GEF commands
 GEF commands encapsulate changes to the model that can be applied and undone. As subclasses of **org.eclipse.gef.commands.Command**, each command has a number of methods it can override to provide the necessary behavior.
-**canExecute**()—True if the command can be executed.
-**canUndo**()—True if the command can be undone. This method should only be called after execute() or redo() has been called.
-**chain(Command)**—Returns a Command that represents the chaining of a specified Command to this Command. The Command being chained will execute() after this command has executed, and it will undo() before this Command is undone.
-**execute**()—Executes the Command. This method should not be called if the Command is not executable.
-**redo**()—Re-executes the Command. This method should only be called after undo() has been called.
-**setLabel**()—Sets the label used to describe this command to the User.
-**undo**()—Undoes the changes performed during execute(). This method should only be called after execute has been called, and only when canUndo() returns true.
+- **canExecute**()—True if the command can be executed.
+- **canUndo**()—True if the command can be undone. This method should only be called after execute() or redo() has been called.
+- **chain(Command)**—Returns a Command that represents the chaining of a specified Command to this Command. The Command being chained will execute() after this command has executed, and it will undo() before this Command is undone.
+- **execute**()—Executes the Command. This method should not be called if the Command is not executable.
+- **redo**()—Re-executes the Command. This method should only be called after undo() has been called.
+- **setLabel**()—Sets the label used to describe this command to the User.
+- **undo**()—Undoes the changes performed during execute(). This method should only be called after execute has been called, and only when canUndo() returns true.
 
-Each GEF command represents a specific change to the underlying model. GEF commands should only reference and modify the model and not the figures or edit parts. Changes to the figures should only be a result of edit parts responding to model change events. 
+Each GEF command represents a specific change to the underlying model. <span style="background:#fff88f">GEF commands should only reference and modify the model</span> and not the figures or edit parts. Changes to the figures should only be a result of edit parts responding to model change events. 
 
 #### Edit menu
 GEF tracks model changes using GEF commands, but to undo a command, we must hook GEF into the Eclipse edit framework. Hooking the undo/redo commands requires an editor contributor, while hooking the delete command can be accomplished using the new command infrastructure.
