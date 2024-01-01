@@ -1073,37 +1073,82 @@ For higher-precision measurements, Draw2D provides **PrecisionPoints**, **Precis
 The **org.eclipse.draw2d.graph** package contains a number of useful classes for creating and analyzing directed graphs. Along with basic **Nodes** and **Edges**, this package also provides a **DirectedGraphLayout** for arranging them. 
 Draw2D’s Figures aren’t connected by **Edges**, but by **Connection** objects. 
 
-## Understanding Router and Connections
-### Router
-Eclipse Draw2D 框架提供了几种常用的路由器（Router）来处理连接线（Connection）在图形界面中的布局。至今，Draw2D 支持多种路由器，其中一些常见的包括：
+## Routers and Connections
+### Connections
+Connections are specialized figures that implement the  Connection interface and draw a line between two locations on the canvas, typically “connecting” two figures. You could create your own implementation of the **Connection** interface, but most developers use the  **PolylineConnection**  class provided by Draw2D. 
+Since many diagrams use connections to indicate direction, connections have a beginning, called the source, and an end, called the target. 
 
-1. **FanRouter：** 将连接线布局成扇形或放射状，从一个中心节点向外辐射。The `FanRouter` is a type of router used in graph layout algorithms. Its primary purpose is to determine the paths for connections (edges) between nodes (vertices) in a graph.The `FanRouter` specifically arranges connections in a fan-like pattern, radiating out from a central point or node. This routing strategy is often used to visually organize connections in a clear and structured manner, especially when dealing with multiple connections originating or terminating at a single node. The router calculates and determines the paths for these connections, considering factors like node positions, connection constraints, and any other layout specifications provided. By using the `FanRouter`, developers can create graph layouts where connections spread out in a fan shape from a central point, aiding in visual clarity and comprehension of the graph structure.
-2. **ShortestPathConnectionRouter：** 计算两点之间的最短路径，以直线或近似直线的方式连接节点，避开障碍物或其他节点。 It calculates the shortest path between two points, avoiding obstacles, to create connections between nodes.
-3. **ManhattanConnectionRouter：** 采用曼哈顿风格的布局，连接线沿水平和垂直线段移动，形成网格状的外观。`ManhattanConnectionRouter` 是 Eclipse Draw2D 框架中的一种路由器，用于连接线（Connection）的布局。这种路由器采用了曼哈顿（Manhattan）风格的布局方式，其特点是连接线沿着水平和垂直线段移动，形成类似网格的外观。主要特征包括：
-	- **直角布局：** 连接线在沿着水平和垂直方向移动时只会形成直角转弯，而不是平滑的曲线路径。
-	- **网格状外观：** 连接线路径呈现出网格状的外观，更像是在水平和垂直方向上移动，使得连接线更直观易懂。
-	- **避开障碍物：** 路由器会尝试避开障碍物或其他节点，以保持连接线的连贯性和可读性。
-	![[Graphical Editing Framework-20231231-2.png]]
-1. **BendpointConnectionRouter：** 允许手动添加弯点（Bend points）以控制连接线路径，绕过障碍物或按照特定需求进行弯曲。This router allows manual insertion of bend points in a connection. It maintains these bend points while routing the connection around obstacles or other nodes.`   BendpointConnectionRouter` 是 Eclipse Draw2D 中的一种连接线路由器。它允许在连接线上手动添加弯点（Bend points），这些弯点可以控制连接线的路径，使其绕过障碍物或者按照特定的布局需求进行弯曲。要理解 `BendpointConnectionRouter` 的作用，可以考虑以下情况：
+### Anchors
+Both the source and the target must have their own **anchor**, which is responsible for calculating the location where the connection starts and ends respectively. Typically, <u>an anchor is associated with an owner figure</u>, but anchors can be fixed to a point on the canvas instead.
+When the **connection** is drawn, the anchor is passed the reference location and asked  to  calculate  the  location  for  its  end  of  the  connection.  The **ChopboxAnchor**  returns a location that is the intersection of the line formed by the reference point and the center point of the  ChopboxAnchor ’s owner, and the edge of the  ChopboxAnchor ’s owner’s bounding box.
+ Each type of anchor is appropriate for a different geometric situation; a **ChopboxAnchor** is appropriate for a rectangular figure, whereas an  EllipseAnchor  is appropriate for an elliptical figure. Each anchor has an owner figure with the exception of  **XYAnchor** , which is used to position a connection to a fixed location on the canvas.
+#### ChopboxAnchor
+This anchor attaches the connection end point to the figure at the point where the  connection intersects with the rectangular bounds of the figure when pointing toward the center of the bounds of the figure. 
+![[Graphical Editing Framework-20231231-3.png]]
+#### EllipseAnchor
+This anchor attaches the connection end point to the figure at the point where the connection intersects the largest ellipse that fits into the bounds of the figure when pointing toward the center of the bounds of the figure.
+![[Graphical Editing Framework-20231231-4.png]]
+#### LabelAnchor
+This anchor attaches the connection end point to the left center edge of a Label.
+![[Graphical Editing Framework-20231231-5.png]]
+#### XYAnchor
+This anchor attaches the connection end point to a fixed point on the canvas.
+![[Graphical Editing Framework-20231231-6.png]]
+
+### Decorations
+Each end of a **PolylineConnection** may have a decoration associated with it, such as an arrowhead, a diamond, or other figure that implements the **RotatableDecoration** interface. <u>Since the angle of a connection is dependent on the arbitrary location of the figures it connects, these decorations may be rotated in any direction, which is why these figures are called “rotatable” decorations.</u>
+The two concrete instances of **RotatableDecoration** provided by Draw2D are **PolylineDecoration** and **PolygonDecoration**. By default, using these classes adds a small arrowhead to the source or target of a connection
+
+### Routers
+Each connection has a connection router associated with it for determining the route the connection takes from the source anchor to the target anchor. Draw2D provides a number of different connection router classes.
+Eclipse Draw2D 框架提供了几种常用的路由器（Router）来处理连接线（Connection）在图形界面中的布局。至今，Draw2D 支持多种路由器，其中一些常见的包括：
+#### BendpointConnectionRouter
+ The **BendpointConnectionRouter** routes connections using a specified list of **bendpoints**. Each **bendpoint** specifies a location on the canvas that can be an absolute canvas location, relative to the end points of the connection or some other developer-defined calculation.
+ 允许手动添加弯点（Bend points）以控制连接线路径，绕过障碍物或按照特定需求进行弯曲。 ` BendpointConnectionRouter` 是 Eclipse Draw2D 中的一种连接线路由器。它允许在连接线上手动添加弯点（Bend points），这些弯点可以控制连接线的路径，使其绕过障碍物或者按照特定的布局需求进行弯曲。要理解 `BendpointConnectionRouter` 的作用，可以考虑以下情况：
 	-  **手动控制连接线路径：** 开发者可以通过添加弯点来手动控制连接线的路径，从而避开其他节点、障碍物或者以某种特定的方式呈现连接线。
 	-  **保持弯点位置：** 一旦添加了弯点，`BendpointConnectionRouter` 将会尽可能保持这些弯点的位置，即使连接线需要进行路由以适应布局的改变或添加新的节点。
 	- **适应动态布局：** 在动态布局中，如果节点位置发生变化或者新增了节点，`BendpointConnectionRouter` 可以尽量保持连接线的弯点位置不变，从而保持连接线的可读性和布局的连贯性。
-	![[Graphical Editing Framework-20231231-1.png]]
-1. **RectilinearRouter：** 类似于曼哈顿路由器，但旨在最小化连接线路径中的弯曲。It routes connections using a "Manhattan" style, where the connection follows a series of horizontal and vertical segments, providing a grid-like appearance. `RectilinearRouter` 是 Eclipse Draw2D 框架中的另一种路由器，用于控制连接线（Connection）的布局。它与曼哈顿（Manhattan）风格类似，但在连接线布局的方式上有一些差异。主要特点包括：
-	-  **直角布局：** 与曼哈顿路由器类似，连接线在移动时只会形成直角转弯，而不是平滑的曲线路径。 
-	-  **最小化弯曲：** Rectilinear 路由器旨在最小化连接线路径中的弯曲。相对于曼哈顿路由器，它更加注重最小化连接线的弯曲数量，从而使布局更紧凑。
-	-  **网格状布局：** 同样呈现出网格状的外观，但相比曼哈顿路由器，Rectilinear 路由器更加注重最小化路径中的弯曲。
+	![[Graphical Editing Framework-20231231-7.png]]
+##### Bendpoint Interface
+The interface is used by **BendpointConnectionRouter** to query each bendpoint for its location. Draw2D provides two concrete bendpoint classes, and if they do not meet your
+needs, you can create your own bendpoint behavior by implementing this interface.
+##### AbsoluteBendpoint
+An **AbsoluteBendpoint** always returns a fixed location on the canvas. 
+##### RelativeBendpoint
+A **RelativeBendpoint** returns a location relative to the starting and ending points of the connection. Given an offset from the connection’s starting point, an offset from the connection’s ending point, and a weight, the bendpoint calculates a weighted location between the two offset locations
+#### FanRouter
+The **FanRouter** is useful for multiple connections between the same two anchors. When the **FanRouter** detects a connection that has the same starting anchor and ending anchor as a connection that already exists, it adds a bendpoint so that connections do not overlap. It can be used in conjunction with other routers using the **FanRouter**’s **setNextRouter**(…) method.
+![[Graphical Editing Framework-20231231-8.png]]
+将连接线布局成扇形或放射状，从一个中心节点向外辐射。The `FanRouter` is a type of router used in graph layout algorithms. Its primary purpose is to determine the paths for connections (edges) between nodes (vertices) in a graph.The `FanRouter` specifically arranges connections in a fan-like pattern, radiating out from a central point or node. This routing strategy is often used to visually organize connections in a clear and structured manner, especially when dealing with multiple connections originating or terminating at a single node. The router calculates and determines the paths for these connections, considering factors like node positions, connection constraints, and any other layout specifications provided. By using the `FanRouter`, developers can create graph layouts where connections spread out in a fan shape from a central point, aiding in visual clarity and comprehension of the graph structure.
+#### ShortestPathConnectionRouter 
+The **ShortestPathConnectionRouter** routes multiple connections around all of the figures in a container. As the various figures in a container are moved around, this router dynamically reroutes its connections so they do not intersect any figures in that container at any time. 
+The one big difference between this router and the previously mentioned routers is that the connections it manages must not be in the same container or “layer” as the figures it is observing. If a managed connection is in the same container, then as soon as the router adjusts any connection, it will think there is another change and try to adjust the connections again, in an infinite loop.
+![[Graphical Editing Framework-20231231-9.png]]
+It calculates the shortest path between two points, avoiding obstacles, to create connections between nodes.
+##### ManhattanConnectionRouter
+The **ManhattanConnectionRouter** provides connections with an orthogonal route between the connection’s source and target anchors.
+`ManhattanConnectionRouter` 是 Eclipse Draw2D 框架中的一种路由器，用于连接线（Connection）的布局。这种路由器采用了曼哈顿（Manhattan）风格的布局方式，其特点是连接线沿着水平和垂直线段移动，形成类似网格的外观。主要特征包括：
+	- 直角布局： 连接线在沿着水平和垂直方向移动时只会形成直角转弯，而不是平滑的曲线路径。
+	- 网格状外观： 连接线路径呈现出网格状的外观，更像是在水平和垂直方向上移动，使得连接线更直观易懂。
+	- 避开障碍物： 路由器会尝试避开障碍物或其他节点，以保持连接线的连贯性和可读性。
+	![[Graphical Editing Framework-20231231-10.png]]
+	![[Graphical Editing Framework-20231231-2.png]]
+##### NullConnectionRouter
+If you do not specify one of the router types for a connection, then a **NullConnectionRouter** is used to route the connection from source anchor to target anchor in a straight line . A single instance of this class is accessible via ConnectionRouter.NULL.
+![[Graphical Editing Framework-20231231-11.png]]
+
+##### RectilinearRouter： 
+类似于曼哈顿路由器，但旨在最小化连接线路径中的弯曲。It routes connections using a "Manhattan" style, where the connection follows a series of horizontal and vertical segments, providing a grid-like appearance. `RectilinearRouter` 是 Eclipse Draw2D 框架中的另一种路由器，用于控制连接线（Connection）的布局。它与曼哈顿（Manhattan）风格类似，但在连接线布局的方式上有一些差异。主要特点包括：
+	-  直角布局： 与曼哈顿路由器类似，连接线在移动时只会形成直角转弯，而不是平滑的曲线路径。 
+	-  最小化弯曲： Rectilinear 路由器旨在最小化连接线路径中的弯曲。相对于曼哈顿路由器，它更加注重最小化连接线的弯曲数量，从而使布局更紧凑。
+	-  网格状布局： 同样呈现出网格状的外观，但相比曼哈顿路由器，Rectilinear 路由器更加注重最小化路径中的弯曲。
 
 
-The **FixedAnchor** class has figured prominently in our code listings so far. These objects (subclasses of **AbstractConnectionAnchor**) enable you to add lines, or **Connections**, between two **Figures**. Because Connections create relationships between components, they’re fundamental in system models and diagrams. However, managing **Connections** and their **ConnectionAnchors** can be complicated, so it’s important that you understand how they function.
-### Working with ConnectionAnchors
-**ConnectionAnchors** don’t have a visual representation. Instead, they specify a point on a **Figure** that can receive **Connections**. You add them by identifying the **Figure** in the **ConnectionAnchor**’s constructor method. This Figure is called the anchor’s owner, not its parent.
-The difficulty in working with anchors isn’t adding them, but placing them appropriately. For this reason, the only method required by the **ConnectionAnchor** interface is **getLocation**(). The **getLocation**() method is called whenever the owner’s location changes. The **Point** returned by the method tells the GUI where the anchor should be positioned. 
 ### Adding Connections to the GUI
-Working with **Connections** is easier than dealing with their anchors, because Draw2D takes care of drawing the line. Draw2D’s implementation of the **Connection** interface is **PolylineConnection**, which is a connected line. **Connections** are more than connected lines. We need to set their source and target **Figures**, and we can configure their appearance and routing. With regard to appearance, you can add decorations to the start and end of the
-**Connection** by calling **setSourceDecoration**() or **setTargetDecoration**(). 
-In addition to decorators, you can add **Labels** or other **Figures** to **Connections** by using a **ConnectionEndpointLocator**. These objects are created with a **Connection** object and a boolean value representing whether the **Figure** should be added at the start or end. Then, **setVDistance**() tells the new **Figure** how far away it should be from the **Connection**, and **setUDistance**() specifies the distance to the **Connection**’s source or target.
-The **Connection**’s router refers to the path it takes from one anchor to the next. The four subclasses of **AbstractConnectionRouter** are listed below:
+Working with Connections is easier than dealing with their anchors, because Draw2D takes care of drawing the line. Draw2D’s implementation of the Connection interface is PolylineConnection, which is a connected line. Connections are more than connected lines. We need to set their source and target Figures, and we can configure their appearance and routing. With regard to appearance, you can add decorations to the start and end of the
+Connection by calling **setSourceDecoration**() or **setTargetDecoration**(). 
+In addition to decorators, you can add Labels or other Figures to Connections by using a **ConnectionEndpointLocator**. These objects are created with a **Connection** object and a boolean value representing whether the Figure should be added at the start or end. Then, **setVDistance**() tells the new Figure how far away it should be from the Connection, and **setUDistance**() specifies the distance to the Connection’s source or target.
+The **Connection**’s **router** refers to the path it takes from one anchor to the next. The four subclasses of **AbstractConnectionRouter** are listed below:
 ![[Graphical Editing Framework-20231216-5.png]]
 
 ## Drag-and-drop in Draw2D
@@ -1127,15 +1172,15 @@ private void setModel(GenealogyGraph newGraph) {
 ```
 
 ## Content Provider
-Before the Zest diagram can be displayed, we must specify a content provider. Because Zest is a diagram with connections or “relationships,” we cannot implement **IStructuredContentProvider** from JFace but instead must implement one of the four Zest subinterfaces that have specialized methods for specifying both the objects in the diagram and the relationships between those objects. Each of these four interfaces takes a different approach to adapting a model to the diagram and is appropriate for adapting different
+Before the Zest diagram can be displayed, we must specify a content provider. Because Zest is a diagram with connections or “relationships,” we cannot implement IStructuredContentProvider from JFace but instead must implement one of the four Zest subinterfaces that have specialized methods for specifying both the objects in the diagram and the relationships between those objects. Each of these four interfaces takes a different approach to adapting a model to the diagram and is appropriate for adapting different
 types of models.
--  **IGraphEntityContentProvider**—best for models that do not have elements representing the connections between other model objects 
--  **IGraphEntityRelationshipContentProvider**—best for models that have elements representing both concrete objects and the connections between those objects 
-- **IGraphContentProvider**—best for models that are relationship-centric and have elements representing the connections between concrete objects rather than the concrete objects themselves 
--  **INestedContentProvider**—used in conjunction with one of the content providers above to display nested content 
+-  IGraphEntityContentProvider—best for models that do not have elements representing the connections between other model objects 
+-  IGraphEntityRelationshipContentProvider—best for models that have elements representing both concrete objects and the connections between those objects 
+- IGraphContentProvider—best for models that are relationship-centric and have elements representing the connections between concrete objects rather than the concrete objects themselves 
+-  INestedContentProvider—used in conjunction with one of the content providers above to display nested content 
 
 ### Presentation
-To make diagrams look better and be more informative, the **GraphViewer**’s label provider can implement any combination of the following interfaces to adjust the presentation:
+To make diagrams look better and be more informative, the GraphViewer’s label provider can implement any combination of the following interfaces to adjust the presentation:
 • ILabelProvider (required)
 • IColorProvider
 • IFigureProvider
@@ -1151,12 +1196,12 @@ The GraphViewer’s default label provider uses the toString() method to provide
 
 ## GEF Architecture
 The GEF framework is designed using the Model-View-Controller (MVC) architecture. MVC
-is comprised of three major components: the model, the view and the controller. The **model** holds the information to be displayed and is persisted across sessions. The **view** renders information on the screen and provides basic user interaction. The controller coordinates the activities of the model and the view, passing information between them as necessary.
-**Model <—> Controller <—> View**
-When an object is added to the GEF model, a corresponding **controller** is instantiated which then creates the **view** objects representing that **model** object. In the reverse direction, when the user interacts with the view, the controller updates the model with the new information.
-- **model**—the underlying objects being represented graphically 
-- **view**—a GEF canvas containing a collection of figures. The View aspect is generally implemented as a **Figure** or **Image**.
-- **controller**—a collection of GEF edit parts. The Controller is a subclass of **AbstractGraphicalEditPart**
+is comprised of three major components: the model, the view and the controller. The model holds the information to be displayed and is persisted across sessions. The view renders information on the screen and provides basic user interaction. The controller coordinates the activities of the model and the view, passing information between them as necessary.
+Model <—> Controller <—> View
+When an object is added to the GEF model, a corresponding controller is instantiated which then creates the view objects representing that model object. In the reverse direction, when the user interacts with the view, the controller updates the model with the new information.
+- model—the underlying objects being represented graphically 
+- view—a GEF canvas containing a collection of figures. The View aspect is generally implemented as a Figure or Image.
+- controller—a collection of GEF edit parts. The Controller is a subclass of AbstractGraphicalEditPart
 
 GEF provides various **edit part** (controller) and **figure** (view) classes for you to extend, minimizing the effort necessary to use the graphical framework in your application.
 ![](_assets/gefmvc.gif)
