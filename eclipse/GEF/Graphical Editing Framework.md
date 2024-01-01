@@ -1151,6 +1151,219 @@ In addition to decorators, you can add Labels or other Figures to Connections by
 The **Connection**’s **router** refers to the path it takes from one anchor to the next. The four subclasses of **AbstractConnectionRouter** are listed below:
 ![[Graphical Editing Framework-20231216-5.png]]
 
+### Connection Labels
+Connections can contain child figures, typically labels, to provide additional information about the connection. Typically, the connection layout is **DelegatingLayout** and the constraints are instances of **BendpointLocator**, **ConnectionEndpointLocator**, **ConnectionLocator**, and **MidpointLocator**.
+#### BendpointLocator
+The BendpointLocator has no relation to the bendpoint class used as routing constraints; only the names are similar. **BendpointLocator** places a figure relative to a specific bend in the connection. Each BendpointLocator has
+- An index specifying next to which bendpoint the figure should be positioned
+- A relative position indicating on which side of the bend (north, east, south, west, northeast, etc.) the figure should be positioned
+-  A gap indicating how close the figure should be positioned to the bend
+![[Graphical Editing Framework-2024101-1.png]]
+
+```
+connection.setLayoutManager(new DelegatingLayout());
+
+Label label;
+BendpointLocator locator;
+
+label = new Label("source");
+locator = new BendpointLocator(connection, 0);
+locator.setRelativePosition(PositionConstants.WEST);
+locator.setGap(5);
+connection.add(label, locator);
+
+label = new Label("1st");
+locator = new BendpointLocator(connection, 1);
+locator.setRelativePosition(PositionConstants.EAST);
+locator.setGap(5);
+connection.add(label, locator);
+
+label = new Label("2nd");
+locator = new BendpointLocator(connection, 2);
+locator.setRelativePosition(PositionConstants.WEST);
+locator.setGap(5);
+connection.add(label, locator);
+
+label = new Label("3rd");
+locator = new BendpointLocator(connection, 3);
+locator.setRelativePosition(PositionConstants.EAST);
+locator.setGap(5);
+connection.add(label, locator);
+
+label = new Label("target");
+locator = new BendpointLocator(connection, 4);
+locator.setRelativePosition(PositionConstants.NORTH_WEST);
+locator.setGap(5);
+connection.add(label, locator);
+```
+#### ConnectionEndpointLocator
+**ConnectionEndpointLocator** positions figures relative to the source location or target location of a connection. Additionally, you can specify “uDistance” and “vDistance.” **uDistance** is the distance between the connection’s owner and the figure being positioned, and **vDistance** is the distance between the connection and the figure being positioned. **uDistance** and **vDistance** default to 14 and 4 respectively
+![[Graphical Editing Framework-2024101-2.png]]
+
+```
+PolylineConnection connection = newFigureAndConnection(…);
+connection.setLayoutManager(new DelegatingLayout());
+
+Label label;
+ConnectionEndpointLocator locator;
+
+label = new Label("source");
+locator = new ConnectionEndpointLocator(connection, false);
+locator.setUDistance(2);
+locator.setVDistance(5);
+connection.add(label, locator);
+
+label = new Label("target");
+locator = new ConnectionEndpointLocator(connection, true);
+connection.add(label, locator);
+```
+#### ConnectionLocator
+**ConnectionLocator** positions figures at the source end, in the middle, or at the target end of a connection.
+![[Graphical Editing Framework-2024101-3.png]]
+
+```
+PolylineConnection connection = newFigureAndConnection(…);
+connection.setLayoutManager(new DelegatingLayout());
+
+Label label;
+
+label = new Label("source");
+connection.add(label,
+new ConnectionLocator(connection, ConnectionLocator.SOURCE));
+
+label = new Label("middle");
+connection.add(label,
+new ConnectionLocator(connection, ConnectionLocator.MIDDLE));
+
+label = new Label("target");
+connection.add(label,
+new ConnectionLocator(connection, ConnectionLocator.TARGET));
+```
+#### MidpointLocator
+**MidpointLocator** positions figures at the midpoint of a specified segment within a connection. Given a connection with n points from source to target, you must specify an integer between 0 and n – 1 indicating on which segment the figure is to be positioned.
+![[Graphical Editing Framework-2024101-4.png]]
+
+```
+PolylineConnection connection = newFigureAndConnection(…);
+
+connection.setLayoutManager(new DelegatingLayout());
+for (int i = 0; i < 4; i++) {
+	Label label = new Label("midpoint " + i);
+	connection.add(label, new MidpointLocator(connection, i));
+}
+```
+
+
+
+## Layers and Viewports
+### LayeredPane
+In a typical Draw2D application, the root figure is a **LayeredPane** that contains two or more child figures that must be instances of Layer or one of its subclasses. These layers are stacked one atop another so that figures in higher layers appear in the same space as figures in the layers below . Usually a **ConnectionLayer** contains all of the connections , and a Layer below contains all of the “content.” This separation allows specialized connection routers such as **ShortestPathConnectionRouter** to properly route all connections so that no connections intersect figures in the content layer.
+![[Graphical Editing Framework-2024101-5.png]]
+
+
+
+### ConnectionLayer
+**ConnectionLayer** is a specialized layer that contains connections. When a **connection** is added to this layer, the connection router for that connection is automatically set to the connection router for the layer. In this way, all of the connections in this layer share the same connection router.
+```
+LayeredPane root;
+Layer primary;
+
+private Canvas createDiagram(Composite parent) {
+	root = new LayeredPane();
+	root.setFont(parent.getFont());
+	
+	primary = new Layer();
+	primary.setLayoutManager(new XYLayout());
+	root.add(primary, "Primary");
+	...
+	connections = new ConnectionLayer();
+	connections.setConnectionRouter(new ShortestPathConnectionRouter(primary));
+	root.add(connections, "Connections");
+	... 
+
+	...
+	lws.setContents(root);
+	return canvas;
+}
+```
+
+### Scrolling
+#### FigureCanvas
+The **FigureCanvas** class extends **Canvas** and dynamically displays scrollbars if the underlying figure is larger than the display area. 
+
+```
+private FigureCanvas createDiagram(Composite parent) {
+...
+FigureCanvas canvas = new FigureCanvas(parent,SWT.DOUBLE_BUFFERED);
+canvas.setBackground(ColorConstants.white);
+canvas.setContents(root);
+return canvas;
+}
+```
+#### Viewport
+Behind the scenes, **FigureCanvas** automatically creates a **Viewport** for showing a portion of the underlying figure, which usually is an instance of **LayeredPane**. As the dimensions of the underlying figure change, the **FigureCanvas** adjusts the scrollbars. As the user drags the scrollbars, the **FigureCanvas** adjusts the portion of the underlying figure being displayed in the **Viewport**.
+![[Graphical Editing Framework-2024101-6.png]]
+#### FreeformFigure
+With **FigureCanvas** limitation, the scrollbars appear as a figure is dragged to the right but do not disappear when the figure is dragged back to the left. In fact, the virtual size of the canvas expands as figures are moved around but never shrinks to fit the current space occupied by the figures. In addition, if a figure is dragged off the left or top edge of the diagram, the Viewport cannot be scrolled in that direction and the figure is now inaccessible
+![[Graphical Editing Framework-2024101-7.png]]
+The underlying problem is that our current figure containers do not adjust their bounds or display child figures that are positioned at negative coordinates. **Figures** that implement the **FreeformFigure** interface display figures in negative coordinate space and dynamically update their bounds as their child figures are repositioned and resized. 
+#### FreeformLayer
+When replace our primary Layer with a primary **FreeformLayer** that implements the **FreeformFigure** interface. As the figures are repositioned and resized, the **FreeformLayer** adjusts its bounds to be the smallest rectangle that encloses all of its children. In addition, the layout manager for this primary layer must be changed to **FreeformLayout**.
+
+```
+FreeformLayer primary;
+private FigureCanvas createDiagram(Composite parent) {
+	... 
+	primary = new FreeformLayer();
+	primary.setLayoutManager(new FreeformLayout());
+	root.add(primary, "Primary");
+}
+```
+#### FreeformLayeredPane
+With primary layer is a **FreeformLayer**, the **FreeformLayeredPane** is required so that it too will adjust its bounds as its children’s bounds change. A **FreeformLayeredPane** can only
+contain figures that implement the **FreeformFigure** interface.
+
+```
+FreeformLayeredPane root;
+private FigureCanvas createDiagram(Composite parent) {
+	root = new FreeformLayeredPane();
+	root.setFont(parent.getFont());
+	... 
+}	
+```
+#### FreeformViewport
+**FreeformViewport** extends Viewport with the ability to observe the freeform extent of its **FreeformFigure** content and adjust the scrollbars based on this information. 
+```
+private FigureCanvas createDiagram(Composite parent) {
+	... 
+	FigureCanvas canvas = new FigureCanvas(parent,
+	SWT.DOUBLE_BUFFERED);
+	canvas.setViewport(new FreeformViewport()); // <<<<<
+	canvas.setBackground(ColorConstants.white);
+	canvas.setContents(root);
+	return canvas;
+}
+```
+
+
+## Coordinates
+<u>Relative (or local) coordinates</u> are measured in terms of the top left corner of a figure’s parent. In contrast, <u>absolute coordinates</u> are measured in terms of the top left corner of the root figure. The **IFigure** interface provides several methods for translating coordinates:
+- translateToParent(…)—translates coordinates that are relative to this figure into coordinates relative to its parent
+- translateFromParent(…)—translates coordinates that are relative to this figure’s parent into coordinates that are relative to this figure
+- translateToAbsolute(…)—translates coordinates that are relative to this figure into coordinates that are relative to the root figure
+- translateToRelative(…)—translates coordinates that are relative to the root figure into coordinates that are relative to this figure
+![[Graphical Editing Framework-2024101-8.png]]
+## Scaling
+ Scaling (or zooming) can shrink (zoom out) the diagram so that more of it
+can be displayed in the window but with lower fidelity. In addition, you can
+expand (zoom into) the diagram to see more detail but less of the overall diagram.
+
+### ScalableFigure
+**ScalableFigure** extends the **IFigure** interface to add methods for getting and setting the scale for that figure. A scale of 1 is “normal” or 1 : 1. Set the scale to a fraction between 0 and 1 to zoom out and see more of the figure’s content with less fidelity. To zoom in and see more detail but less of the overall diagram, set the scale to a number greater than 1.
+### ScalableFreeformLayeredPane
+**ScalableFreeformLayeredPane** replaces the **FreeformLayeredPane** can scale and dynamically adjusts its bounds to the smallest rectangle enclosing all of its children. 
+
+
 ## Drag-and-drop in Draw2D
 
 

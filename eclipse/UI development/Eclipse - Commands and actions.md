@@ -1,18 +1,24 @@
 
-Commands and actions are two different APIs for accomplishing the same thing: declaring and implementing functions that manifest as menu items and toolbar buttons. The action API has been around since before Eclipse 3.0, while the commands API has only just solidified as of Eclipse 3.3 with small refinements in Eclipse 3.4.
+Commands and actions are two different APIs for accomplishing the same thing: <span style="background:#fff88f">declaring and implementing functions that manifest as menu items and toolbar buttons</span>. 
+- The **action** API has been around since before Eclipse 3.0, 
+- while the **commands** API has only just solidified as of Eclipse 3.3 with small refinements in Eclipse 3.4.
 
 Commands and actions are defined through various extension points so that new functionality can be easily added at various points throughout the Eclipse framework.
 
 With actions, there are different extension points for each different area where one can appear within the UI, yet no separation of presentation from implementation.
 
-The commands API separates presentation from implementation by providing one extension point for specifying the command, another for specifying where it should appear in the UI, and a third for specifying the implementation. This, along with a richer declarative expression syntax, makes the commands API more flexible than the actions API.
+The commands API separates presentation from implementation by providing 
+- one extension point for specifying the command, 
+- another for specifying where it should appear in the UI, and 
+- a third for specifying the implementation. 
+This, along with a richer declarative expression syntax, makes the commands API more flexible than the actions API.
 # 1. Commands
 
 Declaring and implementing a menu or toolbar item using the command API involves declaring a **command**, at least one **menu contribution** for that command, and at least **one handler** for that command.
 
 <u>The command declaration is the abstract binding point associating one or more menu contributions with one or more handlers.</u>
 
-![[Eclipse - show actions in toolbar-20231022-1.png]]
+![[_assets/Eclipse - show actions in toolbar-20231022-1.png]]
 A **menu contribution** declaration defines where in the user interface that command should appear, and the text and image associated with that representation. A **handler** declaration  associates a command with a concrete class implementing the behavior for that command.
 
 ## defining a command
@@ -119,7 +125,7 @@ The **run**() method is called when a user selects an action and expects an oper
 	**run**() method, so the run() **method** still needs the appropriate guard code. In addition, the **run**() method executes in the main UI thread,	so consider pushing long running operations into a background thread
 
 ### Object Actions
-Suppose you want to make it easy for the user to add files and folders to the your view. Object contributions are ideal for this because they appear in context menus only when the selection in the current view or editor contains an object compatible with that action. In this manner, an **object contribution** is available to the user when he or she needs the action,
+Suppose you want to make it easy for the user to add files and folders to the your view. Object contributions are ideal for this because they <span style="background:#fff88f">appear in context menus only when the selection in the current view or editor contains an object compatible with that action</span>. In this manner, an **object contribution** is available to the user when he or she needs the action,
 yet not intrusive when the action does not apply. **Object actions** are very similar to **menu contributions** that have a **locationURI** id equal to “**org.eclipse.ui.any.popup**.”
 
 #### Defining an object-based action
