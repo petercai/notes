@@ -2,20 +2,6 @@
  
 * * *
 
-*   [Overview](#Overview) \- Description of the "big picture"
-*   [When to Use](#When) \- How can GEF and the Eclipse Platform be used
-    
-*   [EditParts](#EditParts) \- An introduction to primary building block of GEF
-*   [Graphical View](#GraphicalView) \- How to create a Graphical View of your Model
-*   [Editing and Edit Policies](#Editing) \- Adding editing support to your Graphical View
-    
-*   [Editpart Lifecycle](#Lifecycle) \- Interesting events to know about
-    
-*   [Tools and Palette](#ToolPalette)
-    
-*   [Interactions](#Interactions) \- the GEF interactions and the players involved
-    
-
 Overview
 --------
 
@@ -84,9 +70,7 @@ Creating a Graphical View of a Model
 Once you have a model and some figures with which to view it, the next step is to put the pieces together. This means creating the editparts that are going to work with each model and figure combination. GEF's implementations are abstract and must be extended for your application. But first, we need to set up the foundation.
 
 GEF includes the class <span style="background:#fff88f">`ScrollingGraphicalViewer`. This is a viewer implementation which uses a Draw2d `FigureCanvas`</span>. **Most applications use this viewer** unless, for some reason, scrollbars are not needed. <span style="background:#fff88f">The next step is to decide which _root_ editpart to use</span>. E<span style="background:#fff88f">ach editpart viewer requires a special editpart called the roo</span>t. T<span style="background:#fff88f">his editpart does not correspond to anything in the mode</span>l. Its functio<span style="background:#fff88f">n is to setup the viewer and provide a uniform context for all of the application's "real" editpar</span>ts. There are two implementations to consider using:
-
 *   `ScalableRootEditPart` \- provides the standard set of layers and supports zoom should the application decide to expose this to the user.
-  
 *   `ScalableFreeformRootEditPart` \- similar to above, but all of the layers conform to the <span style="background:#fff88f">_freeform_ interface, which allows the diagram to additionally extend into negative coordinates (to the left and up</span>). This is the most flexible and **commonly used** root editpart.
    
 
@@ -117,23 +101,18 @@ In many ways connections are just like other editparts. They typically have prop
 ### Summary
 
 So far we have focused on just displaying a model graphically. This requires that you extend `AbstractGraphicalEditPart` and override behavior based on each part's model. Here is a summary of the methods discussed:
-
 *   `createFigure()` \- this method creates the editpart's view, or figure. This method does **not** reflect the model's state in the figure. That is done in refreshVisuals()
-    
 *   `refreshVisuals()` \- this method reflects model attributes in the view. Complex editparts may further decompose this method into several helper methods.
-    
 *   `getModelChildren()` \- this method is called to determine if there are model elements for which children editparts should be created.
-    
 *   `getModelSource/TargetConnections()` \- similar to children, but model elements returned here indicate connections for which the editpart is the source or target.
-    
 
 Editing and EditPolicies
 ------------------------
 
 Once you have some editparts displayed it's time to start editing. Editing is usually the most complex task an editpart performs. Editing includes not only making changes to the model, but also showing graphical feedback during interactions with the view. To abstract away the source of interaction, GEF uses a request. Tools or other UI interpreters will create requests and then call the various API on EditPart based on the interaction. A subset of the EditPart API is shown below.
 
-| ![](_assets/editing1.gif)
- | Methods on `EditPart` which take a **Request**:
+![](_assets/editing1.gif)
+Methods on `EditPart` which take a **Request**:
 
 1.  `EditPart getTargetEditPart(Request)  
     boolean understandsRequest(Request)`
