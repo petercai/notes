@@ -255,24 +255,13 @@ This section discusses the participants involved in each interaction and what th
 *   Any EditPolicy implementations provided in GEF for use with the interaction.
 
 ### Selection
-|     |     |     |     |
-| :-- | :-- | :-- | :-- |
-|     |     |     |     |
-|     |     |     |     |
-|     |     |     |     |
-|     |     |     |     |
-|     |     |     |     |
-
 
 | Tools | Requests | Edit Policies and Roles | Actions |
-| --- | --- | --- | --- |
-| SelectionTool  
-|MarqueeTool  
-SelectEditPartTracker
-
+| ---- | ---- | ---- | ---- |
+|  |  |  |  |
+SelectEditPartTracker | SelectionRequest  
 *GraphicalViewerKeyHandler
 
- | SelectionRequest  
 DirectEditRequest  
 REQ\_SELECTION\_HOVER  
 REQ_OPEN  
@@ -393,18 +382,16 @@ When a creation command is redone, it must restore the original child that was c
 ### Moving and Resizing
 
 | Tools | Requests | Edit Policies and Roles | Actions |
-| --- | --- | --- | --- |
-| DragEditPartsTracker  
-ResizeTracker | ChangeBoundsRequest  
-AlignmentRequest
-| REQ_MOVE  
-REQ_ADD  
-REQ_ORPHAN |   | REQ_CLONE  
-REQ_ALIGN  
-REQ_RESIZE | | LayoutEditPolicy  
-ResizableEditPolicy  
-ContainerEditPolicy | AlignmentAction  
-MatchSizeAction |
+| ---- | ---- | ---- | ---- |
+| | ChangeBoundsRequest|||  
+||AlignmentRequest
+|DragEditPartsTracker|
+|ResizeTracker ||||
+|| REQ_MOVE  REQ_ADD  
+||REQ_ORPHAN  REQ_CLONE  
+||REQ_ALIGN  REQ_RESIZE | LayoutEditPolicy  
+||ResizableEditPolicy  |MatchSizeAction 
+|||ContainerEditPolicy | AlignmentAction  
 
 The DragEditPartsTracker extends basic selection behavior to allow the selected parts to be dragged within their graphical viewer. Dragging the selected parts can result in three potential interactions: move, reparent, and clone. All three use the `ChangeBoundsRequest`, which extends GroupRequest to include a size delta, move delta, and mouse location.
 
