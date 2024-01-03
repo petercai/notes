@@ -1,5 +1,5 @@
-# Eclipse GEF and Draw2d Plug-in Developer Guide 
- 
+# Eclipse GEF and Draw2d Plug-in Developer Guide
+
 * * *
 
 Overview
@@ -7,13 +7,13 @@ Overview
 
 **Draw2d** focuses on efficient painting and layout of figures. The GEF plug-in adds editing on top of Draw2d. The purpose of this framework is to:
 
-1.  Facilitate the display of any model graphically using draw2d figures
-2.  Support interactions from mouse, keyboard, or the Workbench
-3.  Provide common components related to the above  
+1. Facilitate the display of any model graphically using draw2d figures
+2. Support interactions from mouse, keyboard, or the Workbench
+3. Provide common components related to the above  
 
 The diagram below shows a high-level view of GEF.  GEF can be loosely defined as the region in the middle. The framework provides the link between an application's model and view. It also provides input handlers, such as tools and actions, that turn events into requests. Requests and Commands are used to encapsulate interactions and their effects on the model.
 
-![](_assets/gefmvc.gif)
+![](../../_assets/gefmvc.gif)
 
 In MVC (model-view-controller) design, the controller is often the only connection between the view and the model. The controller is responsible for maintaining the view, and for interpreting UI events and turning them into operations on the model. These roles as they apply to GEF are described below:
 
@@ -55,10 +55,10 @@ There are two types of editpart implementations provided with GEF. <span style="
 
 The responsibilities of each editpart include:
 
-*   Create and maintain a view (whether figure or treeitem)
-*   Create and maintain children editparts
-*   Create and maintain connections editparts
-*   Support editing of the model
+* Create and maintain a view (whether figure or treeitem)
+* Create and maintain children editparts
+* Create and maintain connections editparts
+* Support editing of the model
 
 Note that<span style="background:#fff88f"> maintaining the view and other editparts implies that the editpart will be notified of changes in the model</span>. Usually, <span style="background:#fff88f">the editpart hooks a listener directly to the model object(s)</span> with which it is associated. When it receives notification, it updates its view or structure depending on the change.
 
@@ -70,9 +70,9 @@ Creating a Graphical View of a Model
 Once you have a model and some figures with which to view it, the next step is to put the pieces together. This means creating the editparts that are going to work with each model and figure combination. GEF's implementations are abstract and must be extended for your application. But first, we need to set up the foundation.
 
 GEF includes the class <span style="background:#fff88f">`ScrollingGraphicalViewer`. This is a viewer implementation which uses a Draw2d `FigureCanvas`</span>. **Most applications use this viewer** unless, for some reason, scrollbars are not needed. <span style="background:#fff88f">The next step is to decide which _root_ editpart to use</span>. E<span style="background:#fff88f">ach editpart viewer requires a special editpart called the roo</span>t. T<span style="background:#fff88f">his editpart does not correspond to anything in the mode</span>l. Its functio<span style="background:#fff88f">n is to setup the viewer and provide a uniform context for all of the application's "real" editpar</span>ts. There are two implementations to consider using:
-*   `ScalableRootEditPart` \- provides the standard set of layers and supports zoom should the application decide to expose this to the user.
-*   `ScalableFreeformRootEditPart` \- similar to above, but all of the layers conform to the <span style="background:#fff88f">_freeform_ interface, which allows the diagram to additionally extend into negative coordinates (to the left and up</span>). This is the most flexible and **commonly used** root editpart.
-   
+
+* `ScalableRootEditPart` \- provides the standard set of layers and supports zoom should the application decide to expose this to the user.
+* `ScalableFreeformRootEditPart` \- similar to above, but all of the layers conform to the <span style="background:#fff88f">_freeform_ interface, which allows the diagram to additionally extend into negative coordinates (to the left and up</span>). This is the most flexible and **commonly used** root editpart.
 
 Now we have a viewer and its root editpart, so next we'll actually set some contents into the viewer. <span style="background:#fff88f">_Contents_ refers to the base model object that seeds the viewer with the graphical diagram being displaye</span>d. The viewer's <span style="background:#fff88f">`EditPartFactory` is then responsible for taking the contents and constructing the appropriate editpart, which is then set on the root editpar</span>t. Its figure gets added to the root's. At that point the contents editpart will construct its children editparts, reusing the viewer's factory, which in turn then create their children and/or connections, etc., until all of the editparts and their views have been created.
 
@@ -101,10 +101,11 @@ In many ways connections are just like other editparts. They typically have prop
 ### Summary
 
 So far we have focused on just displaying a model graphically. This requires that you extend `AbstractGraphicalEditPart` and override behavior based on each part's model. Here is a summary of the methods discussed:
-*   `createFigure()` \- this method creates the editpart's view, or figure. This method does **not** reflect the model's state in the figure. That is done in refreshVisuals()
-*   `refreshVisuals()` \- this method reflects model attributes in the view. Complex editparts may further decompose this method into several helper methods.
-*   `getModelChildren()` \- this method is called to determine if there are model elements for which children editparts should be created.
-*   `getModelSource/TargetConnections()` \- similar to children, but model elements returned here indicate connections for which the editpart is the source or target.
+
+* `createFigure()` \- this method creates the editpart's view, or figure. This method does **not** reflect the model's state in the figure. That is done in refreshVisuals()
+* `refreshVisuals()` \- this method reflects model attributes in the view. Complex editparts may further decompose this method into several helper methods.
+* `getModelChildren()` \- this method is called to determine if there are model elements for which children editparts should be created.
+* `getModelSource/TargetConnections()` \- similar to children, but model elements returned here indicate connections for which the editpart is the source or target.
 
 Editing and EditPolicies
 ------------------------
@@ -114,22 +115,26 @@ Once you have some editparts displayed it's time to start editing. Editing is us
 ![](_assets/editing1.gif)
 Methods on `EditPart` which take a **Request**:
 
-1.  `EditPart getTargetEditPart(Request)  
-    boolean understandsRequest(Request)`
-2.  `void showSourceFeedback(Request)  
-    void eraseSourceFeedback(Request)  
-    void showTargetFeedback(Request)  
-    void eraseTargetFeedback(Request)`
-3.  `Command getCommand(Request)`
-4.  `void performRequest(Request)`
-| 1  | - The first step of editing is to decide which **editparts** are involved. Usually, <span style="background:#fff88f">it is some combination of the viewer's current selection and an editpart calculated using the current mouse location</span>. The se<span style="background:#fff88f">lection can be trimmed by asking if each selected part understands a request</span>. The part under the mouse, called the _target_, is found with the viewer's help and the `getTargetEditPart(Request)` method. Not all interactions have targets.  
- | 2 | 
-During interactions, especially mouse interactions and dragging, <span style="background:#fff88f">editparts are asked to show feedback</span> based on their role in the interaction. An editpart is considered the _source_ if it is the part being acted on. A _target_ editpart is the part underneath the mouse. For example, when dragging a node around a diagram, <u>the node is the source</u>, and <u>the diagram is the target</u>. The <span style="background:#fff88f">node is asked to show source feedback, which might be a rectangle</span> or some other modified representation of the node. The diagram is asked to show target feedback. When reattaching the end of a connection, a node might be showing target feedback instead. Some interactions only operate on a source.  
-| 3 | 
-<span style="background:#fff88f">The command is what eventually changes the model</span>. Ed<span style="background:#fff88f">itparts are asked for a command for a given reques</span>t. C<span style="background:#fff88f">ommands also help determine if the interaction is possibl</span>e. If there is no command, or it is not executable, the UI will indicate that the interaction is not allowed. If<span style="background:#fff88f"> an editpart contributes NULL as its command, it does not prevent the interaction from occurring, unless of course no commands are provided by any of the editpart</span>s. T<span style="background:#fff88f">o indicate something is not allowed, the editpart must return a command that is not executabl</span>e.  
-| 4 | 
-Finally, there is a generic API telling an editpart to just "do something". This is generally something that does not immediately result in a model change. For example, opening a dialog or activating the "direct-edit" mode.
-### EditPolicies
+1. `EditPart getTargetEditPart(Request)  
+   boolean understandsRequest(Request)`
+
+2. `void showSourceFeedback(Request)  
+   void eraseSourceFeedback(Request)  
+   void showTargetFeedback(Request)  
+   void eraseTargetFeedback(Request)`
+
+3. `Command getCommand(Request)`
+
+4. `void performRequest(Request)`
+   | 1  | - The first step of editing is to decide which **editparts** are involved. Usually, <span style="background:#fff88f">it is some combination of the viewer's current selection and an editpart calculated using the current mouse location</span>. The se<span style="background:#fff88f">lection can be trimmed by asking if each selected part understands a request</span>. The part under the mouse, called the _target_, is found with the viewer's help and the `getTargetEditPart(Request)` method. Not all interactions have targets.  
+   | 2 | 
+   During interactions, especially mouse interactions and dragging, <span style="background:#fff88f">editparts are asked to show feedback</span> based on their role in the interaction. An editpart is considered the _source_ if it is the part being acted on. A _target_ editpart is the part underneath the mouse. For example, when dragging a node around a diagram, <u>the node is the source</u>, and <u>the diagram is the target</u>. The <span style="background:#fff88f">node is asked to show source feedback, which might be a rectangle</span> or some other modified representation of the node. The diagram is asked to show target feedback. When reattaching the end of a connection, a node might be showing target feedback instead. Some interactions only operate on a source.  
+   | 3 | 
+   <span style="background:#fff88f">The command is what eventually changes the model</span>. Ed<span style="background:#fff88f">itparts are asked for a command for a given reques</span>t. C<span style="background:#fff88f">ommands also help determine if the interaction is possibl</span>e. If there is no command, or it is not executable, the UI will indicate that the interaction is not allowed. If<span style="background:#fff88f"> an editpart contributes NULL as its command, it does not prevent the interaction from occurring, unless of course no commands are provided by any of the editpart</span>s. T<span style="background:#fff88f">o indicate something is not allowed, the editpart must return a command that is not executabl</span>e.  
+   | 4 | 
+   Finally, there is a generic API telling an editpart to just "do something". This is generally something that does not immediately result in a model change. For example, opening a dialog or activating the "direct-edit" mode.
+   
+   ### EditPolicies
 
 ![](_assets/editing2.gif)
 <span style="background:#fff88f">Editparts don't handle editing directly. Instead, they use EditPolicies</span>. Ea<span style="background:#fff88f">ch editpolicy is then able to focus on a single editing task or group of related task</span>s. This also allows editing behavior to be selectively reused across different editpart implementations. Also, behavior can change dynamically, such as when the layouts or routing methods change.
@@ -163,15 +168,15 @@ The first thing that happens is creation. Most editparts will be created by the 
 
 `addNotify()` \- Signals the completion of the child being added to the parent. At this point, the child will do the following:
 
-1.  Register itself with the viewer using both its view and its model.
-2.  Create any editpolicies that it needs.
-3.  Refresh, meaning update first its own view, and then construct any structural elements of its own such as children or connections.
+1. Register itself with the viewer using both its view and its model.
+2. Create any editpolicies that it needs.
+3. Refresh, meaning update first its own view, and then construct any structural elements of its own such as children or connections.
 
 `activate()` \- Indicates that the editpart should become active for editing, meaning that the model might change. The parent only activates its child if it is also active. The root is only active if the viewer has created its Control. An editpart should do the following on activation:
 
-1.  Start listening to the model. Subclasses should **extend** this method to add any necessary listeners.
-2.  Activate all of the editpolicies.
-3.  Activate all children and outgoing connection editparts.
+1. Start listening to the model. Subclasses should **extend** this method to add any necessary listeners.
+2. Activate all of the editpolicies.
+3. Activate all children and outgoing connection editparts.
 
 ### 3) Normal Use
 
@@ -186,10 +191,10 @@ The remaining steps **only** occur when the editpart gets removed, meaning its m
 
 `removeNotify()` \- Signals that the editpart is about to incur removal. The following must happen while the editpart still has access to its surroundings:
 
-1.  Make sure the editpart is no longer selected or has focus.
-2.  Call removeNotify on children so that they can do the same.
-3.  Un-register the editpart from the viewer's registries.
-4.  Remove self as source or target of any connections. Connections don't go away unless both source and target get set to null.
+1. Make sure the editpart is no longer selected or has focus.
+2. Call removeNotify on children so that they can do the same.
+3. Un-register the editpart from the viewer's registries.
+4. Remove self as source or target of any connections. Connections don't go away unless both source and target get set to null.
 
 `setParent(null)` \- The last step of removal. The parent and viewer are no longer reachable at this point.
 
@@ -205,10 +210,10 @@ Tools and the Palette
 
 Tools are implemented like state machines. SWT events provide the input to the state machine. Based on the event and current state, a tool will perform certain actions. These actions could include:
 
-*   Asking editparts to show or hide feedback.
-*   Obtaining commands from editparts.
-*   Executing a command on the command stack.
-*   Updating the mouse cursor.
+* Asking editparts to show or hide feedback.
+* Obtaining commands from editparts.
+* Executing a command on the command stack.
+* Updating the mouse cursor.
 
 A tool is activated by setting it on the EditDomain. There is only one active tool for all viewers in the domain. If a palette is being used, selecting a tool in the palette will activate that tool.
 
@@ -218,7 +223,7 @@ A tool is activated by setting it on the EditDomain. There is only one active to
 
 ![](_assets/selectsequence.gif)
 
-Ironically, the Selection Tool doesn't select editparts. All mouse clicks are handled as drags. When the Selection Tool receives a mouse down event over a selectable editpart, it asks for a drag tracker. The editpart returns a tracker derived from SelectEditPartTracker. The tracker also receives the mouse down event, as well as any other events, until the mouse button is released. When the tracker interprets a selection gesture, it modifies the viewer's selection. Trackers even handle events like double-click.
+Ironically, the Selection Tool doesn't select editparts. All mouse clicks are handled as drags. <span style="background:#fff88f">When the Selection Tool receives a mouse down event over a selectable editpart, it asks for a drag tracker</span>. The<span style="background:#fff88f"> editpart returns a tracker derived from SelectEditPartTracke</span>r. The tracker also receives the mouse down event, as well as any other events, until the mouse button is released. <span style="background:#fff88f">When the tracker interprets a selection gesture, it modifies the viewer's selection. Trackers even handle events like double-click.</span>
 
 For more on the selection tool and trackers, see the section on [Selection Interaction](#Interactions/Selection).
 
@@ -239,35 +244,31 @@ Types of Interactions in GEF
 
 This section discusses the various types of interactions that are included in the framework, and which parts of the framework are involved in supporting the interaction. An interaction can be anything that affects the model or the UI state. Many interactions are graphical but some are not. An interaction may include:
 
-*   Invoking some Action (usually displayed on the toolbar, menubar, or popup).
-*   Clicking on something.
-*   Clicking and dragging something.
-*   Hovering over something (pausing the mouse for a certain time).
-*   Dropping something dragged from another source (native Drag-N-Drop).
-*   Pressing certain keys.
+* Invoking some Action (usually displayed on the toolbar, menubar, or popup).
+* Clicking on something.
+* Clicking and dragging something.
+* Hovering over something (pausing the mouse for a certain time).
+* Dropping something dragged from another source (native Drag-N-Drop).
+* Pressing certain keys.
 
 This section discusses the participants involved in each interaction and what they do. This can include:
 
-*   Tools which process input.
-*   Actions which are invoked.
-*   The IDs and instances of Requests that are sent to editparts by tools or actions. ID's are defined on the `RequestConstants` class.
-*   The EditPolicy roles designated to handle specific types of requests. These are just constants defined on the EditPolicy interface.
-*   Any EditPolicy implementations provided in GEF for use with the interaction.
+* Tools which process input.
+* Actions which are invoked.
+* The IDs and instances of Requests that are sent to editparts by tools or actions. ID's are defined on the `RequestConstants` class.
+* The EditPolicy roles designated to handle specific types of requests. These are just constants defined on the EditPolicy interface.
+* Any EditPolicy implementations provided in GEF for use with the interaction.
 
 ### Selection
 
-| Tools | Requests | Edit Policies and Roles | Actions |
-| ---- | ---- | ---- | ---- |
-|  |  |  |  |
-SelectEditPartTracker | SelectionRequest  
-*GraphicalViewerKeyHandler
+| Tools                      | Requests                     | Edit Policies and Roles                  | Actions         |
+| -------------------------- | ---------------------------- | ---------------------------------------- | --------------- |
+| SelectionTool              | SelectionRequest             |                                          |                 |
+| MarqueeTool                | DirectEditRequest            | SelectionEditPolicy                      |                 |
+| SelectEditPartTracker      | REQ_SELECTION_HOVER REQ_OPEN | DirectEditPolicy SELECTION_FEEDBACK_ROLE | SelectAllAction |
+| *GraphicalViewerKeyHandler | REQ_DIRECT_EDIT              |                                          |                 |
 
-DirectEditRequest  
-REQ\_SELECTION\_HOVER  
-REQ_OPEN  
-REQ\_DIRECT\_EDIT | SelectionEditPolicy  
-DirectEditPolicy  
-SELECTION\_FEEDBACK\_ROLE | SelectAllAction |
+
 
 No interaction is more basic or universal than selecting items in a viewer. Most of the interactions discussed here operate on what is currently selected. Yet, selection is a complex topic and there are several steps involved. The Selection Tool was [briefly discussed](#Tools/Selection) in the above section on tools.
 
@@ -276,7 +277,7 @@ Let's first define selection. Selection is a List of EditParts maintained by an 
 Closely related to selection is _focus_. Focus is a single editpart maintained by the EditPartViewer. Focus is used when manipulating selection via keyboard. By moving focus, the user can navigate from one editpart to another without changing the current selection. The user can add/remove the focused editpart from the selection. If focus is not explicitly set, it is the same as the primary selected part.
 
 | ![](_assets/selectionhandles.gif)
-  
+
 _Selection Handles_ | The editpart is responsible for showing its selected and focused state to the user. The viewer tells editparts when they are selected, focused, or have primary selection. Typically, selection is shown by one or more EditPolicies adding selection handles. The handles shown here on the LED and circuit parts were added by `ResizableEditPolicy`. The black handles indicate primary selection.
 
 Because selection handles are related to how a part can be dragged or sized, which in turn is related to the containing figure's layout manager, it is usually the parent part's editpolicy that installs a policy on the children for displaying the appropriate handles. For example, an XYLayoutEditPolicy would install a ResizableEditPolicy on each child of its host editpart.
@@ -314,11 +315,11 @@ Drag trackers are not needed inside GEF's TreeViewer. The native tree handles se
 
 ### Basic Model Operations (Delete)
 
-| Tools | Requests | Edit Policies and Roles | Actions |
-| --- | --- | --- | --- |
-|   | REQ_DELETE | COMPONENT_ROLE  
-CONNECTION_ROLE  
-RootComponentEditPolicy | DeleteAction |
+| Tools                   | Requests     | Edit Policies and Roles | Actions |
+| ----------------------- | ------------ | ----------------------- | ------- |
+|                         | REQ_DELETE   | COMPONENT_ROLE          |         |
+| CONNECTION_ROLE         |              |                         |         |
+| RootComponentEditPolicy | DeleteAction |                         |         |
 
 ![](_assets/interactdelete.gif)
 
@@ -339,18 +340,18 @@ Implementing the command that performs delete can be difficult, especially when 
 
 ### Creation
 
-| Tools | Requests | Edit Policies and Roles | Actions |
-| --- | --- | --- | --- |
-| CreationTool  
-  | REQ_CREATE  
-Create | CONTAINER_ROLE  
-LAYOUT_ROLE  
-TREE\_CONTAINER\_ROLE  
-ContainerEditPolicy  
-LayoutEditPolicy | CopyTemplateAction  
-PasteTemplateAction |
-| TemplateTransferDropTargetListener  
-TemplateTransferDragSourceListener |
+| Tools                              | Requests           | Edit Policies and Roles | Actions |
+| ---------------------------------- | ------------------ | ----------------------- | ------- |
+| CreationTool                       |                    |                         |         |
+| REQ_CREATE                         |                    |                         |         |
+| Create                             | CONTAINER_ROLE     |                         |         |
+| LAYOUT_ROLE                        |                    |                         |         |
+| TREE\_CONTAINER\_ROLE              |                    |                         |         |
+| ContainerEditPolicy                |                    |                         |         |
+| LayoutEditPolicy                   | CopyTemplateAction |                         |         |
+| PasteTemplateAction                |                    |                         |         |
+| TemplateTransferDropTargetListener |                    |                         |         |
+| TemplateTransferDragSourceListener |                    |                         |         |
 
 ![](_assets/interactcreate.gif)
 
@@ -381,17 +382,17 @@ When a creation command is redone, it must restore the original child that was c
 
 ### Moving and Resizing
 
-| Tools | Requests | Edit Policies and Roles | Actions |
-| ---- | ---- | ---- | ---- |
-| | ChangeBoundsRequest|||  
-||AlignmentRequest
-|DragEditPartsTracker|
-|ResizeTracker ||||
-|| REQ_MOVE  REQ_ADD  
-||REQ_ORPHAN  REQ_CLONE  
-||REQ_ALIGN  REQ_RESIZE | LayoutEditPolicy  
-||ResizableEditPolicy  |MatchSizeAction 
-|||ContainerEditPolicy | AlignmentAction  
+| Tools                | Requests              | Edit Policies and Roles | Actions         |
+| -------------------- | --------------------- | ----------------------- | --------------- |
+|                      | ChangeBoundsRequest   |                         |                 |
+|                      | AlignmentRequest      |                         |                 |
+| DragEditPartsTracker |                       |                         |                 |
+| ResizeTracker        |                       |                         |                 |
+|                      | REQ_MOVE  REQ_ADD     |                         |                 |
+|                      | REQ_ORPHAN  REQ_CLONE |                         |                 |
+|                      | REQ_ALIGN  REQ_RESIZE | LayoutEditPolicy        |                 |
+|                      | ResizableEditPolicy   | MatchSizeAction         |                 |
+|                      |                       | ContainerEditPolicy     | AlignmentAction |
 
 The DragEditPartsTracker extends basic selection behavior to allow the selected parts to be dragged within their graphical viewer. Dragging the selected parts can result in three potential interactions: move, reparent, and clone. All three use the `ChangeBoundsRequest`, which extends GroupRequest to include a size delta, move delta, and mouse location.
 
@@ -415,13 +416,13 @@ The `AlignmentAction` uses an `AlignmentRequest`, which extends ChangeBoundsRequ
 
 ### Connection Creation
 
-| Tools | Requests | Edit Policies and Roles | Actions |
-| --- | --- | --- | --- |
-| ConnectionCreationTool  
-ConnectionDragCreationTool | CreateConnectionRequest  
-REQ\_CONNECTION\_START  
-REQ\_CONNECTION\_END | GraphicalNodeEditPolicy  
-NODE_ROLE |   |
+| Tools                      | Requests                | Edit Policies and Roles | Actions |
+| -------------------------- | ----------------------- | ----------------------- | ------- |
+| ConnectionCreationTool     |                         |                         |         |
+| ConnectionDragCreationTool | CreateConnectionRequest |                         |         |
+| REQ\_CONNECTION\_START     |                         |                         |         |
+| REQ\_CONNECTION\_END       | GraphicalNodeEditPolicy |                         |         |
+| NODE_ROLE                  |                         |                         |         |
 
 ![](_assets/interactconnect.gif)
 
@@ -439,14 +440,14 @@ The "source" and "target" nodes should not be confused with "source" and "target
 
 ### Editing Connections
 
-| Tools | Requests | Edit Policies and Roles | Actions |
-| --- | --- | --- | --- |
-| ConnectionEndpointTracker | ReconnectRequest  
-REQ\_RECONNECT\_SOURCE  
-REQ\_RECONNECT\_TARGET | ConnectionEndpointEditPolicy  
-ENDPOINT_ROLE  
-GraphicalNodeEditPolicy  
-NODE_ROLE |   |
+| Tools                     | Requests                     | Edit Policies and Roles | Actions |
+| ------------------------- | ---------------------------- | ----------------------- | ------- |
+| ConnectionEndpointTracker | ReconnectRequest             |                         |         |
+| REQ\_RECONNECT\_SOURCE    |                              |                         |         |
+| REQ\_RECONNECT\_TARGET    | ConnectionEndpointEditPolicy |                         |         |
+| ENDPOINT_ROLE             |                              |                         |         |
+| GraphicalNodeEditPolicy   |                              |                         |         |
+| NODE_ROLE                 |                              |                         |         |
 
 ![](_assets/interactreconnect.gif)
 
@@ -460,12 +461,12 @@ The target node's GraphicalNodeEditPolicy is responsible for showing target feed
 
 ### Bending Connections
 
-| Tools | Requests | Edit Policies and Roles | Actions |
-| --- | --- | --- | --- |
-| ConnectionBendpointTracker | BendpointRequest  
-REQ\_MOVE\_BENDPOINT  
-REQ\_CREATE\_BENDPOINT | BendpointEditPolicy  
-CONNECTION\_BENDPOINTS\_ROLE |   |
+| Tools                        | Requests            | Edit Policies and Roles | Actions |
+| ---------------------------- | ------------------- | ----------------------- | ------- |
+| ConnectionBendpointTracker   | BendpointRequest    |                         |         |
+| REQ\_MOVE\_BENDPOINT         |                     |                         |         |
+| REQ\_CREATE\_BENDPOINT       | BendpointEditPolicy |                         |         |
+| CONNECTION\_BENDPOINTS\_ROLE |                     |                         |         |
 
 ![](_assets/interactbend.gif)
 Certain connection routers accept routing constraints (typically a list of `BendPoint`s). Install a `BendpointEditPolicy` using the `CONNECTION_BENDPOINTS_ROLE` for editing the connections routing constraints. This editpolicy requires a router that takes a List of BendPoints. During selection, the policy will add normal handles to existing bendpoints on the connection. It adds smaller handles where the user can create new bendpoints.
@@ -475,6 +476,5 @@ Each handle provides a `ConnectionBendpointTracker`. This tool sends a `Bendpoin
 ![](_assets/interactbendindex.gif)
 This picture shows a selected connection in the Logic Example with a single Bendpoint. The `ShortestPathConnectionRouter` has inserted additional bends in the connection to avoid figures. The handles for creating and moving bendpoints are labeled with the index that the BendpointRequest will contain. The index is the same as the current (or eventual) index of the bendpoint in the routing constraint's List.
 
-  
 [![](_assets/ezoic.png)
 ](https://www.ezoic.com/what-is-ezoic/)
