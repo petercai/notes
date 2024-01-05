@@ -268,23 +268,19 @@ This section discusses the participants involved in each interaction and what th
 | SelectEditPartTracker      | REQ_SELECTION_HOVER REQ_OPEN | DirectEditPolicy SELECTION_FEEDBACK_ROLE | SelectAllAction |
 | *GraphicalViewerKeyHandler | REQ_DIRECT_EDIT              |                                          |                 |
 
-
-
 No interaction is more basic or universal than selecting items in a viewer. Most of the interactions discussed here operate on what is currently selected. Yet, selection is a complex topic and there are several steps involved. The Selection Tool was [briefly discussed](#Tools/Selection) in the above section on tools.
 
-Let's first define selection. Selection is a List of EditParts maintained by an EditPartViewer. Changes to the selection are made by invoking methods on the viewer, and not by modifying the list directly. The selection is never empty. If the selection is cleared, the viewer's _contents_ editpart becomes the selection. The last editpart in the list is considered the _primary_ selection.
+Let's first define selection. <span style="background:#fff88f">Selection is a List of EditParts maintained by an EditPartViewer.</span> Changes to the selection are made by invoking methods on the viewer, and not by modifying the list directly. The selection is never empty. If the selection is cleared, the viewer's _contents_ editpart becomes the selection. The last editpart in the list is considered the _primary_ selection.
 
-Closely related to selection is _focus_. Focus is a single editpart maintained by the EditPartViewer. Focus is used when manipulating selection via keyboard. By moving focus, the user can navigate from one editpart to another without changing the current selection. The user can add/remove the focused editpart from the selection. If focus is not explicitly set, it is the same as the primary selected part.
+Closely related to selection is _focus_. <span style="background:#fff88f">Focus is a single editpart maintained by the EditPartViewe</span>r. Foc<span style="background:#fff88f">us is used when manipulating selection via keyboard</span>. By moving focus, the user can navigate from one editpart to another without changing the current selection. The user can add/remove the focused editpart from the selection. If focus is not explicitly set, it is the same as the primary selected part.
 
 | ![](_assets/selectionhandles.gif)
 
-_Selection Handles_ | The editpart is responsible for showing its selected and focused state to the user. The viewer tells editparts when they are selected, focused, or have primary selection. Typically, selection is shown by one or more EditPolicies adding selection handles. The handles shown here on the LED and circuit parts were added by `ResizableEditPolicy`. The black handles indicate primary selection.
+_Selection Handles_ | The editpart is responsible for showing its selected and focused state to the user. <span style="background:#fff88f">The viewer tells editparts when they are selected, focused, or have primary selection.</span> Typically, <span style="background:#fff88f">selection is shown by one or more EditPolicies adding selection handles</span>. The handles shown here on the LED and circuit parts were added by `ResizableEditPolicy`. The black handles indicate primary selection.
 
-Because selection handles are related to how a part can be dragged or sized, which in turn is related to the containing figure's layout manager, it is usually the parent part's editpolicy that installs a policy on the children for displaying the appropriate handles. For example, an XYLayoutEditPolicy would install a ResizableEditPolicy on each child of its host editpart.
+Because <span style="background:#fff88f">selection handles are related to how a part can be dragged or sized</span>, which in turn is related to the containing figure's layout manager, <span style="background:#fff88f">it is usually the parent part's editpolicy that installs a policy on the children for displaying the appropriate handles</span>. For example, an XYLayoutEditPolicy would install a <span style="background:#fff88f">ResizableEditPolicy</span> on each child of its host editpart.
 
 Connections may (`WireEditPart` in the Logic Example) also change its figure's line width to help indicate selection. Handles for connections are contributed by both `EndpointEditPolicy` and `BendpointEditPolicy`.
-
- |
 
 **Selection Targeting and Feedback**
 
@@ -315,11 +311,11 @@ Drag trackers are not needed inside GEF's TreeViewer. The native tree handles se
 
 ### Basic Model Operations (Delete)
 
-| Tools                   | Requests     | Edit Policies and Roles | Actions |
-| ----------------------- | ------------ | ----------------------- | ------- |
-|                         | REQ_DELETE   | COMPONENT_ROLE          |         |
-| CONNECTION_ROLE         |              |                         |         |
-| RootComponentEditPolicy | DeleteAction |                         |         |
+| Tools Requests | Edit Policies and Roles | Actions      |
+| -------------- | ----------------------- | ------------ |
+|                | CONNECTION_ROLE         |              |
+| REQ_DELETE     | COMPONENT_ROLE          | DeleteAction |
+|                | RootComponentEditPolicy |              |
 
 ![](_assets/interactdelete.gif)
 
@@ -340,18 +336,11 @@ Implementing the command that performs delete can be difficult, especially when 
 
 ### Creation
 
-| Tools                              | Requests           | Edit Policies and Roles | Actions |
-| ---------------------------------- | ------------------ | ----------------------- | ------- |
-| CreationTool                       |                    |                         |         |
-| REQ_CREATE                         |                    |                         |         |
-| Create                             | CONTAINER_ROLE     |                         |         |
-| LAYOUT_ROLE                        |                    |                         |         |
-| TREE\_CONTAINER\_ROLE              |                    |                         |         |
-| ContainerEditPolicy                |                    |                         |         |
-| LayoutEditPolicy                   | CopyTemplateAction |                         |         |
-| PasteTemplateAction                |                    |                         |         |
-| TemplateTransferDropTargetListener |                    |                         |         |
-| TemplateTransferDragSourceListener |                    |                         |         |
+| Tools            | Requests              | Edit Policies and Roles                                  | Actions                                    |
+| ---------------- | --------------------- | -------------------------------------------------------- | ------------------------------------------ |
+| CreationTool     | REQ_CREATE<br/>Create | CONTAINER_ROLE<br/>LAYOUT_ROLE<br/>TREE\_CONTAINER\_ROLE | CopyTemplateAction<br/>PasteTemplateAction |
+| TemplateTransfer | DropTargetListener    | ContainerEditPolicy                                      |                                            |
+| TemplateTransfer | DragSourceListener    | LayoutEditPolicy                                         |                                            |
 
 ![](_assets/interactcreate.gif)
 
@@ -382,17 +371,12 @@ When a creation command is redone, it must restore the original child that was c
 
 ### Moving and Resizing
 
-| Tools                | Requests              | Edit Policies and Roles | Actions         |
-| -------------------- | --------------------- | ----------------------- | --------------- |
-|                      | ChangeBoundsRequest   |                         |                 |
-|                      | AlignmentRequest      |                         |                 |
-| DragEditPartsTracker |                       |                         |                 |
-| ResizeTracker        |                       |                         |                 |
-|                      | REQ_MOVE  REQ_ADD     |                         |                 |
-|                      | REQ_ORPHAN  REQ_CLONE |                         |                 |
-|                      | REQ_ALIGN  REQ_RESIZE | LayoutEditPolicy        |                 |
-|                      | ResizableEditPolicy   | MatchSizeAction         |                 |
-|                      |                       | ContainerEditPolicy     | AlignmentAction |
+| Tools                | Requests                                                           | Edit Policies and Roles | Actions         |
+| -------------------- | ------------------------------------------------------------------ | ----------------------- | --------------- |
+|                      | ChangeBoundsRequest                                                |                         |                 |
+|                      | AlignmentRequest                                                   | LayoutEditPolicy        | MatchSizeAction |
+| DragEditPartsTracker | REQ_MOVE REQ_ADD<br/>REQ_ORPHAN REQ_CLONE<br/>REQ_ALIGN REQ_RESIZE | ResizableEditPolicy     |                 |
+| ResizeTracker        |                                                                    | ContainerEditPolicy     |                 |
 
 The DragEditPartsTracker extends basic selection behavior to allow the selected parts to be dragged within their graphical viewer. Dragging the selected parts can result in three potential interactions: move, reparent, and clone. All three use the `ChangeBoundsRequest`, which extends GroupRequest to include a size delta, move delta, and mouse location.
 
@@ -418,11 +402,9 @@ The `AlignmentAction` uses an `AlignmentRequest`, which extends ChangeBoundsRequ
 
 | Tools                      | Requests                | Edit Policies and Roles | Actions |
 | -------------------------- | ----------------------- | ----------------------- | ------- |
-| ConnectionCreationTool     |                         |                         |         |
-| ConnectionDragCreationTool | CreateConnectionRequest |                         |         |
-| REQ\_CONNECTION\_START     |                         |                         |         |
-| REQ\_CONNECTION\_END       | GraphicalNodeEditPolicy |                         |         |
-| NODE_ROLE                  |                         |                         |         |
+| ConnectionCreationTool     | CreateConnectionRequest |                         |         |
+| ConnectionDragCreationTool | REQ\_CONNECTION\_START  | GraphicalNodeEditPolicy |         |
+|                            | REQ\_CONNECTION\_END    | NODE_ROLE               |         |
 
 ![](_assets/interactconnect.gif)
 
@@ -440,14 +422,14 @@ The "source" and "target" nodes should not be confused with "source" and "target
 
 ### Editing Connections
 
-| Tools                     | Requests                     | Edit Policies and Roles | Actions |
-| ------------------------- | ---------------------------- | ----------------------- | ------- |
-| ConnectionEndpointTracker | ReconnectRequest             |                         |         |
-| REQ\_RECONNECT\_SOURCE    |                              |                         |         |
-| REQ\_RECONNECT\_TARGET    | ConnectionEndpointEditPolicy |                         |         |
-| ENDPOINT_ROLE             |                              |                         |         |
-| GraphicalNodeEditPolicy   |                              |                         |         |
-| NODE_ROLE                 |                              |                         |         |
+| Tools                     | Requests               | Edit Policies and Roles      | Actions |
+| ------------------------- | ---------------------- | ---------------------------- | ------- |
+| ConnectionEndpointTracker | ReconnectRequest       | ConnectionEndpointEditPolicy |         |
+|                           |                        | ENDPOINT_ROLE                |         |
+|                           | REQ\_RECONNECT\_SOURCE |                              |         |
+|                           | REQ\_RECONNECT\_TARGET |                              |         |
+|                           |                        |                              |         |
+| NODE_ROLE                 |                        |                              |         |
 
 ![](_assets/interactreconnect.gif)
 
