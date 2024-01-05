@@ -1,6 +1,6 @@
 from "Contributing to Eclipse principles, patterns & plug-ins"
 
-# runtime - IAdaptable
+# core runtime - IAdaptable
 ## Extension Object/Extension Interface
 
 We need a mechanism that allows us to
