@@ -2,8 +2,8 @@
 
 * * *
 
-Overview
---------
+## Overview
+
 
 **Draw2d** focuses on efficient painting and layout of figures. The GEF plug-in adds editing on top of Draw2d. The purpose of this framework is to:
 
@@ -33,15 +33,15 @@ In MVC (model-view-controller) design, the controller is often the only connecti
 
 > **An `EditPartViewer` is where editparts display their view**. There are two types of viewers provided in GEF. A <u>graphical viewer hosts figures</u> while a<u> tree viewer displays native treeitems</u>. GEF viewers are similar to JFace viewers in that they manage an SWT Control. V<u>iewers are also a selection provider, and the unit of selection is the EditPar</u>t.
 
-When can I use GEF?
--------------------
+## When can I use GEF?
+
 
 GEF can be used anywhere that you can use an SWT Control inside a Workbench. It could be an editor, a view, a wizard page, etc. Most commonly it is used inside an EditorPart and sometimes in that editor's outline page.
 
 GEF requires the Eclipse Rich Client Platform (RCP) and the "views" plug-in (`org.eclipse.ui.views`), which provides property sheet support.
 
-An Introduction to EditParts
-----------------------------
+## An Introduction to EditParts
+
 
 Editparts associate their view and model, but they also form their own structure. An editpart maintains children. Usually this corresponds to a similar containment found in the model. For example, the model may consist of a diagram containing nodes. There would then be a corresponding diagram editpart which contains multiple node editpart children.
 
@@ -64,8 +64,8 @@ Note that<span style="background:#fff88f"> maintaining the view and other editpa
 
 As the name implies, e<span style="background:#fff88f">ditparts must support editing the model</span>. But first we will focus on the initial steps of building an application, which is to display the initial model.
 
-Creating a Graphical View of a Model
-------------------------------------
+## Creating a Graphical View of a Model
+
 
 Once you have a model and some figures with which to view it, the next step is to put the pieces together. This means creating the editparts that are going to work with each model and figure combination. GEF's implementations are abstract and must be extended for your application. But first, we need to set up the foundation.
 
@@ -107,8 +107,8 @@ So far we have focused on just displaying a model graphically. This requires tha
 * `getModelChildren()` \- this method is called to determine if there are model elements for which children editparts should be created.
 * `getModelSource/TargetConnections()` \- similar to children, but model elements returned here indicate connections for which the editpart is the source or target.
 
-Editing and EditPolicies
-------------------------
+## Editing and EditPolicies
+
 
 Once you have some editparts displayed it's time to start editing. Editing is usually the most complex task an editpart performs. Editing includes not only making changes to the model, but also showing graphical feedback during interactions with the view. To abstract away the source of interaction, GEF uses a request. <span style="background:#fff88f">Tools or other UI interpreters will create requests and then call the various API on EditPart based on the interaction</span>. A subset of the EditPart API is shown below.
 
@@ -134,7 +134,7 @@ Methods on `EditPart` which take a **Request**:
    | 4 | 
    Finally, there is a generic API telling an editpart to just "do something". This is generally something that does not immediately result in a model change. For example, opening a dialog or activating the "direct-edit" mode.
    
-   ### EditPolicies
+### EditPolicies
 
 ![](_assets/editing2.gif)
 <span style="background:#fff88f">Editparts don't handle editing directly. Instead, they use EditPolicies</span>. Ea<span style="background:#fff88f">ch editpolicy is then able to focus on a single editing task or group of related task</span>s. This also allows editing behavior to be selectively reused across different editpart implementations. Also, behavior can change dynamically, such as when the layouts or routing methods change.
@@ -149,14 +149,14 @@ Commands are passed around throughout editing. They are used to encapsulate and 
 
 An application has a single command stack. Commands must be executed using the command stack rather than directly calling execute.
 
-The EditPart Lifecycle
-----------------------
+## The EditPart Lifecycle
 
-With respect to lifecycle, editpart implementations typically only have to worry about extending activation and deactivation, which is when the editpart should add and remove its model listeners. Still, an understanding of the entire lifecycle is important.
+
+With respect to lifecycle, editpart implementations typically only have to worry about extending **activation** and **deactivation**, which is<span style="background:#fff88f"> when the editpart should add and remove its model listeners.</span> Still, an understanding of the entire lifecycle is important.
 
 ### 1) Creation
 
-The first thing that happens is creation. Most editparts will be created by the viewer's factory, which is invoked by either the viewer or the managing editpart which is typically the parent. Immediately after being created, the following methods are called:
+The first thing that happens is creation. <span style="background:#fff88f">Most editparts will be created by the viewer's factory, which is invoked by either the viewer or the managing editpart which is typically the parent</span>. Immediately after being created, the following methods are called:
 
 `setModel()` \- If the constructor does not take the model as an argument, it should be set immediately. Other events that follow may be based on the part's model.
 
@@ -187,7 +187,7 @@ At this point the editpart is in its normal editing state. It gets selected, sho
 `deactivate()` \- The opposite of activate. Once again, subclasses should **extend** this method to remove the listeners added during activation.
 
 ![](_assets/important.gif)
-The remaining steps **only** occur when the editpart gets removed, meaning its model was removed from the diagram. If the viewer is being disposed, then deactivation is the only thing that is guaranteed to occur. For this reason, activate and deactivate are the commonly extended methods while the remaining methods can usually be ignored.
+The remaining steps **only** occur when the editpart gets removed, meaning its model was removed from the diagram. <span style="background:#fff88f">If the viewer is being disposed, then deactivation is the only thing that is guaranteed to occur.</span> For this reason, activate and deactivate are the commonly extended methods while the remaining methods can usually be ignored.
 
 `removeNotify()` \- Signals that the editpart is about to incur removal. The following must happen while the editpart still has access to its surroundings:
 
@@ -201,8 +201,8 @@ The remaining steps **only** occur when the editpart gets removed, meaning its m
 ![](_assets/important.gif)
 Editparts do not come back from the grave. When a change in the model is undone, a **new** editpart is created. For this reason, commands should not reference editparts, and editparts should not contain any important state that must be restored on undo.
 
-Tools and the Palette
----------------------
+## Tools and the Palette
+
 
 <span style="background:#fff88f">A tool handles most events from a viewe</span>r. The `EditDomain` keeps track of the currently active tool. Applications may use the palette (PaletteViewer) to display multiple tools, allowing the user to change between modes such as selection, creation, etc.
 
@@ -239,8 +239,7 @@ The PaletteViewer displays a Palette model, which starts with the `PaletteRoot`.
 
 The Palette provides several display modes, such as icon-only. You can also provide a customizer to allow the user to modify or create palette content.
 
-Types of Interactions in GEF
-----------------------------
+## Types of Interactions in GEF
 
 This section discusses the various types of interactions that are included in the framework, and which parts of the framework are involved in supporting the interaction. An interaction can be anything that affects the model or the UI state. Many interactions are graphical but some are not. An interaction may include:
 
@@ -457,6 +456,3 @@ Each handle provides a `ConnectionBendpointTracker`. This tool sends a `Bendpoin
 
 ![](_assets/interactbendindex.gif)
 This picture shows a selected connection in the Logic Example with a single Bendpoint. The `ShortestPathConnectionRouter` has inserted additional bends in the connection to avoid figures. The handles for creating and moving bendpoints are labeled with the index that the BendpointRequest will contain. The index is the same as the current (or eventual) index of the bendpoint in the routing constraint's List.
-
-[![](_assets/ezoic.png)
-](https://www.ezoic.com/what-is-ezoic/)
