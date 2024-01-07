@@ -1,7 +1,6 @@
 # fzf - Search syntax
 Save From : [GitHub - junegunn/fzf: :cherry_blossom: A command-line fuzzy finder](https://github.com/junegunn/fzf#search-syntax) 
 
-## Content
 ### Search syntax
 
 Unless otherwise specified, fzf starts in "extended-search mode" where you can type in multiple search terms delimited by spaces. e.g. `^music .mp3$ sbtrkt !fire`
@@ -23,4 +22,3 @@ A single bar character term acts as an OR operator. For example, the following q
 ```
 ^core go$ | rb$ | py$
 ```
-## Note
