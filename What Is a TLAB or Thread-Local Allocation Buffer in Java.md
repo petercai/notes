@@ -15,12 +15,12 @@ Certain commands in Java will allocate memory. The most obvious is the _new_ key
 
 In a single-threaded application, this is easy. Since only a single memory allocation request can happen at any time, the thread can simply grab the next block of a suitable size, and we’re done:
 
-[![](https://www.baeldung.com/wp-content/uploads/2023/09/single-threaded-heap-allocation-1024x307.png)
+[![](_assets/single-threaded-heap-allocation-1024x307.png)
 ](https://www.baeldung.com/wp-content/uploads/2023/09/single-threaded-heap-allocation.png)
 
 However, in a multi-threaded application, we can’t do things quite so simply. If we do, then there’s the risk that two threads will request memory at the exact same instant and will both be given the exact same block:
 
-[![](https://www.baeldung.com/wp-content/uploads/2023/09/multithreaded-heap-allocation-1024x456.png)
+[![](_assets/multithreaded-heap-allocation-1024x456.png)
 ](https://www.baeldung.com/wp-content/uploads/2023/09/multithreaded-heap-allocation.png)
 
 To avoid this, **we synchronize memory allocations so that two threads cannot request the same memory block simultaneously**. However, synchronizing all memory allocations will make them essentially single-threaded, which can be a huge bottleneck in our application.
@@ -30,7 +30,7 @@ To avoid this, **we synchronize memory allocations so that two threads cannot re
 
 The JVM addresses this concern using Thread-Local Allocation Buffers, or TLABs. **These are areas of heap memory that are reserved for a given thread and are used only by that thread to allocate memory**:
 
-[![](https://www.baeldung.com/wp-content/uploads/2023/09/tlab-heap-allocation-1024x564.png)
+[![](_assets/tlab-heap-allocation-1024x564.png)
 ](https://www.baeldung.com/wp-content/uploads/2023/09/tlab-heap-allocation.png)
 
 By working in this way, no synchronization is necessary since only a single thread can pull from this buffer. The buffer itself is allocated in a synchronized manner, but this is a much less frequent operation.
@@ -59,7 +59,7 @@ This is a relatively simple test, but it does the job. We’re going to allocate
 
 
 
-[![](https://www.baeldung.com/wp-content/uploads/2023/09/TLAB-Timings.png)
+[![](_assets/TLAB-Timings.png)
 ](https://www.baeldung.com/wp-content/uploads/2023/09/TLAB-Timings.png)
 
 We can clearly see the difference. The average time with TLAB is 33 ms, and the average without goes up to 110 ms. **That’s an increase of 230%, just by changing this one setting.**

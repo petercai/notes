@@ -1,5 +1,5 @@
 # DBeaver 破解教程 
-![](https://www.eyabc.cn/wp-content/uploads/2022/09/P9EIXMZ02AG2R9RC.png)
+![](_assets/P9EIXMZ02AG2R9RC.png)
 
 DBeaver 破解教程 亲测可用（文末附带工具下载）
 ---------------------------
@@ -33,19 +33,19 @@ DBeaver
 
 DBeaver有简洁版，企业版，旗舰版，社区版（免费版）。除了社区版，其他几个版本都是需要付费的，当然相对来说，功能也要更完善些，其中，旗舰版功能是最完善，今天我们以最新旗舰版作为演示安装和激活操作。
 
-[![](https://www.eyabc.cn/wp-content/uploads/2022/09/QQ%E6%88%AA%E5%9B%BE20220309162324-818x1024.jpg)
+[![](_assets/QQ%E6%88%AA%E5%9B%BE20220309162324-818x1024.jpg)
 ](https://www.eyabc.cn/wp-content/uploads/2022/09/QQ%E6%88%AA%E5%9B%BE20220309162324-818x1024.jpg)
 
 *   **下载安装包**
 
 下载地址：https://dbeaver.com/download/
 
-[![](https://www.eyabc.cn/wp-content/uploads/2022/09/E4R4SYC4XHSLYIAM.png)
+[![](_assets/E4R4SYC4XHSLYIAM.png)
 ](https://www.eyabc.cn/wp-content/uploads/2022/09/E4R4SYC4XHSLYIAM.png)
 
 菜单栏进入下载页面
 
-[![](https://www.eyabc.cn/wp-content/uploads/2022/09/002-1024x397.jpg)
+[![](_assets/002-1024x397.jpg)
 ](https://www.eyabc.cn/wp-content/uploads/2022/09/002-1024x397.jpg)
 
 选择对应操作系统的DBeaver版本
@@ -54,47 +54,47 @@ DBeaver有简洁版，企业版，旗舰版，社区版（免费版）。除了�
 
 1\. 双击安装程序，开始向导安装，选择语言
 
-[![](https://www.eyabc.cn/wp-content/uploads/2022/09/003.jpg)
+[![](_assets/003.jpg)
 ](https://www.eyabc.cn/wp-content/uploads/2022/09/003.jpg)
 
 2.选择“下一步”，继续
 
-[![](https://www.eyabc.cn/wp-content/uploads/2022/09/004.jpg)
+[![](_assets/004.jpg)
 ](https://www.eyabc.cn/wp-content/uploads/2022/09/004.jpg)
 
 3.我这里选择仅对当前用户
 
-[![](https://www.eyabc.cn/wp-content/uploads/2022/09/0050.jpg)
+[![](_assets/0050.jpg)
 ](https://www.eyabc.cn/wp-content/uploads/2022/09/0050.jpg)
 
 4.选择需要安装的组件，这里“默认”。直接“下一步”
 
-[![](https://www.eyabc.cn/wp-content/uploads/2022/09/006.jpg)
+[![](_assets/006.jpg)
 ](https://www.eyabc.cn/wp-content/uploads/2022/09/006.jpg)
 
 5.选择程序安装目录，我这里更换到F盘下，自定义的目录，下一步
 
-[![](https://www.eyabc.cn/wp-content/uploads/2022/09/007.jpg)
+[![](_assets/007.jpg)
 ](https://www.eyabc.cn/wp-content/uploads/2022/09/007.jpg)
 
 6.开始安装
 
-[![](https://www.eyabc.cn/wp-content/uploads/2022/09/008.jpg)
+[![](_assets/008.jpg)
 ](https://www.eyabc.cn/wp-content/uploads/2022/09/008.jpg)
 
 7.安装完成，添加桌面快捷图标
 
-[![](https://www.eyabc.cn/wp-content/uploads/2022/09/009.jpg)
+[![](_assets/009.jpg)
 ](https://www.eyabc.cn/wp-content/uploads/2022/09/009.jpg)
 
 8.双击桌面图标，进入到DBeaver应用界面
 
-[![](https://www.eyabc.cn/wp-content/uploads/2022/09/010.jpg)
+[![](_assets/010.jpg)
 ](https://www.eyabc.cn/wp-content/uploads/2022/09/010.jpg)
 
 到这里，DBeaver安装已经完成。因为安装的旗舰版，第一次可以免费试用（有期限），也可以通过购买的官方正版激活码进行导入登录，如下图：
 
-[![](https://www.eyabc.cn/wp-content/uploads/2022/09/011-1024x575.jpg)
+[![](_assets/011-1024x575.jpg)
 ](https://www.eyabc.cn/wp-content/uploads/2022/09/011-1024x575.jpg)
 
 四、开始激活教程
@@ -104,7 +104,7 @@ DBeaver有简洁版，企业版，旗舰版，社区版（免费版）。除了�
 
 激活工具小编已经放到了云盘，在文章末尾的附件中可以直接下载，存放到合适的位置，然后解压后，如下所示，里面包含一个dbeaver-agent.jar的文件。
 
-[![](https://www.eyabc.cn/wp-content/uploads/2022/09/018.jpg)
+[![](_assets/018.jpg)
 ](https://www.eyabc.cn/wp-content/uploads/2022/09/018.jpg)
 
 *   **修改并添加配置**
@@ -115,7 +115,7 @@ DBeaver有简洁版，企业版，旗舰版，社区版（免费版）。除了�
 
 因为DBeaver基于java开发，应用内部使用自己的JDK，但是属于被阉割版，所以我们首先需要修改其默认JDK，这里找到自己DBeaver安装目录中dbeaver.ini文件，以文本形式打开，并编辑修改初始化配置文件参数信息。
 
-[![](https://www.eyabc.cn/wp-content/uploads/2022/09/013.jpg)
+[![](_assets/013.jpg)
 ](https://www.eyabc.cn/wp-content/uploads/2022/09/013.jpg)
 
 在首行，添加如下信息：
@@ -125,7 +125,7 @@ DBeaver有简洁版，企业版，旗舰版，社区版（免费版）。除了�
 
 即指定自己本地安装的JDK。如下图：
 
-[![](https://www.eyabc.cn/wp-content/uploads/2022/09/017.jpg)
+[![](_assets/017.jpg)
 ](https://www.eyabc.cn/wp-content/uploads/2022/09/017.jpg)
 
 **②、添加工具路径到DBeaver中加载**
@@ -136,12 +136,12 @@ DBeaver有简洁版，企业版，旗舰版，社区版（免费版）。除了�
 
 添加完上面的两处之后，重新启动DBeaver应用，启动正常则进入到应用界面，然后点击“Import License”添加激活码，如下：
 
-[![](https://www.eyabc.cn/wp-content/uploads/2022/09/011-1-1024x575.jpg)
+[![](_assets/011-1-1024x575.jpg)
 ](https://www.eyabc.cn/wp-content/uploads/2022/09/011-1-1024x575.jpg)
 
 然后添加激活码，点击“Import”导入。
 
-[![](https://www.eyabc.cn/wp-content/uploads/2022/09/012-1.jpg)
+[![](_assets/012-1.jpg)
 ](https://www.eyabc.cn/wp-content/uploads/2022/09/012-1.jpg)
 
 激活码如下：
@@ -156,14 +156,14 @@ sXL1g+D+8xR++/L8ePsVLUj4du5AMZORr2xGaGKG2rXa3NEoIiEAHSp4a6cQgMMbIspeOy7dYWX6
 
 ok，成功激活！！
 
-[![](https://www.eyabc.cn/wp-content/uploads/2022/09/0160-1024x577.jpg)
+[![](_assets/0160-1024x577.jpg)
 ](https://www.eyabc.cn/wp-content/uploads/2022/09/0160-1024x577.jpg)
 
 *   **测试是否激活成功**
 
 点击界面菜单栏Help -> DBeaver License Info，查看激活信息，如下：
 
-[![](https://www.eyabc.cn/wp-content/uploads/2022/09/OX6YGMD0A97HEH4QHL.png)
+[![](_assets/OX6YGMD0A97HEH4QHL.png)
 ](https://www.eyabc.cn/wp-content/uploads/2022/09/OX6YGMD0A97HEH4QHL.png)
 
 到这里，大功告成，大家可以看到DBeaver的结束日期为空，已经永久激活，可以放心使用了。

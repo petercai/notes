@@ -109,5 +109,3 @@ Django 可以处理任何规模和容量的项目。我们可以将其用于简�
 　　如果你正在寻找速度或可伸缩性，FastAPI 是完美的选择。根据你要使用的框架来选择框架始终是明智的选择。
 
 但是总的来说，它们都很好并且有很好的市场需求。
-
-原文内容来自：[_https://mp.weixin.qq.com/s/4j6L5_Ku8qSnM37rkw4lzw_](https://mp.weixin.qq.com/s/4j6L5_Ku8qSnM37rkw4lzw)

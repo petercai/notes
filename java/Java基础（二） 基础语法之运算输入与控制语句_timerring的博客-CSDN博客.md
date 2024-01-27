@@ -517,7 +517,7 @@ public class ScannerTest {
 
 顺序结构执行流程图：
 
-![](https://img-blog.csdnimg.cn/img_convert/970db9704b2e5d85121ea4d63a4f3d46.png)
+![](_assets/970db9704b2e5d85121ea4d63a4f3d46.png)
 
 ### 3.3 分支结构之if语句
 

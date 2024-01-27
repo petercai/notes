@@ -19,7 +19,7 @@ Runway Gen-1 \[1\] 就是建立在风格迁移的基础之上的工具，提供�
 
 比如我提供了铃芽之旅中的镜头，以及我希望转绘成的真人风格，最后 runway 生成的画面不是很符合我的预期…… ↓
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/bj4yrbqny2SccA7ybtG5EIVP4b22Q9Krbv4SkbrV6Ynuxmb3vAv11lzB2whKXqAQQkz681qzxEjNjSII8kE4og/640?wx_fmt=png)
+![](_assets/640-19.png)
 
 **2. Stable Diffusion + EbSynth**
 
@@ -33,7 +33,7 @@ Runway Gen-1 \[1\] 就是建立在风格迁移的基础之上的工具，提供�
 
 在上面这个测试里，我每个镜头都只用了 1-2 个关键帧，因为是侧面镜头的原因，我需要设置的关键帧很少，基本只在角色睁眼和闭眼的时候。
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/bj4yrbqny2SccA7ybtG5EIVP4b22Q9KrTmqn7r9tNMMfGcanK0ia3vnoXH2U5y8YgI3kJlOCAkRV8ickbe6maGTQ/640?wx_fmt=png)
+![](_assets/640-17.png)
 
 ps：这个测试也得到了 AK 和很多我喜欢的开发者在 twitter 上的转发。❤
 
@@ -43,7 +43,7 @@ Your browser does not support video tags
 
 上面这个视频中，我先将人物进行动态抠像，然后只对人物进行 AI 渲染。目前动态抠像生成遮罩的工具中，我最常用的是 Runway 提供的遮罩生成功能，免费且效果好。
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/bj4yrbqny2SccA7ybtG5EIVP4b22Q9KrroSlolutSzLz6eOAsmIN0FtCGJuMd5egmibk0QZpLNjicMk5U5lQTvTg/640?wx_fmt=png)
+![](_assets/640-18.png)
 
 这套流程在 Stable Diffusion 的 Reddit 版面也得到了很多关注。
 
@@ -71,7 +71,7 @@ Rerender 这个工具我还没有机会尝试，但是我很认可他的解决�
 
 镜1、2、4的画面过度是在 AE 里完成的，这个转场效果需要使用到镜头本身的深度视频，深度视频和遮罩我目前都使用 Runway 来帮我生成。
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/bj4yrbqny2SEz7mUibibgb8LVHwbxSOuicVWmTLIDDrMdILB0m9GGXnJkHEefgtFcAN4CXCx0zFDr068xXqCTZzuA/640?wx_fmt=png)
+![](_assets/640-22.png)
 
 这个作品在子康的 DY 上线后，24 小时内就拿到了 10 万点赞和 1 万以上的评论。
 
@@ -92,7 +92,7 @@ Rerender 这个工具我还没有机会尝试，但是我很认可他的解决�
 
 此类工具是用传统 AI 生成图像工具，进行画面的批量生成，通过指定不同关键帧上的画面内容，和关键帧上的镜头运动，从而使得 AI 能生成连续的动画。
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/bj4yrbqny2SxacibheC0lpmSicJiaFNQbu5zhxaq3TFxYml45HMooB8qI3N1atPLAhF7NBmAjxZZJLh3LWExSamlw/640?wx_fmt=png)
+![](_assets/640-16.png)
 
 如上图 0= \["aaa"\], 100= \["bbb"\], 就是在第 0 帧是 aaa 的画面，在第 100 帧是 bbb 的画面。这种方式制作出来的动画是一镜到底，由于画面在生成的过程中不断解离和重新生成，成为了一种很有趣的艺术表达形式。因为实验性很强，所以很适合拿来做实验动画，或者 MV.  
 
@@ -102,7 +102,7 @@ Rerender 这个工具我还没有机会尝试，但是我很认可他的解决�
 
 这种类型做到登峰造极程度的是 Youtube 频道主 DoodleChaos 给 Resonate 的歌曲《Canvas》 做的动画音乐视频 \[10\].
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/bj4yrbqny2RyJrRgqTX7EkabQcgJafdpZXyTAiaQkhzeqicRFDTv1DP5yz4FTA4VqSiaglbp4JD3aaR69bXAHRYMg/640?wx_fmt=png)
+![](_assets/640-20.png)
 
 整个 AI MV 的制作逻辑是以 **音乐的节奏点作为 AI 镜头变化的关键帧**，以 **歌词的内容作为各段的文本描述**。在 AI 生成完画面后，DoodleChaos 使用了 FlowFrames 来给 AI 制作的视频进行升帧，使得 FPS 从 15 增加到了 30. 详细的项目介绍可以在 DoodleChaos 的 Patreon 里看到 \[11\]
 
@@ -126,9 +126,9 @@ https://www.chigozie.co.uk/audio-keyframe-generator/
 
 基于这类产品做的内容，效果最好之一的有汗青老师的 AI Talk 系列 \[13\] 和《如果哈利波特是巴黎世家拍的》\[14\] 
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/bj4yrbqny2SccA7ybtG5EIVP4b22Q9KrSlUazJHGfYq7xmBO80VzXv2IhPJoJeJl5FBURz1GETY9PRtDibvuYcA/640?wx_fmt=png)
+![](_assets/640-21.png)
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/bj4yrbqny2SccA7ybtG5EIVP4b22Q9KrG8OU1nz3lUZibUSPeBV7UIklFwBrmn1btwaOWrVepfk1OYmAn7eorZQ/640?wx_fmt=png)
+![](_assets/640-21.png)
 
 **2\. 让静态图（随机）动起来**
 
@@ -144,7 +144,7 @@ https://www.chigozie.co.uk/audio-keyframe-generator/
 
 2\. 针对 Gen-2 我目前看到最好的分享是 Nicolas Neubert @iamneubert 在 Twitter 上的分享：https://twitter.com/iamneubert/status/1684989102213476359 他本人也已经用 Midjourney + Gen-2 的工作流做过非常好的预告片案例了。
 
-![](https://mmbiz.qpic.cn/sz_mmbiz_jpg/bj4yrbqny2RyJrRgqTX7EkabQcgJafdpRicia0AqB3DdGvkYHQEUricoPReOlFwYUGroELLepwGK2NK8MwP4Fz1ug/640?wx_fmt=jpeg)
+![](_assets/640-3.jpg)
 
 AI 动画这个领域内目前我看来离工业界最近的几篇核心论文就是：
 
