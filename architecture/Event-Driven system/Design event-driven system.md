@@ -1,0 +1,21 @@
+# patterns
+## Tell the Truth, the Whole Truth, and Nothing but the Truth
+A good event definition is not simply a message indicating that something happened, but rather the complete description of everything that happened during that event. In business terms, this is the resultant data that is produced when input data is ingested and the business logic is applied. This output event must be treated as the single source of truth and must be recorded as an immutable fact for consumption by downstream consumers. It is the full and total authority on what actually occurred, and consumers should not need to consult any other source of data to know that such an event took place.
+
+## Use a Singular Event Definition per Stream
+An event stream should contain events representing a single logical event. It is not advisable to mix different types of events within an event stream, because doing so can muddle the definitions of what the event is and what the stream represents. It is difficult to validate the schemas being produced, as new schemas may be added dynamically in such a scenario. Though there are special circumstances where you may wish to ignore this principle, the vast majority of event streams produced and consumed within your architectural workflow should each have a strict, single definition.
+
+## Use the Narrowest Data Types
+Use the narrowest types for your event data. This lets you rely on the code generators, language type checking (if supported), and serialization unit tests to check the boundaries of your data. 
+
+## Keep Events Single-Purpose
+One common anti-pattern is adding a type field to an event definition, where different type values indicate specific subfeatures of the event. This is generally done for data that is “similar yet different” and is often a result of the implementer incorrectly identifying the events as single-purpose. <span style="background:#fff88f">Though it may seem like a time-saving measure or a simplification of a data access pattern, overloading events with type parameters is rarely a good idea.</span>
+There are several problems with this approach. Each type parameter value usually has a fundamentally different business meaning, even if its technical representation is nearly identical to the others. It is also possible for these meanings to change over time and for the scope that an event covers to creep. Some of these types may require the addition of new parameters to track type-specific information, whereas other types require separate parameters. Eventually you could have a situation where there are several very distinct events all inhabiting the same event schema, making it difficult to reason about what the event truly represents.
+This complexity affects not only the developers who must maintain and populate these events, but also the data’s consumers, who need to have a consistent understanding about what data is published and why. If the data contract changes, they expect to be able to isolate themselves from those changes. Adding extra field types requires them to filter for only data that they care about. There is a risk that the consumer will fail to fully understand the various meanings of the types, leading to incorrect consumption and logically wrong code. For each consumer, additional processing must also be done to discard events that aren’t relevant to that consumer.
+
+## Minimize the Size of Events
+Events work well when they’re small, well defined, and easily processed. Large events can and do happen, though. Generally these larger events represent a lot of contextual information. Perhaps they comprise many data points that are related to the given event, and are simply a very large measurement of something that occurred.
+ This approach adds risk in the form of multiple sources of truth and payload mutability, as an immutable ledger cannot ensure the preservation of data outside of its system.
+
+## Avoid Events as Semaphores or Signals
+Avoid using events as a semaphore or a signal. These events simply indicate that something has occurred without being the single source of truth for the results.==

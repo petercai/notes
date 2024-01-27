@@ -1,7 +1,7 @@
 # Google Kubernetes Engine(GKE) 简单使用
 **Google 的 k8s 在 2017 年已经从容器编排领域的竞争中取得主导地位，从 Docker 之前的一度排挤到最终完全拥抱 k8s，显然 k8s 已经成了目前业界的标准。** 
 
-![](https://lxlinux.superbed.verylink.top/item/61cc6c022ab3f51d910e58bb.jpg)
+![](_assets/61cc6c022ab3f51d910e58bb.jpg)
 
 但是到目前为止能提供 k8s 完全托管服务的云服务商少之又少，即便是目前在云提供商有统治力的 AWS 也没有完全提供 k8s 托管服务，仅仅提供有限的定制服务，在这一方面并不成熟。
 
@@ -27,7 +27,7 @@ Google Cloud SDK 是 访问 GCP（Google Cloud Platform）平台各种资源的[
 
 #### 3\. 到 Google Cloud Platform 控制台建一个 k8s 集群，记住名称
 
-![](https://lxlinux.superbed.verylink.top/item/61cc6c022ab3f51d910e58e7.png)
+![](_assets/61cc6c022ab3f51d910e58e7.png)
 
 初识Google Kubernetes Engine（GKE）初识Google Kubernetes Engine（GKE）
 
@@ -118,6 +118,6 @@ kubectl get secret regcred --output="jsonpath={.data.\.dockerconfigjson}" |
 
 以上就是[良许教程网](https://www.lxlinux.net/)为各位朋友分享的[Linu系统](https://www.lxlinux.net/zhuanti-full)相关内容。想要了解更多Linux相关知识记得关注公众号“良许Linux”，或扫描下方二维码进行关注，更多[干货](https://www.lxlinux.net/category/knowledge-collection)等着你 ！
 
-![](https://lxlinux.superbed.verylink.top/item/61bda32b2ab3f51d910ba3f5.jpg)
+![](_assets/61bda32b2ab3f51d910ba3f5.jpg)
 
 本文由 [良许Linux教程网](https://www.lxlinux.net/) 发布，可自由转载、引用，但需署名作者且注明文章出处。如转载至微信公众号，请在文末添加作者公众号二维码。

@@ -12,7 +12,7 @@ These keyboard shortcuts are specific to Windows. We've tested them on Windows 1
 
 **Shift + Alt + Print**
 
- ![](https://static1.makeuseofimages.com/wordpress/wp-content/uploads/2021/06/Windows-10-High-Contrast.jpg) 
+ ![](_assets/Windows-10-High-Contrast.jpg) 
 
 In its default setting, this shortcut opens a warning window before applying any changes. Click **Yes** or simply hit **Return** to switch to the high contrast setting.
 
@@ -34,7 +34,7 @@ Have you ever done this accidentally and couldn't figure out what happened? Take
 
 **Alt + Tab**
 
- ![](https://static1.makeuseofimages.com/wordpress/wp-content/uploads/2021/06/Windows-10-Alt-Tab.jpg) 
+ ![](_assets/Windows-10-Alt-Tab.jpg) 
 
 This keyboard shortcut launches a layover window that shows all open programs. Hold onto the **Alt** key and click the **Tab** key to move to the next application. Release both keys to open the selected window.
 
@@ -44,7 +44,7 @@ You can reverse the direction by holding **Alt + Shift** while pressing the **Ta
 
 **Windows + Tab**
 
- ![](https://static1.makeuseofimages.com/wordpress/wp-content/uploads/2021/06/Windows-10-Recently-Open-Closed-Windows.jpg) 
+ ![](_assets/Windows-10-Recently-Open-Closed-Windows.jpg) 
 
 This key combination will show you open windows on each of your monitors or virtual desktops, as well as a list of recently closed windows, sorted by date.
 
@@ -52,13 +52,13 @@ This key combination will show you open windows on each of your monitors or virt
 
 **Shift + Delete**
 
- ![](https://static1.makeuseofimages.com/wordpress/wp-content/uploads/2021/06/Windows-10-Delete-File.jpg) 
+ ![](_assets/Windows-10-Delete-File.jpg) 
 
 Do you hate these nagging windows asking you whether you really want to do this or that? If you want to quickly delete something, without being harassed for confirmation, use this shortcut.
 
 Do you want to make the instant delete route your default setting? Right-click the **Recycle Bin** on your desktop, select **Properties**, and remove the checkmark next to the **Display delete confirmation dialog**.
 
- ![](https://static1.makeuseofimages.com/wordpress/wp-content/uploads/2021/06/Windows-10-Recycle-Bin-Properties.jpg) 
+ ![](_assets/Windows-10-Recycle-Bin-Properties.jpg) 
 
 Should you ever run into [trouble deleting a file in use](https://www.makeuseof.com/tag/5-ways-delete-file-use-windows/), we've got you covered.
 
@@ -88,7 +88,7 @@ This shortcut stopped working with the Windows 10 Creators Update, but is workin
 
 **Windows + X, U, I / U / R / H / S**
 
- ![](https://static1.makeuseofimages.com/wordpress/wp-content/uploads/2021/06/Windows-10-Shut-Down-or-Sign-Out.jpg) 
+ ![](_assets/Windows-10-Shut-Down-or-Sign-Out.jpg) 
 
 You can shut Windows down with a few button clicks. It all starts with **Windows + X** to open the Quick Access Menu, followed by the **U** key to expand the **Shut down or sign out** menu. Finally, press **I** to sign out, **U** to shut down, **R** to restart, **H** to hibernate, or **S** to sleep.
 
@@ -102,7 +102,7 @@ From here, you can right-click the application again, select **Create Shortcut**
 
 Right-click the shortcut and select **Properties**. You should see a line that says **Shortcut Key: None**. Click that line and then click a letter on your keyboard, for example, **I**. This will create a shortcut, here **Ctrl + Alt + I**.
 
- ![](https://static1.makeuseofimages.com/wordpress/wp-content/uploads/2021/06/Windows-10-File-Shortcut-Properties.jpg) 
+ ![](_assets/Windows-10-File-Shortcut-Properties.jpg) 
 
 And there you go, now you have your own personal shortcut key.
 

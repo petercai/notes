@@ -1,0 +1,41 @@
+{
+    "created_time": "2024-01-02T19:23:57Z",
+    "files": [
+        {
+            "attachment_folder": "",
+            "created_time": "2024-01-02T19:23:57Z",
+            "id": "2",
+            "modified_time": "2024-01-02T19:27:18Z",
+            "name": "Eclipse GEF and Draw2d Plug-in Developer Guide.md",
+            "signature": "79316865278669",
+            "tags": [
+            ]
+        },
+        {
+            "attachment_folder": "",
+            "created_time": "2024-01-02T19:23:57Z",
+            "id": "3",
+            "modified_time": "2024-01-02T19:23:57Z",
+            "name": "GEF.md",
+            "signature": "27206027076301",
+            "tags": [
+            ]
+        },
+        {
+            "attachment_folder": "",
+            "created_time": "2024-01-02T19:23:57Z",
+            "id": "4",
+            "modified_time": "2024-01-02T19:23:57Z",
+            "name": "Graphical Editing Framework.md",
+            "signature": "113818337567437",
+            "tags": [
+            ]
+        }
+    ],
+    "folders": [
+    ],
+    "id": "1",
+    "modified_time": "2024-01-02T19:23:57Z",
+    "signature": "177797882573",
+    "version": 3
+}
