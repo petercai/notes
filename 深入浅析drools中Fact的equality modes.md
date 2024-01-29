@@ -1,0 +1,336 @@
+# 深入浅析drools中Fact的equality modes
+深入浅析drools中Fact的equality modes，
+-------------------------------
+
+  
+
+##### 目录
+
+*   一、equality modes介绍
+
+*   1、identity模式
+*   2、equality模式
+
+*   二、需求
+
+*   三、如何设置fact对象的equality行为
+
+*   四、编码实现
+
+*   1、项目结构图
+*   2、倒入jar包
+*   3、编写Person对象
+*   4、编写kmodule.xml文件
+*   5、编写一个规则文件
+*   6、identity模式测试
+
+*   1、编写测试代码
+*   2、运行结果
+
+*   7、equality模式测试
+
+*   1、编写测试代码
+*   2、运行结果
+
+*   五、结论
+
+*   1、identity模式下
+
+*   2、equality模式下
+
+*   六、完整代码
+
+*   七、参考链接
+
+一、equality modes介绍
+------------------
+
+在`drools`中存在如下2种equality modes。
+
+### 1、identity模式
+
+`identity`：这是默认的情况。drools引擎使用`IdentityHashMap`保存所有插入到工作内存中的`Fact`对象。对于每次插入一个新的对象，则会返回一个新的`FactHandle`对象。如果是重复插入对象，则返回已经存在的`FactHandle`对象。
+
+举例：
+
+```
+Person p1 = new Person("zhangsan", 20, "湖北罗田");
+Person p2 = new Person("zhangsan", 20, "湖北黄冈罗田");
+FactHandle factHandle1 = kieSession.insert(p1);
+FactHandle factHandle2 = kieSession.insert(p2);
+FactHandle factHandle3 = kieSession.insert(p2);
+```
+
+针对以上例子， `factHandle1 != factHandle2`但是 `factHandle2 == factHandle3`。即工作内存中会存在2个`Person`对象。
+
+### 2、equality模式
+
+`equality`：drools引擎使用`HashMap`保存所有插入到工作内存中的`Fact`对象。在这种模式下，如果向drools中插入一个新的对象，只有这个对象不存在(根据对象的`hashcode`和`equals`判断)才会返回一个新的`FactHandle`否则返回已经存在的`FactHandle`。
+
+举例：
+
+```
+// 重写了Person对象的hashcode和equals方法
+Person p1 = new Person("zhangsan", 20, "湖北罗田");
+Person p2 = new Person("zhangsan", 20, "湖北黄冈罗田");
+FactHandle factHandle1 = kieSession.insert(p1);
+FactHandle factHandle2 = kieSession.insert(p2);
+FactHandle factHandle3 = kieSession.insert(p2);
+```
+
+针对以上例子， `factHandle1 == factHandle2`但是 `factHandle2 == factHandle3`。即工作内存中会存在1个`Person`对象。
+
+二、需求
+----
+
+我们存在一个`Person`对象，存在如下3个属性`name,age和address`，其中重写对象的`name和age`的hashcode和equals方法。
+
+*   多次向工作内存中插入对象，看产生的结果。
+*   插入同一个对象看获取到的FactHandle对象是否是同一个。
+
+三、如何设置fact对象的equality行为
+-----------------------
+
+此处介绍一个通过`kmodule.xml`配置的方法
+
+```
+<kmodule xmlns="http://www.drools.org/xsd/kmodule">
+    <kbase name="kbase-identity" packages="rules" default="false" equalsBehavior="identity">
+        <ksession name="ksession-01" default="false" type="stateful"/>
+    </kbase>
+    <kbase name="kbase-equality" packages="rules" default="false" equalsBehavior="equality">
+        <ksession name="ksession-02" default="false" type="stateful"/>
+    </kbase>
+</kmodule>
+```
+
+通过上方的代码可知是通过配置`kbase`下的`equalsBehavior`属性来配置。
+
+`其余的配置方法，参考下图：`
+
+![](http://www.jb51.net/img.jbzj.com/file_images/article/202205/2022051709332815.jpg)
+
+四、编码实现
+------
+
+### 1、项目结构图
+
+![](http://www.jb51.net/img.jbzj.com/file_images/article/202205/2022051709332816.jpg)
+
+### 2、倒入jar包
+
+```
+<dependencyManagement>
+    <dependencies>
+        <dependency>
+            <groupId>org.drools</groupId>
+            <artifactId>drools-bom</artifactId>
+            <type>pom</type>
+            <version>7.69.0.Final</version>
+            <scope>import</scope>
+        </dependency>
+    </dependencies>
+</dependencyManagement>
+<dependencies>
+    <dependency>
+        <groupId>org.drools</groupId>
+        <artifactId>drools-compiler</artifactId>
+    </dependency>
+    <dependency>
+        <groupId>org.drools</groupId>
+        <artifactId>drools-mvel</artifactId>
+    </dependency>
+    <dependency>
+        <groupId>ch.qos.logback</groupId>
+        <artifactId>logback-classic</artifactId>
+        <version>1.2.11</version>
+    </dependency>
+</dependencies>
+```
+
+### 3、编写Person对象
+
+```
+public class Person {
+    private String name;
+    private Integer age;
+    private String address;
+    public Person(String name, Integer age, String address) {
+        this.name = name;
+        this.age = age;
+        this.address = address;
+    }
+    public String getName() {
+        return name;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
+    public Integer getAge() {
+        return age;
+    }
+    public void setAge(Integer age) {
+        this.age = age;
+    }
+    public String getAddress() {
+        return address;
+    }
+    public void setAddress(String address) {
+        this.address = address;
+    }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Person person = (Person) o;
+        return Objects.equals(name, person.name) && Objects.equals(age, person.age);
+    }
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, age);
+    }
+}
+
+```
+
+注意：  
+此对象需要重写hashcode和equals方法。
+
+### 4、编写kmodule.xml文件
+
+在此配置文件中，需要在`kbase`上指定`equalsBehavior`，用来确定`Fact`对象的equality modes。
+
+```
+<kmodule xmlns="http://www.drools.org/xsd/kmodule">
+    <kbase name="kbase-identity" packages="rules" default="false" equalsBehavior="identity">
+        <ksession name="ksession-01" default="false" type="stateful"/>
+    </kbase>
+    <kbase name="kbase-equality" packages="rules" default="false" equalsBehavior="equality">
+        <ksession name="ksession-02" default="false" type="stateful"/>
+    </kbase>
+</kmodule>
+```
+
+注意：  
+需要看2个`equalsBehavior`的取值
+
+### 5、编写一个规则文件
+
+```
+package rules
+import com.huan.drools.Person
+// 定义规则
+rule "rule_01"
+    when
+        $p: Person()
+    then
+        System.out.println(Thread.currentThread().getName() + " name:"+$p.getName()+" age:"+$p.getAge());
+end
+```
+
+规则文件中的内容很简单，只要工作内存中存在`Person`对象，那么就输出这个对象的`name`和`age`的值。
+
+### 6、identity模式测试
+
+#### 1、编写测试代码
+
+```
+public class DroolsApplication {
+    public static void main(String\[\] args) {
+        equalsBehaviorIdentity();
+    }
+    private static void equalsBehaviorIdentity() {
+        KieServices kieServices = KieServices.get();
+        KieContainer kieContainer = kieServices.getKieClasspathContainer();
+        // 注意此处的 ksession-01
+        KieSession kieSession = kieContainer.newKieSession("ksession-01");
+        kieSession.addEventListener(new DebugRuleRuntimeEventListener());
+        Person p1 = new Person("zhangsan", 20, "湖北罗田");
+        Person p2 = new Person("zhangsan", 20, "湖北黄冈罗田");
+        FactHandle factHandle1 = kieSession.insert(p1);
+        FactHandle factHandle2 = kieSession.insert(p2);
+        FactHandle factHandle3 = kieSession.insert(p2);
+        kieSession.fireAllRules();
+        kieSession.dispose();
+    }   
+}
+```
+
+#### 2、运行结果
+
+![](http://www.jb51.net/img.jbzj.com/file_images/article/202205/2022051709332817.jpg)
+
+具体的解释见上图中的说明。
+
+### 7、equality模式测试
+
+#### 1、编写测试代码
+
+```
+public class DroolsApplication {
+    public static void main(String\[\] args) {
+        equalsBehaviorEquality();
+    }
+    private static void equalsBehaviorEquality() {
+        KieServices kieServices = KieServices.get();
+        KieContainer kieContainer = kieServices.getKieClasspathContainer();
+        KieSession kieSession = kieContainer.newKieSession("ksession-02");
+        kieSession.addEventListener(new DebugRuleRuntimeEventListener());
+        Person p1 = new Person("zhangsan", 20, "湖北罗田");
+        Person p2 = new Person("zhangsan", 20, "湖北黄冈罗田");
+        FactHandle factHandle1 = kieSession.insert(p1);
+        FactHandle factHandle2 = kieSession.insert(p2);
+        FactHandle factHandle3 = kieSession.insert(p2);
+        kieSession.fireAllRules();
+        kieSession.dispose();
+    }
+}
+```
+
+#### 2、运行结果
+
+![](http://www.jb51.net/img.jbzj.com/file_images/article/202205/2022051709332818.jpg)
+
+五、结论
+----
+
+针对如下代码，看看在不同equality modes下的行为
+
+```
+ Person p1 = new Person("zhangsan", 20, "湖北罗田");
+ Person p2 = new Person("zhangsan", 20, "湖北黄冈罗田");
+ FactHandle factHandle1 = kieSession.insert(p1);
+ FactHandle factHandle2 = kieSession.insert(p2);
+ FactHandle factHandle3 = kieSession.insert(p2);
+```
+
+`Person`对象的`hashcode和equals`方法进行重写了，根据构造方法的前2个参数。
+
+### 1、identity模式下
+
+`factHandle1 != factHandle2` 因为p1和p2是2个不同的对象。  
+`factHandle2 == factHandle3` 因为是p2重复加入工作内存，这个时候工作内存中已经存在了，所以返回之前关联的`FactHandle`
+
+### 2、equality模式下
+
+`factHandle1 == factHandle2 == factHandle3` 因为这种模式下，是需要根据对象的`equals`和`hashcode`方法进行比较，而`Person`对象重写了这2个方法，所以返回的是同一个。
+
+六、完整代码
+------
+
+https://gitee.com/huan1993/spring-cloud-parent/tree/master/drools/drools-fact-equality-modes
+
+七、参考链接
+------
+
+1、https://docs.drools.org/7.69.0.Final/drools-docs/html\_single/index.html#fact-equality-modes-con\_decision-engine
+
+到此这篇关于drools中Fact的equality modes的文章就介绍到这了,更多相关drools equality modes内容请搜索3672js教程以前的文章或继续浏览下面的相关文章希望大家以后多多支持3672js教程！
+
+**您可能感兴趣的文章:**
+
+*   drools中使用function的方法小结
+*   drools中query的用法小结
+*   SpringBoot整合Drools的实现步骤
+*   SpringBoot2整合Drools规则引擎及案例详解
+*   Spring Boot+Drools规则引擎整合详解
