@@ -1,5 +1,5 @@
-# 从规则引擎到复杂事件处理(CEP) 
-Drools Fusion既是规则引擎，又可以作为CEP。除了[事件定义](https://holbrook.github.io/2013/12/21/event_in_CEP.html "事件定义")和[时间推理](https://holbrook.github.io/2013/12/21/Temporal_of_CEP.html "时间推理")之外，对于引擎本身也会有一些不同的使用。主要体现在会话时钟、、滑动窗流模式口和对事件的内存管理。
+# 从规则引擎到复杂事件处理(CEP)
+Drools Fusion既是规则引擎，又可以作为CEP。除了[事件定义](https://holbrook.github.io/2013/12/21/event_in_CEP.html "事件定义")和[时间推理](https://holbrook.github.io/2013/12/21/Temporal_of_CEP.html "时间推理")之外，对于引擎本身也会有一些不同的使用。主要体现在会话时钟、流模式、滑动窗口和对事件的内存管理。
 
 由于事件的时间性，处理事件时需要一个参考时钟。  
 这个参考时钟在会话配置(KnowledgeSessionConfiguration)中指定，所以称为会话时钟(Session Clock)。
