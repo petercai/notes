@@ -18,7 +18,7 @@ Apache Flink 提供支持的一些常见应用程序类型包括：
 *   **数据分析应用程序**，从数据中提取信息和见解。传统上通过查询有限的数据集、重新运行查询或修改结果以纳入新数据来执行此类应用程序。借助 Apache Flink，可以通过持续更新、流式传输查询或实时处理摄取的事件、持续发出和更新结果来执行分析。
 *   **数据管道应用程序**，其中转换和丰富要从一个数据存储移动到另一个数据存储的数据。传统上，提取-转换-加载（ETL）操作是定期分批执行的。借助 Apache Flink，可以持续执行该流程，将数据以低延迟移动到其目标。
 
-![](https://d1.awsstatic.com/Picture1.f8c5ecd75aae8cd14f6041541b55d5c5985487a6.f8c5ecd75aae8cd14f6041541b55d5c5985487a6.jpg)
+![](_assets/Picture1.f8c5ecd75aae8cd14f6041541b55d5c5985487a6.f8c5ecd75aae8cd14f6041541b55d5c5985487a6.jpg)
 
 Apache Flink 如何运作？
 ------------------
@@ -56,13 +56,13 @@ Apache Flink 旨在运行几乎任何规模的有状态应用程序。可以并�
 ### 广泛的连接器
 
 Apache Flink 具备许多经过经验的连接器，可以连接到流行的消息传递和流式传输系统、数据存储、搜索引擎和文件系统。一些示例包括 Apache Kafka、Amazon Kinesis Data Streams、Amazon SQS、Active MQ、Rabbit MQ、NiFi、OpenSearch 和 ElasticSearch、DynamoDB、HBase 以及任何提供 JDBC 客户端的数据库。  
-![](https://d1.awsstatic.com/3.5865efe7a8ca79332af43101beb4497c48950f89%202.5865efe7a8ca79332af43101beb4497c48950f89.jpg)
+![](_assets/3.5865efe7a8ca79332af43101beb4497c48950f89%202.5865efe7a8ca79332af43101beb4497c48950f89.jpg)
 
 ### 多级别的抽象
 
 Apache Flink 为编程接口提供多级别的抽象。在较高级别的流式传输 SQL 和 Table API 中，使用熟悉的抽象，例如表、联接和分组。DataStream API 提供较低级别的抽象，但同时赋予更多的控制，包括流、窗口化和映射的语义。最后，ProcessFunction API 提供对每条消息处理的精细控制和状态的直接控制。所有编程接口均可与无界限（流）和有界限（表）日期集无缝协作。可以在同一个应用程序中使用不同级别的抽象，将其作为解决每个问题的正确工具。
 
-![](https://d1.awsstatic.com/4.df3883d4a9afbfa9aaf876d24d860528dfb82882.df3883d4a9afbfa9aaf876d24d860528dfb82882.jpg)
+![](_assets/4.df3883d4a9afbfa9aaf876d24d860528dfb82882.df3883d4a9afbfa9aaf876d24d860528dfb82882.jpg)
 
 ### 多种编程语言
 
