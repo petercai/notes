@@ -7,7 +7,9 @@
 
 | 名称 | 下载地址 |
 | ---- | ---- |
-| SmartGit v21.1.7 | [下载地址](https://www.syntevo.com/smartgit/download/archive/) |
+| SmartGit v21.1.7 | [Windows](https://www.syntevo.com/downloads/smartgit/archive/smartgit-portable-21_1_7.7z) |
+|  | [Mac](https://www.syntevo.com/downloads/smartgit/archive/smartgit-macosx-21_1_7.dmg) |
+|  | [Linux](https://www.syntevo.com/downloads/smartgit/archive/smartgit-linux-21_1_7.tar.gz) |
 
 
 1 . 先安装 SmartGit/SmartSynchronize，安装后运行一下。  
@@ -36,6 +38,6 @@
 | linux | javaagent:/home/macwk.com/your-agent.jar |
 | windows | javaagent:C:\\Users\\macwk.com\\your-agent.jar |
 
-5 . 启动 SmartGit/SmartSVN/SmartSynchronize，注册使用压缩包内的 license.zip 文件（不要解压）。  
+5 . 启动 SmartGit，注册使用压缩包内的 license.zip 文件。  
 
 
