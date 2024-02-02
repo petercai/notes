@@ -182,7 +182,23 @@ For **Kogito** specifically we’re planning to also provide some new features b
 
 These features are still in an Alpha stage, so if you’re interested please continue following this blog.
 
-Here’s a sneak peek of these features: In Kogito 1.12, bound to be released in the following days, we added the possibility to use a **CloudEvents** message via **Kafka** to trigger the execution of a DRL (see [example](https://github.com/kiegroup/kogito-examples/tree/1.12.x/ruleunit-event-driven-quarkus). This is currently supported only for stateless use cases but it is the first step to bring cloud-native replicated CEP Drools capabilities in Kogito.
+Here’s a sneak peek of these features: In # Red Hat Decision Manager 7.13 Components
+
+The following JBoss® Community components have been integrated into [Red Hat Decision Manager® 7.13](https://www.redhat.com/en/technologies/jboss-middleware/businessrules) and are fully supported for use in both development and production (according to your corresponding subscription agreement).
+
+|Component|Version|
+|---|---|
+|Decision Engine (Drools Expert)|7.67 with various updates, certifications, and bug fixes.|
+|Complex Event Processing (Drools Fusion)|7.67 with various updates, certifications, and bug fixes.|
+|Business Central (Decision Central)|7.67 with various updates, certifications, and bug fixes.|
+|Decision Server (KIE Server)|7.67 with various updates, certifications, and bug fixes.|
+|Business Optimizer (OptaPlanner7, deprecated)|7.67 with various updates, certifications, and bug fixes.|
+|Red Hat build of OptaPlanner8|8.13 with various updates, certifications, and bug fixes.|
+|Red Hat build of Kogito|1.13 with various updates, certifications, and bug fixes.|
+|Embeddable editors - @kogito-tooling/kogito-tooling-kie-editors-standalone ([npm package](https://access.redhat.com/bounce/?externalURL=https%3A%2F%2Fwww.npmjs.com%2Fpackage%2F%40kogito-tooling%2Fkie-editors-standalone))|^0.16.0 = latest [(Development  <br>support)](https://access.redhat.com/support/offerings/developer/soc)|
+|[Business  <br>Automation bundle extension](https://access.redhat.com/bounce/?externalURL=https%3A%2F%2Fmarketplace.visualstudio.com%2Fitems%3FitemName%3Dredhat.vscode-extension-red-hat-business-automation-bundle) for Visual Studio Code|The latest version. [(Development  <br>support)](https://access.redhat.com/support/offerings/developer/soc)|
+|[KIE Sandbox](https://access.redhat.com/bounce/?externalURL=https%3A%2F%2Fsandbox.kie.org%2F), [BPMN.new Modeler](https://access.redhat.com/bounce/?externalURL=https%3A%2F%2Fbpmn.new) and [DMN.new Modeler](https://access.redhat.com/bounce/?externalURL=https%3A%2F%2Fdmn.new)|Not supported (community services)|
+|[Chrome  <br>Extension - BPMN, DMN & Test Scenario Editors for GitHub](https://access.redhat.com/bounce/?externalURL=https%3A%2F%2Fchrome.google.com%2Fwebstore%2Fdetail%2Fbpmn-dmn-test-scenario-ed%2Fmgkfehibfkdpjkfjbikpchpcfimepckf)|Not supported (unstable)| 1.12, bound to be released in the following days, we added the possibility to use a **CloudEvents** message via **Kafka** to trigger the execution of a DRL (see [example](https://github.com/kiegroup/kogito-examples/tree/1.12.x/ruleunit-event-driven-quarkus). This is currently supported only for stateless use cases but it is the first step to bring cloud-native replicated CEP Drools capabilities in Kogito.
 
 Conclusion
 ----------
