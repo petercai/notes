@@ -44,4 +44,23 @@ eclipse -application org.eclipse.equinox.p2.garbagecollector.application -profil
     ```
     eclipse.p2.profile=epp.package.jee
     ```
-## Note
+
+# Install plugin from local archive
+
+To install the product activation kit from a local file, run the following command:
+
+- Windows
+```
+eclipsec.exe 
+-application org.eclipse.equinox.p2.director 
+-installIU com.ibm.zod.perm.lumkit.feature.feature.group 
+-repository jar:file:/C:/temp/com.ibm.zod.perm.lumkit.update-site-1.0.0-20181120.164442-4.zip!/
+```
+
+- MacOS
+```
+eclipse
+-application org.eclipse.equinox.p2.director
+-installIU com.ibm.zod.perm.lumkit.feature.feature.group 
+-repository 'jar:file:/Users//Downloads/com.ibm.zod.perm.lumkit.update-site-1.0.0-20181120.164442-4.zip!/'
+```
