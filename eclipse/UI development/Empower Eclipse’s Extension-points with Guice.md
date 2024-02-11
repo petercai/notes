@@ -76,8 +76,3 @@ Set<Class<?>> reqInterfaces = **new** HashSet<>(
 
 Guice injection can simplify your extension point management. Give it a try and let me know how it went on the comments below.
 
-[
-
-![](_assets/1!SGCT6C60o4t58wRqeU2viQ.png)
-
-](https://www.buymeacoffee.com/KinoriTech)
