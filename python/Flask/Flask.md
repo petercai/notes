@@ -32,16 +32,28 @@ def say_hello():
 ```
 
 ## 动态URL
-我们不仅可以为视图函数绑定多个URL，还可以在URL规则中添加
-变量部分，使用“<变量名>”的形式表示。Flask处理请求时会把变量传入
-视图函数，所以我们可以添加参数获取这个变量值。代码清单1-3中的
-视图函数greet（），它的URL规则包含一个name变量。
-代码清单1-3 hello/app.py：添加URL变量
+我们不仅可以为视图函数绑定多个URL，还可以在URL规则中添加变量部分，使用“<变量名>”的形式表示。Flask处理请求时会把变量传入视图函数，所以我们可以添加参数获取这个变量值。
+```
 @app.route('/greet/<name>')
 def greet(name):
 return '<h1>Hello, %s!</h1>' % name
-因为URL中可以包含变量，所以我们将传入app.route（）的字符串
-称为URL规则，而不是URL。Flask会解析请求并把请求的URL与视图函
-数的URL规则进行匹配。比如，这个greet视图的URL规则
-为/greet/<name>，那么类似/greet/foo、/greet/bar的请求都会触发这个视
-图函数。
+```
+
+因为URL中可以包含变量，所以我们将传入app.route（）的字符串称为URL规则，而不是URL。Flask会解析请求并把请求的URL与视图函数的URL规则进行匹配。比如，这个greet视图的URL规则为/greet/<name>，那么类似/greet/foo、/greet/bar的请求都会触发这个视图函数。
+当URL规则中包含变量时，如果用户访问的URL中没有添加变量，
+比如/greet，那么Flask在匹配失败后会返回一个404错误响应。一个很常
+见的行为是在app.route（）装饰器里使用defaults参数设置URL变量的默
+认值，这个参数接收字典作为输入，存储URL变量和默认值的映射。在
+下面的代码中，我们为greet视图新添加了一个app.route（）装饰器，
+为/greet设置了默认的name值：
+@app.route('/greet', defaults={'name': 'Programmer'})
+@app.route('/greet/<name>')
+def greet(name):
+return '<h1>Hello, %s!</h1>' % name
+这时如果用户访问/greet，那么变量name会使用默认值
+Programmer，视图函数返回<h1>Hello，Programmer！</h1>。上面的用
+法实际效果等同于：
+@app.route('/greet')
+@app.route('/greet/<name>')
+def greet(name='Programmer'):
+return '<h1>Hello, %s!</h1>' % name
