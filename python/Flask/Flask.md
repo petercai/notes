@@ -40,20 +40,34 @@ return '<h1>Hello, %s!</h1>' % name
 ```
 
 因为URL中可以包含变量，所以我们将传入app.route（）的字符串称为URL规则，而不是URL。Flask会解析请求并把请求的URL与视图函数的URL规则进行匹配。比如，这个greet视图的URL规则为/greet/<name>，那么类似/greet/foo、/greet/bar的请求都会触发这个视图函数。
-当URL规则中包含变量时，如果用户访问的URL中没有添加变量，
-比如/greet，那么Flask在匹配失败后会返回一个404错误响应。一个很常
-见的行为是在app.route（）装饰器里使用defaults参数设置URL变量的默
-认值，这个参数接收字典作为输入，存储URL变量和默认值的映射。在
-下面的代码中，我们为greet视图新添加了一个app.route（）装饰器，
-为/greet设置了默认的name值：
+当URL规则中包含变量时，如果用户访问的URL中没有添加变量，比如/greet，那么Flask在匹配失败后会返回一个404错误响应。一个很常见的行为是在app.route（）装饰器里使用defaults参数设置URL变量的默认值，这个参数接收字典作为输入，存储URL变量和默认值的映射：
+```
 @app.route('/greet', defaults={'name': 'Programmer'})
 @app.route('/greet/<name>')
 def greet(name):
 return '<h1>Hello, %s!</h1>' % name
-这时如果用户访问/greet，那么变量name会使用默认值
-Programmer，视图函数返回<h1>Hello，Programmer！</h1>。上面的用
-法实际效果等同于：
+```
+这时如果用户访问/greet，那么变量name会使用默认值 Programmer。上面的用法实际效果等同于：
+```
 @app.route('/greet')
 @app.route('/greet/<name>')
 def greet(name='Programmer'):
 return '<h1>Hello, %s!</h1>' % name
+```
+
+# 启动开发服务器
+
+Flask内置了一个简单的开发服务器（由依赖包Werkzeug提供），足够在开发和测试阶段使用。旧的启动开发服务器的方式是使用app.run（）方法，目前已不推荐使用（deprecated）。
+
+## 自动发现程序实例
+一般来说，在执行flask run命令运行程序前，我们需要提供程序实例所在模块的位置。我们在上面可以直接运行程序，是因为Flask会自动探测程序实例，自动探测存在下面这些规则：
+- 从当前目录寻找app.py和wsgi.py模块，并从中寻找名为app或application的程序实例。
+- 从环境变量FLASK_APP对应的值寻找名为app或application的程序实例。
+因为我们的程序主模块命名为app.py，所以flask run命令会自动在其中寻找程序实例。如果你的程序主模块是其他名称，比如hello.py，那么需要设置环境变量FLASK_APP，将包含程序实例的模块名赋值给这个变量。
+Linux或macOS系统使用export命令：
+ export FLASK_APP=hello
+在Windows系统中使用set命令：
+> set FLASK_APP=hello
+> 
+## 管理环境变量
+Flask的自动发现程序实例机制还有第三条规则：====如果安装了python-dotenv，那么在使用flask run或其他命令时会使用它自动从.flaskenv文件和.env文件中加载环境变量====。
