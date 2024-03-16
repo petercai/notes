@@ -2737,3 +2737,2878 @@ print(set1)
 _**补充：接下来的 Python 高级语法：函数、文件操作、面向对象、模块、包、异常等知识，我将陆续更新在自己的博客之中。如果本博文的知识能帮助到您的 Python 学习，本博主实属荣幸。更多后续知识，请关注博主，方便您第一时间查看，谢谢！**_
 
 ![](_assets/f38a2fb7c53af8734007d274f8da08e5.jpeg.jpg)
+
+# 深入浅出Python——Python高级语法之函数_Python_何极光_InfoQ写作社区
+前言：本博文主要讲解 Python 函数的用法，属于 Python 高级语法。基础语法见：[https://xie.infoq.cn/article/a1b348be0074e38f1b307f50a](https://xie.infoq.cn/article/a1b348be0074e38f1b307f50a)，更多内容请访问博主的主页，谢谢！
+
+一. 函数的作用
+--------
+
+函数就是将一段具有独立功能的代码块 整合到一个整体并命名，在需要的位置调用这个名称即可完成对应的需求。
+
+> 函数在开发过程中，可以更高效的实现代码重用。
+
+二. 函数的使用步骤
+----------
+
+### 1\. 定义函数
+
+```
+def 函数名(参数):
+    代码1
+    代码2
+    ......
+```
+
+### 2\. 调用函数
+
+注意：
+
+1.  不同的需求，参数可有可无。
+    
+2.  在 Python 中，函数必须先定义后使用。
+    
+
+\==一定是先定义函数，后调用函数。==
+
+三. 函数的参数作用
+----------
+
+思考：完成需求如下：一个函数完成两个数 1 和 2 的加法运算，如何书写程序？
+
+```
+def add_num1():
+    result = 1 + 2
+    print(result)
+
+
+
+add_num1()
+```
+
+思考：上述 add\_num1 函数只能完成数字 1 和 2 的加法运算，如果想要这个函数变得更灵活，可以计算任何用户指定的两个数字的和，如何书写程序？
+
+分析：用户要在调用函数的时候指定具体数字，那么在定义函数的时候就需要接收用户指定的数字。函数调用时候指定的数字和定义函数时候接收的数字即是函数的参数。
+
+```
+def add_num2(a, b):
+    result = a + b
+    print(result)
+
+
+
+add_num2(10, 20)
+```
+
+**函数的参数：函数调用的时候可以传入真实数据，增大函数的使用的灵活性。** 
+
+*   形参：函数定义时书写的参数(非真实数据)
+    
+*   实参：函数调用时书写的参数(真实数据)
+    
+
+四. 函数的返回值作用
+-----------
+
+例如：我们去超市购物，比如买烟，给钱之后，是不是售货员会返回给我们烟这个商品，在函数中，如果需要返回结果给用户需要使用函数返回值。
+
+```
+def buy():
+    return '烟'
+
+
+goods = buy()
+print(goods)
+```
+
+需求：制作一个计算器，计算任意两数字之和，并保存结果。
+
+```
+def sum_num(a, b):
+    return a + b
+
+
+
+result = sum_num(1, 2)
+print(result)
+```
+
+**函数的返回值**
+
+*   作用：函数调用后，返回需要的计算结果
+    
+*   写法
+    
+
+五. 函数的说明文档
+----------
+
+思考：定义一个函数后，程序员如何书写程序能够快速提示这个函数的作用？
+
+答：注释
+
+思考：如果代码多，我们是不是需要在很多代码中找到这个函数定义的位置才能看到注释？如果想更方便的查看函数的作用怎么办？
+
+答：函数的说明文档
+
+> 函数的说明文档也叫函数的文档说明。
+
+### 1\. 语法
+
+*   定义函数的说明文档
+    
+
+```
+def 函数名(参数):
+    """ 说明文档的位置 """
+    代码
+    ......
+```
+
+*   查看函数的说明文档
+    
+
+### 2\. 快速体验
+
+```
+def sum_num(a, b):
+    """ 求和函数 """
+    return a + b
+
+
+help(sum_num)
+```
+
+![](_assets/2d50279af7ea79c34ca880be1aaa0d8b.png)
+
+**函数的说明文档**
+
+*   作用：保存函数解释说明的信息
+    
+*   写法
+    
+
+```
+def 函数名():
+    """ 函数说明文档 """
+```
+
+六. 函数嵌套调用
+---------
+
+所谓函数嵌套调用指的是==一个函数里面又调用了另外一个函数==。
+
+*   示例
+    
+
+```
+def testB():
+    print('---- testB start----')
+    print('这里是testB函数执行的代码...(省略)...')
+    print('---- testB end----')
+
+def testA():
+    print('---- testA start----')
+    testB()
+    print('---- testA end----')
+
+testA()
+```
+
+*   效果
+    
+
+![](_assets/fca0adbc5a658de9d0af17023bb96a7e.png)
+
+*   执行流程
+    
+*   ![](_assets/20200727075957983.png)
+    
+
+> 如果函数 A 中，调用了另外一个函数 B，那么先把函数 B 中的任务都执行完毕之后才会回到上次 函数 A 执行的位置。
+
+七. 函数应用
+-------
+
+### 1\. 打印图形
+
+1.  打印一条横线
+    
+
+```
+def print_line():
+    print('-' * 20)
+
+
+print_line()
+```
+
+![](_assets/ac49995f5e410ff4776c0a5f556b00ee.png)
+
+2.  打印多条横线
+    
+
+```
+def print_line():
+    print('-' * 20)
+
+
+def print_lines(num):
+    i = 0
+    while i < num:
+        print_line()
+        i += 1
+
+
+print_lines(5)
+```
+
+![](_assets/20200727080308284.png)
+
+### 2\. 函数计算
+
+1.  求三个数之和
+    
+
+```
+def sum_num(a, b, c):
+    return a + b + c
+
+
+result = sum_num(1, 2, 3)
+print(result)
+```
+
+2.  求三个数平均值
+    
+
+```
+def average_num(a, b, c):
+    sumResult = sum_num(a, b, c)
+    return sumResult / 3
+
+result = average_num(1, 2, 3)
+print(result)
+```
+
+八. 变量作用域
+--------
+
+变量作用域指的是变量生效的范围，主要分为两类：==局部变量==和==全局变量==。
+
+*   局部变量
+    
+
+所谓局部变量是定义在函数体内部的变量，即只在函数体内部生效。
+
+```
+def testA():
+    a = 100
+
+    print(a)
+
+
+testA()  
+print(a)
+```
+
+> 变量 a 是定义在`testA`函数内部的变量，在函数外部访问则立即报错。
+
+局部变量的作用：在函数体内部，临时保存数据，即当函数调用完成后，则销毁局部变量。
+
+全局变量：指的是在函数体内、外都能生效的变量。
+
+> 思考：如果有一个数据，在函数 A 和函数 B 中都要使用，该怎么办？
+> 
+> 答：将这个数据存储在一个全局变量里面。
+
+```
+a = 100
+
+
+def testA():
+    print(a)  
+
+
+def testB():
+    print(a)  
+
+
+testA()  
+testB()
+```
+
+思考：`testB`函数需求修改变量 a 的值为 200，如何修改程序？
+
+```
+a = 100
+
+
+def testA():
+    print(a)
+
+
+def testB():
+    a = 200
+    print(a)
+
+
+testA()  
+testB()  
+print(f'全局变量a = {a}')
+```
+
+思考：在`testB`函数内部的`a = 200`中的变量 a 是在修改全局变量`a`吗？
+
+答：不是。观察上述代码发现，15 行得到 a 的数据是 100，仍然是定义全局变量 a 时候的值，而没有返回
+
+`testB`函数内部的 200。综上：`testB`函数内部的`a = 200`是定义了一个局部变量。
+
+思考：如何在函数体内部修改全局变量？
+
+```
+a = 100
+
+
+def testA():
+    print(a)
+
+
+def testB():
+    
+    global a
+    a = 200
+    print(a)
+
+
+testA()  
+testB()  
+print(f'全局变量a = {a}')
+```
+
+九. 多函数程序执行流程
+------------
+
+一般在实际开发过程中，一个程序往往由多个函数（后面知识中会讲解类）组成，并且多个函数共享某些数据，如下所示：
+
+*   共用全局变量
+    
+
+```
+glo_num = 0
+
+
+def test1():
+    global glo_num
+    
+    glo_num = 100
+
+
+def test2():
+    
+    print(glo_num)
+    
+
+
+test1()
+
+test2()
+```
+
+*   返回值作为参数传递
+    
+
+```
+def test1():
+    return 50
+
+
+def test2(num):
+    print(num)
+
+
+
+result = test1()
+
+
+
+test2(result)
+```
+
+十. 函数的返回值
+---------
+
+思考：如果一个函数如些两个 return (如下所示)，程序如何执行？
+
+```
+def return_num():
+    return 1
+    return 2
+
+
+result = return_num()
+print(result)
+```
+
+答：只执行了第一个 return，原因是因为 return 可以退出当前函数，导致 return 下方的代码不执行。
+
+思考：如果一个函数要有多个返回值，该如何书写代码？
+
+```
+def return_num():
+    return 1, 2
+
+
+result = return_num()
+print(result)
+```
+
+> 注意：
+> 
+> 1.  `return a, b`写法，返回多个数据的时候，默认是元组类型。
+>     
+> 2.  return 后面可以连接列表、元组或字典，以返回多个值。
+>     
+
+十一. 函数的参数
+---------
+
+### 1\. 位置参数
+
+位置参数：调用函数时根据函数定义的参数位置来传递参数。
+
+```
+def user_info(name, age, gender):
+    print(f'您的名字是{name}, 年龄是{age}, 性别是{gender}')
+
+
+user_info('TOM', 20, '男')
+```
+
+> 注意：传递和定义参数的顺序及个数必须一致。
+
+### 2\. 关键字参数
+
+函数调用，通过“键=值”形式加以指定。可以让函数更加清晰、容易使用，同时也清除了参数的顺序需求。
+
+```
+def user_info(name, age, gender):
+    print(f'您的名字是{name}, 年龄是{age}, 性别是{gender}')
+
+
+user_info('Rose', age=20, gender='女')
+user_info('小明', gender='男', age=16)
+```
+
+注意：**函数调用时，如果有位置参数时，位置参数必须在关键字参数的前面，但关键字参数之间不存在先后顺序。** 
+
+### 3\. 缺省参数
+
+缺省参数也叫默认参数，用于定义函数，为参数提供默认值，调用函数时可不传该默认参数的值（注意：所有位置参数必须出现在默认参数前，包括函数定义和调用）。
+
+```
+def user_info(name, age, gender='男'):
+    print(f'您的名字是{name}, 年龄是{age}, 性别是{gender}')
+
+
+user_info('TOM', 20)
+user_info('Rose', 18, '女')
+```
+
+> 注意：函数调用时，如果为缺省参数传值则修改默认参数值；否则使用这个默认值。
+
+### 4\. 不定长参数
+
+不定长参数也叫可变参数。用于不确定调用的时候会传递多少个参数(不传参也可以)的场景。此时，可用包裹(packing)位置参数，或者包裹关键字参数，来进行参数传递，会显得非常方便。
+
+*   包裹位置传递
+    
+
+```
+def user_info(*args):
+    print(args)
+
+
+
+user_info('TOM')
+
+user_info('TOM', 18)
+```
+
+> 注意：传进的所有参数都会被 args 变量收集，它会根据传进参数的位置合并为一个元组(tuple)，args 是元组类型，这就是包裹位置传递。
+
+*   包裹关键字传递
+    
+
+```
+def user_info(**kwargs):
+    print(kwargs)
+
+
+
+user_info(name='TOM', age=18, id=110)
+```
+
+> 综上：无论是包裹位置传递还是包裹关键字传递，都是一个组包的过程。
+
+十二. 拆包和交换变量值
+------------
+
+### 1\. 拆包
+
+*   拆包：元组
+    
+
+```
+def return_num():
+    return 100, 200
+
+
+num1, num2 = return_num()
+print(num1)  
+print(num2)
+```
+
+*   拆包：字典
+    
+
+```
+dict1 = {'name': 'TOM', 'age': 18}
+a, b = dict1
+
+
+print(a)  
+print(b)  
+
+print(dict1[a])  
+print(dict1[b])
+```
+
+### 2\. 交换变量值
+
+需求：有变量`a = 10`和`b = 20`，交换两个变量的值。
+
+*   方法一
+    
+
+借助第三变量存储数据。
+
+```
+c = 0
+
+
+c = a
+
+
+a = b
+
+
+b = c
+
+print(a)  
+print(b)
+```
+
+*   方法二
+    
+
+```
+a, b = 1, 2
+a, b = b, a
+print(a)  
+print(b)
+```
+
+十三. 引用
+------
+
+### 1\. 了解引用
+
+在 python 中，值是靠引用来传递来的。
+
+**我们可以用**`**id()**`**来判断两个变量是否为同一个值的引用。**  我们可以将 id 值理解为那块内存的地址标识。
+
+```
+a = 1
+b = a
+
+print(b)  
+
+print(id(a))  
+print(id(b))  
+
+a = 2
+print(b)  
+
+print(id(a))  
+print(id(b))  
+
+
+
+aa = [10, 20]
+bb = aa
+
+print(id(aa))  
+print(id(bb))  
+
+
+aa.append(30)
+print(bb)  
+
+print(id(aa))  
+print(id(bb))
+```
+
+### 2\. 引用当做实参
+
+代码如下：
+
+```
+def test1(a):
+    print(a)
+    print(id(a))
+
+    a += a
+
+    print(a)
+    print(id(a))
+
+
+
+b = 100
+test1(b)
+
+
+c = [11, 22]
+test1(c)
+```
+
+![](_assets/20200727170928179.png)
+
+十四. 可变和不可变类型
+------------
+
+所谓可变类型与不可变类型是指：数据能够直接进行修改，如果能直接修改那么就是可变，否则是不可变。
+
+*   可变类型
+    
+*   列表
+    
+*   字典
+    
+*   集合
+    
+*   不可变类型
+    
+*   整型
+    
+*   浮点型
+    
+*   布尔
+    
+*   字符串
+    
+*   元组
+    
+
+十五. 总结
+------
+
+*   变量作用域
+    
+*   全局：函数体内外都能生效
+    
+*   局部：当前函数体内部生效
+    
+*   函数多返回值写法
+    
+
+*   函数的参数
+    
+*   位置参数
+    
+*   形参和实参的个数和书写顺序必须一致
+    
+*   关键字参数
+    
+*   写法： `key=value`  
+    
+*   特点：形参和实参的书写顺序可以不一致；关键字参数必须书写在位置参数的后面
+    
+*   缺省参数
+    
+*   缺省参数就是默认参数
+    
+*   写法：`key=vlaue`  
+    
+*   不定长位置参数
+    
+*   收集所有位置参数，返回一个元组
+    
+*   不定长关键字参数
+    
+*   收集所有关键字参数，返回一个字典
+    
+
+> 引用：Python 中，数据的传递都是通过引用。
+
+\==友情链接：==
+
+1.  [深究Python中的递归【建议收藏】](https://xie.infoq.cn/link?target=https%3A%2F%2Fluckylifes.blog.csdn.net%2Farticle%2Fdetails%2F107682376)  
+    
+2.  [浅谈Python匿名函数（lambda表达式）](https://xie.infoq.cn/link?target=https%3A%2F%2Fluckylifes.blog.csdn.net%2Farticle%2Fdetails%2F107697395)  
+    
+3.  [浅谈Python高阶函数](https://xie.infoq.cn/link?target=https%3A%2F%2Fluckylifes.blog.csdn.net%2Farticle%2Fdetails%2F107698729)  
+    
+4.  [Python学员管理系统【函数实现】](https://xie.infoq.cn/link?target=https%3A%2F%2Fluckylifes.blog.csdn.net%2Farticle%2Fdetails%2F107681516)  
+    
+5.  [深入浅出Python——Python高级语法之文件操作](https://xie.infoq.cn/link?target=https%3A%2F%2Fluckylifes.blog.csdn.net%2Farticle%2Fdetails%2F107699888)
+
+# 深入浅出Python——Python高级语法之异常、模块、包_Python_何极光_InfoQ写作社区
+前言：本博文主要讲解 Python 异常、模块、包，属于 Python 高级语法。基础语法见：[https://xie.infoq.cn/article/a1b348be0074e38f1b307f50a](https://xie.infoq.cn/article/a1b348be0074e38f1b307f50a)，更多内容请访问博主的主页，谢谢！
+
+一、了解异常
+------
+
+当检测到一个错误时，解释器就无法继续执行了，反而出现了一些错误的提示，这就是所谓的"异常"。
+
+例如：以`r`方式打开一个不存在的文件。
+
+```
+FileNotFoundError: [Errno 2] No such file or directory: 'test.txt'
+```
+
+二、异常的写法
+-------
+
+### 1\. 语法
+
+```
+try:
+    可能发生错误的代码
+except:
+    如果出现异常执行的代码
+```
+
+### 2\. 快速体验
+
+需求：尝试以`r`模式打开文件，如果文件不存在，则以`w`方式打开。
+
+```
+try:
+    f = open('test.txt', 'r')
+except:
+    f = open('test.txt', 'w')
+```
+
+### 3\. 捕获指定异常
+
+#### 3.1 语法
+
+```
+try:
+    可能发生错误的代码
+except 异常类型:
+    如果捕获到该异常类型执行的代码
+```
+
+#### 3.2 体验
+
+```
+try:
+    print(num)
+except NameError:
+    print('有错误')
+```
+
+> 注意：
+> 
+> 1.  如果尝试执行的代码的异常类型和要捕获的异常类型不一致，则无法捕获异常。
+>     
+> 2.  一般 try 下方只放一行尝试执行的代码。
+>     
+
+#### 3.3 捕获多个指定异常
+
+当捕获多个异常时，可以把要捕获的异常类型的名字，放到`except`后，并使用元组的方式进行书写。
+
+```
+try:
+    print(1/0)
+
+except (NameError, ZeroDivisionError):
+    print('有错误')
+```
+
+#### 3.4 捕获异常描述信息
+
+```
+try:
+    print(num)
+except (NameError, ZeroDivisionError) as result:
+    print(result)
+```
+
+#### 3.5 捕获所有异常
+
+`Exception`是所有程序异常类的父类。
+
+```
+try:
+    print(num)
+except Exception as result:
+    print(result)
+```
+
+### 4\. 异常的 else
+
+`else`表示的是如果没有异常要执行的代码。
+
+```
+try:
+    print(1)
+except Exception as result:
+    print(result)
+else:
+    print('我是else，是没有异常的时候执行的代码')
+```
+
+### 5\. 异常的 finally
+
+`finally`表示的是无论是否异常都要执行的代码，例如关闭文件。
+
+```
+try:
+    f = open('test.txt', 'r')
+except Exception as result:
+    f = open('test.txt', 'w')
+else:
+    print('没有异常，真开心')
+finally:
+    f.close()
+```
+
+三、异常的传递
+-------
+
+需求：
+
+​ 1. 尝试只读方式打开 test.txt 文件，如果文件存在则读取文件内容，文件不存在则提示用户即可。
+
+​ 2. 读取内容要求：尝试循环读取内容，读取过程中如果检测到用户意外终止程序，则`except`捕获异常并提示用户。
+
+```
+import time
+try:
+    f = open('test.txt')
+    try:
+        while True:
+            content = f.readline()
+            if len(content) == 0:
+                break
+            time.sleep(2)
+            print(content)
+    except:
+        
+        
+        print('意外终止了读取数据')
+    finally:
+        f.close()
+        print('关闭文件')
+except:
+    print("没有这个文件")
+```
+
+四、自定义异常
+-------
+
+在 Python 中，抛出自定义异常的语法为 `raise 异常类对象`。
+
+需求：密码长度不足，则报异常（用户输入密码，如果输入的长度不足 3 位，则报错，即抛出自定义异常，并捕获该异常）。
+
+```
+class ShortInputError(Exception):
+    def __init__(self, length, min_len):
+        self.length = length
+        self.min_len = min_len
+
+    
+    def __str__(self):
+        return f'你输入的长度是{self.length}, 不能少于{self.min_len}个字符'
+
+
+def main():
+    try:
+        con = input('请输入密码：')
+        if len(con) < 3:
+            raise ShortInputError(len(con), 3)
+    except Exception as result:
+        print(result)
+    else:
+        print('密码已经输入完成')
+
+
+main()
+```
+
+五、模块
+----
+
+Python 模块(Module)，是一个 Python 文件，以 .py 结尾，包含了 Python 对象定义和 Python 语句。
+
+模块能定义函数，类和变量，模块里也能包含可执行的代码。
+
+### 1\. 导入模块
+
+#### 1.1 导入模块的方式
+
+*   import 模块名
+    
+*   import 模块名 1, 模块名 2（不建议使用，非 PEP8 规范）
+    
+*   from 模块名 import 功能名
+    
+*   from 模块名 import \*
+    
+*   import 模块名 as 别名
+    
+*   from 模块名 import 功能名 as 别名
+    
+
+#### 1.2 导入方式详解
+
+##### 1.2.1 import
+
+*   语法
+    
+
+```
+import 模块名
+import 模块名1, 模块名2...
+
+
+模块名.功能名()
+```
+
+*   体验
+    
+
+```
+import math
+print(math.sqrt(9))
+```
+
+##### 1.2.2 from..import..
+
+*   语法
+    
+
+```
+from 模块名 import 功能1, 功能2, 功能3...
+```
+
+*   体验
+    
+
+```
+from math import sqrt
+print(sqrt(9))
+```
+
+##### 1.2.3 from..import \*
+
+*   语法
+    
+
+*   体验
+    
+
+```
+from math import *
+print(sqrt(9))
+```
+
+##### 1.2.4 from..import \*
+
+*   语法
+    
+
+```
+import 模块名 as 别名
+
+
+from 模块名 import 功能 as 别名
+```
+
+*   体验
+    
+
+```
+import time as tt
+
+tt.sleep(2)
+print('hello')
+
+
+from time import sleep as sl
+sl(2)
+print('hello')
+```
+
+### 2\. 制作模块
+
+在 Python 中，每个 Python 文件都可以作为一个模块，模块的名字就是文件的名字。**也就是说自定义模块名必须要符合标识符命名规则。** 
+
+#### 2.1 定义模块
+
+新建一个 Python 文件，命名为`my_module1.py`，并定义`testA`函数。
+
+```
+def testA(a, b):
+    print(a + b)
+```
+
+#### 2.2 测试模块
+
+在实际开中，当一个开发人员编写完一个模块后，为了让模块能够在项目中达到想要的效果，这个开发人员会自行在 py 文件中添加一些测试信息.，例如，在`my_module1.py`文件中添加测试代码。
+
+```
+def testA(a, b):
+    print(a + b)
+
+
+testA(1, 1)
+```
+
+此时，无论是当前文件，还是其他已经导入了该模块的文件，在运行的时候都会自动执行`testA`函数的调用。
+
+解决办法如下：
+
+```
+def testA(a, b):
+    print(a + b)
+
+
+if __name__ == '__main__':
+    testA(1, 1)
+```
+
+#### 2.3 调用模块
+
+```
+import my_module1
+my_module1.testA(1, 1)
+```
+
+#### 2.4 调用模块
+
+如果使用`from .. import ..`或`from .. import *`导入多个模块的时候，且模块内有同名功能。当调用这个同名功能的时候，调用到的是后面导入的模块的功能。
+
+```
+def my_test(a, b):
+    print(a + b)
+
+
+def my_test(a, b):
+    print(a - b)
+   
+
+from my_module1 import my_test
+from my_module2 import my_test
+
+
+my_test(1, 1)
+```
+
+### 3\. 模块定位顺序
+
+当导入一个模块，Python 解析器对模块位置的搜索顺序是：
+
+1.  当前目录
+    
+2.  如果不在当前目录，Python 则搜索在 shell 变量 PYTHONPATH 下的每个目录。
+    
+3.  如果都找不到，Python 会察看默认路径。UNIX 下，默认路径一般为/usr/local/lib/python/
+    
+
+模块搜索路径存储在 system 模块的 sys.path 变量中。变量里包含当前目录，PYTHONPATH 和由安装过程决定的默认目录。
+
+*   注意
+    
+*   自己的文件名不要和已有模块名重复，否则导致模块功能无法使用
+    
+*   `使用from 模块名 import 功能`的时候，如果功能名字重复，调用到的是最后定义或导入的功能。
+    
+
+### 4\. `__all__`  
+
+如果一个模块文件中有`__all__`变量，当使用`from xxx import *`导入时，只能导入这个列表中的元素。
+
+*   my\_module1 模块代码
+    
+
+```
+__all__ = ['testA']
+
+
+def testA():
+    print('testA')
+
+
+def testB():
+    print('testB')
+```
+
+*   导入模块的文件代码
+    
+
+```
+from my_module1 import *
+testA()
+testB()
+```
+
+六、包
+---
+
+包将有联系的模块组织在一起，即放到同一个文件夹下，并且在这个文件夹创建一个名字为`__init__.py` 文件，那么这个文件夹就称之为包。
+
+### 1\. 制作包
+
+\[New\] — \[Python Package\] — 输入包名 — \[OK\] — 新建功能模块(有联系的模块)。
+
+注意：新建包后，包内部会自动创建`__init__.py`文件，这个文件控制着包的导入行为。
+
+#### 1.1 快速体验
+
+1.  新建包`mypackage`  
+    
+2.  新建包内模块：`my_module1` 和 `my_module2`  
+    
+3.  模块内代码如下
+    
+
+```
+print(1)
+
+
+def info_print1():
+    print('my_module1')
+```
+
+```
+print(2)
+
+
+def info_print2():
+    print('my_module2')
+```
+
+#### 1.2 导入包
+
+##### 1.2.1 方法一
+
+```
+import my_package.my_module1
+
+my_package.my_module1.info_print1()
+```
+
+##### 1.2.2 方法二
+
+注意：必须在`__init__.py`文件中添加`__all__ = []`，控制允许导入的模块列表。
+
+```
+from my_package import *
+
+my_module1.info_print1()
+```
+
+七、总结
+----
+
+### 1\. 异常
+
+*   异常语法
+    
+
+```
+try:
+      可能发生异常的代码
+except:
+      如果出现异常执行的代码
+else:
+      没有异常执行的代码
+finally:
+      无论是否异常都要执行的代码
+```
+
+*   捕获异常
+    
+
+```
+except 异常类型:
+      代码
+
+except 异常类型 as xx:
+        代码
+```
+
+*   自定义异常
+    
+
+```
+class 异常类类名(Exception):
+      代码
+    
+    
+    def __str__(self):
+      return ...
+
+
+
+raise 异常类名()
+
+
+except Exception...
+```
+
+### 2\. 模块、包
+
+*   导入模块方法
+    
+
+```
+import 模块名
+
+from 模块名 import 目标
+
+from 模块名 import *
+```
+
+*   导入包
+    
+
+```
+import 包名.模块名
+
+from 包名 import *
+```
+
+*   `__all__ = []` ：允许导入的模块或功能列表
+
+# 深入浅出Python——Python高级语法之文件操作_Python_何极光_InfoQ写作社区
+前言：本博文主要讲解 Python 文件操作的写法，属于 Python 高级语法。基础语法见：[https://xie.infoq.cn/article/a1b348be0074e38f1b307f50a](https://xie.infoq.cn/article/a1b348be0074e38f1b307f50a)，更多内容请访问博主的主页，谢谢！
+
+一、文件操作的作用
+---------
+
+思考：文件操作包含什么？
+
+答：打开、关闭、读、写、复制....
+
+思考：文件操作的的作用是什么？
+
+答：读取内容、写入内容、备份内容......
+
+> 总结：文件操作的作用就是==把一些内容(数据)存储存放起来，可以让程序下一次执行的时候直接使用，而不必重新制作一份，省时省力==。
+
+二、文件的基本操作
+---------
+
+### 1\. 文件操作步骤
+
+1.  打开文件
+    
+2.  读写等操作
+    
+3.  关闭文件
+    
+
+> 注意：可以只打开和关闭文件，不进行任何读写操作。
+
+#### 1.1 打开
+
+在 python，使用 open 函数，可以打开一个已经存在的文件，或者创建一个新文件，语法如下：
+
+name：是要打开的目标文件名的字符串(可以包含文件所在的具体路径)。
+
+mode：设置打开文件的模式(访问模式)：只读、写入、追加等。
+
+##### 1.1.1 打开文件模式
+
+##### 1.1.2 快速体验
+
+```
+f = open('test.txt', 'w')
+```
+
+> 注意：此时的`f`是`open`函数的文件对象。
+
+#### 2.1 文件对象方法
+
+##### 1.2.1 写
+
+*   语法
+    
+
+*   体验
+    
+
+```
+f = open('test.txt', 'w')
+
+
+f.write('hello world')
+
+
+f.close()
+```
+
+> 注意：
+> 
+> 1.  `w` 和`a`模式：如果文件不存在则创建该文件；如果文件存在，`w`模式先清空再写入，`a`模式直接末尾追加。
+>     
+> 2.  `r`模式：如果文件不存在则报错。
+>     
+
+##### 1.2.2 读
+
+*   read()
+    
+
+> num 表示要从文件中读取的数据的长度（单位是字节），如果没有传入 num，那么就表示读取文件中所有的数据。
+
+*   readlines()
+    
+
+readlines 可以按照行的方式把整个文件中的内容进行一次性读取，并且返回的是一个列表，其中每一行的数据为一个元素。
+
+```
+f = open('test.txt')
+content = f.readlines()
+
+
+print(content)
+
+
+f.close()
+```
+
+*   readline()
+    
+
+readline()一次读取一行内容。
+
+```
+f = open('test.txt')
+
+content = f.readline()
+print(f'第一行：{content}')
+
+content = f.readline()
+print(f'第二行：{content}')
+
+
+f.close()
+```
+
+##### 1.2.3 seek()
+
+作用：用来移动文件指针。
+
+语法如下：
+
+> 起始位置：
+> 
+> *   0：文件开头
+>     
+> *   1：当前位置
+>     
+> *   2：文件结尾
+>     
+
+#### 3.1 关闭
+
+三、文件备份
+------
+
+需求：用户输入当前目录下任意文件名，程序完成对该文件的备份功能(备份文件名为 xx\[备份\]后缀，例如：test\[备份\].txt)。
+
+### 1\. 步骤
+
+1.  接收用户输入的文件名
+    
+2.  规划备份文件名
+    
+3.  备份文件写入数据
+    
+
+### 2\. 代码实现
+
+1.  接收用户输入目标文件名
+    
+
+```
+old_name = input('请输入您要备份的文件名：')
+```
+
+2.  规划备份文件名
+    
+3.  2.1 提取目标文件后缀
+    
+4.  2.2 组织备份的文件名，xx\[备份\]后缀
+    
+
+```
+index = old_name.rfind('.')
+
+
+
+
+
+
+new_name = old_name[:index] + '[备份]' + old_name[index:]
+```
+
+3.  备份文件写入数据
+    
+4.  3.1 打开源文件 和 备份文件
+    
+5.  3.2 将源文件数据写入备份文件
+    
+6.  3.3 关闭文件
+    
+
+```
+old_f = open(old_name, 'rb')
+new_f = open(new_name, 'wb')
+
+
+while True:
+    con = old_f.read(1024)
+    if len(con) == 0:
+        break
+    new_f.write(con)
+
+
+old_f.close()
+new_f.close()
+```
+
+### 3\. 思考
+
+如果用户输入`.txt`，这是一个无效文件，程序如何更改才能限制只有有效的文件名才能备份？
+
+答：添加条件判断即可。
+
+```
+old_name = input('请输入您要备份的文件名：')
+
+index = old_name.rfind('.')
+
+
+if index > 0:
+    postfix = old_name[index:]
+
+new_name = old_name[:index] + '[备份]' + postfix
+
+old_f = open(old_name, 'rb')
+new_f = open(new_name, 'wb')
+
+while True:
+    con = old_f.read(1024)
+    if len(con) == 0:
+        break
+    new_f.write(con)
+
+old_f.close()
+new_f.close()
+```
+
+四、文件和文件夹的操作
+-----------
+
+在 Python 中文件和文件夹的操作要借助 os 模块里面的相关功能，具体步骤如下：
+
+1.  导入 os 模块
+    
+
+2.  使用`os`模块相关功能
+    
+
+### 1\. 文件重命名
+
+### 2\. 删除文件
+
+### 3\. 创建文件夹
+
+### 4\. 删除文件夹
+
+### 5\. 获取当前目录
+
+### 6\. 改变默认目录
+
+### 7\. 获取目录列表
+
+五、应用案例
+------
+
+需求：批量修改文件名，既可添加指定字符串，又能删除指定字符串。
+
+*   步骤
+    
+
+1.  设置添加删除字符串的的标识
+    
+2.  获取指定目录的所有文件
+    
+3.  将原有文件名添加/删除指定字符串，构造新名字
+    
+4.  os.rename()重命名
+    
+
+*   代码
+    
+
+```
+import os
+
+
+flag = 1
+
+
+dir_name = './'
+
+
+file_list = os.listdir(dir_name)
+
+
+
+
+for name in file_list:
+
+    
+    if flag == 1:
+        new_name = 'Python-' + name
+    
+    elif flag == 2:
+        num = len('Python-')
+        new_name = name[num:]
+
+    
+    print(new_name)
+    
+    
+    os.rename(dir_name+name, dir_name+new_name)
+```
+
+六、总结
+----
+
+*   文件操作步骤
+    
+*   打开
+    
+*   操作
+    
+*   读
+    
+*   写
+    
+*   seek()
+    
+*   关闭
+    
+*   主访问模式
+    
+*   w：写，文件不存在则新建该文件
+    
+*   r：读，文件不存在则报错
+    
+*   a：追加
+    
+*   文件和文件夹操作
+    
+*   重命名：`os.rename()`  
+    
+*   获取当前目录：`os.getcwd()`  
+    
+*   获取目录列表：`os.listdir()`
+
+# 深入浅出Python——Python高级语法之面向对象_Python_何极光_InfoQ写作社区
+前言：本博文主要讲解 Python 面向对象，属于 Python 高级语法。基础语法见：[https://xie.infoq.cn/article/a1b348be0074e38f1b307f50a](https://xie.infoq.cn/article/a1b348be0074e38f1b307f50a)，更多内容请访问博主的主页，谢谢！
+
+一、理解面向对象
+--------
+
+面向对象是一种抽象化的编程思想，很多编程语言中都有的一种思想。
+
+例如：洗衣服
+
+思考：几种途径可以完成洗衣服？
+
+答： 手洗 和 机洗。
+
+手洗：找盆 - 放水 - 加洗衣粉 - 浸泡 - 搓洗 - 拧干水 - 倒水 - 漂洗 N 次 - 拧干 - 晾晒。
+
+机洗：打开洗衣机 - 放衣服 - 加洗衣粉 - 按下开始按钮 - 晾晒。
+
+思考：对比两种洗衣服途径，同学们发现了什么？
+
+答：机洗更简单
+
+思考：机洗，只需要找到一台洗衣机，加入简单操作就可以完成洗衣服的工作，而不需要关心洗衣机内部发生了什么事情。
+
+> 总结：==面向对象就是将编程当成是一个事物，对外界来说，事物是直接使用的，不用去管他内部的情况。而编程就是设置事物能够做什么事。==
+
+二、类和对象
+------
+
+思考：洗衣机洗衣服描述过程中，洗衣机其实就是一个事物，即对象，洗衣机对象哪来的呢？
+
+答：洗衣机是由工厂工人制作出来。
+
+思考：工厂工人怎么制作出的洗衣机？
+
+答：工人根据设计师设计的功能图纸制作洗衣机。
+
+总结：图纸 → 洗衣机 → 洗衣服。
+
+在面向对象编程过程中，有两个重要组成部分：==类== 和 ==对象==。
+
+\==类和对象的关系：用类去创建一个对象。==
+
+### 1\. 理解类和对象
+
+#### 1.1 类
+
+类是对一系列具有相同==特征==和==行为==的事物的统称，是一个==抽象的概念==，不是真实存在的事物。
+
+*   特征即是属性
+    
+*   行为即是方法
+    
+
+类比如是制造洗衣机时要用到的图纸，也就是说==类是用来创建对象==。
+
+#### 1.2 对象
+
+对象是类创建出来的真实存在的事物，例如：洗衣机。
+
+> 注意：开发中，先有类，再有对象。
+
+### 2\. 面向对象实现方法
+
+#### 2.1 定义类
+
+Python2 中类分为：经典类 和 新式类
+
+*   语法
+    
+
+> 注意：类名要满足标识符命名规则，同时遵循==大驼峰命名习惯==。
+
+*   体验
+    
+
+```
+class Washer():
+    def wash(self):
+        print('我会洗衣服')
+```
+
+*   拓展：经典类
+    
+
+不由任意内置类型派生出的类，称之为经典类
+
+#### 2.2 定义类
+
+对象又名实例。
+
+*   语法
+    
+
+*   体验
+    
+
+```
+haier1 = Washer()
+
+
+print(haier1)
+
+
+haier1.wash()
+```
+
+> 注意：创建对象的过程也叫实例化对象。
+
+#### 2.3 self
+
+self 指的是调用该函数的对象。
+
+```
+class Washer():
+    def wash(self):
+        print('我会洗衣服')
+        
+        print(self)
+
+
+
+haier1 = Washer()
+
+print(haier1)
+
+haier1.wash()
+
+
+haier2 = Washer()
+
+print(haier2)
+```
+
+> 注意：打印对象和 self 得到的结果是一致的，都是当前对象的内存中存储地址。
+
+三、添加和获取对象属性
+-----------
+
+属性即是特征，比如：洗衣机的宽度、高度、重量...
+
+对象属性既可以在类外面添加和获取，也能在类里面添加和获取。
+
+### 1\. 类外面添加对象属性
+
+*   语法
+    
+
+*   体验
+    
+
+```
+haier1.width = 500
+haier1.height = 800
+```
+
+### 2\. 类外面获取对象属性
+
+*   语法
+    
+
+*   体验
+    
+
+```
+print(f'haier1洗衣机的宽度是{haier1.width}')
+print(f'haier1洗衣机的高度是{haier1.height}')
+```
+
+### 3\. 类里面获取对象属性
+
+*   语法
+    
+
+*   体验
+    
+
+```
+class Washer():
+    def print_info(self):
+        
+        print(f'haier1洗衣机的宽度是{self.width}')
+        print(f'haier1洗衣机的高度是{self.height}')
+
+
+haier1 = Washer()
+
+
+haier1.width = 500
+haier1.height = 800
+
+haier1.print_info()
+```
+
+四、魔法方法
+------
+
+在 Python 中，`__xx__()`的函数叫做魔法方法，指的是具有特殊功能的函数。
+
+### 1\. `__init__()`  
+
+#### 1.1 体验`__init__()`  
+
+思考：洗衣机的宽度高度是与生俱来的属性，可不可以在生产过程中就赋予这些属性呢？
+
+答：理应如此。
+
+\==`__init__()`方法的作用：初始化对象。==
+
+```
+class Washer():
+    
+    
+    def __init__(self):
+        
+        self.width = 500
+        self.height = 800
+
+
+    def print_info(self):
+        
+        print(f'洗衣机的宽度是{self.width}, 高度是{self.height}')
+
+
+haier1 = Washer()
+haier1.print_info()
+```
+
+> 注意：
+> 
+> *   `__init__()`方法，在创建一个对象时默认被调用，不需要手动调用
+>     
+> *   `__init__(self)`中的 self 参数，不需要开发者传递，python 解释器会自动把当前的对象引用传递过去。
+>     
+
+#### 1.2 带参数的`__init__()`  
+
+思考：一个类可以创建多个对象，如何对不同的对象设置不同的初始化属性呢？
+
+答：传参数。
+
+```
+class Washer():
+    def __init__(self, width, height):
+        self.width = width
+        self.height = height
+
+    def print_info(self):
+        print(f'洗衣机的宽度是{self.width}')
+        print(f'洗衣机的高度是{self.height}')
+
+
+haier1 = Washer(10, 20)
+haier1.print_info()
+
+
+haier2 = Washer(30, 40)
+haier2.print_info()
+```
+
+### 2\. `__str__()`  
+
+当使用 print 输出对象的时候，默认打印对象的内存地址。如果类定义了`__str__`方法，那么就会打印从在这个方法中 return 的数据。
+
+```
+class Washer():
+    def __init__(self, width, height):
+        self.width = width
+        self.height = height
+
+    def __str__(self):
+        return '这是海尔洗衣机的说明书'
+
+
+haier1 = Washer(10, 20)
+
+print(haier1)
+```
+
+### 3\. `__del__()`  
+
+当删除对象时，python 解释器也会默认调用`__del__()`方法。
+
+```
+class Washer():
+    def __init__(self, width, height):
+        self.width = width
+        self.height = height
+
+    def __del__(self):
+        print(f'{self}对象已经被删除')
+
+
+haier1 = Washer(10, 20)
+
+
+del haier1
+```
+
+五、综合应用
+------
+
+### 1\. 烤地瓜
+
+#### 1.1 需求
+
+需求主线：
+
+1.  被烤的时间和对应的地瓜状态：
+    
+2.  0-3 分钟：生的
+    
+3.  3-5 分钟：半生不熟
+    
+4.  5-8 分钟：熟的
+    
+5.  超过 8 分钟：烤糊了
+    
+6.  添加的调料：
+    
+7.  用户可以按自己的意愿添加调料
+    
+
+#### 1.2 步骤分析
+
+需求涉及一个事物： 地瓜，故案例涉及一个类：地瓜类。
+
+##### 1.2.1 定义类
+
+*   地瓜的属性
+    
+*   被烤的时间
+    
+*   地瓜的状态
+    
+*   添加的调料
+    
+*   地瓜的方法
+    
+*   被烤
+    
+*   用户根据意愿设定每次烤地瓜的时间
+    
+*   判断地瓜被烤的总时间是在哪个区间，修改地瓜状态
+    
+*   添加调料
+    
+*   用户根据意愿设定添加的调料
+    
+*   将用户添加的调料存储
+    
+*   显示对象信息
+    
+
+##### 1.2.2 创建对象，调用相关实例方法
+
+#### 1.3 代码实现
+
+##### 1.3.1 定义类
+
+*   地瓜属性
+    
+*   定义地瓜初始化属性，后期根据程序推进更新实例属性
+    
+
+```
+class SweetPotato():
+    def __init__(self):
+        
+        self.cook_time = 0
+        
+        self.cook_static = '生的'
+        
+        self.condiments = []
+```
+
+##### 1.3.2 定义烤地瓜方法
+
+```
+class SweetPotato():
+    ......
+    
+    def cook(self, time):
+        """烤地瓜的方法"""
+        self.cook_time += time
+        if 0 <= self.cook_time < 3:
+            self.cook_static = '生的'
+        elif 3 <= self.cook_time < 5:
+            self.cook_static = '半生不熟'
+        elif 5 <= self.cook_time < 8:
+            self.cook_static = '熟了'
+        elif self.cook_time >= 8:
+            self.cook_static = '烤糊了'
+```
+
+##### 1.3.3 书写 str 魔法方法，用于输出对象状态
+
+```
+class SweetPotato():
+        ......
+
+    def __str__(self):
+        return f'这个地瓜烤了{self.cook_time}分钟, 状态是{self.cook_static}'
+```
+
+##### 1.3.4 创建对象，测试实例属性和实例方法
+
+```
+digua1 = SweetPotato()
+print(digua1)
+digua1.cook(2)
+print(digua1)
+```
+
+##### 1.3.5 定义添加调料方法，并调用该实例方法
+
+```
+class SweetPotato():
+        ......
+
+    def add_condiments(self, condiment):
+        """添加调料"""
+        self.condiments.append(condiment)
+    def __str__(self):
+        return f'这个地瓜烤了{self.cook_time}分钟, 状态是{self.cook_static}, 添加的调料有{self.condiments}'
+      
+
+digua1 = SweetPotato()
+print(digua1)
+
+digua1.cook(2)
+digua1.add_condiments('酱油')
+print(digua1)
+
+digua1.cook(2)
+digua1.add_condiments('辣椒面')
+print(digua1)
+
+digua1.cook(2)
+print(digua1)
+
+digua1.cook(2)
+print(digua1)
+```
+
+#### 1.4 代码总览
+
+```
+class SweetPotato():
+    def __init__(self):
+        
+        self.cook_time = 0
+        
+        self.cook_static = '生的'
+        
+        self.condiments = []
+
+    def cook(self, time):
+        """烤地瓜的方法"""
+        self.cook_time += time
+        if 0 <= self.cook_time < 3:
+            self.cook_static = '生的'
+        elif 3 <= self.cook_time < 5:
+            self.cook_static = '半生不熟'
+        elif 5 <= self.cook_time < 8:
+            self.cook_static = '熟了'
+        elif self.cook_time >= 8:
+            self.cook_static = '烤糊了'
+
+    def add_condiments(self, condiment):
+        """添加调料"""
+        self.condiments.append(condiment)
+
+    def __str__(self):
+        return f'这个地瓜烤了{self.cook_time}分钟, 状态是{self.cook_static}, 添加的调料有{self.condiments}'
+
+
+digua1 = SweetPotato()
+print(digua1)
+
+digua1.cook(2)
+digua1.add_condiments('酱油')
+print(digua1)
+
+digua1.cook(2)
+digua1.add_condiments('辣椒面')
+print(digua1)
+
+digua1.cook(2)
+print(digua1)
+
+digua1.cook(2)
+print(digua1)
+```
+
+### 2\. 搬家具
+
+#### 2.1 需求
+
+将小于房子剩余面积的家具摆放到房子中。
+
+#### 2.2 步骤分析
+
+需求涉及两个事物：房子 和 家具，故被案例涉及两个类：房子类 和 家具类。
+
+##### 2.2.1 定义类
+
+*   房子类
+    
+*   实例属性
+    
+*   房子地理位置
+    
+*   房子占地面积
+    
+*   房子剩余面积
+    
+*   房子内家具列表
+    
+*   实例方法
+    
+*   容纳家具
+    
+*   显示房屋信息
+    
+*   家具类
+    
+*   家具名称
+    
+*   家具占地面积
+    
+
+##### 2.2.2 创建对象并调用相关方法
+
+#### 2.3 代码实现
+
+##### 2.3.1 定义类
+
+*   家具类
+    
+
+```
+class Furniture():
+    def __init__(self, name, area):
+        
+        self.name = name
+        
+        self.area = area
+```
+
+*   房子类
+    
+
+```
+class Home():
+    def __init__(self, address, area):
+        
+        self.address = address
+        
+        self.area = area
+        
+        self.free_area = area
+        
+        self.furniture = []
+
+    def __str__(self):
+        return f'房子坐落于{self.address}, 占地面积{self.area}, 剩余面积{self.free_area}, 家具有{self.furniture}'
+
+    def add_furniture(self, item):
+        """容纳家具"""
+        if self.free_area >= item.area:
+            self.furniture.append(item.name)
+            
+            self.free_area -= item.area
+        else:
+            print('家具太大，剩余面积不足，无法容纳')
+```
+
+##### 2.3.2 创建对象并调用实例属性和方法
+
+```
+bed = Furniture('双人床', 6)
+jia1 = Home('北京', 1200)
+print(jia1)
+
+jia1.add_furniture(bed)
+print(jia1)
+
+sofa = Furniture('沙发', 10)
+jia1.add_furniture(sofa)
+print(jia1)
+
+ball = Furniture('篮球场', 1500)
+jia1.add_furniture(ball)
+print(jia1)
+```
+
+六、三大特征
+------
+
+*   封装
+    
+*   将属性和方法书写到类的里面的操作即为封装
+    
+*   封装可以为属性和方法添加私有权限
+    
+*   继承
+    
+*   子类默认继承父类的所有属性和方法
+    
+*   子类可以重写父类属性和方法
+    
+*   多态
+    
+*   传入不同的对象，产生不同的结果
+    
+
+七、封装
+----
+
+**什么是封装：** 
+
+1.  封装是面向对象编程的一大特点
+    
+2.  面向对象编程的第一步，将属性和方法封装到一个抽象的类中(为什么说是抽象的，因为类不能直接使用)
+    
+3.  外界使用类创建对象，然后让对象调用方法
+    
+4.  对象方法的细节都被封装在类的内部
+    
+
+> 总结：类里面不光有属性还有方法。这种将属性通过方法直接在类内部操作的形式叫做封装。这里的封装是把属性封装在类内部。这样对类形成了一种“黑盒”状态，我们不需要知道类内部是什么样的，只要对对象进行操作就可以。在封装时，我们也可以根据自身的需求，设置一定的访问/设置条件（权限），对数据和代码起到一定的保护作用。
+
+八、继承
+----
+
+### 1\. 继承的概念
+
+生活中的继承，一般指的是子女继承父辈的财产。
+
+*   拓展 1：经典类或旧式类
+    
+
+不由任意内置类型派生出的类，称之为经典类。
+
+*   拓展 2：新式类
+    
+
+Python 面向对象的继承指的是多个类之间的所属关系，即子类默认继承父类的所有属性和方法，具体如下：
+
+```
+class A(object):
+    def __init__(self):
+        self.num = 1
+
+    def info_print(self):
+        print(self.num)
+
+
+class B(A):
+    pass
+
+
+result = B()
+result.info_print()
+```
+
+> 在 Python 中，所有类默认继承 object 类，object 类是顶级类或基类；其他子类叫做派生类。
+
+### 2\. 单继承
+
+所谓单继承意思就是一个子类只能继承一个父类。
+
+```
+class Master(object):
+    def __init__(self):
+        self.kongfu = '[古法煎饼果子配方]'
+
+    def make_cake(self):
+        print(f'运用{self.kongfu}制作煎饼果子')
+
+        
+
+class Prentice(Master):
+    pass
+
+
+
+daqiu = Prentice()
+
+print(daqiu.kongfu)
+
+daqiu.make_cake()
+```
+
+### 3\. 多继承
+
+所谓多继承意思就是一个类同时继承了多个父类。
+
+```
+class Master(object):
+    def __init__(self):
+        self.kongfu = '[古法煎饼果子配方]'
+
+    def make_cake(self):
+        print(f'运用{self.kongfu}制作煎饼果子')
+
+
+
+class School(object):
+    def __init__(self):
+        self.kongfu = '[现代煎饼果子配方]'
+
+    def make_cake(self):
+        print(f'运用{self.kongfu}制作煎饼果子')
+
+
+class Prentice(School, Master):
+    pass
+
+
+daqiu = Prentice()
+print(daqiu.kongfu)
+daqiu.make_cake()
+```
+
+> 注意：当一个类有多个父类的时候，默认使用第一个父类的同名属性和方法。
+
+### 4\. 子类重写父类同名方法和属性
+
+```
+class Master(object):
+    def __init__(self):
+        self.kongfu = '[古法煎饼果子配方]'
+
+    def make_cake(self):
+        print(f'运用{self.kongfu}制作煎饼果子')
+
+
+class School(object):
+    def __init__(self):
+        self.kongfu = '[现代煎饼果子配方]'
+
+    def make_cake(self):
+        print(f'运用{self.kongfu}制作煎饼果子')
+
+
+
+class Prentice(School, Master):
+    def __init__(self):
+        self.kongfu = '[独创煎饼果子配方]'
+
+    def make_cake(self):
+        print(f'运用{self.kongfu}制作煎饼果子')
+
+
+daqiu = Prentice()
+print(daqiu.kongfu)
+daqiu.make_cake()
+
+
+print(Prentice.__mro__)
+```
+
+> 子类和父类具有同名属性和方法，默认使用子类的同名属性和方法。
+
+### 5\. 子类调用父类的同名方法和属性
+
+```
+class Master(object):
+    def __init__(self):
+        self.kongfu = '[古法煎饼果子配方]'
+
+    def make_cake(self):
+        print(f'运用{self.kongfu}制作煎饼果子')
+
+
+class School(object):
+    def __init__(self):
+        self.kongfu = '[现代煎饼果子配方]'
+
+    def make_cake(self):
+        print(f'运用{self.kongfu}制作煎饼果子')
+
+
+class Prentice(School, Master):
+    def __init__(self):
+        self.kongfu = '[独创煎饼果子配方]'
+
+    def make_cake(self):
+        
+        self.__init__()
+        print(f'运用{self.kongfu}制作煎饼果子')
+
+    
+    def make_master_cake(self):
+        Master.__init__(self)
+        Master.make_cake(self)
+
+    def make_school_cake(self):
+        School.__init__(self)
+        School.make_cake(self)
+
+
+daqiu = Prentice()
+
+daqiu.make_cake()
+
+daqiu.make_master_cake()
+
+daqiu.make_school_cake()
+
+daqiu.make_cake()
+```
+
+### 6\. 多层继承
+
+```
+class Master(object):
+    def __init__(self):
+        self.kongfu = '[古法煎饼果子配方]'
+
+    def make_cake(self):
+        print(f'运用{self.kongfu}制作煎饼果子')
+
+
+class School(object):
+    def __init__(self):
+        self.kongfu = '[现代煎饼果子配方]'
+
+    def make_cake(self):
+        print(f'运用{self.kongfu}制作煎饼果子')
+
+
+class Prentice(School, Master):
+    def __init__(self):
+        self.kongfu = '[独创煎饼果子配方]'
+
+    def make_cake(self):
+        self.__init__()
+        print(f'运用{self.kongfu}制作煎饼果子')
+
+    def make_master_cake(self):
+        Master.__init__(self)
+        Master.make_cake(self)
+
+    def make_school_cake(self):
+        School.__init__(self)
+        School.make_cake(self)
+
+
+
+class Tusun(Prentice):
+    pass
+
+
+xiaoqiu = Tusun()
+
+xiaoqiu.make_cake()
+
+xiaoqiu.make_school_cake()
+
+xiaoqiu.make_master_cake()
+```
+
+### 7\. super()调用父类方法
+
+```
+class Master(object):
+    def __init__(self):
+        self.kongfu = '[古法煎饼果子配方]'
+
+    def make_cake(self):
+        print(f'运用{self.kongfu}制作煎饼果子')
+
+
+class School(Master):
+    def __init__(self):
+        self.kongfu = '[现代煎饼果子配方]'
+
+    def make_cake(self):
+        print(f'运用{self.kongfu}制作煎饼果子')
+
+        
+        
+        
+
+        
+        super().__init__()
+        super().make_cake()
+
+
+class Prentice(School):
+    def __init__(self):
+        self.kongfu = '[独创煎饼果子技术]'
+
+    def make_cake(self):
+        self.__init__()
+        print(f'运用{self.kongfu}制作煎饼果子')
+
+    
+    def make_master_cake(self):
+        Master.__init__(self)
+        Master.make_cake(self)
+
+    def make_school_cake(self):
+        School.__init__(self)
+        School.make_cake(self)
+
+    
+    def make_old_cake(self):
+        
+        
+        
+        
+        
+
+        
+        
+        
+        
+
+        
+        super().__init__()
+        super().make_cake()
+
+
+daqiu = Prentice()
+
+daqiu.make_old_cake()
+```
+
+> 注意：使用 super() 可以自动查找父类。调用顺序遵循 `__mro__` 类属性的顺序。比较适合单继承使用。
+
+### 8\. 私有权限
+
+#### 8.1 定义私有属性和方法
+
+在 Python 中，可以为实例属性和方法设置私有权限，即设置某个实例属性或实例方法不继承给子类。
+
+设置私有权限的方法：在属性名和方法名 前面 加上两个下划线 `__`。
+
+```
+class Master(object):
+    def __init__(self):
+        self.kongfu = '[古法煎饼果子配方]'
+
+    def make_cake(self):
+        print(f'运用{self.kongfu}制作煎饼果子')
+
+
+class School(object):
+    def __init__(self):
+        self.kongfu = '[现代煎饼果子配方]'
+
+    def make_cake(self):
+        print(f'运用{self.kongfu}制作煎饼果子')
+
+
+class Prentice(School, Master):
+    def __init__(self):
+        self.kongfu = '[独创煎饼果子配方]'
+        
+        self.__money = 2000000
+
+    
+    def __info_print(self):
+        print(self.kongfu)
+        print(self.__money)
+
+    def make_cake(self):
+        self.__init__()
+        print(f'运用{self.kongfu}制作煎饼果子')
+
+    def make_master_cake(self):
+        Master.__init__(self)
+        Master.make_cake(self)
+
+    def make_school_cake(self):
+        School.__init__(self)
+        School.make_cake(self)
+
+
+
+class Tusun(Prentice):
+    pass
+
+
+daqiu = Prentice()
+
+
+
+
+xiaoqiu = Tusun()
+```
+
+> 注意：私有属性和私有方法只能在类里面访问和修改。
+
+#### 8.2 获取和修改私有属性值
+
+在 Python 中，一般定义函数名`get_xx`用来获取私有属性，定义`set_xx`用来修改私有属性值。
+
+```
+class Master(object):
+    def __init__(self):
+        self.kongfu = '[古法煎饼果子配方]'
+
+    def make_cake(self):
+        print(f'运用{self.kongfu}制作煎饼果子')
+
+
+class School(object):
+    def __init__(self):
+        self.kongfu = '[现代煎饼果子配方]'
+
+    def make_cake(self):
+        print(f'运用{self.kongfu}制作煎饼果子')
+
+
+class Prentice(School, Master):
+    def __init__(self):
+        self.kongfu = '[独创煎饼果子配方]'
+        self.__money = 2000000
+
+    
+    def get_money(self):
+        return self.__money
+
+    
+    def set_money(self):
+        self.__money = 500
+
+    def __info_print(self):
+        print(self.kongfu)
+        print(self.__money)
+
+    def make_cake(self):
+        self.__init__()
+        print(f'运用{self.kongfu}制作煎饼果子')
+
+    def make_master_cake(self):
+        Master.__init__(self)
+        Master.make_cake(self)
+
+    def make_school_cake(self):
+        School.__init__(self)
+        School.make_cake(self)
+
+
+
+class Tusun(Prentice):
+    pass
+
+
+daqiu = Prentice()
+
+xiaoqiu = Tusun()
+
+print(xiaoqiu.get_money())
+
+xiaoqiu.set_money()
+print(xiaoqiu.get_money())
+```
+
+### 9\. 总结
+
+*   继承的特点
+    
+*   子类默认拥有父类的所有属性和方法
+    
+*   子类重写父类同名方法和属性
+    
+*   子类调用父类同名方法和属性
+    
+*   super()方法快速调用父类方法
+    
+*   私有权限
+    
+*   不能继承给子类的属性和方法需要添加私有权限
+    
+*   语法
+    
+
+```
+class 类名():
+  
+  __属性名 = 值
+
+  
+  def __函数名(self):
+    代码
+```
+
+九、多态
+----
+
+### 1\. 了解多态
+
+多态指的是一类事物有多种形态，（一个抽象类有多个子类，因而多态的概念依赖于继承）。
+
+*   定义：多态是一种使用对象的方式，子类重写父类方法，调用不同子类对象的相同父类方法，可以产生不同的执行结果
+    
+*   好处：调用灵活，有了多态，更容易编写出通用的代码，做出通用的编程，以适应需求的不断变化！
+    
+*   实现步骤：
+    
+*   定义父类，并提供公共方法
+    
+*   定义子类，并重写父类方法
+    
+*   传递子类对象给调用者，可以看到不同子类执行效果不同
+    
+
+### 2\. 体验多态
+
+```
+class Dog(object):
+    def work(self):  
+        print('指哪打哪...')
+
+
+class ArmyDog(Dog):  
+    def work(self):  
+        print('追击敌人...')
+
+
+class DrugDog(Dog):
+    def work(self):
+        print('追查毒品...')
+
+
+class Person(object):
+    def work_with_dog(self, dog):  
+        dog.work()
+
+
+ad = ArmyDog()
+dd = DrugDog()
+
+daqiu = Person()
+daqiu.work_with_dog(ad)
+daqiu.work_with_dog(dd)
+```
+
+十、类属性和实例属性
+----------
+
+### 1\. 类属性
+
+#### 1.1 设置和访问类属性
+
+*   类属性就是 **类对象** 所拥有的属性，它被 **该类的所有实例对象所共有**。
+    
+*   类属性可以使用 **类对象** 或 **实例对象** 访问。
+    
+
+```
+class Dog(object):
+    tooth = 10
+
+
+wangcai = Dog()
+xiaohei = Dog()
+
+print(Dog.tooth)  
+print(wangcai.tooth)  
+print(xiaohei.tooth)
+```
+
+> 类属性的优点
+> 
+> *   **记录的某项数据 始终保持一致时**，则定义类属性。
+>     
+> *   **实例属性** 要求 **每个对象** 为其 **单独开辟一份内存空间** 来记录数据，而 **类属性** 为全类所共有 ，**仅占用一份内存**，**更加节省内存空间**。
+>     
+
+#### 1.2 修改类属性
+
+类属性只能通过类对象修改，不能通过实例对象修改，如果通过实例对象修改类属性，表示的是创建了一个实例属性。
+
+```
+class Dog(object):
+    tooth = 10
+
+
+wangcai = Dog()
+xiaohei = Dog()
+
+
+Dog.tooth = 12
+print(Dog.tooth)  
+print(wangcai.tooth)  
+print(xiaohei.tooth)  
+
+
+wangcai.tooth = 20
+print(Dog.tooth)  
+print(wangcai.tooth)  
+print(xiaohei.tooth)
+```
+
+### 2\. 实例属性
+
+```
+class Dog(object):
+    def __init__(self):
+        self.age = 5
+
+    def info_print(self):
+        print(self.age)
+
+
+wangcai = Dog()
+print(wangcai.age)  
+
+wangcai.info_print()
+```
+
+十一、类方法和静态方法
+-----------
+
+### 1\. 类方法
+
+#### 1.1 类方法特点
+
+需要用装饰器`@classmethod`来标识其为类方法，对于类方法，**第一个参数必须是类对象**，一般以`cls`作为第一个参数。
+
+#### 1.2 类方法特点
+
+*   当方法中 **需要使用类对象** (如访问私有类属性等)时，定义类方法
+    
+*   类方法一般和类属性配合使用
+    
+
+```
+class Dog(object):
+    __tooth = 10
+
+    @classmethod
+    def get_tooth(cls):
+        return cls.__tooth
+
+
+wangcai = Dog()
+result = wangcai.get_tooth()
+print(result)
+```
+
+### 2\. 静态方法
+
+#### 2.1 静态方法特点
+
+*   需要通过装饰器`@staticmethod`来进行修饰，**静态方法既不需要传递类对象也不需要传递实例对象（形参没有 self/cls）**。
+    
+*   静态方法 也能够通过 **实例对象** 和 **类对象** 去访问。
+    
+
+#### 2.2 静态方法使用场景
+
+*   当方法中 **既不需要使用实例对象**(如实例对象，实例属性)，**也不需要使用类对象** (如类属性、类方法、创建实例等)时，定义静态方法
+    
+*   **取消不需要的参数传递**，有利于 **减少不必要的内存占用和性能消耗**
+    
+
+```
+class Dog(object):
+    @staticmethod
+    def info_print():
+        print('这是一个狗类，用于创建狗实例....')
+
+
+wangcai = Dog()
+
+wangcai.info_print()
+Dog.info_print()
+```
