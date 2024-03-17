@@ -226,3 +226,67 @@ Web服务器接收请求，通过WSGI将HTTP
 ![[Flask-2024316-2.png]]
 请求解析和响应封装实际上大部分是由Werkzeug完成的，Flask子类化Werkzeug的请求（Request）和响应（Response）对象并添加了和程序相关的特定功能。
 ![[Flask-2024316-3.png]]
+Werkzeug的MutliDict类是字典的子类，它主要实现了同一个键对应多个值的情况。比如一个文件上传字段可能会接收多个文件。这时就可以通过getlist（）方法来获取文件对象列表。而ImmutableMultiDict类继承了MutliDict类，但其值不可更改。
+
+当你访问http://localhost:5000/hello?name=Grey 时，页面加载后会显示“Hello，
+Grey！”。这说明处理这个URL的视图函数从查询字符串中获取了查询参数name的值:
+```
+from flask import Flask, request
+app = Flask(__name__)
+@app.route('/hello')
+def hello():
+name = request.args.get('name', 'Flask') # 获取查询参数name的值
+return '<h1>Hello, %s!<h1>' % name # 插入到返回值中
+```
+注意
+和普通的字典类型不同，当我们从request对象的类型为MutliDict或ImmutableMultiDict的属性（比如files、form、args）中直接使用键作为索引获取数据时（比如request.args['name']），如果没有对应的键，那么会返回HTTP 400错误响应（Bad Request，表示请求无效），而不是抛出KeyError异常。为了避免这个错误，我们应该使用get（）方法获取数据，如果没有对应的值则返回None；get（）方法的第二个参数可以设置默认值，比如requset.args.get（'name'，'Human'）。
+
+# 在Flask中处理请求
+在Flask中，我们需要让请求的URL匹配对应的视图函数，视图函数返回值就是URL对应的资源。
+## 1.路由匹配
+为了便于将请求分发到对应的视图函数，程序实例中存储了一个路由表（app.url_map），其中定义了URL规则和视图函数的映射关系。当请求发来后，Flask会根据请求报文中的URL（path部分）来尝试与这个表中的所有URL规则进行匹配，调用匹配成功的视图函数。如果没有找到匹配的URL规则，说明程序中没有处理这个URL的视图函数，Flask会自动返回404错误响应（Not Found，表示资源未找到）。当请求的URL与某个视图函数的URL规则匹配成功时，对应的视图函数就会被调用。使用flask routes命令可以查看程序中定义的所有路
+由，这个列表由app.url_map解析得到：
+```
+$ flask routes
+Endpoint Methods Rule
+-------- ------- -----------------------
+hello GET /hello
+go_back GET /goback/<int:age>
+hi GET /hi
+...
+static GET /static/<path:filename>
+```
+## 2.设置监听的HTTP方法
+我们可以在app.route（）装饰器中使用methods参数传入一个包含监听的HTTP方法的可迭代对象。比如，下面的视图函数同时监听GET请求和POST请求：
+```
+@app.route('/hello', methods=['GET', 'POST'])
+def hello():
+return '<h1>Hello, Flask!</h1>'
+```
+## 3.URL处理
+URL规则中的变量<int:year>表示为year变量添加了一个int转换器，Flask在解析这个URL变量时会将其转换为整型。URL中的变量部分默认类型为字符串，但Flask提供了一些转换器可以在URL规则里使用:
+![[Flask-2024316-4.png]]
+
+```
+@app.route('goback/<int:year>')
+def go_back(year):
+return '<p>Welcome to %d!</p>' % (2018 - year)
+```
+在用法上唯一特别的是any转换器，你需要在转换器后添加括号来给出可选值，即“<any（value1，value2，...）：变量名>”，比如：
+```
+@app.route('/colors/<any(blue, white, red):color>')
+def three_colors(color):
+return '<p>Love is patient and kind. Love is not jealous or boastful or proud or rude.</p>'
+```
+
+当你在浏览器中访问http://localhost:5000/colors/ 时，如果将<color>部分替换为any转换器中设置的可选值以外的任意字符，均会获得404错误响应。
+
+如果你想在any转换器中传入一个预先定义的列表，可以通过格式化字符串的方式（使用%或是format（）函数）来构建URL规则字符串，比如：
+```
+colors = ['blue', 'white', 'red']
+@app.route('/colors/<any(%s):color>' % str(colors)[1:-1])
+...
+```
+# 请求钩子 (hooks)
+有时我们需要对请求进行预处理（preprocessing）和后处理（postprocessing），这时可以使用Flask提供的一些请求钩子（Hook），它们可以用来注册在请求处理的不同阶段执行的处理函数（或称为回调函数，即Callback）。这些请求钩子使用装饰器实现，通过程序实例app调用，用法很简单：以before_request钩子（请求之前）为例，当你对一个函数附加了app.before_request装饰器后，就会将这个函数注册为before_request处理函数，每次执行请求前都会触发所有before_request处理函数。Flask默认实现的五种请求钩子:
+![[Flask-2024316-5.png]]
