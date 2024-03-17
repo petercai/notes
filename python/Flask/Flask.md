@@ -224,6 +224,5 @@ Web服务器接收请求，通过WSGI将HTTP
 响应依次经过WSGI转换生成HTTP响应，再经由Web服务器传递，最终
 被发出请求的客户端接收。
 ![[Flask-2024316-2.png]]
-```
-
-```
+请求解析和响应封装实际上大部分是由Werkzeug完成的，Flask子类化Werkzeug的请求（Request）和响应（Response）对象并添加了和程序相关的特定功能。
+![[Flask-2024316-3.png]]
