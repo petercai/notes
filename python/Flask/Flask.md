@@ -1388,3 +1388,660 @@ def page_not_found(e):
 ```
 错误处理函数接收异常对象作为参数，内置的异常对象提供了下列常用属性![[Flask-2024317-11.png]]
 如果你不想手动编写错误页面的内容，可以将这些信息传入错误页面模板，在模板中用它们来构建错误页面。不过需要注意的是，传入500错误处理器的是真正的异常对象，通常不会提供这几个属性，你需要手动编写这些值。
+
+# 使用Flask-WTF处理表单
+WTForms支持在Python中使用类定义表单，然后直接通过类定义生成对应的HTML代码，这种方式更加方便，而且使表单更易于重用。因此，除非是非常简单的程序，或者是你想让表单的定义更加灵活，否则我们一般不会在模板中直接使用HTML编写表单。扩展Flask-WTF集成了WTForms，使用它可以在Flask中更方便地使用WTForms。Flask-WTF将表单数据解析、CSRF保护、文件上传等功能与Flask集成，另外还附加了reCAPTCHA支持。
+
+## 定义WTForms表单类
+当使用WTForms创建表单时，表单由Python类表示，这个类继承从WTForms导入的Form基类。一个表单由若干个输入字段组成，这些字段分别用表单类的类属性来表示（字段即Field，你可以简单理解为表单内的输入框、按钮等部件）。下面定义了一个LoginForm类，最终会生成我们在前面定义的HTML表单：
+
+```
+from flask_wtf import FlaskForm
+from wtforms import StringField, PasswordField, BooleanField, SubmitField
+from wtforms.validators import DataRequired, Length
+class LoginForm(FlaskForm):
+	username = StringField('Username', validators=[DataRequired()])
+	password = PasswordField('Password', validators=[DataRequired(), Length(8, 128)])
+	remember = BooleanField('Remember me')
+	submit = SubmitField('Log in')
+```
+==字段属性名称大小写敏感，不能以下划线或validate开头==。
+这里的LoginForm表单类中定义了四个字段：文本字段StringField、密码字段Password-Field、勾选框字段BooleanField和提交按钮字段SubmitField。字段类从wtforms包导入，常用的WTForms字段：![[Flask-2024317-12.png]]
+
+
+通过实例化字段类时传入的参数，我们可以对字段进行设置，字段类构造方法接收的常用参数如表所示：![[Flask-2024317-13.png]]
+
+在WTForms中，验证器（validator）是一系列用于验证字段数据的类，我们在实例化字段类时使用validators关键字来指定附加的验证器列表。验证器从wtforms.validators模块中导入，常用的验证器如表所示：![[Flask-2024317-14.png]]![[Flask-2024317-15.png]]
+
+validators参数接收一个传入可调用对象组成的列表。==内置的验证器通过实现了__call__（）方法的类表示，所以我们需要在验证器后添加括号==。
+
+name和password字段里，我们都使用了DataRequired验证器，用来验证输入的数据是否有效。另外，password字段里还添加了一个Length验证器，用来验证输入的数据长度是否在给定的范围内。验证器的第一个参数一般为错误提示消息，我们可以使用message关键字传递
+参数，通过传入自定义错误信息来覆盖内置消息，比如：
+```
+name = StringField('Your Name', validators=[DataRequired(message=u'名字不能为空！')])
+```
+
+## 输出HTML代码
+有些字段最终生成的HTML代码相同，不过WTForms会在表单提交后根据表单类中字段的类型对数据进行处理，转换成对应的Python类型，以便在Python脚本中对数据进行处理。
+
+例化表单类，然后将实例属性转换成字符串或直接调用就可以获取表单字段对应的HTML
+代码：
+
+```
+>>> form = LoginForm()
+>>> form.username()
+u'<input id="username" name="username" type="text" value="">'
+>>> form.submit()
+u'<input id="submit" name="submit" type="submit" value="Submit">'
+```
+
+字段的`<label>`元素的HTML代码则可以通过“form.字段名.label”的形式获取：
+
+```
+>>> form.username.label()
+u'<label for="username">Username</label>'
+>>> form.submit.label()
+u'<label for="submit">Submit</label>'
+```
+默认情况下，WTForms输出的字段HTML代码只会包含id和name属性，属性值均为表
+单类中对应的字段属性名称。如果要添加额外的属性，通常有两种方法。
+### 1.使用render_kw属性
+比如下面为username字段使用render_kw设置了placeholder HTML属性：
+
+```
+username = StringField('Username', render_kw={'placeholder': 'Your Username'})
+```
+这个字段被调用后输出的HTML代码如下所示：
+
+```
+<input type="text" id="username" name="username" placeholder="Your Username">
+```
+### 2.在调用字段时传入
+在调用字段属性时，通过添加括号使用关键字参数的形式也可以传入字段额外的HTML属性：
+
+```
+>>> form.username(style='width: 200px;', class_='bar')
+u'<i nput class="bar" id="username" name="username" style="width: 200px;" type="text">'
+```
+==附注==
+class是Python的保留关键字，在这里我们==使用class_来代替class==，渲染后的`<input>`会获得正确的class属性，在模板中调用时则可以直接使用class。
+ ==注意==
+通过上面的方法也可以修改id和name属性，但表单被提交后，WTForms需要通过name属性来获取对应的数据，所以不能修改name属性值。
+
+## 在模板中渲染表单
+为了能够在模板中渲染表单，我们需要把表单类实例传入模板。首先在视图函数里实例化表单类LoginForm，然后在render_template（）函数中使用关键字参数form将表单实例传入模板:
+
+```
+from forms import LoginForm
+@app.route('/basic')
+def basic():
+	form = LoginForm()
+	return render_template('login.html', form=form)
+```
+在模板中，只需要调用表单类的属性即可获取字段对应的HTML代码，如果需要传入参数，也可以添加括号:
+
+```
+<form method="post">
+{{ form.csrf_token }} <!-- 渲染CSRF令牌隐藏字段 -->
+{{ form.username.label }}{{ form.username }}<br>
+{{ form.password.label }}{{ form.password }}<br>
+{{ form.remember }}{{ form.remember.label }}<br>
+{{ form.submit }}<br>
+</form>
+```
+
+需要注意的是，在上面的代码中，除了渲染各个字段的标签和字段本身，我们还调用了form.csrf_token属性渲染Flask-WTF为表单类自动创建的CSRF令牌字段。form.csrf_token字段包含了自动生成的CSRF令牌值，在提交表单后会自动被验证，为了确保表单通过验证，我们必须在表单中手动渲染这个字段。
+
+Flask-WTF为表单类实例提供了一个form.hidden_tag（）方法，这个方法会依次渲染表单中所有的隐藏字段。因为csrf_token字段也是隐藏字段，所以当这个方法被调用时也会渲染csrf_token字段。渲染后获得的实际HTML代码如下所示：
+
+```
+<form method="post">
+	<input id="csrf_token" name="csrf_token" type="hidden" value="IjVmMDE1ZmFjM2VjYmZjY...i.DY1QSg.IWc1WEWxr3TvmAWCTHRMGjIcDOQ">
+	<label for="username">Username</label><br>
+	<input id="username" name="username" type="text" value=""><br>
+	<label for="password">Password</label><br>
+	<input id="password" name="password" type="password" value=""><br>
+	<input id="remember" name="remember" type="checkbox" value="y"><label for="remember">Remember me</label><br>
+	<input id="submit" name="submit" type="submit" value="Log in"><br>
+</form>
+```
+使用render_kw字典或是在调用字段时传入参数来定义字段的额外HTML属性，通过这种方式添加CSS类，我们可以编写一个Bootstrap风格的表单：
+
+```
+...
+<form method="post">
+	{{ form.csrf_token }}
+	<div class="form-group">
+	{{ form.username.label }}
+	{{ form.username(class='form-control') }}
+	</div>
+	<div class="form-group">
+	{{ form.password.label }}
+	{{ form.password(class='form-control') }}
+	</div>
+	<div class="form-check">
+	{{ form.remember(class='form-check-input') }}
+	{{ form.remember.label }}
+	</div>
+	{{ form.submit(class='btn btn-primary') }}
+</form>
+...
+```
+
+## 处理表单数据
+### 提交表单
+在HTML中，当`<form>`标签声明的表单中类型为submit的提交字段被单击时，就会创建一个提交表单的HTTP请求，请求中包含表单各个字段的数据。表单的提交行为主要由三个属性控制: ![[Flask-2024317-16.png]]
+
+### 验证表单数据
+#### 客户端验证
+客户端验证（client side validation）是指在客户端（比如Web浏览器）对用户的输入值进行验证。比如，使用HTML5内置的验证属性即可实现基本的客户端验证（type、required、min、max、accept等）。比如，下面的username字段添加了required标志：
+`<input type="text" name="username" required>`
+如果用户没有输入内容而按下提交按钮，会弹出浏览器内置的错误提示。和其他附加HTML属性相同，我们可以在定义表单时通过render_kw传入这些属性，或是在渲染表单时传入。像required这类布尔值属性，值可以为空或是任意ASCII字符，比如：
+`{{ form.username(required='') }}`
+
+#### 服务器端WTForms验证
+WTForms验证表单字段的方式是在实例化表单类时传入表单数据，然后对表单实例调用validate（）方法。这会逐个对字段调用字段实例化时定义的验证器，返回表示验证结果的布尔值。如果验证失败，就把错误消息存储到表单实例的errors属性对应的字典中.
+如果单纯使用WTForms，我们在实例化表单类时需要首先把request.form传入表单类，而使用Flask-WTF时，表单类继承的FlaskForm基类默认会从request.form获取表单数据，所以不需要手动传入。其数据会被Flask解析为一个字典，可以通过请求对象的form属性获取（request.form）；使用GET方法提交的表单的数据同样会被解析为字典，不过要通过请求对象的args属性获取（request.args）。
+
+#### 在视图函数中验证表单
+请求的HTTP方法可以通过request.method属性获取，我们可以使用下面的方式来组织视图函数：
+
+```
+from flask import request
+...
+@app.route('/basic', methods=['GET', 'POST'])
+def basic():
+	form = LoginForm() # GET + POST
+	if request.method == 'POST' and form.validate():
+	... # 处理POST请求
+	return render_template('forms/basic.html', form=form) # 处理GET请求
+```
+其中的if语句等价于：
+```
+if 用户提交表单 and 数据通过验证:
+	获取表单数据并保存
+```
+当请求方法是GET时，会跳过这个if语句，渲染basic.html模板；当请求的方法是POST时（说明用户提交了表单），则验证表单数据。这会逐个字段（包括CSRF令牌字段）调用附加的验证器进行验证。
+==注意==
+因为WTForms会自动对CSRF令牌字段进行验证，如果没有渲染该字段会导致验证出错，错误消息为“CSRF token is missing”。
+Flask-WTF提供的validate_on_submit（）方法合并了这两个操作，因此上面的代码可以简化为：
+```
+@app.route('/basic', methods=['GET', 'POST'])
+def basic():
+	form = LoginForm()
+	if form.validate_on_submit():
+	...
+	return render_template('basic.html', form=form)
+```
+==附注==
+除了POST方法，如果请求的方法是PUT、PATCH和DELETE方法，form.validate_on_submit（）也会验证表单数据。
+
+如果form.validate_on_submit（）返回True，则表示用户提交了表单，且表单通过验证，那么我们就可以在这个if语句内获取表单数据:
+```
+from flask import Flask, render_template, redirect, url_for, flash
+...
+@app.route('/basic', methods=['GET', 'POST'])
+def basic():
+	form = LoginForm()
+	if form.validate_on_submit():
+	username = form.username.data
+	flash('Welcome home, %s!' % username)
+	return redirect(url_for('index'))
+return render_template('basic.html', form=form)
+```
+表单类的data属性是一个匹配所有字段与对应数据的字典，我们一般直接通过“form.字段属性名.data”的形式来获取对应字段的数据。例如，form.username.data返回username字段的值。
+==提示==
+在这个if语句内，如果不使用重定向的话，当if语句执行完毕后会继续执行最后的render_template（）函数渲染模板，最后像往常一样返回一个常规的200响应，但这会造成一个问题：在浏览器中，当单击F5刷新/重载时的默认行为是发送上一个请求。如果上一个请求是POST请求，那么就会弹出一个确认窗口，询问用户是否再次提交表单。为了避免出现这个容易让人产生困惑的提示，我们尽量不要让提交表单的POST请求作为最后一个请求。这就是为什么我们在处理表单后返回一个重定向响应，这会让浏览器重新发送一个
+新的GET请求到重定向的目标URL。最终，最后一个请求就变成了GET请求。这种用来防止重复提交表单的技术称为PRG（Post/Redirect/Get）模式，即通过对提交表单的POST请求返回重定向响应将最后一个请求转换为GET请求。
+
+#### 在模板中渲染错误消息
+如果form.validate_on_submit（）返回False，那么说明验证没有通过。对于验证未通过的字段，WTForms会把错误消息添加到表单类的errors属性中，这是一个匹配作为表单字段的类属性到对应的错误消息列表的字典。我们一般会直接通过字段名来获取对应字段的错误消息列表，即“form.字段名.errors”。比如，form.name.errors返回name字段的错误消息列表。我们可以在模板里使用for循环迭代错误消息列表:
+
+```
+<form method="post">
+	{{ form.csrf_token }}
+	{{ form.username.label }}<br>
+	{{ form.username() }}<br>
+	{% for message in form.username.errors %}
+		<small class="error">{{ message }}</small><br>
+	{% endfor %}
+	{{ form.password.label }}<br>
+	{{ form.password }}<br>
+	{% for message in form.password.errors %}
+		<small class="error">{{ message }}</small><br>
+	{% endfor %}
+	{{ form.remember }}{{ form.remember.label }}<br>
+	{{ form.submit }}<br>
+</form>
+```
+
+附注
+为了让错误消息更加醒目，我们为错误消息元素添加了error类，这个样式类在style.css文件中定义，它会将文字颜色设为红色。
+
+## 使用Flask-CKEditor集成富文本编辑器
+CKEditor（http://ckeditor.com/ ）是一个开源的富文本编辑器，它包含丰富的配置选项，而且有大量第三方插件支持。扩展Flask-CKEditor简化了在Flask程序中使用CKEditor的过程
+
+# 使用Flask-SQLAlchemy管理数据库
+实例化Flask-SQLAlchemy提供的SQLAlchemy类，传入程序实例app，以完成扩展的初始化：
+
+```
+from flask import Flask
+from flask_sqlalchemy import SQLAlchemy
+app = Flask(__name__)
+db = SQLAlchemy(app)
+
+```
+虽然我们要使用的大部分类和函数都由SQLAlchemy提供，但在Flask-SQLAlchemy中，大多数情况下，我们不需要手动从SQLAlchemy导入类或函数。在sqlalchemy和sqlalchemy.orm模块中实现的类和函数，以及其他几个常用的模块和对象都可以作为db对象的属性调用。当我们创建这样的调用时，Flask-SQLAlchemy会自动把这些调用转发到对应的类、函数或模块。
+
+## 连接数据库服务器
+常用的数据库URI格式:![[Flask-2024318-1.png]]
+Flask-SQLAlchemy中，数据库的URI通过配置变量SQLALCHEMY_DATABASE_URI设置，默认为SQLite内存型数据库（sqlite：///：memory：）。SQLite是基于文件的DBMS，不需要设置数据库服务器，只需要指定数据库文件的绝对路径。我们使用app.root_path来定位数据库文件的路径，并将数据库文件命名为data.db
+
+```
+import os
+...
+app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URL', 'sqlite:///' + os.path.join(app.root_path, 'data.db'))
+```
+在生产环境下更换到其他类型的DBMS时，数据库URL会包含敏感信息，所以这里优先从环境变量DATABASE_URL获取. 设置好数据库URI后，在Python Shell中导入并查看db对象会获得下面的输出：
+```
+>>> from app import db
+>>> db
+<SQLAlchemy engine=sqlite:///Path/to/your/data.db>
+```
+## 定义数据库模型
+用来映射到数据库表的Python类通常被称为数据库模型（model），一个数据库模型类对应数据库中的一个表。定义模型即使用Python类定义表模式，并声明映射关系。所有的模型类都需要继承Flask-SQLAlchemy提供的db.Model基类。
+
+```
+class Note(db.Model):
+id = db.Column(db.Integer, primary_key=True)
+body = db.Column(db.Text)
+```
+常用的SQLAlchemy字段类型如表所示:![[Flask-2024318-2.png]]
+常用的SQLAlchemy字段参数: ![[Flask-2024318-3.png]]
+
+## 创建数据库和表
+创建模型类后，我们需要手动创建数据库和对应的表，也就是我们常说的建库和建表。这通过对我们的db对象调用create_all（）方法实现：
+
+```
+$ flask shell
+>>> from app import db
+>>> db.create_all()
+```
+
+==注意==
+如果你将模型类定义在单独的模块中，那么必须在调用db.create_all（）方法前导入相应模块，以便让SQLAlchemy获取模型类被创建时生成的表信息，进而正确生成数据表。
+通过下面的方式可以查看模型对应的SQL模式（建表语句）：
+
+```
+>>> from sqlalchemy.schema import CreateTable
+>>> print(CreateTable(Note.__table__))
+CREATE TABLE note (
+id INTEGER NOT NULL,
+body TEXT,
+PRIMARY KEY (id)
+)
+```
+## 数据库操作
+SQLAlchemy使用数据库会话来管理数据库操作，这里的数据库会话也称为事务（transaction）。Flask-SQLAlchemy自动帮我们创建会话，可以通过db.session属性获取。数据库中的会话代表一个临时存储区，你对数据库做出的改动都会存放在这里。你可以调用add（）方法将新创建的对象添加到数据库会话中，或是对会话中的对象进行更新。只有当你对数据库会话对象调用commit（）方法时，改动才被提交到数据库，这确保了数据提交的一致
+性。另外，数据库会话也支持回滚操作。当你对会话调用rollback（）方法时，添加到会话中且未提交的改动都将被撤销。
+
+### create
+```
+>>> from app import db, Note
+>>> note1 = Note(body='remember Sammy Jankis')
+>>> note2 = Note(body='SHAVE')
+>>> note3 = Note(body='DON'T BELIEVE HIS LIES, HE IS THE ONE, KILL HIM')
+>>> db.session.add(note1)
+>>> db.session.add(note2)
+>>> db.session.add(note3)
+>>> db.session.commit()
+```
+我们在创建模型类实例的时候并没有定义id字段的数据，这是因为主键由SQLAlchemy管理。模型类对象创建后作为临时对象（transient），当你提交数据库会话后，模型类对象才会转换为数据库记录写入数据库中，这时模型类对象会自动获得id值.
+
+### read
+用模型类提供的query属性附加调用各种过滤方法及查询方法可以完成这个任务。
+一般来说，一个完整的查询遵循下面的模式：
+`<模型类>.query.<过滤方法>.<查询方法>`
+从某个模型类出发，通过在query属性对应的Query对象上附加的过滤方法和查询函数对模型类对应的表中的记录进行各种筛选和调整，最终返回包含对应数据库记录数据的模型类实例，对返回的实例调用属性即可获取对应的字段数据。
+常用的SQLAlchemy查询方法:![[Flask-2024318-4.png]]![[Flask-2024318-5.png]]
+- all（）返回所有记录：
+```
+>>> Note.query.all()
+[<Note u'remember Sammy Jankis'>, <Note u'SHAVE'>, <Note u'DON'T BELIEVE HIS LIES, HE IS THE ONE, KILL HIM'>]
+```
+
+- first（）返回第一条记录：
+```
+>>> note1 = Note.query.first()
+>>> note1
+<Note u'remember Sammy Jankis'>
+>>> note1.body
+u'remember Sammy Jankis'
+```
+- get（）返回指定主键值（id字段）的记录：
+```
+>>> note2 = Note.query.get(2)
+>>> note2
+<Note u'SHAVE'>
+```
+- count（）返回记录的数量：
+
+```
+>>> Note.query.count()
+3
+```
+
+SQLAlchemy还提供了许多过滤方法，使用这些过滤方法可以获取更精确的查询，比如获取指定字段值的记录。对模型类的query属性存储的Query对象调用过滤方法将返回一个更精确的Query对象。因为每个过滤方法都会返回新的查询对象，所以过滤器可以叠加使用。在查询对象上调用前面介绍的查询方法，即可获得一个包含过滤后的记录的列表。
+
+完整的查询方法和过滤方法列表在http://docs.sqlalchemy.org/en/latest/orm/query.html 可以看到。 常用的SQLAlchemy过滤方法:![[Flask-2024318-6.png]]
+
+filter（）方法是最基础的查询方法。它使用指定的规则来过滤记录，下面的示例在数据库里找出了body字段值为“SHAVE”的记录：
+
+```
+>>> Note.query.filter(Note.body='SHAVE').first()
+<Note u'SHAVE'>
+```
+直接打印查询对象或将其转换为字符串可以查看对应的SQL语句：
+```
+>>> print(Note.query.filter_by(body='SHAVE'))
+	SELECT note.id AS note_id, note.body AS note_body
+	FROM note
+	WHERE note.body = ?
+```
+在filter（）方法中传入表达式时，除了“==”以及表示不等于的“！=”，其他常用的查询操作符以及使用示例如下所示：
+- LIKE：`filter(Note.body.like('%foo%'))`
+- IN：`filter(Note.body.in_(['foo', 'bar', 'baz']))`
+- NOT IN：`filter(~Note.body.in_(['foo', 'bar', 'baz']))`
+- AND：
+```
+# 使用and_()
+from sqlalchemy import and_
+filter(and_(Note.body == 'foo', Note.title == 'FooBar'))
+# 或在filter()中加入多个表达式，使用逗号分隔
+filter(Note.body == 'foo', Note.title == 'FooBar')
+# 或叠加调用多个filter()/filter_by()方法
+filter(Note.body == 'foo').filter(Note.title == 'FooBar')
+```
+- OR：
+```
+from sqlalchemy import or_
+filter(or_(Note.body == 'foo', Note.body == 'bar'))
+```
+
+
+完整的可用操作符列表可以访问http://docs.sqlalchemy.org/en/latest/core/sqlelement.html#sqlalchemy.sql.operators.ColumnOperators查看。
+
+和filter（）方法相比，filter_by（）方法更易于使用。在filter_by（）方法中，你可以使用关键字表达式来指定过滤规则。更方便的是，你可以在这个过滤器中直接使用字段名称。下面的示例使用filter_by（）过滤器完成了同样的任务：
+
+```
+>>> Note.query.filter_by(body='SHAVE').first()
+<Note u'SHAVE'>
+```
+### Update
+更新一条记录非常简单，直接赋值给模型类的字段属性就可以改变字段值，然后调用commit（）方法提交会话即可：
+
+```
+>>> note = Note.query.get(2)
+>>> note.body
+u'SHAVE'
+>>> note.body = 'SHAVE LEFT THIGH'
+>>> db.session.commit()
+```
+### Delete
+删除记录和添加记录很相似，不过要把add（）方法换成delete（）方法，最后都需要调用commit（）方法提交修改：
+
+```
+>>> note = Note.query.get(2)
+>>> db.session.delete(note)
+>>> db.session.commit()
+
+```
+## 在视图函数里操作数据库
+在视图函数里操作数据库需要把查询结果作为参数传入模板渲染出来，或是获取表单的字段值作为提交到数据库的数据。
+### 1.Create
+为了支持输入笔记内容，我们先创建一个用于填写新笔记的表单，如下所示：
+
+```
+from flask_wtf import FlaskForm
+from wtforms import TextAreaField, SubmitField
+from wtforms.validators import DataRequired
+class NewNoteForm(FlaskForm):
+	body = TextAreaField('Body', validators=[DataRequired()])
+	submit = SubmitField('Save')
+```
+我们创建一个new_note视图，这个视图负责渲染创建笔记的模板，并处理表单的提交:
+```
+@app.route('/new', methods=['GET', 'POST'])
+def new_note():
+	form = NewNoteForm()
+	if form.validate_on_submit():
+		body = form.body.data
+		note = Note(body=body)
+		db.session.add(note)
+		db.session.commit()
+		flash('Your note is saved.')
+		return redirect(url_for('index'))
+	return render_template('new_note.html', form=form)
+```
+我们先来看看form.validate_on_submit（）返回True时的处理代码。当表单被提交且通过验证时，我们获取表单body字段的数据，然后创建新的Note实例，将表单中body字段的值作为body参数传入，最后添加到数据库会话中并提交会话。这个过程接收用户通过表单提交的数据并保存到数据库中，最后我们使用flash（）函数发送提示消息并重定向到index视图。
+表单在new_note.html模板中渲染：
+```
+{% block content %}
+<h2>New Note</h2>
+<form method="post">
+	{{ form.csrf_token }}
+	{{ form_field(form.body, rows=5, cols=50) }}
+	{{ form.submit }}
+</form>
+{% endblock %}
+```
+index视图用来显示主页，目前它的所有作用就是渲染主页对应的模板：
+
+```
+@app.route('/')
+def index():
+return render_template('index.html')
+```
+在对应的index.html模板中，我们添加一个指向创建新笔记页面的链接：
+
+```
+<h1>Notebook</h1>
+<a href="{{ url_for('new_note') }}">New Note</a>
+```
+
+### 2.Read
+为了在主页列出所有保存的笔记，我们需要修改index视图，修改后的index视图
+
+```
+@app.route('/')
+def index():
+	form = DeleteForm()
+	notes = Note.query.all()
+	return render_template('index.html', notes=notes, form=form)
+```
+在模板中将笔记们显示出来
+```
+<h1>Notebook</h1>
+<a href="{{ url_for('new_note') }}">New Note</a>
+<h4>{{ notes|length }} notes:</h4>
+{% for note in notes %}
+	<div class="note">
+		<p>{{ note.body }}</p>
+	</div>
+{% endfor %}
+```
+在模板中，我们迭代这个notes列表，调用Note对象的body属性（note.body）获取body字段的值。另外，我们还通过length过滤器获取笔记的数量。
+
+### 3.Update
+首先是编辑笔记的表单：
+```
+class EditNoteForm(FlaskForm):
+body = TextAreaField('Body', validators=[DataRequired()])
+submit = SubmitField('Update')
+```
+你会发现这和创建新笔记NewNoteForm唯一的不同就是提交字段的标签参数（作为`<input>`的value属性），因此这个表单的定义也可以通过继承来简化：
+```
+class EditNoteForm(NewNoteForm):
+submit = SubmitField('Update')
+```
+用来渲染更新笔记页面和处理更新表单提交的edit_note视图
+
+```
+@app.route('/edit/<int:note_id>', methods=['GET', 'POST'])
+def edit_note(note_id):
+	form = EditNoteForm()
+	note = Note.query.get(note_id)
+	if form.validate_on_submit():
+		note.body = form.body.data
+		db.session.commit()
+		flash('Your note is updated.')
+		return redirect(url_for('index'))
+	form.body.data = note.body
+	return render_template('edit_note.html', form=form)
+```
+这个视图通过URL变量note_id获取要被修改的笔记的主键值（id字段），然后我们就可以使用get（）方法获取对应的Note实例。当表单被提交且通过验证时，我们将表单中body字段的值赋给note对象的body属性，然后提交数据库会话，这样就完成了更新操作。和创建笔记相同，我们接着发送提示消息并重定向到index视图。唯一需要注意的是，在GET请求的执行流程中，我们添加了下面这行代码：
+`form.body.data = note.body`
+因为要添加修改笔记内容的功能，那么当我们打开修改某个笔记的页面时，这个页面的表单中必然要包含笔记原有的内容。如果手动创建HTML表单，那么你可以通过将note记录传入模板，然后手动为对应字段中填入笔记的原有内容，比如：
+`<textarea name="body">{{ note.body }}</textarea>`
+其他input元素则通过value属性来设置输入框中的值，比如：
+`<input name="foo" type="text" value="{{ note.title }}">`
+
+使用WTForms可以省略这些步骤，当我们渲染表单字段时，如果表单字段的data属性不为空，WTForms会自动把data属性的值添加到表单字段的value属性中，作为表单的值填充进去，我们不用手动为value属性赋值。因此，将存储笔记原有内容的note.body属性赋值给表单body字段的data属性即可在页面上的表单中填入原有的内容。
+最后的工作是在主页笔记列表中的每个笔记内容下添加一个编辑按钮，用来访问编辑页面：
+```
+{% for note in notes %}
+<div class="note">
+	<p>{{ note.body }}</p>
+	<a class="btn" href="{{ url_for('edit_note', note_id=note.id) }}">Edit</a>
+</div>
+{% endfor %}
+```
+生成edit_note视图的URL时，我们传入当前note对象的id（note.id）作为URL变量note_id的值。
+
+### delete
+像删除这类修改数据的操作绝对不能通过GET请求实现，正确的做法是为删除操作创建一个表单，如下所示：
+
+```
+class DeleteNoteForm(FlaskForm):
+submit = SubmitField('Delete')
+```
+
+这个表单类只有一个提交字段，因为我们只需要在页面上显示一个删除按钮来提交表单。删除表单的提交请求由delete_note视图处理:
+
+```
+@app.route('/delete/<int:note_id>', methods=['POST'])
+def delete_note(note_id):
+	form = DeleteForm()
+	if form.validate_on_submit():
+		note = Note.query.get(note_id) # 获取对应记录
+		db.session.delete(note) # 删除记录
+		db.session.commit() # 提交修改
+		flash('Your note is deleted.')
+	else:
+		abort(400)
+	return redirect(url_for('index'))
+```
+==注意==
+在delete_note视图的app.route（）中，methods列表仅填入了POST，这会确保该视图仅监听POST请求。和编辑笔记的视图类似，这个视图接收note_id（主键值）作为参数。如果提交表单且通过验证（唯一需要被验证的是CSRF令牌），就使用get（）方法查询对应的记录，然后调用db.session.delete（）方法删除并提交数据库会话。如果验证出错则使用abort（）函数返回400错误响应。
+因为删除按钮要在主页的笔记内容下添加，我们需要在index视图中实例化DeleteNote-Form类，然后传入模板。在index.html模板中，我们渲染这个表单：
+
+```
+{% for note in notes %}
+<div class="note">
+	<p>{{ note.body }}</p>
+	<a class='btn' href="{{ url_for('edit_note', note_id=note.id) }}">Edit</a>
+	<form method="post" action="{{ url_for('delete_note', note_id=note.id) }}">
+		{{ form.csrf_token }}
+		{{ form.submit(class='btn') }}
+	</form>
+</div>
+{% endfor %}
+```
+我们将表单的action属性设置为删除当前笔记的URL。构建URL时，URL变量note_id的值通过note.id属性获取，当单击提交按钮时，会将请求发送到action属性中的URL。添加删除表单的主要目的就是防止CSRF攻击，所以不要忘记渲染CSRF令牌字段form.csrf_token。
+==提示==
+在HTML中，`<a>`标签会显示为链接，而提交按钮会显示为按钮，为了让编辑和删除笔记的按钮显示相同的样式，我们为这两个元素使用了同一个CSS类“.btn”，具体可以在static/style.css文件中查看。作为替代，你可以考虑使用JavaScript创建监听函数，当删除按钮按下时，提交对应的隐藏表单。
+
+## 定义关系
+### 配置Python Shell上下文
+在上面的许多操作中，每一次使用flask shell命令启动Python Shell后都要从app模块里导入db对象和相应的模型类。为什么不把它们自动集成到Python Shell上下文里呢？就像Flask内置的app对象一样。这当然可以实现！我们可以使用app.shell_context_processor装饰器注册一个
+shell上下文处理函数。它和模板上下文处理函数一样，也需要返回包含变量和变量值的字典:
+```
+# ...
+@app.shell_context_processor
+def make_shell_context():
+return dict(db=db, Note=Note) # 等同于{'db': db, 'Note': Note}
+```
+当你使用flask shell命令启动Python Shell时，所有使用app.shell_context_processor装饰器注册的shell上下文处理函数都会被自动执行，这会将db和Note对象推送到Python Shell上下文里：
+
+```
+$ flask shell
+>>> db
+<SQLAlchemy engine=sqlite:///Path/to/your/data.db>
+>>> Note
+<class 'app.Note'>
+```
+### 一对多
+一对多关系示例
+```
+# ...
+class Author(db.Model):
+	id = db.Column(db.Integer, primary_key=True)
+	name = db.Column(db.String(70), unique=True)
+	phone = db.Column(db.String(20))
+
+class Article(db.Model):
+	id = db.Column(db.Integer, primary_key=True)
+	title = db.Column(db.String(50), index=True)
+	body = db.Column(db.Text)
+```
+
+#### 1.定义外键
+因为外键只能存储单一数据（标量），所以外键总是在“多”这一侧定义. 在Article模型中，我们定义一个author_id字段作为外键：
+
+```
+class Article(db.Model):
+...
+author_id = db.Column(db.Integer, db.ForeignKey('author.id'))
+```
+#### 2.定义关系属性
+定义关系的第二步是使用关系函数定义关系属性。关系属性在关系的出发侧定义，即一对多关系的“一”这一侧。一个作者拥有多篇文章，在Author模型中，我们定义了一个articles属性来表示对应的多篇文章：
+
+```
+class Author(db.Model):
+...
+articles = db.relationship('Article')
+```
+个属性并没有使用Column类声明为列，而是使用了db.relationship（）关系函数定义为关系属性，因为这个关系属性返回多个记录，我们称之为集合关系属性。relationship（）函数的第一个参数为关系另一侧的模型名称，它会告诉SQLAlchemy将Author类与Article类建立关系。当这个关系属性被调用时，SQLAlchemy会找到关系另一侧（即article表）的外键字段（即author_id），然后反向查询article表中所有author_id值为当前表主键值（即author.id）的记录，返回包含这些记录的列表，也就是返回某个作者对应的多篇文章记录。
+
+我们先创建一个作者记录和两个文章记录，并添加到数据库会话中：
+
+```
+>>> foo = Author(name='Foo')
+>>> spam = Article(title='Spam')
+>>> ham = Article(title='Ham')
+>>> db.session.add(foo)
+>>> db.session.add(spam)
+>>> db.session.add(ham)
+```
+
+#### 3.建立关系
+建立关系有两种方式，
+- 第一种方式是为外键字段赋值，比如：
+```
+>>> spam.author_id = 1
+>>> db.session.commit()
+```
+我们将spam对象的author_id字段的值设为1，这会和id值为1的Author对象建立关系。提交数据库改动后，如果我们对id为1的foo对象调用articles关系属性，会看到spam对象包括在返回的Article对象列表中：
+```
+>>> foo.articles
+[<Article u'Spam'>, <Article u'Ham'>]
+```
+
+- 另一种方式是通过操作关系属性，将关系属性赋给实际的对象即可建立关系。集合关系属性可以像列表一样操作，调用append（）方法来与一个Article对象建立关系：
+```
+>>> foo.articles.append(spam)
+>>> foo.articles.append(ham)
+>>> db.session.commit()
+```
+
+
