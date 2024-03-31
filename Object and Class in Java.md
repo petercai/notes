@@ -5,7 +5,7 @@ An object in Java is the physical as well as a logical entity, whereas, a class 
 
 ### What is an object in Java
 
-![](https://static.javatpoint.com/images/objects.jpg)
+![](_assets/objects.jpg)
 
 An entity that has state and behavior is known as an object e.g., chair, bike, marker, pen, table, car, etc. It can be physical or logical (tangible and intangible). The example of an intangible object is the banking system.
 
@@ -15,7 +15,7 @@ An object has three characteristics:
 *   **Behavior:** represents the behavior (functionality) of an object such as deposit, withdraw, etc.
 *   **Identity:** An object identity is typically implemented via a unique ID. The value of the ID is not visible to the external user. However, it is used internally by the JVM to identify each object uniquely.
 
-![](https://static.javatpoint.com/images/characteristics-of-object.jpg)
+![](_assets/characteristics-of-object.jpg)
 
 For Example, Pen is an object. Its name is Reynolds; color is white, known as its state. It is used to write, so writing is its behavior.
 
@@ -43,7 +43,7 @@ A class in Java can contain:
 *   **Blocks**
 *   **Nested class and interface**
 
-![](https://static.javatpoint.com/images/class-in-java.png)
+![](_assets/class-in-java.png)
 
 ### Syntax to declare a class:
 
@@ -218,7 +218,7 @@ File: TestStudent4.java
 
 Output:
 
-![](https://static.javatpoint.com/images/object-in-memory.png)
+![](_assets/object-in-memory.png)
 
 As you can see in the above figure, object gets the memory in heap memory area. The reference variable refers to the object allocated in the heap memory area. Here, s1 and s2 both are reference variables that refer to the objects allocated in memory.
 
@@ -312,7 +312,7 @@ There are many ways to create an object in java. They are:
 
 We will learn these ways to create object later.
 
-![](https://static.javatpoint.com/images/different-ways-to-create-object-in-java.jpg)
+![](_assets/different-ways-to-create-object-in-java.jpg)
  
 
 Anonymous object
