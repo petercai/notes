@@ -38,13 +38,13 @@ Note: Substitute your Pi IP address or hostname for timerpi.local. Also, this co
 
 To use the Device I/O library in your project, create a new Java project called DioLed in NetBeans and add dio.jar as a compile-time library. To access the library settings, choose File | Project Properties (DioLed), click Libraries in the Categories pane, and make sure the Compile tab is selected. Then click Add JAR/Folder and choose the dio.jar file you copied over from the Raspberry Pi.
 
-![](https://dzone.com/storage/temp/1387219-figure-4.png)
+![](_assets/1387219-figure-4.png)
 
 ### Device I/O Pin Assignments
 
 The Java Device I/O library uses the standard GPIO port assignments as specified by the Motorola Broadcom chipset. The following diagram shows a full list of all the ports, their numbers, and what their functions are for the Raspberry Pi B+, A+, 2, and Zero.
 
-![](https://dzone.com/storage/temp/1387220-figure-5.png)
+![](_assets/1387220-figure-5.png)
 
 Even though there are 40 pins total, several of them are not usable for GPIO since they supply power (3.3v/5v) or ground. Most of the remaining pins can be used for GPIO, but may require some configuration before they are accessible. Specifically:
 
@@ -59,7 +59,7 @@ To demonstrate how to use the Device I/O library for output, we are going to bli
 
 Connecting an LED to the Raspberry Pi GPIO pins just requires a few jumper cables. To prevent the LED from being overloaded, we also need a resistor that we can hook up in serial as shown in the following wiring diagram.
 
-![](https://dzone.com/storage/temp/1387224-figure-6.png)
+![](_assets/1387224-figure-6.png)
 
 This is a simple circuit with a 68Ω resistor, an LED, and some wires. Note that LEDs have a positive side and a negative side, usually indicated by the positive lead (the anode) being slightly longer than the negative lead (the cathode). If you hook up the LED backward, it won’t damage it, but it won’t light up either, so make sure that you hook up the longer end to the GPIO pin.
 
@@ -101,7 +101,7 @@ To use Pi4J you just require one JAR file (pi4j-core.jar)—no permissions, no p
 
 By default, Pi4J uses the WiringPi pin assignments. The advantage of this is that they are sequential and in the same location from revision to revision of the Raspberry Pi boards. In practice this only matters between revisions 1 and 2 of the Raspberry Pi B, because the Raspberry Pi Foundation has standardized on the main header pin layout for all subsequent boards, opting to add more pins to the header instead. Here is a diagram showing the pin assignments to use with Pi4J.
 
-![](https://dzone.com/storage/temp/1387225-figure-7.png)
+![](_assets/1387225-figure-7.png)
 
 Pi4J also has the option to initialize pin assignments to the Broadcom GPIO pin numbering. However, I don’t recommend changing this, since it will confuse others who are familiar with the Pi4J library and assume certain pin assignments.
 
@@ -111,7 +111,7 @@ To demonstrate the usage of the Pi4J library, we are going to recode exactly the
 
 To start, create a new project called Pi4JLed as a Java project type. Open the Project Properties dialog of your new project and go to the Libraries category. Click Add JAR/Folder, and select the pi4j-core.jar file. If you don’t already have this library, you can download it from the Pi4J Project site here: pi4j.com.
 
-![](https://dzone.com/storage/temp/1387227-figure-8.png)
+![](_assets/1387227-figure-8.png)
 
 Now you can start writing the code for triggering the LED. Here is the same example with an LED blinking five times, coded using Pi4J libraries:
 
