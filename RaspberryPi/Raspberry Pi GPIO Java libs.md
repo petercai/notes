@@ -83,8 +83,104 @@ This code initializes the GPIO controller, configures a pin as an output, and to
 For robust and versatile GPIO control in Java on a Raspberry Pi, **Pi4J** (either version 1 or the newer V2) is highly recommended. It provides extensive functionality, good documentation, and ease of integration, making it suitable for a wide range of projects.
 
 
+# Pi4j v2
+
+[website](https://github.com/Pi4J/pi4j-v2)
+Pi4J V2 is the second major version of the Pi4J library, which provides a modern and comprehensive framework for Java developers to interact with the hardware features of the Raspberry Pi and other supported platforms. This updated version introduces several improvements and new features over the original Pi4J library, aiming to offer better performance, modularity, and ease of use.
+
+### Key Features of Pi4J V2
+
+1. **Modular Architecture**:
+   - Pi4J V2 has been redesigned with a modular architecture, allowing developers to include only the necessary components for their specific applications. This modularity improves performance and reduces the footprint of the deployed application.
+
+2. **Hardware Abstraction**:
+   - The library provides a high level of abstraction for various hardware components, making it easier to write portable and maintainable code. This abstraction layer allows developers to focus on application logic rather than hardware-specific details.
+
+3. **Wide Range of Peripheral Support**:
+   - Pi4J V2 supports various hardware peripherals, including:
+     - GPIO (General Purpose Input/Output)
+     - I2C (Inter-Integrated Circuit)
+     - SPI (Serial Peripheral Interface)
+     - Serial communication (UART)
+     - PWM (Pulse Width Modulation)
+   - This support enables interaction with a broad range of sensors, actuators, and other hardware components.
+
+4. **Event Handling**:
+   - The library includes robust event handling mechanisms for GPIO pin state changes and other events. This feature allows developers to create responsive and interactive applications.
+
+5. **Improved Configuration and Setup**:
+   - Pi4J V2 offers simplified configuration and setup processes, making it easier to get started with new projects. The configuration is more intuitive and flexible, catering to a variety of use cases.
+
+6. **Backward Compatibility**:
+   - While Pi4J V2 introduces many new features and improvements, it also maintains backward compatibility with the original Pi4J for most use cases. This compatibility ensures a smoother transition for existing projects upgrading to the new version.
+
+7. **Enhanced Documentation and Examples**:
+   - Pi4J V2 comes with extensive documentation and a rich set of examples. These resources help developers understand how to use the library effectively and implement various hardware interactions.
+
+### Example Usage of Pi4J V2
+
+Here's a simple example of using Pi4J V2 to control an LED connected to a GPIO pin on a Raspberry Pi:
+
+```java
+import com.pi4j.Pi4J;
+import com.pi4j.context.Context;
+import com.pi4j.io.gpio.digital.DigitalOutput;
+import com.pi4j.io.gpio.digital.DigitalOutputConfigBuilder;
+
+public class BlinkingLED {
+    public static void main(String[] args) throws InterruptedException {
+        // Initialize Pi4J context
+        Context pi4j = Pi4J.newAutoContext();
+
+        // Create GPIO configuration for output pin
+        DigitalOutputConfigBuilder config = DigitalOutput.newConfigBuilder(pi4j)
+                .id("my-led")
+                .name("My LED")
+                .address(1) // GPIO pin number
+                .shutdown(DigitalOutput.State.LOW)
+                .initial(DigitalOutput.State.LOW);
+
+        // Provision the GPIO pin as a digital output pin
+        DigitalOutput led = pi4j.create(config);
+
+        // Blink the LED 10 times
+        for (int i = 0; i < 10; i++) {
+            led.toggle();
+            Thread.sleep(500);
+        }
+
+        // Turn off the LED and release the GPIO resources
+        led.low();
+        pi4j.shutdown();
+    }
+}
+```
+
+This example demonstrates how to initialize the Pi4J context, configure a GPIO pin as a digital output, and control an LED by toggling its state.
+
+### Getting Started with Pi4J V2
+
+To include Pi4J V2 in your project, you can add it as a dependency using Maven or Gradle. Here’s an example of how to include Pi4J V2 in a Maven project:
+
+```xml
+<dependency>
+    <groupId>com.pi4j</groupId>
+    <artifactId>pi4j-core</artifactId>
+    <version>2.x.y</version>
+</dependency>
+```
+
+Replace `2.x.y` with the latest version available.
+
+### Conclusion
+
+Pi4J V2 is a powerful and flexible library for Java developers working with the Raspberry Pi and other embedded systems. Its modular architecture, extensive peripheral support, and robust event handling make it an excellent choice for developing hardware-interactive applications. The improved configuration and enhanced documentation ensure that both new and experienced developers can effectively leverage the library in their projects.
+
+For more information and to get started with Pi4J V2, you can visit the official [Pi4J V2 website](https://v2.pi4j.com/).
 
 # Diozero
+
+[website](https://www.diozero.com/)
 
 Diozero is a Java library designed for interacting with the GPIO (General Purpose Input/Output) pins and other peripherals of embedded devices like the Raspberry Pi. It provides a high-level API for controlling hardware components, making it easier to develop applications that interact with various sensors, actuators, and other devices.
 
