@@ -1,6 +1,6 @@
 # HomeBrew 从安装到精通
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c8387f8250f64872a8ea44c09fe0e7ce~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=798&h=422&s=51697&e=png&b=2c2924)
+![](_assets/c8387f8250f64872a8ea44c09fe0e7ce~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 [介绍](https://link.juejin.cn/?target=https%3A%2F%2Fwww.codermast.com%2Fdev-tools%2Fhomebrew.html%23%25E4%25BB%258B%25E7%25BB%258D "https://www.codermast.com/dev-tools/homebrew.html#%E4%BB%8B%E7%BB%8D")
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -82,7 +82,7 @@ brew search node
 
 ```
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/de33c2a4bb1e4d56bc01603ee9e06fd3~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=1844&h=1252&s=453926&e=png&a=1&b=ffffff)
+![](_assets/de33c2a4bb1e4d56bc01603ee9e06fd3~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 ### [安装软件包](https://link.juejin.cn/?target=https%3A%2F%2Fwww.codermast.com%2Fdev-tools%2Fhomebrew.html%23%25E5%25AE%2589%25E8%25A3%2585%25E8%25BD%25AF%25E4%25BB%25B6%25E5%258C%2585 "https://www.codermast.com/dev-tools/homebrew.html#%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6%E5%8C%85")
 
@@ -102,7 +102,7 @@ brew install node
 
 ```
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5b30744bf94f4c278f36c0b0ec5d77b1~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=1812&h=2094&s=1090352&e=png&a=1&b=fefefe)
+![](_assets/5b30744bf94f4c278f36c0b0ec5d77b1~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 ### [查看已安装的软件包](https://link.juejin.cn/?target=https%3A%2F%2Fwww.codermast.com%2Fdev-tools%2Fhomebrew.html%23%25E6%259F%25A5%25E7%259C%258B%25E5%25B7%25B2%25E5%25AE%2589%25E8%25A3%2585%25E7%259A%2584%25E8%25BD%25AF%25E4%25BB%25B6%25E5%258C%2585 "https://www.codermast.com/dev-tools/homebrew.html#%E6%9F%A5%E7%9C%8B%E5%B7%B2%E5%AE%89%E8%A3%85%E7%9A%84%E8%BD%AF%E4%BB%B6%E5%8C%85")
 
@@ -111,7 +111,7 @@ brew list
 
 ```
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3486be60c7b04af989a24ba947173e59~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=1844&h=1292&s=966462&e=png&a=1&b=ffffff)
+![](_assets/3486be60c7b04af989a24ba947173e59~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 ### [卸载软件包](https://link.juejin.cn/?target=https%3A%2F%2Fwww.codermast.com%2Fdev-tools%2Fhomebrew.html%23%25E5%258D%25B8%25E8%25BD%25BD%25E8%25BD%25AF%25E4%25BB%25B6%25E5%258C%2585 "https://www.codermast.com/dev-tools/homebrew.html#%E5%8D%B8%E8%BD%BD%E8%BD%AF%E4%BB%B6%E5%8C%85")
 
@@ -131,7 +131,7 @@ brew uninstall node
 
 ```
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f9562484ccf8417fbf9fac2caf1d3032~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=1844&h=492&s=197388&e=png&a=1&b=ffffff)
+![](_assets/f9562484ccf8417fbf9fac2caf1d3032~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 ### [查看软件包信息](https://link.juejin.cn/?target=https%3A%2F%2Fwww.codermast.com%2Fdev-tools%2Fhomebrew.html%23%25E6%259F%25A5%25E7%259C%258B%25E8%25BD%25AF%25E4%25BB%25B6%25E5%258C%2585%25E4%25BF%25A1%25E6%2581%25AF "https://www.codermast.com/dev-tools/homebrew.html#%E6%9F%A5%E7%9C%8B%E8%BD%AF%E4%BB%B6%E5%8C%85%E4%BF%A1%E6%81%AF")
 
@@ -153,7 +153,7 @@ brew info mysql
 
 ```
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a366505382da48fcba8deeb2111c4032~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=1844&h=1492&s=784784&e=png&a=1&b=fefefe)
+![](_assets/a366505382da48fcba8deeb2111c4032~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 ### [清理过期的软件包](https://link.juejin.cn/?target=https%3A%2F%2Fwww.codermast.com%2Fdev-tools%2Fhomebrew.html%23%25E6%25B8%2585%25E7%2590%2586%25E8%25BF%2587%25E6%259C%259F%25E7%259A%2584%25E8%25BD%25AF%25E4%25BB%25B6%25E5%258C%2585 "https://www.codermast.com/dev-tools/homebrew.html#%E6%B8%85%E7%90%86%E8%BF%87%E6%9C%9F%E7%9A%84%E8%BD%AF%E4%BB%B6%E5%8C%85")
 
@@ -173,7 +173,7 @@ brew --version
 
 ```
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/fbab4fd3b3ec4858a5621497d69d6120~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=1844&h=492&s=262248&e=png&a=1&b=ffffff)
+![](_assets/fbab4fd3b3ec4858a5621497d69d6120~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 提示
 

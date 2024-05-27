@@ -310,7 +310,7 @@ Drag trackers are not needed inside GEF's TreeViewer. The native tree handles se
 
 ### Basic Model Operations (Delete)
 
-| Tools Requests | Edit Policies and Roles | Actions      |
+| Tools Requests | Edit Policies and Roles | Actions      |
 | -------------- | ----------------------- | ------------ |
 |                | CONNECTION_ROLE         |              |
 | REQ_DELETE     | COMPONENT_ROLE          | DeleteAction |
