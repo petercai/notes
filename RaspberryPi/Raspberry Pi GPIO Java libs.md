@@ -302,16 +302,16 @@ Comparing Pi4J V2 and Diozero provides insight into which library might be more 
 
 ### Comparison Summary
 
-| Feature                 | Pi4J V2                           | Diozero                             |
-|-------------------------|-----------------------------------|-------------------------------------|
-| **Platform Support**    | Primarily Raspberry Pi, some others | Broad (Raspberry Pi, BeagleBone, Odroid, Linux) |
-| **API Design**          | Modular, hardware abstraction     | High-level abstraction, broad device support |
-| **Peripheral Support**  | GPIO, I2C, SPI, Serial            | GPIO, I2C, SPI, PWM, Serial         |
-| **Event Handling**      | Robust event handling             | Event-driven programming            |
-| **Documentation**       | Extensive                         | Good, with examples                 |
-| **Community Support**   | Large, active community           | Smaller, but growing community      |
-| **Ease of Use**         | Steeper learning curve            | Easier for beginners, high-level API|
-| **Integration**         | Standalone, can integrate         | Can work with other libraries       |
+| Feature                | Pi4J V2                             | Diozero                                         |
+| ---------------------- | ----------------------------------- | ----------------------------------------------- |
+| **Platform Support**   | Primarily Raspberry Pi, some others | Broad (Raspberry Pi, BeagleBone, Odroid, Linux) |
+| **API Design**         | Modular, hardware abstraction       | High-level abstraction, broad device support    |
+| **Peripheral Support** | GPIO, I2C, SPI, Serial              | GPIO, I2C, SPI, PWM, Serial                     |
+| **Event Handling**     | Robust event handling               | Event-driven programming                        |
+| **Documentation**      | Extensive                           | Good, with examples                             |
+| **Community Support**  | Large, active community             | Smaller, but growing community                  |
+| **Ease of Use**        | Steeper learning curve              | Easier for beginners, high-level API            |
+| **Integration**        | Standalone, can integrate           | Can work with other libraries                   |
 
 ### Choosing Between Pi4J V2 and Diozero
 
