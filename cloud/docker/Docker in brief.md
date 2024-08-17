@@ -22,6 +22,7 @@
 # 常用的docker命令
 
 - docker info
+- docker search
 - `docker pull`
 
 > 获取镜像
@@ -47,10 +48,10 @@
 
 - `docker run`
 
-> 创建并运行一个新的容器
+> 创建并运行一个新的容器, 用docker run命令从镜像启动一个容器时，如果该镜像不在本地，Docker会先从Docker Hub下载该镜像。如果没有指定具体的镜像标签，那么Docker会自动下载latest标签的镜像。
 
 `$ docker run [OPTIONS] IMAGE [COMMAND] [ARG...] 
-  创建一个基于ubuntu:14.04的容器 
+  创建一个基于ubuntu:14.04的容器, 打开终端并运行bash
 $ docker run -it --name hello ubuntu:14.04 /bin/bash 
   `-t 表示返回一个 tty 终端，`
   `-i 表示打开容器的标准输入，使用这个命令可以得到一个容器的 shell 终端` 
