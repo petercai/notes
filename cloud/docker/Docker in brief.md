@@ -19,8 +19,9 @@
 
 - 仓库分为公开仓库（Public）和私有仓库（Private）两种形式
 -
-## 常用的docker命令
+# 常用的docker命令
 
+- docker info
 - `docker pull`
 
 > 获取镜像
@@ -54,7 +55,9 @@ $ docker run -it --name hello ubuntu:14.04 /bin/bash
   `-t 表示返回一个 tty 终端，`
   `-i 表示打开容器的标准输入，使用这个命令可以得到一个容器的 shell 终端` 
   `--name 表示容器的名称`
-    
+
+- docker start
+- docker kill/stop
 
 - `docker ps`
 
@@ -79,6 +82,8 @@ $ docker run -it --name hello ubuntu:14.04 /bin/bash
   强制移除容器 
   `$ docker rm -f hello`
     
+
+
 
 ## 配置nginx服务器
 
@@ -165,7 +170,7 @@ $ docker run -it --name hello ubuntu:14.04 /bin/bash
 - 构建镜像
 
   `# 使用指定的Dockerfile创建镜像 # Usage: docker build [OPTIONS] PATH | URL | - `# .表示当前目录 
-  $ sudo docker build -t golang:1.2 .`
+  $ sudo docker build --tag golang:1.2 .`
 
 # 数据卷的使用
 数据卷是一个位于容器中的特殊目录, 其目的是绕过UFS文件系统提供持久化和数据共享(UFS的详细介绍请参考附录B).
@@ -276,12 +281,24 @@ $ sudo docker run --name mydata -d -v /data ubuntu:14.04 /bin/bash
 
 # Dockerfile
 
-- **FROM:** `镜像`
+- **FROM:** `镜像`: 
+	`命令格式 ：
+	`FROM < image＞或 FROM <image>: <tag＞，
+	`指定使用的基础镜像，如 FROM java : 8 代表基于 JDK8 开始构建自己的镜像 。`
+	
 - **MAINTAINER:** `镜像创建者`
 - **RUN:** `执行命令`
+	`命令格式 ：
+		RUN <command ＞或 RUN［” executable”，”param1”， ’param2＂），在当前镜像基础上执行指定命令，并提交为新的镜像。`
+
 - **ENV:** `设置环境变量`
+	`命令格式 ：ENV <key> <value＞，该命令用于指定一个环境变量，会被前面的 RUN 命令所使用'
 - **USER:** `使用哪个用户跑container`
 - **EXPOSE:** `container内部服务开启的端口`
+	`命令格式 ：
+		`EXPOSE <port> [<port> ... ］，该命令告诉 Docker 服务端容器暴露的端口号供
+		`系统交互时使用，如 EXPOSE 8080 。`
+		
 - **COPY:** `将文件<src>拷贝到container的文件系统对应的路径<dest>`
 - **VOLUME:** `可以将本地文件夹或者其他container的文件夹挂载到container中`
 - **WORKDIR:** `切换目录，同cd`
@@ -292,12 +309,209 @@ $ sudo docker run --name mydata -d -v /data ubuntu:14.04 /bin/bash
 	2. CMD主要用于container时启动指定的服务，当docker run command的命令匹配到CMD command时，会替换CMD执行的命令
 
 - **ENTRYPOINT**
+	`命令格式 ：
+		`ENTRYPOINT ["exect」 tabl e ", "paraml ”，＂ param2＂），代表配置容器启动后执行的命令`. e.g. ENTRYPOINT [”java”, ”- jar”, ”eureka . jar” ]
 	1. container启动时执行的命令，但是一个Dockerfile中只能有一条ENTRYPOINT命令，如果多条，则只执行最后一条
 	2. ENTRYPOINT没有CMD的可替换特性
 
 - **ADD**
+	`命令格式 ：ADD <src> <dest＞，代表复制指定的＜src＞到容器中的＜dest＞
 	1. 将文件拷贝到container的文件系统对应的路径
 	2. 所有拷贝到container中的文件和文件夹权限为0755,uid和gid为0
 	3. 如果文件是可识别的压缩格式，则docker会帮忙解压缩
 	4. 只有在build镜像的时候运行一次，后面运行container的时候不会再重新加载了
 	5. 可拷贝url路径的文件
+
+# configure `pom.xml` to build a Docker image
+
+you can use the **Jib** plugin or the **Spotify Docker Maven plugin**. Here, I'll demonstrate both methods:
+
+### 1. **Using Jib Plugin**
+The Jib plugin by Google is a popular option for building Docker images directly from a Maven project without needing a Dockerfile.
+
+#### **Step 1: Add Jib Plugin to `pom.xml`**
+
+```xml
+<project>
+  <!-- other configurations -->
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>com.google.cloud.tools</groupId>
+        <artifactId>jib-maven-plugin</artifactId>
+        <version>3.3.2</version>
+        <configuration>
+          <from>
+            <image>openjdk:17-jdk-slim</image>
+          </from>
+          <to>
+            <image>myapp:latest</image>
+          </to>
+          <container>
+            <mainClass>com.example.Main</mainClass> <!-- Replace with your main class -->
+            <ports>
+              <port>8080</port>
+            </ports>
+          </container>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>
+```
+
+#### **Step 2: Build the Docker Image**
+
+Run the following Maven command to build the Docker image:
+
+```bash
+mvn compile jib:dockerBuild
+```
+
+This will build your application and create a Docker image named `myapp:latest`.
+
+### 2. **Using Spotify Docker Maven Plugin**
+The Spotify Docker Maven plugin is another method, although it's less actively maintained compared to Jib.
+
+#### **Step 1: Add Spotify Docker Plugin to `pom.xml`**
+
+```xml
+<project>
+  <!-- other configurations -->
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>com.spotify</groupId>
+        <artifactId>dockerfile-maven-plugin</artifactId>
+        <version>1.4.13</version>
+        <executions>
+          <execution>
+            <id>default</id>
+            <goals>
+              <goal>build</goal>
+            </goals>
+            <phase>package</phase>
+          </execution>
+        </executions>
+        <configuration>
+          <repository>myapp</repository>
+          <tag>latest</tag>
+          <dockerfile>Dockerfile</dockerfile>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>
+```
+
+#### **Step 2: Create a `Dockerfile`**
+You will need a `Dockerfile` as described in the previous response.
+
+#### **Step 3: Build the Docker Image**
+
+Run the following Maven command:
+
+```bash
+mvn package
+```
+
+This command will build your Maven project and the Docker image as part of the package phase.
+
+### Summary
+- **Jib Plugin**: No need for a Dockerfile, integrates easily with Maven.
+- **Spotify Docker Maven Plugin**: Requires a Dockerfile but offers more control over the Docker build process.
+
+
+# 使用 Docker Compose 编排服务
+在 Docker 中运行微服务的方式主要有两种 ， 一种是前面介绍的使用 Dockerfile 构建镜像
+并启动容器。Dockerfile 方式面向的是单个微服务和单个容器 ， 但微服务架构中往往包含多个微服务。服务数量的增加也就意味着容器数量的增多，逐渐增多的容器数量为容器部署、运行及管理带来了挑战。接下来我们介绍的基于 Docker Compose 编排微服务的方式就是针对这种场景。通过 Docker Compose 可以解决本章开篇提到的另一个核心问题 ， 即“如何组装不同的服务容器构成一个服务体系” 。
+Docker Compose 面向多个微服务和多个容器，专门用于解决多个容器的部署问题并提高
+部署方案的可移植性。Docker Compose 是用来定义和运行复杂应用的Docker 工具 ， 使用
+Docker Compose ，就可以允许用户在一个模板（ YAM L 格式）中定义多容器应用，然后通过
+一条命令来启动整个服务体系 。
+
+## Docker Compose 命令
+Docker Compose 的常见命令罗列如下，通过英文命名基本都可以明白具体的含义和执行
+效果。
+- up  创建并启动容器。
+- kill 杀掉容器。
+- ps 显示容器。
+- rm 删除停止的容器。
+- scale 设置服务的容器数量。
+- pull 拉取服务镜像。
+- restart 重启容器。
+- build 构建或重建容器。
+- start 启动容器。
+- stop 停止容器。
+- down 停止服务并移除容器。
+
+
+## docker-compose.yml 命令
+想要通过 Docker Compose 编排服务需要提供 doc k e r- compose . ym l 配置文件 ， 该配置文件中同样包含了一系列命令用于完成服务的编排 ， 常见的命令如下所示 。
+- image 指定镜像名称或镜像id 。 如果镜像在本地不存在,  Docker Compose 将会尝试拉取这个镜像。
+- build 指定 Dockerfile 所在文件夹的路径 。Docker Compose 将会利用它自动构建并使用这个镜像。
+- command 覆盖容器启动后默认执行的命令。
+- links 链接到其他服务中的容器。
+- ports 暴露端口信息。
+	使用的是“主机端口 : 容器端口 ”的格式，也可以只指定容器端口: ": 容器端口"（主机端口会随机分自己）。 默认情况下，Docker Compose 会为应用创建一个私有网络，服务的每个容器都会加入到该网络中，每个容器也就可以被该网络中的其他容器所访问 。 同时，每个容器还能够以服务名称作为主机名被其他容器访问 .
+- environment 设置环境变量 。
+- depends_on 用于指定服务依赖，一旦指定了服务依赖，将会优先于自身服务创建并启动依赖。
+```
+version :’ 2 ’
+services :
+	eureka :
+		build : ./eureka
+		ports :
+			- "8761 : 8761"
+	config:
+		build : ./config
+		depends on :
+			- eureka
+		ports :
+			- "8888 : 8888"
+``` 
+ 
+在上面的例子中， config服务依赖 eureka 服务，通过 depends_on 命令确保在服务启动顺序上会先启动 eureka 服务，然后再启动 config 服务.
+
+
+# Docker vs. Docker Compose 
+Both tools related to containerization, but they serve different purposes and are used in different contexts. Here's a breakdown of their differences:
+
+### 1. **Purpose and Use Case**
+   - **Docker**: 
+     - **Purpose**: Docker is primarily used to create, deploy, and manage individual containers. A container is a lightweight, standalone, and executable package that includes everything needed to run an application, including the code, runtime, libraries, and system tools.
+     - **Use Case**: Docker is ideal for running a single service or application in isolation. It’s commonly used for development, testing, and deployment of microservices or small applications.
+
+   - **Docker Compose**: 
+     - **Purpose**: Docker Compose is a tool for defining and running multi-container Docker applications. It allows you to define multiple services in a single YAML file (`docker-compose.yml`) and manage their lifecycle together.
+     - **Use Case**: Docker Compose is best used when you have a complex application that consists of multiple services, such as a web server, database, cache, and message queue, all of which need to be orchestrated together.
+
+### 2. **Configuration and Execution**
+   - **Docker**:
+     - **Configuration**: Docker typically uses individual `Dockerfile` configurations for building images. You run containers using the `docker run` command, where you can pass various options such as port mapping, environment variables, volumes, and more.
+     - **Execution**: You interact with Docker primarily via the command line (CLI) to build, run, stop, and manage containers individually.
+
+   - **Docker Compose**:
+     - **Configuration**: Docker Compose uses a `docker-compose.yml` file to define and configure multiple services, networks, and volumes. This file specifies all the services, their images, volumes, networks, environment variables, and other dependencies.
+     - **Execution**: You use the `docker-compose` command to manage the entire application stack. For example, you can start all services with `docker-compose up`, and stop them with `docker-compose down`.
+
+### 3. **Complexity and Scalability**
+   - **Docker**:
+     - **Complexity**: Docker is simpler when dealing with individual containers or small applications.
+     - **Scalability**: Managing complex multi-container applications can become cumbersome with Docker alone, as you need to manually start, stop, and configure each container.
+
+   - **Docker Compose**:
+     - **Complexity**: Docker Compose simplifies the management of multi-container applications by handling inter-service dependencies, networks, and volumes in a single configuration file.
+     - **Scalability**: Docker Compose is well-suited for development and small-scale deployments, but for more complex, large-scale, production-grade deployments, you might consider container orchestration tools like Kubernetes.
+
+### 4. **Networking**
+   - **Docker**: Containers by default run on a single network, and networking between multiple containers needs to be configured manually.
+   - **Docker Compose**: Automatically creates a default network for all services defined in the `docker-compose.yml` file, allowing easy communication between services using their service names.
+
+### 5. **Multi-Container Management**
+   - **Docker**: Manages individual containers; you would need to run multiple commands to manage multiple containers.
+   - **Docker Compose**: Manages multiple containers together, handling dependencies, start order, and shared resources.
+
+### **Summary**
+- **Docker** is great for managing individual containers and is widely used for building, shipping, and running applications.
+- **Docker Compose** simplifies the management of applications that consist of multiple interconnected containers, making it easier to define, run, and manage multi-container Docker applications.
