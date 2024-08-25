@@ -21,9 +21,9 @@
 -
 # 常用的docker命令
 
-- docker info
-- docker search
-- `docker pull`
+## docker info
+## docker search
+## docker pull
 
 > 获取镜像
 
@@ -31,14 +31,14 @@
   `$ docker pull ubuntu:14.04` # 获取ubuntu 14.04版本的镜像
     
 
-- `docker images`
+## docker images
 
 > 查看镜像列表
 
   `$ docker images [OPTIONS] [REPOSITORY]`
     
 
-- `docker rmi`
+## docker rmi
 
 > 移除镜像（使用中的镜像不能被移除）
 
@@ -46,28 +46,50 @@
   `$ docker rmi -f ubuntu:14.04` # 强制移除ubuntu:14.04镜像
     
 
-- `docker run`
+## docker run
 
 > 创建并运行一个新的容器, 用docker run命令从镜像启动一个容器时，如果该镜像不在本地，Docker会先从Docker Hub下载该镜像。如果没有指定具体的镜像标签，那么Docker会自动下载latest标签的镜像。
 
 `$ docker run [OPTIONS] IMAGE [COMMAND] [ARG...] 
+
   创建一个基于ubuntu:14.04的容器, 打开终端并运行bash
 $ docker run -it --name hello ubuntu:14.04 /bin/bash 
   `-t 表示返回一个 tty 终端，`
   `-i 表示打开容器的标准输入，使用这个命令可以得到一个容器的 shell 终端` 
   `--name 表示容器的名称`
+  -d 选项，告诉Docker以分离（detached）的方式在后台运行
+  -p [host].[port]:container_port
+	我们也可以将端口绑定限制在特定的网络接口（即IP地址）上:
+	```
+	docker run -d -p 127.0.0.1:80:80 --name static_web jamtur01/static_web nginx -g "daemon off;"
+	```
+	这里，我们将容器内的80端口绑定到了本地宿主机的127.0.0.1这个IP的80端口上。我们也可以使用类似的方式将容器内的80端口绑定到	一个宿主机的随机端口上
+	```
+	docker run -d -p 127.0.0.1::80 --name static_web jamtur01/static_web nginx -g "daemon off;"
+	```
+	我们可以使用docker inspect或者docker port命令来查看容器内的80端口具体被绑定到了宿主机的哪个端口上
+	Docker还提供了一个更简单的方式，即-P参数，该参数可以用来对外公开在Dockerfile中通过EXPOSE指令公开的所有端口:
+	```
+	docker run -d -P --name static_web jamtur01/static_web nginx -g "daemon off;"
+	```
+	我们也可以组合使用ENTRYPOINT和CMD指令来完成一些巧妙的工作。
+	```
+	ENTRYPOINT ["/usr/sbin/nginx"]
+	CMD ["-h"]
+	```
+	此时当我们启动一个容器时，任何在命令行中指定的参数都会被传递给Nginx守护进程。比如，我们可以指定-g "daemon off";参数让Nginx守护进程以前台方式运行。如果在启动容器时不指定任何参数，则在CMD指令中指定的-h参数会被传递给Nginx守护进程，即Nginx服务器会以/usr/sbin/nginx -h的方式启动，该命令用来显示Nginx的帮助信息。
 
-- docker start
-- docker kill/stop
+## docker start
+## docker kill/stop
 
-- `docker ps`
+## docker ps
 
 > 查看容器列表（默认状态为运行中的容器）
 
       `# Usage $ docker ps [OPTIONS] # 查看所有容器 $ docker ps -a`
     
 
-- `docker exec`
+## docker exec
 
 > 进入容器（运行中）
 
@@ -75,7 +97,7 @@ $ docker run -it --name hello ubuntu:14.04 /bin/bash
   `$ docker exec -it hello /bin/bash`
     
 
-- `docker rm`
+## docker rm
 
 > 移除一个或多个容器（不能移除运行中的容器）
 
@@ -83,7 +105,8 @@ $ docker run -it --name hello ubuntu:14.04 /bin/bash
   强制移除容器 
   `$ docker rm -f hello`
     
-
+## docker inspect 
+	查看新创建的镜像的详细信息
 
 
 ## 配置nginx服务器
@@ -282,46 +305,112 @@ $ sudo docker run --name mydata -d -v /data ubuntu:14.04 /bin/bash
 
 # Dockerfile
 
-- **FROM:** `镜像`: 
-	`命令格式 ：
+## **FROM:** `镜像`
+	命令格式 ：
 	`FROM < image＞或 FROM <image>: <tag＞，
 	`指定使用的基础镜像，如 FROM java : 8 代表基于 JDK8 开始构建自己的镜像 。`
 	
-- **MAINTAINER:** `镜像创建者`
-- **RUN:** `执行命令`
+## **MAINTAINER:** `镜像创建者`
+## **RUN:** `执行命令`
 	`命令格式 ：
 		RUN <command ＞或 RUN［” executable”，”param1”， ’param2＂），在当前镜像基础上执行指定命令，并提交为新的镜像。`
 
-- **ENV:** `设置环境变量`
-	`命令格式 ：ENV <key> <value＞，该命令用于指定一个环境变量，会被前面的 RUN 命令所使用'
-- **USER:** `使用哪个用户跑container`
-- **EXPOSE:** `container内部服务开启的端口`
-	`命令格式 ：
-		`EXPOSE <port> [<port> ... ］，该命令告诉 Docker 服务端容器暴露的端口号供
-		`系统交互时使用，如 EXPOSE 8080 。`
+## **ENV:** `设置环境变量`
+	命令格式 ：ENV <key> <value＞，该命令用于指定一个环境变量，会被前面的 RUN 命令所使用
+## **USER:** `使用哪个用户跑container`
+## **EXPOSE:** `container内部服务开启的端口`
+	命令格式 ：
+		EXPOSE <port> [<port> ... ］，该命令告诉 Docker 服务端容器暴露的端口号供
+		系统交互时使用，如 EXPOSE 8080 。
 		
-- **COPY:** `将文件<src>拷贝到container的文件系统对应的路径<dest>`
-- **VOLUME:** `可以将本地文件夹或者其他container的文件夹挂载到container中`
-- **WORKDIR:** `切换目录，同cd`
-- **ONBUILD:** `指定的命令在构建镜像时并不执行，而是在它的子镜像中执行`
-    
-- **CMD**
-	1. container启动时执行的命令，但是一个Dockerfile中只能有一条CMD命令，多条则只执行最后一条CMD.
-	2. CMD主要用于container时启动指定的服务，当docker run command的命令匹配到CMD command时，会替换CMD执行的命令
+##  **COPY:** 
+	将文件<src>拷贝到container的文件系统对应的路径<dest>
+	COPY指令非常类似于ADD，它们根本的不同是COPY只关心在构建上下文中复制本地文件，而不会去做文件提取（extraction）和解压（decompression）的工作。
+	文件源路径必须是一个与当前构建环境相对的文件或者目录，本地文件都放到和Dockerfile同一个目录下。不能复制该目录之外的任何文件，因为构建环境将会上传到Docker守护进程，而复制是在Docker守护进程中进行的。任何位于构建环境之外的东西都是不可用的。COPY指令的目的位置则必须是容器内部的一个绝对路径。任何由该指令创建的文件或者目录的UID和GID都会设置为0。
+	如果目的位置不存在，Docker将会自动创建所有需要的目录结构，就像mkdir -p命令那样
+## **VOLUME:** 
+	可以将本地文件夹或者其他container的文件夹挂载到container中
+	
+	VOLUME指令用来向基于镜像创建的容器添加卷。一个卷是可以存在于一个或者多个容器内的特定的目录，这个目录可以绕过联合文件系统，并提供如下共享数据或者对数据进行持久化的功能。卷可以在容器间共享和重用。一个容器可以不是必须和其他容器共享卷。对卷的修改是立时生效的。对卷的修改不会对更新镜像产生影响。卷会一直存在直到没有任何容器再使用它。
+	卷功能让我们可以将数据（如源代码）、数据库或者其他内容添加到镜像中而不是将这些内容提交到镜像中，并且允许我们在多个容器间共享这些内容。我们可以利用此功能来测试容器和内部的应用程序代
+码，管理日志，或者处理容器内部的数据库。
+可以通过指定数组的方式指定多个卷:
+```
+VOLUME ["/opt/project", "/data" ]
+```
+## **WORKDIR:** `切换目录，同cd`
+## **ONBUILD:** 
+ONBUILD指令能为镜像添加触发器（trigger）。当一个镜像被用做其他镜像的基础镜像时（比如用户的镜像需要从某未准备好的位置添加源代码，或者用户需要执行特定于构建镜像的环境的构建脚本），该镜像中的触发器将会被执行。触发器会在构建过程中插入新指令，我们可以认为这些指令是紧跟在FROM之后指定的。触发器可以是任何构建指令
+```
+ONBUILD ADD . /app/src
+ONBUILD RUN cd /app/src && make
+```
+## **CMD**
+1. container启动时执行的命令，但是一个Dockerfile中只能有一条CMD命令，多条则只执行最后一条CMD.
+2. CMD主要用于container时启动指定的服务，当docker run command的命令匹配到CMD command时，会替换CMD执行的命令
 
-- **ENTRYPOINT**
+	CMD指令用于指定一个容器启动时要运行的命令。这有点儿类似于RUN指令，只是RUN指令是指定镜像被构建时要运行的命令，而CMD是指定容器被启动时要运行的命令。这和使用docker run命令启动容器时指定要运行的命令非常类似:
+	```
+	docker run -i -t jamtur01/static_web /bin/true
+	vs.
+	CMD ["/bin/true"]
+	```
+3. 使用docker run命令可以覆盖CMD指令。如果我们在Dockerfile里指定了CMD指令，而同时在docker run命令行中也指定了要运行的命令，命令行中指定的命令会覆盖Dockerfile 中的CMD指令。
+
+## **ENTRYPOINT**
 	`命令格式 ：
 		`ENTRYPOINT ["exect」 tabl e ", "paraml ”，＂ param2＂），代表配置容器启动后执行的命令`. e.g. ENTRYPOINT [”java”, ”- jar”, ”eureka . jar” ]
 	1. container启动时执行的命令，但是一个Dockerfile中只能有一条ENTRYPOINT命令，如果多条，则只执行最后一条
-	2. ENTRYPOINT没有CMD的可替换特性
+	2. ENTRYPOINT指令与CMD指令非常类似。这两个指令的什么区别：我们可以在docker run命令行中覆盖CMD指令。有时候，我们希望容器会按照我们想象的那样去工作，这时候CMD就不太合适了。而ENTRYPOINT指令提供的命令则不容易在启动容器时被覆盖。实际上，docker run命令行中指定的任何参数都会被当做参数再次传递给ENTRYPOINT指令中指定的命令。
 
-- **ADD**
-	`命令格式 ：ADD <src> <dest＞，代表复制指定的＜src＞到容器中的＜dest＞
+## **ADD**
+	命令格式 ：ADD <src> <dest＞，代表复制指定的＜src＞到容器中的＜dest＞
 	1. 将文件拷贝到container的文件系统对应的路径
 	2. 所有拷贝到container中的文件和文件夹权限为0755,uid和gid为0
 	3. 如果文件是可识别的压缩格式，则docker会帮忙解压缩
 	4. 只有在build镜像的时候运行一次，后面运行container的时候不会再重新加载了
 	5. 可拷贝url路径的文件
+	
+	在ADD文件时，Docker通过目的地址参数末尾的字符来判断文件源是目录还是文件。如果目标地址以/结尾，那么Docker就认为源位置指向的是一个目录。如果目的地址以/结尾，那么Docker就认为源位置指向的是目录。如果目的地址不是以/结尾，那么Docker就认为源位置	指向的是文件。
+
+## Label
+LABEL指令用于为Docker镜像添加元数据.
+```
+LABEL version="1.0"
+LABEL location="New York" type="Data Center" role="Web Server"
+```
+LABEL指令以label="value"的形式出现。可以在每一条指令中指定一个元数据，或者指定多个元数据，不同的元数据之间用空格分隔。推荐将所有的元数据都放到一条LABEL指令中，以防止不同的元数据指令创建过多镜像层。可以通过docker inspect命令来查看Docker镜像中的标签信息.
+
+## STOPSIGNAL
+STOPSIGNAL指令用来设置停止容器时发送什么系统调用信号给容器。这个信号必须是内核系统调用表中合法的数，如9，或者注意警告SIGNAME格式中的信号名称，如SIGKILL。
+
+## ARG
+ARG指令用来定义可以在docker build命令运行时传递给构建运行时的变量，我们只需要在构建时使用--build-arg标志即可。用户只能在构建时指定在Dockerfile文件中定义过的参数。
+```
+ARG build
+ARG webapp_user=user
+```
+如果ARG指令设置了一个默认值，如果构建时没有为该参数指定值，就会使用这个默认值。
+```
+docker build --build-arg build=1234 -t jamtur01/webapp .
+```
+
+
+# 运行自己的Docker Registry
+
+## 从容器运行Registry
+
+```
+docker run -p 5000:5000 registry:2
+```
+该命令将会启动一个运行Registry应用2.0版本的容器，并将5000端口绑定到本地宿主机。
+
+## 测试新Registry
+```
+docker images jamtur01/static_web
+docker tag 22d47c8cb6e5
+docker push localhost:5000/jamtur01/static_web
+```
 
 # configure `pom.xml` to build a Docker image
 
@@ -445,10 +534,11 @@ Docker Compose 的常见命令罗列如下，通过英文命名基本都可以�
 - start 启动容器。
 - stop 停止容器。
 - down 停止服务并移除容器。
+- logs 查看服务的日志事件
 
 
 ## docker-compose.yml 命令
-想要通过 Docker Compose 编排服务需要提供 doc k e r- compose . ym l 配置文件 ， 该配置文件中同样包含了一系列命令用于完成服务的编排 ， 常见的命令如下所示 。
+想要通过 Docker Compose 编排服务需要提供 docker-compose.yml配置文件 ， 该配置文件中同样包含了一系列命令用于完成服务的编排 ， 常见的命令如下所示 。
 - image 指定镜像名称或镜像id 。 如果镜像在本地不存在,  Docker Compose 将会尝试拉取这个镜像。
 - build 指定 Dockerfile 所在文件夹的路径 。Docker Compose 将会利用它自动构建并使用这个镜像。
 - command 覆盖容器启动后默认执行的命令。
