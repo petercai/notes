@@ -17,7 +17,7 @@ Git 提交（Git Commit）是 Git 版本控制中的一个基本操作，它会�
 
 当我们在本地执行命令git commit时，会生成一条新的记录，并且最新记录会指向上一个记录即parent节点，同时分支（branch）指针将会自动移动。
 
-![](https://p3-xtjj-sign.byteimg.com/tos-cn-i-73owjymdk6/7719f91033e54671b0a3830783762cd5~tplv-73owjymdk6-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAgTXVTaGFuWXU=:q75.awebp?rk3s=f64ab15b&x-expires=1728370930&x-signature=CfbGtbbIaRugP6dlx5W8DQlavlU%3D)
+![](_assets/7719f91033e54671b0a3830783762cd5~tplv-73owjymdk6-jj-mark-v1!0!0!0!0!5o6Y6YeR5oqA5pyv56S-5Yy6IEAgTXVT.webp)
 
 #### 1.2 Git Branch
 
@@ -40,7 +40,7 @@ Git的分支也是非常轻量的，它们仅仅是简单的指向某一个提�
 2.  切换到分支bugFix上。git checkout bugFix
 3.  在bugFix分支上commit一次代码。git commit
 
-![](https://p3-xtjj-sign.byteimg.com/tos-cn-i-73owjymdk6/e75744990d43486c90e85c81296c78e8~tplv-73owjymdk6-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAgTXVTaGFuWXU=:q75.awebp?rk3s=f64ab15b&x-expires=1728370930&x-signature=gv4H6pNFWgX%2F0JyD4MTcrxNe2wo%3D)
+![](_assets/e75744990d43486c90e85c81296c78e8~tplv-73owjymdk6-jj-mark-v1!0!0!0!0!5o6Y6YeR5oqA5pyv56S-5Yy6IEAgTXVT.webp)
 
 好的经过上面三步，我们成功创建了分支bugFix，并在bugFix分支完成了一次提交。
 
@@ -58,11 +58,11 @@ git merge操作会产生一个新的特殊提交记录，它有两个parent节�
 
 我们已经将bug修复的代码提交，即c2记录，现在需要将bug修复的代码合并到主分支上面，开展后续的开发工作。
 
-![](https://p3-xtjj-sign.byteimg.com/tos-cn-i-73owjymdk6/0d3207086ee44c209694d26695ecf541~tplv-73owjymdk6-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAgTXVTaGFuWXU=:q75.awebp?rk3s=f64ab15b&x-expires=1728370930&x-signature=Rm2kL28lxlSoKdoyRGDxYkYR1Mc%3D)
+![](_assets/0d3207086ee44c209694d26695ecf541~tplv-73owjymdk6-jj-mark-v1!0!0!0!0!5o6Y6YeR5oqA5pyv56S-5Yy6IEAgTXVT.webp)
 
 *   我们在main分支将bugFix分支的新提交合并过来，执行命令git merge bugFix。
 
-![](https://p3-xtjj-sign.byteimg.com/tos-cn-i-73owjymdk6/4665af05faf042df9d8a3057e7ca2ca0~tplv-73owjymdk6-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAgTXVTaGFuWXU=:q75.awebp?rk3s=f64ab15b&x-expires=1728370930&x-signature=yX7OiMsi6BmYUkyiczJvej96eqM%3D)
+![](_assets/4665af05faf042df9d8a3057e7ca2ca0~tplv-73owjymdk6-jj-mark-v1!0!0!0!0!5o6Y6YeR5oqA5pyv56S-5Yy6IEAgTXVT.webp)
 
 可以看到创建了一个新的提交记录c4，它有两个parent节点，且这两个节点在不同的分支，还记得我们前面说的\*\*合并大概就是将这两个parent节点本身以及它们的祖先都包含进来。\*\*假如从 `main` 开始沿着箭头向上看，在到达起点的路上会经过所有的提交记录。这意味着 `main` 包含了对代码库的所有修改。
 
@@ -70,7 +70,7 @@ git merge操作会产生一个新的特殊提交记录，它有两个parent节�
 
 *   我们在bugFix分支将main分支的代码合并过来，执行命令git merge main。
 
-![](https://p3-xtjj-sign.byteimg.com/tos-cn-i-73owjymdk6/8e46ca2730b94cfc87e51224ac384d1c~tplv-73owjymdk6-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAgTXVTaGFuWXU=:q75.awebp?rk3s=f64ab15b&x-expires=1728370930&x-signature=mDGa6n8oudd%2BOieW5ckOLFUgoG0%3D)
+![](_assets/8e46ca2730b94cfc87e51224ac384d1c~tplv-73owjymdk6-jj-mark-v1!0!0!0!0!5o6Y6YeR5oqA5pyv56S-5Yy6IEAgTXVT.webp)
 
 可以看到git只是将bugFix的指针，指向了c4提交，这是因为main分支继承自bugFix，Git什么都不用做直接改变bugFix分支的指向即可。
 
@@ -82,17 +82,17 @@ Git Rebase是 Git 版本控制中的一个命令，允许开发者将一系列�
 
 我们现在有两个分支主分支main，bug修复分支bugFix，我们现在要将bugFix上的代码合并回main分支上面。
 
-![](https://p3-xtjj-sign.byteimg.com/tos-cn-i-73owjymdk6/f2f0e1a05b2b44b0817b6bd0b55de538~tplv-73owjymdk6-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAgTXVTaGFuWXU=:q75.awebp?rk3s=f64ab15b&x-expires=1728370930&x-signature=NFtCZQOuNPRE%2FeDuNDPBa97L1dw%3D)
+![](_assets/f2f0e1a05b2b44b0817b6bd0b55de538~tplv-73owjymdk6-jj-mark-v1!0!0!0!0!5o6Y6YeR5oqA5pyv56S-5Yy6IEAgTXVT.webp)
 
 *   执行命令git rebase main
 
-![](https://p3-xtjj-sign.byteimg.com/tos-cn-i-73owjymdk6/2e08e2774fb744ad82bac4d55ed1f7de~tplv-73owjymdk6-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAgTXVTaGFuWXU=:q75.awebp?rk3s=f64ab15b&x-expires=1728370930&x-signature=myzRYTARQycwLpi%2Fzc%2FDzEYGZ0c%3D)
+![](_assets/2e08e2774fb744ad82bac4d55ed1f7de~tplv-73owjymdk6-jj-mark-v1!0!0!0!0!5o6Y6YeR5oqA5pyv56S-5Yy6IEAgTXVT.webp)
 
 我们可以看到git是将c2提交记录，复制了一份，放到了c3记录下。注意c2记录并没有被删除，它依然是存在的c2‘是我们复制到main分支上的副本。
 
 现在还有一个问题是main分支没有更新到最新提交处，我们来更新main分支吧，首先切换到main分支上面，执行命令git rebase bugFix
 
-![](https://p3-xtjj-sign.byteimg.com/tos-cn-i-73owjymdk6/bfed88bed74b44b3923cb577be64be20~tplv-73owjymdk6-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAgTXVTaGFuWXU=:q75.awebp?rk3s=f64ab15b&x-expires=1728370930&x-signature=s22JvS%2FpCQgBpOb39TGskT04Nbg%3D)
+![](_assets/bfed88bed74b44b3923cb577be64be20~tplv-73owjymdk6-jj-mark-v1!0!0!0!0!5o6Y6YeR5oqA5pyv56S-5Yy6IEAgTXVT.webp)
 
 到这里Git的基础就讲完了，什么？这么简单？ 🤨，后面开始进入Git的一些进阶操作和概念了。
 
@@ -108,7 +108,7 @@ Git Rebase是 Git 版本控制中的一个命令，允许开发者将一系列�
 
 *   指向命令git checkout c1
 
-![](https://p3-xtjj-sign.byteimg.com/tos-cn-i-73owjymdk6/245a1a6b709746919177ad1f75cb65c8~tplv-73owjymdk6-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAgTXVTaGFuWXU=:q75.awebp?rk3s=f64ab15b&x-expires=1728370930&x-signature=ITBxM3uSsF8ptDt%2F%2B56qQYIi058%3D)
+![](_assets/245a1a6b709746919177ad1f75cb65c8~tplv-73owjymdk6-jj-mark-v1!0!0!0!0!5o6Y6YeR5oqA5pyv56S-5Yy6IEAgTXVT.webp)
 
 > 实际这些命令并不是真的在查看 HEAD 指向，这里只是用图示进行抽象，方便理解。
 > 
@@ -118,7 +118,7 @@ Git Rebase是 Git 版本控制中的一个命令，允许开发者将一系列�
 
 *   执行命令git checkout c3
 
-![](https://p3-xtjj-sign.byteimg.com/tos-cn-i-73owjymdk6/67ce9396019741608f4bd698a16f40d1~tplv-73owjymdk6-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAgTXVTaGFuWXU=:q75.awebp?rk3s=f64ab15b&x-expires=1728370930&x-signature=bgBlTaC8Qnw4D2JgNPpnL1vllnI%3D)
+![](_assets/67ce9396019741608f4bd698a16f40d1~tplv-73owjymdk6-jj-mark-v1!0!0!0!0!5o6Y6YeR5oqA5pyv56S-5Yy6IEAgTXVT.webp)
 
 实际使用git checkout 命令是，hash并不会向图示的一样简单c1，c2等。如果需要获取提交记录的hash至，可以通过git log命令来查看。实际的hash是基于SHA-1，共有40位，我们可以只取它的前几位，也可以进行git checkout的操作。
 
@@ -133,7 +133,7 @@ Git Rebase是 Git 版本控制中的一个命令，允许开发者将一系列�
 
 如命令git checkout main^表示，相对于main分支向上移动一个单位，也就是执行当前分支最新提交记录的parent节点。git checkout main~2，指的是相对于main分支向上移动两个单位。
 
-![](https://p3-xtjj-sign.byteimg.com/tos-cn-i-73owjymdk6/d4c79328b03042259abe8b2336d2e679~tplv-73owjymdk6-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAgTXVTaGFuWXU=:q75.awebp?rk3s=f64ab15b&x-expires=1728370930&x-signature=GvqZL9f%2FLXTSzNUpxW%2BSgeTciuw%3D)
+![](_assets/d4c79328b03042259abe8b2336d2e679~tplv-73owjymdk6-jj-mark-v1!0!0!0!0!5o6Y6YeR5oqA5pyv56S-5Yy6IEAgTXVT.webp)
 
 #### 2.2 强制修改分支位置
 
@@ -143,7 +143,7 @@ Git Rebase是 Git 版本控制中的一个命令，允许开发者将一系列�
 
 上面的命令会将 main 分支强制指向 HEAD 的第 2 级 parent 提交。
 
-![](https://p3-xtjj-sign.byteimg.com/tos-cn-i-73owjymdk6/e0c3dc6b2d0247339d7c0cf64295c464~tplv-73owjymdk6-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAgTXVTaGFuWXU=:q75.awebp?rk3s=f64ab15b&x-expires=1728370930&x-signature=9mlGaZAISNqBoBEt0uNCffPQ6NU%3D)
+![](_assets/e0c3dc6b2d0247339d7c0cf64295c464~tplv-73owjymdk6-jj-mark-v1!0!0!0!0!5o6Y6YeR5oqA5pyv56S-5Yy6IEAgTXVT.webp)
 
 #### 2.3 撤销更改
 
@@ -153,7 +153,7 @@ Git Rebase是 Git 版本控制中的一个命令，允许开发者将一系列�
 
 git reset是通过将分支记录回退几个记录来实现撤销更改，这里回退的记录是指的本地的commit并非远程仓库的。如下图所示，相当于删除了本地最新的一次提交。
 
-![](https://p3-xtjj-sign.byteimg.com/tos-cn-i-73owjymdk6/b71ff549c8274b9aa39af8b60c6a247b~tplv-73owjymdk6-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAgTXVTaGFuWXU=:q75.awebp?rk3s=f64ab15b&x-expires=1728370930&x-signature=nW5Elrdi5Pare4r%2BMgvwKPPj2TU%3D)
+![](_assets/b71ff549c8274b9aa39af8b60c6a247b~tplv-73owjymdk6-jj-mark-v1!0!0!0!0!5o6Y6YeR5oqA5pyv56S-5Yy6IEAgTXVT.webp)
 
 *   Git Revert
 
@@ -161,7 +161,7 @@ git reset是通过将分支记录回退几个记录来实现撤销更改，这�
 
 git revert它的原理是复制你要删除节点的parent节点，然后更改当前分支指针指向这个新复制的节点。当然你要撤销的记录仍然是存在的，这里相当于再次提交了一次你都上一次提交记录。下面图示操作表示撤销当前提交。
 
-![](https://p3-xtjj-sign.byteimg.com/tos-cn-i-73owjymdk6/3cc1f755f2e14e858408646ac31d28bb~tplv-73owjymdk6-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAgTXVTaGFuWXU=:q75.awebp?rk3s=f64ab15b&x-expires=1728370930&x-signature=Og0CCgf%2B%2FrnbVxWu3zBXtlU%2FuoE%3D)
+![](_assets/3cc1f755f2e14e858408646ac31d28bb~tplv-73owjymdk6-jj-mark-v1!0!0!0!0!5o6Y6YeR5oqA5pyv56S-5Yy6IEAgTXVT.webp)
 
 这样就可以push当远程仓库与项目组的其他成员共享。
 
@@ -183,7 +183,7 @@ git cherry-pick …参数位提交记录的hash值。
 
 git cherry-pick c2 c4 这条命令会把c2，c3记录复制到当前head下（从左到右依次复制），也就是main下面。
 
-![](https://p3-xtjj-sign.byteimg.com/tos-cn-i-73owjymdk6/ac434ec64e564dad8fc0c56cf6566e80~tplv-73owjymdk6-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAgTXVTaGFuWXU=:q75.awebp?rk3s=f64ab15b&x-expires=1728370930&x-signature=q8SOQnOeebTrwT0a1yZKy9WiHY4%3D)
+![](_assets/ac434ec64e564dad8fc0c56cf6566e80~tplv-73owjymdk6-jj-mark-v1!0!0!0!0!5o6Y6YeR5oqA5pyv56S-5Yy6IEAgTXVT.webp)
 
 #### 3.2 Git Rebase -i
 
@@ -191,15 +191,15 @@ git rebase -i HEAD~4（列出当前HEAD指向的前四条记录，包括当前�
 
 大概是这样样子：
 
-![](https://p3-xtjj-sign.byteimg.com/tos-cn-i-73owjymdk6/97750389002442b18a4410b5077a4c69~tplv-73owjymdk6-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAgTXVTaGFuWXU=:q75.awebp?rk3s=f64ab15b&x-expires=1728370930&x-signature=WCHjpVbKN3aOUiiMmdWFtN9h6wY%3D)
+![](_assets/97750389002442b18a4410b5077a4c69~tplv-73owjymdk6-jj-mark-v1!0!0!0!0!5o6Y6YeR5oqA5pyv56S-5Yy6IEAgTXVT.webp)
 
 执行该命令时，会将相关操作全部列出供参考。
 
-![](https://p3-xtjj-sign.byteimg.com/tos-cn-i-73owjymdk6/ba4cdfc439e142bda0bd704fee85106b~tplv-73owjymdk6-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAgTXVTaGFuWXU=:q75.awebp?rk3s=f64ab15b&x-expires=1728370930&x-signature=AYlbftzEOl0vd6tPRUJs3i6gBmw%3D)
+![](_assets/ba4cdfc439e142bda0bd704fee85106b~tplv-73owjymdk6-jj-mark-v1!0!0!0!0!5o6Y6YeR5oqA5pyv56S-5Yy6IEAgTXVT.webp)
 
 这里其实是一个文本编辑器vim，操作和vim是相同的。在这里您可以整理（删除，修改，排序）指定的这几条提交记录。编辑完成确认后git保存更改。
 
-![](https://p3-xtjj-sign.byteimg.com/tos-cn-i-73owjymdk6/d5eff7b68fd24218b3d32c91f8f6f815~tplv-73owjymdk6-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAgTXVTaGFuWXU=:q75.awebp?rk3s=f64ab15b&x-expires=1728370930&x-signature=JRVvcQOmDNuLAGyFzdLyA7QuH%2F4%3D)
+![](_assets/d5eff7b68fd24218b3d32c91f8f6f815~tplv-73owjymdk6-jj-mark-v1!0!0!0!0!5o6Y6YeR5oqA5pyv56S-5Yy6IEAgTXVT.webp)
 
 ### 4\. 标签与定位
 
@@ -209,7 +209,7 @@ git tag的作用就是如此，它可以永久的将某个提交进行命名，�
 
 例如我们给c1提交记录打一个v1的tag进行标记。git tag v1 c1
 
-![](https://p3-xtjj-sign.byteimg.com/tos-cn-i-73owjymdk6/3e9053d713cb44cf99392337959f7038~tplv-73owjymdk6-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAgTXVTaGFuWXU=:q75.awebp?rk3s=f64ab15b&x-expires=1728370930&x-signature=6HcZ1bVYtl9f%2BfAIgkAp8tYHnlU%3D)
+![](_assets/3e9053d713cb44cf99392337959f7038~tplv-73owjymdk6-jj-mark-v1!0!0!0!0!5o6Y6YeR5oqA5pyv56S-5Yy6IEAgTXVT.webp)
 
 *   git describe
 
@@ -235,7 +235,7 @@ git describe 命令能够帮助你在提交树上多次移动后找到方向，�
 
 2.git commit
 
-![](https://p3-xtjj-sign.byteimg.com/tos-cn-i-73owjymdk6/a0fb1fd39cdc4108b12b7d4bcc1bd4e6~tplv-73owjymdk6-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAgTXVTaGFuWXU=:q75.awebp?rk3s=f64ab15b&x-expires=1728370930&x-signature=pB%2B6Y4419EZZ5%2F6E5jCPE%2Fs1vEU%3D)
+![](_assets/a0fb1fd39cdc4108b12b7d4bcc1bd4e6~tplv-73owjymdk6-jj-mark-v1!0!0!0!0!5o6Y6YeR5oqA5pyv56S-5Yy6IEAgTXVT.webp)
 
 #### 5.0 远程分支
 
@@ -257,7 +257,7 @@ git checkout -b notMain origin/main 这样我们就可以创建一个本地分�
 
 git fetch命令的作用是从远程仓库下载本地仓库中缺少的记录并更新远程分支指针（没有更新本地分支指针），画个图示理解一下这句话：
 
-![](https://p3-xtjj-sign.byteimg.com/tos-cn-i-73owjymdk6/7e83461ca83c4f62b481f4e07a566a78~tplv-73owjymdk6-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAgTXVTaGFuWXU=:q75.awebp?rk3s=f64ab15b&x-expires=1728370930&x-signature=Rmrli%2FOllMxg7Fn0qyr89HU%2FxNM%3D)
+![](_assets/7e83461ca83c4f62b481f4e07a566a78~tplv-73owjymdk6-jj-mark-v1!0!0!0!0!5o6Y6YeR5oqA5pyv56S-5Yy6IEAgTXVT.webp)
 
 然后使用git rebase origin main就能将本地代码更新与远程分支代码一致了， 当然也可以git merge origin main。
 
