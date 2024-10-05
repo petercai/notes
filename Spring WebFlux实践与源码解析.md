@@ -4,7 +4,7 @@ Spring WebFlux和Spring MVC区别
 
 如下来自官网Spring MVC和Spring WebFlux技术栈的区别。 可以看到Spring MVC主要是基于Servlet API使用同步阻塞IO架构，每来一个请求都需要启动一个线程进行处理。这种架构对于大量I/O密集型的请求，需要同时启动大量的线程来处理请求，消耗更多的资源。而Spring WebFlux使用的是全流程的异步非阻塞的架构，处理I/O任务不需要阻塞等待，只需少量的线程，就能处理大量的请求，能够极大提升系统吞吐量。
 
-![](https://p9-xtjj-sign.byteimg.com/tos-cn-i-73owjymdk6/21fa171bd8604363a648393e75048f90~tplv-73owjymdk6-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAg5ZCN5a2X55qE6Zeu6aKY:q75.awebp?rk3s=f64ab15b&x-expires=1728480458&x-signature=63YXr6sfalFPY%2FGSYCRfnU8hWl4%3D)
+![](_assets/21fa171bd8604363a648393e75048f90~tplv-73owjymdk6-jj-mark-v1!0!0!0!0!5o6Y6YeR5oqA5pyv56S-5Yy6IEAg5ZCN.webp)
 
 网上关于 Spring MVC和Spring WebFlux对比：
 
@@ -289,4 +289,4 @@ org.springframework.web.reactive.DispatcherHandler#handle
 
 ### 调用流程
 
-![](https://p9-xtjj-sign.byteimg.com/tos-cn-i-73owjymdk6/cd7df48236ea48f2908f99a173c2b117~tplv-73owjymdk6-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAg5ZCN5a2X55qE6Zeu6aKY:q75.awebp?rk3s=f64ab15b&x-expires=1728480458&x-signature=YmmKMrpxuxVppnQm%2FaEEsCvvWew%3D)
+![](_assets/cd7df48236ea48f2908f99a173c2b117~tplv-73owjymdk6-jj-mark-v1!0!0!0!0!5o6Y6YeR5oqA5pyv56S-5Yy6IEAg5ZCN.webp)
