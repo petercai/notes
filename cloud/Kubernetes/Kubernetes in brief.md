@@ -1,6 +1,6 @@
-# Kubernetes操作概览
+# Kubernetes操作概览 (principles of operations)
 
-## 2.1 Kubernetes概览
+## 2.1 Kubernetes概览 (primer)
 
 Kubernetes基于一系列特性实现了对容器运行时的抽象（从而可以兼容不同的底层容器运行时）。
 
@@ -11,7 +11,7 @@ Kubernetes基于一系列特性实现了对容器运行时的抽象（从而可�
 Containerd已经赶超Docker成为Kubernetes中最普遍使用的容器运行时。它实际上是Docker的精简版本，只保留了Kubernetes需要的部分。
 
 
-一个或多个主节点（master）与若干工作节点（node）构成一个完整的集群。
+一个或多个主节点（Control plane node）与若干工作节点（worker node）构成一个完整的集群。
 
 主节点负责管理整个集群，有时主节点也被称为头结点（head node）。这意味着主节点完成调度决策、监控集群、响应事件与集群变化等工作。因此通常将主节点称作控制平面（control plan）。
 
@@ -29,17 +29,44 @@ Containerd已经赶超Docker成为Kubernetes中最普遍使用的容器运行时
 
 部署（Deployment）提供可扩展性和滚动更新，DaemonSet在集群的每个工作节点中都运行相应服务的实例，有状态应用部署于StatefulSet，同时那些需要不定期运行的临时任务则由定时任务（CronJob）来管理。
 
-## 2.2 主节点与工作节点
-一个Kubernetes集群由主节点（master）与工作节点（node）组成。这些节点都是Linux主机，可以运行在虚拟机（VM）、数据中心的物理机，或者公有云/私有云的实例上。
+### Kubernetes is both of the following:
 
-2.2.1 主节点（控制平面）
-Kubernetes的主节点（master）是组成集群的控制平面的系统服务的集合。
+• A cluster
+• An orchestrator
+
+#### Kubernetes: Cluster
+A Kubernetes cluster is one or more nodes providing CPU, memory, and other resources
+for use by applications. Kubernetes supports two node types:
+• Control plane nodes
+• Worker nodes
+Both types can be physical servers, virtual machines, or cloud instances, and both can
+run on ARM and AMD64/x86-64. Control plane nodes must be Linux, but worker
+nodes can be Linux or Windows.
+
+**Control plane nodes** implement the Kubernetes intelligence, and every cluster needs at
+least one. However, you should have three or five for high availability (HA).
+Every control plane node runs every control plane service. These include the API server,
+the scheduler, and the controllers that implement cloud-native features such as self-
+healing, autoscaling, and rollouts.
+
+**Worker nodes** are for running user applications.
+![[Kubernetes in brief-2024825-4.png]]
+It’s common to run user applications on control plan nodes in development and test environments
+
+#### Kubernetes: Orchestrator
+Orchestrator is jargon for a system that deploys and manages applications. Kubernetes is the industry-standard orchestrator and can intelligently deploy applications across nodes and failure zones for optimal performance and availability. It canalso fix them when they break, scale them when demand changes, and manage zero-downtime rolling updates.
+
+## 2.2 主节点(Control plane node)与工作节点(Worker node)
+一个Kubernetes集群由主节点（Control plane node）与工作节点（Worker node）组成。这些节点都是Linux主机，可以运行在虚拟机（VM）、数据中心的物理机，或者公有云/私有云的实例上。
+
+2.2.1 主节点（Control plane node）
+Kubernetes的主节点（Control plane node）是组成集群的控制平面的系统服务的集合。
 
 一种最简单的方式是将所有的主节点服务（Service）运行在同一个主机上。但是这种方式只适用于实验或测试环境。在生产环境上，主节点的高可用部署是必需的。这也是为什么主流的云服务提供商都实现了自己的多主节点高可用性（Multi-master High Availability），并将其作为自身Kubernetes平台的一部分，比如Azure Kubernetes Service（AKS）、AWS Elastic Kubernetes Service（EKS）以及Google Kubernetes Engine（GKE）。
 
 一般来说，建议使用3或5个副本来完成一个主节点高可用性部署方案。
 
-接下来请跟随本书一起，快速了解构成主节点的各个服务间有什么不同。
+主节点的各个服务间有什么不同:
 
 1.API Server
 API Server（API服务）是Kubernetes的中央车站。所有组件之间的通信，都需要通过API Server来完成。全部组件的通信都是通过API Server来完成，这包括了系统内置组件以及外部用户组件。
@@ -48,37 +75,41 @@ API Server对外通过HTTPS的方式提供了RESTful风格的API接口，读者�
 
 访问API Server的全部请求都必须经过授权与认证，一旦通过之后，YAML文件配置就会被认为是有效的，并被持久化到集群的存储中，最后部署到整个集群。
 
-2.集群存储
+2.集群存储 (cluster store)
 在整个控制层中，只有集群存储是有状态（stateful）的部分，它持久化地存储了整个集群的配置与状态。因此，这也是集群中的重要组件之一——没有集群存储，就没有集群。
 
-通常集群存储底层会选用一种常见的分布式数据库etcd。因为这是整个集群的唯一存储源，用户需要运行3～5个etcd副本来保证存储的高可用性，并且需要有充分的手段来应对可能出现的异常情况。
+通常集群存储底层会选用一种常见的<span style="background:#fff88f">分布式数据库etcd</span>。因为这是整个集群的唯一存储源，用户需要运行3～5个etcd副本来保证存储的高可用性，并且需要有充分的手段来应对可能出现的异常情况。
 
-在关于集群的可用性（availability）这一点上，etcd认为一致性比可用性更加重要。这意味着etcd在出现脑裂的情况时，会停止为集群提供更新能力，来保证存储数据的一致性。但是，就算etcd不可用，应用仍然可以在集群性持续运行，只不过无法更新任何内容而已。
+在关于集群的可用性（availability）这一点上，etcd认为一致性比可用性更加重要。这意味着etcd在出现脑裂的情况时(etcd prefers an odd number of replicas to help avoid split brain
+conditions)，会停止为集群提供更新能力，来保证存储数据的一致性。但是，就算etcd不可用，应用仍然可以在集群性持续运行，只不过无法更新任何内容而已。
 
 对于所有分布式数据库来说，写操作的一致性都至关重要。例如，分布式数据库需要能够处理并发写操作来尝试通过不同的工作节点对相同的数据进行更新。etcd使用业界流行的RAFT一致性算法来解决这个问题。
 
-3.controller管理器
+3.controller管理器 (controllers and controller manager)
+Kubernetes uses controllers to implement a lot of the cluster intelligence. They all run on
+the control plane, and some of the more common ones include:
+• The Deployment controller
+• The StatefulSet controller
+• The ReplicaSet controller
+They all run as background watch loops, reconciling observed state with desired state.
+
 controller管理器实现了全部的后台控制循环，完成对集群的监控并对事件作出响应。
 
-controller管理器是controller的管理者（controller of controller），负责创建controller，并监控它们的执行。
-
-一些控制循环包括：工作节点controller、终端controller，以及副本controller。对应的每个controller都在后台启动了独立的循环监听功能，负责监控API Server的变更。这样做的目的是保证集群的当前状态（current state）可以与期望状态（desired state）相匹配（接下来会用具体案例来解释与证明）。
+controller管理器是controller的管理者（controller of controller），负责创建controller，并监控它们的执行。Kubernetes also runs a controller manager that is responsible for spawning and managing the individual controllers.
+![[Kubernetes in brief-2024825-5.png]]
+一些控制循环包括：工作节点controller、终端controller，以及副本controller。对应的每个controller都在后台启动了独立的循环监听功能，负责监控API Server的变更。这样做的目的是保证集群的当前状态（current state）可以与期望状态（desired state）相匹配。
 
 每个控制循环实现上述功能的基础逻辑大致如下。
-
 （1）获取期望状态。
-
 （2）观察当前状态。
-
 （3）判断两者间的差异。
-
 （4）变更当前状态来消除差异点。
 
 上面的逻辑是Kubernetes与声明式设计模式的关键所在。
 
 每个控制循环都极其定制化，并且仅关心Kubernetes集群中与其相关的部分。感知系统的其他部分并调用这种复杂的事情我们是绝对不会尝试的，每个控制循环都只关心与自己相关的逻辑，剩下的部分会交给其他控制循环来处理。这就是如Kubernetes这样的分布式系统设计的关键点所在，也与UNIX设计哲学不谋而合：每个组件都专注做好一件事，复杂系统是通过多个专一职责的组件组合而构成的。
 
-4.调度器
+4.调度器  (scheduler)
 从整体上来看，调度器的职责就是通过监听API Server来启动新的工作任务，并将其分配到适合的且处于正常运行状态的节点中。为了完成这样的工作，调度器实现了复杂的逻辑，过滤掉不能运行指定任务的工作节点，并对过滤后的节点进行排序。排序系统非常复杂，在排序之后会选择分数最高的节点来运行指定的任务。
 
 当确定了可以执行任务的具体节点之后，调度器会进行多种前置校验。这些前置校验包括：节点是否仍然存在、是否有affinity或者anti-affinity规则、任务所依赖的端口在当前工作节点是否可以访问、工作节点是否有足够的资源等。不满足任务执行条件的工作节点会被直接忽略，剩下的工作节点会依据下面的判定规则计算得分并排序，具体包括：工作节点上是否已经包含任务所需的镜像、剩余资源是否满足任务执行条件，以及正在执行多少任务。每条判定规则都有对应的得分，得分最高的工作节点会被选中，并执行相应任务。
@@ -87,21 +118,17 @@ controller管理器是controller的管理者（controller of controller），负
 
 调度器并不负责执行任务，只是为当前任务选择一个合适的节点运行。
 
-5.云controller管理器
+5.云controller管理器(cloud controller manager)
 如果用户的集群运行在诸如AWS、Azure、GCP、DO和IBM等类似的公有云平台上，则控制平面会启动一个云controller管理器（cloud controller manager）。云controller管理器负责集成底层的公有云服务，例如实例、负载均衡以及存储等。举一个例子，如果用户的应用需要一个面向互联网流量的负载均衡器，则云controller管理器负责提前在对应的公有云平台上创建好相应的负载均衡器。
-![[Kubernetes in brief-2024817-1.png]]
+![[Kubernetes in brief-2024825-7.png]]
 
 
-2.2.2 工作节点 (node)
+2.2.2 工作节点 (worker node)
 工作节点是Kubernetes集群中的工作者。从整体上看，工作节点主要负责如下3件事情。
-
 1.监听API Server分派的新任务。
-
 2.执行新分派的任务。
-
 3.向控制平面回复任务执行的结果（通过API Server）。
-
-![[Kubernetes in brief-2024817-2.png]]
+![[Kubernetes in brief-2024825-8.png]]
 
 工作节点的3个主要功能。
 
@@ -115,7 +142,7 @@ Kubelet的一个重要职责就是负责监听API Server新分配的任务。每
 
 如果Kuberlet无法运行指定任务，就会将这个信息反馈给控制平面，并由控制平面决定接下来要采取什么措施。例如，如果Kubelet无法执行一个任务，则其并不会负责寻找另外一个可执行任务的工作节点。Kubelet仅仅是将这个消息上报给控制平面，由控制平面决定接下来该如何做。
 
-#### 2.容器运行时
+#### 2.容器运行时 (runtime)
 Kubelet需要一个容器运行时（container runtime）来执行依赖容器才能执行的任务，例如拉取镜像并启动或停止容器。
 
 在早期的版本中，Kubernetes原生支持了少量容器运行时，例如Docker。而在最近的版本中，Kubernetes将其迁移到了一个叫作容器运行时接口（CRI）的模块当中。从整体上来看，CRI屏蔽了Kubernetes内部运行机制，并向第三方容器运行时提供了文档化接口来接入。
@@ -158,7 +185,7 @@ Kubernetes目前支持丰富的容器运行时。一个非常著名的例子就�
 
 在一个Deployment文件定义好之后，读者可以通过API Server来指定应用的期望状态（desired state）并在Kubernetes上运行。
 
-## [2.5 声明式模型与期望状态]
+## 2.5 声明式模型与期望状态 (declarative model and desired state)
 
 声明式模型（declarative modle）以及期望状态（desired state）是Kubernetes中非常核心的概念。
 
@@ -271,9 +298,19 @@ Service使用标签（label）与一个标签选择器（label selector）来决
 
 下图展示了一个类似的场景。但是在图中右侧的增加了一个额外的Pod，这个Pod上面的标签与Service中标签选择器中的配置并不相符。这意味着服务不会将请求路由给这个新增的Pod。
 ![[Kubernetes in brief-2024825-3.png]]
+Service只会将流量路由到健康的Pod，这意味着如果Pod的健康检查失败，那么Pod就不会接收到任何流量。
+Service为不稳定的Pod集合提供了稳定的IP地址以及DNS名称。
+
+## [2.9 总结](javascript:void(0))
 
 
 
+- **控制平面(control plane)** 运行在主节点上。在其背后，还有几个系统服务，包括对集群提供了RESTful接口的API Server。
+- **主节点(master)** 负责所有的部署与调度决策，并且对于生产环境来说，基于多主节点的HA方案是非常重要的。
+- **工作节点(node)** 上运行了用户的应用程序。每个工作节点上都运行了Kubelet这个服务，负责将当前工作节点注册到集群，并且通过API Server与集群进行交互。Kubelet通过监听API的方式来获取新任务，并维护相应的上报通道。工作节点上还有一个容器运行时，以及kube-proxy服务。容器运行时，比如Docker或者containerd，负责响应全部与容器相关的操作。kube-proxy负责节点上的网络功能。
+- **Pod**是执行构建的最小单元。
+- **Deployment**在Pod基础上增加了自愈、水平扩缩容与更新能力。
+- **Service**提供了稳定的网络与负载均能能力。
 
 
 
