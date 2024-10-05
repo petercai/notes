@@ -1,4 +1,4 @@
-# Spring @cheduler
+# Spring @Scheduler
 
 
  `@Scheduler` 这个注解
