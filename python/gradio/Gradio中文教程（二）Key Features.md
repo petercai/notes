@@ -1,4 +1,4 @@
-# Gradio中文教程（二）Key Features - 知乎
+# Gradio中文教程（二）Key Features
 [老刘：Gradio中文教程-目录](https://zhuanlan.zhihu.com/p/682198989)
 ----------------------------------------------------------
 
