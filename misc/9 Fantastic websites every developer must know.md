@@ -1,8 +1,6 @@
 # 9 Fantastic websites every developer must know 
-![](_assets/vs6cf9ti13n4ncv702d0.jpg)
 
-[![](_assets/83b5f400-8a9b-4676-a8a1-06c94265f7d4.jpg)
-](https://dev.to/hy_piyush)
+
 
 I’ve been such a fan of websites that helps to reduce our work so much easier. Even for developers, websites can be life savers. They can make developers more productive and organized so that their life can be so easy.
 

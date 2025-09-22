@@ -1,4 +1,66 @@
-<img src="https://r2cdn.perplexity.ai/pplx-full-logo-primary-dark%402x.png" class="logo" width="120"/>
+
+# Docker CLI cheatsheet
+
+Here’s a handy **Docker CLI cheatsheet** to help you work efficiently with Docker:
+
+---
+
+### 🐳 **Docker Basics**
+
+|Command|Description|
+|---|---|
+|`docker version`|Show Docker version info|
+|`docker info`|Display system-wide information|
+|`docker help`|Show help for Docker commands|
+
+---
+
+### 📦 **Images**
+
+|Command|Description|
+|---|---|
+|`docker search python`|Search Docker Hub for images|
+|`docker pull python`|Download an image|
+|`docker images`|List downloaded images|
+|`docker rmi <image>`|Remove an image|
+
+---
+
+### 🏗️ **Containers**
+
+|Command|Description|
+|---|---|
+|`docker run -it python`|Run a container interactively|
+|`docker run -d -p 8000:8000 python`|Run in detached mode with port mapping|
+|`docker ps`|List running containers|
+|`docker ps -a`|List all containers|
+|`docker stop <container>`|Stop a running container|
+|`docker rm <container>`|Remove a container|
+
+---
+
+### 🛠️ **Build & Manage**
+
+|Command|Description|
+|---|---|
+|`docker build -t myapp .`|Build image from Dockerfile|
+|`docker exec -it <container> bash`|Run a command inside a container|
+|`docker logs <container>`|View container logs|
+|`docker cp <container>:/path /host/path`|Copy files from container to host|
+
+---
+
+### 🧹 **Cleanup**
+
+|Command|Description|
+|---|---|
+|`docker system prune`|Remove unused data|
+|`docker image prune`|Remove unused images|
+|`docker container prune`|Remove stopped containers|
+
+---
+
+Would you like this as a downloadable file or a printable PDF?
 
 # list docker command cheat sheet
 
@@ -107,3 +169,66 @@ This cheat sheet covers essential commands to efficiently work with Docker in de
 
 [^7]: https://kapeli.com/cheat_sheets/Dockerfile.docset/Contents/Resources/Documents/index
 
+# docker build
+
+When building Docker images, you can increase the verbosity of the output to help with debugging or understanding what's happening during the build process. Here are several ways to make `docker build` more verbose:
+
+---
+
+### 🛠️ **1. Use `--progress=plain` (Docker BuildKit)**
+
+If you're using Docker BuildKit (enabled by default in recent Docker versions), this option shows detailed logs:
+
+```Shell
+DOCKER_BUILDKIT=1 docker build --progress=plain -t my-image .
+```
+
+---
+
+### 🧱 **2. Disable BuildKit (for classic builder output)**
+
+If you prefer the older, more verbose output format:
+
+```Shell
+DOCKER_BUILDKIT=0 docker build -t my-image .
+```
+
+This can sometimes give more granular step-by-step output, especially if you're troubleshooting.
+
+---
+
+### 🔍 **3. Add `RUN` commands with `-x` or `set -ex`**
+
+Inside your Dockerfile, you can make shell commands verbose:
+
+```Dockerfile
+RUN set -ex && \
+    echo "Installing dependencies..." && \
+    apt-get update && \
+    apt-get install -y curl
+```
+
+- `set -e`: Exit on error.
+- `set -x`: Print each command before executing it.
+
+---
+
+### 🧪 **4. Use `--no-cache` to force all steps to run**
+
+This ensures Docker doesn't skip steps due to caching:
+
+```Shell
+docker build --no-cache -t my-image .
+```
+
+---
+
+### 🧰 **5. Combine for maximum verbosity**
+
+```Shell
+DOCKER_BUILDKIT=1 docker build --progress=plain --no-cache -t my-image .
+```
+
+---
+
+Would you like help debugging a specific Docker build or Dockerfile? I can help analyze logs or optimize your Dockerfile too.

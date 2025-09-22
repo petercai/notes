@@ -1,6 +1,5 @@
 # HomeBrew 从安装到精通
 
-![](_assets/c8387f8250f64872a8ea44c09fe0e7ce~tplv-k3u1fbpfcp-jj-mark!3024!0!0!0!q75.awebp.webp)
 
 [介绍](https://link.juejin.cn/?target=https%3A%2F%2Fwww.codermast.com%2Fdev-tools%2Fhomebrew.html%23%25E4%25BB%258B%25E7%25BB%258D "https://www.codermast.com/dev-tools/homebrew.html#%E4%BB%8B%E7%BB%8D")
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
