@@ -25,7 +25,7 @@ The platform consists of several key components that are layered into a user int
 
 # EditorPart vs. EditPart
 
-The main differences between an EditorPart and an EditPart in Eclipse are: [[1]](https://stackoverflow.com/questions/3259490)
+The main differences between an EditorPart and an EditPart in Eclipse are: [[IB from chatgpt]](https://stackoverflow.com/questions/3259490)
 
 - EditorPart represents an editor in the Eclipse workbench. It is responsible for editing a model object and handling save/load operations.
 - EditPart on the other hand represents a part of the model being edited in the editor. It is responsible for visualizing and editing a particular part of the model.
