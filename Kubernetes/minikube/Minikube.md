@@ -11,7 +11,7 @@ To list all addons in Minikube, you can use the following command:
 minikube addons list
 ```
 
-This command will display a list of all available addons and their current status (enabled or disabled) in your Minikube setup [[1]](https://www.howtogeek.com/255807/how-to-view-a-list-of-extensions-installed-in-all-your-browsers/).
+This command will display a list of all available addons and their current status (enabled or disabled) in your Minikube setup [[IB from chatgpt]](https://www.howtogeek.com/255807/how-to-view-a-list-of-extensions-installed-in-all-your-browsers/).
 
 Is there anything else you'd like to know about managing addons in Minikube?
 
@@ -50,7 +50,7 @@ To remove the Docker registry addon from Minikube on your local macOS, follow th
    kubectl get all -l app=registry
 ```
 
-These steps should help you completely remove the Docker registry addon from your Minikube setup [[1]](https://stackoverflow.com/questions/69498412/minikube-accessing-images-added-with-registry-addon) [[2]](https://minikube.sigs.k8s.io/docs/handbook/registry/).
+These steps should help you completely remove the Docker registry addon from your Minikube setup [[IB from chatgpt]](https://stackoverflow.com/questions/69498412/minikube-accessing-images-added-with-registry-addon) [[2]](https://minikube.sigs.k8s.io/docs/handbook/registry/).
 
 If you need further assistance or have any other questions, feel free to ask!
 
@@ -322,7 +322,7 @@ spec:
 - **NodePort** services expose the service on a port on each node in the cluster. The `nodePort` field specifies the port to be used.
 - Ensure there are no firewall rules blocking the port.
 
-If you encounter any issues or need further assistance, feel free to ask! [[1]](https://stackoverflow.com/questions/63600378/cant-access-minikube-service-using-nodeport-from-host-on-mac) [[2]](https://minikube.sigs.k8s.io/docs/handbook/accessing/) [[3]](https://www.slingacademy.com/article/minikube-how-to-expose-a-service-externally-to-the-outside-world-external-ip/)
+If you encounter any issues or need further assistance, feel free to ask! [[IB from chatgpt]](https://stackoverflow.com/questions/63600378/cant-access-minikube-service-using-nodeport-from-host-on-mac) [[2]](https://minikube.sigs.k8s.io/docs/handbook/accessing/) [[3]](https://www.slingacademy.com/article/minikube-how-to-expose-a-service-externally-to-the-outside-world-external-ip/)
 
   
 References
@@ -381,7 +381,7 @@ There are a few reasons why accessing `http://<minikube-ip>:30050/health` might 
 
 1. **Minikube Networking Limitations**:
     
-    - Minikube runs a single-node Kubernetes cluster inside a VM or container. Depending on the driver used (e.g., Docker, Hyperkit), direct access to NodePort services might be restricted [[1]](https://stackoverflow.com/questions/55591468/unable-to-access-a-nodeport-service-on-minikube) [[2]](https://www.reddit.com/r/kubernetes/comments/13e7ypi/cannot_reach_service_when_using_nodeport/).
+    - Minikube runs a single-node Kubernetes cluster inside a VM or container. Depending on the driver used (e.g., Docker, Hyperkit), direct access to NodePort services might be restricted [[IB from chatgpt]](https://stackoverflow.com/questions/55591468/unable-to-access-a-nodeport-service-on-minikube) [[2]](https://www.reddit.com/r/kubernetes/comments/13e7ypi/cannot_reach_service_when_using_nodeport/).
 2. **Service Configuration**:
     
     - Ensure that the service is correctly configured and running. You can check the status of the service using:

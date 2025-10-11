@@ -318,7 +318,7 @@ ENTRYPOINT ["java", "-jar", "cdb-int-cred-mgmt-inq.jar"]
 
 Ensure your CA bundle file (`ca-bundle.pem`) is accessible at the specified path (`/path/to/your/ca-bundle.pem`). This file should contain the CA certificates in PEM format.
 
-If you have any more questions or need further assistance, feel free to ask! [[1]](https://docs.docker.com/engine/network/ca-certs/) [[2]](https://stackoverflow.com/questions/42292444/how-do-i-add-a-ca-root-certificate-inside-a-docker-image) [[3]](https://www.baeldung.com/ops/docker-container-import-ssl-certificate)
+If you have any more questions or need further assistance, feel free to ask! [[IB from chatgpt]](https://docs.docker.com/engine/network/ca-certs/) [[2]](https://stackoverflow.com/questions/42292444/how-do-i-add-a-ca-root-certificate-inside-a-docker-image) [[3]](https://www.baeldung.com/ops/docker-container-import-ssl-certificate)
 
   
 References
@@ -348,7 +348,7 @@ Here are some of the best free Docker registry explorer GUIs for macOS:
     - Free for commercial use
 - **Cons**:
     - Mac-only, no support for Windows or Linux
-    - Smaller community and fewer add-ons compared to Docker Desktop [[1]](https://www.bytebase.com/blog/top-docker-desktop-alternatives/) [[2]](https://betterstack.com/community/comparisons/docker-desktop-alternative/)
+    - Smaller community and fewer add-ons compared to Docker Desktop [[IB from chatgpt]](https://www.bytebase.com/blog/top-docker-desktop-alternatives/) [[2]](https://betterstack.com/community/comparisons/docker-desktop-alternative/)
 
 ### 2. **Rancher Desktop**
 
@@ -363,7 +363,7 @@ Here are some of the best free Docker registry explorer GUIs for macOS:
     - Regular updates and support from SUSE
 - **Cons**:
     - Higher memory and CPU usage
-    - Includes Kubernetes even if you don't need it [[1]](https://www.bytebase.com/blog/top-docker-desktop-alternatives/) [[2]](https://betterstack.com/community/comparisons/docker-desktop-alternative/)
+    - Includes Kubernetes even if you don't need it [[IB from chatgpt]](https://www.bytebase.com/blog/top-docker-desktop-alternatives/) [[2]](https://betterstack.com/community/comparisons/docker-desktop-alternative/)
 
 ### 3. **Podman Desktop**
 
@@ -376,7 +376,7 @@ Here are some of the best free Docker registry explorer GUIs for macOS:
     - Secure by default
     - Works on multiple operating systems
 - **Cons**:
-    - May have a steeper learning curve for new users [[1]](https://www.bytebase.com/blog/top-docker-desktop-alternatives/) [[2]](https://betterstack.com/community/comparisons/docker-desktop-alternative/)
+    - May have a steeper learning curve for new users [[IB from chatgpt]](https://www.bytebase.com/blog/top-docker-desktop-alternatives/) [[2]](https://betterstack.com/community/comparisons/docker-desktop-alternative/)
 
 ### 4. **Colima**
 
@@ -389,7 +389,7 @@ Here are some of the best free Docker registry explorer GUIs for macOS:
     - Easy to set up and use
 - **Cons**:
     - Limited to macOS
-    - Smaller community[[1]](https://www.bytebase.com/blog/top-docker-desktop-alternatives/)[[2]](https://betterstack.com/community/comparisons/docker-desktop-alternative/)
+    - Smaller community[[IB from chatgpt]](https://www.bytebase.com/blog/top-docker-desktop-alternatives/)[[2]](https://betterstack.com/community/comparisons/docker-desktop-alternative/)
 
 These tools offer a range of features and capabilities, so you can choose the one that best fits your needs. If you have any more questions or need further assistance, feel free to ask!
 
@@ -412,7 +412,7 @@ The `docker history` command displays the history of an image, including the lay
 docker history your-image-name
 ```
 
-This command will output details about each layer, including the command used to create it and the size of the layer [[1]](https://stackoverflow.com/questions/29696656/finding-the-layers-and-layer-sizes-for-each-docker-image) [[2]](https://howchoo.com/docker/how-to-show-all-layers-of-a-docker-image/).
+This command will output details about each layer, including the command used to create it and the size of the layer [[IB from chatgpt]](https://stackoverflow.com/questions/29696656/finding-the-layers-and-layer-sizes-for-each-docker-image) [[2]](https://howchoo.com/docker/how-to-show-all-layers-of-a-docker-image/).
 
 ### 2. **Using `docker image inspect` Command**
 
@@ -440,7 +440,7 @@ This command will output a JSON object with detailed information about the image
    dive your-image-name
 ```
 
-This tool allows you to inspect each layer, view the files added or modified, and analyze the efficiency of your Docker image [[1]](https://stackoverflow.com/questions/29696656/finding-the-layers-and-layer-sizes-for-each-docker-image) [[2]](https://howchoo.com/docker/how-to-show-all-layers-of-a-docker-image/).
+This tool allows you to inspect each layer, view the files added or modified, and analyze the efficiency of your Docker image [[IB from chatgpt]](https://stackoverflow.com/questions/29696656/finding-the-layers-and-layer-sizes-for-each-docker-image) [[2]](https://howchoo.com/docker/how-to-show-all-layers-of-a-docker-image/).
 
 ### Example Output for `docker history`
 

@@ -11,7 +11,7 @@ The error message you're encountering indicates that your request to list contai
 
 The error `code=403, message=Request is prohibited by organization's policy` suggests that your organization's security policies are preventing the `gcloud` command from executing. This could be due to:
 
-1. **VPC Service Controls**: Your organization has set up VPC Service Controls to restrict access to certain Google Cloud resources [[1]](https://stackoverflow.com/questions/35928534/403-request-had-insufficient-authentication-scopes-during-gcloud-container-clu).
+1. **VPC Service Controls**: Your organization has set up VPC Service Controls to restrict access to certain Google Cloud resources [[IB from chatgpt]](https://stackoverflow.com/questions/35928534/403-request-had-insufficient-authentication-scopes-during-gcloud-container-clu).
 2. **IAM Policies**: Your user account may not have the necessary permissions to list container clusters [[2]](https://cloud.google.com/kubernetes-engine/docs/troubleshooting/kubectl).
 
 ### **Solution**
@@ -36,7 +36,7 @@ The error `code=403, message=Request is prohibited by organization's policy` sug
 
 If you need further assistance, feel free to ask! 😊
 
-[[1]](https://stackoverflow.com/questions/35928534/403-request-had-insufficient-authentication-scopes-during-gcloud-container-clu): Google Cloud VPC Service Controls [[2]](https://cloud.google.com/kubernetes-engine/docs/troubleshooting/kubectl): Google Cloud IAM Roles [[3]](https://serverfault.com/questions/1044638/sudden-permissions-denied-for-service-account): Google Kubernetes Engine IAM Roles
+[[IB from chatgpt]](https://stackoverflow.com/questions/35928534/403-request-had-insufficient-authentication-scopes-during-gcloud-container-clu): Google Cloud VPC Service Controls [[2]](https://cloud.google.com/kubernetes-engine/docs/troubleshooting/kubectl): Google Cloud IAM Roles [[3]](https://serverfault.com/questions/1044638/sudden-permissions-denied-for-service-account): Google Kubernetes Engine IAM Roles
 
   
 References
@@ -71,7 +71,7 @@ To list all your roles in Google Cloud, you can use the `gcloud` command-line to
    gcloud projects get-iam-policy [PROJECT_ID] --flatten="bindings[].members" --format="table(bindings.role)" --filter="bindings.members:[SERVICE_ACCOUNT]"
 ```
 
-Replace `[PROJECT_ID]` with your project ID and `[SERVICE_ACCOUNT]` with your service account email [[1]](https://cloud.google.com/sdk/gcloud/reference/iam/roles/list) [[2]](https://stackoverflow.com/questions/47006062/how-do-i-list-the-roles-associated-with-a-gcp-service-account).
+Replace `[PROJECT_ID]` with your project ID and `[SERVICE_ACCOUNT]` with your service account email [[IB from chatgpt]](https://cloud.google.com/sdk/gcloud/reference/iam/roles/list) [[2]](https://stackoverflow.com/questions/47006062/how-do-i-list-the-roles-associated-with-a-gcp-service-account).
 
 Would you like more details on any of these commands?
 
@@ -84,7 +84,7 @@ References
 
 # VPC
 
-**VPC Service Controls** in Google Cloud are designed to enhance the security of your data by creating security perimeters around your resources. These perimeters help mitigate data exfiltration risks by isolating resources of multi-tenant Google Cloud services [[1]](https://cloud.google.com/vpc-service-controls/docs/) [[2]](https://developers.google.com/workspace/cloud-search/docs/guides/implement-vpc-service-controls).
+**VPC Service Controls** in Google Cloud are designed to enhance the security of your data by creating security perimeters around your resources. These perimeters help mitigate data exfiltration risks by isolating resources of multi-tenant Google Cloud services [[IB from chatgpt]](https://cloud.google.com/vpc-service-controls/docs/) [[2]](https://developers.google.com/workspace/cloud-search/docs/guides/implement-vpc-service-controls).
 
 ### Key Features of VPC Service Controls:
 
@@ -124,7 +124,7 @@ References
    gcloud access-context-manager perimeters describe [PERIMETER_NAME] --policy [POLICY_ID]
 ```
 
-Replace `[POLICY_ID]` with your access policy ID and `[PERIMETER_NAME]` with the name of your service perimeter [[1]](https://cloud.google.com/vpc-service-controls/docs/) [[2]](https://developers.google.com/workspace/cloud-search/docs/guides/implement-vpc-service-controls) [[3]](https://scalesec.com/blog/vpc-service-controls-in-plain-english/).
+Replace `[POLICY_ID]` with your access policy ID and `[PERIMETER_NAME]` with the name of your service perimeter [[IB from chatgpt]](https://cloud.google.com/vpc-service-controls/docs/) [[2]](https://developers.google.com/workspace/cloud-search/docs/guides/implement-vpc-service-controls) [[3]](https://scalesec.com/blog/vpc-service-controls-in-plain-english/).
 
 Would you like more details on setting up or managing these policies?
 
