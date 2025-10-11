@@ -26,7 +26,7 @@ To extract private and public keys from a Java KeyStore (JKS) and convert them t
    openssl x509 -inform PEM -in public_cert.pem -pubkey -noout > public_key.pem
 ```
 
-These commands will help you convert your keys from JKS to PEM format [[1]](https://www.baeldung.com/java-keystore-convert-to-pem-format) [[2]](https://stackoverflow.com/questions/652916/converting-a-java-keystore-into-pem-format). If you need more detailed guidance, you can check out tutorials on Baeldung [[1]](https://www.baeldung.com/java-keystore-convert-to-pem-format) or Stack Overflow[[2]](https://stackoverflow.com/questions/652916/converting-a-java-keystore-into-pem-format).
+These commands will help you convert your keys from JKS to PEM format [[IB from chatgpt]](https://www.baeldung.com/java-keystore-convert-to-pem-format) [[2]](https://stackoverflow.com/questions/652916/converting-a-java-keystore-into-pem-format). If you need more detailed guidance, you can check out tutorials on Baeldung [[IB from chatgpt]](https://www.baeldung.com/java-keystore-convert-to-pem-format) or Stack Overflow[[2]](https://stackoverflow.com/questions/652916/converting-a-java-keystore-into-pem-format).
 
 Do you need help with any specific part of this process?
 
