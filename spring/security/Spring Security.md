@@ -22,7 +22,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 }
 ```
 
-2. **Resource Server**: When your application acts as a resource server, it uses the `JwtDecoder` bean to decode incoming JWT tokens and validate them against the JWK set URI provided [[1]](https://stackoverflow.com/questions/66967775/i-need-a-jwtdecoder-bean-can-i-autoconfigure-this) [[2]](https://www.baeldung.com/spring-security-oauth-jwt).
+2. **Resource Server**: When your application acts as a resource server, it uses the `JwtDecoder` bean to decode incoming JWT tokens and validate them against the JWK set URI provided [[IB from chatgpt]](https://stackoverflow.com/questions/66967775/i-need-a-jwtdecoder-bean-can-i-autoconfigure-this) [[2]](https://www.baeldung.com/spring-security-oauth-jwt).
     
 3. **Token Validation**: The `JwtDecoder` bean ensures that the JWT tokens are properly validated, checking the signature and claims to confirm that the token is issued by a trusted authorization server [[3]](https://docs.spring.io/spring-security/reference/servlet/oauth2/resource-server/jwt.html).
     
