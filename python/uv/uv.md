@@ -34,7 +34,7 @@ Using **uv** to manage Python packages in a team can significantly streamline yo
 
 ### **7. Additional Features**
 
-- **Fast Dependency Resolution**: uv is designed to be significantly faster than traditional tools like pip, thanks to its Rust implementation [[IB from chatgpt]](https://realpython.com/python-uv/) [[2]](https://www.datacamp.com/tutorial/python-uv).
+- **Fast Dependency Resolution**: uv is designed to be significantly faster than traditional tools like pip, thanks to its Rust implementation [[1]](https://realpython.com/python-uv/) [[2]](https://www.datacamp.com/tutorial/python-uv).
 - **Compatibility**: uv works seamlessly with existing tools and workflows, making it easy to integrate into your team's processes [[2]](https://www.datacamp.com/tutorial/python-uv).
 
 By leveraging these features, your team can manage Python projects more efficiently, ensuring smooth development and deployment processes.
@@ -118,7 +118,7 @@ To convert a Python project with a `requirements.txt` file to a `uv` project wit
    uv publish
 ```
 
-For a more detailed guide, you can refer to the [Stack Overflow discussion](https://stackoverflow.com/questions/79154674/how-to-migrate-from-a-simple-python-project-requirements-txt-setup-py-setupto) [[IB from chatgpt]](https://stackoverflow.com/questions/79154674/how-to-migrate-from-a-simple-python-project-requirements-txt-setup-py-setupto) or the [uv documentation](https://docs.astral.sh/uv/guides/projects/) [[2]](https://docs.astral.sh/uv/guides/projects/).
+For a more detailed guide, you can refer to the [Stack Overflow discussion](https://stackoverflow.com/questions/79154674/how-to-migrate-from-a-simple-python-project-requirements-txt-setup-py-setupto) [[1]](https://stackoverflow.com/questions/79154674/how-to-migrate-from-a-simple-python-project-requirements-txt-setup-py-setupto) or the [uv documentation](https://docs.astral.sh/uv/guides/projects/) [[2]](https://docs.astral.sh/uv/guides/projects/).
 
 Would you like more information on any of these steps?
 

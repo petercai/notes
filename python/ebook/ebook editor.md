@@ -10,7 +10,7 @@ Here are some of the **best ebook editors and creators** in 2025 that are well-s
 - **Best for**: Long-form writing projects (novels, non-fiction)
 - **Strengths**: Excellent organization tools, supports EPUB, MOBI, PDF export
 - **Weaknesses**: Limited design features
-- **Cost**: \$49 one-time [[IB from chatgpt]](https://designrr.io/best-ebook-software/)
+- **Cost**: \$49 one-time [[1]](https://designrr.io/best-ebook-software/)
 - **Why choose it**: Ideal for authors who need structured writing and easy compilation into ebook formats.
 
 #### **2. Kindle Create**
@@ -18,7 +18,7 @@ Here are some of the **best ebook editors and creators** in 2025 that are well-s
 - **Best for**: Publishing on Amazon Kindle
 - **Strengths**: Free, Kindle-optimized formatting, built-in preview
 - **Weaknesses**: Limited to Amazon ecosystem
-- **Cost**: Free [[IB from chatgpt]](https://designrr.io/best-ebook-software/)
+- **Cost**: Free [[1]](https://designrr.io/best-ebook-software/)
 - **Why choose it**: Perfect for authors targeting Kindle readers with simple formatting needs.
 
 #### **3. Google Docs**
@@ -26,7 +26,7 @@ Here are some of the **best ebook editors and creators** in 2025 that are well-s
 - **Best for**: Simple, collaborative text-based ebooks
 - **Strengths**: Free, cloud-based, EPUB export
 - **Weaknesses**: Basic formatting only
-- **Cost**: Free [[IB from chatgpt]](https://designrr.io/best-ebook-software/)
+- **Cost**: Free [[1]](https://designrr.io/best-ebook-software/)
 - **Why choose it**: Great for drafting and basic formatting, especially for collaborative writing.
 
 #### **4. MS Word**
@@ -34,7 +34,7 @@ Here are some of the **best ebook editors and creators** in 2025 that are well-s
 - **Best for**: PDF-based ebooks
 - **Strengths**: Familiar interface, good for basic formatting
 - **Weaknesses**: Not optimized for EPUB/MOBI
-- **Cost**: \$69.99/year+ [[IB from chatgpt]](https://designrr.io/best-ebook-software/)
+- **Cost**: \$69.99/year+ [[1]](https://designrr.io/best-ebook-software/)
 - **Why choose it**: Suitable for authors who prefer working in Word and exporting to PDF.
 
 ---
