@@ -6,14 +6,14 @@ Great question! Let's break this down into two parts:
 
 ## 🔁 **1. Key Differences Between Auto-Scaling in PCF vs GKE**
 
-|Feature|**PCF (Pivotal Cloud Foundry)**|**GKE (Google Kubernetes Engine)**|
-|---|---|---|
-|**Scaling Unit**|App instances (replicas of the app)|Pods (via HPA) and Nodes (via Cluster Autoscaler)|
-|**Trigger Types**|CPU, memory, HTTP throughput, response time|CPU, memory, custom metrics (via Prometheus, Cloud Monitoring)|
-|**Scale From Zero**|Not supported natively|Not supported by HPA alone; possible with KEDA|
-|**Configuration**|YAML or via PCF CLI|YAML manifests (HPA, VPA, Cluster Autoscaler)|
-|**Granularity**|App-level|Pod-level and cluster-level|
-|**Autoscaler Type**|App Autoscaler|Horizontal Pod Autoscaler (HPA), Vertical Pod Autoscaler (VPA), Cluster Autoscaler|
+| Feature             | **PCF (Pivotal Cloud Foundry)**             | **GKE (Google Kubernetes Engine)**                                                 |
+| ------------------- | ------------------------------------------- | ---------------------------------------------------------------------------------- |
+| **Scaling Unit**    | App instances (replicas of the app)         | Pods (via HPA) and Nodes (via Cluster Autoscaler)                                  |
+| **Trigger Types**   | CPU, memory, HTTP throughput, response time | CPU, memory, custom metrics (via Prometheus, Cloud Monitoring)                     |
+| **Scale From Zero** | Not supported natively                      | Not supported by HPA alone; possible with KEDA                                     |
+| **Configuration**   | YAML or via PCF CLI                         | YAML manifests (HPA, VPA, Cluster Autoscaler)                                      |
+| **Granularity**     | App-level                                   | Pod-level and cluster-level                                                        |
+| **Autoscaler Type** | App Autoscaler                              | Horizontal Pod Autoscaler (HPA), Vertical Pod Autoscaler (VPA), Cluster Autoscaler |
 
 ---
 
