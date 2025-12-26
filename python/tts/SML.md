@@ -354,13 +354,13 @@ tokenizer.encode("Hello ‡break‡ world")
 
 ## 🧠 五、不同模型间的差异
 
-|模型名称|框架|是否使用 break/pause token|是否支持 SSML|
-|---|---|---|---|
-|**Coqui TTS / XTTS**|PyTorch|✅ (`‡break‡`, `‡pause‡`)|部分支持|
-|**Bark (Suno)**|PyTorch|✅ (`[pause]`, `[laughter]`)|❌（自定义 token）|
-|**VITS / GlowTTS**|PyTorch|🚫（内部语速控制）|❌|
-|**Edge-TTS (微软)**|C++/ONNX|✅ `<break/>`, `<prosody/>`|✅ 完整SSML|
-|**CosyVoice / MegaTTS**|PyTorch|✅ 自定义停顿token|❌（自定义格式）|
+| 模型名称                    | 框架       | 是否使用 break/pause token      | 是否支持 SSML    |
+| ----------------------- | -------- | --------------------------- | ------------ |
+| **Coqui TTS / XTTS**    | PyTorch  | ✅ (`‡break‡`, `‡pause‡`)    | 部分支持         |
+| **Bark (Suno)**         | PyTorch  | ✅ (`[pause]`, `[laughter]`) | ❌（自定义 token） |
+| **VITS / GlowTTS**      | PyTorch  | 🚫（内部语速控制）                  | ❌            |
+| **Edge-TTS (微软)**       | C++/ONNX | ✅ `<break/>`, `<prosody/>`  | ✅ 完整SSML     |
+| **CosyVoice / MegaTTS** | PyTorch  | ✅ 自定义停顿token                | ❌（自定义格式）     |
 
 ---
 
