@@ -455,4 +455,146 @@ class Speaker:
 * 帮你把一个 staticmethod 重构成 **继承安全的 factory**
 * 解释 **为什么 Python 标准库里 staticmethod 极少**
 
-你点一个我展开 👌
+# static method
+
+Short answer: **just call it like a normal function from the class name** 👍
+Long answer below, with the *gotchas* people usually trip over.
+
+---
+
+## Basic example
+
+```python
+class MyClass:
+    def __init__(self, x):
+        self.value = MyClass.process(x)
+
+    @staticmethod
+    def process(x):
+        return x * 2
+```
+
+### Why this works
+
+* `@staticmethod` **does not receive `self` or `cls`**
+* It behaves like a normal function **namespaced inside the class**
+* Best practice: call it via **`ClassName.method()`**, not `self.method()`
+
+---
+
+## Can you call it via `self`?
+
+Yes… but don’t 😅
+
+```python
+class MyClass:
+    def __init__(self, x):
+        self.value = self.process(x)   # works, but discouraged
+
+    @staticmethod
+    def process(x):
+        return x * 2
+```
+
+### Why discouraged?
+
+* It *looks* like an instance method but isn’t
+* Breaks clarity and confuses readers (and future you)
+* Static methods are conceptually **class-level utilities**
+
+✅ Prefer:
+
+```python
+MyClass.process(x)
+```
+
+---
+
+## Static method vs class method in `__init__`
+
+### Static method (no access to class or instance)
+
+```python
+class A:
+    def __init__(self, x):
+        self.y = A.calc(x)
+
+    @staticmethod
+    def calc(x):
+        return x + 1
+```
+
+### Class method (needs class context)
+
+```python
+class B:
+    factor = 10
+
+    def __init__(self, x):
+        self.y = self.calc(x)
+
+    @classmethod
+    def calc(cls, x):
+        return x * cls.factor
+```
+
+🔑 Rule of thumb:
+
+* **Use `@staticmethod`** → pure helper logic
+* **Use `@classmethod`** → logic depends on class state or inheritance
+
+---
+
+## Common mistake ❌
+
+```python
+class Bad:
+    def __init__(self):
+        self.do_something()   # TypeError
+
+    @staticmethod
+    def do_something(self):
+        print(self)
+```
+
+❗ Static methods **do not get `self` automatically**
+Fix it by removing `self`:
+
+```python
+@staticmethod
+def do_something():
+    print("ok")
+```
+
+---
+
+## TL;DR
+
+✔ **Correct & recommended**
+
+```python
+self.value = MyClass.static_method(args)
+```
+
+⚠ Works but not recommended
+
+```python
+self.value = self.static_method(args)
+```
+
+❌ Wrong
+
+```python
+@staticmethod
+def method(self): ...
+```
+
+---
+
+If you want, I can also:
+
+* Show **when NOT to use static methods**
+* Refactor a real class you’re working on
+* Compare `staticmethod` vs `classmethod` with inheritance edge cases
+
+Just say the word 🚀
