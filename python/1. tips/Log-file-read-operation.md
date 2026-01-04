@@ -1,6 +1,6 @@
 
 
-Great question, Peter. There are a few practical ways to **print or log every file read** happening in a Python app, depending on how deep you want to go:
+There are a few practical ways to **print or log every file read** happening in a Python app, depending on how deep you want to go:
 
 - ✅ **Python-level** (monkey-patch `open()` and wrap file objects): logs all `.read()`, `.readline()`, `.readlines()`, iteration, etc., across your code and most libraries.
 - ✅ **Python audit hooks** (`sys.addaudithook`): logs **file opens** (not reads), very low overhead.
